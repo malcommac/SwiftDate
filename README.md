@@ -5,7 +5,8 @@
 ### Author
 Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)
 Questions? This is my twitter account:
-[@danielemargutti](http://www.twitter.com/danielemargutti) 
+[@danielemargutti](http://www.twitter.com/danielemargutti)
+My mail: me [at] danielemargutti dot com
 
 This library is licensed under MIT license and it's compatible with Swift 1.2.
 

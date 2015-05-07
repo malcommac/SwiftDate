@@ -19,9 +19,39 @@ This library is licensed under MIT license and it's compatible with Swift 1.2.
 - [x] *... check out documentation below!*
 
 ###Requirements
-* iOS 7.0+ / Mac OS X 10.9+
+* iOS 8.0+ / Mac OS X 10.10+
 * Xcode 6.3
 * Swift 1.2
+
+## Communication
+- If you **found a bug**, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
+CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate SwiftDate into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'SwiftDate'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
 
 ##API Documentation
 

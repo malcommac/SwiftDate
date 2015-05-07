@@ -1,5 +1,7 @@
 ![SwiftDate: Having Fun With NSDate & Swift](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)
 
+Easy NSDate Management in Swift
+
 ### Author
 Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)
 Questions? This is my twitter account:
@@ -8,13 +10,13 @@ Questions? This is my twitter account:
 This library is licensed under MIT license and it's compatible with Swift 1.2.
 
 ###Features
-* Math operations with dates ```(ie. myDate+2.week+1.hour)```
-* Easy compare using ```<,>,==,<=,>=``` operators
-* Easy individual date component set/get
-* Easy creation with common formats or custom formats
-* Powerful .toString methods with support for relative dates (ie. "2hours"...)
-* Many shortcuts to get intervals and common dates (yesterday,tomorrow...)
-* *... check out documentation below!*
+- [x] Math operations with dates ```(ie. myDate+2.week+1.hour)```
+- [x] Easy compare using ```<,>,==,<=,>=``` operators
+- [x] Easy individual date component set/get
+- [x] Easy creation with common formats or custom formats
+- [x] Powerful .toString methods with support for relative dates (ie. "2hours"...)
+- [x] Many shortcuts to get intervals and common dates (yesterday,tomorrow...)
+- [x] *... check out documentation below!*
 
 ###Requirements
 * iOS 7.0+ / Mac OS X 10.9+

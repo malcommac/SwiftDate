@@ -20,14 +20,25 @@ let D_YEAR = 31556926
 public extension String {
 	
 	/**
-	Create a new NSDate object with passed custom format
+	Create a new NSDate object with passed custom format string
 	
 	:param: format format as string
 	
 	:returns: a new NSDate instance with parsed date, or nil if it's fail
 	*/
-	func toDate(#format: String!) -> NSDate? {
-		return NSDate.date(fromString: self, format: DateFormat.Custom(format))
+	func toDate(#formatString: String!) -> NSDate? {
+		return NSDate.date(fromString: self, format: DateFormat.Custom(formatString))
+	}
+	
+	/**
+	Create a new NSDate object with passed date format
+	
+	:param: format format
+	
+	:returns: a new NSDate instance with parsed date, or nil if it's fail
+	*/
+	func toDate(#format: DateFormat) -> NSDate? {
+		return NSDate.date(fromString: self, format: format)
 	}
 }
 

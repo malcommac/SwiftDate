@@ -1,6 +1,0 @@
-framework module SwiftDate {
-  umbrella header "Pods-SwiftDate-umbrella.h"
-
-  export *
-  module * { export * }
-}

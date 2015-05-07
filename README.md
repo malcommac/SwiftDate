@@ -1,6 +1,6 @@
-![SwiftDate: Having Fun With NSDate & Swift](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)
+->![SwiftDate: Having Fun With NSDate & Swift](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)<-
 
-Easy NSDate Management in Swift
+->##Easy NSDate Management in Swift<-
 
 ### Author
 Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)

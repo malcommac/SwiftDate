@@ -1,4 +1,4 @@
-![SwiftDate: Having Fun With NSDate & Swift](https://raw.githubusercontent.com/SwiftDate/logo.png)
+![SwiftDate: Having Fun With NSDate & Swift](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)
 
 ### Author
 Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)

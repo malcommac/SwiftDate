@@ -1,7 +1,4 @@
-![](logo.png)
-
-# SwiftDates
-####*Delicious Date Management Library For Swift*
+![SwiftDate: Having Fun With NSDate & Swift](https://raw.githubusercontent.com/SwiftDate/logo.png)
 
 ### Author
 Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)

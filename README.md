@@ -1,8 +1,28 @@
+![](logo.png)
+
 # SwiftDates
 ####*Delicious Date Management Library For Swift*
-Written by: *Daniele Margutti*  - [www.danielemargutti.com](http://www.danielemargutti.com)
-Questions? This is my twitter account: [@danielemargutti](http://www.twitter.com/danielemargutti) 
+
+### Author
+Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)
+Questions? This is my twitter account:
+[@danielemargutti](http://www.twitter.com/danielemargutti) 
+
 This library is licensed under MIT license and it's compatible with Swift 1.2.
+
+###Features
+* Math operations with dates ```(ie. myDate+2.week+1.hour)```
+* Easy compare using ```<,>,==,<=,>=``` operators
+* Easy individual date component set/get
+* Easy creation with common formats or custom formats
+* Powerful .toString methods with support for relative dates (ie. "2hours"...)
+* Many shortcuts to get intervals and common dates (yesterday,tomorrow...)
+* *... check out documentation below!*
+
+###Requirements
+* iOS 7.0+ / Mac OS X 10.9+
+* Xcode 6.3
+* Swift 1.2
 
 ##API Documentation
 
@@ -45,7 +65,7 @@ let tomorrowDate = NSDate.tomorrow()
 ```
 
 ##Get/Alter Individual Date Components
-You can get or alter date components too. NSDate objects are immutable so while you can have access to each unit component via properties I've made a single method to set individual component (it returns a new date) and another method which accept multiple components (again it returns a new date).
+You can get or alter date components too.  However NSDate objects are immutable so while you can have access to each unit component via properties I've made several methods to alter individual components (and get a new date instance).
 
 ### Accessing Date Components
 So these are readable properties (and some methods):
@@ -68,7 +88,7 @@ So these are readable properties (and some methods):
 ```
 
 ### Alter Date Components
-You can set a new property individually using set method (it accepts year,month,day,hour,minute,second as component name parameter):
+You can set a new property individually using set method (it accepts year, month, day, hour, minute, second as component name parameter):
 ```swift
 let date = NSDate() // Suppose it's 2015-01-05 @ 22:00
 date = date.set("hour",12) // date will be a new objects which represent 2015-01-05 at 12:00
@@ -109,7 +129,7 @@ let tomorrowNextYear = date.add(["year":1,"day":1]) // it will be 2016-01-06 @ 2
 ### Timezone Conversion
 NSDate objects does not mantain any information about the timezone.
 You can however add/subtract time interval based upon a specific timezone.
-Use
+Use:
 ```swift
 let date = NSDate() // Local NSTimeZone date
 let date_as_utc = date.toUTC()
@@ -124,9 +144,10 @@ So,  let me show a simple example
 let date1 = NSDate.date(fromString: "2015-01-01T00:00:00.000Z", format: DateFormat.ISO8601)
 let date2 = NSDate.date(fromString: "2015-01-11T00:00:00.000Z", format: DateFormat.ISO8601)
 
-if date2 > date1 {
-println("Date2 is later than date1")
-}
+if date2 > date1 { ... } // or <=
+if date2 == date1 { ... }
+if date2 < date1 { ... } // or >=
+// and so on...
 ```
 You can also compare two dates using:
 ```swift
@@ -156,8 +177,10 @@ Some other properties/methods are:
 .isWeekday() // true if current sender date is a week day
 .isWeekend() // true if current sender date is a weekend day (sat/sun)
 ```
+### Intervals
 
-### Convert Date To String
+
+### From NSDate to String
 SwiftDate has several interesting methods to convert NSDate instances to string representation.
 You can get the string from date using a particular format (don't worry, to preserve performances we use a singleton NSDateFormatter):
 ```swift

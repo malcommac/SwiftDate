@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 breakfastcode. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 let D_SECOND = 1
 let D_MINUTE = 60

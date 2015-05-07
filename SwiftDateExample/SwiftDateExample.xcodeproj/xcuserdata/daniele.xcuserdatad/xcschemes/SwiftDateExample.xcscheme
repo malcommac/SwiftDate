@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "641F1C621AFB86FD008B7C71"
+               BlueprintIdentifier = "645637D01AFB8BC000248BB1"
                BuildableName = "SwiftDateExample.app"
                BlueprintName = "SwiftDateExample"
                ReferencedContainer = "container:SwiftDateExample.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "641F1C771AFB86FD008B7C71"
+               BlueprintIdentifier = "645637E51AFB8BC000248BB1"
                BuildableName = "SwiftDateExampleTests.xctest"
                BlueprintName = "SwiftDateExampleTests"
                ReferencedContainer = "container:SwiftDateExample.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "641F1C771AFB86FD008B7C71"
+               BlueprintIdentifier = "645637E51AFB8BC000248BB1"
                BuildableName = "SwiftDateExampleTests.xctest"
                BlueprintName = "SwiftDateExampleTests"
                ReferencedContainer = "container:SwiftDateExample.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "641F1C621AFB86FD008B7C71"
+            BlueprintIdentifier = "645637D01AFB8BC000248BB1"
             BuildableName = "SwiftDateExample.app"
             BlueprintName = "SwiftDateExample"
             ReferencedContainer = "container:SwiftDateExample.xcodeproj">
@@ -76,7 +76,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "641F1C621AFB86FD008B7C71"
+            BlueprintIdentifier = "645637D01AFB8BC000248BB1"
             BuildableName = "SwiftDateExample.app"
             BlueprintName = "SwiftDateExample"
             ReferencedContainer = "container:SwiftDateExample.xcodeproj">
@@ -95,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "641F1C621AFB86FD008B7C71"
+            BlueprintIdentifier = "645637D01AFB8BC000248BB1"
             BuildableName = "SwiftDateExample.app"
             BlueprintName = "SwiftDateExample"
             ReferencedContainer = "container:SwiftDateExample.xcodeproj">

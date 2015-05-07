@@ -4,20 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SwiftDateExample.xcscheme</key>
+		<key>Pods-SwiftDate.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>645637D01AFB8BC000248BB1</key>
+		<key>97F206AE99A6B8725BD5CC76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>645637E51AFB8BC000248BB1</key>
+		<key>BBB14C7A2C09C156BE49A6AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,4 +1,4 @@
-![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/assets/logo.png)
+![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)
 
 ##Easy NSDate Management in Swift
 

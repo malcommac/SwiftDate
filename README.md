@@ -1,4 +1,4 @@
-<img style="float: center" src="(https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png" width="351px" height="201px">
+<img style="float: center" src="(https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png">
 
 ##Easy NSDate Management in Swift
 

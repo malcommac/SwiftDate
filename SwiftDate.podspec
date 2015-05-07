@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'SwiftDate'
-  spec.version = '1.0.1'
+  spec.version = '1.0.2'
   spec.summary = 'Swift library to easily manage NSDate objects'
   spec.homepage = 'https://github.com/malcommac/SwiftDate'
   spec.license = { :type => 'MIT', :file => 'LICENSE' }

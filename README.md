@@ -3,10 +3,10 @@
 ##Easy NSDate Management in Swift
 
 ### Author
-Daniele Margutti  - [www.danielemargutti.com](http://www.danielemargutti.com)
-Questions? This is my twitter account:
-[@danielemargutti](http://www.twitter.com/danielemargutti)
-My mail: me [at] danielemargutti dot com
+Daniele Margutti
+*web*: [www.danielemargutti.com](http://www.danielemargutti.com)
+*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)
+*mail*: me [at] danielemargutti dot com
 
 This library is licensed under MIT license and it's compatible with Swift 1.2.
 
@@ -82,7 +82,8 @@ So simple!
 
 Finally you can create a new date from a String using:
 ```swift
-let date = "22/01/2015".toDate(format: "DD/MM/YYYY")
+let date = "22/01/2015".toDate(formatString: "DD/MM/YYYY")
+let date = "2015-01-05T22:10:55.200Z".toDate(format: DateFormat.ISO8601)
 ```
 
 ###Date Instances Shortcuts

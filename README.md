@@ -3,11 +3,12 @@
 ##Easy NSDate Management in Swift
 
 ### Author
-Daniele Margutti
-*web*: [www.danielemargutti.com](http://www.danielemargutti.com)
-*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)
-*mail*: me [at] danielemargutti dot com
-
+Daniele Margutti  
+*web*: [www.danielemargutti.com](http://www.danielemargutti.com)  
+*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
+*mail*: me [at] danielemargutti dot com  
+*original post*: [blog](http://danielemargutti.com/how-to-manage-nsdate-easily-in-swift-with-swiftdate/)  
+  
 This library is licensed under MIT license and it's compatible with Swift 1.2.
 
 ###Features

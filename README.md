@@ -245,6 +245,6 @@ This example tell to SwiftDate to return a relative representation of the date b
 ### Some other libraries:
 SwiftDate was also inspired by other works.
 Some links:
-* ![AFDateHelper](https://github.com/melvitax/AFDateHelper)
-* ![Timepiece](https://github.com/naoty/Timepiece)
-* ![MSDateFormatter](https://github.com/Namvt/MSDateFormatter)
+* [AFDateHelper](https://github.com/melvitax/AFDateHelper)
+* [Timepiece](https://github.com/naoty/Timepiece)
+* [MSDateFormatter](https://github.com/Namvt/MSDateFormatter)

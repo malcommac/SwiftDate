@@ -241,3 +241,10 @@ Finally you can also get a relative representation of the string (ie. "2 hours a
 let string = date.toRelativeString(fromDate: nil, abbreviated: false, maxUnits:2)
 ```
 This example tell to SwiftDate to return a relative representation of the date by comparing it to the current date (nil in fromDate means NSDate()) without using an abbreviated form (use "seconds" not "secs", or "years" not "ys") and with a max number of units of 2 (this is used to get the approximation units to print, ie "2 hours, 30 minutes" are 2 units, "2 hours, 30 minutes, 5 seconds" are 3 units).
+
+### Some other libraries:
+SwiftDate was also inspired by other works.
+Some links:
+* ![AFDateHelper](https://github.com/melvitax/AFDateHelper)
+* ![Timepiece](https://github.com/naoty/Timepiece)
+* ![MSDateFormatter](https://github.com/Namvt/MSDateFormatter)

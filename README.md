@@ -158,9 +158,10 @@ let tomorrow = date.add(years: nil, months: nil, days: 1, minutes: nil, seconds:
 let next2Hours = date.add("minute",20) // it will be 2016-01-05 @ 22:20
 let tomorrowNextYear = date.add(["year":1,"day":1]) // it will be 2016-01-06 @ 22:00
 ```
-### Timezone Conversion
-NSDate objects does not mantain any information about the timezone.
-You can however add/subtract time interval based upon a specific timezone.
+### Timezone & Dates
+NSDate objects don't have time zones; they represent an absolute moment in time.
+However, when you ask one for its description (by printing it in an NSLog, e.g.), it has to pick a time zone. The most reasonable "default" choice is GMT. If you're not in GMT yourself, the date will seem to be incorrect, by the amount of your own offset.
+You should always use an NSDateFormatter, setting its timezone to yours, before displaying a date.
 Use:
 ```swift
 let date = NSDate() // Local NSTimeZone date

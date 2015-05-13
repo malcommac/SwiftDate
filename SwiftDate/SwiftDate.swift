@@ -55,6 +55,31 @@ public extension String {
 //MARK: ACCESS TO DATE COMPONENTS
 
 public extension NSDate {
+	
+	// Use this as shortcuts for the most common formats for dates
+	class var commonFormats : [String] {
+		return [
+			"yyyy-MM-ddTHH:mm:ssZ", // ISO8601
+			"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'",
+			"yyyy-MM-dd",
+			"h:mm:ss A",
+			"h:mm A",
+			"MM/dd/yyyy",
+			"MMMM d, yyyy",
+			"MMMM d, yyyy LT",
+			"dddd, MMMM D, yyyy LT",
+			"yyyyyy-MM-dd",
+			"yyyy-MM-dd",
+			"GGGG-[W]WW-E",
+			"GGGG-[W]WW",
+			"yyyy-ddd",
+			"HH:mm:ss.SSSS",
+			"HH:mm:ss",
+			"HH:mm",
+			"HH"
+		]
+	}
+	
 	/// Get the year component of the date
 	var year : Int			{ return components.year }
 	/// Get the month component of the date
@@ -77,22 +102,42 @@ public extension NSDate {
 	var second: Int			{ return components.second }
 	// Get the era component of the date
 	var era: Int			{ return components.era }
+	// Get the current month name based upon current locale
+	var monthName: String {
+		NSDate.sharedDateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
+		return NSDate.sharedDateFormatter.monthSymbols[month - 1] as! String
+	}
+	// Get the current weekday name
+	var weekdayName: String {
+		NSDate.sharedDateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
+		NSDate.sharedDateFormatter.dateFormat = "EEEE"
+		NSDate.sharedDateFormatter.timeZone = NSTimeZone.localTimeZone()
+		return NSDate.sharedDateFormatter.stringFromDate(self)
+	}
 
+
+	private func firstWeekDate()-> (date : NSDate!, interval: NSTimeInterval) {
+		// Sunday 1, Monday 2, Tuesday 3, Wednesday 4, Friday 5, Saturday 6
+		var calendar = NSCalendar.currentCalendar()
+		calendar.firstWeekday = NSCalendar.currentCalendar().firstWeekday
+		var startWeek: NSDate? = nil
+		var duration: NSTimeInterval = 0
+		
+		calendar.rangeOfUnit(NSCalendarUnit.CalendarUnitWeekOfYear, startDate: &startWeek, interval: &duration, forDate: self)
+		return (startWeek,duration)
+	}
+	
 	/// Return the first day of the current date's week
 	var firstDayOfWeek : Int {
-		let dayInSeconds = NSTimeInterval(D_DAY);
-		let distanceToStartOfWeek = dayInSeconds * Double(self.weekday - 1)
-		let interval: NSTimeInterval = self.timeIntervalSinceReferenceDate - distanceToStartOfWeek
-		return NSDate(timeIntervalSinceReferenceDate: interval).day
+		let (date,interval) = self.firstWeekDate()
+		return date.day
 	}
 	
 	/// Return the last day of the week
 	var lastDayOfWeek : Int {
-		let dayInSeconds = NSTimeInterval(D_DAY);
-		let distanceToStartOfWeek = dayInSeconds * Double(self.weekday - 1)
-		let distanceToEndOfWeek = dayInSeconds * Double(7)
-		let interval: NSTimeInterval = self.timeIntervalSinceReferenceDate - distanceToStartOfWeek + distanceToEndOfWeek
-		return NSDate(timeIntervalSinceReferenceDate: interval).day
+		let (startWeek,interval) = self.firstWeekDate()
+		var endWeek = startWeek?.dateByAddingTimeInterval(interval-1)
+		return endWeek!.day
 	}
 	
 	/// Return the nearest hour of the date

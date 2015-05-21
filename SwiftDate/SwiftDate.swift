@@ -171,7 +171,7 @@ public extension NSDate {
 		case .ISO8601: // 1972-07-16T08:15:30-05:00
 			NSDate.sharedDateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 			NSDate.sharedDateFormatter.timeZone = NSTimeZone.localTimeZone()
-			NSDate.sharedDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+			NSDate.sharedDateFormatter.dateFormat = ISO8601Formatter(fromString: string)
 			return NSDate.sharedDateFormatter.dateFromString(string)
 		case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 			var formattedString : NSString = string
@@ -192,6 +192,58 @@ public extension NSDate {
 			return NSDate.sharedDateFormatter.dateFromString(string)
 		}
 	}
+    
+    /** 
+        Attempts to handle all different ISO8601 formatters
+        and returns correct date format for string
+        http://www.w3.org/TR/NOTE-datetime
+    */
+    class func ISO8601Formatter(fromString string: String) -> String {
+        /*
+        Year:
+        YYYY (eg 1997)
+        Year and month:
+        YYYY-MM (eg 1997-07)
+        Complete date:
+        YYYY-MM-DD (eg 1997-07-16)
+        Complete date plus hours and minutes:
+        YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)
+        Complete date plus hours, minutes and seconds:
+        YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
+        Complete date plus hours, minutes, seconds and a decimal fraction of a
+        second
+        YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
+        */
+        var dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        //YYYY (eg 1997)
+        
+        let dateStringCount = count(string)
+        switch dateStringCount {
+        case 4:
+            // YYYY (eg 1997)
+            dateFormatter = "yyyy"
+        case 7:
+            // YYYY-MM (eg 1997-07)
+            dateFormatter = "yyyy-MM"
+        case 10:
+            // YYYY-MM-DD
+            dateFormatter = "yyyy-MM-dd"
+        case 22:
+            // YYYY-MM-DDThh:mmTZD
+            // 1997-07-16T19:20+01:00
+            dateFormatter = "yyyy-MM-dd'T'HH:mmZ"
+        case 25:
+            //YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
+            dateFormatter = "yyyy-MM-dd'T'HH:mm:ssZ"
+        default:
+            // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
+            dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        }
+        
+
+        
+        return dateFormatter
+    }
 
 	/**
 	Create a new NSDate instance based on refDate (if nil uses current date) and set components

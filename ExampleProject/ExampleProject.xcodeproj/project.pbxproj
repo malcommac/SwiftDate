@@ -13,8 +13,8 @@
 		5094191E1B0E81700065014B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5094191D1B0E81700065014B /* Images.xcassets */; };
 		509419211B0E81700065014B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5094191F1B0E81700065014B /* LaunchScreen.xib */; };
 		5094192D1B0E81700065014B /* ExampleProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5094192C1B0E81700065014B /* ExampleProjectTests.swift */; };
-		509419371B0E81860065014B /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509419361B0E81860065014B /* SwiftDate.swift */; };
-		509419381B0E839B0065014B /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509419361B0E81860065014B /* SwiftDate.swift */; };
+		5094193A1B0F71FB0065014B /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509419391B0F71FB0065014B /* SwiftDate.swift */; };
+		5094193B1B0F72330065014B /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509419391B0F71FB0065014B /* SwiftDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 		509419261B0E81700065014B /* ExampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5094192B1B0E81700065014B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5094192C1B0E81700065014B /* ExampleProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProjectTests.swift; sourceTree = "<group>"; };
-		509419361B0E81860065014B /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ../../../SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
+		509419391B0F71FB0065014B /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ../../SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		509419131B0E81700065014B /* ExampleProject */ = {
 			isa = PBXGroup;
 			children = (
-				509419361B0E81860065014B /* SwiftDate.swift */,
+				509419391B0F71FB0065014B /* SwiftDate.swift */,
 				509419161B0E81700065014B /* AppDelegate.swift */,
 				509419181B0E81700065014B /* ViewController.swift */,
 				5094191A1B0E81700065014B /* Main.storyboard */,
@@ -216,8 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				509419191B0E81700065014B /* ViewController.swift in Sources */,
+				5094193A1B0F71FB0065014B /* SwiftDate.swift in Sources */,
 				509419171B0E81700065014B /* AppDelegate.swift in Sources */,
-				509419371B0E81860065014B /* SwiftDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509419381B0E839B0065014B /* SwiftDate.swift in Sources */,
+				5094193B1B0F72330065014B /* SwiftDate.swift in Sources */,
 				5094192D1B0E81700065014B /* ExampleProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +416,7 @@
 				509419321B0E81700065014B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		509419331B0E81700065014B /* Build configuration list for PBXNativeTarget "ExampleProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +425,7 @@
 				509419351B0E81700065014B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

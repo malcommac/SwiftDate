@@ -104,15 +104,17 @@ public extension NSDate {
 	var era: Int			{ return components.era }
 	// Get the current month name based upon current locale
 	var monthName: String {
-		NSDate.sharedDateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
-		return NSDate.sharedDateFormatter.monthSymbols[month - 1] as! String
+		let dateFormatter = NSDate.localThreadDateFormatter()
+		dateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
+		return dateFormatter.monthSymbols[month - 1] as! String
 	}
 	// Get the current weekday name
 	var weekdayName: String {
-		NSDate.sharedDateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
-		NSDate.sharedDateFormatter.dateFormat = "EEEE"
-		NSDate.sharedDateFormatter.timeZone = NSTimeZone.localTimeZone()
-		return NSDate.sharedDateFormatter.stringFromDate(self)
+		let dateFormatter = NSDate.localThreadDateFormatter()
+		dateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
+		dateFormatter.dateFormat = "EEEE"
+		dateFormatter.timeZone = NSTimeZone.localTimeZone()
+		return dateFormatter.stringFromDate(self)
 	}
 
 
@@ -167,29 +169,30 @@ public extension NSDate {
 			return nil
 		}
 		
+		let dateFormatter = NSDate.localThreadDateFormatter()
 		switch format {
 		case .ISO8601: // 1972-07-16T08:15:30-05:00
-			NSDate.sharedDateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-			NSDate.sharedDateFormatter.timeZone = NSTimeZone.localTimeZone()
-			NSDate.sharedDateFormatter.dateFormat = ISO8601Formatter(fromString: string)
-			return NSDate.sharedDateFormatter.dateFromString(string)
+			dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+			dateFormatter.timeZone = NSTimeZone.localTimeZone()
+			dateFormatter.dateFormat = ISO8601Formatter(fromString: string)
+			return dateFormatter.dateFromString(string)
 		case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 			var formattedString : NSString = string
 			if formattedString.hasSuffix("Z") {
 				formattedString = formattedString.substringToIndex(formattedString.length-1) + "GMT"
 			}
-			NSDate.sharedDateFormatter.dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
-			return NSDate.sharedDateFormatter.dateFromString(formattedString as String)
+			dateFormatter.dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
+			return dateFormatter.dateFromString(formattedString as String)
 		case .RSS: // Fri, 09 Sep 2011 15:26:08 +0200
 			var formattedString : NSString = string
 			if formattedString.hasSuffix("Z") {
 				formattedString = formattedString.substringToIndex(formattedString.length-1) + "GMT"
 			}
-			NSDate.sharedDateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
-			return NSDate.sharedDateFormatter.dateFromString(formattedString as String)
+			dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
+			return dateFormatter.dateFromString(formattedString as String)
 		case .Custom(let dateFormat):
-			NSDate.sharedDateFormatter.dateFormat = dateFormat
-			return NSDate.sharedDateFormatter.dateFromString(string)
+			dateFormatter.dateFormat = dateFormat
+			return dateFormatter.dateFromString(string)
 		}
 	}
     
@@ -549,10 +552,11 @@ public extension NSDate {
 	:returns: true if date's time component falls into given range
 	*/
 	func isInTimeRange(minTime: String!, maxTime: String!, format: String?) -> Bool {
-		NSDate.sharedDateFormatter.dateFormat = format ?? "HH:mm"
-		NSDate.sharedDateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
-		let minTimeDate = NSDate.sharedDateFormatter.dateFromString(minTime)
-		let maxTimeDate = NSDate.sharedDateFormatter.dateFromString(maxTime)
+		let dateFormatter = NSDate.localThreadDateFormatter()
+		dateFormatter.dateFormat = format ?? "HH:mm"
+		dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+		let minTimeDate = dateFormatter.dateFromString(minTime)
+		let maxTimeDate = dateFormatter.dateFromString(maxTime)
 		if minTimeDate == nil || maxTimeDate == nil {
 			return false
 		}
@@ -719,10 +723,11 @@ public extension NSDate {
 	:returns: string representation of the date
 	*/
 	func toString(#dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, relativeDate: Bool = false) -> String {
-		NSDate.sharedDateFormatter.dateStyle = dateStyle
-		NSDate.sharedDateFormatter.timeStyle = timeStyle
-		NSDate.sharedDateFormatter.doesRelativeDateFormatting = relativeDate
-		return NSDate.sharedDateFormatter.stringFromDate(self)
+		let dateFormatter = NSDate.localThreadDateFormatter()
+		dateFormatter.dateStyle = dateStyle
+		dateFormatter.timeStyle = timeStyle
+		dateFormatter.doesRelativeDateFormatting = relativeDate
+		return dateFormatter.stringFromDate(self)
 	}
 	
 	/**
@@ -744,8 +749,9 @@ public extension NSDate {
 		case .Custom(let string):
 			dateFormat = string
 		}
-		NSDate.sharedDateFormatter.dateFormat = dateFormat
-		return NSDate.sharedDateFormatter.stringFromDate(self)
+		let dateFormatter = NSDate.localThreadDateFormatter()
+		dateFormatter.dateFormat = dateFormat
+		return dateFormatter.stringFromDate(self)
 	}
 	
 	/**
@@ -754,10 +760,11 @@ public extension NSDate {
 	:returns: string with date in ISO8601 format
 	*/
 	func toISOString() -> String {
-		NSDate.sharedDateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-		NSDate.sharedDateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
-		NSDate.sharedDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-		return NSDate.sharedDateFormatter.stringFromDate(self).stringByAppendingString("Z")
+		let dateFormatter = NSDate.localThreadDateFormatter()
+		dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+		dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+		return dateFormatter.stringFromDate(self).stringByAppendingString("Z")
 	}
 	
 	/**
@@ -930,15 +937,39 @@ private extension NSDate {
 		return  NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: self)
 	}
 	
-	class var sharedDateFormatter : NSDateFormatter {
-		struct Static {
-			static let instance: NSDateFormatter = {
-				let dateFormatter = NSDateFormatter()
-				dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-				return dateFormatter
-				}()
+	/**
+	This function uses NSThread dictionary to store and retrive a thread-local object, creating it if it has not already been created
+	
+	:param: key    identifier of the object context
+	:param: create create closure that will be invoked to create the object
+	
+	:returns: a cached instance of the object
+	*/
+	private class func cachedObjectInCurrentThread<T: AnyObject>(key: String, create: () -> T) -> T {
+		if let threadDictionary = NSThread.currentThread().threadDictionary as NSMutableDictionary? {
+			if let cachedObject = threadDictionary[key] as! T? {
+				return cachedObject
+			} else {
+				let newObject = create()
+				threadDictionary[key] = newObject
+				return newObject
+			}
+		} else {
+			assert(false, "Current NSThread dictionary is nil. This should never happens, we will return a new instance of the object on each call")
 		}
-		return Static.instance
+	}
+
+	/**
+	Return a thread-cached NSDateFormatter instance
+	
+	:returns: instance of NSDateFormatter
+	*/
+	private class func localThreadDateFormatter() -> NSDateFormatter {
+		return NSDate.cachedObjectInCurrentThread("com.library.swiftdate.dateformatter") {
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+			return dateFormatter
+		}
 	}
 }
 
@@ -1108,7 +1139,7 @@ func += (inout left: NSDate, right: CalendarType) {
 
 //MARK: SUPPORTING STRUCTURES
 
-class CalendarType {
+public class CalendarType {
 	var calendarUnit : NSCalendarUnit
 	var amount : Int
 	
@@ -1131,7 +1162,7 @@ class CalendarType {
 	}
 }
 
-class MonthCalendarType : CalendarType {
+public class MonthCalendarType : CalendarType {
 	
 	override init(amount : Int) {
 		super.init(amount: amount)
@@ -1146,7 +1177,7 @@ class MonthCalendarType : CalendarType {
 	
 }
 
-class YearCalendarType : CalendarType {
+public class YearCalendarType : CalendarType {
 	
 	override init(amount : Int) {
 		super.init(amount: amount, calendarUnit: NSCalendarUnit.CalendarUnitYear)
@@ -1160,7 +1191,7 @@ class YearCalendarType : CalendarType {
 	
 }
 
-extension Int {
+public extension Int {
 	var seconds : NSTimeInterval {
 		return NSTimeInterval(self)
 	}

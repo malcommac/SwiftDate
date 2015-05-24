@@ -956,6 +956,7 @@ private extension NSDate {
 			}
 		} else {
 			assert(false, "Current NSThread dictionary is nil. This should never happens, we will return a new instance of the object on each call")
+			return create()
 		}
 	}
 

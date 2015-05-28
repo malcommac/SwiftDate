@@ -220,7 +220,7 @@ Some other properties/methods are:
 SwiftDate has several interesting methods to convert NSDate instances to string representation.
 You can get the string from date using a particular format (don't worry, to preserve performances we use a singleton NSDateFormatter):
 ```swift
-let string = date.toString(format: "YYYY-MM-DD") // something like "2015-01-01"
+let string = date.toString(format: DateFormat.Custom("YYYY-MM-DD")) // something like "2015-01-01"
 let string = date.toString(format: DateFormat.ISO8601) // something like "2015-01-01T00:00:00.000Z"
 let string = date.toISOString() // the same of the above DateFormat.ISO8601
 ```

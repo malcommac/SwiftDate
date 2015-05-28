@@ -417,7 +417,7 @@ public extension NSDate {
 		if unit == nil {
 			return nil
 		}
-		let components = self.components
+		let components = NSDateComponents()
 		components.setValue(value, forComponent: unit);
 		return self.addComponents(components)
 	}
@@ -433,7 +433,7 @@ public extension NSDate {
 		if count(componentsDict) == 0 {
 			return self
 		}
-		let components = self.components
+		let components = NSDateComponents()
 		for (thisComponent,value) in componentsDict {
 			let unit : NSCalendarUnit = thisComponent._sdToCalendarUnit()
 			components.setValue(value, forComponent: unit);

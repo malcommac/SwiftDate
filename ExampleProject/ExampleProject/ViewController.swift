@@ -20,6 +20,8 @@ class ViewController: UIViewController {
 		let w = NSDate()-1.month
 		println("Prev month: \(w)")
 		
+		let w2 = NSDate().add("month",value:-1)
+		
 		println(date)
     }
 

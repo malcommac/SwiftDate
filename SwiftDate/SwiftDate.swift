@@ -722,7 +722,7 @@ public extension NSDate {
 	
 	:returns: string representation of the date
 	*/
-	func toString(#dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, relativeDate: Bool = false) -> String {
+	public func toString(#dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, relativeDate: Bool = false) -> String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		dateFormatter.dateStyle = dateStyle
 		dateFormatter.timeStyle = timeStyle
@@ -737,7 +737,7 @@ public extension NSDate {
 	
 	:returns: a string with formatted date
 	*/
-	func toString(#format: DateFormat) -> String {
+	public func toString(#format: DateFormat) -> String {
 		var dateFormat: String
 		switch format {
 		case .ISO8601:
@@ -759,7 +759,7 @@ public extension NSDate {
 	
 	:returns: string with date in ISO8601 format
 	*/
-	func toISOString() -> String {
+	public func toISOString() -> String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 		dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
@@ -776,7 +776,7 @@ public extension NSDate {
 	
 	:returns: formatted string
 	*/
-	func toRelativeString(fromDate: NSDate = NSDate(), abbreviated : Bool = false, maxUnits: Int = 1) -> String {
+	public func toRelativeString(fromDate: NSDate = NSDate(), abbreviated : Bool = false, maxUnits: Int = 1) -> String {
 		let seconds = fromDate.timeIntervalSinceDate(self)
 		if fabs(seconds) < 1 {
 			return "just now"._sdLocalize
@@ -828,7 +828,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toShortString() -> String {
+	public func toShortString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
 	}
 	
@@ -837,7 +837,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toMediumString() -> String {
+	public func toMediumString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.MediumStyle, timeStyle: NSDateFormatterStyle.MediumStyle)
 	}
 	
@@ -846,7 +846,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toLongString() -> String {
+	public func toLongString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.LongStyle, timeStyle: NSDateFormatterStyle.LongStyle)
 	}
 	
@@ -855,7 +855,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toShortDateString() -> String {
+	public func toShortDateString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.NoStyle)
 	}
 	
@@ -864,7 +864,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toShortTimeString() -> String {
+	public func toShortTimeString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
 	}
 	
@@ -873,7 +873,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toMediumDateString() -> String {
+	public func toMediumDateString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.MediumStyle, timeStyle: NSDateFormatterStyle.NoStyle)
 	}
 	
@@ -882,7 +882,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toMediumTimeString() -> String {
+	public func toMediumTimeString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.MediumStyle)
 	}
 
@@ -891,7 +891,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toLongDateString() -> String {
+	public func toLongDateString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.LongStyle, timeStyle: NSDateFormatterStyle.NoStyle)
 	}
 	
@@ -900,7 +900,7 @@ public extension NSDate {
 	
 	:returns: date's string representation
 	*/
-	func toLongTimeString() -> String {
+	public func toLongTimeString() -> String {
 		return toString(dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.LongStyle)
 	}
 

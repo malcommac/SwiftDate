@@ -1102,39 +1102,39 @@ public func >= (left: NSDate, right: NSDate) -> Bool {
 
 //MARK: ARITHMETIC OPERATIONS WITH DATES (-,-=,+,+=)
 
-func - (left : NSDate, right: NSTimeInterval) -> NSDate {
+public func - (left : NSDate, right: NSTimeInterval) -> NSDate {
 	return left.dateByAddingTimeInterval(-right)
 }
 
-func -= (inout left: NSDate, right: NSTimeInterval) {
+public func -= (inout left: NSDate, right: NSTimeInterval) {
 	left = left.dateByAddingTimeInterval(-right)
 }
 
-func + (left: NSDate, right: NSTimeInterval) -> NSDate {
+public func + (left: NSDate, right: NSTimeInterval) -> NSDate {
 	return left.dateByAddingTimeInterval(right)
 }
 
-func += (inout left: NSDate, right: NSTimeInterval) {
+public func += (inout left: NSDate, right: NSTimeInterval) {
 	left = left.dateByAddingTimeInterval(right)
 }
 
-func - (left: NSDate, right: CalendarType) -> NSDate {
+public func - (left: NSDate, right: CalendarType) -> NSDate {
 	let calendarType = right.copy()
 	calendarType.amount = -calendarType.amount
 	let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
 	return calendar.dateByAddingComponents(calendarType.dateComponents(), toDate: left, options: NSCalendarOptions.allZeros)!
 }
 
-func -= (inout left: NSDate, right: CalendarType) {
+public func -= (inout left: NSDate, right: CalendarType) {
 	left = left - right
 }
 
-func + (left: NSDate, right: CalendarType) -> NSDate {
+public func + (left: NSDate, right: CalendarType) -> NSDate {
 	let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
 	return calendar.dateByAddingComponents(right.dateComponents(), toDate: left, options: NSCalendarOptions.allZeros)!
 }
 
-func += (inout left: NSDate, right: CalendarType) {
+public func += (inout left: NSDate, right: CalendarType) {
 	left = left + right
 }
 

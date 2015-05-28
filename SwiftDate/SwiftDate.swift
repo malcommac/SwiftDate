@@ -1122,7 +1122,9 @@ public func - (left: NSDate, right: CalendarType) -> NSDate {
 	let calendarType = right.copy()
 	calendarType.amount = -calendarType.amount
 	let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-	return calendar.dateByAddingComponents(calendarType.dateComponents(), toDate: left, options: NSCalendarOptions.allZeros)!
+	let dateComponents = calendarType.dateComponents()
+	let finalDate = calendar.dateByAddingComponents(dateComponents, toDate: left, options: NSCalendarOptions.allZeros)!
+	return finalDate
 }
 
 public func -= (inout left: NSDate, right: CalendarType) {
@@ -1175,7 +1177,12 @@ public class MonthCalendarType : CalendarType {
 		components.month = self.amount
 		return components
 	}
-	
+
+	override func copy() -> MonthCalendarType {
+		let objCopy =  MonthCalendarType(amount: self.amount)
+		objCopy.calendarUnit = self.calendarUnit
+		return objCopy;
+	}
 }
 
 public class YearCalendarType : CalendarType {
@@ -1190,6 +1197,11 @@ public class YearCalendarType : CalendarType {
 		return components
 	}
 	
+	override func copy() -> YearCalendarType {
+		let objCopy =  YearCalendarType(amount: self.amount)
+		objCopy.calendarUnit = self.calendarUnit
+		return objCopy
+	}
 }
 
 public extension Int {

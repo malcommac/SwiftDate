@@ -16,6 +16,10 @@ class ViewController: UIViewController {
         
 		let date = "2015-01-05T22:10:55.200Z".toDate(format: DateFormat.ISO8601)
 		let d = NSDate()+1.day
+		
+		let w = NSDate()-1.month
+		println("Prev month: \(w)")
+		
 		println(date)
     }
 

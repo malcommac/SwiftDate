@@ -329,12 +329,12 @@ public extension NSDate {
 	*/
 	func set(#year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate! {
 		let components = self.components
-		components.year = (year != nil ? year! : self.year)
-		components.month = (month != nil ? month! : self.month)
-		components.day = (day != nil ? day! : self.day)
-		components.hour = (hour != nil ? hour! : self.hour)
-		components.minute = (minute != nil ? minute! : self.second)
-		components.second = (second != nil ? second! : self.second)
+		components.year = year ?? self.year
+		components.month = month ?? self.month
+		components.day = day ?? self.day
+		components.hour = hour ?? self.hour
+		components.minute = minute ?? self.minute
+		components.second = second ?? self.second
 		components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
 		return NSCalendar.currentCalendar().dateFromComponents(components)
 	}
@@ -394,13 +394,13 @@ public extension NSDate {
 	*/
 	func add(#years: Int?, months: Int?, weeks: Int?, days: Int?,hours: Int?,minutes: Int?,seconds: Int?) -> NSDate {
 		var components = NSDateComponents()
-		components.year = years ?? years!
-		components.month = months ?? months!
-		components.weekOfYear = weeks ?? weeks!
-		components.day = days ?? days!
-		components.hour = hours ?? hours!
-		components.minute = minutes ?? minutes!
-		components.second = seconds ?? seconds!
+		components.year = years ?? 0
+		components.month = months ?? 0
+		components.weekOfYear = weeks ?? 0
+		components.day = days ?? 0
+		components.hour = hours ?? 0
+		components.minute = minutes ?? 0
+		components.second = seconds ?? 0
 		return self.addComponents(components)
 	}
 	

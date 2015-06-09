@@ -14,14 +14,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-		let date = "2015-01-05T22:10:55.200Z".toDate(format: DateFormat.ISO8601)
-		let d = NSDate()+1.day
-		
-		let w = NSDate()-1.month
-		println("Prev month: \(w)")
-		
-		let w2 = NSDate().add("month",value:-1)
-		println(date)
+//		let date = "2015-01-05T22:10:55.200Z".toDate(format: DateFormat.ISO8601)
+//		var d = NSDate()+1.day
+//		
+//		let w = NSDate()-1.month
+//		print("Prev month: \(w)")
+//		
+//		var w2 = NSDate().add("month",value:-1)
+//		print(date)
     }
 
     override func didReceiveMemoryWarning() {

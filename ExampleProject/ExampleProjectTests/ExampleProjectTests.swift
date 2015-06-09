@@ -24,7 +24,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_Year() {
         let dateString = "1983"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")
@@ -34,7 +34,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_YearMonth() {
         let dateString = "1983-03"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")
@@ -43,7 +43,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_YearMonthDay() {
         let dateString = "1983-03-10"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")
@@ -52,7 +52,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_YearMonthDayHoursMinutes() {
         let dateString = "1997-07-16T19:20+01:00"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mmZ"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")
@@ -61,7 +61,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_YearMonthDayHoursMinutesSeconds() {
         let dateString = "1997-07-16T19:20:30+01:00"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")
@@ -70,7 +70,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_YearMonthDayHoursMinutesSecondsFractionOfSecondTwoPlaces() {
         let dateString = "1997-07-16T19:20:30.45+01:00"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")
@@ -79,7 +79,7 @@ class ExampleProjectTests: XCTestCase {
     func testISO8601_YearMonthDayHoursMinutesSecondsFractionOfSecondThreePlaces() {
         let dateString = "1997-07-16T19:20:30.456+01:00"
         let date = dateString.toDate(format: DateFormat.ISO8601)
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let controlDate = dateFormatter.dateFromString(dateString)
         XCTAssertEqual(date!, controlDate!, "SwiftDate should equal controlDate")

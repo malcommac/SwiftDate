@@ -788,7 +788,7 @@ public extension NSDate {
 		var string = String()
 		var isApproximate:Bool = false
 		var numberOfUnits:Int = 0
-		let unitList : [String] = ["year", "month", "week", "day", "hour", "minute", "second"]
+		let unitList : [String] = ["year", "month", "weekOfYear", "day", "hour", "minute", "second"]
 		for unitName in unitList {
 			let unit : NSCalendarUnit = unitName._sdToCalendarUnit()
 			if ((significantFlags.rawValue & unit.rawValue) != 0) &&
@@ -1269,7 +1269,7 @@ private extension String {
 			return NSCalendarUnit.CalendarUnitYear
 		case "month":
 			return NSCalendarUnit.CalendarUnitMonth
-		case "week":
+		case "weekOfYear":
 			return NSCalendarUnit.CalendarUnitWeekOfYear
 		case "day":
 			return NSCalendarUnit.CalendarUnitDay

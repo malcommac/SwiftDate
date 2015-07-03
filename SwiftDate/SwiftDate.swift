@@ -608,7 +608,7 @@ public extension NSDate {
 	:returns: true if date is yesterday
 	*/
 	func isYesterday() -> Bool {
-		return self.isEqualToDate(NSDate()-1, ignoreTime:true)
+		return self.isEqualToDate(NSDate()-1.day, ignoreTime:true)
 	}
 	
 	/**

@@ -487,7 +487,18 @@ public extension NSDate {
 //MARK: COMPARE DATES
 
 public extension NSDate {
-	/**
+	
+    func secondsAfterDate(date: NSDate) -> Int {
+        let interval = self.timeIntervalSinceDate(date)
+        return Int(interval)
+    }
+    
+    func secondsBeforeDate(date: NSDate) -> Int {
+        let interval = date.timeIntervalSinceDate(self)
+        return Int(interval)
+    }
+    
+    /**
 	Return the number of minutes between two dates.
 	
 	:param: date comparing date

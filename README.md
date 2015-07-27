@@ -1,5 +1,8 @@
 ![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/assets/logo.png)
 
+
+注意：本版本已改为支持Swift2.0，请在Xcode7中使用，无法兼容Swift1.2。
+
 ##Easy NSDate Management in Swift
 
 ### Author
@@ -8,7 +11,7 @@ Daniele Margutti
 *twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
 *mail*: me [at] danielemargutti dot com  
 *original post*: [blog](http://danielemargutti.com/how-to-manage-nsdate-easily-in-swift-with-swiftdate/)  
-  
+
 This library is licensed under MIT license and it's compatible with Swift 1.2.
 
 ###Features
@@ -22,8 +25,8 @@ This library is licensed under MIT license and it's compatible with Swift 1.2.
 
 ###Requirements
 * iOS 8.0+ / Mac OS X 10.10+
-* Xcode 6.3
-* Swift 1.2
+* Xcode 7.0
+* Swift 2.0
 
 ## Communication
 - If you **found a bug**, open an issue.

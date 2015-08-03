@@ -8,7 +8,7 @@ Daniele Margutti
 *twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
 *mail*: me [at] danielemargutti dot com  
 *original post*: [blog](http://danielemargutti.com/how-to-manage-nsdate-easily-in-swift-with-swiftdate/)  
-  
+
 This library is licensed under MIT license and it's compatible with Swift 1.2.
 
 ###Features
@@ -56,6 +56,20 @@ Then, run the following command:
 
 ```bash
 $ pod install
+```
+
+### Carthage
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
+
+You can install Carthage with Homebrew using the following command:
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
+```ogdl
+github "malcommac/SwiftDate"
 ```
 
 ##API Documentation

@@ -689,6 +689,11 @@ public extension NSDate {
 		return set(year: nil, month: nil, day: lastDay, hour: 23, minute: 59, second: 59, tz: nil)
 	}
 	
+	/// Returns true if the date is in the same month of passed date
+	func isSameMonthOf(date: NSDate) -> Bool {
+		return self >= date.beginningOfMonth && self <= date.endOfMonth
+	}
+	
 	/// Return the first day of the year of the current date
 	var beginningOfYear: NSDate {
 		return set(year: nil, month: 1, day: 1, hour: 0, minute: 0, second: 0, tz: nil)
@@ -697,6 +702,11 @@ public extension NSDate {
 	/// Return the last day of the year of the current date
 	var endOfYear: NSDate {
 		return set(year: nil, month: 12, day: 31, hour: 23, minute: 59, second: 59, tz: nil)
+	}
+	
+	/// Returns true if the date is in the same year of passed date
+	func isSameYearOf(date: NSDate) -> Bool {
+		return self >= date.beginningOfYear && self <= date.endOfYear
 	}
 	
 	/**

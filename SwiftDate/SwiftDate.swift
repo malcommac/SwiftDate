@@ -631,12 +631,20 @@ public extension NSDate {
 		return self.isSameWeekOf(NSDate())
 	}
 	
-	/// Return true if the date falls into the current month
+	/**
+	Return true if the date falls into the current month
+	
+	:returns: true if date is inside the current month
+	*/
 	func isThisMonth() -> Bool {
 		return self.isSameMonthOf(NSDate())
 	}
 	
-	/// Return true if the date falls into the current year
+	/**
+	Return true if the date falls into the current year
+	
+	:returns: true if date is inside the current year
+	*/
 	func isThisYear() -> Bool {
 		return self.isSameYearOf(NSDate())
 	}

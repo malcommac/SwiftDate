@@ -138,7 +138,7 @@ With a single allocation you have your new object; If you don't want to set a si
 Another shortcut involves dictionaries:
 ```swift
 let date = NSDate() // Suppose it's 2015-01-05 @ 22:00
-date = date.set(["hour":12,"minute":55]); // Returns a new NSDate 2015-01-05 @ 12:55
+date = date.set(componentsDict: ["hour":12,"minute":55]); // Returns a new NSDate 2015-01-05 @ 12:55
 ```
 ### Add/Subtract Components From Date
 You can add single components to an existing date very easily:

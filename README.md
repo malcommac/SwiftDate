@@ -1,6 +1,6 @@
 ![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/assets/logo.png)
 
-##Easy NSDate Management in Swift
+##Easy NSDate Management in Swift 2
 
 ### Author
 Daniele Margutti  
@@ -9,7 +9,7 @@ Daniele Margutti
 *mail*: me [at] danielemargutti dot com  
 *original post*: [blog](http://danielemargutti.com/how-to-manage-nsdate-easily-in-swift-with-swiftdate/)  
   
-This library is licensed under MIT license and it's compatible with Swift 1.2.
+This library is licensed under MIT license and it's compatible with Swift 2.0+.
 
 ###Features
 - [x] Math operations with dates ```(ie. myDate+2.week+1.hour)```
@@ -23,7 +23,7 @@ This library is licensed under MIT license and it's compatible with Swift 1.2.
 ###Requirements
 * iOS 8.0+ / Mac OS X 10.10+
 * Xcode 6.3
-* Swift 1.2
+* Swift 2.0
 
 ## Communication
 - If you **found a bug**, open an issue.

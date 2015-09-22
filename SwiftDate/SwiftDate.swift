@@ -36,7 +36,7 @@ public extension String {
 	
 	:returns: a new NSDate instance with parsed date, or nil if it's fail
 	*/
-	func toDate(#formatString: String!) -> NSDate? {
+	func toDate(formatString formatString: String!) -> NSDate? {
 		return NSDate.date(fromString: self, format: DateFormat.Custom(formatString))
 	}
 	
@@ -47,7 +47,7 @@ public extension String {
 	
 	:returns: a new NSDate instance with parsed date, or nil if it's fail
 	*/
-	func toDate(#format: DateFormat) -> NSDate? {
+	func toDate(format format: DateFormat) -> NSDate? {
 		return NSDate.date(fromString: self, format: format)
 	}
 }
@@ -106,7 +106,7 @@ public extension NSDate {
 	var monthName: String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		dateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
-		return dateFormatter.monthSymbols[month - 1] as! String
+		return dateFormatter.monthSymbols[month - 1] as String
 	}
 	// Get the current weekday name
 	var weekdayName: String {
@@ -120,34 +120,34 @@ public extension NSDate {
 	
 	private func firstWeekDate()-> (date : NSDate!, interval: NSTimeInterval) {
 		// Sunday 1, Monday 2, Tuesday 3, Wednesday 4, Friday 5, Saturday 6
-		var calendar = NSCalendar.currentCalendar()
+		let calendar = NSCalendar.currentCalendar()
 		calendar.firstWeekday = NSCalendar.currentCalendar().firstWeekday
 		var startWeek: NSDate? = nil
 		var duration: NSTimeInterval = 0
 		
-		calendar.rangeOfUnit(NSCalendarUnit.CalendarUnitWeekOfYear, startDate: &startWeek, interval: &duration, forDate: self)
+		calendar.rangeOfUnit(NSCalendarUnit.WeekOfYear, startDate: &startWeek, interval: &duration, forDate: self)
 		return (startWeek,duration)
 	}
 	
 	/// Return the first day of the current date's week
 	var firstDayOfWeek : Int {
-		let (date,interval) = self.firstWeekDate()
+		let (date,_) = self.firstWeekDate()
 		return date.day
 	}
 	
 	/// Return the last day of the week
 	var lastDayOfWeek : Int {
 		let (startWeek,interval) = self.firstWeekDate()
-		var endWeek = startWeek?.dateByAddingTimeInterval(interval-1)
+		let endWeek = startWeek?.dateByAddingTimeInterval(interval-1)
 		return endWeek!.day
 	}
 	
 	/// Return the nearest hour of the date
 	var nearestHour:NSInteger{
-		var aTimeInterval = NSDate.timeIntervalSinceReferenceDate() + Double(D_MINUTE) * Double(30);
+		let aTimeInterval = NSDate.timeIntervalSinceReferenceDate() + Double(D_MINUTE) * Double(30);
 		
-		var newDate = NSDate(timeIntervalSinceReferenceDate:aTimeInterval);
-		var components = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: newDate);
+		let newDate = NSDate(timeIntervalSinceReferenceDate:aTimeInterval);
+		let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: newDate);
 		return components.hour;
 	}
 }
@@ -225,7 +225,7 @@ public extension NSDate {
 		
 		var dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 		
-		if let dateStringCount = IS08601Format(rawValue: count(string)) {
+		if let dateStringCount = IS08601Format(rawValue: string.characters.count) {
 			switch dateStringCount {
 			case .Year:
 				dateFormatter = "yyyy"
@@ -256,7 +256,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate with components changed according to passed params
 	*/
-	class func date(#refDate: NSDate?, year: Int?, month: Int?, day: Int?, tz: String?) -> NSDate {
+	class func date(refDate refDate: NSDate?, year: Int?, month: Int?, day: Int?, tz: String?) -> NSDate {
 		let referenceDate = refDate ?? NSDate()
 		return referenceDate.set(year: year, month: month, day: day, hour: 0, minute: 0, second: 0, tz: tz)
 	}
@@ -275,7 +275,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate with components changed according to passed params
 	*/
-	class func date(#refDate: NSDate?, year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int, tz: String?) -> NSDate {
+	class func date(refDate refDate: NSDate?, year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int, tz: String?) -> NSDate {
 		let referenceDate = refDate ?? NSDate()
 		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
 	}
@@ -300,7 +300,7 @@ public extension NSDate {
 	:returns: a new NSDate instance which represent yesterday's date
 	*/
 	class func yesterday(tz: String? = nil) -> NSDate! {
-		return today(tz: tz)-1.day
+		return today(tz)-1.day
 	}
 	
 	/**
@@ -311,7 +311,7 @@ public extension NSDate {
 	:returns: a new NSDate instance which represent tomorrow's date
 	*/
 	class func tomorrow(tz: String? = nil) -> NSDate! {
-		return today(tz: tz)+1.day
+		return today(tz)+1.day
 	}
 	
 	/**
@@ -327,7 +327,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-	func set(#year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate! {
+	func set(year year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate! {
 		let components = self.components
 		components.year = year ?? self.year
 		components.month = month ?? self.month
@@ -346,8 +346,8 @@ public extension NSDate {
 	
 	:returns: a new date instance with altered components according to passed dictionary
 	*/
-	func set(#componentsDict: [String:Int]!) -> NSDate? {
-		if count(componentsDict) == 0 {
+	func set(componentsDict componentsDict: [String:Int]!) -> NSDate? {
+		if componentsDict.count == 0 {
 			return self
 		}
 		let components = self.components
@@ -371,7 +371,7 @@ public extension NSDate {
 	*/
 	func set(name : String!, value : Int!) -> NSDate? {
 		let unit : NSCalendarUnit = name._sdToCalendarUnit()
-		if unit == nil {
+		if unit == [] {
 			return nil
 		}
 		let components = self.components
@@ -392,8 +392,8 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-	func add(#years: Int?, months: Int?, weeks: Int?, days: Int?,hours: Int?,minutes: Int?,seconds: Int?) -> NSDate {
-		var components = NSDateComponents()
+	func add(years years: Int?, months: Int?, weeks: Int?, days: Int?,hours: Int?,minutes: Int?,seconds: Int?) -> NSDate {
+		let components = NSDateComponents()
 		components.year = years ?? 0
 		components.month = months ?? 0
 		components.weekOfYear = weeks ?? 0
@@ -414,7 +414,7 @@ public extension NSDate {
 	*/
 	func add(name : String!, value : Int!) -> NSDate? {
 		let unit : NSCalendarUnit = name._sdToCalendarUnit()
-		if unit == nil {
+		if unit == [] {
 			return nil
 		}
 		let components = NSDateComponents()
@@ -429,8 +429,8 @@ public extension NSDate {
 	
 	:returns: new date with altered components
 	*/
-	func add(#componentsDict: [String:Int]!) -> NSDate? {
-		if count(componentsDict) == 0 {
+	func add(componentsDict componentsDict: [String:Int]!) -> NSDate? {
+		if componentsDict.count == 0 {
 			return self
 		}
 		let components = NSDateComponents()
@@ -451,8 +451,8 @@ public extension NSDate {
 	:returns: a new NSDate instance
 	*/
 	func toUTC() -> NSDate {
-		var tz : NSTimeZone = NSTimeZone.localTimeZone()
-		var secs : Int = tz.secondsFromGMTForDate(self)
+		let tz : NSTimeZone = NSTimeZone.localTimeZone()
+		let secs : Int = tz.secondsFromGMTForDate(self)
 		return NSDate(timeInterval: NSTimeInterval(secs), sinceDate: self)
 	}
 	
@@ -462,8 +462,8 @@ public extension NSDate {
 	:returns: a new NSDate instance
 	*/
 	func toLocalTime() -> NSDate {
-		var tz : NSTimeZone = NSTimeZone.localTimeZone()
-		var secs : Int = -tz.secondsFromGMTForDate(self)
+		let tz : NSTimeZone = NSTimeZone.localTimeZone()
+		let secs : Int = -tz.secondsFromGMTForDate(self)
 		return NSDate(timeInterval: NSTimeInterval(secs), sinceDate: self)
 	}
 	
@@ -475,11 +475,11 @@ public extension NSDate {
 	:returns: a new NSDate instance
 	*/
 	func toTimezone(abbreviation : String!) -> NSDate? {
-		var tz : NSTimeZone? = NSTimeZone(abbreviation: abbreviation)
+		let tz : NSTimeZone? = NSTimeZone(abbreviation: abbreviation)
 		if tz == nil {
 			return nil
 		}
-		var secs : Int = tz!.secondsFromGMTForDate(self)
+		let secs : Int = tz!.secondsFromGMTForDate(self)
 		return NSDate(timeInterval: NSTimeInterval(secs), sinceDate: self)
 	}
 }
@@ -582,7 +582,7 @@ public extension NSDate {
 	:returns: true if date's year is a leap year
 	*/
 	func isLeapYear() -> Bool {
-		var year = self.year
+		let year = self.year
 		return year % 400 == 0 ? true : ((year % 4 == 0) && (year % 100 != 0))
 	}
 	
@@ -592,7 +592,7 @@ public extension NSDate {
 	:returns: number of days of the month
 	*/
 	func monthDays () -> Int {
-		return NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: self).length
+		return NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: self).length
 	}
 	
 	/**
@@ -674,11 +674,10 @@ public extension NSDate {
 	:returns: NSDate with the date of the first day of the week
 	*/
 	func dateAtWeekStart() -> NSDate {
-		let flags : NSCalendarUnit = NSCalendarUnit.CalendarUnitYear |
-			NSCalendarUnit.CalendarUnitMonth |
-			NSCalendarUnit.CalendarUnitWeekOfYear |
-			NSCalendarUnit.CalendarUnitWeekday
-		var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+		let flags : NSCalendarUnit = [NSCalendarUnit.Year,NSCalendarUnit.Month ,
+			NSCalendarUnit.WeekOfYear,
+			NSCalendarUnit.Weekday]
+		let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
 		components.weekday = 1 // Sunday
 		components.hour = 0
 		components.minute = 0
@@ -703,7 +702,7 @@ public extension NSDate {
 	
 	/// Return the last day of the month of the current date
 	var endOfMonth: NSDate {
-		let lastDay = NSCalendar.currentCalendar().rangeOfUnit(.CalendarUnitDay, inUnit: .CalendarUnitMonth, forDate: self).length
+		let lastDay = NSCalendar.currentCalendar().rangeOfUnit(.Day, inUnit: .Month, forDate: self).length
 		return set(year: nil, month: nil, day: lastDay, hour: 23, minute: 59, second: 59, tz: nil)
 	}
 	
@@ -742,7 +741,7 @@ public extension NSDate {
 	:returns: true or false
 	*/
 	func isWeekend() -> Bool {
-		let range = NSCalendar.currentCalendar().maximumRangeOfUnit(NSCalendarUnit.CalendarUnitWeekday)
+		let range = NSCalendar.currentCalendar().maximumRangeOfUnit(NSCalendarUnit.Weekday)
 		return (self.weekday == range.location || self.weekday == range.length)
 	}
 	
@@ -761,7 +760,7 @@ public extension NSDate {
 	
 	:returns: string representation of the date
 	*/
-	public func toString(#dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, relativeDate: Bool = false) -> String {
+	public func toString(dateStyle dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, relativeDate: Bool = false) -> String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		dateFormatter.dateStyle = dateStyle
 		dateFormatter.timeStyle = timeStyle
@@ -776,7 +775,7 @@ public extension NSDate {
 	
 	:returns: a string with formatted date
 	*/
-	public func toString(#format: DateFormat) -> String {
+	public func toString(format format: DateFormat) -> String {
 		var dateFormat: String
 		switch format {
 		case .ISO8601:
@@ -822,7 +821,7 @@ public extension NSDate {
 		}
 		
 		let significantFlags : NSCalendarUnit = NSDate.componentFlags()
-		let components = NSCalendar.currentCalendar().components(significantFlags, fromDate: fromDate, toDate: self, options: nil)
+		let components = NSCalendar.currentCalendar().components(significantFlags, fromDate: fromDate, toDate: self, options: [])
 		
 		var string = String()
 		var isApproximate:Bool = false
@@ -831,7 +830,7 @@ public extension NSDate {
 		for unitName in unitList {
 			let unit : NSCalendarUnit = unitName._sdToCalendarUnit()
 			if ((significantFlags.rawValue & unit.rawValue) != 0) &&
-				(_sdCompareCalendarUnit(NSCalendarUnit.CalendarUnitSecond, other: unit) != .OrderedDescending) {
+				(_sdCompareCalendarUnit(NSCalendarUnit.Second, other: unit) != .OrderedDescending) {
 					let number:NSNumber = NSNumber(float: fabsf(components.valueForKey(unitName)!.floatValue))
 					if Bool(number.integerValue) {
 						let singular = (number.unsignedIntegerValue == 1)
@@ -949,26 +948,26 @@ public extension NSDate {
 
 private extension NSDate {
 	
-	private class func components(#fromDate: NSDate) -> NSDateComponents! {
+	private class func components(fromDate fromDate: NSDate) -> NSDateComponents! {
 		return NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: fromDate)
 	}
 	
 	private func addComponents(components: NSDateComponents) -> NSDate {
 		let cal = NSCalendar.currentCalendar()
-		return cal.dateByAddingComponents(components, toDate: self, options: nil)!
+		return cal.dateByAddingComponents(components, toDate: self, options: [])!
 	}
 	
 	private class func componentFlags() -> NSCalendarUnit {
-		return NSCalendarUnit.CalendarUnitYear |
-			NSCalendarUnit.CalendarUnitMonth |
-			NSCalendarUnit.CalendarUnitDay |
-			NSCalendarUnit.CalendarUnitWeekOfYear |
-			NSCalendarUnit.CalendarUnitHour |
-			NSCalendarUnit.CalendarUnitMinute |
-			NSCalendarUnit.CalendarUnitSecond  |
-			NSCalendarUnit.CalendarUnitWeekday |
-			NSCalendarUnit.CalendarUnitWeekdayOrdinal |
-			NSCalendarUnit.CalendarUnitWeekOfYear
+		return [NSCalendarUnit.Year ,
+			NSCalendarUnit.Month ,
+			NSCalendarUnit.Day,
+			NSCalendarUnit.WeekOfYear,
+			NSCalendarUnit.Hour ,
+			NSCalendarUnit.Minute ,
+			NSCalendarUnit.Second ,
+			NSCalendarUnit.Weekday ,
+			NSCalendarUnit.WeekdayOrdinal,
+			NSCalendarUnit.WeekOfYear]
 	}
 	
 	/// Return the NSDateComponents which represent current date
@@ -1020,17 +1019,17 @@ private extension NSDate {
 		let nUnit = _sdNormalizedCalendarUnit(unit)
 		let nOther = _sdNormalizedCalendarUnit(other)
 		
-		if (nUnit == NSCalendarUnit.CalendarUnitWeekOfYear) != (nOther == NSCalendarUnit.CalendarUnitWeekOfYear) {
-			if nUnit == NSCalendarUnit.CalendarUnitWeekOfYear {
+		if (nUnit == NSCalendarUnit.WeekOfYear) != (nOther == NSCalendarUnit.WeekOfYear) {
+			if nUnit == NSCalendarUnit.WeekOfYear {
 				switch nUnit {
-				case NSCalendarUnit.CalendarUnitYear, NSCalendarUnit.CalendarUnitMonth:
+				case NSCalendarUnit.Year, NSCalendarUnit.Month:
 					return .OrderedAscending
 				default:
 					return .OrderedDescending
 				}
 			} else {
 				switch nOther {
-				case NSCalendarUnit.CalendarUnitYear, NSCalendarUnit.CalendarUnitMonth:
+				case NSCalendarUnit.Year, NSCalendarUnit.Month:
 					return .OrderedDescending
 				default:
 					return .OrderedAscending
@@ -1049,10 +1048,10 @@ private extension NSDate {
 	
 	private func _sdNormalizedCalendarUnit(unit:NSCalendarUnit) -> NSCalendarUnit {
 		switch unit {
-		case NSCalendarUnit.CalendarUnitWeekOfMonth, NSCalendarUnit.CalendarUnitWeekOfYear:
-			return NSCalendarUnit.CalendarUnitWeekOfYear
-		case NSCalendarUnit.CalendarUnitWeekday, NSCalendarUnit.CalendarUnitWeekdayOrdinal:
-			return NSCalendarUnit.CalendarUnitDay
+		case NSCalendarUnit.WeekOfMonth, NSCalendarUnit.WeekOfYear:
+			return NSCalendarUnit.WeekOfYear
+		case NSCalendarUnit.Weekday, NSCalendarUnit.WeekdayOrdinal:
+			return NSCalendarUnit.Day
 		default:
 			return unit;
 		}
@@ -1063,26 +1062,26 @@ private extension NSDate {
 		var toTranslate : String = ""
 		switch unit {
 			
-		case NSCalendarUnit.CalendarUnitYear where singular:		toTranslate = (abbreviated ? "yr" : "year")
-		case NSCalendarUnit.CalendarUnitYear where !singular:		toTranslate = (abbreviated ? "yrs" : "years")
+		case NSCalendarUnit.Year where singular:		toTranslate = (abbreviated ? "yr" : "year")
+		case NSCalendarUnit.Year where !singular:		toTranslate = (abbreviated ? "yrs" : "years")
 			
-		case NSCalendarUnit.CalendarUnitMonth where singular:		toTranslate = (abbreviated ? "mo" : "month")
-		case NSCalendarUnit.CalendarUnitMonth where !singular:		toTranslate = (abbreviated ? "mos" : "months")
+		case NSCalendarUnit.Month where singular:		toTranslate = (abbreviated ? "mo" : "month")
+		case NSCalendarUnit.Month where !singular:		toTranslate = (abbreviated ? "mos" : "months")
 			
-		case NSCalendarUnit.CalendarUnitWeekOfYear where singular:	toTranslate = (abbreviated ? "wk" : "week")
-		case NSCalendarUnit.CalendarUnitWeekOfYear where !singular: toTranslate = (abbreviated ? "wks" : "weeks")
+		case NSCalendarUnit.WeekOfYear where singular:	toTranslate = (abbreviated ? "wk" : "week")
+		case NSCalendarUnit.WeekOfYear where !singular: toTranslate = (abbreviated ? "wks" : "weeks")
 			
-		case NSCalendarUnit.CalendarUnitDay where singular:			toTranslate = "day"
-		case NSCalendarUnit.CalendarUnitDay where !singular:		toTranslate = "days"
+		case NSCalendarUnit.Day where singular:			toTranslate = "day"
+		case NSCalendarUnit.Day where !singular:		toTranslate = "days"
 			
-		case NSCalendarUnit.CalendarUnitHour where singular:		toTranslate = (abbreviated ? "hr" : "hour")
-		case NSCalendarUnit.CalendarUnitHour where !singular:		toTranslate = (abbreviated ? "hrs" : "hours")
+		case NSCalendarUnit.Hour where singular:		toTranslate = (abbreviated ? "hr" : "hour")
+		case NSCalendarUnit.Hour where !singular:		toTranslate = (abbreviated ? "hrs" : "hours")
 			
-		case NSCalendarUnit.CalendarUnitMinute where singular:		toTranslate = (abbreviated ? "min" : "minute")
-		case NSCalendarUnit.CalendarUnitMinute where !singular:		toTranslate = (abbreviated ? "mins" : "minutes")
+		case NSCalendarUnit.Minute where singular:		toTranslate = (abbreviated ? "min" : "minute")
+		case NSCalendarUnit.Minute where !singular:		toTranslate = (abbreviated ? "mins" : "minutes")
 			
-		case NSCalendarUnit.CalendarUnitSecond where singular:		toTranslate = (abbreviated ? "s" : "second")
-		case NSCalendarUnit.CalendarUnitSecond where !singular:		toTranslate = (abbreviated ? "s" : "seconds")
+		case NSCalendarUnit.Second where singular:		toTranslate = (abbreviated ? "s" : "second")
+		case NSCalendarUnit.Second where !singular:		toTranslate = (abbreviated ? "s" : "seconds")
 			
 		default:													toTranslate = ""
 		}
@@ -1113,7 +1112,7 @@ private extension NSDate {
 
 //MARK: OPERATIONS WITH DATES (==,!=,<,>,<=,>=)
 
-extension NSDate : Comparable, Equatable {}
+extension NSDate : Comparable {}
 
 public func == (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedSame)
@@ -1162,7 +1161,7 @@ public func - (left: NSDate, right: CalendarType) -> NSDate {
 	calendarType.amount = -calendarType.amount
 	let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
 	let dateComponents = calendarType.dateComponents()
-	let finalDate = calendar.dateByAddingComponents(dateComponents, toDate: left, options: NSCalendarOptions.allZeros)!
+	let finalDate = calendar.dateByAddingComponents(dateComponents, toDate: left, options: [])!
 	return finalDate
 }
 
@@ -1172,7 +1171,7 @@ public func -= (inout left: NSDate, right: CalendarType) {
 
 public func + (left: NSDate, right: CalendarType) -> NSDate {
 	let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-	return calendar.dateByAddingComponents(right.dateComponents(), toDate: left, options: NSCalendarOptions.allZeros)!
+	return calendar.dateByAddingComponents(right.dateComponents(), toDate: left, options: [])!
 }
 
 public func += (inout left: NSDate, right: CalendarType) {
@@ -1186,7 +1185,7 @@ public class CalendarType {
 	var amount : Int
 	
 	init(amount : Int) {
-		self.calendarUnit = NSCalendarUnit.allZeros
+		self.calendarUnit = []
 		self.amount = amount
 	}
 	
@@ -1208,7 +1207,7 @@ public class MonthCalendarType : CalendarType {
 	
 	override init(amount : Int) {
 		super.init(amount: amount)
-		self.calendarUnit = NSCalendarUnit.CalendarUnitMonth
+		self.calendarUnit = NSCalendarUnit.Month
 	}
 	
 	override func dateComponents() -> NSDateComponents {
@@ -1227,7 +1226,7 @@ public class MonthCalendarType : CalendarType {
 public class YearCalendarType : CalendarType {
 	
 	override init(amount : Int) {
-		super.init(amount: amount, calendarUnit: NSCalendarUnit.CalendarUnitYear)
+		super.init(amount: amount, calendarUnit: NSCalendarUnit.Year)
 	}
 	
 	override func dateComponents() -> NSDateComponents {
@@ -1305,21 +1304,21 @@ private extension String {
 	func _sdToCalendarUnit() -> NSCalendarUnit {
 		switch self {
 		case "year":
-			return NSCalendarUnit.CalendarUnitYear
+			return NSCalendarUnit.Year
 		case "month":
-			return NSCalendarUnit.CalendarUnitMonth
+			return NSCalendarUnit.Month
 		case "weekOfYear":
-			return NSCalendarUnit.CalendarUnitWeekOfYear
+			return NSCalendarUnit.WeekOfYear
 		case "day":
-			return NSCalendarUnit.CalendarUnitDay
+			return NSCalendarUnit.Day
 		case "hour":
-			return NSCalendarUnit.CalendarUnitHour
+			return NSCalendarUnit.Hour
 		case "minute":
-			return NSCalendarUnit.CalendarUnitMinute
+			return NSCalendarUnit.Minute
 		case "second":
-			return NSCalendarUnit.CalendarUnitSecond
+			return NSCalendarUnit.Second
 		default:
-			return nil
+			return []
 		}
 	}
 }

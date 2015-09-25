@@ -824,7 +824,7 @@ public extension NSDate {
 		let components = NSCalendar.currentCalendar().components(significantFlags, fromDate: fromDate, toDate: self, options: [])
 		
 		var string = String()
-		var isApproximate:Bool = false
+		//var isApproximate:Bool = false
 		var numberOfUnits:Int = 0
 		let unitList : [String] = ["year", "month", "weekOfYear", "day", "hour", "minute", "second"]
 		for unitName in unitList {
@@ -840,14 +840,14 @@ public extension NSDate {
 						} else if numberOfUnits < maxUnits {
 							string += String(format: " %@", arguments: [suffix])
 						} else {
-							isApproximate = true
+						//	isApproximate = true
 						}
 						numberOfUnits += 1
 					}
 			}
 		}
 		
-		if string.isEmpty == false {
+		/*if string.isEmpty == false {
 			if seconds > 0 {
 				string = String(format: "%@ %@", arguments: [string, "ago"._sdLocalize])
 			} else {
@@ -857,7 +857,7 @@ public extension NSDate {
 			if (isApproximate) {
 				string = String(format: "about %@", arguments: [string])
 			}
-		}
+		}*/
 		return string
 	}
 	

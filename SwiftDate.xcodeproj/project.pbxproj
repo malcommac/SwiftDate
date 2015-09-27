@@ -11,6 +11,10 @@
 		CCCADC831BB8909B00B905DD /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCADC781BB8909B00B905DD /* SwiftDate.framework */; settings = {ASSET_TAGS = (); }; };
 		CCCADC881BB8909B00B905DD /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */; };
 		CCCADC931BB8937700B905DD /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC921BB8937700B905DD /* SwiftDate.swift */; settings = {ASSET_TAGS = (); }; };
+		CCCADCC81BB89C7600B905DD /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCADCB71BB89C1C00B905DD /* SwiftDate.framework */; settings = {ASSET_TAGS = (); }; };
+		CCCADCCE1BB89D8D00B905DD /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC921BB8937700B905DD /* SwiftDate.swift */; settings = {ASSET_TAGS = (); }; };
+		CCCADCCF1BB89E0700B905DD /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */; settings = {ASSET_TAGS = (); }; };
+		CCCADCD01BB89E1800B905DD /* SwiftDate.h in Headers */ = {isa = PBXBuildFile; fileRef = CCCADC7B1BB8909B00B905DD /* SwiftDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -19,6 +23,13 @@
 			containerPortal = CCCADC6F1BB8909B00B905DD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CCCADC771BB8909B00B905DD;
+			remoteInfo = SwiftDate;
+		};
+		CCCADCC91BB89C7600B905DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCCADC6F1BB8909B00B905DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCCADCB61BB89C1C00B905DD;
 			remoteInfo = SwiftDate;
 		};
 /* End PBXContainerItemProxy section */
@@ -31,6 +42,8 @@
 		CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDateTests.swift; sourceTree = "<group>"; };
 		CCCADC891BB8909B00B905DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCCADC921BB8937700B905DD /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDate.swift; sourceTree = "<group>"; };
+		CCCADCB71BB89C1C00B905DD /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCCADCC31BB89C7600B905DD /* SwiftDateTests Mac.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDateTests Mac.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +59,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCCADC831BB8909B00B905DD /* SwiftDate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCADCB31BB89C1C00B905DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCADCC01BB89C7600B905DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCADCC81BB89C7600B905DD /* SwiftDate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +94,8 @@
 			children = (
 				CCCADC781BB8909B00B905DD /* SwiftDate.framework */,
 				CCCADC821BB8909B00B905DD /* SwiftDateTests iOS.xctest */,
+				CCCADCB71BB89C1C00B905DD /* SwiftDate.framework */,
+				CCCADCC31BB89C7600B905DD /* SwiftDateTests Mac.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +127,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCCADC7C1BB8909B00B905DD /* SwiftDate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCADCB41BB89C1C00B905DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCADCD01BB89E1800B905DD /* SwiftDate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +177,42 @@
 			productReference = CCCADC821BB8909B00B905DD /* SwiftDateTests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CCCADCB61BB89C1C00B905DD /* SwiftDate Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCCADCBE1BB89C1C00B905DD /* Build configuration list for PBXNativeTarget "SwiftDate Mac" */;
+			buildPhases = (
+				CCCADCB21BB89C1C00B905DD /* Sources */,
+				CCCADCB31BB89C1C00B905DD /* Frameworks */,
+				CCCADCB41BB89C1C00B905DD /* Headers */,
+				CCCADCB51BB89C1C00B905DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftDate Mac";
+			productName = SwiftDate;
+			productReference = CCCADCB71BB89C1C00B905DD /* SwiftDate.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CCCADCC21BB89C7600B905DD /* SwiftDateTests Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCCADCCB1BB89C7600B905DD /* Build configuration list for PBXNativeTarget "SwiftDateTests Mac" */;
+			buildPhases = (
+				CCCADCBF1BB89C7600B905DD /* Sources */,
+				CCCADCC01BB89C7600B905DD /* Frameworks */,
+				CCCADCC11BB89C7600B905DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCCADCCA1BB89C7600B905DD /* PBXTargetDependency */,
+			);
+			name = "SwiftDateTests Mac";
+			productName = SwiftDateTests;
+			productReference = CCCADCC31BB89C7600B905DD /* SwiftDateTests Mac.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -153,6 +227,12 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					CCCADC811BB8909B00B905DD = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					CCCADCB61BB89C1C00B905DD = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					CCCADCC21BB89C7600B905DD = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -171,6 +251,8 @@
 			targets = (
 				CCCADC771BB8909B00B905DD /* SwiftDate iOS */,
 				CCCADC811BB8909B00B905DD /* SwiftDateTests iOS */,
+				CCCADCB61BB89C1C00B905DD /* SwiftDate Mac */,
+				CCCADCC21BB89C7600B905DD /* SwiftDateTests Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -184,6 +266,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CCCADC801BB8909B00B905DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCADCB51BB89C1C00B905DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCADCC11BB89C7600B905DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,6 +305,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CCCADCB21BB89C1C00B905DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCADCCE1BB89D8D00B905DD /* SwiftDate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCADCBF1BB89C7600B905DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCCADCCF1BB89E0700B905DD /* SwiftDateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -216,6 +328,11 @@
 			isa = PBXTargetDependency;
 			target = CCCADC771BB8909B00B905DD /* SwiftDate iOS */;
 			targetProxy = CCCADC841BB8909B00B905DD /* PBXContainerItemProxy */;
+		};
+		CCCADCCA1BB89C7600B905DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCCADCB61BB89C1C00B905DD /* SwiftDate Mac */;
+			targetProxy = CCCADCC91BB89C7600B905DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -258,6 +375,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -300,6 +418,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -364,6 +483,72 @@
 			};
 			name = Release;
 		};
+		CCCADCBC1BB89C1C00B905DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SwiftDate/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdate.SwiftDate;
+				PRODUCT_NAME = SwiftDate;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CCCADCBD1BB89C1C00B905DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SwiftDate/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdate.SwiftDate;
+				PRODUCT_NAME = SwiftDate;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CCCADCCC1BB89C7600B905DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftDateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdate.SwiftDateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CCCADCCD1BB89C7600B905DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftDateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdate.SwiftDateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -393,6 +578,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CCCADCBE1BB89C1C00B905DD /* Build configuration list for PBXNativeTarget "SwiftDate Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCCADCBC1BB89C1C00B905DD /* Debug */,
+				CCCADCBD1BB89C1C00B905DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CCCADCCB1BB89C7600B905DD /* Build configuration list for PBXNativeTarget "SwiftDateTests Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCCADCCC1BB89C7600B905DD /* Debug */,
+				CCCADCCD1BB89C7600B905DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

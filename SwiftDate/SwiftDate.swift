@@ -687,23 +687,23 @@ public extension NSDate {
 	
 	/// Return a date which represent the beginning of the current day (at 00:00:00)
 	var beginningOfDay: NSDate {
-		return set(year: nil, month: nil, day: nil, hour: 0, minute: 0, second: 0, tz: nil)
+		return set(hour: 0, minute: 0, second: 0)
 	}
 	
 	/// Return a date which represent the end of the current day (at 23:59:59)
 	var endOfDay: NSDate {
-		return set(year: nil, month: nil, day: nil, hour: 23, minute: 59, second: 59, tz: nil)
+		return set(hour: 23, minute: 59, second: 59)
 	}
 	
 	/// Return the first day of the month of the current date
 	var beginningOfMonth: NSDate {
-		return set(year: nil, month: nil, day: 1, hour: 0, minute: 0, second: 0, tz: nil)
+		return set(day: 1, hour: 0, minute: 0, second: 0)
 	}
 	
 	/// Return the last day of the month of the current date
 	var endOfMonth: NSDate {
 		let lastDay = NSCalendar.currentCalendar().rangeOfUnit(.Day, inUnit: .Month, forDate: self).length
-		return set(year: nil, month: nil, day: lastDay, hour: 23, minute: 59, second: 59, tz: nil)
+		return set(day: lastDay, hour: 23, minute: 59, second: 59)
 	}
 	
 	/// Returns true if the date is in the same month of passed date
@@ -713,12 +713,12 @@ public extension NSDate {
 	
 	/// Return the first day of the year of the current date
 	var beginningOfYear: NSDate {
-		return set(year: nil, month: 1, day: 1, hour: 0, minute: 0, second: 0, tz: nil)
+		return set(month: 1, day: 1, hour: 0, minute: 0, second: 0)
 	}
 	
 	/// Return the last day of the year of the current date
 	var endOfYear: NSDate {
-		return set(year: nil, month: 12, day: 31, hour: 23, minute: 59, second: 59, tz: nil)
+		return set(month: 12, day: 31, hour: 23, minute: 59, second: 59)
 	}
 	
 	/// Returns true if the date is in the same year of passed date

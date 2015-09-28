@@ -327,7 +327,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-	func set(year year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate! {
+    func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, tz: String?=nil) -> NSDate! {
 		let components = self.components
 		components.year = year ?? self.year
 		components.month = month ?? self.month
@@ -392,15 +392,15 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-	func add(years years: Int?, months: Int?, weeks: Int?, days: Int?,hours: Int?,minutes: Int?,seconds: Int?) -> NSDate {
+    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0) -> NSDate {
 		let components = NSDateComponents()
-		components.year = years ?? 0
-		components.month = months ?? 0
-		components.weekOfYear = weeks ?? 0
-		components.day = days ?? 0
-		components.hour = hours ?? 0
-		components.minute = minutes ?? 0
-		components.second = seconds ?? 0
+        components.year = years
+        components.month = months
+        components.weekOfYear = weeks
+        components.day = days
+        components.hour = hours
+        components.minute = minutes
+        components.second = seconds
 		return self.addComponents(components)
 	}
 	

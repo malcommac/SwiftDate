@@ -63,4 +63,16 @@ class SwiftDateTests: XCTestCase {
         XCTAssertEqual(now - now, NSTimeInterval(0))
         XCTAssertEqual(now - after, NSTimeInterval(-60))
     }
+
+    func testDaysDifference() {
+        let date1 = NSDate().set(year: 2015, month: 9, day: 29)
+        let date2 = NSDate().set(year: 2015, month: 10, day: 29)
+        XCTAssertEqual(date1.daysDifference(date2), 30)
+    }
+
+    func testMonthsDifference() {
+        let date1 = NSDate().set(year: 2015, month: 9, day: 29)
+        let date2 = NSDate().set(year: 2015, month: 10, day: 29)
+        XCTAssertEqual(date1.monthsDifference(date2), 1)
+    }
 }

@@ -57,4 +57,10 @@ class SwiftDateTests: XCTestCase {
         XCTAssertTrue(now >= before)
         XCTAssertTrue(now >= now)
     }
+
+    func test_date_subtract_date() {
+        XCTAssertEqual(after - now, NSTimeInterval(60))
+        XCTAssertEqual(now - now, NSTimeInterval(0))
+        XCTAssertEqual(now - after, NSTimeInterval(-60))
+    }
 }

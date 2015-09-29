@@ -1178,6 +1178,10 @@ public func += (inout left: NSDate, right: CalendarType) {
 	left = left + right
 }
 
+public func - (left: NSDate, right: NSDate) -> NSTimeInterval {
+    return left.timeIntervalSinceDate(right)
+}
+
 //MARK: SUPPORTING STRUCTURES
 
 public class CalendarType {

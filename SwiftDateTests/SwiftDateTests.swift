@@ -63,4 +63,10 @@ class SwiftDateTests: XCTestCase {
         XCTAssertEqual(now - now, NSTimeInterval(0))
         XCTAssertEqual(now - after, NSTimeInterval(-60))
     }
+    
+    func test_secondsAfterDate() {
+        let summerTimeDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 29, tz: nil)
+        let nextDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 30, tz: nil)
+        XCTAssertEqual(summerTimeDay.daysAfterDate(nextDay), -1)
+    }
 }

@@ -487,53 +487,53 @@ public extension NSDate {
 //MARK: COMPARE DATES
 
 public extension NSDate {
-	
+    
     func secondsAfterDate(date: NSDate) -> Int {
-        let interval = self.timeIntervalSinceDate(date)
-        return Int(interval)
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: date, toDate: self, options: [])
+        return components.second
     }
     
     func secondsBeforeDate(date: NSDate) -> Int {
-        let interval = date.timeIntervalSinceDate(self)
-        return Int(interval)
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: self, toDate: date, options: [])
+        return components.second
     }
     
     /**
-	Return the number of minutes between two dates.
-	
-	:param: date comparing date
-	
-	:returns: number of minutes
-	*/
-	func minutesAfterDate(date: NSDate) -> Int {
-		let interval = self.timeIntervalSinceDate(date)
-		return Int(interval / NSTimeInterval(D_MINUTE))
-	}
-	
-	func minutesBeforeDate(date: NSDate) -> Int {
-		let interval = date.timeIntervalSinceDate(self)
-		return Int(interval / NSTimeInterval(D_MINUTE))
-	}
-	
-	func hoursAfterDate(date: NSDate) -> Int {
-		let interval = self.timeIntervalSinceDate(date)
-		return Int(interval / NSTimeInterval(D_HOUR))
-	}
-	
-	func hoursBeforeDate(date: NSDate) -> Int {
-		let interval = date.timeIntervalSinceDate(self)
-		return Int(interval / NSTimeInterval(D_HOUR))
-	}
-	
-	func daysAfterDate(date: NSDate) -> Int {
-		let interval = self.timeIntervalSinceDate(date)
-		return Int(interval / NSTimeInterval(D_DAY))
-	}
-	
-	func daysBeforeDate(date: NSDate) -> Int {
-		let interval = date.timeIntervalSinceDate(self)
-		return Int(interval / NSTimeInterval(D_DAY))
-	}
+    Return the number of minutes between two dates.
+    
+    :param: date comparing date
+    
+    :returns: number of minutes
+    */
+    func minutesAfterDate(date: NSDate) -> Int {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: date, toDate: self, options: [])
+        return components.minute
+    }
+    
+    func minutesBeforeDate(date: NSDate) -> Int {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: self, toDate: date, options: [])
+        return components.minute
+    }
+    
+    func hoursAfterDate(date: NSDate) -> Int {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: date, toDate: self, options: [])
+        return components.hour
+    }
+    
+    func hoursBeforeDate(date: NSDate) -> Int {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: self, toDate: date, options: [])
+        return components.hour
+    }
+    
+    func daysAfterDate(date: NSDate) -> Int {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: date, toDate: self, options: [])
+        return components.day
+    }
+    
+    func daysBeforeDate(date: NSDate) -> Int {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: self, toDate: date, options: [])
+        return components.day
+    }
 	
 	/**
 	Compare two dates and return true if they are equals

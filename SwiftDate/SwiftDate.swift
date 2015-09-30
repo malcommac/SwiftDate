@@ -487,43 +487,105 @@ public extension NSDate {
 //MARK: COMPARE DATES
 
 public extension NSDate {
+
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="secondsDifference")
+    func secondsAfterDate(date: NSDate) -> Int {
+        let interval = self.timeIntervalSinceDate(date)
+        return Int(interval)
+    }
+    
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="secondsDifference")
+    func secondsBeforeDate(date: NSDate) -> Int {
+        let interval = date.timeIntervalSinceDate(self)
+        return Int(interval)
+    }
+    
+    /**
+	Return the number of minutes between two dates.
 	
+	:param: date comparing date
+	
+	:returns: number of minutes
+	*/
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="minutesDifference")
+    func minutesAfterDate(date: NSDate) -> Int {
+		let interval = self.timeIntervalSinceDate(date)
+		return Int(interval / NSTimeInterval(D_MINUTE))
+	}
+	
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="minutesDifference")
+	func minutesBeforeDate(date: NSDate) -> Int {
+		let interval = date.timeIntervalSinceDate(self)
+		return Int(interval / NSTimeInterval(D_MINUTE))
+	}
+	
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="hoursDifference")
+	func hoursAfterDate(date: NSDate) -> Int {
+		let interval = self.timeIntervalSinceDate(date)
+		return Int(interval / NSTimeInterval(D_HOUR))
+	}
+	
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="hoursDifference")
+	func hoursBeforeDate(date: NSDate) -> Int {
+		let interval = date.timeIntervalSinceDate(self)
+		return Int(interval / NSTimeInterval(D_HOUR))
+	}
+	
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="daysDifference")
+	func daysAfterDate(date: NSDate) -> Int {
+		let interval = self.timeIntervalSinceDate(date)
+		return Int(interval / NSTimeInterval(D_DAY))
+	}
+	
+    @available(*, deprecated=1.2, obsoleted=1.4, renamed="daysDifference")
+	func daysBeforeDate(date: NSDate) -> Int {
+		let interval = date.timeIntervalSinceDate(self)
+		return Int(interval / NSTimeInterval(D_DAY))
+	}
+	
+    @available(*, introduced=1.2, message="Replaces secondsAfterDate and secondsBeforeDate")
     func secondsDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(NSCalendarUnit.Second, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
         return components.second
     }
 
+    @available(*, introduced=1.2, message="Replaces minutesAfterDate and minutesBeforeDate")
     func minutesDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(NSCalendarUnit.Minute, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
         return components.minute
     }
 
+    @available(*, introduced=1.2, message="Replaces hoursAfterDate and hoursBeforeDate")
     func hoursDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(NSCalendarUnit.Hour, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
         return components.hour
     }
 
+    @available(*, introduced=1.2, message="Replaces daysAfterDate and daysBeforeDate")
     func daysDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
         return components.day
     }
 
+    @available(*, introduced=1.2)
     func weeksDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(NSCalendarUnit.WeekOfYear, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
         return components.weekOfYear
     }
 
+    @available(*, introduced=1.2)
     func monthsDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.Month, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
         return components.month
     }
 
+    @available(*, introduced=1.2)
     func yearsDifference(toDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.Year, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))

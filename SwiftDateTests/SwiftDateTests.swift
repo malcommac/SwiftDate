@@ -121,7 +121,21 @@ class SwiftDateTests: XCTestCase {
         let testDate = date.endOf(.Year)
         XCTAssertEqual(testDate, expectedDate)
     }
+    
+    func test_startOfWeek() {
+        let date = NSDate.date(year: 2016, month: 1, day: 1, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = NSDate.date(year: 2015, month: 12, day: 28, hour: 0, minute: 0, second: 0, nanosecond: 0)
+        let testDate = date.startOf(.WeekOfYear)
+        XCTAssertEqual(testDate, expectedDate)
+    }
 
+    func test_endOfWeek() {
+        let date = NSDate.date(year: 2016, month: 1, day: 1, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = date.startOf(.WeekOfYear)! + 1.weeks - 1.nanoseconds
+        let testDate = date.endOf(.WeekOfYear)
+        XCTAssertEqual(testDate, expectedDate)
+    }
+    
         XCTAssertEqual(parsedDate, expectedDate)
     }
 

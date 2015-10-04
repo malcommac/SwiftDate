@@ -170,15 +170,18 @@ public extension NSDate {
 	:returns: a new instance of the string
 	*/
 	class func date(fromString string: String, format: DateFormat) -> NSDate? {
-		if string.isEmpty {
+		guard !string.isEmpty else {
 			return nil
 		}
 		
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		switch format {
 		case .ISO8601: // 1972-07-16T08:15:30-05:00
+            var formattedString : NSString = string
+            if formattedString.hasSuffix("Z") {
+                formattedString = formattedString.substringToIndex(formattedString.length-1) + "GMT"
+            }
 			dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-			dateFormatter.timeZone = NSTimeZone.localTimeZone()
 			dateFormatter.dateFormat = ISO8601Formatter(fromString: string)
 			return dateFormatter.dateFromString(string)
 		case .AltRSS: // 09 Sep 2011 15:26:08 +0200
@@ -275,7 +278,7 @@ public extension NSDate {
 	*/
     class func date(refDate: NSDate? = nil, year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, nanosecond: Int? = nil, tz: String? = nil) -> NSDate {
 		let referenceDate = refDate ?? NSDate(timeIntervalSinceReferenceDate: 0)
-		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, tz: tz)
+        return referenceDate.set(year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, tz: tz)
 	}
 	
 	/**
@@ -325,19 +328,45 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-    func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, nanosecond: Int?=nil, tz: String?=nil) -> NSDate! {
-		let components = self.components
-		components.year = year ?? self.year
-		components.month = month ?? self.month
-		components.day = day ?? self.day
-		components.hour = hour ?? self.hour
-		components.minute = minute ?? self.minute
+    func set(year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, nanosecond: Int?=nil, tz: String?=nil) -> NSDate! {
+        let components = self.components
+        components.year = year ?? self.year
+        components.month = month ?? self.month
+        components.day = day ?? self.day
+        components.hour = hour ?? self.hour
+        components.minute = minute ?? self.minute
         components.second = second ?? self.second
         components.nanosecond = nanosecond ?? self.nanosecond
-		components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
-		return NSCalendar.currentCalendar().dateFromComponents(components)
-	}
-	
+        components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : components.timeZone)
+        print(components)
+        return NSCalendar.currentCalendar().dateFromComponents(components)
+    }
+    
+    func set(yearForWeekOfYear: Int?=nil, weekOfYear: Int?=nil, weekday: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, nanosecond: Int?=nil, tz: String?=nil) -> NSDate! {
+        let components = self.components
+        components.yearForWeekOfYear = yearForWeekOfYear ?? self.yearForWeekOfYear
+        components.weekOfYear = weekOfYear ?? self.weekOfYear
+        components.weekday = weekday ?? self.weekday
+        components.hour = hour ?? self.hour
+        components.minute = minute ?? self.minute
+        components.second = second ?? self.second
+        components.nanosecond = nanosecond ?? self.nanosecond
+        components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : components.timeZone)
+        print(components)
+        return NSCalendar.currentCalendar().dateFromComponents(components)
+    }
+
+    func set(hour: Int?=nil, minute: Int?=nil, second: Int?=nil, nanosecond: Int?=nil, tz: String?=nil) -> NSDate! {
+        let components = self.components
+        components.hour = hour ?? self.hour
+        components.minute = minute ?? self.minute
+        components.second = second ?? self.second
+        components.nanosecond = nanosecond ?? self.nanosecond
+        components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : components.timeZone)
+        print(components)
+        return NSCalendar.currentCalendar().dateFromComponents(components)
+    }
+
 	/**
 	Allows you to set individual date components by passing an array of components name and associated values
 	
@@ -699,7 +728,7 @@ public extension NSDate {
 	
 	:returns: true if both dates falls in the same week
 	*/
-    @available(*, deprecated=1.3, obsoleted=1.5)
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="isSame(.WeekOfYear)")
 	func isSameWeekOf(date: NSDate) -> Bool {
         let calendar = NSCalendar.currentCalendar()
         return calendar.isDate(self, equalToDate: date, toUnitGranularity: .WeekOfYear)
@@ -729,21 +758,19 @@ public extension NSDate {
     func startOf(unit: NSCalendarUnit) -> NSDate? {
 
         let calendar = NSCalendar.currentCalendar()
-        let allUnits = NSCalendarUnit(rawValue: UInt.max)
-        let components = calendar.components(allUnits, fromDate: self)
+        let components = self.components
         var date: NSDate?
 
         switch unit {
-            // Year-month-day calculations, mind the fallthrough to zero out smaller units
-        case NSCalendarUnit.Era:
-            components.year = calendar.rangeOfUnit(.Year, inUnit: .Era, forDate: self).location
-            date = calendar.dateFromComponents(components)
-            return date?.startOf(.Year)
+            // Year-month-day calculations
         case NSCalendarUnit.Year:
             components.month = calendar.rangeOfUnit(.Month, inUnit: .Year, forDate: self).location
             date = calendar.dateFromComponents(components)
             return date?.startOf(.Month)
         case NSCalendarUnit.Month:
+            components.yearForWeekOfYear = NSDateComponentUndefined
+            components.weekOfYear = NSDateComponentUndefined
+            components.weekday = NSDateComponentUndefined
             components.day = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: self).location
             date = calendar.dateFromComponents(components)
             return date?.startOf(.Day)
@@ -763,14 +790,24 @@ public extension NSDate {
             components.nanosecond = calendar.rangeOfUnit(.Nanosecond, inUnit: .Second, forDate: self).location
             return calendar.dateFromComponents(components)
 
-            // Week calculations, again mind the fallthrough
+            // Week calculations
         case NSCalendarUnit.YearForWeekOfYear:
             components.weekOfYear = calendar.rangeOfUnit(.WeekOfYear, inUnit: .YearForWeekOfYear, forDate: self).location
             date = calendar.dateFromComponents(components)
             return date?.startOf(.WeekOfYear)
         case NSCalendarUnit.WeekOfYear:
+            components.year = NSDateComponentUndefined
+            components.month = NSDateComponentUndefined
+            components.quarter = NSDateComponentUndefined
+            components.weekOfMonth = NSDateComponentUndefined
+            components.day = NSDateComponentUndefined
             components.weekday = calendar.rangeOfUnit(.Weekday, inUnit: .WeekOfYear, forDate: self).location + calendar.firstWeekday - 1
+            print(calendar.firstWeekday)
+            print(calendar.minimumDaysInFirstWeek)
+            print(calendar.timeZone)
+            print(components)
             date = calendar.dateFromComponents(components)
+            print(date!.toISOString())
             return date?.startOf(.Weekday)
 
             // Quarter calculations
@@ -793,24 +830,21 @@ public extension NSDate {
     func endOf(unit: NSCalendarUnit) -> NSDate? {
 
         let calendar = NSCalendar.currentCalendar()
-        let allUnits = NSCalendarUnit(rawValue: UInt.max)
-        let components = calendar.components(allUnits, fromDate: self)
+        let components = self.components
         var range = NSRange(location: 0, length: 0)
         var date: NSDate?
 
         switch unit {
-            // Year-month-day calculations, mind the fallthrough to max out smaller units
-        case NSCalendarUnit.Era:
-            range = calendar.rangeOfUnit(.Year, inUnit: .Era, forDate: self)
-            components.year = range.location + range.length - 1
-            date = calendar.dateFromComponents(components)
-            return date?.endOf(.Year)
+            // Year-month-day calculations
         case NSCalendarUnit.Year:
             range = calendar.rangeOfUnit(.Month, inUnit: .Year, forDate: self)
             components.month = range.location + range.length - 1
             date = calendar.dateFromComponents(components)
             return date?.endOf(.Month)
         case NSCalendarUnit.Month:
+            components.yearForWeekOfYear = NSDateComponentUndefined
+            components.weekOfYear = NSDateComponentUndefined
+            components.weekday = NSDateComponentUndefined
             range = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: self)
             components.day = range.location + range.length - 1
             date = calendar.dateFromComponents(components)
@@ -836,15 +870,20 @@ public extension NSDate {
             date = calendar.dateFromComponents(components)
             return date
 
-            // Week calculations, again mind the fallthrough
+            // Week calculations
         case NSCalendarUnit.YearForWeekOfYear:
             range = calendar.rangeOfUnit(.WeekOfYear, inUnit: .YearForWeekOfYear, forDate: self)
             components.weekOfYear = range.location + range.length - 1
             date = calendar.dateFromComponents(components)
             return date?.endOf(.WeekOfYear)
         case NSCalendarUnit.WeekOfYear:
+            components.year = NSDateComponentUndefined
+            components.month = NSDateComponentUndefined
+            components.quarter = NSDateComponentUndefined
+            components.weekOfMonth = NSDateComponentUndefined
+            components.day = NSDateComponentUndefined
             range = calendar.rangeOfUnit(.Weekday, inUnit: .WeekOfYear, forDate: self)
-            components.weekday = range.location + calendar.firstWeekday - 2 + range.length
+            components.weekday = range.location + calendar.firstWeekday - 1 + range.length
             date = calendar.dateFromComponents(components)
             return date?.endOf(.Weekday)
 
@@ -867,6 +906,7 @@ public extension NSDate {
 	
 	:returns: NSDate with the date of the first day of the week
 	*/
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="startOf(.WeekOfYear)")
 	func dateAtWeekStart() -> NSDate {
 		let flags : NSCalendarUnit = [NSCalendarUnit.Year,NSCalendarUnit.Month ,
 			NSCalendarUnit.WeekOfYear,
@@ -880,49 +920,57 @@ public extension NSDate {
 	}
 	
 	/// Return a date which represent the beginning of the current day (at 00:00:00)
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="startOf(.Day)")
 	var beginningOfDay: NSDate {
 		return set(hour: 0, minute: 0, second: 0)
 	}
 	
 	/// Return a date which represent the end of the current day (at 23:59:59)
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="endOf(.Day)")
 	var endOfDay: NSDate {
 		return set(hour: 23, minute: 59, second: 59)
 	}
 	
 	/// Return the first day of the month of the current date
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="startOf(.Month)")
 	var beginningOfMonth: NSDate {
 		return set(day: 1, hour: 0, minute: 0, second: 0)
 	}
 	
 	/// Return the last day of the month of the current date
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="endOf(.Month)")
 	var endOfMonth: NSDate {
 		let lastDay = NSCalendar.currentCalendar().rangeOfUnit(.Day, inUnit: .Month, forDate: self).length
 		return set(day: lastDay, hour: 23, minute: 59, second: 59)
 	}
 	
 	/// Returns true if the date is in the same month of passed date
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="isSame(.Month)")
 	func isSameMonthOf(date: NSDate) -> Bool {
-		return self >= date.beginningOfMonth && self <= date.endOfMonth
+		return isSame(.Month, date: date)
 	}
 	
 	/// Return the first day of the year of the current date
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="startOf(.Year)")
 	var beginningOfYear: NSDate {
 		return set(month: 1, day: 1, hour: 0, minute: 0, second: 0)
 	}
 	
 	/// Return the last day of the year of the current date
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="endOf(.Year)")
 	var endOfYear: NSDate {
 		return set(month: 12, day: 31, hour: 23, minute: 59, second: 59)
 	}
 	
 	/// Returns true if the date is in the same year of passed date
+    @available(*, deprecated=1.3, obsoleted=1.5, renamed="isSame(.Year)")
 	func isSameYearOf(date: NSDate) -> Bool {
-		return self >= date.beginningOfYear && self <= date.endOfYear
+		return isSame(.Year, date: date)
 	}
 	
 	/**
 	Return true if current date's day is not a weekend day
-	
+
 	:returns: true if date's day is a week day, not a weekend day
 	*/
 	func isWeekday() -> Bool {
@@ -1152,10 +1200,12 @@ private extension NSDate {
 	}
 	
 	private class func componentFlags() -> NSCalendarUnit {
-		return [NSCalendarUnit.Year ,
+		return [
+            NSCalendarUnit.Year ,
 			NSCalendarUnit.Month ,
 			NSCalendarUnit.Day,
-			NSCalendarUnit.WeekOfYear,
+            NSCalendarUnit.WeekOfYear,
+            NSCalendarUnit.YearForWeekOfYear,
 			NSCalendarUnit.Hour ,
 			NSCalendarUnit.Minute ,
             NSCalendarUnit.Second ,

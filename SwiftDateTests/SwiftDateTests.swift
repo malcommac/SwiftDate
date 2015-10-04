@@ -69,4 +69,28 @@ class SwiftDateTests: XCTestCase {
         let nextDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 30, tz: nil)
         XCTAssertEqual(summerTimeDay.daysAfterDate(nextDay), -1)
     }
+
+    func test_toDateISO8601ParsesDateWithHoursMinutesAndZ() {
+        let expectedDate = NSDate.date(refDate: nil, year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
+
+        let parsedDate = NSDate.date(fromString: "2015-09-29T00:00Z", format: .ISO8601)
+
+        XCTAssertEqual(parsedDate, expectedDate)
+    }
+
+    func test_toDateISO8601ParsesDateWithHoursMinutesSecondsAndZ() {
+        let expectedDate = NSDate.date(refDate: nil, year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
+
+        let parsedDate = NSDate.date(fromString: "2015-09-29T00:00:00Z", format: .ISO8601)
+
+        XCTAssertEqual(parsedDate, expectedDate)
+    }
+
+    func test_toDateISO8601ParsesDateWithHoursMinutesSecondsAndFractionAndZ() {
+        let expectedDate = NSDate.date(refDate: nil, year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
+
+        let parsedDate = NSDate.date(fromString: "2015-09-29T00:00:00.000Z", format: .ISO8601)
+
+        XCTAssertEqual(parsedDate, expectedDate)
+    }
 }

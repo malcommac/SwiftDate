@@ -58,22 +58,69 @@ class SwiftDateTests: XCTestCase {
         XCTAssertTrue(now >= now)
     }
 
-    func test_date_subtract_date() {
-        XCTAssertEqual(after - now, NSTimeInterval(60))
-        XCTAssertEqual(now - now, NSTimeInterval(0))
-        XCTAssertEqual(now - after, NSTimeInterval(-60))
+    func test_difference() {
+        XCTAssertEqual(after.difference(now, unitFlags: .Minute), -1.minutes)
+        XCTAssertEqual(now.difference(after, unitFlags: .Minute), 1.minutes)
+        XCTAssertEqual(now.difference(now, unitFlags: .Nanosecond), 0.nanoseconds)
     }
     
     func test_secondsAfterDate() {
-        let summerTimeDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 29, tz: nil)
-        let nextDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 30, tz: nil)
-        XCTAssertEqual(summerTimeDay.daysAfterDate(nextDay), -1)
+        let summerTimeDay = NSDate.date(year: 2015, month: 3, day: 29)
+        let nextDay = NSDate.date(year: 2015, month: 3, day: 30)
+        XCTAssertEqual(summerTimeDay.difference(nextDay, unitFlags: .Day).day, 1)
     }
 
-    func test_toDateISO8601ParsesDateWithHoursMinutesAndZ() {
-        let expectedDate = NSDate.date(refDate: nil, year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
+    func test_startOfHour() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 0, second: 0, nanosecond: 0)
+        let testDate = date.startOf(.Hour)
+        XCTAssertEqual(testDate, expectedDate)
+    }
 
-        let parsedDate = NSDate.date(fromString: "2015-09-29T00:00Z", format: .ISO8601)
+    func test_endOfHour() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = date.startOf(.Hour)! + 1.hours - 1.nanoseconds
+        let testDate = date.endOf(.Hour)
+        XCTAssertEqual(testDate, expectedDate)
+    }
+
+    func test_startOfDay() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, nanosecond: 0)
+        let testDate = date.startOf(.Day)
+        XCTAssertEqual(testDate, expectedDate)
+    }
+
+    func test_endOfDay() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = date.startOf(.Day)! + 1.days - 1.nanoseconds
+        XCTAssertEqual(date.endOf(.Day), expectedDate)
+    }
+
+    func test_startOfMonth() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = NSDate.date(year: 2015, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0)
+        XCTAssertEqual(date.startOf(.Month), expectedDate)
+    }
+
+    func test_endOfMonth() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = date.startOf(.Month)! + 1.months - 1.nanoseconds
+        XCTAssertEqual(date.endOf(.Month), expectedDate)
+    }
+
+    func test_startOfYear() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = NSDate.date(year: 2015, month: 1, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0)
+        XCTAssertEqual(date.startOf(.Year), expectedDate)
+    }
+
+    func test_endOfYear() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)
+        let expectedDate = NSDate.date(year: 2015, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 999999999)
+        let testDate = date.endOf(.Year)
+        XCTAssertEqual(testDate, expectedDate)
+    }
 
         XCTAssertEqual(parsedDate, expectedDate)
     }

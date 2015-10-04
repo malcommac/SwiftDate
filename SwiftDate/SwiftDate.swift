@@ -90,6 +90,7 @@ public extension NSDate {
 	var weekOfYear: Int		{ return components.weekOfYear }
 	/// Get the weekday component of the date
 	var weekday: Int		{ return components.weekday }
+    var yearForWeekOfYear: Int  { return components.yearForWeekOfYear }
 	/// Get the weekday ordinal component of the date
 	var weekdayOrdinal: Int	{ return components.weekdayOrdinal }
 	/// Get the day component of the date
@@ -102,6 +103,8 @@ public extension NSDate {
 	var second: Int			{ return components.second }
 	// Get the era component of the date
 	var era: Int			{ return components.era }
+    // Get the nanosecond component of the date
+    var nanosecond: Int			{ return components.nanosecond }
 	// Get the current month name based upon current locale
 	var monthName: String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
@@ -279,13 +282,14 @@ public extension NSDate {
 	:param: hour    hour component (nil to leave it untouched)
 	:param: minute  minute component (nil to leave it untouched)
 	:param: second  second component (nil to leave it untouched)
+    :param: nanosecond  nanosecond component (nil to leave it untouched)
 	:param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
 	
 	:returns: a new NSDate with components changed according to passed params
 	*/
-	class func date(refDate refDate: NSDate?, year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int, tz: String?) -> NSDate {
+    class func date(refDate: NSDate? = nil, year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, nanosecond: Int? = nil, tz: String? = nil) -> NSDate {
 		let referenceDate = refDate ?? NSDate()
-		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
+		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, tz: tz)
 	}
 	
 	/**
@@ -330,19 +334,21 @@ public extension NSDate {
 	:param: day    a non-nil value to change the day component of the instance
 	:param: hour   a non-nil value to change the hour component of the instance
 	:param: minute a non-nil value to change the minute component of the instance
-	:param: second a non-nil value to change the second component of the instance
+    :param: second a non-nil value to change the second component of the instance
+    :param: nanosecond a non-nil value to change the nanosecond component of the instance
 	:param: tz     a non-nil value (timezone abbreviation string as for NSTimeZone) to change the timezone component of the instance
 	
 	:returns: a new NSDate instance with changed values
 	*/
-    func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, tz: String?=nil) -> NSDate! {
+    func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, nanosecond: Int?=nil, tz: String?=nil) -> NSDate! {
 		let components = self.components
 		components.year = year ?? self.year
 		components.month = month ?? self.month
 		components.day = day ?? self.day
 		components.hour = hour ?? self.hour
 		components.minute = minute ?? self.minute
-		components.second = second ?? self.second
+        components.second = second ?? self.second
+        components.nanosecond = nanosecond ?? self.nanosecond
 		components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
 		return NSCalendar.currentCalendar().dateFromComponents(components)
 	}
@@ -350,7 +356,7 @@ public extension NSDate {
 	/**
 	Allows you to set individual date components by passing an array of components name and associated values
 	
-	:param: componentsDict components dict. Accepted keys are year,month,day,hour,minute,second
+	:param: componentsDict components dict. Accepted keys are year,month,day,hour,minute,second,nanosecond
 	
 	:returns: a new date instance with altered components according to passed dictionary
 	*/
@@ -367,12 +373,12 @@ public extension NSDate {
 	}
 	
 	/**
-	Allows you to set a single component by passing it's name (year,month,day,hour,minute,second are accepted).
+	Allows you to set a single component by passing it's name (year,month,day,hour,minute,second,nanosecond are accepted).
 	Please note: this method return a new immutable NSDate instance (NSDate are immutable, damn!). So while you
 	can chain multiple set calls, if you need to alter more than one component see the method above which accept
 	different params.
 	
-	:param: name  the name of the component to alter (year,month,day,hour,minute,second are accepted)
+	:param: name  the name of the component to alter (year,month,day,hour,minute,second,nanosecond are accepted)
 	:param: value the value of the component
 	
 	:returns: a new date instance
@@ -396,11 +402,12 @@ public extension NSDate {
 	:param: days    nil or +/- days to add or subtract from date
 	:param: hours   nil or +/- hours to add or subtract from date
 	:param: minutes nil or +/- minutes to add or subtract from date
-	:param: seconds nil or +/- seconds to add or subtract from date
-	
+    :param: seconds nil or +/- seconds to add or subtract from date
+    :param: nanoseconds nil or +/- nanoseconds to add or subtract from date
+
 	:returns: a new NSDate instance with changed values
 	*/
-    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0) -> NSDate {
+    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0,nanoseconds: Int=0) -> NSDate {
 		let components = NSDateComponents()
         components.year = years
         components.month = months
@@ -409,6 +416,7 @@ public extension NSDate {
         components.hour = hours
         components.minute = minutes
         components.second = seconds
+        components.nanosecond = nanosecond
 		return self.addComponents(components)
 	}
 	
@@ -624,7 +632,7 @@ public extension NSDate {
 	}
 	
 	/**
-	Return true if the date's year is a leap year
+	Return true if the date's year is a leap year (Gregorian calendar only)
 	
 	:returns: true if date's year is a leap year
 	*/
@@ -648,7 +656,8 @@ public extension NSDate {
 	:returns: true if date is today
 	*/
 	func isToday() -> Bool {
-		return self.isEqualToDate(NSDate(), ignoreTime: true)
+        let calendar = NSCalendar.currentCalendar()
+		return calendar.isDateInToday(self)
 	}
 	
 	/**
@@ -657,7 +666,8 @@ public extension NSDate {
 	:returns: true if date is tomorrow
 	*/
 	func isTomorrow() -> Bool {
-		return self.isEqualToDate(NSDate()+1.day, ignoreTime:true)
+        let calendar = NSCalendar.currentCalendar()
+        return calendar.isDateInTomorrow(self)
 	}
 	
 	/**
@@ -873,7 +883,7 @@ public extension NSDate {
 		var string = String()
 		//var isApproximate:Bool = false
 		var numberOfUnits:Int = 0
-		let unitList : [String] = ["year", "month", "weekOfYear", "day", "hour", "minute", "second"]
+		let unitList : [String] = ["year", "month", "weekOfYear", "day", "hour", "minute", "second", "nanosecond"]
 		for unitName in unitList {
 			let unit : NSCalendarUnit = unitName._sdToCalendarUnit()
 			if ((significantFlags.rawValue & unit.rawValue) != 0) &&
@@ -1011,8 +1021,11 @@ private extension NSDate {
 			NSCalendarUnit.WeekOfYear,
 			NSCalendarUnit.Hour ,
 			NSCalendarUnit.Minute ,
-			NSCalendarUnit.Second ,
-			NSCalendarUnit.Weekday ,
+            NSCalendarUnit.Second ,
+            NSCalendarUnit.Nanosecond ,
+            NSCalendarUnit.Quarter ,
+            NSCalendarUnit.TimeZone ,
+            NSCalendarUnit.Weekday ,
 			NSCalendarUnit.WeekdayOrdinal,
 			NSCalendarUnit.WeekOfYear]
 	}
@@ -1366,8 +1379,10 @@ private extension String {
 			return NSCalendarUnit.Hour
 		case "minute":
 			return NSCalendarUnit.Minute
-		case "second":
-			return NSCalendarUnit.Second
+        case "second":
+            return NSCalendarUnit.Second
+        case "nanosecond":
+            return NSCalendarUnit.Nanosecond
 		default:
 			return []
 		}

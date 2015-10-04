@@ -31,7 +31,21 @@ This library is licensed under MIT license and it's compatible with Swift 2.0+.
 - If you **want to contribute**, submit a pull request.
 
 ## ToDo
-- Unit Test Project
+- Complete All Unit Tests
+
+##Version History
+##1.2 (Oct 4, 2015)
+- Fixed several issues with `ISO8601 formatter` when parsing dates ending with Z
+- Deprecated several comparing date methods (`minutes/hours/days/month/years Before/After` a date and replaced with a single `difference` method)
+- Fixed an issue with non 24 hours days
+- Added `-` (minus) operator between dates
+- Added support for `carthage`
+- Added optional params in `set/add` methods of dates
+- Removed extra `ago/from now' string literals from `toRelativeString` method.
+
+##1.1
+- This version is fully compatible with Swift 2.0+
+- Minor fixes around
 
 ### CocoaPods
 

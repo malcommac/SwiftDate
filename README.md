@@ -100,7 +100,7 @@ So simple!
 
 Finally you can create a new date from a String using:
 ```swift
-let date = "22/01/2015".toDate(formatString: "DD/MM/YYYY")
+let date = "22/01/2015".toDate(formatString: "dd/MM/yyyy")
 let date = "2015-01-05T22:10:55.200Z".toDate(format: DateFormat.ISO8601)
 ```
 

@@ -20,7 +20,27 @@ class ExampleProjectTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+	
+	func testDateDifferences_DaysMonthsYears() {
+		let date1 = "1983-03-10".toDate(format: DateFormat.ISO8601)
+		let date2 = "1984-05-15".toDate(format: DateFormat.ISO8601)
+		let diff = date1?.difference(date2!, unitFlags: [NSCalendarUnit.Day,NSCalendarUnit.Month,NSCalendarUnit.Year])
+		let diffDays = diff!.day
+		let diffMonths = diff!.month
+		let diffYears = diff!.year
+		XCTAssertTrue(diffDays == 5, "SwiftDate failed to testing differences between two dates in terms of days")
+		XCTAssertTrue(diffMonths == 2, "SwiftDate failed to testing differences between two dates in terms of months")
+		XCTAssertTrue(diffYears == 1, "SwiftDate failed to testing differences between two dates in terms of years")
+	}
+	
+	func testDateDifferences_HoursMinutes() {
+		let date1 = "1997-07-16T19:20+01:00".toDate(format: DateFormat.ISO8601)
+		let date2 = "1997-07-17T02:25+01:00".toDate(format: DateFormat.ISO8601)
+		let diff = date1?.difference(date2!, unitFlags: [NSCalendarUnit.Hour,NSCalendarUnit.Minute])
+		XCTAssertTrue(diff!.hour == 7, "SwiftDate failed to testing differences between two dates in terms of hours")
+		XCTAssertTrue(diff!.minute == 5, "SwiftDate failed to testing differences between two dates in terms of minutes")
+	}
+	
     func testISO8601_Year() {
         let dateString = "1983"
         let date = dateString.toDate(format: DateFormat.ISO8601)

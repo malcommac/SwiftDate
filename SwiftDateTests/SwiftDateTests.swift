@@ -251,14 +251,14 @@ class SwiftDateTests: XCTestCase {
     }
 
     func testDaysDifference() {
-        let date1 = NSDate().set(year: 2015, month: 9, day: 29)
-        let date2 = NSDate().set(year: 2015, month: 10, day: 29)
-        XCTAssertEqual(date1.daysDifference(date2), 30)
+        let date1 = NSDate.date(year: 2015, month: 9, day: 29)!
+        let date2 = NSDate.date(year: 2015, month: 10, day: 29)!
+        XCTAssertEqual(date1.difference(date2, unitFlags: .Day), 30.days)
     }
 
-    func testMonthsDifference() {
-        let date1 = NSDate().set(year: 2015, month: 9, day: 29)
-        let date2 = NSDate().set(year: 2015, month: 10, day: 29)
-        XCTAssertEqual(date1.monthsDifference(date2), 1)
+    func testMonthDifference() {
+        let date1 = NSDate.date(year: 2015, month: 9, day: 29)!
+        let date2 = NSDate.date(year: 2015, month: 10, day: 29)!
+        XCTAssertEqual(date1.difference(date2, unitFlags: .Month), 1.months)
     }
 }

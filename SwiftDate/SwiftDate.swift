@@ -1215,29 +1215,31 @@ private extension NSDate {
 		return cal.dateByAddingComponents(components, toDate: self, options: [])!
 	}
 	
-	private class func componentFlags() -> NSCalendarUnit {
-		return [
+    private class func componentFlags() -> NSCalendarUnit {
+        return [
+            NSCalendarUnit.Era ,
             NSCalendarUnit.Year ,
-			NSCalendarUnit.Month ,
-			NSCalendarUnit.Day,
-            NSCalendarUnit.WeekOfYear,
-            NSCalendarUnit.YearForWeekOfYear,
-			NSCalendarUnit.Hour ,
-			NSCalendarUnit.Minute ,
+            NSCalendarUnit.Month ,
+            NSCalendarUnit.Day,
+            NSCalendarUnit.Hour ,
+            NSCalendarUnit.Minute ,
             NSCalendarUnit.Second ,
             NSCalendarUnit.Nanosecond ,
+            NSCalendarUnit.YearForWeekOfYear ,
+            NSCalendarUnit.WeekOfYear ,
+            NSCalendarUnit.WeekOfMonth ,
+            NSCalendarUnit.Weekday ,
+            NSCalendarUnit.WeekdayOrdinal ,
             NSCalendarUnit.Quarter ,
             NSCalendarUnit.TimeZone ,
-            NSCalendarUnit.Weekday ,
-			NSCalendarUnit.WeekdayOrdinal,
-			NSCalendarUnit.WeekOfYear]
-	}
-	
-	/// Return the NSDateComponents which represent current date
-	private var components: NSDateComponents {
-		return  NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: self)
-	}
-	
+            NSCalendarUnit.Calendar]
+    }
+
+    /// Return the NSDateComponents which represent current date
+    private var components: NSDateComponents {
+        return NSDate.components(fromDate: self)
+    }
+    
 	/**
 	This function uses NSThread dictionary to store and retrive a thread-local object, creating it if it has not already been created
 	

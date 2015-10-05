@@ -67,7 +67,11 @@ class SwiftDateTests: XCTestCase {
     func test_secondsAfterDate() {
         let summerTimeDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 29, tz: nil)
         let nextDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 30, tz: nil)
-        XCTAssertEqual(summerTimeDay.daysAfterDate(nextDay), -1)
+      
+      let singleDay:NSDateComponents = NSDateComponents()
+      singleDay.day = 1
+      
+      XCTAssertEqual(summerTimeDay.difference(nextDay, unitFlags: NSCalendarUnit.Day), singleDay)
     }
 
     func test_toDateISO8601ParsesDateWithHoursMinutesAndZ() {

@@ -93,4 +93,10 @@ class SwiftDateTests: XCTestCase {
 
         XCTAssertEqual(parsedDate, expectedDate)
     }
+    
+    func test_isEqualToDate() {
+        let bc2015 = NSDate.date(refDate: nil, year: -2014, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
+        let ac2015 = NSDate.date(refDate: nil, year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
+        XCTAssertFalse(bc2015.isEqualToDate(ac2015, ignoreTime: true) , "not eq B.C. and A.C.")
+    }
 }

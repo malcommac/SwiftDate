@@ -1,15 +1,5 @@
-# Created by https://www.gitignore.io/api/swift
-
-### Swift ###
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
-## Build generated
+.DS_Store
 build/
-DerivedData
-
-## Various settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -18,29 +8,13 @@ DerivedData
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+!default.xcworkspace
 xcuserdata
-
-## Other
-*.xccheckout
+profile
 *.moved-aside
-*.xcuserstate
-*.xcscmblueprint
-
-## Obj-C/Swift specific
-*.hmap
-*.ipa
-
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-# Pods/
-
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
-Carthage/Build
+DerivedData
+.idea/
+xcshareddata
+MoneyNetwork.xcodeproj/xcuserdata
+#Breakpoints_v2.xcbkptlist
+xcschememanagement.plist

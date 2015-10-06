@@ -594,7 +594,7 @@ public extension NSDate {
 		if ignoreTime {
 			let comp1 = NSDate.components(fromDate: self)
 			let comp2 = NSDate.components(fromDate: date)
-			return ((comp1.year == comp2.year) && (comp1.month == comp2.month) && (comp1.day == comp2.day))
+			return ((comp1.era == comp2.era) && (comp1.year == comp2.year) && (comp1.month == comp2.month) && (comp1.day == comp2.day))
 		} else {
 			return self.isEqualToDate(date)
 		}
@@ -1005,7 +1005,8 @@ private extension NSDate {
 	}
 	
 	private class func componentFlags() -> NSCalendarUnit {
-		return [NSCalendarUnit.Year ,
+		return [NSCalendarUnit.Era ,
+			NSCalendarUnit.Year ,
 			NSCalendarUnit.Month ,
 			NSCalendarUnit.Day,
 			NSCalendarUnit.WeekOfYear,

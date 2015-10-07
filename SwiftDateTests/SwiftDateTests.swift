@@ -103,4 +103,14 @@ class SwiftDateTests: XCTestCase {
         let ac2015 = NSDate.date(refDate: nil, year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, tz: "UTC")
         XCTAssertFalse(bc2015.isEqualToDate(ac2015, ignoreTime: true) , "not eq B.C. and A.C.")
     }
+    
+    func test_isSmaeYearOf() {
+        let endOfYear = NSDate.date(refDate: nil, year: 2015, month: 12, day: 31, hour: 23, minute: 59, second: 59, tz: nil)
+        let betweenTime = endOfYear.dateByAddingTimeInterval(0.5)
+        let beginOfYear = NSDate.date(refDate: nil, year: 2016, month: 1, day: 1, tz: nil)
+        XCTAssert(endOfYear.isSameYearOf(betweenTime))
+        XCTAssert(betweenTime.isSameYearOf(endOfYear))
+        XCTAssertFalse(endOfYear.isSameYearOf(beginOfYear))
+        XCTAssertFalse(betweenTime.isSameYearOf(beginOfYear))
+    }
 }

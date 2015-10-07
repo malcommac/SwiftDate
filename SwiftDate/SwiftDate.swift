@@ -755,7 +755,8 @@ public extension NSDate {
 	
 	/// Returns true if the date is in the same month of passed date
 	func isSameMonthOf(date: NSDate) -> Bool {
-		return self >= date.beginningOfMonth && self <= date.endOfMonth
+        let beginningOfMonth = date.beginningOfMonth
+        return self >= beginningOfMonth && self < beginningOfMonth.add(months: 1)
 	}
 	
 	/// Return the first day of the year of the current date
@@ -770,7 +771,8 @@ public extension NSDate {
 	
 	/// Returns true if the date is in the same year of passed date
 	func isSameYearOf(date: NSDate) -> Bool {
-		return self >= date.beginningOfYear && self <= date.endOfYear
+        let beginningOfYear = date.beginningOfYear
+        return self >= beginningOfYear && self < beginningOfYear.add(years: 1)
 	}
 	
 	/**

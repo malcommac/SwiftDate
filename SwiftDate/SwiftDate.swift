@@ -1255,6 +1255,66 @@ public class CalendarType {
 	}
 }
 
+public class MinuteCalendarType : CalendarType {
+    
+    override init(amount : Int) {
+        super.init(amount: amount)
+        self.calendarUnit = NSCalendarUnit.Minute
+    }
+    
+    override func dateComponents() -> NSDateComponents {
+        let components = super.dateComponents()
+        components.minute = self.amount
+        return components
+    }
+    
+    override func copy() -> MinuteCalendarType {
+        let objCopy =  MinuteCalendarType(amount: self.amount)
+        objCopy.calendarUnit = self.calendarUnit
+        return objCopy;
+    }
+}
+
+public class HourCalendarType : CalendarType {
+    
+    override init(amount : Int) {
+        super.init(amount: amount)
+        self.calendarUnit = NSCalendarUnit.Hour
+    }
+    
+    override func dateComponents() -> NSDateComponents {
+        let components = super.dateComponents()
+        components.hour = self.amount
+        return components
+    }
+    
+    override func copy() -> HourCalendarType {
+        let objCopy =  HourCalendarType(amount: self.amount)
+        objCopy.calendarUnit = self.calendarUnit
+        return objCopy;
+    }
+}
+
+public class DayCalendarType : CalendarType {
+    
+    override init(amount : Int) {
+        super.init(amount: amount)
+        self.calendarUnit = NSCalendarUnit.Day
+    }
+    
+    override func dateComponents() -> NSDateComponents {
+        let components = super.dateComponents()
+        components.day = self.amount
+        return components
+    }
+    
+    override func copy() -> DayCalendarType {
+        let objCopy =  DayCalendarType(amount: self.amount)
+        objCopy.calendarUnit = self.calendarUnit
+        return objCopy;
+    }
+}
+
 public class MonthCalendarType : CalendarType {
 	
 	override init(amount : Int) {
@@ -1301,34 +1361,34 @@ public extension Int {
 	var second : NSTimeInterval {
 		return (self.seconds)
 	}
-	var minutes : NSTimeInterval {
-		return (self.seconds*60)
+	var minutes : MinuteCalendarType {
+		return MinuteCalendarType(amount: self)
 	}
-	var minute : NSTimeInterval {
+	var minute : MinuteCalendarType {
 		return self.minutes
+    }
+    var hours : HourCalendarType {
+        return HourCalendarType(amount: self)
+    }
+    var hour : HourCalendarType {
+        return self.hours
 	}
-	var hours : NSTimeInterval {
-		return (self.minutes*60)
+    var days : DayCalendarType {
+        return DayCalendarType(amount: self)
 	}
-	var hour : NSTimeInterval {
-		return self.hours
-	}
-	var days : NSTimeInterval {
-		return (self.hours*24)
-	}
-	var day : NSTimeInterval {
+	var day : DayCalendarType {
 		return self.days
 	}
-	var weeks : NSTimeInterval {
-		return (self.days*7)
+	var weeks : DayCalendarType {
+		return (self*7).days
 	}
-	var week : NSTimeInterval {
+	var week : DayCalendarType {
 		return self.weeks
 	}
-	var workWeeks : NSTimeInterval {
-		return (self.days*5)
+	var workWeeks : DayCalendarType {
+		return (self*5).days
 	}
-	var workWeek : NSTimeInterval {
+	var workWeek : DayCalendarType {
 		return self.workWeeks
 	}
 	var months : MonthCalendarType {

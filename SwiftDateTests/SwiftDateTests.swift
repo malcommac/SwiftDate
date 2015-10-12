@@ -12,7 +12,6 @@ import SwiftDate
 class SwiftDateTests: XCTestCase {
 
     var calendar: NSCalendar!
-    var timeZone: NSTimeZone!
     var before: NSDate!
     var now: NSDate!
     var after: NSDate!
@@ -23,7 +22,6 @@ class SwiftDateTests: XCTestCase {
         before = now.dateByAddingTimeInterval(-60.0)
         after = now.dateByAddingTimeInterval(60.0)
         calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        timeZone = NSTimeZone(abbreviation: "UTC")
     }
     
     override func tearDown() {
@@ -84,14 +82,14 @@ class SwiftDateTests: XCTestCase {
         components.minute = 0
         components.second = 0
         components.nanosecond = 0
-        components.timeZone = timeZone
+        components.timeZone = NSTimeZone.defaultTimeZone()
         let expectedDate = calendar.dateFromComponents(components)
 
         XCTAssertEqual(date, expectedDate)
     }
     
     func test_date1() {
-        let date = NSDate.date(year: 1999, calendarIdentifier: NSCalendarIdentifierGregorian)
+        let date = NSDate.date(year: 1999, calendar: calendar)
 
         let components = NSDateComponents()
         components.year = 1999
@@ -101,14 +99,14 @@ class SwiftDateTests: XCTestCase {
         components.minute = 0
         components.second = 0
         components.nanosecond = 0
-        components.timeZone = timeZone
+        components.timeZone = NSTimeZone.defaultTimeZone()
         let expectedDate = calendar.dateFromComponents(components)
 
         XCTAssertEqual(date, expectedDate)
     }
     
     func test_date2() {
-        let date = NSDate.date(yearForWeekOfYear: 2016, weekOfYear: 1, calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let date = NSDate.date(yearForWeekOfYear: 2016, weekOfYear: 1, calendar: calendar)!
 
         let components = NSDateComponents()
         components.year = 2015
@@ -118,24 +116,24 @@ class SwiftDateTests: XCTestCase {
         components.minute = 0
         components.second = 0
         components.nanosecond = 0
-        components.timeZone = timeZone
+        components.timeZone = NSTimeZone.defaultTimeZone()
         let expectedDate = calendar.dateFromComponents(components)
 
         XCTAssertEqual(date, expectedDate)
     }
     
     func test_date3() {
-        let date = NSDate.date(yearForWeekOfYear: 1440, weekOfYear: 15, timeZoneAbbreviation: "AST", calendarIdentifier: NSCalendarIdentifierIslamic)!
+        let date = NSDate.date(yearForWeekOfYear: 1440, weekOfYear: 15, timeZone: NSTimeZone(abbreviation: "AST"), calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))!
 
         let components = NSDateComponents()
         components.year = 2018
         components.month = 12
         components.day = 17
-        components.hour = 5
+        components.hour = 0
         components.minute = 0
         components.second = 0
         components.nanosecond = 0
-        components.timeZone = timeZone
+        components.timeZone = NSTimeZone(abbreviation: "AST")
         let expectedDate = calendar.dateFromComponents(components)
 
         XCTAssertEqual(date, expectedDate)
@@ -168,6 +166,13 @@ class SwiftDateTests: XCTestCase {
         XCTAssertEqual(testDate, expectedDate)
     }
 
+    func test_startOfDay2() {
+        let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, nanosecond: 0)!
+        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, nanosecond: 0)!
+        let testDate = date.startOf(.Day)
+        XCTAssertEqual(testDate, expectedDate)
+    }
+
     func test_endOfDay() {
         let date = NSDate.date(year: 2015, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4)!
         let expectedDate = date.startOf(.Day)! + 1.days - 1.nanoseconds
@@ -181,23 +186,23 @@ class SwiftDateTests: XCTestCase {
     }
 
     func test_startOfMonth2() {
-        let date = NSDate.date(year: 1436, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4, calendarIdentifier: NSCalendarIdentifierIslamic)!
-        let expectedDate = NSDate.date(year: 1436, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, calendarIdentifier: NSCalendarIdentifierIslamic)!
-        let testDate = date.startOf(.Month, calendarIdentifier: NSCalendarIdentifierIslamic)
+        let date = NSDate.date(year: 1436, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4, calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))!
+        let expectedDate = NSDate.date(year: 1436, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))!
+        let testDate = date.startOf(.Month, calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))
         XCTAssertEqual(testDate, expectedDate)
     }
 
     func test_startOfMonth3() {
-        let date = NSDate.date(year: 1440, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4, timeZoneAbbreviation: "AST", calendarIdentifier: NSCalendarIdentifierIslamic)!
-        let expectedDate = NSDate.date(year: 1440, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, timeZoneAbbreviation: "AST", calendarIdentifier: NSCalendarIdentifierIslamic)!
-        let testDate = date.startOf(.Month, timeZoneAbbreviation: "AST", calendarIdentifier: NSCalendarIdentifierIslamic)
+        let date = NSDate.date(year: 1436, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4, timeZone: NSTimeZone(abbreviation: "AST"), calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))!
+        let expectedDate = NSDate.date(year: 1436, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, timeZone: NSTimeZone(abbreviation: "AST"), calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))!
+        let testDate = date.startOf(.Month, timeZone: NSTimeZone(abbreviation: "AST"), calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic))
         XCTAssertEqual(testDate, expectedDate)
     }
 
     func test_startOfMonth4() {
-        let date = NSDate.date(year: 1440, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4, timeZoneAbbreviation: "AST")!
-        let expectedDate = NSDate.date(year: 1440, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, timeZoneAbbreviation: "AST")!
-        let testDate = date.startOf(.Month, timeZoneAbbreviation: "AST")
+        let date = NSDate.date(year: 1436, month: 9, day: 29, hour: 1, minute: 2, second: 3, nanosecond: 4, timeZone: NSTimeZone(abbreviation: "AST"))!
+        let expectedDate = NSDate.date(year: 1436, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, timeZone: NSTimeZone(abbreviation: "AST"))!
+        let testDate = date.startOf(.Month, timeZone: NSTimeZone(abbreviation: "AST"))
         XCTAssertEqual(testDate, expectedDate)
     }
 
@@ -235,7 +240,7 @@ class SwiftDateTests: XCTestCase {
     }
     
     func test_toDateISO8601ParsesDateWithHoursMinutesSecondsAndZ() {
-        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, timeZoneAbbreviation: "UTC")
+        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, timeZone: NSTimeZone(abbreviation: "UTC"))
 
         let parsedDate = NSDate.date(fromString: "2015-09-29T00:00:00Z", format: .ISO8601)
 
@@ -243,7 +248,7 @@ class SwiftDateTests: XCTestCase {
     }
 
     func test_toDateISO8601ParsesDateWithHoursMinutesSecondsAndFractionAndZ() {
-        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, timeZoneAbbreviation: "UTC")
+        let expectedDate = NSDate.date(year: 2015, month: 9, day: 29, hour: 0, minute: 0, second: 0, timeZone: NSTimeZone(abbreviation: "UTC"))
 
         let parsedDate = NSDate.date(fromString: "2015-09-29T00:00:00.000Z", format: .ISO8601)
 

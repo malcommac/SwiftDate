@@ -283,7 +283,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate with components changed according to passed params
 	*/
-	class func date(refDate refDate: NSDate?, year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int, tz: String?) -> NSDate {
+	class func date(refDate refDate: NSDate?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate {
 		let referenceDate = refDate ?? NSDate()
 		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
 	}

@@ -1192,24 +1192,12 @@ public func == (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedSame)
 }
 
-public func != (left: NSDate, right: NSDate) -> Bool {
-	return !(left == right)
-}
-
 public func < (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedAscending)
 }
 
 public func > (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedDescending)
-}
-
-public func <= (left: NSDate, right: NSDate) -> Bool {
-	return !(left > right)
-}
-
-public func >= (left: NSDate, right: NSDate) -> Bool {
-	return !(left < right)
 }
 
 //MARK: ARITHMETIC OPERATIONS WITH DATES (-,-=,+,+=)

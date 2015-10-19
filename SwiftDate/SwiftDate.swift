@@ -321,7 +321,7 @@ public extension NSDate {
 	:returns: a new NSDate instance which represent yesterday's date
 	*/
 	class func yesterday(tz: String? = nil) -> NSDate! {
-		return today(tz)-1.day
+		return today(tz)-1.days
 	}
 	
 	/**
@@ -332,7 +332,7 @@ public extension NSDate {
 	:returns: a new NSDate instance which represent tomorrow's date
 	*/
 	class func tomorrow(tz: String? = nil) -> NSDate! {
-		return today(tz)+1.day
+		return today(tz)+1.days
 	}
 	
 	/**
@@ -424,7 +424,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0) -> NSDate {
+    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0) -> NSDate? {
 		let components = NSDateComponents()
         components.year = years
         components.month = months
@@ -1025,9 +1025,9 @@ private extension NSDate {
 		return NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: fromDate)
 	}
 	
-	private func addComponents(components: NSDateComponents) -> NSDate {
-		let cal = NSCalendar.currentCalendar()
-		return cal.dateByAddingComponents(components, toDate: self, options: [])!
+	private func addComponents(components: NSDateComponents) -> NSDate? {
+		let calendar = NSCalendar.currentCalendar()
+		return calendar.dateByAddingComponents(components, toDate: self, options: [])
 	}
 	
 	private class func componentFlags() -> NSCalendarUnit {
@@ -1201,6 +1201,96 @@ public func > (left: NSDate, right: NSDate) -> Bool {
 }
 
 //MARK: ARITHMETIC OPERATIONS WITH DATES (-,-=,+,+=)
+
+
+// MARK: - Operators
+
+extension NSDate {
+    func difference(toDate: NSDate, unitFlags: NSCalendarUnit, withCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDateComponents? {
+        return calendar.components(unitFlags, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
+    }
+
+    func addComponents(components: NSDateComponents, withCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDate? {
+        return calendar.dateByAddingComponents(components, toDate: self, options: NSCalendarOptions.MatchStrictly)
+    }
+}
+
+public func - (lhs: NSDate, rhs: NSDateComponents) -> NSDate? {
+    return lhs + (-rhs)
+}
+
+public func + (lhs: NSDate, rhs: NSDateComponents) -> NSDate? {
+    return lhs.addComponents(rhs)
+}
+
+
+public prefix func - (dateComponents: NSDateComponents) -> NSDateComponents {
+
+    // For looping through a set of units
+    let componentFlagSet: [NSCalendarUnit] = [.Day, .Month, .Year, .Hour, .Minute, .Second, .Nanosecond, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal]
+
+    let result = NSDateComponents()
+    for unit in componentFlagSet {
+        let value = dateComponents.valueForComponent(unit)
+        if value != Int(NSDateComponentUndefined) {
+            result.setValue(-value, forComponent: unit)
+        }
+    }
+    return result
+}
+
+// MARK: - Helpers to enable expressions e.g. date + 1.days - 20.seconds
+
+public extension Int {
+    var nanoseconds: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.nanosecond = self
+        return dateComponents
+    }
+    var seconds: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.second = self
+        return dateComponents
+    }
+
+    var minutes: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.minute = self
+        return dateComponents
+    }
+
+    var hours: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.hour = self
+        return dateComponents
+    }
+
+    var days: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.day = self
+        return dateComponents
+    }
+
+    var weeks: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.weekOfYear = self
+        return dateComponents
+    }
+
+    var months: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.month = self
+        return dateComponents
+    }
+
+    var years: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.year = self
+        return dateComponents
+    }
+}
+
+
 
 public func - (left : NSDate, right: NSTimeInterval) -> NSDate {
 	return left.dateByAddingTimeInterval(-right)

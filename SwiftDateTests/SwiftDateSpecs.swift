@@ -106,20 +106,26 @@ class SwiftDateSpec: QuickSpec {
 
             context("calulations") {
 
-                var now: NSDate!
-                var after: NSDate!
+                it("should add & subtract time intervals properly") {
+                    let now = NSDate()
+                    let after = now + 60
 
-                beforeEach {
-                    now = NSDate()
-                    after = now.dateByAddingTimeInterval(60.0)
-                }
-                
-                it("should subtract seconds properly") {
                     expect(after - now) == 60
                     expect(now - now) == 0
                     expect(now - after) == -60
                 }
+                
+                it("should add & subtract date components properly") {
+                    let date = NSDate(year: 2001, month: 1, day: 1).beginningOfDay
 
+                    expect(date + 1.days) == NSDate(year: 2001, month: 1, day: 2)
+                    expect(date - 1.days) == NSDate(year: 2000, month: 12, day: 31)
+                    expect(date + 14.days) == date + 2.weeks
+                    expect(date - 14.days) == date - 2.weeks
+                    expect(date + 14.seconds) == date.set(second: 14)
+                    expect(date - 14.seconds) == NSDate(year: 2000, month: 12, day: 31, hour: 23, minute: 59, second: 46)
+                }
+                
                 it("should differ properly") {
                     let summerTimeDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 29, tz: nil)
                     let nextDay = NSDate.date(refDate: nil, year: 2015, month: 3, day: 30, tz: nil)

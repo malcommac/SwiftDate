@@ -94,7 +94,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CCCADC6E1BB8909B00B905DD = {
+		1FF867221BD5389F006B0E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1FF8671B1BD5334B006B0E02 /* Nimble.framework */,
@@ -103,6 +103,14 @@
 				1FF867181BD5333F006B0E02 /* Quick.framework */,
 				1FF867131BD5332E006B0E02 /* Nimble.framework */,
 				1FF867141BD5332E006B0E02 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCCADC6E1BB8909B00B905DD = {
+			isa = PBXGroup;
+			children = (
+				1FF867221BD5389F006B0E02 /* Frameworks */,
 				CCCADC7A1BB8909B00B905DD /* SwiftDate */,
 				CCCADC861BB8909B00B905DD /* SwiftDateTests */,
 				CCCADC791BB8909B00B905DD /* Products */,

@@ -344,14 +344,25 @@ public extension NSDate {
 	*/
     func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, tz: String?=nil) -> NSDate! {
 		let components = self.components
-		components.year = year ?? self.year
-		components.month = month ?? self.month
-		components.day = day ?? self.day
-		components.hour = hour ?? self.hour
-		components.minute = minute ?? self.minute
-		components.second = second ?? self.second
+        if year != nil { components.year = year! }
+        if month != nil { components.month = month! }
+        if day != nil { components.day = day! }
+        if hour != nil { components.hour = hour! }
+        if minute != nil { components.minute = minute! }
+        if second != nil { components.second = second! }
 		components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
-		return NSCalendar.currentCalendar().dateFromComponents(components)
+
+        // Set weekday stuff to undefined to prevent dateFromComponents to get confused
+        components.yearForWeekOfYear = NSDateComponentUndefined
+        components.weekOfYear = NSDateComponentUndefined
+        components.weekday = NSDateComponentUndefined
+        components.weekdayOrdinal = NSDateComponentUndefined
+
+        // Set calendar time zone to desired time zone
+        let calendar = NSCalendar.currentCalendar()
+        calendar.timeZone = components.timeZone!
+
+        return calendar.dateFromComponents(components)
 	}
 	
 	/**

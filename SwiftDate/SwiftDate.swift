@@ -614,16 +614,19 @@ public extension NSDate {
 	
 	:returns: true if two dates are equals
 	*/
-	func isEqualToDate(date: NSDate, ignoreTime: Bool) -> Bool {
-		if ignoreTime {
-			let comp1 = NSDate.components(fromDate: self)
-			let comp2 = NSDate.components(fromDate: date)
-			return ((comp1.era == comp2.era) && (comp1.year == comp2.year) && (comp1.month == comp2.month) && (comp1.day == comp2.day))
-		} else {
-			return self.isEqualToDate(date)
-		}
-	}
-	
+    func isEqualToDate(date: NSDate, ignoreTime: Bool = false) -> Bool {
+        if ignoreTime {
+            return NSCalendar.currentCalendar().isDate(self, inSameDayAsDate: date)
+
+        } else {
+            return self.isEqualToDate(date)
+        }
+    }
+    
+    func isSameDayAsDate(date: NSDate) -> Bool {
+        return NSCalendar.currentCalendar().isDate(self, inSameDayAsDate: date)
+    }
+    
 	/**
 	Return true if given date's time in passed range
 	
@@ -683,7 +686,7 @@ public extension NSDate {
 	:returns: true if date is today
 	*/
 	func isToday() -> Bool {
-		return self.isEqualToDate(NSDate(), ignoreTime: true)
+        return NSCalendar.currentCalendar().isDateInToday(self)
 	}
 	
 	/**
@@ -692,7 +695,7 @@ public extension NSDate {
 	:returns: true if date is tomorrow
 	*/
 	func isTomorrow() -> Bool {
-		return self.isEqualToDate(NSDate()+1.day, ignoreTime:true)
+        return NSCalendar.currentCalendar().isDateInTomorrow(self)
 	}
 	
 	/**
@@ -701,7 +704,7 @@ public extension NSDate {
 	:returns: true if date is yesterday
 	*/
 	func isYesterday() -> Bool {
-		return self.isEqualToDate(NSDate()-1.day, ignoreTime:true)
+        return NSCalendar.currentCalendar().isDateInYesterday(self)
 	}
 	
 	/**

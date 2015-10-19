@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FF867191BD5333F006B0E02 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF867171BD5333F006B0E02 /* Nimble.framework */; };
+		1FF8671A1BD5333F006B0E02 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF867181BD5333F006B0E02 /* Quick.framework */; };
+		1FF8671D1BD5334B006B0E02 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF8671B1BD5334B006B0E02 /* Nimble.framework */; };
+		1FF8671E1BD5334B006B0E02 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF8671C1BD5334B006B0E02 /* Quick.framework */; };
+		1FF867201BD537EE006B0E02 /* SwiftDateSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8671F1BD537EE006B0E02 /* SwiftDateSpecs.swift */; settings = {ASSET_TAGS = (); }; };
+		1FF867211BD537EE006B0E02 /* SwiftDateSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8671F1BD537EE006B0E02 /* SwiftDateSpecs.swift */; settings = {ASSET_TAGS = (); }; };
 		CCCADC7C1BB8909B00B905DD /* SwiftDate.h in Headers */ = {isa = PBXBuildFile; fileRef = CCCADC7B1BB8909B00B905DD /* SwiftDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CCCADC831BB8909B00B905DD /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCADC781BB8909B00B905DD /* SwiftDate.framework */; settings = {ASSET_TAGS = (); }; };
-		CCCADC881BB8909B00B905DD /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */; };
 		CCCADC931BB8937700B905DD /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC921BB8937700B905DD /* SwiftDate.swift */; settings = {ASSET_TAGS = (); }; };
 		CCCADCC81BB89C7600B905DD /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCADCB71BB89C1C00B905DD /* SwiftDate.framework */; settings = {ASSET_TAGS = (); }; };
 		CCCADCCE1BB89D8D00B905DD /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC921BB8937700B905DD /* SwiftDate.swift */; settings = {ASSET_TAGS = (); }; };
-		CCCADCCF1BB89E0700B905DD /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */; settings = {ASSET_TAGS = (); }; };
 		CCCADCD01BB89E1800B905DD /* SwiftDate.h in Headers */ = {isa = PBXBuildFile; fileRef = CCCADC7B1BB8909B00B905DD /* SwiftDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -35,11 +39,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FF867131BD5332E006B0E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		1FF867141BD5332E006B0E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Quick/build/Debug/Quick.framework; sourceTree = "<group>"; };
+		1FF867171BD5333F006B0E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		1FF867181BD5333F006B0E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
+		1FF8671B1BD5334B006B0E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Nimble/build/Debug/Nimble.framework; sourceTree = "<group>"; };
+		1FF8671C1BD5334B006B0E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Quick/build/Debug/Quick.framework; sourceTree = "<group>"; };
+		1FF8671F1BD537EE006B0E02 /* SwiftDateSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDateSpecs.swift; sourceTree = "<group>"; };
 		CCCADC781BB8909B00B905DD /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCADC7B1BB8909B00B905DD /* SwiftDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDate.h; sourceTree = "<group>"; };
 		CCCADC7D1BB8909B00B905DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCCADC821BB8909B00B905DD /* SwiftDateTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDateTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDateTests.swift; sourceTree = "<group>"; };
 		CCCADC891BB8909B00B905DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCCADC921BB8937700B905DD /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDate.swift; sourceTree = "<group>"; };
 		CCCADCB71BB89C1C00B905DD /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF867191BD5333F006B0E02 /* Nimble.framework in Frameworks */,
+				1FF8671A1BD5333F006B0E02 /* Quick.framework in Frameworks */,
 				CCCADC831BB8909B00B905DD /* SwiftDate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF8671D1BD5334B006B0E02 /* Nimble.framework in Frameworks */,
+				1FF8671E1BD5334B006B0E02 /* Quick.framework in Frameworks */,
 				CCCADCC81BB89C7600B905DD /* SwiftDate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +97,12 @@
 		CCCADC6E1BB8909B00B905DD = {
 			isa = PBXGroup;
 			children = (
+				1FF8671B1BD5334B006B0E02 /* Nimble.framework */,
+				1FF8671C1BD5334B006B0E02 /* Quick.framework */,
+				1FF867171BD5333F006B0E02 /* Nimble.framework */,
+				1FF867181BD5333F006B0E02 /* Quick.framework */,
+				1FF867131BD5332E006B0E02 /* Nimble.framework */,
+				1FF867141BD5332E006B0E02 /* Quick.framework */,
 				CCCADC7A1BB8909B00B905DD /* SwiftDate */,
 				CCCADC861BB8909B00B905DD /* SwiftDateTests */,
 				CCCADC791BB8909B00B905DD /* Products */,
@@ -113,7 +133,7 @@
 		CCCADC861BB8909B00B905DD /* SwiftDateTests */ = {
 			isa = PBXGroup;
 			children = (
-				CCCADC871BB8909B00B905DD /* SwiftDateTests.swift */,
+				1FF8671F1BD537EE006B0E02 /* SwiftDateSpecs.swift */,
 				CCCADC891BB8909B00B905DD /* Info.plist */,
 			);
 			path = SwiftDateTests;
@@ -301,7 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCCADC881BB8909B00B905DD /* SwiftDateTests.swift in Sources */,
+				1FF867201BD537EE006B0E02 /* SwiftDateSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCCADCCF1BB89E0700B905DD /* SwiftDateTests.swift in Sources */,
+				1FF867211BD537EE006B0E02 /* SwiftDateSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +606,7 @@
 				CCCADCBD1BB89C1C00B905DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCCADCCB1BB89C7600B905DD /* Build configuration list for PBXNativeTarget "SwiftDateTests Mac" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +615,7 @@
 				CCCADCCD1BB89C7600B905DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

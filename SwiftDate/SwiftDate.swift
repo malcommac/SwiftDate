@@ -253,41 +253,48 @@ public extension NSDate {
 		return dateFormatter
 	}
 	
-	/**
-	Create a new NSDate instance based on refDate (if nil uses current date) and set components
-	
-	:param: refDate reference date instance (nil to use NSDate())
-	:param: year    year component (nil to leave it untouched)
-	:param: month   month component (nil to leave it untouched)
-	:param: day     day component (nil to leave it untouched)
-	:param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
-	
-	:returns: a new NSDate with components changed according to passed params
-	*/
-	class func date(refDate refDate: NSDate?, year: Int?, month: Int?, day: Int?, tz: String?) -> NSDate {
-		let referenceDate = refDate ?? NSDate()
-		return referenceDate.set(year: year, month: month, day: day, hour: 0, minute: 0, second: 0, tz: tz)
-	}
-	
-	/**
-	Create a new NSDate instance based on refDate (if nil uses current date) and set components
-	
-	:param: refDate reference date instance (nil to use NSDate())
-	:param: year    year component (nil to leave it untouched)
-	:param: month   month component (nil to leave it untouched)
-	:param: day     day component (nil to leave it untouched)
-	:param: hour    hour component (nil to leave it untouched)
-	:param: minute  minute component (nil to leave it untouched)
-	:param: second  second component (nil to leave it untouched)
-	:param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
-	
-	:returns: a new NSDate with components changed according to passed params
-	*/
-	class func date(refDate refDate: NSDate?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate {
-		let referenceDate = refDate ?? NSDate()
-		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
-	}
-	
+    /**
+    Create a new NSDate instance based on refDate (if nil uses current date) and set components
+
+    :param: refDate reference date instance (nil to use NSDate())
+    :param: year    year component (nil to leave it untouched)
+    :param: month   month component (nil to leave it untouched)
+    :param: day     day component (nil to leave it untouched)
+    :param: hour    hour component (nil to leave it untouched)
+    :param: minute  minute component (nil to leave it untouched)
+    :param: second  second component (nil to leave it untouched)
+    :param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
+
+    :returns: a new NSDate with components changed according to passed params
+    */
+    class func date(refDate refDate: NSDate? = nil, year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, tz: String? = nil) -> NSDate {
+        let referenceDate = refDate ?? NSDate()
+        return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
+    }
+    
+    
+    /**
+    Create a new NSDate instance based on refDate (if nil uses current date) and set components
+
+    :param: refDate reference date instance (nil to use NSDate())
+    :param: year    year component (nil to leave it untouched)
+    :param: month   month component (nil to leave it untouched)
+    :param: day     day component (nil to leave it untouched)
+    :param: hour    hour component (nil to leave it untouched)
+    :param: minute  minute component (nil to leave it untouched)
+    :param: second  second component (nil to leave it untouched)
+    :param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
+
+    :returns: a new NSDate with components changed according to passed params
+    */
+    convenience init(refDate: NSDate? = nil, year: Int, month: Int, day: Int, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, tz: String? = nil) {
+        let referenceDate = refDate ?? NSDate()
+        let newDate = referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
+        self.init(timeIntervalSinceReferenceDate: newDate.timeIntervalSinceReferenceDate)
+    }
+    
+    
+
 	/**
 	Return a new NSDate instance with the current date and time set to 00:00:00
 	

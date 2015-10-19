@@ -137,6 +137,19 @@ class SwiftDateSpec: QuickSpec {
                 }
             }
 
+            context("properties") {
+
+                it("should report leap years for years % 4 but not % 100 but not % 400") {
+                    for year in (1500...2500) {
+                        let date = NSDate(year: year, month: 6, day: 1)
+                        let leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0
+
+                        expect(date.isLeapYear()).to(equal(leap), description: "year = \(year) should be leap: \(leap)")
+                    }
+                }
+
+            }
+
             context("string operations") {
 
                 it("should convert to ISO8601 strings with HM and Zulu") {

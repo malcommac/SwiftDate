@@ -653,8 +653,19 @@ public extension NSDate {
 	:returns: true if date's year is a leap year
 	*/
 	func isLeapYear() -> Bool {
-		let year = self.year
-		return year % 400 == 0 ? true : ((year % 4 == 0) && (year % 100 != 0))
+
+        /**
+        Jeroen Houtzager: Would like to check the number of days in a year but that does not work (https://openradar.appspot.com/15826991)
+        let calendar = NSCalendar.currentCalendar()
+        let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Year, forDate: self)
+        return range.length > 365
+        */
+
+        let calendar = NSCalendar.currentCalendar()
+        let februaryDate = NSDate(year: self.year, month: 2, day: 1)
+        let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: februaryDate)
+        return range.length == 29
+
 	}
 	
 	/**

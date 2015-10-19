@@ -287,13 +287,19 @@ public extension NSDate {
 
     :returns: a new NSDate with components changed according to passed params
     */
-    convenience init(refDate: NSDate? = nil, year: Int, month: Int, day: Int, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, tz: String? = nil) {
-        let referenceDate = refDate ?? NSDate()
-        let newDate = referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
+    convenience init(var refDate: NSDate? = nil, year: Int, month: Int, day: Int, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, let tz: String? = nil) {
+
+        if (refDate == nil) {
+
+            // If refDate == nil, we want a reference date of 2001-01-01 00:00:00.000 in the tz time zone
+            refDate = NSDate().set(year: 2001, month: 1, day: 1, hour: 0, minute: 0, second: 0, tz: tz)
+        }
+
+        let newDate = refDate!.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
         self.init(timeIntervalSinceReferenceDate: newDate.timeIntervalSinceReferenceDate)
     }
-    
-    
+
+
 
 	/**
 	Return a new NSDate instance with the current date and time set to 00:00:00
@@ -343,14 +349,14 @@ public extension NSDate {
 	:returns: a new NSDate instance with changed values
 	*/
     func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, tz: String?=nil) -> NSDate! {
-		let components = self.components
+        let components = self.components
         if year != nil { components.year = year! }
         if month != nil { components.month = month! }
         if day != nil { components.day = day! }
         if hour != nil { components.hour = hour! }
         if minute != nil { components.minute = minute! }
         if second != nil { components.second = second! }
-		components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
+        components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
 
         // Set weekday stuff to undefined to prevent dateFromComponents to get confused
         components.yearForWeekOfYear = NSDateComponentUndefined
@@ -363,8 +369,8 @@ public extension NSDate {
         calendar.timeZone = components.timeZone!
 
         return calendar.dateFromComponents(components)
-	}
-	
+    }
+
 	/**
 	Allows you to set individual date components by passing an array of components name and associated values
 	

@@ -31,9 +31,24 @@ class SwiftDateTests: XCTestCase {
         XCTAssertEqual(testDate.year, 2015)
         XCTAssertEqual(testDate.month, 10)
         XCTAssertEqual(testDate.day, 23)
+        XCTAssertEqual(testDate.hour, 0)
+        XCTAssertEqual(testDate.minute, 0)
+        XCTAssertEqual(testDate.second, 0)
     }
 
+    
+    func test_initRefdate() {
+        let refDate = NSDate()
+        let testDate = NSDate(refDate: refDate, year: 2015, month: 10, day: 23)
+        XCTAssertEqual(testDate.year, 2015)
+        XCTAssertEqual(testDate.month, 10)
+        XCTAssertEqual(testDate.day, 23)
+        XCTAssertEqual(testDate.hour, refDate.hour)
+        XCTAssertEqual(testDate.minute, refDate.minute)
+        XCTAssertEqual(testDate.second, refDate.second)
+    }
 
+    
     func test_less_than() {
         XCTAssertTrue(before < now)
         XCTAssertTrue(now < after)

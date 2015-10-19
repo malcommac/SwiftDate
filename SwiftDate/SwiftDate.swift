@@ -1412,56 +1412,6 @@ public class YearCalendarType : CalendarType {
 	}
 }
 
-public extension Int {
-	var seconds : NSTimeInterval {
-		return NSTimeInterval(self)
-	}
-	var second : NSTimeInterval {
-		return (self.seconds)
-	}
-	var minutes : NSTimeInterval {
-		return (self.seconds*60)
-	}
-	var minute : NSTimeInterval {
-		return self.minutes
-	}
-	var hours : NSTimeInterval {
-		return (self.minutes*60)
-	}
-	var hour : NSTimeInterval {
-		return self.hours
-	}
-	var days : NSTimeInterval {
-		return (self.hours*24)
-	}
-	var day : NSTimeInterval {
-		return self.days
-	}
-	var weeks : NSTimeInterval {
-		return (self.days*7)
-	}
-	var week : NSTimeInterval {
-		return self.weeks
-	}
-	var workWeeks : NSTimeInterval {
-		return (self.days*5)
-	}
-	var workWeek : NSTimeInterval {
-		return self.workWeeks
-	}
-	var months : MonthCalendarType {
-		return MonthCalendarType(amount: self)
-	}
-	var month : MonthCalendarType {
-		return self.months
-	}
-	var years : YearCalendarType {
-		return YearCalendarType(amount: self)
-	}
-	var year : YearCalendarType {
-		return self.years
-	}
-}
 
 //MARK: PRIVATE STRING EXTENSION
 

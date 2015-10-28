@@ -253,41 +253,54 @@ public extension NSDate {
 		return dateFormatter
 	}
 	
-	/**
-	Create a new NSDate instance based on refDate (if nil uses current date) and set components
-	
-	:param: refDate reference date instance (nil to use NSDate())
-	:param: year    year component (nil to leave it untouched)
-	:param: month   month component (nil to leave it untouched)
-	:param: day     day component (nil to leave it untouched)
-	:param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
-	
-	:returns: a new NSDate with components changed according to passed params
-	*/
-	class func date(refDate refDate: NSDate?, year: Int?, month: Int?, day: Int?, tz: String?) -> NSDate {
-		let referenceDate = refDate ?? NSDate()
-		return referenceDate.set(year: year, month: month, day: day, hour: 0, minute: 0, second: 0, tz: tz)
-	}
-	
-	/**
-	Create a new NSDate instance based on refDate (if nil uses current date) and set components
-	
-	:param: refDate reference date instance (nil to use NSDate())
-	:param: year    year component (nil to leave it untouched)
-	:param: month   month component (nil to leave it untouched)
-	:param: day     day component (nil to leave it untouched)
-	:param: hour    hour component (nil to leave it untouched)
-	:param: minute  minute component (nil to leave it untouched)
-	:param: second  second component (nil to leave it untouched)
-	:param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
-	
-	:returns: a new NSDate with components changed according to passed params
-	*/
-	class func date(refDate refDate: NSDate?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, tz: String?) -> NSDate {
-		let referenceDate = refDate ?? NSDate()
-		return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
-	}
-	
+    /**
+    Create a new NSDate instance based on refDate (if nil uses current date) and set components
+
+    :param: refDate reference date instance (nil to use NSDate())
+    :param: year    year component (nil to leave it untouched)
+    :param: month   month component (nil to leave it untouched)
+    :param: day     day component (nil to leave it untouched)
+    :param: hour    hour component (nil to leave it untouched)
+    :param: minute  minute component (nil to leave it untouched)
+    :param: second  second component (nil to leave it untouched)
+    :param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
+
+    :returns: a new NSDate with components changed according to passed params
+    */
+    class func date(refDate refDate: NSDate? = nil, year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, tz: String? = nil) -> NSDate {
+        let referenceDate = refDate ?? NSDate()
+        return referenceDate.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
+    }
+    
+    
+    /**
+    Create a new NSDate instance based on refDate (if nil uses current date) and set components
+
+    :param: refDate reference date instance (nil to use NSDate())
+    :param: year    year component (nil to leave it untouched)
+    :param: month   month component (nil to leave it untouched)
+    :param: day     day component (nil to leave it untouched)
+    :param: hour    hour component (nil to leave it untouched)
+    :param: minute  minute component (nil to leave it untouched)
+    :param: second  second component (nil to leave it untouched)
+    :param: tz      time zone component (it's the abbreviation of NSTimeZone, like 'UTC' or 'GMT+2', nil to use current time zone)
+
+    :returns: a new NSDate with components changed according to passed params
+    */
+    convenience init(var refDate: NSDate? = nil, year: Int, month: Int, day: Int, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, let tz: String? = nil) {
+
+        if (refDate == nil) {
+
+            // If refDate == nil, we want a reference date of 2001-01-01 00:00:00.000 in the tz time zone
+            refDate = NSDate().set(year: 2001, month: 1, day: 1, hour: 0, minute: 0, second: 0, tz: tz)
+        }
+
+        let newDate = refDate!.set(year: year, month: month, day: day, hour: hour, minute: minute, second: second, tz: tz)
+        self.init(timeIntervalSinceReferenceDate: newDate.timeIntervalSinceReferenceDate)
+    }
+
+
+
 	/**
 	Return a new NSDate instance with the current date and time set to 00:00:00
 	
@@ -308,7 +321,7 @@ public extension NSDate {
 	:returns: a new NSDate instance which represent yesterday's date
 	*/
 	class func yesterday(tz: String? = nil) -> NSDate! {
-		return today(tz)-1.day
+		return today(tz)-1.days
 	}
 	
 	/**
@@ -319,7 +332,7 @@ public extension NSDate {
 	:returns: a new NSDate instance which represent tomorrow's date
 	*/
 	class func tomorrow(tz: String? = nil) -> NSDate! {
-		return today(tz)+1.day
+		return today(tz)+1.days
 	}
 	
 	/**
@@ -336,17 +349,28 @@ public extension NSDate {
 	:returns: a new NSDate instance with changed values
 	*/
     func set(year year: Int?=nil, month: Int?=nil, day: Int?=nil, hour: Int?=nil, minute: Int?=nil, second: Int?=nil, tz: String?=nil) -> NSDate! {
-		let components = self.components
-		components.year = year ?? self.year
-		components.month = month ?? self.month
-		components.day = day ?? self.day
-		components.hour = hour ?? self.hour
-		components.minute = minute ?? self.minute
-		components.second = second ?? self.second
-		components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
-		return NSCalendar.currentCalendar().dateFromComponents(components)
-	}
-	
+        let components = self.components
+        if year != nil { components.year = year! }
+        if month != nil { components.month = month! }
+        if day != nil { components.day = day! }
+        if hour != nil { components.hour = hour! }
+        if minute != nil { components.minute = minute! }
+        if second != nil { components.second = second! }
+        components.timeZone = (tz != nil ? NSTimeZone(abbreviation: tz!) : NSTimeZone.defaultTimeZone())
+
+        // Set weekday stuff to undefined to prevent dateFromComponents to get confused
+        components.yearForWeekOfYear = NSDateComponentUndefined
+        components.weekOfYear = NSDateComponentUndefined
+        components.weekday = NSDateComponentUndefined
+        components.weekdayOrdinal = NSDateComponentUndefined
+
+        // Set calendar time zone to desired time zone
+        let calendar = NSCalendar.currentCalendar()
+        calendar.timeZone = components.timeZone!
+
+        return calendar.dateFromComponents(components)
+    }
+
 	/**
 	Allows you to set individual date components by passing an array of components name and associated values
 	
@@ -400,7 +424,7 @@ public extension NSDate {
 	
 	:returns: a new NSDate instance with changed values
 	*/
-    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0) -> NSDate {
+    func add(years years: Int=0, months: Int=0, weeks: Int=0, days: Int=0,hours: Int=0,minutes: Int=0,seconds: Int=0) -> NSDate? {
 		let components = NSDateComponents()
         components.year = years
         components.month = months
@@ -590,16 +614,19 @@ public extension NSDate {
 	
 	:returns: true if two dates are equals
 	*/
-	func isEqualToDate(date: NSDate, ignoreTime: Bool) -> Bool {
-		if ignoreTime {
-			let comp1 = NSDate.components(fromDate: self)
-			let comp2 = NSDate.components(fromDate: date)
-			return ((comp1.era == comp2.era) && (comp1.year == comp2.year) && (comp1.month == comp2.month) && (comp1.day == comp2.day))
-		} else {
-			return self.isEqualToDate(date)
-		}
-	}
-	
+    func isEqualToDate(date: NSDate, ignoreTime: Bool = false) -> Bool {
+        if ignoreTime {
+            return NSCalendar.currentCalendar().isDate(self, inSameDayAsDate: date)
+
+        } else {
+            return self.isEqualToDate(date)
+        }
+    }
+    
+    func isSameDayAsDate(date: NSDate) -> Bool {
+        return NSCalendar.currentCalendar().isDate(self, inSameDayAsDate: date)
+    }
+    
 	/**
 	Return true if given date's time in passed range
 	
@@ -629,8 +656,19 @@ public extension NSDate {
 	:returns: true if date's year is a leap year
 	*/
 	func isLeapYear() -> Bool {
-		let year = self.year
-		return year % 400 == 0 ? true : ((year % 4 == 0) && (year % 100 != 0))
+
+        /**
+        Jeroen Houtzager: Would like to check the number of days in a year but that does not work (https://openradar.appspot.com/15826991)
+        let calendar = NSCalendar.currentCalendar()
+        let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Year, forDate: self)
+        return range.length > 365
+        */
+
+        let calendar = NSCalendar.currentCalendar()
+        let februaryDate = NSDate(year: self.year, month: 2, day: 1)
+        let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: februaryDate)
+        return range.length == 29
+
 	}
 	
 	/**
@@ -648,7 +686,7 @@ public extension NSDate {
 	:returns: true if date is today
 	*/
 	func isToday() -> Bool {
-		return self.isEqualToDate(NSDate(), ignoreTime: true)
+        return NSCalendar.currentCalendar().isDateInToday(self)
 	}
 	
 	/**
@@ -657,7 +695,7 @@ public extension NSDate {
 	:returns: true if date is tomorrow
 	*/
 	func isTomorrow() -> Bool {
-		return self.isEqualToDate(NSDate()+1.day, ignoreTime:true)
+        return NSCalendar.currentCalendar().isDateInTomorrow(self)
 	}
 	
 	/**
@@ -666,7 +704,7 @@ public extension NSDate {
 	:returns: true if date is yesterday
 	*/
 	func isYesterday() -> Bool {
-		return self.isEqualToDate(NSDate()-1.day, ignoreTime:true)
+        return NSCalendar.currentCalendar().isDateInYesterday(self)
 	}
 	
 	/**
@@ -1001,9 +1039,9 @@ private extension NSDate {
 		return NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: fromDate)
 	}
 	
-	private func addComponents(components: NSDateComponents) -> NSDate {
-		let cal = NSCalendar.currentCalendar()
-		return cal.dateByAddingComponents(components, toDate: self, options: [])!
+	private func addComponents(components: NSDateComponents) -> NSDate? {
+		let calendar = NSCalendar.currentCalendar()
+		return calendar.dateByAddingComponents(components, toDate: self, options: [])
 	}
 	
 	private class func componentFlags() -> NSCalendarUnit {
@@ -1168,10 +1206,6 @@ public func == (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedSame)
 }
 
-public func != (left: NSDate, right: NSDate) -> Bool {
-	return !(left == right)
-}
-
 public func < (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedAscending)
 }
@@ -1180,15 +1214,97 @@ public func > (left: NSDate, right: NSDate) -> Bool {
 	return (left.compare(right) == NSComparisonResult.OrderedDescending)
 }
 
-public func <= (left: NSDate, right: NSDate) -> Bool {
-	return !(left > right)
-}
-
-public func >= (left: NSDate, right: NSDate) -> Bool {
-	return !(left < right)
-}
-
 //MARK: ARITHMETIC OPERATIONS WITH DATES (-,-=,+,+=)
+
+
+// MARK: - Operators
+
+extension NSDate {
+    func difference(toDate: NSDate, unitFlags: NSCalendarUnit, withCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDateComponents? {
+        return calendar.components(unitFlags, fromDate: self, toDate: toDate, options: NSCalendarOptions(rawValue: 0))
+    }
+
+    func addComponents(components: NSDateComponents, withCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDate? {
+        return calendar.dateByAddingComponents(components, toDate: self, options: NSCalendarOptions.MatchStrictly)
+    }
+}
+
+public func - (lhs: NSDate, rhs: NSDateComponents) -> NSDate? {
+    return lhs + (-rhs)
+}
+
+public func + (lhs: NSDate, rhs: NSDateComponents) -> NSDate? {
+    return lhs.addComponents(rhs)
+}
+
+
+public prefix func - (dateComponents: NSDateComponents) -> NSDateComponents {
+
+    // For looping through a set of units
+    let componentFlagSet: [NSCalendarUnit] = [.Day, .Month, .Year, .Hour, .Minute, .Second, .Nanosecond, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal]
+
+    let result = NSDateComponents()
+    for unit in componentFlagSet {
+        let value = dateComponents.valueForComponent(unit)
+        if value != Int(NSDateComponentUndefined) {
+            result.setValue(-value, forComponent: unit)
+        }
+    }
+    return result
+}
+
+// MARK: - Helpers to enable expressions e.g. date + 1.days - 20.seconds
+
+public extension Int {
+    var nanoseconds: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.nanosecond = self
+        return dateComponents
+    }
+    var seconds: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.second = self
+        return dateComponents
+    }
+
+    var minutes: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.minute = self
+        return dateComponents
+    }
+
+    var hours: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.hour = self
+        return dateComponents
+    }
+
+    var days: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.day = self
+        return dateComponents
+    }
+
+    var weeks: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.weekOfYear = self
+        return dateComponents
+    }
+
+    var months: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.month = self
+        return dateComponents
+    }
+
+    var years: NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.year = self
+        return dateComponents
+    }
+}
+
+
 
 public func - (left : NSDate, right: NSTimeInterval) -> NSDate {
 	return left.dateByAddingTimeInterval(-right)
@@ -1296,56 +1412,6 @@ public class YearCalendarType : CalendarType {
 	}
 }
 
-public extension Int {
-	var seconds : NSTimeInterval {
-		return NSTimeInterval(self)
-	}
-	var second : NSTimeInterval {
-		return (self.seconds)
-	}
-	var minutes : NSTimeInterval {
-		return (self.seconds*60)
-	}
-	var minute : NSTimeInterval {
-		return self.minutes
-	}
-	var hours : NSTimeInterval {
-		return (self.minutes*60)
-	}
-	var hour : NSTimeInterval {
-		return self.hours
-	}
-	var days : NSTimeInterval {
-		return (self.hours*24)
-	}
-	var day : NSTimeInterval {
-		return self.days
-	}
-	var weeks : NSTimeInterval {
-		return (self.days*7)
-	}
-	var week : NSTimeInterval {
-		return self.weeks
-	}
-	var workWeeks : NSTimeInterval {
-		return (self.days*5)
-	}
-	var workWeek : NSTimeInterval {
-		return self.workWeeks
-	}
-	var months : MonthCalendarType {
-		return MonthCalendarType(amount: self)
-	}
-	var month : MonthCalendarType {
-		return self.months
-	}
-	var years : YearCalendarType {
-		return YearCalendarType(amount: self)
-	}
-	var year : YearCalendarType {
-		return self.years
-	}
-}
 
 //MARK: PRIVATE STRING EXTENSION
 

@@ -495,7 +495,7 @@ public extension NSDate {
 	*/
 	func toLocalTime() -> NSDate {
 		let tz : NSTimeZone = NSTimeZone.localTimeZone()
-		let secs : Int = -tz.secondsFromGMTForDate(self)
+		let secs : Int = tz.secondsFromGMTForDate(self)
 		return NSDate(timeInterval: NSTimeInterval(secs), sinceDate: self)
 	}
 	

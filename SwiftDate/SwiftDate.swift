@@ -1257,52 +1257,54 @@ public prefix func - (dateComponents: NSDateComponents) -> NSDateComponents {
 // MARK: - Helpers to enable expressions e.g. date + 1.days - 20.seconds
 
 public extension Int {
-    var nanoseconds: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.nanosecond = self
-        return dateComponents
-    }
-    var seconds: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.second = self
-        return dateComponents
-    }
-
-    var minutes: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.minute = self
-        return dateComponents
-    }
-
-    var hours: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.hour = self
-        return dateComponents
-    }
-
-    var days: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.day = self
-        return dateComponents
-    }
-
-    var weeks: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.weekOfYear = self
-        return dateComponents
-    }
-
-    var months: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.month = self
-        return dateComponents
-    }
-
-    var years: NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.year = self
-        return dateComponents
-    }
+	var seconds : NSTimeInterval {
+		return NSTimeInterval(self)
+	}
+	var second : NSTimeInterval {
+		return (self.seconds)
+	}
+	var minutes : MinuteCalendarType {
+		return MinuteCalendarType(amount: self)
+	}
+	var minute : MinuteCalendarType {
+		return self.minutes
+	}
+	var hours : HourCalendarType {
+		return HourCalendarType(amount: self)
+	}
+	var hour : HourCalendarType {
+		return self.hours
+	}
+	var days : DayCalendarType {
+		return DayCalendarType(amount: self)
+	}
+	var day : DayCalendarType {
+		return self.days
+	}
+	var weeks : DayCalendarType {
+		return (self*7).days
+	}
+	var week : DayCalendarType {
+		return self.weeks
+	}
+	var workWeeks : DayCalendarType {
+		return (self*5).days
+	}
+	var workWeek : DayCalendarType {
+		return self.workWeeks
+	}
+	var months : MonthCalendarType {
+		return MonthCalendarType(amount: self)
+	}
+	var month : MonthCalendarType {
+		return self.months
+	}
+	var years : YearCalendarType {
+		return YearCalendarType(amount: self)
+	}
+	var year : YearCalendarType {
+		return self.years
+	}
 }
 
 
@@ -1371,6 +1373,66 @@ public class CalendarType {
 	
 	func copy() -> CalendarType {
 		return CalendarType(amount: self.amount, calendarUnit: self.calendarUnit)
+	}
+}
+
+public class MinuteCalendarType : CalendarType {
+	
+	override init(amount : Int) {
+		super.init(amount: amount)
+		self.calendarUnit = NSCalendarUnit.Minute
+	}
+	
+	override func dateComponents() -> NSDateComponents {
+		let components = super.dateComponents()
+		components.minute = self.amount
+		return components
+	}
+	
+	override func copy() -> MinuteCalendarType {
+		let objCopy =  MinuteCalendarType(amount: self.amount)
+		objCopy.calendarUnit = self.calendarUnit
+		return objCopy;
+	}
+}
+
+public class HourCalendarType : CalendarType {
+	
+	override init(amount : Int) {
+		super.init(amount: amount)
+		self.calendarUnit = NSCalendarUnit.Hour
+	}
+	
+	override func dateComponents() -> NSDateComponents {
+		let components = super.dateComponents()
+		components.hour = self.amount
+		return components
+	}
+	
+	override func copy() -> HourCalendarType {
+		let objCopy =  HourCalendarType(amount: self.amount)
+		objCopy.calendarUnit = self.calendarUnit
+		return objCopy;
+	}
+}
+
+public class DayCalendarType : CalendarType {
+	
+	override init(amount : Int) {
+		super.init(amount: amount)
+		self.calendarUnit = NSCalendarUnit.Day
+	}
+	
+	override func dateComponents() -> NSDateComponents {
+		let components = super.dateComponents()
+		components.day = self.amount
+		return components
+	}
+	
+	override func copy() -> DayCalendarType {
+		let objCopy =  DayCalendarType(amount: self.amount)
+		objCopy.calendarUnit = self.calendarUnit
+		return objCopy;
 	}
 }
 

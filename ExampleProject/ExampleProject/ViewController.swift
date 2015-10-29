@@ -14,18 +14,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		print(NSDate())
-		print(NSDate().weekOfMonth)
-		
-		return
-		
         let date = NSDate()
         
         _ = date.toString(format: DateFormat.Custom("YYYY-MM-DD"))
 
         
         _ = date+1.days
-        let two_months_ago = (date-2.months)!
+        let two_months_ago = (date-2.months)
         print(two_months_ago.toLongDateString())
         
         
@@ -36,7 +31,7 @@ class ViewController: UIViewController {
         print(date_as_utc.toLongTimeString())
         print(date_as_beijing?.toLongTimeString())
         
-		let d = (NSDate()-1.hours)!
+		let d = (NSDate()-1.hours)
         
         print(d.year)
         

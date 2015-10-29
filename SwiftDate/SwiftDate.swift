@@ -1054,6 +1054,7 @@ private extension NSDate {
 			NSCalendarUnit.Minute ,
 			NSCalendarUnit.Second ,
 			NSCalendarUnit.Weekday ,
+			NSCalendarUnit.WeekOfMonth ,
 			NSCalendarUnit.WeekdayOrdinal,
 			NSCalendarUnit.WeekOfYear]
 	}

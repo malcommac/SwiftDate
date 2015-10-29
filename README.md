@@ -158,11 +158,11 @@ date = date.set(componentsDict: ["hour":12,"minute":55]); // Returns a new NSDat
 You can add single components to an existing date very easily:
 ```swift
 let date = NSDate()
-let tomorrow = date+1.day
+let tomorrow = date+1.days
 let 2_months_ago = date-2.months
-let next_year_today = date+1.year
+let next_year_today = date+1.years
 let another_date = date+54.seconds
-if date1+1.week == date2-1.month {
+if date1+1.week == date2-1.months {
 // some good stuff to do...
 }
 ```

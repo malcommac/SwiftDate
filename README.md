@@ -86,7 +86,7 @@ You can create a new NSDate objects by passing a String (and optionally a format
 let date_iso8601 = NSDate.date(fromString: "2015-01-05T22:10:55.200Z", format: DateFormat.ISO8601)
 let date_rss = NSDate.date(fromString: "Fri, 09 Sep 2011 15:26:08 +0200", format: DateFormat.RSS)
 let date_altrss = NSDate.date(fromString: "09 Sep 2011 15:26:08 +0200", format: DateFormat.AltRSS)
-let date_custom = NSDate.date(fromString: "22/01/2015", format: DateFormat.Custom("DD/MM/YYYY"))
+let date_custom = NSDate.date(fromString: "22/01/2015", format: DateFormat.Custom("dd/MM/yyyy"))
 ```
 You can also create a date by specifing indivually each component.
 This method accept a reference date to use (just use nil to start with the current NSDate()) and you can pass the components you want to alter (if you don't want to alter the current hour, for example, just pass nil as hour: parameter).

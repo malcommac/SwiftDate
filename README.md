@@ -72,6 +72,25 @@ Then, run the following command:
 $ pod install
 ```
 
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "malcommac/SwiftDate" ~> 1.2
+```
+
+Run `carthage` to build the framework and drag the built `SwiftDate.framework` into your Xcode project.
+
 ##API Documentation
 
 ###Introduction

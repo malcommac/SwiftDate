@@ -4,8 +4,8 @@
 
 ### Author
 Daniele Margutti  
-*web*: [www.danielemargutti.com](http://www.danielemargutti.com)  
-*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
+*web*: [www.danielemargutti.com](http://danielemargutti.com/)  
+*twitter*: [@danielemargutti](https://twitter.com/danielemargutti)  
 *mail*: me [at] danielemargutti dot com  
 *original post*: [blog](http://danielemargutti.com/how-to-manage-nsdate-easily-in-swift-with-swiftdate/)  
   
@@ -49,7 +49,7 @@ This library is licensed under MIT license and it's compatible with Swift 2.0+.
 
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects.
 CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```bash
@@ -350,4 +350,4 @@ SwiftDate was also inspired by other works.
 Some links:
 * [AFDateHelper](https://github.com/melvitax/AFDateHelper)
 * [Timepiece](https://github.com/naoty/Timepiece)
-* [MSDateFormatter](https://github.com/Namvt/MSDateFormatter)
+* [MSDateFormatter](https://github.com/michaelvu812/MSDateFormatter)

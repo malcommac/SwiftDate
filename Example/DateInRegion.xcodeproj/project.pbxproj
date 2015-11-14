@@ -7,14 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F6526161BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6526111BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift */; };
+		1F6526171BF40AF500FE66A4 /* DateInRegionEquationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6526121BF40AF500FE66A4 /* DateInRegionEquationsTests.swift */; };
+		1F6526181BF40AF500FE66A4 /* DateInRegionHashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6526131BF40AF500FE66A4 /* DateInRegionHashableTests.swift */; };
+		1F6526191BF40AF500FE66A4 /* DateInRegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6526141BF40AF500FE66A4 /* DateInRegionTests.swift */; };
+		1F65261A1BF40AF500FE66A4 /* DateRegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6526151BF40AF500FE66A4 /* DateRegionTests.swift */; };
 		1F962D61294C966CBB3104CA /* Pods_DateInRegion_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD66878F9127A230A7C3CA8 /* Pods_DateInRegion_Tests.framework */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		1FCDA6D71BF6696B0042ED0F /* NSDateComponentPortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDA6D41BF6696B0042ED0F /* NSDateComponentPortTests.swift */; };
+		1FCDA6D81BF6696B0042ED0F /* NSDateEquationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDA6D51BF6696B0042ED0F /* NSDateEquationsTests.swift */; };
+		1FCDA6D91BF6696B0042ED0F /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDA6D61BF6696B0042ED0F /* NSDateTests.swift */; };
+		FC1A89725BB161033593B76B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B4BF8EDDB707AF2F112AC3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		607FACE51AFB9204008FA782 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = DateInRegion_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6526111BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionComponentPortTests.swift; sourceTree = "<group>"; };
+		1F6526121BF40AF500FE66A4 /* DateInRegionEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionEquationsTests.swift; sourceTree = "<group>"; };
+		1F6526131BF40AF500FE66A4 /* DateInRegionHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionHashableTests.swift; sourceTree = "<group>"; };
+		1F6526141BF40AF500FE66A4 /* DateInRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionTests.swift; sourceTree = "<group>"; };
+		1F6526151BF40AF500FE66A4 /* DateRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRegionTests.swift; sourceTree = "<group>"; };
+		1FCDA6D41BF6696B0042ED0F /* NSDateComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentPortTests.swift; sourceTree = "<group>"; };
+		1FCDA6D51BF6696B0042ED0F /* NSDateEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEquationsTests.swift; sourceTree = "<group>"; };
+		1FCDA6D61BF6696B0042ED0F /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
+		21B4BF8EDDB707AF2F112AC3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* DateInRegion_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DateInRegion_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		757C646E19055461B9F662CF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		83B1DE83FC7764550F79551E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AFD66878F9127A230A7C3CA8 /* Pods_DateInRegion_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DateInRegion_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F962D61294C966CBB3104CA /* Pods_DateInRegion_Tests.framework in Frameworks */,
+				FC1A89725BB161033593B76B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +75,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACE51AFB9204008FA782 /* Tests.xctest */,
+				607FACE51AFB9204008FA782 /* DateInRegion_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,7 +83,14 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				1F6526111BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift */,
+				1F6526121BF40AF500FE66A4 /* DateInRegionEquationsTests.swift */,
+				1F6526131BF40AF500FE66A4 /* DateInRegionHashableTests.swift */,
+				1F6526141BF40AF500FE66A4 /* DateInRegionTests.swift */,
+				1F6526151BF40AF500FE66A4 /* DateRegionTests.swift */,
+				1FCDA6D41BF6696B0042ED0F /* NSDateComponentPortTests.swift */,
+				1FCDA6D51BF6696B0042ED0F /* NSDateEquationsTests.swift */,
+				1FCDA6D61BF6696B0042ED0F /* NSDateTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -94,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				AFD66878F9127A230A7C3CA8 /* Pods_DateInRegion_Tests.framework */,
+				21B4BF8EDDB707AF2F112AC3 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,7 +143,7 @@
 			);
 			name = DateInRegion_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* DateInRegion_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +152,8 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
@@ -192,7 +218,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DateInRegion_Tests/Pods-DateInRegion_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDC28EF0EB68FA6270E2EB71 /* Check Pods Manifest.lock */ = {
@@ -217,7 +243,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				1F6526171BF40AF500FE66A4 /* DateInRegionEquationsTests.swift in Sources */,
+				1F6526161BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift in Sources */,
+				1FCDA6D81BF6696B0042ED0F /* NSDateEquationsTests.swift in Sources */,
+				1F6526191BF40AF500FE66A4 /* DateInRegionTests.swift in Sources */,
+				1FCDA6D71BF6696B0042ED0F /* NSDateComponentPortTests.swift in Sources */,
+				1F65261A1BF40AF500FE66A4 /* DateRegionTests.swift in Sources */,
+				1FCDA6D91BF6696B0042ED0F /* NSDateTests.swift in Sources */,
+				1F6526181BF40AF500FE66A4 /* DateInRegionHashableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +278,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -260,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -298,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -309,17 +343,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E10F2F1AEB1DD7B12B420E05 /* Pods-DateInRegion_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DateInRegion_Example.app/DateInRegion_Example";
 			};
 			name = Debug;
@@ -328,12 +361,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF8D86CA15E1295A4560CED4 /* Pods-DateInRegion_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DateInRegion_Example.app/DateInRegion_Example";
 			};

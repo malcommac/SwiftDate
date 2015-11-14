@@ -1,10 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, "9.0"
+
 use_frameworks!
 
+pod "DateInRegion", :path => "../"
 
-target 'DateInRegion_Tests', :exclusive => true do
-  pod "DateInRegion", :path => "../"
-
-  pod 'Quick', '~> 0.3.1'
-  pod 'Nimble'
+target 'DateInRegion_Tests' do
+    pod 'Quick'
+    pod 'Nimble'
 end

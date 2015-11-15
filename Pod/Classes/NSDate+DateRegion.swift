@@ -9,29 +9,17 @@
 
 /// Extension for initialisation
 extension NSDate {
-
-    public convenience init?(components: NSDateComponents) {
-        if let dateInRegion = DateInRegion(components: components) {
-            self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
-        } else {
-            return nil
-        }
-    }
-
-    public convenience init?(refDate: NSDate,
+    public convenience init?(
         era: Int? = nil,
-        year: Int? = nil,
-        month: Int? = nil,
-        day: Int? = nil,
-        yearForWeekOfYear: Int? = nil,
-        weekOfYear: Int? = nil,
-        weekday: Int? = nil,
+        year: Int,
+        month: Int,
+        day: Int,
         hour: Int? = nil,
         minute: Int? = nil,
         second: Int? = nil,
-        nanosecond: Int? = nil) {
-            let refDateInRegion = refDate.dateInRegion
-            if let dateInRegion = DateInRegion(refDate: refDateInRegion, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) {
+        nanosecond: Int? = nil,
+        inRegion: DateRegion? = nil) {
+            if let dateInRegion = DateInRegion(era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: inRegion) {
                 self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
             } else {
                 return nil
@@ -40,14 +28,15 @@ extension NSDate {
 
     public convenience init?(
         era: Int? = nil,
-        year: Int? = nil,
-        month: Int? = nil,
-        day: Int,
+        yearForWeekOfYear: Int,
+        weekOfYear: Int,
+        weekday: Int,
         hour: Int? = nil,
         minute: Int? = nil,
         second: Int? = nil,
-        nanosecond: Int? = nil) {
-            if let thisDate = DateInRegion(era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) {
+        nanosecond: Int? = nil,
+        inRegion: DateRegion? = nil) {
+            if let thisDate = DateInRegion(era: era, yearForWeekOfYear: yearForWeekOfYear, weekOfYear: weekOfYear, weekday: weekday, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: inRegion) {
                 self.init(timeIntervalSinceReferenceDate: thisDate.timeIntervalSinceReferenceDate)
             } else {
                 return nil
@@ -55,19 +44,25 @@ extension NSDate {
     }
 
     public convenience init?(
-        era: Int? = nil,
-        yearForWeekOfYear: Int? = nil,
-        weekOfYear: Int? = nil,
-        weekday: Int,
-        hour: Int? = nil,
-        minute: Int? = nil,
-        second: Int? = nil,
-        nanosecond: Int? = nil) {
-            if let dateInRegion = DateInRegion(era: era, yearForWeekOfYear: yearForWeekOfYear, weekOfYear: weekOfYear, weekday: weekday, hour: hour, minute: minute, second: second, nanosecond: nanosecond) {
+        hour: Int,
+        minute: Int = 0,
+        second: Int = 0,
+        nanosecond: Int = 0,
+        referenceDate: NSDate = NSDate(),
+        inRegion: DateRegion? = nil) {
+            if let dateInRegion = DateInRegion(hour: hour, minute: minute, second: second, nanosecond: nanosecond, referenceDate: referenceDate, region: inRegion) {
                 self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
             } else {
                 return nil
             }
+    }
+
+    public convenience init?(components parComponents: NSDateComponents) {
+        if let dateInRegion = DateInRegion(components: parComponents) {
+            self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
+        } else {
+            return nil
+        }
     }
 
 }
@@ -75,7 +70,7 @@ extension NSDate {
 /// Extension to match DateInRegion
 extension NSDate {
     func inRegion(aRegion: DateRegion? = nil) -> DateInRegion {
-        return DateInRegion(date: self, region: aRegion)
+        return DateInRegion(date: self, region: aRegion!)
     }
 }
 
@@ -117,24 +112,17 @@ public func ==(ldate: NSDate, rdate: NSDate) -> Bool {
 /// Extension for components
 extension NSDate {
 
-    internal var dateRegion: DateRegion {
+    internal var region: DateRegion {
         return DateRegion()
     }
 
     internal var dateInRegion: DateInRegion {
-        return self.inRegion(DateRegion())
+        let region = DateRegion()
+        return self.inRegion(region)
     }
 
     public var components : NSDateComponents {
         return dateInRegion.components
-    }
-
-    public func withValue(value: Int, forUnit unit: NSCalendarUnit) -> NSDate? {
-        return dateInRegion.withValue(value, forUnit: unit)?.date
-    }
-
-    public func withValues(valueUnits: [(Int, NSCalendarUnit)]) -> NSDate? {
-        return dateInRegion.withValues(valueUnits)?.date
     }
 
     public var era: Int? {

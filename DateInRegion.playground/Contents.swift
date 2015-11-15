@@ -24,16 +24,30 @@ Check out the playground:
 
 import DateInRegion
 
+// First create some regions
+let local = DateRegion()
+let india = DateRegion(calendarID: NSCalendarIdentifierIndian, timeZoneID: "IST", localeID: "en_IN")
+let dubai = DateRegion(calendarID: NSCalendarIdentifierIslamic, timeZoneID: "GST", localeID: "ar_AE")
+let newZealand = DateRegion(calendarID: NSCalendarIdentifierGregorian, localeID: "en_NZ", timeZoneID: "Pacific/Auckland")
+let israel = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "Asia/Jerusalem", localeID: "he_IL")
+let china = DateRegion(calendarID: NSCalendarIdentifierChinese, timeZoneID: "CST", localeID: "zn_CH")
+let magadan = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "Asia/Magadan", localeID: "ru_RU")
+let thailand = DateRegion(calendarID: NSCalendarIdentifierBuddhist, timeZoneID: "Asia/Bangkok", localeID: "th_TH")
+let japan = DateRegion(calendarID: NSCalendarIdentifierBuddhist, timeZoneID: "Asia/Tokyo", localeID: "ja_JP")
+let unalaska = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "AKST", localeID: "en_US")
+let utc = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "UTC", localeID: "en_US_POSIX")
+
+
 //: #### Initialisers
 //: Create a new date object with the current date & time alike NSDate()
-let date = DateInRegion()
+let now = DateInRegion()
 
 //: Create a determined date
-let determinedDate = DateInRegion(year: 2011, month: 2, day: 11)!
+let newDate = DateInRegion(year: 2011, month: 2, day: 11)!
 
 //: Create a determined date in a different time zone
-let usaTimeZone = NSTimeZone(abbreviation: "EST")!
-var usaDate = DateInRegion(year: 2011, month: 2, day: 11, hour: 14, timeZone: usaTimeZone)!
+let newYork = DateRegion(timeZoneID: "EST")
+DateInRegion(fromDate: newDate, hour: 14, region: newYork)!
 
 //: Mind that default values for DateInRegion(year etc) are taken from the reference date,
 //: which is 1 January 2001, 00:00:00.000 in your default time zone and against your current calendar.
@@ -43,93 +57,62 @@ let weekDate = DateInRegion(yearForWeekOfYear: 2016, weekOfYear: 1, weekday: 1)!
 //: In Europe this week starts in 2015 despite the year for the week that is 2016.
 //: That is because the Thursday of this week is in 2016 as specified by ISO 8601
 
-//: Create a determined date in a different calendar
-let hebrewCalendar = NSCalendar(identifier: NSCalendarIdentifierHebrew)
-let hebrewDate = DateInRegion(year: 2011, month: 2, day: 11, hour: 14, calendar: hebrewCalendar)!
+// Conversions
+let unalaskaDate = now.inRegion(unalaska)
+let newYorkDate = now.inRegion(newYork)
+let indiaDate = now.inRegion(india)
+let dubaiDate = now.inRegion(dubai)
+let israelDate = now.inRegion(israel)
+let chinaDate = now.inRegion(china)
+let newZealandDate = now.inRegion(newZealand)
+let magadanDate = now.inRegion(magadan)
+let japanDate = now.inRegion(japan)
+let thailandDate = now.inRegion(thailand)
+let utcDate = now.inRegion(utc)
 
-//: Create today's date at start of day
-let today = DateInRegion.today()
+// Or convert to local
+let japanDate2 = DateInRegion(year: 2010, month: 4, day: 5, hour: 16, region: japan)!
+let localDate = japanDate2.inLocalRegion()
 
-//: Create a period that is the next weekend
-let weekend = today.nextWeekend()!
-let weekendStart = weekend.startDate
-let weekendEnd = weekend.endDate
+// Now look in regional format
+unalaskaDate.toString()
+newYorkDate.toString()
+indiaDate.toString()
+dubaiDate.toString()
+israelDate.toString()
+chinaDate.toString()
+magadanDate.toString()
+japanDate.toString()
+thailandDate.toString()
+newZealandDate.toString()
+utcDate.toString()
 
-//: #### Calculations
-//: One week later
-let oneWeekLater = (determinedDate + 1.weeks)!
+japanDate2.toString()
+localDate.toString()
 
-//: Twelve hours earlier
-let earlier = (determinedDate - 12.hours)!
+// Or get date components
+unalaskaDate.hour
+newYorkDate.hour
+indiaDate.hour
+dubaiDate.hour
+israelDate.hour
+chinaDate.hour
+magadanDate.hour
+japanDate.hour
+thailandDate.hour
+newZealandDate.hour
+utcDate.hour
 
-//: Or combinations
-let something = ((determinedDate - 12.hours)! + 30.minutes)!
-
-//: Create a new date based on another one with some different components
-let newDate = oneWeekLater.withValue(14, forUnit: .Hour)!
-
-//: ... or with a combination of components
-let newDate2 = oneWeekLater.withValues([(13, .Hour), (12, .Minute)])!
-
-//: #### NSDate
-newDate.timeIntervalSinceReferenceDate
-DateInRegion.earliestDate(newDate, newDate2, today, something)
-DateInRegion.latestDate(newDate, newDate2, today, something)
-
-//: #### Components
-newDate2.year
-newDate2.month
-newDate2.day
-
-newDate2.yearForWeekOfYear
-newDate2.weekOfYear
-newDate2.weekday
-
-newDate2.hour
-newDate2.minute
-newDate2.second
-
-//: #### StartOF & EndOF
-//: Create new dates based on this week's start & end
-let startOfWeek = newDate.startOf(.WeekOfYear)
-let endOfWeek = newDate.endOf(.WeekOfYear)
-
-//: Create new dates based on this day's start & end
-let startOfDay = newDate.startOf(.Day)
-let endOfDay = newDate.endOf(.Day)
-
-//: Create new dates based on this day's start & end
-let startOfYear = newDate.startOf(.Year)
-let endOfYear = newDate.endOf(.Year)
-
-//: #### Conversions
-//: Change time zone
-let usaDate2 = DateInRegion(refDate: newDate2, timeZone: usaTimeZone)
-
-//: Change and time zone calendar to Islamic in Dubai
-let dubaiTimeZone = NSTimeZone(abbreviation: "GST")!
-let dubaiCalendar = NSCalendar(identifier: NSCalendarIdentifierIslamicCivil)!
-let dubaiDate = DateInRegion(refDate: newDate2, calendar: dubaiCalendar, timeZone: dubaiTimeZone)
-
-//: Again, but now we go to New Delhi
-let indiaTimeZone = NSTimeZone(abbreviation: "IST")!
-let indiaCalendar = NSCalendar(identifier: NSCalendarIdentifierIndian)!
-let indiaDate = DateInRegion(refDate: newDate2, calendar: dubaiCalendar, timeZone: dubaiTimeZone)
 
 //: #### Equations
 //: DateInRegion conforms to the Equatable protocol. I.e. you can compare with == for equality.
-newDate == newDate2
+let newDate2 = DateInRegion(fromDate: newDate)
+let newDate3 = DateInRegion(fromDate: newDate, hour: 9)!
 newDate == newDate
-
-//: For equal date values, you should use x.isEqualToDate(y)
-let newDate3 = DateInRegion(refDate: newDate2)!
+newDate == newDate2
 newDate == newDate3
-let newDate4  = DateInRegion(refDate: newDate2, locale: NSLocale(localeIdentifier: "en_NZ"))!
-newDate4 == newDate3
-newDate.isEqualToDate(newDate3)
-newDate2.toString()
-newDate3.toString()
-newDate4.toString()
+
+//: For equal date values, you should use x.isEqualToDate(y) note that this compares the moment not the region
 
 //: #### Comparisons
 //: DateInRegion conforms to the Comparable protocol. I.e. you can compare with <. <=, ==, >=, >
@@ -141,8 +124,8 @@ newDate <= newDate2
 newDate < newDate2
 
 //: Mind that comparisons takes the absolute time from the date property into account.
-//: calendars and time zones have no effect on the comparison results.
-let date1 = DateInRegion(year: 2000, month: 1, day: 1, hour: 14, timeZone: NSTimeZone(abbreviation: "UTC"))!
+//: regions (calendars, time zones, locales, have no effect on the comparison results.
+let date1 = DateInRegion(year: 2000, month: 1, day: 1, hour: 14, region: utc)!
 let date2 = (date1 + 1.hours)!
 
 //: date1 = 14:00 UTC
@@ -150,7 +133,7 @@ let date2 = (date1 + 1.hours)!
 date1 > date2
 date1 < date2
 
-let indiaDate1 = DateInRegion(refDate: date1, calendar: indiaCalendar, timeZone: indiaTimeZone)!
+let indiaDate1 = DateInRegion(fromDate: date1, region: india)
 
 //: indiaDate1 = 19:30 IST
 //: date1 = 14:00 UTC
@@ -176,10 +159,18 @@ birthdays.sort({ (a: (date: DateInRegion, String), b: (date: DateInRegion, Strin
 
 
 
-//: #### Display
+//: #### Display & string conversion
 //: DateInRegion conforms to the ConvertString protocol
-date2.description
+chinaDate.description
+chinaDate.toString()
 
-//: Various NSDateFormatter properties are ported
-let date3 = (date1 + 7.hours)!
-date3.toString
+// Various string styles
+now.toString()!
+now.toString(.LongStyle)!
+now.toString(.MediumStyle)!
+now.toString(.ShortStyle)!
+now.toString(dateStyle: .ShortStyle)!
+now.toString(timeStyle: .MediumStyle)!
+now.toString(dateStyle: .LongStyle, timeStyle: .ShortStyle)!
+now.toString("YYYY")!
+now.toString("yy-mm-dd")!

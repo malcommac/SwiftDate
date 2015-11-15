@@ -42,7 +42,7 @@ class DateInRegionEquationsTests: QuickSpec {
 
             it("should return false for equating objects with different regions") {
                 let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: netherlands)!
-                let date2 = DateInRegion(refDate: date1, region: china)
+                let date2 = DateInRegion(year: 1999, month: 12, day: 31, region: china)!
 
                 expect(date1 == date2) == false
             }

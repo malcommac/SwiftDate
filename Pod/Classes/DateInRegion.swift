@@ -24,7 +24,7 @@ import Foundation
 
 // MARK: - Initialisations
 
-public struct DateInRegion {
+public class DateInRegion {
 
     /// Set to loop throuhg all NSCalendarUnit values
     ///
@@ -40,207 +40,257 @@ public struct DateInRegion {
     /// - warning: Please note that the date is immutable alike NSDate. This keeps the main datemvalue of this class thread safe.
     ///     If you want to assign a new value then you must assign it to a new instance of DateInRegion.
     ///
-    public let date: NSDate
+    public let date: NSDate!
 
     /// The date region where the date lives. Use it to represent the date.
     public let region: DateRegion
 
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
     ///
-    public var calendar: NSCalendar { return region.calendar }
+    public var calendar: NSCalendar! { return region.calendar }
 
     /// Time zone to interpret date values
     /// Because the time zone is part of calendar, this is a shortcut to that variable.
     /// You can alter the time zone to adjust the representation of date to your needs.
     ///
-    public var timeZone: NSTimeZone { return region.timeZone }
+    public var timeZone: NSTimeZone! { return region.timeZone }
 
     /// Locale to interpret date values
     /// Because the locale is part of calendar, this is a shortcut to that variable.
     /// You can alter the locale to adjust the representation of date to your needs.
     ///
-    public var locale: NSLocale { return region.locale }
-
-    /// Initialise with a date, a calendar and/or a time zone
-    ///
-    /// - Parameters:
-    ///     - date:       the date to assign, default = NSDate() (that is the current time)
-    ///     - region:     the date region to work with to assign, default = the current date region
-    ///
-    public init(date aDate: NSDate? = nil, region aRegion: DateRegion? = nil) {
-            date = aDate ?? NSDate()
-            region = aRegion ?? DateRegion()
-    }
-
-    /// Initialise with date components
-    ///
-    /// - Parameters:
-    ///     - components: date components according to which the date will be set.
-    ///         Default values are these of the reference date.
-    ///
-    /// - Returns: a new instance of DateInRegion. If a date cannot be constructed from
-    ///         the components, a nil value will be returned.
-    ///
-    /// - SeeAlso: [dateFromComponents](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSDateComponents_Class/)
-    ///
-    public init?(components: NSDateComponents) {
-        region = DateRegion(calendar: components.calendar, timeZone: components.timeZone, locale: components.calendar?.locale)
-        if let newDate = region.calendar.dateFromComponents(components) {
-            date = newDate
-        } else {
-            return nil
-        }
-    }
-
+    public var locale: NSLocale! { return region.locale }
 
     /// Initialise with a date, a region and  some properties.
     /// This initialiser can be used to copy a date while
     /// setting certain properties.
     ///
     /// - Parameters:
-    ///     - date:       the date to assign, default = NSDate() (that is the current time)
-    ///     - region:     the date region to work with to assign, default = the current date region
+    ///     - dateInRegion: the date to assign, default = NSDate() (that is the current time)
+    ///     - region:       the date region to work with to assign, default = the current date region
     ///
     /// Date and time property parameters can be used to alter the reference date properies in the context
     /// of the date region
     ///
-    public init?(refDate: DateInRegion,
-        era: Int? = nil,
-        year: Int? = nil,
-        month: Int? = nil,
-        day: Int? = nil,
-        yearForWeekOfYear: Int? = nil,
-        weekOfYear: Int? = nil,
-        weekday: Int? = nil,
-        hour: Int? = nil,
-        minute: Int? = nil,
-        second: Int? = nil,
-        nanosecond: Int? = nil,
-        region aRegion: DateRegion? = nil) {
-
-            let newRegion = aRegion ?? refDate.region ?? DateRegion()
-
-            // get components from reference date in new calendar
-            let components = newRegion.calendar.components(DateInRegion.componentFlags, fromDate: refDate.date)
-            if let newEra = era { components.era = newEra }
-            if let newYear = year { components.year = newYear }
-            if let newMonth = month { components.month = newMonth }
-            if let newDay = day { components.day = newDay }
-            if let newYearForWeekOfYear = yearForWeekOfYear { components.yearForWeekOfYear = newYearForWeekOfYear }
-            if let newWeekOfYear = weekOfYear { components.weekOfYear = newWeekOfYear }
-            if let newWeekday = weekday { components.weekday = newWeekday }
-            if let newHour = hour { components.hour = newHour }
-            if let newMinute = minute { components.minute = newMinute }
-            if let newSecond = second { components.second = newSecond }
-            if let newNanosecond = nanosecond { components.nanosecond = newNanosecond }
-            components.calendar = newRegion.calendar
-            components.timeZone = newRegion.timeZone
-
-            // determine way of conversion: year month day or year week weekday
-            var ymdFactor = 0
-            if components.year != NSDateComponentUndefined { ymdFactor++ }
-            if components.month != NSDateComponentUndefined { ymdFactor++ }
-            if components.day != NSDateComponentUndefined { ymdFactor++ }
-
-            var ywwFactor = 0
-            if components.yearForWeekOfYear != NSDateComponentUndefined { ywwFactor++ }
-            if components.weekOfYear != NSDateComponentUndefined { ywwFactor++ }
-            if components.weekday != NSDateComponentUndefined { ywwFactor++ }
-
-            if ywwFactor > ymdFactor {
-                components.year = NSDateComponentUndefined
-                components.month = NSDateComponentUndefined
-                components.day = NSDateComponentUndefined
-            } else if ymdFactor > 0 {
-                components.yearForWeekOfYear = NSDateComponentUndefined
-                components.weekOfYear = NSDateComponentUndefined
-                components.weekday = NSDateComponentUndefined
-                components.weekOfMonth = NSDateComponentUndefined
-            }
-
-            self.init(components: components)
+    public init(date newDate: NSDate = NSDate(), region newRegion: DateRegion = DateRegion()) {
+        date = newDate
+        region = newRegion
     }
-    
-    
-    /// Initialise with year month day date components
-    /// Parameters are interpreted based on the context of the calendar, time zone and locale.
-    /// The ``day`` parameter is compulsory. The other parameters can be left out
-    /// and will default to their values for the reference date.
-    ///
-    /// - Parameters:
-    ///     - calendar:   the calendar to work with to assign, default = the current calendar
-    ///     - timeZone:   the time zone to work with, default is the default time zone
-    ///     - locale:     the locale to work with, default is the current locale
-    ///
-    public init?(
+
+    public convenience init(
+        fromDate: DateInRegion,
+        region newRegion: DateRegion? = nil) {
+            self.init(date: fromDate.date, region: newRegion ?? fromDate.region)
+    }
+
+    public convenience init?(components newComponents: NSDateComponents) {
+        let newRegion = DateRegion(calendar: newComponents.calendar, timeZone: newComponents.timeZone, locale: newComponents.calendar?.locale)
+        if let newDate = newRegion.calendar.dateFromComponents(newComponents) {
+            self.init(date: newDate, region: newRegion)
+        } else {
+            return nil
+        }
+    }
+
+    public convenience init?(
+        fromDate: DateInRegion? = nil,
         era: Int? = nil,
-        year: Int? = nil,
-        month: Int? = nil,
+        year: Int,
+        month: Int,
         day: Int,
         hour: Int? = nil,
         minute: Int? = nil,
         second: Int? = nil,
         nanosecond: Int? = nil,
-        region aRegion: DateRegion = DateRegion()) {
+        region parRegion: DateRegion? = nil) {
 
-            let defaultComponents = DateInRegion.defaultComponents()
+            let newRegion = parRegion ?? fromDate?.region ?? DateRegion()
+            let defaultComponents = fromDate?.components
 
-            let components = NSDateComponents()
-            components.era = era ?? defaultComponents.era ?? NSDateComponentUndefined
-            components.year = year ?? defaultComponents.year ?? NSDateComponentUndefined
-            components.month = month ?? defaultComponents.month ?? NSDateComponentUndefined
-            components.day = day
-            components.hour = hour ?? defaultComponents.hour ?? NSDateComponentUndefined
-            components.minute = minute ?? defaultComponents.minute ?? NSDateComponentUndefined
-            components.second = second ?? defaultComponents.second ?? NSDateComponentUndefined
-            components.nanosecond = nanosecond ?? defaultComponents.nanosecond ?? NSDateComponentUndefined
-            components.timeZone = aRegion.timeZone
-            components.calendar = aRegion.calendar
+            let newComponents = NSDateComponents()
+            newComponents.era = era ?? defaultComponents?.era ?? 1
+            newComponents.year = year
+            newComponents.month = month
+            newComponents.day = day
+            newComponents.hour = hour ?? defaultComponents?.hour ?? 0
+            newComponents.minute = minute ?? defaultComponents?.minute ?? 0
+            newComponents.second = second ?? defaultComponents?.second ?? 0
+            newComponents.nanosecond = nanosecond ?? defaultComponents?.nanosecond ?? 0
+            newComponents.calendar = newRegion.calendar
+            newComponents.timeZone = newRegion.timeZone
 
-            self.init(components: components)
+            self.init(components: newComponents)
     }
-    
-    
-    /// Initialise with year-for-week-of-year, week-of-year and weekday date components
-    /// Parameters are interpreted based on the context of the calendar, time zone and locale.
-    /// The ``weekday`` parameter is compulsory. The other parameters can be left out
-    /// and will default to their values for the reference date.
-    ///
-    /// - Parameters:
-    ///     - calendar:   the calendar to work with to assign, default = the current calendar
-    ///     - timeZone:   the time zone to work with, default is the default time zone
-    ///     - locale:     the locale to work with, default is the current locale
-    ///
-    public init?(
+
+
+    public convenience init?(
+        fromDate: DateInRegion? = nil,
         era: Int? = nil,
-        yearForWeekOfYear: Int? = nil,
-        weekOfYear: Int? = nil,
+        yearForWeekOfYear: Int,
+        weekOfYear: Int,
         weekday: Int,
         hour: Int? = nil,
         minute: Int? = nil,
         second: Int? = nil,
         nanosecond: Int? = nil,
-        region aRegion: DateRegion? = nil) {
+        region parRegion: DateRegion? = nil) {
 
-            let newRegion = aRegion ?? DateRegion()
+            let newRegion = parRegion ?? fromDate?.region ?? DateRegion()
+            let defaultComponents = fromDate?.components
 
-            let defaultComponents = DateInRegion.defaultComponents()
+            let newComponents = NSDateComponents()
+            newComponents.era = era ?? defaultComponents?.era ?? 1
+            newComponents.yearForWeekOfYear = yearForWeekOfYear
+            newComponents.weekOfYear = weekOfYear
+            newComponents.weekday = weekday
+            newComponents.hour = hour ?? defaultComponents?.hour ?? 0
+            newComponents.minute = minute ?? defaultComponents?.minute ?? 0
+            newComponents.second = second ?? defaultComponents?.second ?? 0
+            newComponents.nanosecond = nanosecond ?? defaultComponents?.nanosecond ?? 0
+            newComponents.calendar = newRegion.calendar
+            newComponents.timeZone = newRegion.timeZone
 
-            let components = NSDateComponents()
-            components.era = era ?? defaultComponents.era ?? NSDateComponentUndefined
-            components.yearForWeekOfYear = yearForWeekOfYear ?? defaultComponents.yearForWeekOfYear ?? NSDateComponentUndefined
-            components.weekOfYear = weekOfYear ?? defaultComponents.weekOfYear ?? NSDateComponentUndefined
-            components.weekday = weekday
-            components.hour = hour ?? defaultComponents.hour ?? NSDateComponentUndefined
-            components.minute = minute ?? defaultComponents.minute ?? NSDateComponentUndefined
-            components.second = second ?? defaultComponents.second ?? NSDateComponentUndefined
-            components.nanosecond = nanosecond ?? defaultComponents.nanosecond ?? NSDateComponentUndefined
-            components.timeZone = newRegion.timeZone
-            components.calendar = newRegion.calendar
-
-            self.init(components: components)
+            self.init(components: newComponents)
     }
-    
+
+
+    public convenience init?(
+        fromDate: DateInRegion? = nil,
+        hour: Int,
+        minute: Int = 0,
+        second: Int = 0,
+        nanosecond: Int = 0,
+        referenceDate: NSDate = NSDate(),
+        region parRegion: DateRegion? = nil) {
+
+            // Date is today
+            let newRegion = parRegion ?? fromDate?.region ?? DateRegion()
+            let newComponents = newRegion.calendar.components([.Era, .Year, .Month, .Day], fromDate: NSDate())
+            newComponents.hour = hour
+            newComponents.minute = minute
+            newComponents.second = second
+            newComponents.nanosecond = nanosecond
+            newComponents.calendar = newRegion.calendar
+            newComponents.timeZone = newRegion.timeZone
+
+            self.init(components: newComponents)
+    }
+
+    public func inRegion(newRegion: DateRegion) -> DateInRegion {
+        return DateInRegion(fromDate: self, region: newRegion)
+    }
+
+    public func inLocalRegion() -> DateInRegion {
+        return DateInRegion(fromDate: self, region: DateRegion())
+    }
+
+    /// Initialise with a date, a region and  some properties.
+    /// This initialiser can be used to copy a date while
+    /// setting certain properties.
+    ///
+    /// - Parameters:
+    ///     - components:   date components according to which the date will be set.
+    ///     - dateInRegion: the date to assign, default = NSDate() (that is the current time)
+    ///     - dateIn:       the NSDate to assign, default = NSDate() (that is the current time)
+    ///     - region:       the date region to work with to assign, default = the current date region
+    ///
+    /// Date and time property parameters can be used to alter the reference date properies in the context
+    /// of the date region
+    ///
+    /*   public init?(
+    era: Int? = nil,
+    year: Int = nil,
+    month: Int = nil,
+    day: Int = nil,
+    yearForWeekOfYear: Int? = nil,
+    weekOfYear: Int? = nil,
+    weekday: Int? = nil,
+    hour: Int? = nil,
+    minute: Int? = nil,
+    second: Int? = nil,
+    nanosecond: Int? = nil,
+    components parComponents: NSDateComponents? = nil,
+    date copyDate: NSDate? = nil,
+    dateRegion copyDateRegion: DateRegion? = nil,
+    dateInRegion copyDateInRegion: DateInRegion? = nil) {
+
+    // Create default objects
+    let referenceDate = NSDate(timeIntervalSinceReferenceDate: 0)
+    let timeZone = NSTimeZone.defaultTimeZone()
+    let offset = NSTimeInterval(timeZone.secondsFromGMTForDate(referenceDate))
+    var newDate = NSDate(timeIntervalSinceReferenceDate: offset)
+    var newRegion = DateRegion()
+
+    // Construct new DateinRegion object fromthe bottom of the pararmeterlist up
+
+    if let dateInRegion = copyDateInRegion {
+    newRegion = dateInRegion.region
+    newDate = dateInRegion.date
+    }
+
+    if let dateRegion = copyDateRegion {
+    newRegion = DateRegion(region: dateRegion)
+    }
+
+    if let date = copyDate {
+    newDate = date
+    }
+
+    if let components = parComponents {
+    newRegion = DateRegion(calendar: components.calendar, timeZone: components.timeZone, locale: components.calendar?.locale, region: newRegion)
+    }
+
+    let newComponents = newRegion.calendar.components(DateInRegion.componentFlags, fromDate: newDate)
+    for unit in DateInRegion.componentFlagSet {
+    let value = newComponents.valueForComponent(unit)
+    if value != NSDateComponentUndefined {
+    newComponents.setValue(value, forComponent: unit)
+    }
+    }
+    if let newEra = era { newComponents.era = newEra }
+    if let newYear = year { newComponents.year = newYear }
+    if let newMonth = month { newComponents.month = newMonth }
+    if let newDay = day { newComponents.day = newDay }
+    if let newYearForWeekOfYear = yearForWeekOfYear { newComponents.yearForWeekOfYear = newYearForWeekOfYear }
+    if let newWeekOfYear = weekOfYear { newComponents.weekOfYear = newWeekOfYear }
+    if let newWeekday = weekday { newComponents.weekday = newWeekday }
+    if let newHour = hour { newComponents.hour = newHour }
+    if let newMinute = minute { newComponents.minute = newMinute }
+    if let newSecond = second { newComponents.second = newSecond }
+    if let newNanosecond = nanosecond { newComponents.nanosecond = newNanosecond }
+    newComponents.calendar = newRegion.calendar
+    newComponents.timeZone = newRegion.timeZone
+
+    // determine way of conversion: year month day or year week weekday
+    var ymdFactor = 0
+    if newComponents.year != NSDateComponentUndefined { ymdFactor++ }
+    if newComponents.month != NSDateComponentUndefined { ymdFactor++ }
+    if newComponents.day != NSDateComponentUndefined { ymdFactor++ }
+
+    var ywwFactor = 0
+    if newComponents.yearForWeekOfYear != NSDateComponentUndefined { ywwFactor++ }
+    if newComponents.weekOfYear != NSDateComponentUndefined { ywwFactor++ }
+    if newComponents.weekday != NSDateComponentUndefined { ywwFactor++ }
+
+    if ywwFactor > ymdFactor {
+    newComponents.year = NSDateComponentUndefined
+    newComponents.month = NSDateComponentUndefined
+    newComponents.day = NSDateComponentUndefined
+    } else if ymdFactor > 0 {
+    newComponents.yearForWeekOfYear = NSDateComponentUndefined
+    newComponents.weekOfYear = NSDateComponentUndefined
+    newComponents.weekday = NSDateComponentUndefined
+    newComponents.weekOfMonth = NSDateComponentUndefined
+    }
+
+    if let date = newRegion.calendar.dateFromComponents(newComponents) {
+    newDate = date
+    }
+
+    date = newDate
+    region = newRegion
+    }*/
+
 
     // MARK: - helper funcs
 

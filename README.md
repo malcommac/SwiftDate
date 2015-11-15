@@ -106,17 +106,17 @@ let endOfYear = newDate.endOf(.Year)
 
 //: #### Conversions
 //: Change time zone
-let usaDate2 = DateInRegion(refDate: newDate2, timeZone: usaTimeZone)
+let usaDate2 = DateInRegion(region: newDate2, timeZone: usaTimeZone)
 
 //: Change and time zone calendar to Islamic in Dubai
 let dubaiTimeZone = NSTimeZone(abbreviation: "GST")!
 let dubaiCalendar = NSCalendar(identifier: NSCalendarIdentifierIslamicCivil)!
-let dubaiDate = DateInRegion(refDate: newDate2, calendar: dubaiCalendar, timeZone: dubaiTimeZone)
+let dubaiDate = DateInRegion(region: newDate2, calendar: dubaiCalendar, timeZone: dubaiTimeZone)
 
 //: Again, but now we go to New Delhi
 let indiaTimeZone = NSTimeZone(abbreviation: "IST")!
 let indiaCalendar = NSCalendar(identifier: NSCalendarIdentifierIndian)!
-let indiaDate = DateInRegion(refDate: newDate2, calendar: dubaiCalendar, timeZone: dubaiTimeZone)
+let indiaDate = DateInRegion(region: newDate2, calendar: dubaiCalendar, timeZone: dubaiTimeZone)
 
 //: #### Equations
 //: DateInRegion conforms to the Equatable protocol. I.e. you can compare with == for equality.
@@ -124,9 +124,9 @@ newDate == newDate2
 newDate == newDate
 
 //: For equal date values, you should use x.isEqualToDate(y)
-let newDate3 = DateInRegion(refDate: newDate2)!
+let newDate3 = DateInRegion(region: newDate2)!
 newDate == newDate3
-let newDate4  = DateInRegion(refDate: newDate2, locale: NSLocale(localeIdentifier: "en_NZ"))!
+let newDate4  = DateInRegion(region: newDate2, locale: NSLocale(localeIdentifier: "en_NZ"))!
 newDate4 == newDate3
 newDate.isEqualToDate(newDate3)
 newDate2.toString()
@@ -152,7 +152,7 @@ let date2 = (date1 + 1.hours)!
 date1 > date2
 date1 < date2
 
-let indiaDate1 = DateInRegion(refDate: date1, calendar: indiaCalendar, timeZone: indiaTimeZone)!
+let indiaDate1 = DateInRegion(region: date1, calendar: indiaCalendar, timeZone: indiaTimeZone)!
 
 //: indiaDate1 = 19:30 IST
 //: date1 = 14:00 UTC

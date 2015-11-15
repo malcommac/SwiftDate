@@ -36,46 +36,6 @@ public extension DateInRegion {
         return value == NSDateComponentUndefined ? nil : value
     }
 
-    /// Returns a new DateInRegion object with self as base value and a value for a NSDateComponents object set.
-    ///
-    /// - Parameters:
-    ///     - value: value to be set for the unit
-    ///     - unit: specifies the calendrical unit that should be set
-    ///
-    /// - Returns: A new DateInRegion object with self as base and a specific component value set.
-    ///     If no date can be constructed from the value given, a nil will be returned
-    ///
-    /// - seealso: public func withValues(valueUnits: [(Int, NSCalendarUnit)]) -> DateInRegion?
-    ///
-    public func withValue(value: Int, forUnit unit: NSCalendarUnit) -> DateInRegion? {
-        let valueUnits = [(value, unit)]
-        return withValues(valueUnits)
-    }
-
-    /// Returns a new DateInRegion object with self as base value and a value for a NSDateComponents object set.
-    ///
-    /// - Parameters:
-    ///     - valueUnits: a set of tupels of values and units to be set
-    ///
-    /// - Returns: A new DateInRegion object with self as base and the component values set.
-    ///     If no date can be constructed from the values given, a nil will be returned
-    ///
-    /// - seealso: public func withValues(valueUnits: [(Int, NSCalendarUnit)]) -> DateInRegion?
-    ///
-    public func withValues(valueUnits: [(Int, NSCalendarUnit)]) -> DateInRegion? {
-        let newComponents = components
-        for valueUnit in valueUnits {
-            let value = valueUnit.0
-            let unit = valueUnit.1
-            newComponents.setValue(value, forComponent: unit)
-        }
-        let newDate = calendar.dateFromComponents(newComponents)
-        guard newDate != nil else {
-            return nil
-        }
-        return DateInRegion(date: newDate!, region: region)
-    }
-
     /// The number of era units for the receiver.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
@@ -220,7 +180,10 @@ public extension DateInRegion {
     public var leapYear: Bool {
         // Library function for leap contains a bug for Gregorian calendars, implemented workaround
         if calendar.calendarIdentifier == NSCalendarIdentifierGregorian {
-            let testDate = DateInRegion(refDate: self, month: 2, day: 1)!
+            let newComponents = components
+            newComponents.month = 2
+            newComponents.day = 10
+            let testDate = DateInRegion(components: newComponents)!
             return testDate.leapMonth
         }
 

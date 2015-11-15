@@ -61,12 +61,12 @@ class NSDateComponentPortSpec: QuickSpec {
                 it("should return a midnight date with nil YWD initialisation") {
 
                     // TODO: Mock timezone & calendar in region
-
-                    let date = NSDate(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4)!
+                    let newYork = DateRegion(localeID: "en_US")
+                    let date = NSDate(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, inRegion: newYork)!
 
                     expect(date.year) == 1492
                     expect(date.month) == 4
-                    expect(date.day) == 13
+                    expect(date.day) == 6
                     expect(date.hour) == 0
                     expect(date.minute) == 0
                     expect(date.second) == 0

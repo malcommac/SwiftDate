@@ -10,15 +10,17 @@
 
 import Quick
 import Nimble
+import SwiftRegExp
+
 @testable import DateInRegion
 
 class DateInRegionSpec: QuickSpec {
 
     override func spec() {
 
-        let newYork = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "EST", localeID: "en_US")
-        let netherlands = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-        let france = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "fr_FR")
+        let newYork = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "America/New York", localeID: "en_US")
+        let netherlands = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "Europe/Amsterdam", localeID: "nl_NL")
+        let france = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "Europe/Paris", localeID: "fr_FR")
         let utc = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "UTC", localeID: "en_UK")
 
         describe("DateInRegion") {
@@ -336,7 +338,11 @@ class DateInRegionSpec: QuickSpec {
                 let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: netherlands)!
 
                 it("Should output a proper description") {
-                    expect(date.description) == "31 dec. 1999 23:59:59"
+                    expect(date.description) == "31 dec. 1999 23:59:59; region: gregorian; Europe/Amsterdam:GMT+1; nl_NL"
+                }
+
+                it("Should output a proper debug description") {
+                    expect(date.debugDescription) == "UTC\t31 december 1999 22:59:59 GMT\nLocal\t31 december 1999 23:59:59 CET\nCalendar: gregorian\nTime zone: Europe/Amsterdam\nLocale: nl_NL"
                 }
             }
 

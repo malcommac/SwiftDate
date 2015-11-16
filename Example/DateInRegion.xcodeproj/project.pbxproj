@@ -138,6 +138,7 @@
 				607FACE31AFB9204008FA782 /* Resources */,
 				92699B0E1BA9C47E1F513760 /* Embed Pods Frameworks */,
 				03906C723EC40D5E482A6FA4 /* Copy Pods Resources */,
+				1FE72AF71BF9169F00F90974 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +208,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DateInRegion_Tests/Pods-DateInRegion_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1FE72AF71BF9169F00F90974 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
 		};
 		92699B0E1BA9C47E1F513760 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

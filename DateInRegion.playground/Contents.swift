@@ -2,11 +2,17 @@
 
 # DateInRegion
 
-DateInRegion is a wrapper around NSDate that exposes the properties of NSDateComponents, NSCalendar, NSTimeZone, NSLocale and NSDateFormatter. The best way to see it is as a localised (locale) moment (date) in a time zone (timeZone)within a calendrical system (calendar). Th eintention is to replace your occurrence of NSDate with DateInRegion and get the same functionality plus lots of local date/calendar/time zone/formatter goodies. Thus offering date functions with a flexibility that I was looking for when creating this library:
+DateInRegion is a wrapper around NSDate that exposes the properties of NSDateComponents, NSCalendar, NSTimeZone, NSLocale and NSDateFormatter. The best way to see it is as a localised (locale) moment (date) in a time zone (timeZone) within a calendrical system (calendar). The intention is to replace your occurrence of NSDate with DateInRegion and get the same functionality plus lots of local date/calendar/time zone/formatter goodies. Thus offering date functions with a flexibility that I was looking for when creating this library.
+
+An extension is available for NSDate with which enables you to map an NSDate object to a DateInRegion object by adding the region.
+
+### Features
 
 - Use the object as an NSDate. I.e. as an absolute time.
-- Offers many NSDate & NSDateComponent vars & methods
+- Offers many NSDate, NSCalendar, NSDateFormatter & NSDateComponent vars & methods
 - Initialise a date with any combination of components
+- DateInRegion is immutable, so thread safe. It contains a constructor to easily create new `DateInRegion` occurrences with some properties adjusted.
+- Implements date addition and subtraction operators with date components. E.g. `date + 2.days`
 - Default date is `NSDate()`
 - Default calendar is `NSCalendar.currentCalendar()`
 - Default time zone is `NSTimeZone.defaultTimeZone()`
@@ -14,12 +20,7 @@ DateInRegion is a wrapper around NSDate that exposes the properties of NSDateCom
 - Contains a date (NSDate), a calendar (NSCalendar), a locale (NSLocale) and a timeZone (NSTimeZone) property
 - Implements the ``Equatable`` & ``Comparable`` protocols betwen dates with operators. E.g. `==, !=, <, >, <=, >=`
 - Implements the ``Hashable`` protocol so the date can be used as a key in a Dictionary.
-- implements date addition and subtraction operators with date components. E.g. `date + 2.days`
-- DateInRegion is immutable, so thread safe. It contains a constructor to easily create new ``DateInRegion`` occurrences with some properties adjusted.
 
-
-### Examples
-Check out the playground:
 */
 
 import DateInRegion
@@ -92,16 +93,19 @@ localDate.toString()
 
 // Or get date components
 unalaskaDate.hour
-newYorkDate.hour
-indiaDate.hour
+unalaskaDate.day
+unalaskaDate.month
+unalaskaDate.year
+
 dubaiDate.hour
-israelDate.hour
-chinaDate.hour
+dubaiDate.day
+dubaiDate.month
+dubaiDate.year
+
 magadanDate.hour
-japanDate.hour
-thailandDate.hour
-newZealandDate.hour
-utcDate.hour
+magadanDate.day
+magadanDate.month
+magadanDate.year
 
 
 //: #### Equations
@@ -156,7 +160,6 @@ birthdays[DateInRegion(year: 1990, month: 12, day: 5)!] = "Sinterklaas"
 birthdays.sort({ (a: (date: DateInRegion, String), b: (date: DateInRegion, String)) -> Bool in
     return a.date < b.date
 })
-
 
 
 //: #### Display & string conversion

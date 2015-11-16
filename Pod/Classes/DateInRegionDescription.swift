@@ -15,7 +15,7 @@ extension DateInRegion : CustomDebugStringConvertible {
     /// Returns a full description of the class
     ///
     public var description: String {
-        return self.toString()!
+        return "\(self.toString()!); region: \(region)"
     }
 
     /// Returns a full debug description of the class
@@ -23,12 +23,15 @@ extension DateInRegion : CustomDebugStringConvertible {
     public var debugDescription: String {
         var descriptor: [String] = []
 
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
-        dateFormatter.calendar = calendar
-        dateFormatter.timeZone = timeZone
-        descriptor.append("UTC\t\(self.date)")
-        descriptor.append("Local\t\(dateFormatter.stringFromDate(self.date))")
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .LongStyle
+        formatter.timeStyle = .LongStyle
+        formatter.locale = self.locale
+        formatter.calendar = self.calendar
+        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        descriptor.append("UTC\t\(formatter.stringFromDate(self.date))")
+        formatter.timeZone = self.timeZone
+        descriptor.append("Local\t\(formatter.stringFromDate(self.date))")
 
         descriptor.append("Calendar: \(calendar.calendarIdentifier)")
         descriptor.append("Time zone: \(timeZone.name)")

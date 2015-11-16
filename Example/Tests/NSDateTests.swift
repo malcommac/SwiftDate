@@ -33,6 +33,8 @@ class NSDateSpec: QuickSpec {
                 it("should have the default region as default") {
                     let date = DateInRegion()
                     let expectedRegion = DateRegion()
+
+                    expect(date).toNot(beNil())
                     expect(date.region) == expectedRegion
                 }
 
@@ -42,25 +44,27 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should return the current date") {
-                    let jhDate = DateInRegion(region: netherlands)
+                    let jhDate = DateInRegion()
                     let nsDate = NSDate()
-                    let timeZone = NSTimeZone.defaultTimeZone()
-                    let expectedInterval = NSTimeInterval(Double(nsDate.timeIntervalSinceReferenceDate) + Double(timeZone.secondsFromGMT))
-                    expect(jhDate.timeIntervalSinceReferenceDate) ≈ (expectedInterval, 1)
+                    expect(jhDate.timeIntervalSinceReferenceDate) ≈ (nsDate.timeIntervalSinceReferenceDate, 1)
                 }
 
                 it("should return the specified date") {
-                    let calendar = NSCalendar(identifier: NSCalendarIdentifierJapanese)!
+                    let region = DateRegion(calendarID: NSCalendarIdentifierBuddhist, timeZoneID: "JST", localeID: "ja_JP")
                     let components = NSDateComponents()
                     components.year = 2345
                     components.month = 12
                     components.day = 5
-                    let nsDate = calendar.dateFromComponents(components)!
+                    components.calendar = region.calendar
+                    let nsDate = region.calendar.dateFromComponents(components)!
 
-                    let jhDate = DateInRegion(date: nsDate, region: netherlands)
+                    let jhDate = DateInRegion(date: nsDate, region: region)
 
-                    let expectedInterval = NSTimeInterval(Double(nsDate.timeIntervalSinceReferenceDate) + Double(calendar.timeZone.secondsFromGMTForDate(nsDate)))
-                    expect(jhDate.timeIntervalSinceReferenceDate) == expectedInterval
+                    expect(jhDate.day) == 5
+                    expect(jhDate.month) == 12
+                    expect(jhDate.day) == 5
+                    expect(jhDate.hour) == 0
+                    expect(jhDate.minute) == 0
                 }
             }
 
@@ -69,17 +73,9 @@ class NSDateSpec: QuickSpec {
                 it("should return a zero time interval for 1-Jan-2001 00:00:00.000 UTC") {
                     let refDate = NSDate(timeIntervalSinceReferenceDate: 0)
                     let date = DateInRegion(date: refDate, region: utc)
-
                     expect(date.timeIntervalSinceReferenceDate) == 0
                 }
                 
-                it("should return a 3600 time interval for 1-Jan-2001 00:00:00.000 CET") {
-                    let refDate = NSDate(timeIntervalSinceReferenceDate: 0)
-                    let date = DateInRegion(date: refDate, region: netherlands)
-
-                    expect(date.timeIntervalSinceReferenceDate) == 3600
-                }
-
                 it("should report the maximum date") {
                     let testDate = DateInRegion(year: 5, month: 2, day: 3, region: netherlands)!
                     let maxDate = DateInRegion.latestDate(
@@ -170,7 +166,7 @@ class NSDateSpec: QuickSpec {
 
                 it("should return a date of 0001-01-01 00:00:00.000 UTC for component initialisation") {
                     let components = NSDateComponents()
-                    let nsDate = NSCalendar.currentCalendar().dateFromComponents(components)
+                    let nsDate = NSCalendar.currentCalendar().dateFromComponents(components)!
                     let date = DateInRegion(components: components)!
                     let expectedDate = DateInRegion(date: nsDate)
 
@@ -274,7 +270,7 @@ class NSDateSpec: QuickSpec {
                     let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
                     let region2 = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "CET", localeID: "nl_NL")
                     let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                    let date2 = DateInRegion(refDate: date1, region: region2)!
+                    let date2 = DateInRegion(fromDate: date1, region: region2)
 
                     expect(date2.day) == 22
                     expect(date2.month) == 4
@@ -285,8 +281,7 @@ class NSDateSpec: QuickSpec {
                     let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "UTC", localeID: "nl_NL")
                     let region2 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "IST", localeID: "nl_NL")
                     let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                    let date2 = DateInRegion(refDate: date1, region: region2)!
-
+                    let date2 = DateInRegion(fromDate: date1, region: region2)
                     expect(date2.minute) == 30
                     expect(date2.hour) == 5
                     expect(date2.day) == 31
@@ -298,30 +293,11 @@ class NSDateSpec: QuickSpec {
                     let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
                     let region2 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "jp_JP")
                     let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                    let date2 = DateInRegion(refDate: date1, region: region2)!
+                    let date2 = DateInRegion(fromDate: date1, region: region2)
 
                     expect(date2.toString(dateStyle: .MediumStyle)) == "Dec 31, 1999"
                 }
                 
-            }
-
-            context("descriptions") {
-
-                var date: DateInRegion!
-                beforeEach {
-                    date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: netherlands)!
-                }
-
-                it("Should output a proper description") {
-                    let descriptions = date.description.componentsSeparatedByString(" ")
-
-                    expect(descriptions[0]) == "Date"
-                    expect(descriptions[1]) == "Fri"
-                    expect(descriptions[2]) == "31-Dec-1999"
-                    expect(descriptions[3]) == "AD"
-                    expect(descriptions[4]) == "23:59:59.500"
-                    expect(descriptions[5]) == "GMT+1"
-                }
             }
 
             context("date formatter") {
@@ -335,7 +311,7 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should assign calendar, time zone and locale properly") {
-                    let testDate = DateInRegion(refDate: date, region: china)!
+                    let testDate = DateInRegion(fromDate: date, region: china)
                     expect(testDate.toString()) == "佛历2542年12月31日 下午11:59:59"
                 }
 
@@ -614,7 +590,7 @@ class NSDateSpec: QuickSpec {
             }
             
             it("should return start of week in USA") {
-                let usaDate = DateInRegion(refDate: date, region: newYork)!
+                let usaDate = DateInRegion(fromDate: date, region: newYork)
                 let testDate = usaDate.startOf(.WeekOfYear)!
 
                 expect(testDate.year) == 1999
@@ -707,7 +683,7 @@ class NSDateSpec: QuickSpec {
         context("Copying") {
             it("should create a copy and not a reference") {
                 let a = DateInRegion()
-                let b = DateInRegion(refDate: a)!
+                let b = DateInRegion(fromDate: a)
 
                 expect(a) == b
             }

@@ -1,9 +1,6 @@
-# DateInRegion
+/*:
 
-[![Build Status](https://travis-ci.org/Hout/DateInRegion.svg?branch=master)](https://travis-ci.org/Hout/DateInRegion)
-[![Version](https://img.shields.io/cocoapods/v/DateInRegion.svg?style=flat)](http://cocoapods.org/pods/DateInRegion)
-[![License](https://img.shields.io/cocoapods/l/DateInRegion.svg?style=flat)](http://cocoapods.org/pods/DateInRegion)
-[![Platform](https://img.shields.io/cocoapods/p/DateInRegion.svg?style=flat)](http://cocoapods.org/pods/DateInRegion)
+# DateInRegion
 
 DateInRegion is a wrapper around NSDate that exposes the properties of NSDateComponents, NSCalendar, NSTimeZone, NSLocale and NSDateFormatter. The best way to see it is as a localised (locale) moment (date) in a time zone (timeZone) within a calendrical system (calendar). The intention is to replace your occurrence of NSDate with DateInRegion and get the same functionality plus lots of local date/calendar/time zone/formatter goodies. Thus offering date functions with a flexibility that I was looking for when creating this library.
 
@@ -11,7 +8,7 @@ An extension is available for NSDate with which enables you to map an NSDate obj
 
 ### Features
 
-- Use the object as an NSDate. I.e. as an absolute time. 
+- Use the object as an NSDate. I.e. as an absolute time.
 - Offers many NSDate, NSCalendar, NSDateFormatter & NSDateComponent vars & methods
 - Initialise a date with any combination of components
 - DateInRegion is immutable, so thread safe. It contains a constructor to easily create new `DateInRegion` occurrences with some properties adjusted.
@@ -24,10 +21,8 @@ An extension is available for NSDate with which enables you to map an NSDate obj
 - Implements the ``Equatable`` & ``Comparable`` protocols betwen dates with operators. E.g. `==, !=, <, >, <=, >=`
 - Implements the ``Hashable`` protocol so the date can be used as a key in a Dictionary.
 
-### Examples
-Check out the playground:
+*/
 
-```swift
 import DateInRegion
 
 // First create some regions
@@ -163,9 +158,8 @@ birthdays[DateInRegion(year: 1997, month: 5, day: 7)!] = "Jerry"
 birthdays[DateInRegion(year: 1999, month: 12, day: 14)!] = "Ken"
 birthdays[DateInRegion(year: 1990, month: 12, day: 5)!] = "Sinterklaas"
 birthdays.sort({ (a: (date: DateInRegion, String), b: (date: DateInRegion, String)) -> Bool in
-return a.date < b.date
+    return a.date < b.date
 })
-
 
 
 //: #### Display & string conversion
@@ -183,62 +177,3 @@ now.toString(timeStyle: .MediumStyle)!
 now.toString(dateStyle: .LongStyle, timeStyle: .ShortStyle)!
 now.toString("YYYY")!
 now.toString("yy-mm-dd")!
-```
-
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-iOS 9 is required.
-The test code requires Quick and Nimble to be implemented. You can do so by running ``pod install`` in the ``Examples`` folder.
-
-## Installation
-
-### Cocoapods
-DateInRegion is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "DateInRegion"
-```
-### Manual
-Get a git clone and add ``DateInRegion.swift`` to your project.
-
-```shell
-git clone https://github.com/Hout/DateInRegion.git
-```
-
-## Design Decisions
-I have taken the following decisions when setting up the library. I welcome  feedback on them.
-
-Decision | Rationale
-------------- | -------------
-Do not include an initialiser from string  | That is too complicated with all the different ways of notation in the world. It would have too little benefit next to the currently available convenience intialisers instead.
-Do not attempt to mimic all properties and functions of the NSDateFormatter, NSDateComponents etc. E.g. NSDateFormatter's ``localizedStringFromDate`` or ``weekdaySymbols`` | Sometimes it is just easier to use the ``date`` property from ``DateInRegion`` instead.
-Equation ``==`` is not for just the date value but for the whole object | Alike NSObject regulations; although objects do not have to be the same instance, they must contain equal properties
-
-## Author
-
-Jeroen Houtzager, pls contact me through GitHub
-
-## Collaboration
-
-if you would like to contribute:
-
-- Fork
-- Send pull requests
-- Submit issues
-- Challenge the design decisions
-- Challenge coding
-- Challenge anything!
-
-These libs & authors inspired me to this code:
-
-- [SwiftDate](https://github.com/malcommac/SwiftDate) from Daniele Margutti. I recommend this one if you are looking for a plain Swift NSDate extension.
-
-
-## License
-
-DateInRegion is available under the MIT license. See the LICENSE file for more info.

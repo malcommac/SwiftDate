@@ -19,7 +19,8 @@ class DateregionSpec: QuickSpec {
         describe("DateRegion") {
 
             let region = DateRegion()
-            let hebrew = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "IST", localeID: "he_IL")
+            let india = DateRegion(calendarID: NSCalendarIdentifierIndian, timeZoneID: "IST", localeID: "en_IN")
+            let hebrew = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "Asia/Jerusalem", localeID: "he_IL")
 
             context("initialisation") {
 
@@ -36,7 +37,11 @@ class DateregionSpec: QuickSpec {
                 }
 
                 it("should have the specified time zone") {
-                    expect(hebrew.timeZone) == NSTimeZone(abbreviation: "IST")!
+                    expect(hebrew.timeZone) == NSTimeZone(name: "Asia/Jerusalem")
+                }
+
+                it("should have the specified time zone") {
+                    expect(india.timeZone) == NSTimeZone(abbreviation: "IST")!
                 }
 
                 it("should have the specified locale") {

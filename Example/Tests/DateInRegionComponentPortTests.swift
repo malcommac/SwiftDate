@@ -78,6 +78,22 @@ class DateInRegionComponentPortSpec: QuickSpec {
                     expect(date.valueForComponent(.Weekday)) == 4
                 }
 
+                it("should report a valid hour") {
+                    expect(date.valueForComponent(.Hour)) == 0
+                }
+
+                it("should report a valid minute") {
+                    expect(date.valueForComponent(.Minute)) == 0
+                }
+
+                it("should report a valid second") {
+                    expect(date.valueForComponent(.Second)) == 0
+                }
+
+                it("should report a valid nanosecond") {
+                    expect(date.valueForComponent(.Nanosecond)) == 0
+                }
+                
             }
             
         }
@@ -90,17 +106,19 @@ class DateInRegionComponentPortSpec: QuickSpec {
 
             context("component initialisation") {
 
-                it("should return a midnight date with nil YMD initialisation with UTC time zone") {
-                    let date = DateInRegion(year: 1912, month: 6, day: 23, region: utc)!
+                it("should return a midnight date with nil YMD initialisation in various regions") {
+                    for region in [newYork, netherlands, utc] {
+                        let date = DateInRegion(year: 1912, month: 6, day: 23, region: region)!
 
-                    expect(date.year) == 1912
-                    expect(date.month) == 6
-                    expect(date.day) == 23
-                    expect(date.hour) == 0
-                    expect(date.minute) == 0
-                    expect(date.second) == 0
-                    expect(date.nanosecond) == 0
-                    expect(date.region) == utc
+                        expect(date.year) == 1912
+                        expect(date.month) == 6
+                        expect(date.day) == 23
+                        expect(date.hour) == 0
+                        expect(date.minute) == 0
+                        expect(date.second) == 0
+                        expect(date.nanosecond) == 0
+                        expect(date.region) == region
+                    }
                 }
 
 
@@ -118,27 +136,14 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 }
 
 
-                it("should return a midnight date with nil YWD initialisation") {
-                    let date = DateInRegion(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, region: netherlands)!
-
-                    expect(date.year) == 1492
-                    expect(date.month) == 4
-                    expect(date.day) == 13
-                    expect(date.hour) == 0
-                    expect(date.minute) == 0
-                    expect(date.second) == 0
-                    expect(date.nanosecond) == 0
-                    expect(date.region) == netherlands
-                }
-
-
                 it("should return a 123 date for YMD initialisation") {
                     let date = DateInRegion(year: 1999, month: 12, day: 31)!
 
                     expect(date.year) == 1999
                     expect(date.month) == 12
                     expect(date.day) == 31
-                }
+                    expect(date.region) == DateRegion()
+               }
 
                 it("should return a 123 date for YWD initialisation") {
                     let date = DateInRegion(yearForWeekOfYear: 2016, weekOfYear: 1, weekday: 1)!

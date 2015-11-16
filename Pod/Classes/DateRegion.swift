@@ -10,19 +10,19 @@ public class DateRegion: Equatable {
 
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
     ///
-    public let calendar: NSCalendar
+    public let calendar: NSCalendar!
 
     /// Time zone to interpret date values
     /// Because the time zone is part of calendar, this is a shortcut to that variable.
     /// You can alter the time zone to adjust the representation of date to your needs.
     ///
-    public let timeZone: NSTimeZone
+    public let timeZone: NSTimeZone!
 
     /// Locale to interpret date values
     /// Because the locale is part of calendar, this is a shortcut to that variable.
     /// You can alter the locale to adjust the representation of date to your needs.
     ///
-    public let locale: NSLocale
+    public let locale: NSLocale!
     
     /// Initialise with a calendar and/or a time zone
     ///
@@ -33,9 +33,10 @@ public class DateRegion: Equatable {
     ///     - calendarID: the calendar ID to work with to assign, default = the current calendar
     ///     - timeZoneID: the time zone ID to work with, default is the default time zone
     ///     - localeID:   the locale ID to work with, default is the current locale
+    ///     - region:     a region to copy
     ///
-    /// - Note: the object parameters take precedence over the ID parameters. E.g. 
-    ///     `DateRegion(locale: mylocale, localeID: "en_AU")` will prefer mylocale over Australian English.
+    /// - Note: parameters higher in the list take precedence over parameters lower in the list. E.g.
+    ///     `DateRegion(locale: mylocale, localeID: "en_AU", region)` will copy region and set locale to mylocale, not `en_AU`.
     ///
     public init(
         calendarID: String = "",
@@ -43,10 +44,11 @@ public class DateRegion: Equatable {
         localeID: String = "",
         calendar aCalendar: NSCalendar? = nil,
         timeZone aTimeZone: NSTimeZone? = nil,
-        locale aLocale: NSLocale? = nil) {
-            calendar = aCalendar ?? NSCalendar(calendarIdentifier: calendarID) ?? NSCalendar.currentCalendar()
-            timeZone = aTimeZone ?? NSTimeZone(abbreviation: timeZoneID) ?? NSTimeZone.defaultTimeZone()
-            locale = aLocale ?? (localeID != "" ? NSLocale(localeIdentifier: localeID) : nil) ?? aCalendar?.locale ?? NSLocale.currentLocale()
+        locale aLocale: NSLocale? = nil,
+        region: DateRegion? = nil) {
+            calendar = aCalendar ?? NSCalendar(calendarIdentifier: calendarID) ?? region?.calendar ?? NSCalendar.currentCalendar()
+            timeZone = aTimeZone ?? NSTimeZone(abbreviation: timeZoneID) ?? NSTimeZone(name: timeZoneID) ?? region?.timeZone ?? NSTimeZone.defaultTimeZone()
+            locale = aLocale ?? (localeID != "" ? NSLocale(localeIdentifier: localeID) : nil) ?? region?.locale ?? aCalendar?.locale ?? NSLocale.currentLocale()
 
             // Assign calendar fields
             calendar.timeZone = timeZone
@@ -60,7 +62,7 @@ public class DateRegion: Equatable {
     public func today() -> DateInRegion {
         let components = calendar.components([.Era, .Year, .Month, .Day, .Calendar, .TimeZone], fromDate: NSDate())
         let date = calendar.dateFromComponents(components)!
-        return DateInRegion(date: date, region: self)
+        return DateInRegion(region: self, date: date)
     }
 
     /// Yesterday's date
@@ -105,6 +107,6 @@ extension DateRegion : Hashable {
 
 extension DateRegion : CustomStringConvertible {
     public var description: String {
-        return "\(calendar.calendarIdentifier); \(timeZone.abbreviation); \(locale.localeIdentifier)"
+        return "\(calendar.calendarIdentifier); \(timeZone.name):\(timeZone.abbreviation ?? ""); \(locale.localeIdentifier)"
     }
 }

@@ -18,13 +18,13 @@ extension DateInRegion {
     ///
     public var timeIntervalSinceReferenceDate: NSTimeInterval {
 
-        // Reference date = midnight at 1 January 2001 in the local time zone
+        // Reference date = midnight at 1 January 2001 UTC
         let theseComponents = NSDateComponents()
         theseComponents.year = 2001
         theseComponents.month = 1
         theseComponents.day = 1
         theseComponents.calendar = calendar
-        theseComponents.timeZone = timeZone
+        theseComponents.timeZone = NSTimeZone(forSecondsFromGMT: 0)
 
         let referenceDate = calendar.dateFromComponents(theseComponents)!
 
@@ -36,7 +36,7 @@ extension DateInRegion {
     /// - Returns: A ``DateInRegion`` object representing a date in the distant past (in terms of centuries).
     ///
     public static func distantFuture() -> DateInRegion {
-        return DateInRegion(date: NSDate.distantFuture(), region: nil)
+        return DateInRegion(date: NSDate.distantFuture())
     }
 
     /// Creates and returns a DateInRegion object representing a date in the distant future (in terms of centuries).
@@ -44,7 +44,7 @@ extension DateInRegion {
     /// - Returns: A ``DateInRegion`` object representing a date in the distant future (in terms of centuries).
     ///
     public static func distantPast() -> DateInRegion {
-        return DateInRegion(date: NSDate.distantPast(), region: nil)
+        return DateInRegion(date: NSDate.distantPast())
     }
 
     /// Returns a DateInRegion object representing a date that is the earliest from a given range of dates.

@@ -20,14 +20,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F6526111BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionComponentPortTests.swift; sourceTree = "<group>"; };
-		1F6526121BF40AF500FE66A4 /* DateInRegionEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionEquationsTests.swift; sourceTree = "<group>"; };
-		1F6526131BF40AF500FE66A4 /* DateInRegionHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionHashableTests.swift; sourceTree = "<group>"; };
-		1F6526141BF40AF500FE66A4 /* DateInRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionTests.swift; sourceTree = "<group>"; };
+		1F0724A51BF74AA9005407FD /* DateInRegion.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = DateInRegion.playground; path = ../DateInRegion.playground; sourceTree = "<group>"; };
+		1F6526111BF40AF500FE66A4 /* DateInRegionComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DateInRegionComponentPortTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1F6526121BF40AF500FE66A4 /* DateInRegionEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DateInRegionEquationsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1F6526131BF40AF500FE66A4 /* DateInRegionHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DateInRegionHashableTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1F6526141BF40AF500FE66A4 /* DateInRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DateInRegionTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1F6526151BF40AF500FE66A4 /* DateRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRegionTests.swift; sourceTree = "<group>"; };
 		1FCDA6D41BF6696B0042ED0F /* NSDateComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentPortTests.swift; sourceTree = "<group>"; };
 		1FCDA6D51BF6696B0042ED0F /* NSDateEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEquationsTests.swift; sourceTree = "<group>"; };
-		1FCDA6D61BF6696B0042ED0F /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
+		1FCDA6D61BF6696B0042ED0F /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NSDateTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		21B4BF8EDDB707AF2F112AC3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* DateInRegion_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DateInRegion_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				1F0724A51BF74AA9005407FD /* DateInRegion.playground */,
 				C6E2EAFCD908782B8F716063 /* DateInRegion.podspec */,
 				83B1DE83FC7764550F79551E /* README.md */,
 				757C646E19055461B9F662CF /* LICENSE */,
@@ -136,6 +138,7 @@
 				607FACE31AFB9204008FA782 /* Resources */,
 				92699B0E1BA9C47E1F513760 /* Embed Pods Frameworks */,
 				03906C723EC40D5E482A6FA4 /* Copy Pods Resources */,
+				1FE72AF71BF9169F00F90974 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -205,6 +208,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DateInRegion_Tests/Pods-DateInRegion_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1FE72AF71BF9169F00F90974 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
 		};
 		92699B0E1BA9C47E1F513760 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

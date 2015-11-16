@@ -191,6 +191,19 @@ public extension DateInRegion {
         return calendar.components([.Day, .Month, .Year], fromDate: date).leapMonth
     }
 
+    /// Returns two DateInRegion objects indicating the start and the end of the current weekend .
+    ///
+    /// - Returns: a tuple of two DateInRegion objects indicating the start and the end of the current weekend.
+    ///     If this is nto a weekend, then `nil` is returned.
+    ///
+    public func thisWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
+        guard calendar.isDateInWeekend(self.date) else {
+            return nil
+        }
+        let date = (self - 2.days)!
+        return date.nextWeekend()
+    }
+
     /// Returns two DateInRegion objects indicating the start and the end of the previous weekend before the date.
     ///
     /// - Returns: a tuple of two DateInRegion objects indicating the start and the end of the next weekend after the date.

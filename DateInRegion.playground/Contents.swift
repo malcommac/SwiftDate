@@ -107,6 +107,13 @@ magadanDate.day
 magadanDate.month
 magadanDate.year
 
+// NSDate conversions
+let nsDate = NSDate()
+nsDate.inRegion(newYork).toString()
+nsDate.inRegion(utc).toString()
+nsDate.inRegion(magadan).toString()
+nsDate.inRegion(newZealand).toString()
+
 
 //: #### Equations
 //: DateInRegion conforms to the Equatable protocol. I.e. you can compare with == for equality.

@@ -67,7 +67,7 @@ class DateInRegionSpec: QuickSpec {
                     expect(jhDate.timeIntervalSinceReferenceDate) == expectedInterval
                 }
             }
-
+/*
             context("DefaultComponents") {
 
                 it("should return 1-Jan-2001 00:00:00.000 in the local time zone") {
@@ -85,7 +85,7 @@ class DateInRegionSpec: QuickSpec {
                 }
 
             }
-
+*/
             context("NSDate ports") {
 
                 it("should return a zero time interval for 1-Jan-2001 00:00:00.000 UTC") {

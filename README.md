@@ -215,6 +215,8 @@ I have taken the following decisions when setting up the library. I welcome  fee
 
 Decision | Rationale
 ------------- | -------------
+Primary function of `DateInRegion` is to be able to switch and convert dates between regions. Not to deal with dates in the local region, although it can be used for that.|That is just the way I needed it :-)
+`DateInRegion` is not an extension to `NSDate` | `NSDate` extensions in general represent the current date in various formats. Extensions also limit the class as you cannot add stored properties. The latter I need to store the regional data (calendar, time zone & locale). Cocoapods offers plenty `NSDate` extensions e.g. [SwiftDate](www.cocoapods.com/pods/SwiftDate).
 Do not include an initialiser from string  | That is too complicated with all the different ways of notation in the world. It would have too little benefit next to the currently available convenience intialisers instead.
 Do not attempt to mimic all properties and functions of the NSDateFormatter, NSDateComponents etc. E.g. NSDateFormatter's ``localizedStringFromDate`` or ``weekdaySymbols`` | Sometimes it is just easier to use the ``date`` property from ``DateInRegion`` instead.
 Equation ``==`` is not for just the date value but for the whole object | Alike NSObject regulations; although objects do not have to be the same instance, they must contain equal properties

@@ -84,9 +84,9 @@ public extension NSDate {
 	var year : Int			{ return components.year }
 	/// Get the month component of the date
 	var month : Int			{ return components.month }
-	// Get the week of the month component of the date
+	/// Get the week of the month component of the date
 	var weekOfMonth: Int	{ return components.weekOfMonth }
-	// Get the week of the month component of the date
+	/// Get the week of the month component of the date
 	var weekOfYear: Int		{ return components.weekOfYear }
 	/// Get the weekday component of the date
 	var weekday: Int		{ return components.weekday }
@@ -98,17 +98,17 @@ public extension NSDate {
 	var hour: Int			{ return components.hour }
 	/// Get the minute component of the date
 	var minute: Int			{ return components.minute }
-	// Get the second component of the date
+	/// Get the second component of the date
 	var second: Int			{ return components.second }
-	// Get the era component of the date
+	/// Get the era component of the date
 	var era: Int			{ return components.era }
-	// Get the current month name based upon current locale
+	/// Get the current month name based upon current locale
 	var monthName: String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		dateFormatter.locale = NSLocale.autoupdatingCurrentLocale()
 		return dateFormatter.monthSymbols[month - 1] as String
 	}
-	// Get the current weekday name
+	/// Get the current weekday name
 	var weekdayName: String {
 		let dateFormatter = NSDate.localThreadDateFormatter()
 		dateFormatter.locale = NSLocale.autoupdatingCurrentLocale()

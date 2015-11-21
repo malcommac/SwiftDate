@@ -1379,6 +1379,29 @@ public class CalendarType {
 	func copy() -> CalendarType {
 		return CalendarType(amount: self.amount, calendarUnit: self.calendarUnit)
 	}
+    
+    private var calendarUnitInSeconds : Int {
+        switch calendarUnit {
+        case NSCalendarUnit.Day:
+            return 86_400
+        case NSCalendarUnit.Hour:
+            return 3600
+        case NSCalendarUnit.Minute:
+            return 60
+        case NSCalendarUnit.Second:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+    var fromNow: NSDate? {
+        return NSDate(timeIntervalSinceNow: NSTimeInterval(amount))
+    }
+    
+    var ago: NSDate? {
+        return NSDate(timeIntervalSinceNow: -NSTimeInterval(amount))
+    }
 }
 
 public class MinuteCalendarType : CalendarType {

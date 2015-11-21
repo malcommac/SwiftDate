@@ -176,6 +176,9 @@ public extension NSDate {
 			dateFormatter.timeZone = NSTimeZone.localTimeZone()
 			dateFormatter.dateFormat = ISO8601Formatter(fromString: string)
 			return dateFormatter.dateFromString(string)
+        case .ISO8601Date:
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.dateFromString(string)
 		case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 			var formattedString : NSString = string
 			if formattedString.hasSuffix("Z") {
@@ -866,7 +869,9 @@ public extension NSDate {
 		var dateFormat: String
 		switch format {
 		case .ISO8601:
-			dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        case .ISO8601Date:
+            dateFormat = "yyyy-MM-dd"
 		case .RSS:
 			dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
 		case .AltRSS:
@@ -1374,6 +1379,29 @@ public class CalendarType {
 	func copy() -> CalendarType {
 		return CalendarType(amount: self.amount, calendarUnit: self.calendarUnit)
 	}
+    
+    private var calendarUnitInSeconds : Int {
+        switch calendarUnit {
+        case NSCalendarUnit.Day:
+            return 86_400
+        case NSCalendarUnit.Hour:
+            return 3600
+        case NSCalendarUnit.Minute:
+            return 60
+        case NSCalendarUnit.Second:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+    var fromNow: NSDate? {
+        return NSDate(timeIntervalSinceNow: NSTimeInterval(amount))
+    }
+    
+    var ago: NSDate? {
+        return NSDate(timeIntervalSinceNow: -NSTimeInterval(amount))
+    }
 }
 
 public class MinuteCalendarType : CalendarType {
@@ -1476,6 +1504,19 @@ public class YearCalendarType : CalendarType {
 }
 
 
+
+public extension NSTimeInterval {
+    
+    var fromNow: NSDate? {
+        return NSDate(timeIntervalSinceNow: self)
+    }
+    
+    var ago: NSDate? {
+        return NSDate(timeIntervalSinceNow: -self)
+    }
+}
+
+
 //MARK: PRIVATE STRING EXTENSION
 
 private extension String {
@@ -1507,7 +1548,7 @@ private extension String {
 }
 
 public enum DateFormat {
-	case ISO8601, RSS, AltRSS
+	case ISO8601, ISO8601Date, RSS, AltRSS
 	case Custom(String)
 }
 

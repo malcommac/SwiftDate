@@ -1253,6 +1253,19 @@ public extension Int {
 	}
 }
 
+
+public extension NSTimeInterval {
+    
+    var fromNow: NSDate? {
+        return NSDate(timeIntervalSinceNow: self)
+    }
+    
+    var ago: NSDate? {
+        return NSDate(timeIntervalSinceNow: -self)
+    }
+}
+
+
 //MARK: PRIVATE STRING EXTENSION
 
 private extension String {

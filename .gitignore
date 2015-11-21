@@ -1,8 +1,4 @@
 .DS_Store
-
-# Created by https://www.gitignore.io
-
-### Xcode ###
 build/
 *.pbxuser
 !default.pbxuser
@@ -12,8 +8,13 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+!default.xcworkspace
 xcuserdata
-*.xccheckout
+profile
 *.moved-aside
 DerivedData
-*.xcuserstate
+.idea/
+xcshareddata
+MoneyNetwork.xcodeproj/xcuserdata
+#Breakpoints_v2.xcbkptlist
+xcschememanagement.plist

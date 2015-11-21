@@ -176,6 +176,9 @@ public extension NSDate {
 			dateFormatter.timeZone = NSTimeZone.localTimeZone()
 			dateFormatter.dateFormat = ISO8601Formatter(fromString: string)
 			return dateFormatter.dateFromString(string)
+        case .ISO8601Date:
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.dateFromString(string)
 		case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 			var formattedString : NSString = string
 			if formattedString.hasSuffix("Z") {
@@ -740,7 +743,9 @@ public extension NSDate {
 		var dateFormat: String
 		switch format {
 		case .ISO8601:
-			dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        case .ISO8601Date:
+            dateFormat = "yyyy-MM-dd"
 		case .RSS:
 			dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
 		case .AltRSS:
@@ -1279,7 +1284,7 @@ private extension String {
 }
 
 public enum DateFormat {
-	case ISO8601, RSS, AltRSS
+	case ISO8601, ISO8601Date, RSS, AltRSS
 	case Custom(String)
 }
 

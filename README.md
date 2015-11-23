@@ -36,248 +36,381 @@ Don't be worried by these nerdy stuff, **the only need you know if while NSDate 
 
 ### 1. Create an NSDate
 
-#### Create Dates from Strings
+#### 1.0 Create Dates from Strings
 You can create NSDate objects from string using a custom formatter or one of the one provided by SwiftDate:
 
 ```swift
-let UTCDate :NSDate = "2015-01-05T22:10:55.200Z".toDate(DateFormat.ISO8601)
+let date = "2015-01-05T22:10:55.200Z".toDate(DateFormat.ISO8601)
+let date = "Fri, 09 Sep 2011 15:26:08 +0200".toDate(DateFormat.RSS)
+let date = "09 Sep 2011 15:26:08 +0200".toDate(DateFormat.AltRSS)
+let date = "22/01/2015".toDate(DateFormat.Custom("dd/MM/yyyy"))
+```
+
+#### 1.1 Create From Components
+Sometimes you need to create an NSDate from a set of components. Remember: the new Date is always in absolute time format (UTC).
+The easy way is to specify each component.
+There are some different ways to accomplish it:
+
+* By composing a set of ```NSDateComponents``` shortcuts (you specify a [value].[unit] where unit can be: ```nanoscends, seconds, minutes, hours, days, weeks, months, year```)
+
+```swift
+// This will produce an NSDate: 'Dec 25, 2015 at 20:10:00 UTC'
+let date = (2015.years | 12.months | 25.days | 20.hours | 10.minutes).inUTCRegion
+```
+
+* By creating a date ```fromNow/ago``` by adding or removing components via shortcut composing
+
+```
+let date = 5.days.fromNow // an NSDate 5 days after the current date/time
+let date = 4.hours.ago // an NSDate 4 hours before the current date/time
+let date = (5.days + 2.hours - 15.minutes).fromNow // an NSDate 5d,2h,15m after the current date/time
+let date = (6.days + 2.hours).fromDate(anotherDate) // an NSDate 6 days and 2 hours after a specified date
+let date = (6.hours + 2.minutes).fromNow(region: inRome)
+```
+
+* By passing a dictionary of type ```[NSCalendarUnit : AnyObject]``` (where you must also specificy ```NSCalendarUnit.Calendar``` and ```NSCalendarUnit.TimeZone``` to produce a valid date).
+
+```swift
+var compDict : [NSCalendarUnit:AnyObject]
+compDict[.Year] = 2015
+compDict[.Month] = 12
+compDict[.Day] = 25
+compDict[.Hour] = 20
+compDict[.Minute] = 15
+compDict[.Second] = 33
+compDict[.Calendar] = CalendarType.Gregorian.toCalendar() // produce an NSCalendar
+compDict[.TimeZone] = TimeZoneNames.Europe.Rome.toTimeZone() // produce an NSTimeZone
+// Date is parsed as 25 Dec 2015 at 20:15:33 in Rome (GMT+1)
+// Resulting UTC date will be 1 hour before (19:15:33)
+let date = compDict.toUTCDate()
+```
+
+* The same result can be accomplished using:
+```swift
+let date = NSDate(params : compDict) // by passing a dict of type [NSCalendarUnit:AnyObject]
+let date = NSDate(components: compos) // by passing an NSDateComponents instance
+```
+
+* Another way is to using initialization via parameters. All parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
+
+```swift
+// First of all we create the region in which the date is expressed. Suppose we want to represent a datetime in Rome (GMT+1).
+let region = Region(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Europe.Rome)
+
+// Suppose anotherDate is: Nov 15, 2014 at 20:30:44
+// Now we create the date by setting only year,month,day and hour (all other missing params will be taken from anotherDate).
+let date = NSDate(refDate: anotherDate, year: 2015, month: 12, day: 25, hour: 22, region: region)
+
+// Produced date is Dec 25 2015 at 22:30:44 in GMT+1:
+print(date) // will be Dec 25, 2015 at 21:30:44 in UTC
+```
+
+#### 1.2 Create Dates at start/end of a unit
+You can also create an NSDate at the start or end of a particular datetime unit (```NSCalendarUnit```).
+Let me show some examples:
+```swift
+// Suppose we have anotherDate = Dec 13 2015 at 14:20:00 UTC.
+// To get a NSDate at the start of the month (december) we can use:
+let sMonth = anotherDate.startOf(.Month) // 2015-12-01 00:00:00 UTC
+
+// The same behaviour can be obtained using endOf() method.
+// In this example we get the last moment of the current hour from our date
+let sMonth = anotherDate.endOf(.Hour) // 2015-12-01 14:59:59 UTC
+
+// We can also express it in another timezone
+// Suppose region = Region(tzType: TimeZoneNames.Europe.Rome)
+let sMonthInRome = anotherDate.startOf(.Month, inRegion: region) // 2015-11-30 23:00:00 UTC or 2015-12-01 00:00:00 GMT+1/Rome 
+```
+
+
+### 2. Introduction to DateInRegion
+
+As we said DateInRegion represent an NSDate in a particular timezone with a calendar and an associated locale.
+You should create DateInRegion everytime you want format or express an absolute NSDate in another timezone.
+
+Each DateInRegion contains a ```.region``` property of type ```Region``` and an ```UTCDate``` property which represent the absolute time regardless the region itself.
+
+When you work with DateInRegion you are always **working with date/time components expressed in that region (timezone/calendar/locale)**.
+
+**If you get date components (```days,month,years...```) from a DateInRegion instance you will get these components in the represented timezone.**
+
+Most of the methods and properties and operations available for NSDate are also available in DateInRegion; the only difference is the timezone in which these data is managed and represented.
+
+#### 2.1 How to create a Region
+Let me show how to create a Region. As we said Region is a ```Region``` structure you can create by passing (optionals) parameters:
+* ```calendar``` (```CalendarType``` a shortcut which allows to produce easily NSCalendar instances)
+* ```timezone``` (```TimeZoneNames.[Country].[Place]``` which allows to produce easily NSTimeZone instances)
+* ```locale``` (an ```NSLocale``` instance)
+
+```swift
+// All parameters are optional
+//  - If cal is missing Gregorian calendar will be used
+//  - If tzType is missing NSTimeZone.localTimeZone() will be used
+//  - If locale is missing NSLocale.currentLocale() will be used
+let romeRegion = Region(cal: CalendarType.Gregorian, tzType: TimeZoneNames.Europe.Rome)
+```
+
+You can also have two shortcut which produces UTC Region and Local Region:
+```swift
+let regionUTC = Region.UTCRegion()
+let regionLocal = Region.LocalRegion()
+```
+
+You can also set a **default region** used when you not specify a region in ```DateRegion``` and NSDate extension methods. This is called ```defaultRegion()``` and it will be used only inside your application.
+By default ```defaultRegion()``` return a region where:
+* ```calendar``` is local system calendar (not autoupdating)
+* ```timezone``` is the UTC timezone
+* ```locale``` is the current locale
+
+```swift
+Region.setDefaultRegion(myRegion) // to set a new default region
+let defRegion = Region.defaultRegion() // to get it
+```
+
+#### 2.2 TimeZoneNames & CalendarType
+SwiftDate uses two custom structures to represent easily time zones and calendar types. While you can still pass instances of these objects (NSCalendar/NSTimeZone) when you need to create regions our suggestion is to used these shortcuts which supports Swift's built in autocompletion:
+
+```swift
+let calPersian = CalendarType.Persian
+let calLocaleAU = CalendarType.Locale(true)
+// you can get the instance of the object easily using .toCalendar() method:
+let calObj = calPersian.toCalendar() // will get a Persian NSCalendar instance
+```
+
+```TimeZoneNames``` is a nested structure where each type is an ```TimeZoneCountry```. When you need to pass a TimeZoneCountry you need to provide the path to ```TimeZoneNames.[country].[place]```:
+
+```swift
+let romeTZ = TimeZoneNames.Europe.Rome
+let thaitiTZ = TimeZoneNames.Pacific.Tahiti
+// You can get the relative NSTimeZone instance using .toTimeZone() method
+let romeTZObj = romeTZ.toTimeZone()
+```
+
+#### 2.3 Create a DateInRegion
+Now you know all involved structures you are ready to create your first NSDate expressed in a particular world's region... or DateInRegion!
+
+* Create via ```NSDateComponents``` instance:
+```swift
+// Create our NSDateComponents
+let cmp = NSDateComponents()
+cmp.calendar = CalendarType.Gregorian.toCalendar() // it's important to specify calendar...
+cmp.timeZone = TimeZoneNames.Europe.Rome.toTimeZone() // ... and timezone
+cmp.year = 2010
+cmp.month = 2
+cmp.day = 15
+cmp.hour = 00
+cmp.minute = 20
+// This will produce this date: "2010-02-15 00:20:00 Europe/Rome"
+let dateInRome = DateInRegion(components: cmp)
+// This will get the NSDate expressed in UTC ("2010-02-14 23:20:00")
+let dateInUTC = dateInRome.UTCDate()
+```
+
+* Create from ```Strings```
+```swift
+let inRome = DateInRegion(fromString: "1972-07-16T08:15:30-05:00", format: DateFormat.ISO8601, region: TimeZoneNames.Europe.Rome)
+// will parse the UTC -5 HOURS date, represent it internally in UTC (1972-07-16 13:15:30 UTC)
+// then convert it in Rome (+1 UTC, 1972-07-16 14:15:30)
+print("hour is \(inRome.hour)") // 14
+```
+
+* Create via ```[NSCalendarUnit:AnyObject]``` dictionary (as we look
+```swift
+var compDict : [NSCalendarUnit:AnyObject]
+compDict[.Year] = 2015
+compDict[.Month] = 12
+compDict[.Day] = 25
+compDict[.Hour] = 20
+compDict[.Minute] = 15
+compDict[.Second] = 33
+compDict[.Calendar] = CalendarType.Gregorian.toCalendar() // produce an NSCalendar
+compDict[.TimeZone] = TimeZoneNames.Europe.Rome.toTimeZone() // produce an NSTimeZone
+
+// Date is parsed as 25 Dec 2015 at 20:15:33 in Rome (GMT+1)
+let inRome = DateInRegion(components: compDict, locale: NSLocale.currentLocale())
+
+// The same result can be handled using
+let inRome = compDict.toRegion() // -> DateInRegion
+```
+
+* Create from an UTC NSDate and express it in a Region:
+
+```swift
+// Sun, 15 Nov 2015 23:30:00 GMT
+let utcDate = NSDate(timeIntervalSince1970: 1447630200)
+let regionNY = Region(tzType: TimeZoneNames.America.NewYork // (-5 hours from GMT)
+// Will produce a DateInRegion which represent 2015-11-15 18:30:00 America/New York
+let inRome = DateInRegion(UTCDate: utcDate, inRegion: regionNY)
+// ... So if you print .hour you will get '18' (in NY) and not 23 (in UTC)
+print(inRome.hour) // 18
+```
+
+As you have seen for NSDate you can also create a DateInRegion from parameters:
+
+```swift
+let regionRome = Region(tzType: TimeZoneNames.Europe.Rome) // +1 from GMT
+// Will produce 2015-10-20 00:00:00 GMT+1 (2015-10-19 23:00:00 UTC)
+// Omitted paramters are taken from anotherDate, in our case hour,minute,secs = 0)
+let inRome = DateInRegion(date : anotherDate, year: 2015, month: 10, day: 20)
+```
+
+* As for NSDate you can create DateInRegion at the start/end of a unit (```NSCalendarUnit```):
+
+```swift
+let regionRome = Region(tzType: TimeZoneNames.Europe.Rome) // +1 hour from UTC
+let refDate = ... // 2015-10-20 15:25:00 UTC
+
+// Will produce a local date: 2015-10-20 00:00:00 Europe/Rome (2015-10-19 23:00:00 UTC)
+let inRomeStartDay = DateInRegion(startOf: refDate, unit: .Day, region: regionRome)
+
+// Will produce a local date: 2015-10-20 15:00:00 Europe/Rome (2015-10-20 14:00:00 UTC)
+let inRomeEndHour = DateInRegion(endOf: refDate, unit: .Hour, region: regionRome)
 
 ```
 
 
+### 3. Get Components from NSDate/DateInRegion
 
+As we said the only difference between an NSDate and DateInRegion is the second one represent an UTC date (NSDate) in a particular world's zone.
 
+**All methods and properties which follows are the same for both of the classes but while in NSDate returns value in UTC, in DateRegion variant values are returned in represented timezone.**
 
-
-## Overview
-
-**Mou**, the missing Markdown editor for *web developers*.
-
-### Syntax
-
-#### Strong and Emphasize 
-
-**strong** or __strong__ ( Cmd + B )
-
-*emphasize* or _emphasize_ ( Cmd + I )
-
-**Sometimes I want a lot of text to be bold.
-Like, seriously, a _LOT_ of text**
-
-#### Blockquotes
-
-> Right angle brackets &gt; are used for block quotes.
-
-#### Links and Email
-
-An email <example@example.com> link.
-
-Simple inline link <http://chenluois.com>, another inline link [Smaller](http://25.io/smaller/), one more inline link with title [Resize](http://resizesafari.com "a Safari extension").
-
-A [reference style][id] link. Input id, then anywhere in the doc, define the link with corresponding id:
-
-[id]: http://25.io/mou/ "Markdown editor on Mac OS X"
-
-Titles ( or called tool tips ) in the links are optional.
-
-#### Images
-
-An inline image ![Smaller icon](http://25.io/smaller/favicon.ico "Title here"), title is optional.
-
-A ![Resize icon][2] reference style image.
-
-[2]: http://resizesafari.com/favicon.ico "Title"
-
-#### Inline code and Block code
-
-Inline code are surround by `backtick` key. To create a block code:
-
-	Indent each line by at least 1 tab, or 4 spaces.
-    var Mou = exactlyTheAppIwant; 
-
-####  Ordered Lists
-
-Ordered lists are created using "1." + Space:
-
-1. Ordered list item
-2. Ordered list item
-3. Ordered list item
-
-#### Unordered Lists
-
-Unordered list are created using "*" + Space:
-
-* Unordered list item
-* Unordered list item
-* Unordered list item 
-
-Or using "-" + Space:
-
-- Unordered list item
-- Unordered list item
-- Unordered list item
-
-#### Hard Linebreak
-
-End a line with two or more spaces will create a hard linebreak, called `<br />` in HTML. ( Control + Return )  
-Above line ended with 2 spaces.
-
-#### Horizontal Rules
-
-Three or more asterisks or dashes:
-
-***
-
----
-
-- - - -
-
-#### Headers
-
-Setext-style:
-
-This is H1
-==========
-
-This is H2
-----------
-
-atx-style:
-
-# This is H1
-## This is H2
-### This is H3
-#### This is H4
-##### This is H5
-###### This is H6
-
-
-### Extra Syntax
-
-#### Footnotes
-
-Footnotes work mostly like reference-style links. A footnote is made of two things: a marker in the text that will become a superscript number; a footnote definition that will be placed in a list of footnotes at the end of the document. A footnote looks like this:
-
-That's some text with a footnote.[^1]
-
-[^1]: And that's the footnote.
-
-
-#### Strikethrough
-
-Wrap with 2 tilde characters:
-
-~~Strikethrough~~
-
-
-#### Fenced Code Blocks
-
-Start with a line containing 3 or more backticks, and ends with the first line with the same number of backticks:
-
-```
-Fenced code blocks are like Stardard Markdown’s regular code
-blocks, except that they’re not indented and instead rely on
-a start and end fence lines to delimit the code block.
+Suppose you have:
+```swift
+let inRome = ... // 2015-02-01 00:45:00 Europe/Rome (+1 from GMT)
+let inUTC = inRome.UTCDate() ... // get the UTC date: '2015-01-31 23:45:00 UTC
 ```
 
-#### Tables
-
-A simple table looks like this:
-
-First Header | Second Header | Third Header
------------- | ------------- | ------------
-Content Cell | Content Cell  | Content Cell
-Content Cell | Content Cell  | Content Cell
-
-If you wish, you can add a leading and tailing pipe to each line of the table:
-
-| First Header | Second Header | Third Header |
-| ------------ | ------------- | ------------ |
-| Content Cell | Content Cell  | Content Cell |
-| Content Cell | Content Cell  | Content Cell |
-
-Specify alignment for each column by adding colons to separator lines:
-
-First Header | Second Header | Third Header
-:----------- | :-----------: | -----------:
-Left         | Center        | Right
-Left         | Center        | Right
-
-
-### Shortcuts
-
-#### View
-
-* Toggle live preview: Shift + Cmd + I
-* Toggle Words Counter: Shift + Cmd + W
-* Toggle Transparent: Shift + Cmd + T
-* Toggle Floating: Shift + Cmd + F
-* Left/Right = 1/1: Cmd + 0
-* Left/Right = 3/1: Cmd + +
-* Left/Right = 1/3: Cmd + -
-* Toggle Writing orientation: Cmd + L
-* Toggle fullscreen: Control + Cmd + F
-
-#### Actions
-
-* Copy HTML: Option + Cmd + C
-* Strong: Select text, Cmd + B
-* Emphasize: Select text, Cmd + I
-* Inline Code: Select text, Cmd + K
-* Strikethrough: Select text, Cmd + U
-* Link: Select text, Control + Shift + L
-* Image: Select text, Control + Shift + I
-* Select Word: Control + Option + W
-* Select Line: Shift + Cmd + L
-* Select All: Cmd + A
-* Deselect All: Cmd + D
-* Convert to Uppercase: Select text, Control + U
-* Convert to Lowercase: Select text, Control + Shift + U
-* Convert to Titlecase: Select text, Control + Option + U
-* Convert to List: Select lines, Control + L
-* Convert to Blockquote: Select lines, Control + Q
-* Convert to H1: Cmd + 1
-* Convert to H2: Cmd + 2
-* Convert to H3: Cmd + 3
-* Convert to H4: Cmd + 4
-* Convert to H5: Cmd + 5
-* Convert to H6: Cmd + 6
-* Convert Spaces to Tabs: Control + [
-* Convert Tabs to Spaces: Control + ]
-* Insert Current Date: Control + Shift + 1
-* Insert Current Time: Control + Shift + 2
-* Insert entity <: Control + Shift + ,
-* Insert entity >: Control + Shift + .
-* Insert entity &: Control + Shift + 7
-* Insert entity Space: Control + Shift + Space
-* Insert Scriptogr.am Header: Control + Shift + G
-* Shift Line Left: Select lines, Cmd + [
-* Shift Line Right: Select lines, Cmd + ]
-* New Line: Cmd + Return
-* Comment: Cmd + /
-* Hard Linebreak: Control + Return
-
-#### Edit
-
-* Auto complete current word: Esc
-* Find: Cmd + F
-* Close find bar: Esc
-
-#### Post
-
-* Post on Scriptogr.am: Control + Shift + S
-* Post on Tumblr: Control + Shift + T
-
-#### Export
-
-* Export HTML: Option + Cmd + E
-* Export PDF:  Option + Cmd + P
+You can get these properties:
+* ```.era```
+* ```.year```
+* ```.yearForWeekYear```
+* ```.month```
+* ```.monthName```
+* ```.monthDays```
+* ```.week```
+* ```.weekOfYear```
+* ```.weekOfMonth```
+* ```.weekday```
+* ```.weekdayOrdinal```
+* ```.day```
+* ```.hour```
+* ```.minute```
+* ```.seconds```
+* ```.nanosecond```
+* ```.firstDayOfWeek```
+* ```.lastDayOfWeek```
+* ```.leapMonth```
+* ```.leapYear```
+* ```.UTCDate``` (for DateInRange. Return the absolute UTC representation of the local time)
+* ```.LocalDate``` (for DateInRange. Convert the local date to the UTC NSDate representation taking care of the timezone)
+* ```.components``` return the NSDateComponents of a date
+* ```.components(inRegion:)``` for NSDate: to get components in a specific region
 
 
-### And more?
+So, for example, if you type ```inRome.day``` you will get 01 (Feb), while ```inUTC.day``` will get 31 (Jan).
 
-Don't forget to check Preferences, lots of useful options are there.
+### 4. Operation & Comparison with components
 
-Follow [@Mou](https://twitter.com/mou) on Twitter for the latest news.
+Math operators ```+,-``` are supported both for plain NSDate and DateInRegion
 
-For feedback, use the menu `Help` - `Send Feedback`
+```swift
+// With NSDate
+let refDate = NSDate(timeIntervalSince1970: 1447630200) // Sun, 15 Nov 2015 23:30:00 UTC
+let newDate = (refDate + 2.hours + 1.days) // Mon, 17 Nov 2015 01:30:00 UTC
+
+// With DateInRegion
+let format = DateFormat.Custom("YYYY-mm-dd")
+let regionRome = Region(tzType: TimeZoneNames.Europe.Rome)
+let initialDateInRegion = DateInRegion(fromString:"2012-01-01", format: format, region: regionRome) // 2012-01-01 00:00:00 E/Rome
+
+let newDateInRegion = (initialDateInRegion + 1.days + 2.hours) // 2012-01-02 02:00:00 E/Rome
+```
+
+You can also use add() methods set to add components to your date. Both of them are available for plain NSDate and DateInRegion:
+* ```add(years:months:weekOfYear:days:hours:minutes:seconds:nanoseconds:)``` where all paramters are optional
+* ```add(components:)``` you can pass an ```NSDateComponents``` to add
+* ```add(params:)``` where you can pass an ```[NSCalendarUnit:AnyObject]``` dictionary
+
+Just an example:
+```swift
+// Reference date is: Thu, 19 Nov 2015 19:00:00 UTC (1447959600 from 1970)
+let refDate = NSDate(timeIntervalSince1970: 1447959600)
+// New date must be 2017-01-21 14:00:00 +0000
+// Remember: all paramters are optional; in this example we have ignored minutes and seconds for example.
+let newDate = refDate.add(years: 1, months: 2, days: 1, hours: 2)
+```
+
+Another example with NSDateComponents:
+```swift
+let refDate = NSDate(timeIntervalSince1970: 1447959600)
+let compsToAdd = NSDateComponents()
+compsToAdd.day = 2
+compsToAdd.hour = 1
+compsToAdd.minute = 45
+let newDate = refDate.add(compsToAdd)
+let valid = (newDate.year == 2015 && newDate.month == 11 && newDate.day == 21 && newDate.hour == 20 && newDate.minute == 45 && newDate.second == 0)
+```
+
+### 5. Compare Dates
+
+Both NSDate and DateInRegion allows you to compare dates; as usual while NSDate
+These methods are available:
+
+* All math operations are supported ```>=,<=,<,>, ==``` both for NSDate and DateInRegion!
+* ```isToday()``` true if date represent the current date (timezone is set UTC for simple NSDate)
+* ```isYesterday()``` true if date represent the yesterday's date (timezone is set UTC for simple NSDate)
+* ```isTomorrow()``` true if date represent the next day after today (timezone is set UTC for simple NSDate)
+* ```isWeekend()``` true if date represent a weekend day according to specified calendar (the DefaultRegion's calendar one for NSDate, the one specified in Region if you are using DateInRegion)
+
+### 6. Chaining with DateInRegion
+You can convert a DateInRegion easily using chaining.
+Let me show it:
+```swift
+let UTCDate = NSDate() // suppose 2015-05-31 23:30:00 UTC
+let finalHour = UTCDate.inRegion(regionNY).inRegion(regionRome).hour // 00 (00:30 of 2015-06-01)
+```
+
+### 7. From NSDate/DateInRegion to Strings
+
+Convert a date into a string is pretty easy too.
+Both NSDate and DateInRegion supports the following methods.
+SwiftDate use a per-thread cached ```NSDateFormatter``` in order to avoid multiple allocations at each call (NSDateFormatter instances are very expensive to create! However you don't need to be worried about that, is transparent to you!)
+
+Formatting methods are:
+* ```.toString(format:)``` Print date with specified format (see below to get a table of symbols you can use to represent each component)
+* ```.toISO8601String()``` Print an ISO8601 formatted string
+* ```.toString(style:,dateStyle:,timeStyle:)``` Print a string with a common style for date/time (see ```NSDateFormatterStyle```) or specify a style for date and another for time.
+* ```.toShortString(date:time)``` Print a short representation of the both date and time (or only one of them according to parameters)
+* ```.toMediumString(date:time:)``` Print a medium representation of the both date and time (or only one of them according to parameters)
+* ```.toLongString(date:time:)``` Print a long representation of the both date and time (or only one of them according to parameters)
+
+Some examples:
+```swift
+// Create a NSDate (UTC) from string and transform it into DateInRegion
+let date = "2015-01-05T22:10:55.000Z".toDate(DateFormat.ISO8601)!.inRegion(romeRegion)
+// The same behaviour can be also accomplished using DateInRegion(fromString:format:region)
+let date = DateInRegion("2015-01-05T22:10:55.000Z",DateFormat,ISO8601,romeRegion)
+
+// We can print the date (it also works with plain NSDate too!)
+// Just some examples:
+print("\(date.toISO8601String())") // to UTC ISO8601: "2015-01-05T22:10:55.000Z"
+print("\(date.toMediumString())") // to E/Rome: "Jan 5, 2015, 11:10:55 PM"
+print(date.toString(DateFormat.Custom("YYYY-MM-dd HH 'at' HH:mm"))) // to E/Rome: "2015-01-05 23 at 23:10"
+```
+
+
+### 6. Relative Date Formatting
+
+* ```.toRelativeString(fromDate:abbreviated:maxUnits:)```
+
+Finally you can also get a relative representation of the string (ie. "2 hours ago", "1 day ago"...) by using:
+
+```swift
+let string = date.toRelativeString(fromDate: nil, abbreviated: false, maxUnits:2)
+```
+
+This example tell to SwiftDate to return a relative representation of the date by comparing it to the current date (nil in fromDate means NSDate()) without using an abbreviated form (use "seconds" not "secs", or "years" not "ys") and with a max number of units of 2 (this is used to get the approximation units to print, ie "2 hours, 30 minutes" are 2 units, "2 hours, 30 minutes, 5 seconds" are 3 units).
+
+You can also translate components by localizing ```SwiftDate.localizable``` file (we accept pull requests for them)
+

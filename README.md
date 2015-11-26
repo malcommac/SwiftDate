@@ -6,6 +6,17 @@ Welcome to SwiftDate 2, the next iteration of SwiftDate's Dates Managament Libra
 SwiftDate has all you need to manage dates components, timezones and locales easily in Swift: you will not belive what we have made for you.
 So let's get a look at it!
 
+###Features
+
+- [x] Math operations with dates ```(ie. myDate+2.week+1.hour)```
+- [x] Easy compare using ```<,>,==,<=,>=``` operators
+- [x] Easy individual date component set/get
+- [x] Easy creation with common formats or custom formats
+- [x] Full timezone support via DateInRegion to represent and manage dates in different world zones easily
+- [x] Powerful .toString methods even with support for relative dates (ie. "2hours"...)
+- [x] Many shortcuts to get intervals and common dates (yesterday,tomorrow...)
+- [x] *... check out documentation below!*
+
 # Documentation
 
 - [Something important about NSDate](#something-important-about-nsdate)
@@ -25,7 +36,7 @@ So let's get a look at it!
 	- [Relative date formatting](#relative-date-formatting)
  
 
-## Something important about NSDate
+## Something you must know about NSDate
 
 As you know NSDate is the central class of the date/time handling in Foundation framework. In fact NSDate is nothing more than a wrapper around the number of seconds since [Jan 1, 2001 at 00:00 UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time) (or GMT if you prefer).
 For values representing number of seconds, Foundation uses NSTimeInterval which is a 64-bit floating point value. 
@@ -42,32 +53,29 @@ This one of the problems which we have tried to solve with this library: a painl
 
 The following chapter will let you know two base classes you can use along with NSDate to better handle timezones and other useful properties related to time/date management.
 
-## Inside SwiftDate
+## SwiftDate: how it works
 
-SwiftDate is composed by:
+SwiftDate is mainly composed by:
 
-* a **DateInRegion class** which incapsulate a NSDate object and time zone/calendar/locale settings and allows you to represent and work with a date in a specific place of the world.
-* a **Region structure** which allows you to represent world's regions and settings to associate to DateInRegion instances
-* a **set of NSDate extensions** with properties and methods to manage operation and components of date instances
-* a **set of extensions** to various classes and data types involved in date management which allows you to make operations and comparisons between dates
+* a **DateInRegion class** : this class represent an UTC date (NSDate instance) in a particular world region. You can use it as replacement of plain NSDate.
+* a **Region structure** allows you to create a region for DateInRegion: it just contains three components:  ```timezone ```, ```locale ``` and  ```calendar ```.
+* a **NSDate extensions** even if you plan to work with plain NSDate we have created a set of useful tools which allows you to get components and perform operation with dates easily with Swift.
 
-Don't be worried by these nerdy stuff, **the only need you know if while NSDate still represent an UTC absolute time, DateInRegion represent a date in a certain zone of our planet**.
+There are also a set of extension of related types as  ```NSDateComponents ``` or  ```NSTimeInterval ``` but you don't need to know more about them.
 
-### DateInRegion
+Don't be worried by all of these nerdy stuff, **the only need you know if while NSDate still represent an UTC absolute time, DateInRegion represent a date in a certain zone of our planet**.
+
+### Region and DateInRegion
 
 As we said DateInRegion represent an NSDate in a particular timezone with a calendar and an associated locale.
 You should create DateInRegion everytime you want format or express an absolute NSDate in another timezone.
 
-Each DateInRegion contains a ```.region``` property of type ```Region``` and an ```UTCDate``` property which represent the absolute time regardless the region itself.
-
 When you work with DateInRegion you are always **working with date/time components expressed in that region (timezone/calendar/locale)**.
-
 **If you get date components (```days,month,years...```) from a DateInRegion instance you will get these components in the represented timezone.**
 
-Most of the methods and properties and operations available for NSDate are also available in DateInRegion; the only difference is the timezone in which these data is managed and represented.
+Each DateInRegion contains a ```.region``` property of type ```Region``` and an ```UTCDate``` property which represent the absolute time regardless the region itself.
+You can create a region by passing these optional parameters:
 
-### How to create a Region
-Let me show how to create a Region. As we said Region is a ```Region``` structure you can create by passing (optionals) parameters:
 * ```calendar``` (```CalendarType``` a shortcut which allows to produce easily NSCalendar instances)
 * ```timezone``` (```TimeZoneNames.[Country].[Place]``` which allows to produce easily NSTimeZone instances)
 * ```locale``` (an ```NSLocale``` instance)
@@ -81,10 +89,21 @@ let romeRegion = Region(cal: CalendarType.Gregorian, tzType: TimeZoneNames.Europ
 ```
 
 You can also have two shortcut which produces UTC Region and Local Region:
+
 ```swift
 let regionUTC = Region.UTCRegion()
 let regionLocal = Region.LocalRegion()
 ```
+
+Or you can create a DateInRegion with a Region in place:
+
+```swift
+let anUTCDate = ... // an NSDate instance
+// This will create an UTC date represented in Europe/Rome (GMT+1)
+let date = DateInRegion(refDate: anUTCDate, TimeZoneNames.Europe.Rome)
+```
+
+### The Default Region
 
 You can also set a **default region** used when you not specify a region in ```DateRegion``` and NSDate extension methods. This is called ```defaultRegion()``` and it will be used only inside your application.
 By default ```defaultRegion()``` return a region where:
@@ -118,7 +137,7 @@ let romeTZObj = romeTZ.toTimeZone()
 
 ## Manage Dates
 
-#### Dates from Strings
+#### Create Dates From String
 You can create NSDate objects from string using a custom formatter or one of the one provided by SwiftDate:
 
 ```swift
@@ -128,19 +147,18 @@ let date = "09 Sep 2011 15:26:08 +0200".toDate(DateFormat.AltRSS)
 let date = "22/01/2015".toDate(DateFormat.Custom("dd/MM/yyyy"))
 ```
 
-#### Create From Components
-Sometimes you need to create an NSDate from a set of components. Remember: the new Date is always in absolute time format (UTC).
-The easy way is to specify each component.
-There are some different ways to accomplish it:
+#### Create Dates from Components
+Sometimes you need to create an NSDate from individual time components. 
+You have several ways to accomplish it:
 
-* By composing a set of ```NSDateComponents``` shortcuts (you specify a [value].[unit] where unit can be: ```nanoscends, seconds, minutes, hours, days, weeks, months, year```)
+* By composing a set time components ```nanoseconds, seconds, minutes, hours, days, weeks, months, year```)
 
 ```swift
-// This will produce an NSDate: 'Dec 25, 2015 at 20:10:00 UTC'
+// This will produce an NSDate: 'Dec 25, 2015 at 20:10:00 UTC' (Gregorian Calendar)
 let date = (2015.years | 12.months | 25.days | 20.hours | 10.minutes).inUTCRegion
 ```
 
-* By creating a date ```fromNow/ago``` by adding or removing components via shortcut composing
+* By creating a date with an interval from a specified date using ```fromNow/ago```:
 
 ```
 let date = 5.days.fromNow // an NSDate 5 days after the current date/time
@@ -150,7 +168,7 @@ let date = (6.days + 2.hours).fromDate(anotherDate) // an NSDate 6 days and 2 ho
 let date = (6.hours + 2.minutes).fromNow(region: inRome)
 ```
 
-* By passing a dictionary of type ```[NSCalendarUnit : AnyObject]``` (where you must also specificy ```NSCalendarUnit.Calendar``` and ```NSCalendarUnit.TimeZone``` to produce a valid date).
+* By passing a dictionary (```[NSCalendarUnit : AnyObject]```). In this case remeber to specify both calendar and timezone with ```NSCalendarUnit.Calendar``` and ```NSCalendarUnit.TimeZone```.
 
 ```swift
 var compDict : [NSCalendarUnit:AnyObject]
@@ -167,13 +185,14 @@ compDict[.TimeZone] = TimeZoneNames.Europe.Rome.toTimeZone() // produce an NSTim
 let date = compDict.toUTCDate()
 ```
 
-* The same result can be accomplished using:
+The same result can be accomplished using:
+
 ```swift
 let date = NSDate(params : compDict) // by passing a dict of type [NSCalendarUnit:AnyObject]
 let date = NSDate(components: compos) // by passing an NSDateComponents instance
 ```
 
-* Another way is to using initialization via parameters. All parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
+* Via init parameters: all parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
 
 ```swift
 // First of all we create the region in which the date is expressed. Suppose we want to represent a datetime in Rome (GMT+1).
@@ -182,14 +201,13 @@ let region = Region(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Europ
 // Suppose anotherDate is: Nov 15, 2014 at 20:30:44
 // Now we create the date by setting only year,month,day and hour (all other missing params will be taken from anotherDate).
 let date = NSDate(refDate: anotherDate, year: 2015, month: 12, day: 25, hour: 22, region: region)
-
-// Produced date is Dec 25 2015 at 22:30:44 in GMT+1:
-print(date) // will be Dec 25, 2015 at 21:30:44 in UTC
+// ... Produce date is Dec 25 2015 at 22:30:44 in GMT+1
+// (will be Dec 25, 2015 at 21:30:44 in UTC)
 ```
 
 #### Create Dates at start/end of a time unit
-You can also create an NSDate at the start or end of a particular datetime unit (```NSCalendarUnit```).
-Let me show some examples:
+You can also create an NSDate at the start or end of a particular datetime unit expressed with ```NSCalendarUnit```.
+
 ```swift
 // Suppose we have anotherDate = Dec 13 2015 at 14:20:00 UTC.
 // To get a NSDate at the start of the month (december) we can use:

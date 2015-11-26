@@ -74,6 +74,16 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	}
 	
 	/**
+	Initialize a new DateInRegion by passing a reference date and a set of parameters allowed to create a Region structure inside.
+	
+	- returns: a new DateInRegion
+	*/
+	init(refDate :NSDate = NSDate(), cal :CalendarType = CalendarType.Local(false), tz :TimeZoneCountry = TimeZoneNames.Other.GMT, locale :NSLocale = NSLocale.currentLocale()) {
+		region = Region(calType :cal, tzType: tz, loc :locale)
+		UTCDate = refDate
+	}
+	
+	/**
 	Initialize a new DateInRegion with a date sepcified by passing a dictionary with calendar units and a locale
 	
 	- parameter dict:   dictionary with date components used for creation of the date
@@ -286,6 +296,9 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 			parsedDate = cachedFormatter.formatter.dateFromString(date)
 		case .Custom(let dateFormat):
 			cachedFormatter.formatter.dateFormat = dateFormat
+			cachedFormatter.formatter.timeZone = region.timeZone
+			cachedFormatter.formatter.calendar = region.calendar
+			cachedFormatter.formatter.locale = region.locale
 			parsedDate = cachedFormatter.formatter.dateFromString(date)
 		}
 		
@@ -410,6 +423,18 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	public func withTimeZone(tz : TimeZoneCountry) -> DateInRegion {
 		region.timeZone = NSTimeZone.fromType(tz)
 		return self
+	}
+	
+	/**
+	Convert DateInRegion into another Region
+	
+	- parameter region: destination region
+	
+	- returns: DateInRegion instance with date in this world's region
+	*/
+	public func inRegion(anotherRegion region: Region) -> DateInRegion {
+		let dateInRegion = DateInRegion(UTCDate: UTCDate, region: region)
+		return dateInRegion!
 	}
 	
 	/**
@@ -713,7 +738,7 @@ public extension NSDateComponents {
 				self.setValue((value * -1), forComponent: unit)
 			}
 		}
-		return fromNow(inRegion: region)
+		return region.calendar.dateByAddingComponents(self, toDate: refDate, options: NSCalendarOptions(rawValue: 0))!
 	}
 	
 	/**
@@ -768,7 +793,27 @@ public extension NSDateComponents {
 		return dInRegion
 	}
 	
-	public var inUTCDate : NSDate? {
+	/**
+	Create an NSDate from a date specified by a list of components expressed in a specific time format
+	Resulting NSDate instance will be the UTC translation of the date expressed in another formast.
+	If you want to keep the origin timezone and date use DateInRegion instead.
+	
+	- parameter cal: calendar (gregorian if not specified)
+	- parameter tz:  timezone of the parsed date (non optional)
+	
+	- returns: an UTC representation of given date expressed in passed timezone and calendar
+	*/
+	public func fromTimeZone(cal :CalendarType = CalendarType.Gregorian, tz :TimeZoneCountry!, locale :NSLocale = NSLocale.currentLocale()) -> NSDate? {
+		self.calendar = cal.toCalendar()
+		self.calendar?.timeZone = tz.toTimeZone()!
+		self.calendar?.locale = locale
+		return self.date
+	}
+	
+	public func inUTCDate(cal :CalendarType = CalendarType.Gregorian, locale :NSLocale = NSLocale.currentLocale()) -> NSDate? {
+		self.calendar = cal.toCalendar()
+		self.calendar?.timeZone = TimeZoneNames.Other.GMT.toTimeZone()!
+		self.calendar?.locale = locale
 		return self.date
 	}
 	
@@ -887,7 +932,7 @@ extension String {
 	- returns: a new NSDate instance or nil if something went wrong during parsing
 	*/
 	public func toDate(format :DateFormat) -> NSDate? {
-		return toRegion(format)?.UTCDate
+		return toRegion(format, region: Region.UTCRegion())?.UTCDate
 	}
 	
 	/**
@@ -1215,7 +1260,7 @@ extension DateInRegion {
 		components.month = months ?? NSDateComponentUndefined
 		components.weekOfYear = weekOfYear ?? NSDateComponentUndefined
 		components.day = days ?? NSDateComponentUndefined
-		components.hour = hour ?? NSDateComponentUndefined
+		components.hour = hours ?? NSDateComponentUndefined
 		components.minute = minutes ?? NSDateComponentUndefined
 		components.second = seconds ?? NSDateComponentUndefined
 		components.nanosecond = nanoseconds ?? NSDateComponentUndefined
@@ -1254,6 +1299,8 @@ extension DateInRegion {
 			case NSCalendarUnit.Minute:					components.minute = value as! Int
 			case NSCalendarUnit.Second:					components.second = value as! Int
 			case NSCalendarUnit.Nanosecond:				components.nanosecond = value as! Int
+			case NSCalendarUnit.Calendar:				components.calendar = value as? NSCalendar
+			case NSCalendarUnit.TimeZone:				components.timeZone = value as? NSTimeZone
 			default:
 				break
 			}

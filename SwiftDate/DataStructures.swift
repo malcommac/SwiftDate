@@ -65,10 +65,10 @@ public struct Region {
 	
 	init(calType	:CalendarType = CalendarType.Gregorian,
 		tzType		:TimeZoneCountry = TimeZoneNames.Other.Locale,
-		loc		: NSLocale = NSLocale.currentLocale()) {
+		loc			:NSLocale = NSLocale.currentLocale()) {
 			
 			self.calendar = calType.toCalendar()
-			self.timeZone = tzType.toTimeZone()
+			self.calendar.timeZone = tzType.toTimeZone()!
 			self.locale = loc
 	}
 	
@@ -419,10 +419,14 @@ public struct TimeZoneNames {
 		*/
 		public func toTimeZone() -> NSTimeZone? {
 			switch self.rawValue {
-			case "LOCALE":		return NSTimeZone.localTimeZone()
-			case "DEFAULT":		return NSTimeZone.defaultTimeZone()
-			case "SYSTEM":		return NSTimeZone.systemTimeZone()
-			case "GMT":			return NSTimeZone(abbreviation: "GMT")
+			case "LOCALE":
+				return NSTimeZone.localTimeZone()
+			case "DEFAULT":
+				return NSTimeZone.defaultTimeZone()
+			case "SYSTEM":
+				return NSTimeZone.systemTimeZone()
+			case "GMT":
+				return NSTimeZone(abbreviation: "GMT")
 			default:
 				return NSTimeZone(name: self.rawValue)
 			}

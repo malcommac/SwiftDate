@@ -391,14 +391,27 @@ public extension NSDate {
 		return self.inUTCRegion().era!
 	}
 	
-	/// Get the first day of the current date week in UTC region. Use inRegion(...).firstDayOfWeek to get it in specified time zone
-	var firstDayOfWeek :Int {
-		return self.inUTCRegion().firstDayOfWeek!
+	
+	/**
+	Get the first day of the week in current self UTC date in calendar
+	
+	- parameter cal: calendar to use. If not specified Gregorian is used instead
+	
+	- returns: first day of the week in calendar, nil if region is not valid
+	*/
+	func firstDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
+		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.firstDayOfWeek!
 	}
 	
-	/// Get the last day of the current date week in UTC region. Use inRegion(...).lastDayOfWeek to get it in specified time zone
-	var lastDayOfWeek :Int {
-		return self.inUTCRegion().lastDayOfWeek!
+	/**
+	Get the last day of week according to region specified
+	
+	- parameter cal: calendar to use. If not specified Gregorian is used instead
+	
+	- returns: last day of the week in calendar, nil if region is not valid
+	*/
+	func lastDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
+		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.lastDayOfWeek!
 	}
 	
 	public func isToday() -> Bool {
@@ -418,8 +431,8 @@ public extension NSDate {
 	
 	- returns: true if date is tomorrow into specified region calendar
 	*/
-	public func isWeekend() -> Bool {
-		return DateInRegion.DefaultRegion(self).isWeekend()
+	public func isWeekend(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Bool? {
+		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.isWeekend()
 	}
 	
 	

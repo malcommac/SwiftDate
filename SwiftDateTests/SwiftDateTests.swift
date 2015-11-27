@@ -21,7 +21,7 @@ class SwiftDateTests: XCTestCase {
         super.tearDown()
     }
     
-	func test_operation() {
+	func test_operation_toString() {
 		
 	}
 
@@ -32,6 +32,7 @@ class SwiftDateTests: XCTestCase {
 		let test3 = true
 		let test4 = true
 		let test5 = true
+		let test6 = true
 
 		// Our UTC date is 2015-01-01 22:10:00 UTC
 		let refDate = (2015.years | 1.months | 1.days | 22.hours | 10.seconds).inUTCDate()!
@@ -68,11 +69,37 @@ class SwiftDateTests: XCTestCase {
 			let newDate = refDate + 2.days + 1.hours + 70.seconds
 			XCTAssert(newDate.day == 3 && newDate.hour == 23 && newDate.minute == 1 && newDate.second == 20, "Failed to adding date to an UTC NSDate")
 		}
+		
 		if test5 {
 			let today = NSDate()
-			let isYesterday = (NSDate() - 1.days).isYesterday()
-			let isTomorrow = ((today.year.years | today.month.months | today.day.days | today.hour.hours) + 2.hours).inUTCDate()?.isTomorrow()
-			print("")
+			
+			let date1 = (NSDate() - 1.days)
+			XCTAssert(date1.isYesterday(), "Failed to get if date is yesterday")
+
+			let date2 = ((today.year.years | today.month.months | today.day.days | today.hour.hours) + 1.days).inUTCDate()!
+			XCTAssert(date2.isTomorrow(), "Failed to get if date is tomorrow")
+			
+			// Get if date is in weekend (according to default calendar when not specified, Gregorian)
+			let date3 = (2015.years | 11.months | 28.days).inUTCDate()!
+			XCTAssert(date3.isWeekend()!, "Failed to get if date is weekend in Gregorian calendar")
+		}
+		
+		if test6 {
+			let date = (2015.years | 11.months | 26.days).inUTCDate()!
+			
+			// Last day of week
+			let lastDayOfWeekHB = date.lastDayOfWeek(inCalendar : CalendarType.Hebrew)
+			XCTAssert(lastDayOfWeekHB == 16, "Failed to get last day of week in Hebrew calendar")
+			
+			let lastDayOfWeekGREG = date.lastDayOfWeek(inCalendar : CalendarType.Gregorian)
+			XCTAssert(lastDayOfWeekGREG == 28, "Failed to get last day of week (Saturday) in Gregorian calendar")
+			
+			// First day of week
+			let firstDayOfWeekHB = date.firstDayOfWeek(inCalendar : CalendarType.Hebrew)
+			XCTAssert(firstDayOfWeekHB == 10, "Failed to get first day of week in Hebrew calendar")
+			
+			let firstDayOfWeekGREG = date.firstDayOfWeek(inCalendar : CalendarType.Gregorian)
+			XCTAssert(firstDayOfWeekGREG == 22, "Failed to get first day of week (Sunday) in Gregorian calendar")
 		}
 	}
 	

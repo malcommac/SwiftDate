@@ -49,7 +49,7 @@ You can get instances of NSCalendar from CalendarType by calling ```toCalendar()
 
 DateInRegion represent an UTC Date (NSDate instance) in a particular world region. Suppose we want to express a date in GMT+1 region:
 
-```
+```swift
 let anUTCDate = ... // Suppose '2015-10-11 08:00:00 UTC'
 let dateInRome = DateInRegion(refDate: anUTCDate, TimeZoneNames.Europe.Rome)
 ```
@@ -61,9 +61,9 @@ let hourInUTC = anUTCDate.hour // we get '8' from this NSDate
 let regionLocal = dateInRome.hour // we get '9' (+1 hour in Rome, from DateInRegion object)
 ```
 
-## Manage Dates
+## Create Dates
 
-### Create Dates From String
+### Create DateInRegion/NSDate from string
 You can create NSDate objects from string using a custom formatter or one of the one provided by SwiftDate:
 
 ```swift
@@ -79,24 +79,30 @@ You can also create directly a DateInRegion object in the same way:
 // Input date is +2 Hours from GMT (so GMT is 20:10:55)
 // Resulting date will be in Rome (+1 GMT) so is '2015-01-05T21:10:55 GMT+1'.
 let dateInRome = DateInRegion(fromString: "2015-01-05T22:10:55.200Z", format: DateFormat.ISO8601, region: Region(tzType: TimeZoneNames.Europe.Rome))
+// This convert the dateInRome in New York tz:
+let dateInNY = dateInRome.inRegion(region: Region(tzType: TimeZoneNames.America.NewYork))
 ```
 
-### Create Dates from Components
+### Create DateInRegion/NSDate from components
 Sometimes you need to create an NSDate/DateInRegion from individual time components. 
 You have several ways to accomplish it:
 
-* By composing a set time components ```nanoseconds, seconds, minutes, hours, days, weeks, months, year```)
+#### Chaining Time Units
+
+By composing a set time components ```nanoseconds, seconds, minutes, hours, days, weeks, months, year```)
 
 ```swift
 // This will produce a DateInRegion with this date NSDate: 'Dec 25, 2015 at 20:10:00 UTC' (Gregorian Calendar)
 let dateInUTC = (2015.years | 12.months | 25.days | 20.hours | 10.minutes).inUTCRegion
-// This conver the region into anothe region
+// This convert the date in UTC region into another region, NY:
 let dateInNY = dateInUTC.inRegion(region: Region(tzType: TimeZoneNames.America.NewYork))
 ```
 
-* By creating a date with an interval from a specified date using ```fromNow/ago```:
+#### From a time interval from a specified date (fromNow/ago)
 
-```
+By creating a date with an interval from a specified date using ```fromNow/ago```:
+
+```swift
 let date = 5.days.fromNow // an NSDate 5 days after the current date/time
 let date = 4.hours.ago // an NSDate 4 hours before the current date/time
 let date = (5.days + 2.hours - 15.minutes).fromNow // an NSDate 5d,2h,15m after the current date/time
@@ -104,7 +110,9 @@ let date = (6.days + 2.hours).fromDate(anotherDate) // an NSDate 6 days and 2 ho
 let date = (6.hours + 2.minutes).fromNow(region: inRome)
 ```
 
-* By passing a dictionary (```[NSCalendarUnit : AnyObject]```). In this case remeber to specify both calendar and timezone with ```NSCalendarUnit.Calendar``` and ```NSCalendarUnit.TimeZone```.
+#### From a dictionary of time units
+
+By passing a dictionary (```[NSCalendarUnit : AnyObject]```). In this case remeber to specify both calendar and timezone with ```NSCalendarUnit.Calendar``` and ```NSCalendarUnit.TimeZone```.
 
 ```swift
 var compDict : [NSCalendarUnit:AnyObject]
@@ -132,7 +140,9 @@ let date = NSDate(params : compDict) // by passing a dict of type [NSCalendarUni
 let date = NSDate(components: compos) // by passing an NSDateComponents instance
 ```
 
-* Via init parameters: all parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
+#### By passing time units as init parameters
+
+Via init parameters: all parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
 
 ```swift
 // First of all we create the region in which the date is expressed. Suppose we want to represent a datetime in Rome (GMT+1).
@@ -145,7 +155,7 @@ let date = NSDate(refDate: anotherDate, year: 2015, month: 12, day: 25, hour: 22
 // (will be Dec 25, 2015 at 21:30:44 in UTC)
 ```
 
-### Create Dates at start/end of a time unit
+#### Create Dates at start/end of a time unit
 You can also create an NSDate at the start or end of a particular datetime unit expressed with ```NSCalendarUnit```.
 
 ```swift
@@ -162,7 +172,7 @@ let sMonth = anotherDate.endOf(.Hour) // 2015-12-01 14:59:59 UTC
 let sMonthInRome = anotherDate.startOf(.Month, inRegion: region) // 2015-11-30 23:00:00 UTC or 2015-12-01 00:00:00 GMT+1/Rome 
 ```
 
-### Get Components from Date
+### Inspect DateInRegion or NSDate components
 
 As we said the only difference between an NSDate and DateInRegion is the second one represent an UTC date (NSDate) in a particular world's zone.
 
@@ -205,7 +215,7 @@ You can get these properties:
 
 So, for example, if you type ```inRome.day``` you will get 01 (Feb), while ```inUTC.day``` will get 31 (Jan).
 
-#### Math operations with dates
+### Math operations with DateInRegion/NSDate
 
 Math operators ```+,-``` are supported both for plain NSDate and DateInRegion
 
@@ -250,7 +260,7 @@ let newDate = refDate.add(compsToAdd)
 let valid = (newDate.year == 2015 && newDate.month == 11 && newDate.day == 21 && newDate.hour == 20 && newDate.minute == 45 && newDate.second == 0)
 ```
 
-#### Compare dates
+### Compare DateInRegion/NSDate
 
 Both NSDate and DateInRegion allows you to compare dates; as usual while NSDate
 These methods are available:
@@ -261,7 +271,7 @@ These methods are available:
 * ```isTomorrow()``` true if date represent the next day after today (timezone is set UTC for simple NSDate)
 * ```isWeekend()``` true if date represent a weekend day according to specified calendar (the DefaultRegion's calendar one for NSDate, the one specified in Region if you are using DateInRegion)
 
-#### Timezone conversion using DateInRegion chaining
+## Timezone conversion with DateInRegion chaining
 You can convert a DateInRegion easily using chaining.
 Let me show it:
 
@@ -270,7 +280,7 @@ let UTCDate = NSDate() // suppose 2015-05-31 23:30:00 UTC
 let finalHour = UTCDate.inRegion(regionNY).inRegion(regionRome).hour // 00 (00:30 of 2015-06-01)
 ```
 
-#### Convert dates to strings
+### From DateInRegion/NSDate to strings
 
 Convert a date into a string is pretty easy too.
 Both NSDate and DateInRegion supports the following methods.
@@ -299,8 +309,7 @@ print("\(date.toMediumString())") // to E/Rome: "Jan 5, 2015, 11:10:55 PM"
 print(date.toString(DateFormat.Custom("YYYY-MM-dd HH 'at' HH:mm"))) // to E/Rome: "2015-01-05 23 at 23:10"
 ```
 
-
-#### Relative date formatting
+#### From DateInRegion/NSDate to relative strings
 
 * ```.toRelativeString(fromDate:abbreviated:maxUnits:)```
 

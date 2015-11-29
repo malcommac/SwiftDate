@@ -21,10 +21,12 @@ If you have problems or question create an issue; we will be happy to answer :)
 ## CocoaPods and Chartage
 SwiftDate 2 package is compatible both with CocoaPods and Chartage.
 
-For cocoapods simply add the following line to your Podfile:
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SwiftDate.
+Simply add these lines to your pod file:
 
 ```
-pod "SwiftDate"
+platform :ios, '8.0'
+pod "SwiftDate", "~> 2.0"
 ```
 
 ## What's NSDate (really)

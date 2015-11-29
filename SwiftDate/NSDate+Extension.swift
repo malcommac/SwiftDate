@@ -224,12 +224,38 @@ public extension NSDate {
 	Return the string representation the date in specified region
 	
 	- parameter format: format of date
-	- parameter region: region of destination
+	- parameter region: region of destination (Region.defaultRegion() is used when argument is not specified)
 	
 	- returns: string representation of the date into the region
 	*/
 	public func toString(format :DateFormat, inRegion region :Region = Region.defaultRegion()) -> String? {
 		return DateInRegion(UTCDate: self, region: region)?.toString(format)
+	}
+	
+	/**
+	Return relative representation of the date in a specified region
+	
+	- parameter region: region of destination (Region.defaultRegion() is used when argument is not specified)
+	
+	- returns: string representation in form of relative date (just now, 3 seconds...)
+	*/
+	public func toRelativeCocoaString(inRegion region :Region = Region.defaultRegion()) -> String? {
+		return DateInRegion(UTCDate: self, region: region)?.toRelativeCocoaString()
+	}
+	
+	/**
+	Return relative representation of the self UTC date (expressed in region region) compared to another UTC refDate (always expressed in the same region)
+	
+	- parameter refDate:     reference date
+	- parameter region:      region assigned both for reference date and self date
+	- parameter abbreviated: true to get abbreviated form of the representation
+	- parameter maxUnits:    units details to include in representation (value is from 0 to 7: year = 0, month, weekOfYear, day, hour, minute, second, nanosecond = 7)
+	
+	- returns: relative string representation
+	*/
+	public func toRelativeString(fromDate refDate: NSDate = NSDate(), inRegion region :Region = Region.defaultRegion(), abbreviated :Bool = false, maxUnits: Int = 1) -> String? {
+		let refDateInRegion = DateInRegion(UTCDate: refDate, region: region)!
+		return DateInRegion(UTCDate: self, region: region)?.toRelativeString(refDateInRegion, abbreviated: abbreviated, maxUnits: maxUnits)
 	}
 	
 }

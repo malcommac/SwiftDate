@@ -22,7 +22,40 @@ class SwiftDateTests: XCTestCase {
     }
     
 	func test_operation_toString() {
+		let refDate = (2015.years | 4.months | 13.days | 22.hours | 10.seconds).inUTCDate()!
 		
+		// FORMATS
+		let toISO8601DateTime = refDate.toString(DateFormat.ISO8601)
+		let toAltRSS = refDate.toString(DateFormat.AltRSS)
+		let toRSS = refDate.toString(DateFormat.RSS)
+		let toISO8601Date = refDate.toString(DateFormat.ISO8601Date)
+		let toCustomFormat_1 = refDate.toString(DateFormat.Custom("d MMM YY 'at' HH:MM"))
+		let toCustomFormat_2 = refDate.toString(DateFormat.Custom("eee d MMM YYYY, m 'minutes after' HH '(timezone is' Z')'"))
+		
+		XCTAssert(toISO8601DateTime == "2015-04-13T22:00:10+0000", "Failed to adding date to an UTC NSDate")
+		XCTAssert(toAltRSS == "13 Apr 2015 22:00:10 +0000", "Failed to adding date to an UTC NSDate")
+		XCTAssert(toRSS == "Mon, 13 Apr 2015 22:00:10 +0000", "Failed to adding date to an UTC NSDate")
+		XCTAssert(toISO8601Date == "2015-04-13", "Failed to adding date to an UTC NSDate")
+		XCTAssert(toCustomFormat_1 == "13 Apr 15 at 22:04", "Failed to adding date to an UTC NSDate")
+		XCTAssert(toCustomFormat_2 == "Mon 13 Apr 2015, 0 minutes after 22 (timezone is +0000)", "Failed to adding date to an UTC NSDate")
+		
+		// RELATIVE DATES WITH COCOA
+		let en_utc_region = Region(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Other.GMT, loc: NSLocale(localeIdentifier: "EN_US"))
+		let it_utc_region = Region(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Other.GMT, loc: NSLocale(localeIdentifier: "IT_IT"))
+		
+		let justNowDate = NSDate() + 1.hours + 12.minutes
+		let str_justNowDate = justNowDate.toRelativeCocoaString(inRegion: en_utc_region) // should return 'Today' (in english)
+		XCTAssert(str_justNowDate?.lowercaseString == "today", "Failed to adding date to an UTC NSDate")
+
+		let str_justNowDateIT = justNowDate.toRelativeCocoaString(inRegion: it_utc_region) // should return 'Oggi' (in italian)
+		XCTAssert(str_justNowDateIT?.lowercaseString == "oggi", "Failed to adding date to an UTC NSDate")
+		
+		// RELATIVE DATES WITH CUSTOM FORMATTER
+		let justNowRefDate = NSDate()
+		let justNowDate2 = justNowRefDate + 2.seconds + 1.hours
+		
+		let str_justNowDateInIT = justNowDate2.toRelativeString(fromDate: justNowRefDate, inRegion: en_utc_region, maxUnits: 7)
+		XCTAssert(str_justNowDateInIT?.lowercaseString == "1 hour 2 seconds", "Failed to get relative string in en region")
 	}
 
 	

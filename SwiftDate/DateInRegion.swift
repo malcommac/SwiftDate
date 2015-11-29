@@ -1025,7 +1025,8 @@ extension DateInRegion {
 		}
 		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
 		
-		cachedFormatter.formatter.dateFormat = dateFormat.formatString
+		let dateFormatString = dateFormat.formatString
+		cachedFormatter.formatter.dateFormat = dateFormatString
 		cachedFormatter.formatter.timeZone = region.timeZone
 		cachedFormatter.formatter.calendar = region.calendar
 		cachedFormatter.formatter.calendar.locale = region.calendar.locale
@@ -1080,7 +1081,7 @@ extension DateInRegion {
 						timeStyle: (time == true ? NSDateFormatterStyle.LongStyle : NSDateFormatterStyle.NoStyle))
 	}
 	
-	public func toRelativeString() -> String? {
+	public func toRelativeCocoaString() -> String? {
 		let formatter = NSDateFormatter()
 		formatter.locale = region.locale
 		formatter.calendar = region.calendar

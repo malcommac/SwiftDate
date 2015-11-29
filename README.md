@@ -1,353 +1,325 @@
-![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/assets/logo.png)
+# SwiftDate 2
+### the best way to play with Dates in iOS/Mac/WatchOS/tvOS
 
-##Easy NSDate Management in Swift 2
 
-### Author
-Daniele Margutti  
-*web*: [www.danielemargutti.com](http://www.danielemargutti.com)  
-*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
-*mail*: me [at] danielemargutti dot com  
-*original post*: [blog](http://danielemargutti.com/how-to-manage-nsdate-easily-in-swift-with-swiftdate/)  
-  
-This library is licensed under MIT license and it's compatible with Swift 2.0+.
+Welcome to SwiftDate 2, the second major release of our Date Management Library for Apple's platforms: the goal of this project is to allow developers to manage easily dates operation and timezones conversions in Swift.
+SwiftDate allows you:
 
-###Features
-- [x] Math operations with dates ```(ie. myDate+2.week+1.hour)```
-- [x] Easy compare using ```<,>,==,<=,>=``` operators
-- [x] Easy individual date component set/get
-- [x] Easy creation with common formats or custom formats
-- [x] Powerful .toString methods with support for relative dates (ie. "2hours"...)
-- [x] Many shortcuts to get intervals and common dates (yesterday,tomorrow...)
-- [x] *... check out documentation below!*
+- [x] Perform **math operations with dates**: ```aDate + 2.weeks + 1.hours``` or ```(1.years - 2.hours + 16.minutes).fromNow()```
+- [x] **Full timezone support**. Create ```DateInRegion``` objects and perform operations, get componets in specified timezone with your fav locale settings!
+- [x] **Compare dates** with math operators ```<,>,==,<=,>=```. For example you can do ```aDate1 >= aDate2``` or ```aDate1.inTimeRange("15:20","20:20")```
+- [x] **Easy get time components in NSDate (UTC) or custom region**. For example: ```aDateInRegion.day``` or ```hour, minutes etc.```
+- [x] Easy/optimized way **to get and transform a date from and to strings** (with **relative date supports*** like '2 hours, 5 minutes' etc.)
+- [x] Many shortcuts to get intervals and common dates (```isYesterday,isTomorrow...```)
+- [x] *... many many other shiny things!*
 
-###Requirements
-* iOS 8.0+ / Mac OS X 10.10+
-* Xcode 6.3
-* Swift 2.0
 
-## Communication
-- If you **found a bug**, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
+## What's NSDate (really)
 
-## ToDo
-- Complete All Unit Tests
+As you know NSDate is the central class of the date/time handling in Foundation framework. In fact NSDate is nothing more than a wrapper around the number of seconds since [Jan 1, 2001 at 00:00 UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time) (or GMT).
 
-##Version History
-##1.2 (Oct 4, 2015)
-- Fixed several issues with `ISO8601 formatter` when parsing dates ending with Z
-- Deprecated several comparing date methods (`minutes/hours/days/month/years Before/After` a date and replaced with a single `difference` method)
-- Fixed an issue with non 24 hours days
-- Added `-` (minus) operator between dates
-- Added support for `carthage`
-- Added optional params in `set/add` methods of dates
-- Removed extra `ago/from now' string literals from `toRelativeString` method.
+NSDate objects **always represent absolute point in time, and always in UTC format**.
+Moreover due to this type of representation **you cannot create a date without including a specific time** (so you cannot create something like ```Dec 25, 2015``` but you need to make something like ```Dec 25, 2015 at 00:00:00 UTC```; this is important when you need to compare dates).
 
-##1.1
-- This version is fully compatible with Swift 2.0+
-- Minor fixes around
+Due to these constraints **NSDate HAS NO CONCEPT OF TIME ZONES**. For example when in London is midnight in New York it is only 6pm of the day before: **both of these dates represent the same point in time and are absolute equals as far for NSDate** (the number of seconds since Jan 1,2001 00:00 remember?).
 
-### CocoaPods
+This important concept is the root of several problems for programmers who are approaching date management in Cocoa.
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
-CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
+## It's time for SwiftDate
 
-```bash
-$ gem install cocoapods
+SwiftDate introduces the concept of ```DateInRegion:``` this class encapsulate an ```UTC NSDate``` and ```Region``` (a region is a structure which hold ```TimeZone, Calendar and Locale```).
+
+In SwiftDate you can get and work with components both for DateInRegion and NSDate.
+When you work with NSDate you are working with an UTC date (unless called methods takes a region as argument); **when you work with DateInRegion class all methods and properties are related to the specified world region and settings**.
+
+### Create a Region
+
+A Region is a structure which allows you to encapsulate informations about the timezone, calendar and locale in which a DateInRegion is represented. You can create and share a Region between DateInRegion without problems.
+If you plan to use a particular region along your app you can set it as ```defaultRegion()``` with ```Region.setDefaultRegion(...)``` method (default region is also used as default parameter in several NSDate() shortcuts when no other value is passed).
+
 ```
-
-To integrate SwiftDate into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
-
-pod 'SwiftDate'
+// Create a region for Rome (GMT+1) using Gregorian calendar and NSLocale.currentLocale (all init params are optional)
+let romeRegion = Region(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Europe.Rome)
 ```
+SwiftDate represent Calendars and TimeZones with custom structures (which, however, can interoperate with classic NSTimeZone and NSCalendar).
+Using ```CalendarType``` and ```TimeZoneNames.[Country].[Place]``` you can easily create objects without remembering identifiers.
+You can get instances of NSCalendar from CalendarType by calling ```toCalendar()``` method. In the same way, using ```toTimeZone()``` you can get an NSTimeZone instance from a ```TimeZoneCountry``` structure.
 
-Then, run the following command:
+### Create a DateInRegion
 
-```bash
-$ pod install
-```
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "malcommac/SwiftDate" ~> 1.2
-```
-
-Run `carthage` to build the framework and drag the built `SwiftDate.framework` into your Xcode project.
-
-##API Documentation
-
-###Introduction
-Date Management in UIKit/AppKit is a pain, you know? Probably it's not the better API bought by Apple for Mac or iOS. If you have worked in ObjC you know, there are lots of classes to manipulate date objects easily.
-I've made SwiftDates because I've started working with Swift development and I need something which save to me with Date during the development.
-SwiftDates is extremly portable; in fact it's a single compact file which add several methods and properties both NSDate and String objects.
-You will like it :-) ... or fork it!
-
-###Create new NSDate objects
-You can create a new NSDate objects by passing a String (and optionally a format) or setting each component individually.
-```swift
-let date_iso8601 = NSDate.date(fromString: "2015-01-05T22:10:55.200Z", format: DateFormat.ISO8601)
-let date_rss = NSDate.date(fromString: "Fri, 09 Sep 2011 15:26:08 +0200", format: DateFormat.RSS)
-let date_altrss = NSDate.date(fromString: "09 Sep 2011 15:26:08 +0200", format: DateFormat.AltRSS)
-let date_custom = NSDate.date(fromString: "22/01/2015", format: DateFormat.Custom("dd/MM/yyyy"))
-```
-You can also create a date by specifing indivually each component.
-This method accept a reference date to use (just use nil to start with the current NSDate()) and you can pass the components you want to alter (if you don't want to alter the current hour, for example, just pass nil as hour: parameter).
-This is an example: suppose current date is 2015/05/01 @ 22:00
-By using:
-```swift
-let date_from_components = NSDate.date(refDate: nil, year: 2014, month: 01, day: nil, hour: nil, minute: nil, second: nil, tz: "UTC")
-```
-You will have a NSDate which represent 2014/05/01 @ 22:00!
-So simple!
-
-Finally you can create a new date from a String using:
-```swift
-let date = "22/01/2015".toDate(formatString: "dd/MM/yyyy")
-let date = "2015-01-05T22:10:55.200Z".toDate(format: DateFormat.ISO8601)
-```
-
-###Date Instances Shortcuts
-As usual you can get common date instances with the following methods:
+DateInRegion represent an UTC Date (NSDate instance) in a particular world region. Suppose we want to express a date in GMT+1 region:
 
 ```swift
-let todayDate = NSDate.today()
-let yesterdayDate = NSDate.yesterday()
-let tomorrowDate = NSDate.tomorrow()
+let anUTCDate = ... // Suppose '2015-10-11 08:00:00 UTC'
+let dateInRome = DateInRegion(refDate: anUTCDate, TimeZoneNames.Europe.Rome)
 ```
 
-##Get/Alter Individual Date Components
-You can get or alter date components too.  However NSDate objects are immutable so while you can have access to each unit component via properties I've made several methods to alter individual components (and get a new date instance).
+```dateInRome``` represent passed UTC date in GMT+1 timezone. We clearly see this by getting the hour components of the two objects (remember, both ```NSDate``` and ```DateInRegion``` share the same methods and properties):
 
-### Accessing Date Components
-So these are readable properties (and some methods):
 ```swift
-.year
-.month
-.weekOfMonth
-.weekday
-.weekdayOrdinal
-.day
-.hour
-.minute
-.second
-.era
-.firstDayOfWeek // (first day of the week of passed date)
-.lastDayOfWeek // (last day of the week of passed date)
-.nearestHour // (nearest hour of the passed date)
-.isLeapYear() // true if date's represented year is leap
-.monthDays() // return the number of days in date's represented month
+let hourInUTC = anUTCDate.hour // we get '8' from this NSDate
+let regionLocal = dateInRome.hour // we get '9' (+1 hour in Rome, from DateInRegion object)
 ```
 
-### Alter Date Components
-You can set a new property individually using set method (it accepts year, month, day, hour, minute, second as component name parameter):
+## Create Dates
+
+### Create DateInRegion/NSDate from string
+You can create NSDate objects from string using a custom formatter or one of the one provided by SwiftDate:
+
 ```swift
-let date = NSDate() // Suppose it's 2015-01-05 @ 22:00
-date = date.set("hour",12) // date will be a new objects which represent 2015-01-05 at 12:00
-date = date.set("day",1) // 2015-01-01 @ 12:00
-```
-While you can perfectly chain multiple set, in order to avoid unnecessary objects allocations you can use set method which accept multiple components:
-```swift
-let date = NSDate()
-date = date.set(year: 2000, month: 01, day: 01, hour:0, minute:0, second:0, tz:nil)
-```
-With a single allocation you have your new object; If you don't want to set a single component just pass nil as value.
-Another shortcut involves dictionaries:
-```swift
-let date = NSDate() // Suppose it's 2015-01-05 @ 22:00
-date = date.set(componentsDict: ["hour":12,"minute":55]); // Returns a new NSDate 2015-01-05 @ 12:55
-```
-### Add/Subtract Components From Date
-You can add single components to an existing date very easily:
-```swift
-let date = NSDate()
-let tomorrow = date+1.days
-let 2_months_ago = date-2.months
-let next_year_today = date+1.years
-let another_date = date+54.seconds
-if date1+1.week == date2-1.months {
-// some good stuff to do...
-}
-```
-(Note: variants +=,-= modify first parameter of the operation)
-It's like just doing math!
-You can also do it in some more classic ways:
-```swift
-let date = NSDate() // Suppose it's 2015-01-05 @ 22:00
-let tomorrow = date.add(years: nil, months: nil, days: 1, minutes: nil, seconds: nil) // it will be 2015-01-06 @ 22:00
-let next2Hours = date.add("minute",20) // it will be 2016-01-05 @ 22:20
-let tomorrowNextYear = date.add(["year":1,"day":1]) // it will be 2016-01-06 @ 22:00
-```
-### Timezone & Dates
-NSDate objects don't have time zones; they represent an absolute moment in time.
-However, when you ask one for its description (by printing it in an NSLog, e.g.), it has to pick a time zone. The most reasonable "default" choice is GMT. If you're not in GMT yourself, the date will seem to be incorrect, by the amount of your own offset.
-You should always use an NSDateFormatter, setting its timezone to yours, before displaying a date.
-Use:
-```swift
-let date = NSDate() // Local NSTimeZone date
-let date_as_utc = date.toUTC()
-let date_as_local = date_as_utc.toLocal()
-let date_as_EST = date_as_utc.toTimezone("EST") //  convert to Eastern Time timezone
+let date = "2015-01-05T22:10:55.200Z".toDate(DateFormat.ISO8601)
+let date = "Fri, 09 Sep 2011 15:26:08 +0200".toDate(DateFormat.RSS)
+let date = "09 Sep 2011 15:26:08 +0200".toDate(DateFormat.AltRSS)
+let date = "22/01/2015".toDate(DateFormat.Custom("dd/MM/yyyy"))
 ```
 
-### Compare Dates
-Thanks to Swift you can compare dates using intuitive math operators: <,<=,==,>,>=:
-So,  let me show a simple example
-```swift
-let date1 = NSDate.date(fromString: "2015-01-01T00:00:00.000Z", format: DateFormat.ISO8601)
-let date2 = NSDate.date(fromString: "2015-01-11T00:00:00.000Z", format: DateFormat.ISO8601)
+You can also create directly a DateInRegion object in the same way:
 
-if date2 > date1 { ... } // or <=
-if date2 == date1 { ... }
-if date2 < date1 { ... } // or >=
-// and so on...
-```
-You can also compare two dates using:
 ```swift
-let date1...; let date2...;
-let equals : Bool = date1.isEqualToDate(date2, ignoreTime: true) // comparisor is done only at date level, ignoring the time component
+// Input date is +2 Hours from GMT (so GMT is 20:10:55)
+// Resulting date will be in Rome (+1 GMT) so is '2015-01-05T21:10:55 GMT+1'.
+let dateInRome = DateInRegion(fromString: "2015-01-05T22:10:55.200Z", format: DateFormat.ISO8601, region: Region(tzType: TimeZoneNames.Europe.Rome))
+// This convert the dateInRome in New York tz:
+let dateInNY = dateInRome.inRegion(region: Region(tzType: TimeZoneNames.America.NewYork))
 ```
 
-You can also check if a date time component fall in a time range:
+### Create DateInRegion/NSDate from components
+Sometimes you need to create an NSDate/DateInRegion from individual time components. 
+You have several ways to accomplish it:
+
+#### Chaining Time Units
+
+By composing a set time components ```nanoseconds, seconds, minutes, hours, days, weeks, months, year```)
+
 ```swift
-let isInRange : Bool = date1.isInTimeRange("11:00","15:00") // true if time component of the date falls inside proposed range (11am-03pm)
+// This will produce a DateInRegion with this date NSDate: 'Dec 25, 2015 at 20:10:00 UTC' (Gregorian Calendar)
+let dateInUTC = (2015.years | 12.months | 25.days | 20.hours | 10.minutes).inUTCRegion
+// This convert the date in UTC region into another region, NY:
+let dateInNY = dateInUTC.inRegion(region: Region(tzType: TimeZoneNames.America.NewYork))
 ```
 
-Some other properties/methods are:
+#### From a time interval from a specified date (fromNow/ago)
+
+By creating a date with an interval from a specified date using ```fromNow/ago```:
+
 ```swift
-.isToday()	// true if represented date is today
-.isTomorrow()
-.isYesterday()
-.isThisWeek() // true if represented date's week is the current week
-.isSameWeekOf(date: NSDate) // true if two dates share the same year's week
-.dateAtWeekStart() // return the date where current's date week starts
-.beginningOfDay() // return the same date of the sender with time set to 00:00:00
-.endOfDay() // return the same date of the sender with time set to 23:59:59
-.beginningOfMonth() // return the date which represent the first day of the sender date's month
-.endOfMonth() // return the date which represent the last day of the sender date's month
-.beginningOfYear() // return the date which represent the first day of the sender date's year
-.endOfYear() // return the date which represent the last day of the sender date's year
-.isWeekday() // true if current sender date is a week day
-.isWeekend() // true if current sender date is a weekend day (sat/sun)
+let date = 5.days.fromNow // an NSDate 5 days after the current date/time
+let date = 4.hours.ago // an NSDate 4 hours before the current date/time
+let date = (5.days + 2.hours - 15.minutes).fromNow // an NSDate 5d,2h,15m after the current date/time
+let date = (6.days + 2.hours).fromDate(anotherDate) // an NSDate 6 days and 2 hours after a specified date
+let date = (6.hours + 2.minutes).fromNow(region: inRome)
 ```
-### Intervals
+
+#### From a dictionary of time units
+
+By passing a dictionary (```[NSCalendarUnit : AnyObject]```). In this case remeber to specify both calendar and timezone with ```NSCalendarUnit.Calendar``` and ```NSCalendarUnit.TimeZone```.
+
+```swift
+var compDict : [NSCalendarUnit:AnyObject]
+compDict[.Year] = 2015
+compDict[.Month] = 12
+compDict[.Day] = 25
+compDict[.Hour] = 20
+compDict[.Minute] = 15
+compDict[.Second] = 33
+compDict[.Calendar] = CalendarType.Gregorian.toCalendar() // produce an NSCalendar
+compDict[.TimeZone] = TimeZoneNames.Europe.Rome.toTimeZone() // produce an NSTimeZone
+
+// Date is parsed as 25 Dec 2015 at 20:15:33 in Rome (GMT+1)
+// Resulting UTC date will be 1 hour before (19:15:33)
+let date = compDict.toUTCDate()
+
+// You can also create a DateInRegion with these components
+let dateInRome = DateInRegion(components: compDict)
+```
+
+The same result can be accomplished using:
+
+```swift
+let date = NSDate(params : compDict) // by passing a dict of type [NSCalendarUnit:AnyObject]
+let date = NSDate(components: compos) // by passing an NSDateComponents instance
+```
+
+#### By passing time units as init parameters
+
+Via init parameters: all parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
+
+```swift
+// First of all we create the region in which the date is expressed. Suppose we want to represent a datetime in Rome (GMT+1).
+let region = Region(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Europe.Rome)
+
+// Suppose anotherDate is: Nov 15, 2014 at 20:30:44
+// Now we create the date by setting only year,month,day and hour (all other missing params will be taken from anotherDate).
+let date = NSDate(refDate: anotherDate, year: 2015, month: 12, day: 25, hour: 22, region: region)
+// ... Produce date is Dec 25 2015 at 22:30:44 in GMT+1
+// (will be Dec 25, 2015 at 21:30:44 in UTC)
+```
+
+#### Create Dates at start/end of a time unit
+You can also create an NSDate at the start or end of a particular datetime unit expressed with ```NSCalendarUnit```.
+
+```swift
+// Suppose we have anotherDate = Dec 13 2015 at 14:20:00 UTC.
+// To get a NSDate at the start of the month (december) we can use:
+let sMonth = anotherDate.startOf(.Month) // 2015-12-01 00:00:00 UTC
+
+// The same behaviour can be obtained using endOf() method.
+// In this example we get the last moment of the current hour from our date
+let sMonth = anotherDate.endOf(.Hour) // 2015-12-01 14:59:59 UTC
+
+// We can also express it in another timezone
+// Suppose region = Region(tzType: TimeZoneNames.Europe.Rome)
+let sMonthInRome = anotherDate.startOf(.Month, inRegion: region) // 2015-11-30 23:00:00 UTC or 2015-12-01 00:00:00 GMT+1/Rome 
+```
+
+### Inspect DateInRegion or NSDate components
+
+As we said the only difference between an NSDate and DateInRegion is the second one represent an UTC date (NSDate) in a particular world's zone.
+
+**All methods and properties which follows are the same for both of the classes but while in NSDate returns value in UTC, in DateRegion variant values are returned in represented timezone.**
+
+Suppose you have:
+
+```swift
+let inRome = ... // 2015-02-01 00:45:00 Europe/Rome (+1 from GMT)
+let inUTC = inRome.UTCDate() ... // get the UTC date: '2015-01-31 23:45:00 UTC
+```
+
+You can get these properties:
+
+* ```.era```
+* ```.year```
+* ```.yearForWeekYear```
+* ```.month```
+* ```.monthName```
+* ```.monthDays```
+* ```.week```
+* ```.weekOfYear```
+* ```.weekOfMonth```
+* ```.weekday```
+* ```.weekdayOrdinal```
+* ```.day```
+* ```.hour```
+* ```.minute```
+* ```.seconds```
+* ```.nanosecond```
+* ```.firstDayOfWeek```
+* ```.lastDayOfWeek```
+* ```.leapMonth```
+* ```.leapYear```
+* ```.UTCDate``` (for DateInRange. Return the absolute UTC representation of the local time)
+* ```.LocalDate``` (for DateInRange. Convert the local date to the UTC NSDate representation taking care of the timezone)
+* ```.components``` return the NSDateComponents of a date
+* ```.components(inRegion:)``` for NSDate: to get components in a specific region
 
 
-### From NSDate to String
-SwiftDate has several interesting methods to convert NSDate instances to string representation.
-You can get the string from date using a particular format (don't worry, to preserve performances we use a singleton NSDateFormatter):
+So, for example, if you type ```inRome.day``` you will get 01 (Feb), while ```inUTC.day``` will get 31 (Jan).
+
+### Math operations with DateInRegion/NSDate
+
+Math operators ```+,-``` are supported both for plain NSDate and DateInRegion
+
 ```swift
-let string = date.toString(format: DateFormat.Custom("YYYY-MM-dd")) // something like "2015-01-01"
-let string = date.toString(format: DateFormat.ISO8601) // something like "2015-01-01T00:00:00.000Z"
-let string = date.toISOString() // the same of the above DateFormat.ISO8601
+// With NSDate
+let refDate = NSDate(timeIntervalSince1970: 1447630200) // Sun, 15 Nov 2015 23:30:00 UTC
+let newDate = (refDate + 2.hours + 1.days) // Mon, 17 Nov 2015 01:30:00 UTC
+
+// With DateInRegion
+let format = DateFormat.Custom("YYYY-mm-dd")
+let regionRome = Region(tzType: TimeZoneNames.Europe.Rome)
+let initialDateInRegion = DateInRegion(fromString:"2012-01-01", format: format, region: regionRome) // 2012-01-01 00:00:00 E/Rome
+
+let newDateInRegion = (initialDateInRegion + 1.days + 2.hours) // 2012-01-02 02:00:00 E/Rome
 ```
-You can also use convenience methods for NSDateFormatterStyle:
+
+You can also use add() methods set to add components to your date. Both of them are available for plain NSDate and DateInRegion:
+
+* ```add(years:months:weekOfYear:days:hours:minutes:seconds:nanoseconds:)``` where all paramters are optional
+* ```add(components:)``` you can pass an ```NSDateComponents``` to add
+* ```add(params:)``` where you can pass an ```[NSCalendarUnit:AnyObject]``` dictionary
+
+Just an example:
+
 ```swift
-let string = date.toString(dateStyle: .ShortStyle timeStyle:.LongStyle relativeDate:true)
+// Reference date is: Thu, 19 Nov 2015 19:00:00 UTC (1447959600 from 1970)
+let refDate = NSDate(timeIntervalSince1970: 1447959600)
+// New date must be 2017-01-21 14:00:00 +0000
+// Remember: all paramters are optional; in this example we have ignored minutes and seconds for example.
+let newDate = refDate.add(years: 1, months: 2, days: 1, hours: 2)
 ```
-Shortcuts are also available:
+
+Another example with NSDateComponents:
+
 ```swift
-.toShortString() // short style, both time and date are printed
-.toMediumString() // medium style, both time and date are printed
-.toLongString() // full style, both time and date are printed
-.toShortDateString() // short style, print only date
-.toShortTimeString() // short style, print only time
-.toMediumDateString() // medium style, print only date
-.toMediumTimeString() // medium style, print only time
-.toLongDateString() // long style, print only date
-.toLongTimeString() // long style, print only time
+let refDate = NSDate(timeIntervalSince1970: 1447959600)
+let compsToAdd = NSDateComponents()
+compsToAdd.day = 2
+compsToAdd.hour = 1
+compsToAdd.minute = 45
+let newDate = refDate.add(compsToAdd)
+let valid = (newDate.year == 2015 && newDate.month == 11 && newDate.day == 21 && newDate.hour == 20 && newDate.minute == 45 && newDate.second == 0)
 ```
+
+### Compare DateInRegion/NSDate
+
+Both NSDate and DateInRegion allows you to compare dates; as usual while NSDate
+These methods are available:
+
+* All math operations are supported ```>=,<=,<,>, ==``` both for NSDate and DateInRegion!
+* ```isToday()``` true if date represent the current date (timezone is set UTC for simple NSDate)
+* ```isYesterday()``` true if date represent the yesterday's date (timezone is set UTC for simple NSDate)
+* ```isTomorrow()``` true if date represent the next day after today (timezone is set UTC for simple NSDate)
+* ```isWeekend()``` true if date represent a weekend day according to specified calendar (the DefaultRegion's calendar one for NSDate, the one specified in Region if you are using DateInRegion)
+
+## Timezone conversion with DateInRegion chaining
+You can convert a DateInRegion easily using chaining.
+Let me show it:
+
+```swift
+let UTCDate = NSDate() // suppose 2015-05-31 23:30:00 UTC
+let finalHour = UTCDate.inRegion(regionNY).inRegion(regionRome).hour // 00 (00:30 of 2015-06-01)
+```
+
+### From DateInRegion/NSDate to strings
+
+Convert a date into a string is pretty easy too.
+Both NSDate and DateInRegion supports the following methods.
+SwiftDate use a per-thread cached ```NSDateFormatter``` in order to avoid multiple allocations at each call (NSDateFormatter instances are very expensive to create! However you don't need to be worried about that, is transparent to you!)
+
+Formatting methods are:
+* ```.toString(format:)``` Print date with specified format (see below to get a table of symbols you can use to represent each component)
+* ```.toISO8601String()``` Print an ISO8601 formatted string
+* ```.toString(style:,dateStyle:,timeStyle:)``` Print a string with a common style for date/time (see ```NSDateFormatterStyle```) or specify a style for date and another for time.
+* ```.toShortString(date:time)``` Print a short representation of the both date and time (or only one of them according to parameters)
+* ```.toMediumString(date:time:)``` Print a medium representation of the both date and time (or only one of them according to parameters)
+* ```.toLongString(date:time:)``` Print a long representation of the both date and time (or only one of them according to parameters)
+
+Some examples:
+
+```swift
+// Create a NSDate (UTC) from string and transform it into DateInRegion
+let date = "2015-01-05T22:10:55.000Z".toDate(DateFormat.ISO8601)!.inRegion(romeRegion)
+// The same behaviour can be also accomplished using DateInRegion(fromString:format:region)
+let date = DateInRegion("2015-01-05T22:10:55.000Z",DateFormat,ISO8601,romeRegion)
+
+// We can print the date (it also works with plain NSDate too!)
+// Just some examples:
+print("\(date.toISO8601String())") // to UTC ISO8601: "2015-01-05T22:10:55.000Z"
+print("\(date.toMediumString())") // to E/Rome: "Jan 5, 2015, 11:10:55 PM"
+print(date.toString(DateFormat.Custom("YYYY-MM-dd HH 'at' HH:mm"))) // to E/Rome: "2015-01-05 23 at 23:10"
+```
+
+#### From DateInRegion/NSDate to relative strings
+
+* ```.toRelativeString(fromDate:abbreviated:maxUnits:)```
 
 Finally you can also get a relative representation of the string (ie. "2 hours ago", "1 day ago"...) by using:
+
 ```swift
 let string = date.toRelativeString(fromDate: nil, abbreviated: false, maxUnits:2)
 ```
+
 This example tell to SwiftDate to return a relative representation of the date by comparing it to the current date (nil in fromDate means NSDate()) without using an abbreviated form (use "seconds" not "secs", or "years" not "ys") and with a max number of units of 2 (this is used to get the approximation units to print, ie "2 hours, 30 minutes" are 2 units, "2 hours, 30 minutes, 5 seconds" are 3 units).
 
-### Date Formats Syntax
-Syntax used for date format (both for parse and print) is the same used by NSDateFormatter.
-Below there is a short summary table:
-(the following table is copied from this [original article](http://waracle.net/iphone-nsdateformatter-date-formatting-table/))
+You can also translate components by localizing ```SwiftDate.localizable``` file (we accept pull requests for them)
 
-| Field    | Symbol | No   | Example                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|----------|--------|------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| era      | G      | 1..3 | AD                                                                                                                       | Era Đ Replaced with the Era string for the current date. One to three letters for the abbreviated form, four letters for the long form, five for the narrow form.                                                                                                                                                                                                                                                                                                       |
-|          |        | 4    | Anno Domini                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 5    | A                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| year     | y      | 1..n | 1996                                                                                                                     | Year. Normally the length specifies the padding, but for two letters it also specifies the maximum length. Example:                                                                                                                                                                                                                                                                                                                                                     |
-|          | Y      | 1..n | 1997                                                                                                                     | Year (in ŇWeek of YearÓ based calendars). This year designation is used in ISO year-week calendar as defined by ISO 8601, but can be used in non-Gregorian based calendar systems where week date processing is desired. May not always be the same value as calendar year.                                                                                                                                                                                             |
-|          | u      | 1..n | 4601                                                                                                                     | Extended year. This is a single number designating the year of this calendar system, encompassing all supra-year fields. For example, for the Julian calendar system, year numbers are positive, with an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values to CE years and negative values to BCE years, with 1 BCE being year 0.                                                                                         |
-| quarter  | Q      | 1..2 | 02                                                                                                                       | Quarter Đ Use one or two for the numerical quarter, three for the abbreviation, or four for the full name.                                                                                                                                                                                                                                                                                                                                                              |
-|          |        | 3    | Q2                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 4    | 2nd quarter                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | q      | 1..2 | 02                                                                                                                       | Stand-Alone Quarter Đ Use one or two for the numerical quarter, three for the abbreviation, or four for the full name.                                                                                                                                                                                                                                                                                                                                                  |
-|          |        | 3    | Q2                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 4    | 2nd quarter                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| month    | M      | 1..2 | 09                                                                                                                       | Month Đ Use one or two for the numerical month, three for the abbreviation, or four for the full name, or five for the narrow name.                                                                                                                                                                                                                                                                                                                                     |
-|          |        | 3    | Sept                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 4    | September                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 5    | S                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | L      | 1..2 | 09                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 3    | Sept                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 4    | September                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 5    | S                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | l      | 1    | *                                                                                                                        | Special symbol for Chinese leap month, used in combination with M. Only used with the Chinese calendar.                                                                                                                                                                                                                                                                                                                                                                 |
-| week     | w      | 1..2 | 27                                                                                                                       | Week of Year.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|          | W      | 1    | 3                                                                                                                        | Week of Month                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| day      | d      | 1..2 | 1                                                                                                                        | Date Đ Day of the month                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|          | D      | 1..3 | 345                                                                                                                      | Day of year                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|          | F      | 1    | 2                                                                                                                        | Day of Week in Month. The example is for the 2nd Wed in July                                                                                                                                                                                                                                                                                                                                                                                                            |
-|          | g      | 1..n | 2451334                                                                                                                  | Modified Julian day. This is different from the conventional Julian day number in two regards. First, it demarcates days at local zone midnight, rather than noon GMT. Second, it is a local number; that is, it depends on the local time zone. It can be thought of as a single number that encompasses all the date-related fields.                                                                                                                                  |
-| week day | E      | 1..3 | Tues                                                                                                                     | Day of week Đ Use one through three letters for the short day, or four for the full name, or five for the narrow name.                                                                                                                                                                                                                                                                                                                                                  |
-|          |        | 4    | Tuesday                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 5    | T                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | e      | 1..2 | 2                                                                                                                        | Local day of week. Same as E except adds a numeric value that will depend on the local starting day of the week, using one or two letters. For this example, Monday is the first day of the week.                                                                                                                                                                                                                                                                       |
-|          |        | 3    | Tues                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 4    | Tuesday                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 5    | T                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | c      | 1    | 2                                                                                                                        | Stand-Alone local day of week Đ Use one letter for the local numeric value (same as ÔeŐ), three for the short day, or four for the full name, or five for the narrow name.                                                                                                                                                                                                                                                                                              |
-|          |        | 3    | Tues                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 4    | Tuesday                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          |        | 5    | T                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| period   | a      | 1    | AM                                                                                                                       | AM or PM                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| hour     | h      | 1..2 | 11                                                                                                                       | Hour [1-12]                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|          | H      | 1..2 | 13                                                                                                                       | Hour [0-23]                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|          | K      | 1..2 | 0                                                                                                                        | Hour [0-11]                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|          | k      | 1..2 | 24                                                                                                                       | Hour [1-24]                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|          | j      | 1..2 | n/a                                                                                                                      | This is a special-purpose symbol. It must not occur in pattern or skeleton data. Instead, it is reserved for use in APIs doing flexible date pattern generation. In such a context, it requests the preferred format (12 versus 24 hour) for the language in question, as determined by whether h, H, K, or k is used in the standard short time format for the locale, and should be replaced by h, H, K, or k before beginning a match against availableFormats data. |
-| minute   | m      | 1..2 | 59                                                                                                                       | Minute. Use one or two for zero padding                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| second   | s      | 1..2 | 12                                                                                                                       | Second. Use one or two for zero padding.                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|          | S      | 1..n | 3456                                                                                                                     | Fractional Second Đ truncates (like other time fields) to the count of letters. (example shows display using pattern SSSS for seconds value 12.34567)                                                                                                                                                                                                                                                                                                                   |
-|          | A      | 1..n | 69540000                                                                                                                 | Milliseconds in day. This field behaves exactly like a composite of all time-related fields, not including the zone fields. As such, it also reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward. This reflects the fact that is must be combined with the offset field to obtain a unique local time value.                                                 |
-| zone     | z      | 1..3 | PDTfallbacks:HPG-8:00GMT-08:00                                                                                           | Time Zone Đ with the specific non-location format. Where that is unavailable, falls back to localized GMT format. Use one to three letters for the short format or four for the full format. In the short format, metazone names are not used unless the commonlyUsed flag is on in the locale.For more information about timezone formats, see Appendix J: Time Zone Display Names.                                                                                    |
-|          |        | 4    | Pacific Daylight Timefallbacks:HPG-8:00GMT-08:00                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | Z      | 1..3 | -0800                                                                                                                    | Time Zone Đ Use one to three letters for RFC 822 format, four letters for the localized GMT format.For more information about timezone formats, see Appendix J: Time Zone Display Names.                                                                                                                                                                                                                                                                                |
-|          |        | 4    | HPG+8:00fallbacks:GMT-08:00                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | v      | 1    | PT                                                                                                                       | Time Zone Đ with the generic non-location format. Where that is unavailable, uses special fallback rules given in Appendix J. Use one letter for short format, four for long format.For more information about timezone formats, see Appendix J: Time Zone Display Names.                                                                                                                                                                                               |
-|          |        | 4    | Pacific Timefallbacks:Pacific Time (Canada)Pacific Time (Whitehorse)United States (Los Angeles) TimeHPG-8:35 - GMT-08:35 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|          | V      | 1    | PSTfallbacks:HPG-8:00GMT-08:00                                                                                           | Time Zone Đ with the same format as z, except that metazone timezone abbreviations are to be displayed if available, regardless of the value of commonlyUsed.For more information about timezone formats, see Appendix J: Time Zone Display Names.                                                                                                                                                                                                                      |
-|          |        | 4    | United States (Los Angeles) Timefallbacks:HPG-8:35GMT-08:35                                                              | Time Zone Đ with the generic location format. Where that is unavailable, falls back to the localized GMT format. (Fallback is only necessary with a GMT-style Time Zone ID, like Etc/GMT-830.)This is especially useful when presenting possible timezone choices for user selection, since the naming is more uniform than the v format.For more information about timezone formats, see Appendix J: Time Zone Display Names.                                          |
-
-
-### Some other libraries:
-SwiftDate was also inspired by other works.
-Some links:
-* [AFDateHelper](https://github.com/melvitax/AFDateHelper)
-* [Timepiece](https://github.com/naoty/Timepiece)
-* [MSDateFormatter](https://github.com/Namvt/MSDateFormatter)

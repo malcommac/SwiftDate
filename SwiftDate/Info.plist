@@ -20,8 +20,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright (C) 2015 SwiftDate. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>

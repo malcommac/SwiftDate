@@ -2,11 +2,11 @@
 //  SwiftDate.h
 //  SwiftDate
 //
-//  Created by fhisa on 2015/09/28.
-//  Copyright (C) 2015 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti on 23/11/15.
+//  Copyright © 2015 Daniele Margutti. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for SwiftDate.
 FOUNDATION_EXPORT double SwiftDateVersionNumber;

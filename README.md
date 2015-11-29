@@ -29,6 +29,10 @@ platform :ios, '8.0'
 pod "SwiftDate", "~> 2.0"
 ```
 
+## Old Versions
+
+SwiftDate 1.2 branch last revision is available [here](https://github.com/malcommac/SwiftDate/releases/tag/1.2). However we don't plan to support this version anymore.
+
 ## What's NSDate (really)
 
 As you know NSDate is the central class of the date/time handling in Foundation framework. In fact NSDate is nothing more than a wrapper around the number of seconds since [Jan 1, 2001 at 00:00 UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time) (or GMT).

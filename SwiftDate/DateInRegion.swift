@@ -457,7 +457,16 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 
 extension DateInRegion {
 	
-	public func isInTimeRange(minTime: String!, maxTime: String!, format: String?) -> Bool {
+	/**
+	Return if a specified UTC date represented in current region is inside a time range
+	
+	- parameter minTime: minimum time (must be < maxTime)
+	- parameter maxTime: max time (must be > minTime)
+	- parameter format:  format of both minTime and maxTime (if not specified 'HH:MM' hours/minutes is used)
+	
+	- returns: true if time of the date is inside specified time range of the current represented region
+	*/
+	public func inTimeRange(minTime: String!, maxTime: String!, format: String?) -> Bool {
 		let dateFormatter = NSDateFormatter.cachedFormatter().saveState()
 		dateFormatter.formatter.dateFormat = format ?? "HH:mm"
 		dateFormatter.formatter.timeZone = NSTimeZone(abbreviation: "UTC")

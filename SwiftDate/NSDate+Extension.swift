@@ -223,6 +223,22 @@ public extension NSDate {
 		return (DateInRegion(endOfDate: self, unit: unit, region: region)?.UTCDate)!
 	}
 	
+	
+	/**
+	Return if a specified UTC date represented in passed region is inside a time range
+	
+	- parameter minTime: minimum time (must be < maxTime)
+	- parameter maxTime: max time (must be > minTime)
+	- parameter format:  format of both minTime and maxTime (if not specified 'HH:MM' hours/minutes is used)
+	- parameter region:  region in which the UTC date should be translated before compararisor. If not specified defaultRegion is used
+	
+	- returns: true if time of the date is inside specified time range
+	*/
+	public func inTimeRange(minTime: String!, maxTime: String!, format: String?, inRegion region :Region = Region.defaultRegion()) -> Bool {
+		let dateInRegion = DateInRegion(UTCDate: self, region: region)
+		return dateInRegion!.inTimeRange(minTime, maxTime: maxTime, format: format)
+	}
+	
 	/**
 	Return the string representation the date in specified region
 	

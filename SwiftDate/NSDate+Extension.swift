@@ -2,7 +2,10 @@
 // SwiftDate.swift
 // SwiftDate
 //
-// Author:	Daniele Margutti (hello@danielemargutti.com | @danielemargutti)
+//  Author:
+//	Daniele Margutti
+//	mail:		hello@danielemargutti.com
+//	twitter:	@danielemargutti
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -230,6 +233,21 @@ public extension NSDate {
 	*/
 	public func toString(format :DateFormat, inRegion region :Region = Region.defaultRegion()) -> String? {
 		return DateInRegion(UTCDate: self, region: region)?.toString(format)
+	}
+	
+	/**
+	Convert a DateInRegion date into a date with date & time style specific format style
+	
+	- parameter style:     style to format both date and time (if you specify this you don't need to specify dateStyle,timeStyle)
+	- parameter dateStyle: style to format the date
+	- parameter timeStyle: style to format the time
+	- parameter region:    region in which you want to represent self UTC date
+
+	- returns: a new string which represent the date expressed into the current region or nil if region does not contain valid date
+	*/
+	public func toString(style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil, timeStyle: NSDateFormatterStyle? = nil, inRegion region :Region = Region.defaultRegion()) -> String? {
+		let refDateInRegion = DateInRegion(UTCDate: self, region: region)!
+		return refDateInRegion.toString(style, dateStyle: dateStyle, timeStyle: timeStyle)
 	}
 	
 	/**

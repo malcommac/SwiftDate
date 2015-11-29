@@ -2,7 +2,10 @@
 // SwiftDate.swift
 // SwiftDate
 //
-// Author:	Daniele Margutti (hello@danielemargutti.com | @danielemargutti)
+//  Author:
+//	Daniele Margutti
+//	mail:		hello@danielemargutti.com
+//	twitter:	@danielemargutti
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -871,48 +874,56 @@ private func sumDateComponents(lhs :NSDateComponents, rhs :NSDateComponents, sum
 
 public extension Int {
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var nanoseconds :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.nanosecond = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var seconds :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.second = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var minutes :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.minute = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var hours :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.hour = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var days :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.day = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var weeks :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.weekOfYear = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var months :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.month = self
 		return dateComponents
 	}
 	
+	/// allows to make math operation with date components (like 1.seconds + 2.hours etc.)
 	public var years :NSDateComponents {
 		let dateComponents = NSDateComponents()
 		dateComponents.year = self

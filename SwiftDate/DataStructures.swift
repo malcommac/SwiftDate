@@ -2,7 +2,10 @@
 // SwiftDate.swift
 // SwiftDate
 //
-// Author:	Daniele Margutti (hello@danielemargutti.com | @danielemargutti)
+//  Author:
+//	Daniele Margutti
+//	mail:		hello@danielemargutti.com
+//	twitter:	@danielemargutti
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -44,16 +47,35 @@ public struct Region {
 	}
 	var locale		:NSLocale!			// Locale to perform conversion
 	
+	/**
+	Return the current local region (NSCalendar.currentLocale, NSTimeZone.localTimeZone(), NSLocale.currentLocale)
+	
+	- returns: a new region with current locale settings
+	*/
 	static func LocalRegion() -> Region {
 		let region = Region.init(calType: CalendarType.Local(false), tzType: TimeZoneNames.Other.Locale, loc: NSLocale.currentLocale())
 		return region
 	}
 	
+	/**
+	Return an UTC region (gregoria calendar, GMT+0 and current NSLocale)
+	
+	- returns: UTC Region
+	*/
 	static func UTCRegion() -> Region {
 		let region = Region.init(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Other.GMT, loc: NSLocale.currentLocale())
 		return region
 	}
 	
+	/**
+	Initialize a new Region structure with passed NSCalendar,NSTimeZone and NSLocale object instances
+	
+	- parameter cal: calendar type (NSCalendar's with gregorian calendar identifier is nil)
+	- parameter tz:  timezone (if nil NSTimeZone.currentLocale() is used)
+	- parameter loc: locale as NSLocale instance (if nil currentLocale is used)
+	
+	- returns: a new region with specified parameters
+	*/
 	init(cal	:NSCalendar? = CalendarType.Gregorian.toCalendar(),
 		tz		:NSTimeZone? = TimeZoneNames.Other.Locale.toTimeZone()!,
 		loc		:NSLocale? = NSLocale.currentLocale()) {
@@ -63,6 +85,15 @@ public struct Region {
 			self.locale = loc
 	}
 	
+	/**
+	Initialize a new Region structure with passed calendar, timezone and locale
+	
+	- parameter cal: calendar type (see CalendarType structure, if nil Gregorian calendar is used)
+	- parameter tz:  timezone (see TimeZoneNames.[country].[place], if nil NSTimeZone.currentLocale() is used)
+	- parameter loc: locale as NSLocale instance (if nil currentLocale is used)
+	
+	- returns: a new region with specified parameters
+	*/
 	init(calType	:CalendarType = CalendarType.Gregorian,
 		tzType		:TimeZoneCountry = TimeZoneNames.Other.Locale,
 		loc			:NSLocale = NSLocale.currentLocale()) {
@@ -74,10 +105,20 @@ public struct Region {
 	
 	//MARK: - Default Region -
 	
+	/**
+	Change the default region of the app (initially is Gregorian/GMT/currentLocale)
+	
+	- parameter region: new region to set as default (not restored between runs)
+	*/
 	static func setDefaultRegion(region :Region!) {
 		DefaultRegion = region
 	}
 	
+	/**
+	Return the current default region. If never set, Gregorian/GMT/currentLocale region is get
+	
+	- returns: default region
+	*/
 	static func defaultRegion() -> Region {
 		if DefaultRegion == nil {
 			let calendar = CalendarType.Local(false).toCalendar()

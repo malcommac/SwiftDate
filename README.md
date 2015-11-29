@@ -1,6 +1,7 @@
 # SwiftDate 2
 ### the best way to play with Dates in iOS/Mac/WatchOS/tvOS
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Welcome to SwiftDate 2, the second major release of our Date Management Library for Apple's platforms: the goal of this project is to allow developers to manage easily dates operation and timezones conversions in Swift.
 SwiftDate allows you:
@@ -13,6 +14,18 @@ SwiftDate allows you:
 - [x] Many shortcuts to get intervals and common dates (```isYesterday,isTomorrow...```)
 - [x] *... many many other shiny things!*
 
+## Upgrading from SwiftDate 1.2 or earlier
+SwiftDate 2.0 is completely rewritten version of SwiftDate. We added support for timezones and fixed/changed many methods and properties. Due to these changes old SwiftDate 1.2 code may not work properly. We don't provide any updgrading doc because everything is pretty simple; lots of methods has the same names and DateInRegion is a new structure.
+If you have problems or question create an issue; we will be happy to answer :)
+
+## CocoaPods and Chartage
+SwiftDate 2 package is compatible both with CocoaPods and Chartage.
+
+For cocoapods simply add the following line to your Podfile:
+
+```
+pod "SwiftDate"
+```
 
 ## What's NSDate (really)
 

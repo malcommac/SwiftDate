@@ -1,4 +1,5 @@
-# SwiftDate 2
+![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)
+
 ### the best way to play with Dates in iOS/Mac/WatchOS/tvOS
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)

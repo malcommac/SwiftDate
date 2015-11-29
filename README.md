@@ -1,7 +1,5 @@
 ![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png)
 
-### the best way to play with Dates in iOS/Mac/WatchOS/tvOS
-
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Welcome to SwiftDate 2, the second major release of our Date Management Library for Apple's platforms: the goal of this project is to allow developers to manage easily dates operation and timezones conversions in Swift.
@@ -13,6 +11,7 @@ SwiftDate allows you:
 - [x] **Easy get time components in NSDate (UTC) or custom region**. For example: ```aDateInRegion.day``` or ```hour, minutes etc.```
 - [x] Easy/optimized way **to get and transform a date from and to strings** (with **relative date supports*** like '2 hours, 5 minutes' etc.)
 - [x] Many shortcuts to get intervals and common dates (```isYesterday,isTomorrow...```)
+- [x] Compatible with Swift 2.0+ and iOS/Mac/WatchOS/tvOS platforms
 - [x] *... many many other shiny things!*
 
 ## Upgrading from SwiftDate 1.2 or earlier

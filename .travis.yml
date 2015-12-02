@@ -1,6 +1,6 @@
+sudo: required
 osx_image: xcode7.1
 language: swift
-sudo: required
 
 before_install:
 

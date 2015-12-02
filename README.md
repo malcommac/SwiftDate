@@ -1,7 +1,7 @@
 ![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/swiftdate-logo.png)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CI Status](http://img.shields.io/travis/Daniele Margutti/SwiftDate?style=flat)](https://travis-ci.org/Daniele Margutti/SwiftDate)
+[![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/Daniele Margutti/SwiftDate)
 [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)

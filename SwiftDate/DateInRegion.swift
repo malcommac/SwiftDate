@@ -59,7 +59,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a DateInRegion for UTC region with given date
 	*/
-	static func UTCRegion(date :NSDate!) -> DateInRegion {
+	public static func UTCRegion(date :NSDate!) -> DateInRegion {
 		let inUTCRegion = DateInRegion(UTCDate: date, region: Region(tzType: TimeZoneNames.Other.GMT))!
 		return inUTCRegion
 	}
@@ -71,7 +71,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a DateInRegion in default region with given date
 	*/
-	static func DefaultRegion(date :NSDate!) -> DateInRegion {
+	public static func DefaultRegion(date :NSDate!) -> DateInRegion {
 		let inDefRegion = DateInRegion(UTCDate: date, region: Region.defaultRegion())
 		return inDefRegion!
 	}
@@ -81,7 +81,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion
 	*/
-	init(refDate :NSDate = NSDate(), cal :CalendarType = CalendarType.Local(false), tz :TimeZoneCountry = TimeZoneNames.Other.GMT, locale :NSLocale = NSLocale.currentLocale()) {
+	public init(refDate :NSDate = NSDate(), cal :CalendarType = CalendarType.Local(false), tz :TimeZoneCountry = TimeZoneNames.Other.GMT, locale :NSLocale = NSLocale.currentLocale()) {
 		region = Region(calType :cal, tzType: tz, loc :locale)
 		UTCDate = refDate
 	}
@@ -94,7 +94,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion with UTCDate created by passing a dictionary of components
 	*/
-	init?(components dict : [NSCalendarUnit : AnyObject], locale : NSLocale = Region.UTCRegion().locale) {
+	public init?(components dict : [NSCalendarUnit : AnyObject], locale : NSLocale = Region.UTCRegion().locale) {
 		let calendar = dict[NSCalendarUnit.Calendar] ?? Region.UTCRegion().calendar
 		let timeZone = dict[NSCalendarUnit.TimeZone] ?? Region.UTCRegion().timeZone
 		let components = DateInRegion.dateFromComponentsDict(dict)
@@ -113,7 +113,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance for specified date in passed timezone
 	*/
-	init?(components :NSDateComponents) {
+	public init?(components :NSDateComponents) {
 		let calendar = components.calendar ?? Region.UTCRegion().calendar
 		let timeZone = components.timeZone ?? Region.UTCRegion().timeZone
 		let locale = components.calendar?.locale ?? Region.UTCRegion().locale
@@ -133,7 +133,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance expressed into passed region
 	*/
-	init?(UTCDate date :NSDate? = NSDate(), region :Region = Region.defaultRegion()) {
+	public init?(UTCDate date :NSDate? = NSDate(), region :Region = Region.defaultRegion()) {
 		self.UTCDate = date
 		self.region = region
 	}
@@ -157,19 +157,19 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance created from passed components and region
 	*/
-	init(date					: NSDate? = NSDate(),
-		era						: Int? = nil,
-		year					: Int? = nil,
-		month					: Int? = nil,
-		day						: Int? = nil,
-		yearForWeekOfYear		: Int? = nil,
-		weekOfYear				: Int? = nil,
-		weekday					: Int? = nil,
-		hour					: Int? = nil,
-		minute					: Int? = nil,
-		second					: Int? = nil,
-		nanosecond				: Int? = nil,
-		region					: Region = Region.defaultRegion()) {
+	public init(date					: NSDate? = NSDate(),
+				era						: Int? = nil,
+				year					: Int? = nil,
+				month					: Int? = nil,
+				day						: Int? = nil,
+				yearForWeekOfYear		: Int? = nil,
+				weekOfYear				: Int? = nil,
+				weekday					: Int? = nil,
+				hour					: Int? = nil,
+				minute					: Int? = nil,
+				second					: Int? = nil,
+				nanosecond				: Int? = nil,
+				region					: Region = Region.defaultRegion()) {
 			
 			
 			self.region = region
@@ -233,7 +233,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance
 	*/
-	init?(startOfDate date : NSDate = NSDate(), unit :NSCalendarUnit!, region :Region = Region.defaultRegion()) {
+	public init?(startOfDate date : NSDate = NSDate(), unit :NSCalendarUnit!, region :Region = Region.defaultRegion()) {
 		self.region = region
 		self.UTCDate = self.startOfDateForUnit(unit, date: date)
 	}
@@ -247,7 +247,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance
 	*/
-	init?(endOfDate date : NSDate = NSDate(), unit :NSCalendarUnit!, region :Region = Region.defaultRegion()) {
+	public init?(endOfDate date : NSDate = NSDate(), unit :NSCalendarUnit!, region :Region = Region.defaultRegion()) {
 		self.region = region
 		var nextDate = region.calendar.dateByAddingUnit(unit, value: 1, toDate: date, options: NSCalendarOptions(rawValue: 0))!
 		nextDate = self.startOfDateForUnit(unit, date: nextDate)!
@@ -264,7 +264,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance
 	*/
-	init?(fromString date :String, format :DateFormat, region :Region = Region.defaultRegion()) {
+	public init?(fromString date :String, format :DateFormat, region :Region = Region.defaultRegion()) {
 		
 		self.region = region
 		
@@ -455,7 +455,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 
 // MARK: - Manage DateInRegion Date Components -
 
-extension DateInRegion {
+public extension DateInRegion {
 	
 	/**
 	Return if a specified UTC date represented in current region is inside a time range
@@ -631,7 +631,7 @@ extension DateInRegion {
 	}
 	
 	/// Nearest rounded hour from the date expressed in this region's timezone
-	var nearestHour :Int {
+	public var nearestHour :Int {
 		let date = (self + 30.minutes)!
 		return Int(date.hour!);
 	}
@@ -942,7 +942,7 @@ public extension Int {
 
 //MARK: - DateInRegion Formatters -
 
-extension String {
+public extension String {
 	
 	/**
 	Convert a string into NSDate by passing conversion format
@@ -1010,7 +1010,7 @@ extension String {
 
 //MARK: - From DateInRegion to String -
 
-extension DateInRegion {
+public extension DateInRegion {
 	
 	/**
 	Return an ISO8601 string from current UTC Date of the region
@@ -1260,7 +1260,7 @@ public func >(ldate: DateInRegion, rdate: DateInRegion) -> Bool {
 }
 
 
-extension DateInRegion {
+public extension DateInRegion {
 	
 	public func compare(date: DateInRegion, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult {
 		return region.calendar.compareDate(UTCDate, toDate: date.UTCDate, toUnitGranularity: unit)
@@ -1303,7 +1303,7 @@ extension DateInRegion {
 		return self
 	}
 	
-	class func dateFromComponentsDict(dict : [NSCalendarUnit : AnyObject]) -> NSDateComponents {
+	public class func dateFromComponentsDict(dict : [NSCalendarUnit : AnyObject]) -> NSDateComponents {
 		let components = NSDateComponents()
 		for (unit, value) in dict {
 			switch unit {

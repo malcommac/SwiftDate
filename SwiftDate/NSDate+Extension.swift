@@ -46,7 +46,7 @@ public extension NSDate {
 	
 	- returns: absolute date in UTC timezone created by looking at passed components.
 	*/
-	convenience init?(components :NSDateComponents) {
+	public convenience init?(components :NSDateComponents) {
 		let rDate = (DateInRegion(components: components)?.UTCDate)
 		if rDate == nil {
 			return nil // failed to use passed components
@@ -64,7 +64,7 @@ public extension NSDate {
 	
 	- returns: a new NSDate instance
 	*/
-	convenience init?(params :[NSCalendarUnit : AnyObject], locale : NSLocale = Region.UTCRegion().locale) {
+	public convenience init?(params :[NSCalendarUnit : AnyObject], locale : NSLocale = Region.UTCRegion().locale) {
 		// generate a new NSDate (absolute UTC format) from passed components
 		let rDate = DateInRegion(components: params, locale: locale)?.UTCDate
 		self.init(timeIntervalSince1970: rDate!.timeIntervalSince1970)
@@ -90,7 +90,7 @@ public extension NSDate {
 	
 	- returns: a new date instance with components created from refDate and only specified components set by passing input params
 	*/
-	convenience init(refDate date : NSDate,
+	public convenience init(refDate date : NSDate,
 		era						: Int? = nil,
 		year					: Int? = nil,
 		month					: Int? = nil,
@@ -359,11 +359,11 @@ public func + (lhs: NSDate, rhs: NSDateComponents) -> NSDate {
 
 public extension NSTimeInterval {
  
-     var fromNow: NSDate? {
+     public var fromNow: NSDate? {
          return NSDate(timeIntervalSinceNow: self)
      }
  
-     var ago: NSDate? {
+     public var ago: NSDate? {
         return NSDate(timeIntervalSinceNow: -self)
 	}
 }
@@ -372,82 +372,82 @@ public extension NSTimeInterval {
 public extension NSDate {
 	
 	/// Get the year component of the date in UTC region (use inRegion(...).year to get the year component in specified time zone)
-	var year :Int {
+	public var year :Int {
 		return self.inUTCRegion().year!
 	}
 	
 	/// Get the month component of the date in UTC region (use inRegion(...).month to get the month component in specified time zone)
-	var month :Int {
+	public var month :Int {
 		return self.inUTCRegion().month!
 	}
 	
 	/// Get the month name component of the date in UTC region (use inRegion(...).monthName to get the month's name component in specified time zone)
-	var monthName :String {
+	public var monthName :String {
 		return self.inUTCRegion().monthName!
 	}
 	
 	/// Get the week of month component of the date in UTC region (use inRegion(...).weekOfMonth to get the week of month component in specified time zone)
-	var weekOfMonth :Int {
+	public var weekOfMonth :Int {
 		return self.inUTCRegion().weekOfMonth!
 	}
 	
 	/// Get the year for week of year component of the date in UTC region (use inRegion(...).yearForWeekOfYear to get the year week of year component in specified time zone)
-	var yearForWeekOfYear :Int {
+	public var yearForWeekOfYear :Int {
 		return self.inUTCRegion().yearForWeekOfYear!
 	}
 	
 	/// Get the week of year component of the date in UTC region (use inRegion(...).weekOfYear to get the week of year component in specified time zone)
-	var weekOfYear :Int	{
+	public var weekOfYear :Int	{
 		return self.inUTCRegion().weekOfYear!
 	}
 	
 	/// Get the weekday component of the date in UTC region (use inRegion(...).weekday to get the weekday component in specified time zone)
-	var weekday :Int {
+	public var weekday :Int {
 		return self.inUTCRegion().weekday!
 	}
 	
 	/// Get the weekday ordinal component of the date in UTC region (use inRegion(...).weekdayOrdinal to get the weekday ordinal component in specified time zone)
-	var weekdayOrdinal :Int	{
+	public var weekdayOrdinal :Int	{
 		return self.inUTCRegion().weekdayOrdinal!
 	}
 	
 	/// Get the day component of the date in UTC region (use inRegion(...).day to get the day component in specified time zone)
-	var day :Int {
+	public var day :Int {
 		return self.inUTCRegion().day!
 	}
 	
 	/// Get the number of days of the current date's month in UTC region (use inRegion(...).monthDays to get it in specified time zone)
-	var monthDays :Int {
+	public var monthDays :Int {
 		return self.inUTCRegion().monthDays!
 	}
 	
 	/// Get the hour component of the current date's hour in UTC region (use inRegion(...).hour to get it in specified time zone)
-	var hour :Int {
+	public var hour :Int {
 		return self.inUTCRegion().hour!
 	}
 	
 	/// Get the nearest hour component of the current date's hour in UTC region (use inRegion(...).nearestHour to get it in specified time zone)
-	var nearestHour :Int {
+	public var nearestHour :Int {
 		return self.inUTCRegion().nearestHour
 	}
 	
 	/// Get the minute component of the current date's minute in UTC region (use inRegion(...).minute to get it in specified time zone)
-	var minute :Int	{
+	public var minute :Int	{
 		return self.inUTCRegion().minute!
 	}
 	
 	/// Get the second component of the current date's second in UTC region (use inRegion(...).second to get it in specified time zone)
-	var second :Int	{
+	public var second :Int	{
 		return self.inUTCRegion().second!
 	}
 	
 	/// Get the nanoscend component of the current date's nanosecond in UTC region (use inRegion(...).nanosecond to get it in specified time zone)
-	var nanosecond :Int	{
+	public var nanosecond :Int	{
 		return self.inUTCRegion().nanosecond!
 	}
 	
 	/// Get the era component of the current date's era in UTC region (use inRegion(...).era to get it in specified time zone)
-	var era :Int {
+	public var era :Int {
 		return self.inUTCRegion().era!
 	}
 	
@@ -459,7 +459,7 @@ public extension NSDate {
 	
 	- returns: first day of the week in calendar, nil if region is not valid
 	*/
-	func firstDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
+	public func firstDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
 		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.firstDayOfWeek!
 	}
 	
@@ -470,7 +470,7 @@ public extension NSDate {
 	
 	- returns: last day of the week in calendar, nil if region is not valid
 	*/
-	func lastDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
+	public func lastDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
 		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.lastDayOfWeek!
 	}
 	

@@ -36,8 +36,8 @@ import Foundation
 var DefaultRegion :Region?
 
 public struct Region {
-	var calendar	:NSCalendar!		// Calendar to use
-	var timeZone : NSTimeZone! {
+	public var calendar	:NSCalendar!		// Calendar to use
+	public var timeZone : NSTimeZone! {
 		get {
 			return calendar.timeZone
 		}
@@ -45,14 +45,14 @@ public struct Region {
 			calendar.timeZone = timeZone
 		}
 	}
-	var locale		:NSLocale!			// Locale to perform conversion
+	public var locale		:NSLocale!			// Locale to perform conversion
 	
 	/**
 	Return the current local region (NSCalendar.currentLocale, NSTimeZone.localTimeZone(), NSLocale.currentLocale)
 	
 	- returns: a new region with current locale settings
 	*/
-	static func LocalRegion() -> Region {
+	public static func LocalRegion() -> Region {
 		let region = Region.init(calType: CalendarType.Local(false), tzType: TimeZoneNames.Other.Locale, loc: NSLocale.currentLocale())
 		return region
 	}
@@ -62,7 +62,7 @@ public struct Region {
 	
 	- returns: UTC Region
 	*/
-	static func UTCRegion() -> Region {
+	public static func UTCRegion() -> Region {
 		let region = Region.init(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Other.GMT, loc: NSLocale.currentLocale())
 		return region
 	}
@@ -76,9 +76,9 @@ public struct Region {
 	
 	- returns: a new region with specified parameters
 	*/
-	init(cal	:NSCalendar? = CalendarType.Gregorian.toCalendar(),
-		tz		:NSTimeZone? = TimeZoneNames.Other.Locale.toTimeZone()!,
-		loc		:NSLocale? = NSLocale.currentLocale()) {
+	public init(cal	:NSCalendar? = CalendarType.Gregorian.toCalendar(),
+				tz		:NSTimeZone? = TimeZoneNames.Other.Locale.toTimeZone()!,
+				loc		:NSLocale? = NSLocale.currentLocale()) {
 			
 			self.calendar = cal
 			self.timeZone = tz
@@ -94,9 +94,9 @@ public struct Region {
 	
 	- returns: a new region with specified parameters
 	*/
-	init(calType	:CalendarType = CalendarType.Gregorian,
-		tzType		:TimeZoneCountry = TimeZoneNames.Other.Locale,
-		loc			:NSLocale = NSLocale.currentLocale()) {
+	public init(calType	:CalendarType = CalendarType.Gregorian,
+				tzType		:TimeZoneCountry = TimeZoneNames.Other.Locale,
+				loc			:NSLocale = NSLocale.currentLocale()) {
 			
 			self.calendar = calType.toCalendar()
 			self.calendar.timeZone = tzType.toTimeZone()!
@@ -110,7 +110,7 @@ public struct Region {
 	
 	- parameter region: new region to set as default (not restored between runs)
 	*/
-	static func setDefaultRegion(region :Region!) {
+	public static func setDefaultRegion(region :Region!) {
 		DefaultRegion = region
 	}
 	
@@ -119,7 +119,7 @@ public struct Region {
 	
 	- returns: default region
 	*/
-	static func defaultRegion() -> Region {
+	public static func defaultRegion() -> Region {
 		if DefaultRegion == nil {
 			let calendar = CalendarType.Local(false).toCalendar()
 			let timeZone = TimeZoneNames.Other.GMT.toTimeZone()
@@ -145,7 +145,7 @@ public extension NSTimeZone {
 	
 	- returns: timezone instance
 	*/
-	static func fromType(type :TimeZoneCountry) -> NSTimeZone {
+	public static func fromType(type :TimeZoneCountry) -> NSTimeZone {
 		if type.description == TimeZoneNames.Other.Locale.description {
 			return NSTimeZone.localTimeZone()
 		} else if type.description == TimeZoneNames.Other.System.description {
@@ -291,7 +291,7 @@ internal extension NSDateFormatter {
 
 //MARK: - Extension: NSCalendarUnit -
 
-protocol CalendarAsDictKey: Hashable {}
+public protocol CalendarAsDictKey: Hashable {}
 
 /// This extension is used to support creation of NSDate/DateInRegion instances from a dictionary of NSCalendarUnit. Without this
 /// extension we are not able to use NSCalendarUnit as key for our dictionary.
@@ -350,7 +350,7 @@ public extension NSCalendar {
 	
 	- returns: instance of the new NSCalendar
 	*/
-	static func fromType(type :CalendarType) -> NSCalendar! {
+	public static func fromType(type :CalendarType) -> NSCalendar! {
 		return type.toCalendar()
 	}
 	

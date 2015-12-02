@@ -1,6 +1,10 @@
 ![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/swiftdate-logo.png)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CI Status](http://img.shields.io/travis/Daniele Margutti/SwiftDate?style=flat)](https://travis-ci.org/Daniele Margutti/SwiftDate)
+[![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
+[![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 
 Welcome to SwiftDate 2, the second major release of our Date Management Library for Apple's platforms: the goal of this project is to allow developers to manage easily dates operation and timezones conversions in Swift.
 SwiftDate allows you:
@@ -28,6 +32,9 @@ Simply add these lines to your pod file:
 platform :ios, '8.0'
 pod "SwiftDate", "~> 2.0"
 ```
+
+## Author
+This library was created by [Daniele Margutti](https://github.com/malcommac) with contribution of [Jeroen Houtzager](https://github.com/Hout). Any help is welcome; feel free to post your issue or pull request, in the spirit of open source software.
 
 ## Old Versions
 

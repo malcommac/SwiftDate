@@ -81,7 +81,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion
 	*/
-	public init(refDate :NSDate = NSDate(), cal :CalendarType = CalendarType.Local(false), tz :TimeZoneCountry = TimeZoneNames.Other.GMT, locale :NSLocale = NSLocale.currentLocale()) {
+	public init(refDate :NSDate = NSDate(), cal :CalendarType = CalendarType.Current, tz :TimeZoneCountry = TimeZoneNames.Other.GMT, locale :NSLocale = NSLocale.currentLocale()) {
 		region = Region(calType :cal, tzType: tz, loc :locale)
 		UTCDate = refDate
 	}

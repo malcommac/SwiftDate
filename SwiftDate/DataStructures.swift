@@ -53,7 +53,7 @@ public struct Region {
 	- returns: a new region with current locale settings
 	*/
 	public static func LocalRegion() -> Region {
-		let region = Region.init(calType: CalendarType.Local(false), tzType: TimeZoneNames.Other.Locale, loc: NSLocale.currentLocale())
+		let region = Region.init(calType: CalendarType.Current, tzType: TimeZoneNames.Other.Locale, loc: NSLocale.currentLocale())
 		return region
 	}
 	
@@ -121,7 +121,7 @@ public struct Region {
 	*/
 	public static func defaultRegion() -> Region {
 		if DefaultRegion == nil {
-			let calendar = CalendarType.Local(false).toCalendar()
+			let calendar = CalendarType.Current.toCalendar()
 			let timeZone = TimeZoneNames.Other.GMT.toTimeZone()
 			calendar.timeZone = timeZone!
 			let locale = NSLocale.currentLocale()
@@ -361,6 +361,7 @@ public extension NSCalendar {
 	
 	- returns: a new NSCalendar instance from system settings
 	*/
+	@available(*, deprecated=2.0.3, message="locale was deprecated, use currentCalendar() or autoupdatingCurrentCalendar() ")
 	static func locale(autoUpdate :Bool) -> NSCalendar! {
 		return NSCalendar.fromType(CalendarType.Local(autoUpdate))
 	}
@@ -372,12 +373,17 @@ public extension NSCalendar {
 *  @brief  This structure represent a shortcut from NSCalendar init function.
 */
 public enum CalendarType {
+	@available(*, deprecated=2.0.3, message="Local was deprecated, use Current or AutoUpdatingCurrent")
 	case Local(_: Bool)
+	case Current
+	case AutoUpdatingCurrent
 	case Gregorian, Buddhist, Chinese, Coptic, EthiopicAmeteMihret, EthiopicAmeteAlem, Hebrew, ISO8601, Indian, Islamic, IslamicCivil, Japanese, Persian, RepubliOfChina, IslamicTabluar, IslamicUmmAlQura
 	
 	public func toCalendar() -> NSCalendar {
 		var identifier : String
 		switch self {
+		case .Current:				return NSCalendar.currentCalendar()
+		case .AutoUpdatingCurrent:	return NSCalendar.autoupdatingCurrentCalendar()
 		case .Gregorian:			identifier = NSCalendarIdentifierGregorian
 		case .Buddhist:				identifier = NSCalendarIdentifierBuddhist
 		case .Chinese:				identifier = NSCalendarIdentifierChinese

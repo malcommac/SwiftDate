@@ -341,7 +341,7 @@ Subtract from absolute seconds of UTC left date absolute seconds of UTC right da
 - returns: difference interval between two dates
 */
 public func - (lhs: NSDate, rhs: NSDate) -> NSTimeInterval {
-	return (lhs - (rhs.components)).timeIntervalSince1970
+	return (lhs - (rhs.components())).timeIntervalSince1970
 }
 
 /**

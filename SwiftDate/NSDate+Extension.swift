@@ -333,6 +333,18 @@ public func > (left: NSDate, right: NSDate) -> Bool {
 }
 
 /**
+Subtract from absolute seconds of UTC left date absolute seconds of UTC right date
+
+- parameter lhs: left date
+- parameter rhs: right date
+
+- returns: difference interval between two dates
+*/
+public func - (lhs: NSDate, rhs: NSDate) -> NSTimeInterval {
+	return (lhs - (rhs.components)).timeIntervalSince1970
+}
+
+/**
 Subtract from absolute seconds of UTC left date the number of absolute seconds of UTC right date
 
 - parameter lhs: left date

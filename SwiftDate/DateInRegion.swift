@@ -30,20 +30,20 @@ import Foundation
 public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible {
 	//MARK: - Properties
 	
-	/// This is the absolute UTC date represented by this instance
-	public			var UTCDate		:NSDate!
+	/// This is the absolute time
+	public			var absoluteTime		:NSDate!
 	
 	/// This is the region in which the date is represented. A region is defined by a calendar, a timezone and a locale.
 	private(set)	var region		:Region
 	
 	/// Return the UTCDate represented into current timezone region. Note: NSDate is always expressed in UTC (so the final date is the original UTC date plus/minus differences between UTC and the currently specified timezone)
 	public var localDate : NSDate? {
-		return UTCDate.dateByAddingTimeInterval(NSTimeInterval(region.timeZone.secondsFromGMT))
+		return absoluteTime.dateByAddingTimeInterval(NSTimeInterval(region.timeZone.secondsFromGMT))
 	}
 	
 	/// return the components of the date into defined region
 	public var components :NSDateComponents? {
-		return region.calendar.componentsInTimeZone(region.timeZone, fromDate: UTCDate)
+		return region.calendar.components(DateInRegion.flags, fromDate: absoluteTime)
 	}
 	
 	// Private flags container
@@ -60,7 +60,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	- returns: a DateInRegion for UTC region with given date
 	*/
 	public static func UTCRegion(date :NSDate!) -> DateInRegion {
-		let inUTCRegion = DateInRegion(UTCDate: date, region: Region(tzType: TimeZoneNames.Other.GMT))!
+		let inUTCRegion = DateInRegion(absoluteTime: date, region: Region(tzType: TimeZoneNames.Other.GMT))!
 		return inUTCRegion
 	}
 
@@ -72,7 +72,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	- returns: a DateInRegion in default region with given date
 	*/
 	public static func DefaultRegion(date :NSDate!) -> DateInRegion {
-		let inDefRegion = DateInRegion(UTCDate: date, region: Region.defaultRegion())
+		let inDefRegion = DateInRegion(absoluteTime: date, region: Region.defaultRegion())
 		return inDefRegion!
 	}
 	
@@ -83,7 +83,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	*/
 	public init(refDate :NSDate = NSDate(), cal :CalendarType = CalendarType.Current, tz :TimeZoneCountry = TimeZoneNames.Other.GMT, locale :NSLocale = NSLocale.currentLocale()) {
 		region = Region(calType :cal, tzType: tz, loc :locale)
-		UTCDate = refDate
+		absoluteTime = refDate
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	- parameter dict:   dictionary with date components used for creation of the date
 	- parameter locale: locale to set (UTCRegion() locale is used if not specified)
 	
-	- returns: a new DateInRegion with UTCDate created by passing a dictionary of components
+	- returns: a new DateInRegion with absoluteTime created by passing a dictionary of components
 	*/
 	public init?(components dict : [NSCalendarUnit : AnyObject], locale : NSLocale = Region.UTCRegion().locale) {
 		let calendar = dict[NSCalendarUnit.Calendar] ?? Region.UTCRegion().calendar
@@ -100,8 +100,8 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 		let components = DateInRegion.dateFromComponentsDict(dict)
 		
 		region = Region(cal: calendar as? NSCalendar, tz: timeZone as? NSTimeZone, loc: locale)
-		UTCDate = region.calendar.dateFromComponents(components)
-		if UTCDate == nil {
+		absoluteTime = region.calendar.dateFromComponents(components)
+		if absoluteTime == nil {
 			return nil
 		}
 	}
@@ -119,8 +119,8 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 		let locale = components.calendar?.locale ?? Region.UTCRegion().locale
 		
 		region = Region(cal: calendar, tz: timeZone, loc: locale)
-		UTCDate = region.calendar.dateFromComponents(components)
-		if UTCDate == nil {
+		absoluteTime = region.calendar.dateFromComponents(components)
+		if absoluteTime == nil {
 			return nil
 		}
 	}
@@ -133,8 +133,8 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	- returns: a new DateInRegion instance expressed into passed region
 	*/
-	public init?(UTCDate date :NSDate? = NSDate(), region :Region = Region.defaultRegion()) {
-		self.UTCDate = date
+	public init?(absoluteTime date :NSDate? = NSDate(), region :Region = Region.defaultRegion()) {
+		self.absoluteTime = date
 		self.region = region
 	}
 	
@@ -218,7 +218,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 				components.weekOfMonth = NSDateComponentUndefined
 			}
 			
-			UTCDate = region.calendar.dateFromComponents(components)
+			absoluteTime = region.calendar.dateFromComponents(components)
 	}
 	
 	/**
@@ -235,7 +235,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	*/
 	public init?(startOfDate date : NSDate = NSDate(), unit :NSCalendarUnit!, region :Region = Region.defaultRegion()) {
 		self.region = region
-		self.UTCDate = self.startOfDateForUnit(unit, date: date)
+		self.absoluteTime = self.startOfDateForUnit(unit, date: date)
 	}
 	
 	/**
@@ -252,7 +252,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 		var nextDate = region.calendar.dateByAddingUnit(unit, value: 1, toDate: date, options: NSCalendarOptions(rawValue: 0))!
 		nextDate = self.startOfDateForUnit(unit, date: nextDate)!
 		nextDate = region.calendar.dateByAddingUnit(.Nanosecond, value: -1000000, toDate: nextDate, options: NSCalendarOptions(rawValue: 0))!
-		self.UTCDate = nextDate
+		self.absoluteTime = nextDate
 	}
 	
 	/**
@@ -305,7 +305,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 			parsedDate = cachedFormatter.formatter.dateFromString(date)
 		}
 		
-		self.UTCDate = parsedDate
+		self.absoluteTime = parsedDate
 		cachedFormatter.restoreState()
 	}
 	
@@ -407,8 +407,8 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	public var debugDescription :String {
 		get {
-			guard let _ = UTCDate else { return "DateInRegion has not UTCDate set" }
-			let descUTC = self.UTCDate!.description
+			guard let _ = absoluteTime else { return "DateInRegion has not absoluteTime set" }
+			let descUTC = self.absoluteTime!.description
 			let descLocal = "\(self.toString(DateFormat.ISO8601)) | \(region.timeZone.name) | \(region.calendar.calendarIdentifier) | (\(region.locale.localeIdentifier))"
 			return "UTC: \(descUTC) (LOCAL: \(descLocal))"
 		}
@@ -436,7 +436,7 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	- returns: DateInRegion instance with date in this world's region
 	*/
 	public func inRegion(anotherRegion region: Region) -> DateInRegion {
-		let dateInRegion = DateInRegion(UTCDate: UTCDate, region: region)
+		let dateInRegion = DateInRegion(absoluteTime: absoluteTime, region: region)
 		return dateInRegion!
 	}
 	
@@ -476,8 +476,8 @@ public extension DateInRegion {
 			dateFormatter.restoreState()
 			return false
 		}
-		let inBetween = (self.UTCDate.compare(minTimeDate!) == NSComparisonResult.OrderedDescending &&
-			self.UTCDate.compare(maxTimeDate!) == NSComparisonResult.OrderedAscending)
+		let inBetween = (self.absoluteTime.compare(minTimeDate!) == NSComparisonResult.OrderedDescending &&
+			self.absoluteTime.compare(maxTimeDate!) == NSComparisonResult.OrderedAscending)
 		
 		dateFormatter.restoreState()
 		return inBetween
@@ -509,7 +509,7 @@ public extension DateInRegion {
 	}
 	
 	public func difference(otherDate :DateInRegion, flags :NSCalendarUnit) -> NSDateComponents {
-		let components = region.calendar.components(flags, fromDate: self.UTCDate, toDate: otherDate.UTCDate, options: NSCalendarOptions(rawValue: 0))
+		let components = region.calendar.components(flags, fromDate: self.absoluteTime, toDate: otherDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
 		return components
 	}
 	
@@ -521,10 +521,10 @@ public extension DateInRegion {
 	- returns: value of the component into specified region's timezone
 	*/
 	public func valueFor(component flag :NSCalendarUnit) -> Int? {
-		guard let _ = UTCDate else { return nil }
+		guard let _ = absoluteTime else { return nil }
 		region.calendar.timeZone = region.timeZone
 		region.calendar.locale = region.locale
-		let value = region.calendar.component(flag, fromDate: self.UTCDate!)
+		let value = region.calendar.component(flag, fromDate: self.absoluteTime!)
 		return value
 	}
 	
@@ -533,7 +533,7 @@ public extension DateInRegion {
 	
 	- parameter flags: list of flags to get
 	
-	- returns: a dictionary with flag,value of the UTCDate specified in region's timezone
+	- returns: a dictionary with flag,value of the absoluteTime specified in region's timezone
 	*/
 	public func valueFor(components flags : [NSCalendarUnit]) -> [NSCalendarUnit : AnyObject] {
 		var resultDict : [NSCalendarUnit : AnyObject] = [:]
@@ -552,7 +552,7 @@ public extension DateInRegion {
 	- returns: true if date is today into specified region's timezone
 	*/
 	public func isToday() -> Bool {
-		return region.calendar.isDateInToday(UTCDate)
+		return region.calendar.isDateInToday(absoluteTime)
 	}
 	
 	/**
@@ -561,7 +561,7 @@ public extension DateInRegion {
 	- returns: true if date is yesterday into specified region's timezone
 	*/
 	public func isYesterday() -> Bool {
-		return region.calendar.isDateInYesterday(UTCDate)
+		return region.calendar.isDateInYesterday(absoluteTime)
 	}
 	
 	/**
@@ -570,7 +570,7 @@ public extension DateInRegion {
 	- returns: true if date is tomorrow into specified region's timezone
 	*/
 	public func isTomorrow() -> Bool {
-		return region.calendar.isDateInTomorrow(UTCDate)
+		return region.calendar.isDateInTomorrow(absoluteTime)
 	}
 	
 	/**
@@ -579,7 +579,7 @@ public extension DateInRegion {
 	- returns: true if date is tomorrow into specified region calendar
 	*/
 	public func isWeekend() -> Bool {
-		return region.calendar.isDateInWeekend(UTCDate)
+		return region.calendar.isDateInWeekend(absoluteTime)
 	}
 	
 	/// Era of the date expressed in this region's timezone
@@ -599,7 +599,7 @@ public extension DateInRegion {
 	
 	/// Month name of the date expressed in this region's timezone using region's locale
 	public var monthName :String? {
-		guard let _ = UTCDate else { return nil }
+		guard let _ = absoluteTime else { return nil }
 		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
 		cachedFormatter.formatter.locale = region.locale
 		let value = cachedFormatter.formatter.monthSymbols[self.month! - 1] as String
@@ -609,12 +609,12 @@ public extension DateInRegion {
 	
 	/// Week day name of the date expressed in this region's locale
 	var weekdayName: String? {
-		guard let _ = UTCDate else { return nil }
+		guard let _ = absoluteTime else { return nil }
 		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
 		
 		cachedFormatter.formatter.dateFormat = "EEEE"
 		cachedFormatter.formatter.locale = region.locale
-		let value = cachedFormatter.formatter.stringFromDate(UTCDate)
+		let value = cachedFormatter.formatter.stringFromDate(absoluteTime)
 		
 		cachedFormatter.restoreState()
 		return value
@@ -678,42 +678,42 @@ public extension DateInRegion {
 	
 	/// Return the first day number of the week from current date expressed in current region
 	var firstDayOfWeek : Int? {
-		return DateInRegion(startOfDate: UTCDate, unit: .WeekOfYear, region: region)?.day
+		return DateInRegion(startOfDate: absoluteTime, unit: .WeekOfYear, region: region)?.day
 	}
 	
 	/// Return the last day number of the week from current date expressed in current region
 	var lastDayOfWeek : Int? {
-		return DateInRegion(endOfDate: UTCDate, unit: .WeekOfYear, region: region)?.day
+		return DateInRegion(endOfDate: absoluteTime, unit: .WeekOfYear, region: region)?.day
 	}
 	
 	/// Nmber of days into current's date month expressed in current region calendar and locale
 	public var monthDays :Int? {
-		guard let _ = UTCDate else { return nil }
-		return region.calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: UTCDate).length
+		guard let _ = absoluteTime else { return nil }
+		return region.calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: absoluteTime).length
 	}
 	
 	/// True if current date's year is a leap year
 	public var leapYear: Bool {
 		// Library function for leap contains a bug for Gregorian calendars, implemented workaround
 		if region.calendar.calendarIdentifier == NSCalendarIdentifierGregorian {
-			let testRegion = DateInRegion(date: UTCDate,  month: 2, day: 1)
-			return testRegion.region.calendar.components([.Day, .Month, .Year], fromDate: UTCDate).leapMonth
+			let testRegion = DateInRegion(date: absoluteTime,  month: 2, day: 1)
+			return testRegion.region.calendar.components([.Day, .Month, .Year], fromDate: absoluteTime).leapMonth
 		}
 		
 		// For other calendars:
-		return region.calendar.components([.Day, .Month, .Year], fromDate: UTCDate).leapMonth
+		return region.calendar.components([.Day, .Month, .Year], fromDate: absoluteTime).leapMonth
 	}
 	
 	/// True if current's date month is a leap month
 	public var leapMonth: Bool {
 		// Library function for leap contains a bug for Gregorian calendars, implemented workaround
 		if region.calendar.calendarIdentifier == NSCalendarIdentifierGregorian && year >= 1582 {
-			let range = region.calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: UTCDate)
+			let range = region.calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: absoluteTime)
 			return range.length == 29
 		}
 		
 		// For other calendars:
-		return region.calendar.components([.Day, .Month, .Year], fromDate: UTCDate).leapMonth
+		return region.calendar.components([.Day, .Month, .Year], fromDate: absoluteTime).leapMonth
 	}
 	
 }
@@ -952,7 +952,7 @@ public extension String {
 	- returns: a new NSDate instance or nil if something went wrong during parsing
 	*/
 	public func toDate(format :DateFormat) -> NSDate? {
-		return toRegion(format, region: Region.UTCRegion())?.UTCDate
+		return toRegion(format, region: Region.UTCRegion())?.absoluteTime
 	}
 	
 	/**
@@ -961,7 +961,7 @@ public extension String {
 	- returns: NSDate instance or nil if string cannot be parsed
 	*/
 	public func toDateFromISO8601() -> NSDate? {
-		let date = toRegion(DateFormat.ISO8601)?.UTCDate
+		let date = toRegion(DateFormat.ISO8601)?.absoluteTime
 		return date
 	}
 	
@@ -1018,7 +1018,7 @@ public extension DateInRegion {
 	- returns: a new string or nil if DateInRegion does not contains any valid date
 	*/
 	public func toISO8601String() -> String? {
-		guard let _ = UTCDate else {
+		guard let _ = absoluteTime else {
 			return nil
 		}
 		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
@@ -1026,7 +1026,7 @@ public extension DateInRegion {
 		cachedFormatter.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 		cachedFormatter.formatter.timeZone = NSTimeZone(abbreviation: "UTC")
 		cachedFormatter.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-		let value = cachedFormatter.formatter.stringFromDate(UTCDate).stringByAppendingString("Z")
+		let value = cachedFormatter.formatter.stringFromDate(absoluteTime).stringByAppendingString("Z")
 		
 		cachedFormatter.restoreState()
 		return value
@@ -1040,7 +1040,7 @@ public extension DateInRegion {
 	- returns: a new string or nil if DateInRegion does not contains any valid date
 	*/
 	public func toString(dateFormat :DateFormat!) -> String? {
-		guard let _ = UTCDate else {
+		guard let _ = absoluteTime else {
 			return nil
 		}
 		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
@@ -1050,7 +1050,7 @@ public extension DateInRegion {
 		cachedFormatter.formatter.timeZone = region.timeZone
 		cachedFormatter.formatter.calendar = region.calendar
 		cachedFormatter.formatter.calendar.locale = region.calendar.locale
-		let value = cachedFormatter.formatter.stringFromDate(self.UTCDate!)
+		let value = cachedFormatter.formatter.stringFromDate(self.absoluteTime!)
 		
 		cachedFormatter.restoreState()
 		return value
@@ -1066,7 +1066,7 @@ public extension DateInRegion {
 	- returns: a new string which represent the date expressed into the current region or nil if region does not contain valid date
 	*/
 	public func toString(style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil, timeStyle: NSDateFormatterStyle? = nil) -> String? {
-		guard let _ = UTCDate else {
+		guard let _ = absoluteTime else {
 			return nil
 		}
 		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
@@ -1080,7 +1080,7 @@ public extension DateInRegion {
 		cachedFormatter.formatter.locale = region.locale
 		cachedFormatter.formatter.calendar = region.calendar
 		cachedFormatter.formatter.timeZone = region.timeZone
-		let value = cachedFormatter.formatter.stringFromDate(UTCDate)
+		let value = cachedFormatter.formatter.stringFromDate(absoluteTime)
 		
 		cachedFormatter.restoreState()
 		return value
@@ -1108,17 +1108,17 @@ public extension DateInRegion {
 		formatter.timeZone = region.timeZone
 		formatter.dateStyle = .MediumStyle
 		formatter.doesRelativeDateFormatting = true
-		return formatter.stringFromDate(UTCDate)
+		return formatter.stringFromDate(absoluteTime)
 	}
 	
 	public func toRelativeString(fromDate: DateInRegion!, abbreviated : Bool = false, maxUnits: Int = 1) -> String {
-		let seconds = fromDate.UTCDate.timeIntervalSinceDate(UTCDate)
+		let seconds = fromDate.absoluteTime.timeIntervalSinceDate(absoluteTime)
 		if fabs(seconds) < 1 {
 			return "just now"._sdLocalize
 		}
 		
 		let significantFlags : NSCalendarUnit = DateInRegion.flags
-		let components = region.calendar.components(significantFlags, fromDate: fromDate.UTCDate, toDate: UTCDate, options: [])
+		let components = region.calendar.components(significantFlags, fromDate: fromDate.absoluteTime, toDate: absoluteTime, options: [])
 		
 		var string = String()
 		var numberOfUnits:Int = 0
@@ -1126,11 +1126,11 @@ public extension DateInRegion {
 		for unitName in unitList {
 			let unit : NSCalendarUnit = unitName._sdToCalendarUnit()
 			if ((significantFlags.rawValue & unit.rawValue) != 0) &&
-				(UTCDate._sdCompareCalendarUnit(NSCalendarUnit.Nanosecond, other: unit) != .OrderedDescending) {
+				(absoluteTime._sdCompareCalendarUnit(NSCalendarUnit.Nanosecond, other: unit) != .OrderedDescending) {
 					let number:NSNumber = NSNumber(float: fabsf(components.valueForKey(unitName)!.floatValue))
 					if Bool(number.integerValue) {
 						let singular = (number.unsignedIntegerValue == 1)
-						let suffix = String(format: "%@ %@", arguments: [number, UTCDate._sdLocalizeStringForValue(singular, unit: unit, abbreviated: abbreviated)])
+						let suffix = String(format: "%@ %@", arguments: [number, absoluteTime._sdLocalizeStringForValue(singular, unit: unit, abbreviated: abbreviated)])
 						if string.isEmpty {
 							string = suffix
 						} else if numberOfUnits < maxUnits {
@@ -1251,27 +1251,27 @@ extension DateInRegion : Comparable {}
 extension DateInRegion : Equatable {}
 
 public func <(ldate: DateInRegion, rdate: DateInRegion) -> Bool {
-	return ldate.UTCDate.compare(rdate.UTCDate) == .OrderedAscending
+	return ldate.absoluteTime.compare(rdate.absoluteTime) == .OrderedAscending
 }
 
 
 public func >(ldate: DateInRegion, rdate: DateInRegion) -> Bool {
-	return ldate.UTCDate.compare(rdate.UTCDate) == .OrderedDescending
+	return ldate.absoluteTime.compare(rdate.absoluteTime) == .OrderedDescending
 }
 
 
 public extension DateInRegion {
 	
 	public func compare(date: DateInRegion, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult {
-		return region.calendar.compareDate(UTCDate, toDate: date.UTCDate, toUnitGranularity: unit)
+		return region.calendar.compareDate(absoluteTime, toDate: date.absoluteTime, toUnitGranularity: unit)
 	}
 	
 	public func isEqualToDate(right: DateInRegion) -> Bool {
-		return UTCDate.isEqualToDate(right.UTCDate)
+		return absoluteTime.isEqualToDate(right.absoluteTime)
 	}
 	
 	public func isSameDayOf(otherDate date :DateInRegion) -> Bool {
-		return region.calendar.isDate(self.UTCDate, inSameDayAsDate: date.UTCDate)
+		return region.calendar.isDate(self.absoluteTime, inSameDayAsDate: date.absoluteTime)
 	}
 	
 	public func add(years years: Int? = nil, months: Int? = nil, weekOfYear: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> DateInRegion {
@@ -1286,20 +1286,20 @@ public extension DateInRegion {
 		components.second = seconds ?? NSDateComponentUndefined
 		components.nanosecond = nanoseconds ?? NSDateComponentUndefined
 		
-		self.UTCDate = region.calendar.dateByAddingComponents(components, toDate: self.UTCDate, options: NSCalendarOptions(rawValue: 0))
+		self.absoluteTime = region.calendar.dateByAddingComponents(components, toDate: self.absoluteTime, options: NSCalendarOptions(rawValue: 0))
 		return self
 	}
 	
 	public func add(components: NSDateComponents) -> DateInRegion {
-		let newDate = region.calendar.dateByAddingComponents(components, toDate: UTCDate, options: NSCalendarOptions(rawValue: 0))
-		UTCDate = newDate
+		let newDate = region.calendar.dateByAddingComponents(components, toDate: absoluteTime, options: NSCalendarOptions(rawValue: 0))
+		absoluteTime = newDate
 		return self
 	}
 	
 	public func add(components dict: [NSCalendarUnit : AnyObject]) -> DateInRegion {
 		let components = DateInRegion.dateFromComponentsDict(dict)
-		let newDate = region.calendar.dateByAddingComponents(components, toDate: UTCDate, options: NSCalendarOptions(rawValue: 0))
-		UTCDate = newDate
+		let newDate = region.calendar.dateByAddingComponents(components, toDate: absoluteTime, options: NSCalendarOptions(rawValue: 0))
+		absoluteTime = newDate
 		return self
 	}
 	
@@ -1330,15 +1330,15 @@ public extension DateInRegion {
 	}
 	
 	public func regionByAdding(components: NSDateComponents) -> DateInRegion {
-		let newDate = region.calendar.dateByAddingComponents(components, toDate: UTCDate, options: NSCalendarOptions(rawValue: 0))
-		return DateInRegion(UTCDate: newDate, region: region)!
+		let newDate = region.calendar.dateByAddingComponents(components, toDate: absoluteTime, options: NSCalendarOptions(rawValue: 0))
+		return DateInRegion(absoluteTime: newDate, region: region)!
 	}
 }
 
 public func ==(left: DateInRegion, right: DateInRegion) -> Bool {
 	
 	// Compare the content, first the date
-	guard left.UTCDate.isEqualToDate(right.UTCDate) else {
+	guard left.absoluteTime.isEqualToDate(right.absoluteTime) else {
 		return false
 	}
 	
@@ -1348,7 +1348,7 @@ public func ==(left: DateInRegion, right: DateInRegion) -> Bool {
 	}
 	
 	// Then the time zone
-	guard left.region.timeZone.secondsFromGMTForDate(left.UTCDate) == right.region.timeZone.secondsFromGMTForDate(right.UTCDate) else {
+	guard left.region.timeZone.secondsFromGMTForDate(left.absoluteTime) == right.region.timeZone.secondsFromGMTForDate(right.absoluteTime) else {
 		return false
 	}
 	

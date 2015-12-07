@@ -47,7 +47,7 @@ public extension NSDate {
 	- returns: absolute date in UTC timezone created by looking at passed components.
 	*/
 	public convenience init?(components :NSDateComponents) {
-		let rDate = (DateInRegion(components: components)?.UTCDate)
+		let rDate = (DateInRegion(components: components)?.absoluteTime)
 		if rDate == nil {
 			return nil // failed to use passed components
 		}
@@ -66,7 +66,7 @@ public extension NSDate {
 	*/
 	public convenience init?(params :[NSCalendarUnit : AnyObject], locale : NSLocale = Region.UTCRegion().locale) {
 		// generate a new NSDate (absolute UTC format) from passed components
-		let rDate = DateInRegion(components: params, locale: locale)?.UTCDate
+		let rDate = DateInRegion(components: params, locale: locale)?.absoluteTime
 		self.init(timeIntervalSince1970: rDate!.timeIntervalSince1970)
 	}
 	
@@ -105,7 +105,7 @@ public extension NSDate {
 		region					: Region = Region.UTCRegion()) {
 			
 		let rDate = DateInRegion(date: date, era: era, year: year, month: month, day: day, yearForWeekOfYear: yearForWeekOfYear, weekOfYear: weekOfYear, weekday: weekday, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: region)
-		self.init(timeIntervalSince1970: rDate.UTCDate!.timeIntervalSince1970)
+		self.init(timeIntervalSince1970: rDate.absoluteTime!.timeIntervalSince1970)
 	}
 	
 	/**
@@ -116,7 +116,7 @@ public extension NSDate {
 	- returns: a new DateInRegion instance representing this date in specified region. You can query for each component and it will be returned taking care of the region components specified.
 	*/
 	public func inRegion(region :Region = Region.defaultRegion()) -> DateInRegion {
-		let dateInRegion = DateInRegion(UTCDate: self, region: region)!
+		let dateInRegion = DateInRegion(absoluteTime: self, region: region)!
 		return dateInRegion
 	}
 	
@@ -127,12 +127,12 @@ public extension NSDate {
 	- returns: a new DateInRegion instance representing this date in default region
 	*/
 	public func inDefaultRegion() -> DateInRegion {
-		let dateInRegion = DateInRegion(UTCDate: self, region: Region.defaultRegion())!
+		let dateInRegion = DateInRegion(absoluteTime: self, region: Region.defaultRegion())!
 		return dateInRegion
 	}
 	
 	public func inUTCRegion() -> DateInRegion {
-		let dateInRegion = DateInRegion(UTCDate: self, region: Region.UTCRegion())!
+		let dateInRegion = DateInRegion(absoluteTime: self, region: Region.UTCRegion())!
 		return dateInRegion
 	}
 	
@@ -152,9 +152,9 @@ public extension NSDate {
 	*/
 	public func add(years years: Int? = nil, months: Int? = nil, weekOfYear: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> NSDate {
 		
-		let UTCRegion = DateInRegion.UTCRegion(self)
+		let UTCRegion = DateInRegion(refDate: self)
 		UTCRegion.add(years: years, months: months, weekOfYear: weekOfYear, days: days, hours: hours, minutes: minutes, seconds: seconds, nanoseconds: nanoseconds)
-		return UTCRegion.UTCDate
+		return UTCRegion.absoluteTime
 	}
 	
 	/**
@@ -166,7 +166,7 @@ public extension NSDate {
 	*/
 	public func add(components :NSDateComponents) -> NSDate {
 		let UTCRegion = DateInRegion.UTCRegion(self).add(components)
-		return UTCRegion.UTCDate
+		return UTCRegion.absoluteTime
 	}
 	
 	/**
@@ -178,7 +178,7 @@ public extension NSDate {
 	*/
 	public func add(params :[NSCalendarUnit : AnyObject]) -> NSDate {
 		let UTCRegion = DateInRegion.UTCRegion(self).add(components: params)
-		return UTCRegion.UTCDate
+		return UTCRegion.absoluteTime
 	}
 	
 	/**
@@ -189,7 +189,7 @@ public extension NSDate {
 	- returns: date components
 	*/
 	public func components(inRegion region :Region = Region.UTCRegion()) -> NSDateComponents {
-		return (DateInRegion(UTCDate: self, region: region)?.components!)!
+		return (DateInRegion(absoluteTime: self, region: region)?.components!)!
 	}
 	
 	/// The same of calling components() without specify a region: UTC region is used instead
@@ -208,7 +208,7 @@ public extension NSDate {
 	- returns: the date representing that start of that unit
 	*/
 	public func startOf(unit :NSCalendarUnit, inRegion region :Region) -> NSDate {
-		return (DateInRegion(startOfDate: self, unit: unit, region: region)?.UTCDate)!
+		return (DateInRegion(startOfDate: self, unit: unit, region: region)?.absoluteTime)!
 	}
 	
 	/**
@@ -220,7 +220,7 @@ public extension NSDate {
 	- returns: the date representing that end of that unit
 	*/
 	public func endOf(unit :NSCalendarUnit, inRegion region :Region) -> NSDate {
-		return (DateInRegion(endOfDate: self, unit: unit, region: region)?.UTCDate)!
+		return (DateInRegion(endOfDate: self, unit: unit, region: region)?.absoluteTime)!
 	}
 	
 	
@@ -235,7 +235,7 @@ public extension NSDate {
 	- returns: true if time of the date is inside specified time range
 	*/
 	public func inTimeRange(minTime: String!, maxTime: String!, format: String?, inRegion region :Region = Region.defaultRegion()) -> Bool {
-		let dateInRegion = DateInRegion(UTCDate: self, region: region)
+		let dateInRegion = DateInRegion(absoluteTime: self, region: region)
 		return dateInRegion!.inTimeRange(minTime, maxTime: maxTime, format: format)
 	}
 	
@@ -248,7 +248,7 @@ public extension NSDate {
 	- returns: string representation of the date into the region
 	*/
 	public func toString(format :DateFormat, inRegion region :Region = Region.defaultRegion()) -> String? {
-		return DateInRegion(UTCDate: self, region: region)?.toString(format)
+		return DateInRegion(absoluteTime: self, region: region)?.toString(format)
 	}
 	
 	/**
@@ -262,7 +262,7 @@ public extension NSDate {
 	- returns: a new string which represent the date expressed into the current region or nil if region does not contain valid date
 	*/
 	public func toString(style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil, timeStyle: NSDateFormatterStyle? = nil, inRegion region :Region = Region.defaultRegion()) -> String? {
-		let refDateInRegion = DateInRegion(UTCDate: self, region: region)!
+		let refDateInRegion = DateInRegion(absoluteTime: self, region: region)!
 		return refDateInRegion.toString(style, dateStyle: dateStyle, timeStyle: timeStyle)
 	}
 	
@@ -274,7 +274,7 @@ public extension NSDate {
 	- returns: string representation in form of relative date (just now, 3 seconds...)
 	*/
 	public func toRelativeCocoaString(inRegion region :Region = Region.defaultRegion()) -> String? {
-		return DateInRegion(UTCDate: self, region: region)?.toRelativeCocoaString()
+		return DateInRegion(absoluteTime: self, region: region)?.toRelativeCocoaString()
 	}
 	
 	/**
@@ -288,8 +288,8 @@ public extension NSDate {
 	- returns: relative string representation
 	*/
 	public func toRelativeString(fromDate refDate: NSDate = NSDate(), inRegion region :Region = Region.defaultRegion(), abbreviated :Bool = false, maxUnits: Int = 1) -> String? {
-		let refDateInRegion = DateInRegion(UTCDate: refDate, region: region)!
-		return DateInRegion(UTCDate: self, region: region)?.toRelativeString(refDateInRegion, abbreviated: abbreviated, maxUnits: maxUnits)
+		let refDateInRegion = DateInRegion(absoluteTime: refDate, region: region)!
+		return DateInRegion(absoluteTime: self, region: region)?.toRelativeString(refDateInRegion, abbreviated: abbreviated, maxUnits: maxUnits)
 	}
 	
 }
@@ -460,7 +460,7 @@ public extension NSDate {
 	- returns: first day of the week in calendar, nil if region is not valid
 	*/
 	public func firstDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
-		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.firstDayOfWeek!
+		return DateInRegion(absoluteTime: self, region: Region(calType: cal))?.firstDayOfWeek!
 	}
 	
 	/**
@@ -471,7 +471,7 @@ public extension NSDate {
 	- returns: last day of the week in calendar, nil if region is not valid
 	*/
 	public func lastDayOfWeek(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Int? {
-		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.lastDayOfWeek!
+		return DateInRegion(absoluteTime: self, region: Region(calType: cal))?.lastDayOfWeek!
 	}
 	
 	public func isToday() -> Bool {
@@ -492,7 +492,7 @@ public extension NSDate {
 	- returns: true if date is tomorrow into specified region calendar
 	*/
 	public func isWeekend(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Bool? {
-		return DateInRegion(UTCDate: self, region: Region(calType: cal))?.isWeekend()
+		return DateInRegion(absoluteTime: self, region: Region(calType: cal))?.isWeekend()
 	}
 	
 	

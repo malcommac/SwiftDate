@@ -329,12 +329,12 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictKey {
 	}
 	
 	/**
-	Convert a dictionary of <NSCalendarUnit,Value> in a UTC NSDate instance. Both timeZone and calendar must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s locale will be used instead.
+	Convert a dictionary of <NSCalendarUnit,Value> in absolute time NSDate instance. Both timeZone and calendar must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s locale will be used instead.
 	
 	- returns: NSDate (in UTC timezone) if date components are complete, nil if cannot be used to generate a valid date
 	*/
-	func toUTCDate() -> NSDate? {
-		return toRegion()?.UTCDate
+	func toAbsoluteTime() -> NSDate? {
+		return toRegion()?.absoluteTime
 	}
 }
 

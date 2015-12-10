@@ -189,19 +189,12 @@ extension String {
 			
 			// YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
 			case CompleteDatePlusHoursMinutesAndSeconds = 25
-
-			// YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+0100)
-			case CompleteDatePlusHoursMinutesAndSecondsWithoutColon = 24
 			
 			// YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30Z)
 			case CompleteDatePlusHoursAndMinutesAndSecondsAndZ = 20
 			
 			// YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
 			case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond = 28
-
-
-			// YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+0100)
-			case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondWithoutColon = 27
 			
 			// YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45Z)
 			case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ = 23
@@ -219,9 +212,9 @@ extension String {
 				dateFormatter = "yyyy-MM-dd"
 			case .CompleteDatePlusHoursAndMinutes, .CompleteDatePlusHoursAndMinutesAndZ:
 				dateFormatter = "yyyy-MM-dd'T'HH:mmZ"
-			case .CompleteDatePlusHoursMinutesAndSeconds, .CompleteDatePlusHoursMinutesAndSecondsWithoutColon, .CompleteDatePlusHoursAndMinutesAndSecondsAndZ:
+			case .CompleteDatePlusHoursMinutesAndSeconds, .CompleteDatePlusHoursAndMinutesAndSecondsAndZ:
 				dateFormatter = "yyyy-MM-dd'T'HH:mm:ssZ"
-			case .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond, .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondWithoutColon, .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ:
+			case .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond, .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ:
 				dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 			}
 		}

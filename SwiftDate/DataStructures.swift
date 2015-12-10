@@ -187,6 +187,9 @@ extension String {
 			// YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20Z)
 			case CompleteDatePlusHoursAndMinutesAndZ = 17
 			
+			// YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+0100)
+			case CompleteDatePlusHoursMinutesAndSecondsWithoutColon = 24
+			
 			// YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
 			case CompleteDatePlusHoursMinutesAndSeconds = 25
 			
@@ -212,7 +215,7 @@ extension String {
 				dateFormatter = "yyyy-MM-dd"
 			case .CompleteDatePlusHoursAndMinutes, .CompleteDatePlusHoursAndMinutesAndZ:
 				dateFormatter = "yyyy-MM-dd'T'HH:mmZ"
-			case .CompleteDatePlusHoursMinutesAndSeconds, .CompleteDatePlusHoursAndMinutesAndSecondsAndZ:
+			case .CompleteDatePlusHoursMinutesAndSeconds, .CompleteDatePlusHoursMinutesAndSecondsWithoutColon, .CompleteDatePlusHoursAndMinutesAndSecondsAndZ:
 				dateFormatter = "yyyy-MM-dd'T'HH:mm:ssZ"
 			case .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond, .CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ:
 				dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"

@@ -222,12 +222,14 @@ public class DateInRegion {
             let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
             
             let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
+            cachedFormatter.formatter.timeZone = newRegion.timeZone
+            cachedFormatter.formatter.calendar = newRegion.calendar
+            cachedFormatter.formatter.locale = newRegion.locale
             let parsedDate: NSDate?
             
             switch format {
             case .ISO8601: // 1972-07-16T08:15:30-05:00
                 cachedFormatter.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-                cachedFormatter.formatter.timeZone = newRegion.timeZone
                 cachedFormatter.formatter.dateFormat = String.ISO8601Formatter(fromString: date)
                 parsedDate = cachedFormatter.formatter.dateFromString(date)
             case .ISO8601Date:
@@ -252,9 +254,6 @@ public class DateInRegion {
                 parsedDate = cachedFormatter.formatter.dateFromString(date)
             case .Custom(let dateFormat):
                 cachedFormatter.formatter.dateFormat = dateFormat
-                cachedFormatter.formatter.timeZone = newRegion.timeZone
-                cachedFormatter.formatter.calendar = newRegion.calendar
-                cachedFormatter.formatter.locale = newRegion.locale
                 parsedDate = cachedFormatter.formatter.dateFromString(date)
             }
             guard let _ = parsedDate else {

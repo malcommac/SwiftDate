@@ -215,6 +215,7 @@ class DateInRegionSpec: QuickSpec {
             }
 
             context("properties") {
+                
                 it("should return proper normal YMD properties") {
                     let date = DateInRegion(year: 1999, month: 12, day: 31)!
                     expect(date.year) == 1999
@@ -347,75 +348,78 @@ class DateInRegionSpec: QuickSpec {
             context("descriptions") {
 
                 let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: netherlands)!
-
+                
                 it("Should output a proper description") {
                     expect(date.description) == "31 dec. 1999 23:59:59; region: gregorian; Europe/Amsterdam:GMT+1; nl_NL"
                 }
-
+                
                 it("Should output a proper debug description") {
                     expect(date.debugDescription) == "31 december 1999 23:59:59 CET\nUTC\t31 december 1999 22:59:59 GMT\nCalendar: gregorian\nTime zone: Europe/Amsterdam\nLocale: nl_NL"
                 }
             }
             
-            context("init from ISO 8601 string") {
-                let string = "2015-01-05T22:10:55.200Z"
-                let date = DateInRegion(fromString: string, format: DateFormat.ISO8601, region: utc)
-                expect(date).toNot(beNil())
-                expect(date!.year) == 2015
-                expect(date!.month) == 1
-                expect(date!.day) == 5
-                expect(date!.hour) == 22
-                expect(date!.minute) == 10
-                expect(date!.second) == 55
-                expect(date!.timeZone.secondsFromGMT) == 0
-            }
-            
-            context("init from ISO 8601 date string") {
-                let string = "2015-01-05"
-                let date = DateInRegion(fromString: string, format: DateFormat.ISO8601Date, region: utc)
-                expect(date).toNot(beNil())
-                expect(date!.year) == 2015
-                expect(date!.month) == 1
-                expect(date!.day) == 5
-                expect(date!.hour) == 0
-                expect(date!.minute) == 0
-                expect(date!.second) == 0
-                expect(date!.timeZone.secondsFromGMT) == 0
-            }
-            
-            context("init from Alt RSS date string") {
-                let string = "09 Sep 2011 15:26:08 -0400"
-                let date = DateInRegion(fromString: string, format: DateFormat.AltRSS)
-                expect(date).toNot(beNil())
-                expect(date!.year) == 2011
-                expect(date!.month) == 9
-                expect(date!.day) == 9
-                expect(date!.hour) == 15
-                expect(date!.minute) == 26
-                expect(date!.second) == 08
-                expect(date!.timeZone.abbreviation) == "-0400"
-            }
-            
-            context("init from RSS date string") {
-                let string = "Fri, 09 Sep 2011 15:26:08 +0200"
-                let date = DateInRegion(fromString: string, format: DateFormat.AltRSS)
-                expect(date).toNot(beNil())
-                expect(date!.year) == 2011
-                expect(date!.month) == 9
-                expect(date!.day) == 9
-                expect(date!.hour) == 15
-                expect(date!.minute) == 26
-                expect(date!.second) == 08
-                expect(date!.timeZone.abbreviation) == "-+0200"
-            }
-            
-            context("init from custom format date string") {
-                let string = "090911"
-                let date = DateInRegion(fromString: string, format: DateFormat.Custom("ddMMyy"))
-                expect(date).toNot(beNil())
-                expect(date!.year) == 2011
-                expect(date!.month) == 9
-                expect(date!.day) == 9
+            context("init from string") {
+                
+                it("should init from a ISO 8601 string") {
+                    let string = "2015-01-05T22:10:55.200Z"
+                    let date = DateInRegion(fromString: string, format: DateFormat.ISO8601, region: utc)
+                    expect(date).toNot(beNil())
+                    expect(date!.year) == 2015
+                    expect(date!.month) == 1
+                    expect(date!.day) == 5
+                    expect(date!.hour) == 22
+                    expect(date!.minute) == 10
+                    expect(date!.second) == 55
+                    expect(date!.timeZone.secondsFromGMT) == 0
+                }
+                
+                it("should init from ISO 8601 date string") {
+                    let string = "2015-01-05"
+                    let date = DateInRegion(fromString: string, format: DateFormat.ISO8601Date, region: utc)
+                    expect(date).toNot(beNil())
+                    expect(date!.year) == 2015
+                    expect(date!.month) == 1
+                    expect(date!.day) == 5
+                    expect(date!.hour) == 0
+                    expect(date!.minute) == 0
+                    expect(date!.second) == 0
+                    expect(date!.timeZone.secondsFromGMT) == 0
+                }
+                
+                it("should init from Alt RSS date string") {
+                    let string = "09 Sep 2011 15:26:08 -0400"
+                    let date = DateInRegion(fromString: string, format: DateFormat.AltRSS, region: utc)
+                    expect(date).toNot(beNil())
+                    expect(date!.year) == 2011
+                    expect(date!.month) == 9
+                    expect(date!.day) == 9
+                    expect(date!.hour) == 19
+                    expect(date!.minute) == 26
+                    expect(date!.second) == 08
+                    expect(date!.timeZone.secondsFromGMT) == 0
+                }
+                
+                it("should init from RSS date string") {
+                    let string = "Fri, 09 Sep 2011 15:26:08 +0200"
+                    let date = DateInRegion(fromString: string, format: DateFormat.RSS, region: utc)
+                    expect(date).toNot(beNil())
+                    expect(date!.year) == 2011
+                    expect(date!.month) == 9
+                    expect(date!.day) == 9
+                    expect(date!.hour) == 13
+                    expect(date!.minute) == 26
+                    expect(date!.second) == 08
+                    expect(date!.timeZone.secondsFromGMT) == 0
+                }
+                
+                it("should init from custom format date string") {
+                    let string = "090911"
+                    let date = DateInRegion(fromString: string, format: DateFormat.Custom("ddMMyy"))
+                    expect(date).toNot(beNil())
+                    expect(date!.year) == 2011
+                    expect(date!.month) == 9
+                    expect(date!.day) == 9
+                }
             }
             
             context("date formatter") {
@@ -449,7 +453,7 @@ class DateInRegionSpec: QuickSpec {
                 it("should return a proper date string with relative conversion") {
                     let date = DateInRegion(region: italy)
                     let date2 = (date + 2.days)!
-                    expect(date2.toRelativeString()) == "après-demain"
+                    expect(date2.toRelativeString()) == "dopodomani"
                 }
 
             }

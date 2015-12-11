@@ -33,8 +33,8 @@
 		1F244E4C1C1A3AA00011E0E9 /* DateRegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E441C1A3AA00011E0E9 /* DateRegionTests.swift */; };
 		1F244E4D1C1A3AA00011E0E9 /* NSDateComponentPortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E451C1A3AA00011E0E9 /* NSDateComponentPortTests.swift */; };
 		1F244E4E1C1A3AA00011E0E9 /* NSDateEquationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E461C1A3AA00011E0E9 /* NSDateEquationsTests.swift */; };
-		1F244E4F1C1A3AA00011E0E9 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E471C1A3AA00011E0E9 /* NSDateTests.swift */; };
-		1F244E501C1A4AAE0011E0E9 /* DateRegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C20EC1C03C1FB0068D224 /* DateRegionStringTests.swift */; };
+		1F244E511C1B4CE00011E0E9 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E471C1A3AA00011E0E9 /* NSDateTests.swift */; };
+		1F244E521C1B4CF90011E0E9 /* DateRegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C20EC1C03C1FB0068D224 /* DateRegionStringTests.swift */; };
 		B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082147161A50FB56097ED503 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -352,13 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F244E4F1C1A3AA00011E0E9 /* NSDateTests.swift in Sources */,
+				1F244E511C1B4CE00011E0E9 /* NSDateTests.swift in Sources */,
 				1F244E4E1C1A3AA00011E0E9 /* NSDateEquationsTests.swift in Sources */,
 				1F244E4B1C1A3AA00011E0E9 /* DateInRegionTests.swift in Sources */,
 				1F244E481C1A3AA00011E0E9 /* DateInRegionComponentPortTests.swift in Sources */,
 				1F244E4A1C1A3AA00011E0E9 /* DateInRegionHashableTests.swift in Sources */,
 				1F244E4D1C1A3AA00011E0E9 /* NSDateComponentPortTests.swift in Sources */,
-				1F244E501C1A4AAE0011E0E9 /* DateRegionStringTests.swift in Sources */,
+				1F244E521C1B4CF90011E0E9 /* DateRegionStringTests.swift in Sources */,
 				1F244E491C1A3AA00011E0E9 /* DateInRegionEquationsTests.swift in Sources */,
 				1F244E4C1C1A3AA00011E0E9 /* DateRegionTests.swift in Sources */,
 			);
@@ -412,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -454,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,7 +480,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};

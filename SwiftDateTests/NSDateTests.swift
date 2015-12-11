@@ -10,7 +10,7 @@
 
 import Quick
 import Nimble
-@testable import SwiftDate
+import SwiftDate
 
 class NSDateSpec: QuickSpec {
 

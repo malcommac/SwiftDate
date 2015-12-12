@@ -8,29 +8,6 @@
 
 import Foundation
 
-// MARK: - NSDateFormatter port
-
-public extension DateInRegion {
-
-    /// Returns a relative date representation of a given string interpreted using the receiver’s current settings.
-    /// If a date formatter uses relative date formatting, where possible it replaces the date component of its 
-    /// output with a phrase—such as “today” or “tomorrow”—that indicates a relative date. The available phrases 
-    /// depend on the locale for the date formatter; whereas, for dates in the future, English may only allow 
-    /// “tomorrow,” French may allow “the day after the day after tomorrow,”.
-    ///
-    /// - Returns: A relative date representation of *string* interpreted using the receiver’s current settings.
-    ///
-    public func toRelativeString() -> String? {
-        let formatter = NSDateFormatter()
-        formatter.locale = self.locale
-        formatter.calendar = self.calendar
-        formatter.timeZone = self.timeZone
-        formatter.dateStyle = .MediumStyle
-        formatter.doesRelativeDateFormatting = true
-        return formatter.stringFromDate(absoluteTime)
-    }
-}
-
 //MARK: - From DateInRegion to String -
 
 public extension DateInRegion {

@@ -8,9 +8,52 @@
 
 import Foundation
 
+
+internal extension NSCalendarUnit {
+    internal var _cfValue: CFCalendarUnit {
+        #if os(OSX) || os(iOS)
+            return CFCalendarUnit(rawValue: self.rawValue)
+        #else
+            return CFCalendarUnit(self.rawValue)
+        #endif
+    }
+}
+
 //MARK: - Extension: NSCalendar -
 
 public extension NSCalendar {
+    
+    // The code below is part of the Swift.org code. It is included as rangeOfUnit is a very useful function for the startOf and endOf functions.
+    // As always we would prefer using Foundation code rather than inventing code ourselves.
+    typealias CFType = CFCalendarRef
+    
+    internal var _cfObject: CFType {
+        return unsafeBitCast(self, CFCalendarRef.self)
+    }
+    
+
+    /// Revised API for avoiding usage of AutoreleasingUnsafeMutablePointer.
+    /// The current exposed API in Foundation on Darwin platforms is:
+    /// public func rangeOfUnit(unit: NSCalendarUnit, startDate datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
+    /// which is not implementable on Linux due to the lack of being able to properly implement AutoreleasingUnsafeMutablePointer.
+    /// - Experiment: This is a draft API currently under consideration for official import into Foundation as a suitable alternative
+    /// - Note: Since this API is under consideration it may be either removed or revised in the near future
+    public func rangeOfUnit(unit: NSCalendarUnit, forDate date: NSDate) -> NSDateInterval? {
+        var start: CFAbsoluteTime = 0.0
+        var ti: CFTimeInterval = 0.0
+        let res: Bool = withUnsafeMutablePointers(&start, &ti) { (startp: UnsafeMutablePointer<CFAbsoluteTime>, tip: UnsafeMutablePointer<CFTimeInterval>) -> Bool in
+            
+            let startPtr: UnsafeMutablePointer<CFAbsoluteTime> = unsafeBitCast(startp, UnsafeMutablePointer<CFAbsoluteTime>.self)
+            let tiPtr: UnsafeMutablePointer<CFTimeInterval> = unsafeBitCast(tip, UnsafeMutablePointer<CFTimeInterval>.self)
+            return CFCalendarGetTimeRangeOfUnit(_cfObject, unit._cfValue, date.timeIntervalSinceReferenceDate, startPtr, tiPtr)
+        }
+        
+        if res {
+            return NSDateInterval(start: NSDate(timeIntervalSinceReferenceDate: start), interval: ti)
+        }
+        return nil
+    }
+   
     /**
      Create a new NSCalendar instance from CalendarType structure. You can also use <CalendarType>.toCalendar() to get
      a new instance of NSCalendar with picked type.

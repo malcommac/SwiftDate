@@ -264,8 +264,8 @@ public extension DateInRegion {
             return nil
         }
 
-        // Subtract 10000 nanoseconds to distinguish from Midnigth on the next Monday for the isEqualDate function of NSDate
-        let weekendEnd = weekendStart!.dateByAddingTimeInterval(timeInterval - 0.00001)
+        // Subtract one thousandth of a second to distinguish from Midnigth on the next Monday for the isEqualDate function of NSDate
+        let weekendEnd = weekendStart!.dateByAddingTimeInterval(timeInterval - 0.001)
 
         let startDate = DateInRegion(absoluteTime: weekendStart!, region: region)
         let endDate = DateInRegion(absoluteTime: weekendEnd, region: region)

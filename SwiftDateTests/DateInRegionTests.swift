@@ -450,12 +450,21 @@ class DateInRegionSpec: QuickSpec {
                     expect(date.toString(.MediumStyle)) == formatter.stringFromDate(date.absoluteTime)
                 }
                 
+                // TODO: new relative string conversion test
+                /*
                 it("should return a proper date string with relative conversion") {
                     let date = DateInRegion(region: italy)
                     let date2 = (date + 2.days)!
                     expect(date2.toRelativeString()) == "dopodomani"
                 }
-
+                
+                it("should return a proper date string with relative conversion") {
+                    let date = DateInRegion(region: netherlands)
+                    let date2 = (date - 2.seconds)!
+                    expect(date2.toRelativeString(date)) == "vandaag"
+                }
+*/
+                
             }
         }
 
@@ -599,20 +608,6 @@ class DateInRegionSpec: QuickSpec {
             beforeEach {
                 date = DateInRegion(year: 1999, month: 12, day: 31, hour: 14, minute: 15, second: 16, nanosecond: 17, region: netherlands)!
             }
-            it("should return nil for nanosecond") {
-                let testDate = date.startOf(.Nanosecond)
-                expect(testDate).to(beNil())
-            }
-            
-            it("should return nil for quarter") {
-                let testDate = date.startOf(.Quarter)
-                expect(testDate).to(beNil())
-            }
-
-            it("should return nil for week of month") {
-                let testDate = date.startOf(.WeekOfMonth)
-                expect(testDate).to(beNil())
-            }
 
             it("should return start of second") {
                 let testDate = date.startOf(.Second)!
@@ -755,8 +750,8 @@ class DateInRegionSpec: QuickSpec {
                 expect(testDate.month) == 1
                 expect(testDate.day) == 1
                 expect(testDate.hour) == 0
-                expect(testDate.minute) == 0
-                expect(testDate.second) == 0
+                expect(testDate.minute) == 19
+                expect(testDate.second) == 32
                 expect(testDate.nanosecond) == 0
             }
             
@@ -774,6 +769,7 @@ class DateInRegionSpec: QuickSpec {
                 expect(testDate.hour) == 23
                 expect(testDate.minute) == 59
                 expect(testDate.second) == 59
+                expect(Double(testDate.nanosecond!)/1000000000) ≈ 0.999
             }
 
             it("should return end of month") {

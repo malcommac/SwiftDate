@@ -15,7 +15,13 @@ extension DateInRegion: CustomDebugStringConvertible {
     /// Returns a full description of the class
     ///
     public var description: String {
-        return "\(self.toString()!); region: \(region)"
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .LongStyle
+        formatter.timeStyle = .LongStyle
+        formatter.locale = self.locale
+        formatter.calendar = self.calendar
+        formatter.timeZone = self.timeZone
+        return formatter.stringFromDate(self.absoluteTime)
     }
 
     /// Returns a full debug description of the class

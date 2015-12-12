@@ -14,7 +14,7 @@ internal extension NSCalendarUnit {
         #if os(OSX) || os(iOS)
             return CFCalendarUnit(rawValue: self.rawValue)
         #else
-            return CFCalendarUnit(self.rawValue)
+            return CFCalendarUnit(rawValue: self.rawValue)
         #endif
     }
 }

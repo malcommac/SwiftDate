@@ -68,6 +68,8 @@ class DateInRegionSpec: QuickSpec {
                 
             }
 /*
+            
+            // FIXME: check default components
             context("DefaultComponents") {
 
                 it("should return 1-Jan-2001 00:00:00.000 in the local time zone") {
@@ -347,14 +349,14 @@ class DateInRegionSpec: QuickSpec {
 
             context("descriptions") {
 
-                let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: netherlands)!
+                let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: italy)!
                 
                 it("Should output a proper description") {
-                    expect(date.description) == "31 dec. 1999 23:59:59; region: gregorian; Europe/Amsterdam:GMT+1; nl_NL"
+                    expect(date.description) == "31 dic 1999, 23:59:59 CET"
                 }
                 
                 it("Should output a proper debug description") {
-                    expect(date.debugDescription) == "31 december 1999 23:59:59 CET\nUTC\t31 december 1999 22:59:59 GMT\nCalendar: gregorian\nTime zone: Europe/Amsterdam\nLocale: nl_NL"
+                    expect(date.debugDescription) == "31 dicembre 1999 23:59:59 CET\nUTC\t31 dicembre 1999 22:59:59 GMT\nCalendar: gregorian\nTime zone: Europe/Rome\nLocale: it_IT"
                 }
             }
             

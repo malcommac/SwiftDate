@@ -16,7 +16,7 @@ extension DateInRegion: CustomDebugStringConvertible {
     ///
     public var description: String {
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
+        formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .LongStyle
         formatter.locale = self.locale
         formatter.calendar = self.calendar

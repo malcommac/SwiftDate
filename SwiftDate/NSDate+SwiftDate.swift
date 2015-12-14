@@ -335,19 +335,10 @@ extension NSDate {
     
 }
 
-extension NSDate : Comparable {}
+// MARK: - Adoption of Comparable protocol
 
-/**
- Compare two absolute times and return true if they are equals. Comparisor is made with the max resolution.
- 
- - parameter left:  date a
- - parameter right: date b
- 
- - returns: true if both dates are equals
- */
-public func == (left: NSDate, right: NSDate) -> Bool {
-    return (left.compare(right) == NSComparisonResult.OrderedSame)
-}
+
+extension NSDate : Comparable {}
 
 /**
  Compare two dates and return true if the left date is earlier than the right date
@@ -361,17 +352,7 @@ public func < (left: NSDate, right: NSDate) -> Bool {
     return (left.compare(right) == NSComparisonResult.OrderedAscending)
 }
 
-/**
- Compare two dates and return true if the left date is later than the right date
- 
- - parameter left:  left date
- - parameter right: right date
- 
- - returns: true if left > right
- */
-public func > (left: NSDate, right: NSDate) -> Bool {
-    return (left.compare(right) == NSComparisonResult.OrderedDescending)
-}
+// MARK: - Date calculations with date components
 
 /**
  Subtract from absolute seconds of UTC left date the number of absolute seconds of UTC right date

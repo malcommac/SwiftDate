@@ -17,11 +17,13 @@ SwiftDate 2.0 is completely rewritten version of SwiftDate. We added support for
 
 Please refer to the table below for SwiftDate v1.2 objects and their v2.0 equivalents:
 
-SwiftDate v1.2                                               | SwiftDate v2
------------------------------------------------------------- | ------------
-`func toDate(formatString formatString: String!) -> NSDate?` | ``
-
-<!-- TODO: Complete -->
+SwiftDate v1.2                                                                                   | SwiftDate v2
+------------------------------------------------------------------------------------------------ | -----------------------------
+`NSDate.year` // NSDateComponents in current calendar & time zone                                | No change
+`NSDate.monthName` // String representations of NSDateComponents in current calendar & time zone | No change
+`NSDate.firstDayOfWeek()`                                                                        | `NSDate.startOf(.WeekOfYear)`
+`NSDate.lastDayOfWeek()`                                                                         | `NSDate.endOf(.WeekOfYear)`
+`NSDate.nearestHour()`                                                                           | No change
 
 # Installation
 ## CocoaPods

@@ -160,7 +160,7 @@ public extension String {
     }
     
     /**
-     Convert a string into NSDate by passing conversion format
+     Convert a string into DateInRegion by passing conversion format
      
      - parameter format: format used to parse the string
      

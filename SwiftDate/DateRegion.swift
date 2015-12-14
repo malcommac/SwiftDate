@@ -57,7 +57,12 @@ public class DateRegion: Equatable {
             calendar.locale = locale
     }
     
-    
+    /// Initialise with components (calendar, time zone, locale in calendar
+    ///
+    /// - Parameters:
+    ///     - components: the date components that should contain the calendar and time zone, default = the current 
+    ///         calendar and default time zone
+    ///
     public convenience init(_ components: NSDateComponents) {
         self.init(calendar: components.calendar, timeZone: components.timeZone, locale: components.calendar?.locale)
     }
@@ -74,7 +79,7 @@ public class DateRegion: Equatable {
 
     /// Yesterday's date
     ///
-    /// - Returns: the date of yesterday at midnight (00:00) in the current calendar and default time zone.
+    /// - Returns: the date of yesterday at midnight (00:00)
     ///
     public func yesterday() -> DateInRegion {
         return (today() - 1.days)!
@@ -82,7 +87,7 @@ public class DateRegion: Equatable {
 
     /// Tomorrow's date
     ///
-    /// - Returns: the date of tomorrow at midnight (00:00) in the current calendar and default time zone.
+    /// - Returns: the date of tomorrow at midnight (00:00)
     ///
     public func tomorrow() -> DateInRegion {
         return (today() + 1.days)!

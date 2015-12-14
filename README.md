@@ -24,6 +24,11 @@ SwiftDate v1.2                                                                  
 `NSDate.firstDayOfWeek()`                                                                        | `NSDate.startOf(.WeekOfYear)`
 `NSDate.lastDayOfWeek()`                                                                         | `NSDate.endOf(.WeekOfYear)`
 `NSDate.nearestHour()`                                                                           | No change
+`NSDate(fromString:format:)`                                                                     | `String.toDate(format:)`
+`ISO8601Formatter`                                                                               | No change
+`NSDate(refDate:year: etc)`                                                                      | `NSDate(fromDate:year: etc)`
+
+``
 
 # Installation
 ## CocoaPods

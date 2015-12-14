@@ -7,7 +7,7 @@ Welcome to SwiftDate 2, the second major release of our Date Management Library 
 - [x] **Compare dates** with math operators `<,>,==,<=,>=`. For example you can do `aDate1 >= aDate2` or `aDate1.inTimeRange("15:20","20:20")`
 - [x] **Easy get time components in NSDate (UTC) or custom region**. For example: `aDateInRegion.day` or `hour, minutes etc.`
 - [x] Easy/optimized way **to get and transform a date from and to strings** (with **relative date supports*** like '2 hours, 5 minutes' etc.)
-- [x] **Easy conversions to and from timezone, locale and calendar**. Use helper class  `DateInRegion` and perform conversions with components and operations!
+- [x] **Easy conversions to and from timezone, locale and calendar**. Use helper class `DateInRegion` and perform conversions with components and operations!
 - [x] Many shortcuts to get intervals and common dates (`isYesterday,isTomorrow...`)
 - [x] Compatible with Swift 2.0+ and iOS/Mac/WatchOS/tvOS platforms
 - [x] _... many many other shiny things!_
@@ -17,18 +17,62 @@ SwiftDate 2.0 is completely rewritten version of SwiftDate. We added support for
 
 Please refer to the table below for SwiftDate v1.2 objects and their v2.0 equivalents:
 
-SwiftDate v1.2                                                                                   | SwiftDate v2
------------------------------------------------------------------------------------------------- | -----------------------------
-`NSDate.year` // NSDateComponents in current calendar & time zone                                | No change
-`NSDate.monthName` // String representations of NSDateComponents in current calendar & time zone | No change
-`NSDate.firstDayOfWeek()`                                                                        | `NSDate.startOf(.WeekOfYear)`
-`NSDate.lastDayOfWeek()`                                                                         | `NSDate.endOf(.WeekOfYear)`
-`NSDate.nearestHour()`                                                                           | No change
-`NSDate(fromString:format:)`                                                                     | `String.toDate(format:)`
-`ISO8601Formatter`                                                                               | No change
-`NSDate(refDate:year: etc)`                                                                      | `NSDate(fromDate:year: etc)`
+SwiftDate v1.2 | SwiftDate v2
+-------------- | --------------
+`nsdate.year` <br>NSDateComponents in current calendar & time zone | No change
+`nsdate.monthName` <br>String representations of NSDateComponents in current calendar & time zone | No change
+`nsdate.firstDayOfWeek()` | `NSDate.startOf(.WeekOfYear)`
+`nsdate.lastDayOfWeek()` | `NSDate.endOf(.WeekOfYear)`
+`nsdate.nearestHour()` | No change
+`NSDate(fromString:format:)` | `String.toDate(format:)`
+`NSDate.ISO8601Formatter` | No change
+`NSDate(refDate:year: etc)` | `NSDate(fromDate:year: etc)`
+`NSDate.today(timezone:)`<br>Equivalent for yesterday and tomorrow | No change for the default region (calendar, locale, time zone)<br>`region.today()` if you want to have the today value for another region
+`nsdate.set(year: etc)`|`NSDate(fromDate:year: etc)` If you want to set a date component
+`nsdate.set(componentsDict:)`|TODO: Investigate
+`nsdate.set(name:value:)`|`NSDate(fromDate:year: etc)`
+`nsdate.add(year: etc)`|`nsdate + 1.year etc`
+`nsdate.add(componentsDict)`|`nsdate + 1.year etc`
+`nsdate.toUTC`|There is no NSDate for UTC or whatever time zone. It can be represented as such though by creating a `DateInRegion` object with the UTC time zone:<br> `nsdate.toRegion(timeZoneName: .UTC)`
+`nsdate.toLocalTime`|There is no NSDate for local time or whatever time zone. It can be represented as such though by creating a `DateInRegion` object with the local time zone:<br> `nsdate.toRegion(timeZoneName: .Local)`
+`nsdate.toTimeZone(timeZone:)`|There is no NSDate for local time or whatever time zone. It can be represented as such though by creating a `DateInRegion` object with the local time zone:<br> `nsdate.toRegion(timeZoneName: .America.New_York)`
+`nsdate.difference(toDate:unitFlags:)`|Function result is optional. It will return `nil` on error.
+`nsdate.isEqualToDate(date:ignoreTime: false)`|*Foundation* library function `nsdate.isEqualToDate(date:)`
+`nsdate.isEqualToDate(date:ignoreTime: true)`|`nsdate.inSameDayAsDate(date:)`
+`nsdate.isLeapYear()`|No change, you can also use `leapMonth`
+`nsdate.isWeekend(calendar:)`|`nsdate.isWeekend()` can only be applied to the current calendar. If you want another calendar or time zone, please use a DateInRegion object with `dateinregion.isInWeekend()`
+`nsdate.monthDays()`| No change
+`nsdate.isToday()`|No change
+`nsdate.isTomorrow()`|No change
+`nsdate.isYesterday()`|No change
+`nsdate.isThisWeek()`|No change
+`nsdate.isThisMonth()`|No change
+`nsdate.isThisYear()`|No change
+`nsdate.isSameWeekOf(date:)`|`nsdate.isIn(.WeekOfYear, ofDate:)`
+`nsdate.dateAtWeekStart()`|`nsDate.startOf(.WeekOfYear)`
+`nsdate.beginningOfDay()`|`nsDate.startOf(.Day)`
+`nsdate.endOfDay()`|`nsDate.endOf(.Day)`
+`nsdate.beginningOfMont()`|`nsDate.startOf(.Month)`
+`nsdate.endOfMonth()`|`nsDate.endOf(.Month)`
+`nsdate.isSameMonthOf(date:)`|`nsdate.isIn(.Month, ofDate:)`
+`nsdate.beginningOfYear()`|`nsDate.startOf(.Year)`
+`nsdate.endOfYear()`|`nsDate.endOf(.Year)`
+`nsdate.isSameYearOf(date:)`|`nsdate.isIn(.Year, ofDate:)`
+`nsdate.isWeekend()`|No change
+`nsdate.isWeekday()`|`!nsdate.isInWeekend()`
 
-``
+TODO: All string handling
+
+
+
+
+
+
+Please note:
+* all operations on `NSDate` assume the default time zone, the current locale and the current calendar.
+* the *etc* indication indicates that other date components can be used instead of just `year`.
+
+
 
 # Installation
 ## CocoaPods
@@ -129,7 +173,7 @@ let dateInNY = dateInRome.inRegion(region: Region(tzType: TimeZoneNames.America.
 ```
 
 ## Create DateInRegion/NSDate from components
-Sometimes you need to create an NSDate/DateInRegion from individual time components.  You have several ways to accomplish it:
+Sometimes you need to create an NSDate/DateInRegion from individual time components. You have several ways to accomplish it:
 
 ### Chaining Time Units
 By composing a set time components `nanoseconds, seconds, minutes, hours, days, weeks, months, year`)

@@ -233,6 +233,19 @@ extension NSDate {
     }
     
     /**
+     Diffenence between the receiver and toDate for the units provided
+     
+     - parameters:
+        - toDate: date to calculate the difference with
+        - unitFlags: calendar component flags to express the difference in
+     
+     - returns: date components with the difference calculated, `nil` on error
+     */
+	public func difference(toDate: NSDate, unitFlags: NSCalendarUnit) -> NSDateComponents? {
+        return self.inRegion().difference(toDate.inRegion(), unitFlags: unitFlags)
+    }
+    
+    /**
      Get the NSDateComponents from passed absolute time by converting it into specified region timezone
      
      - parameter region: region of destination
@@ -496,6 +509,18 @@ extension NSDate {
         return self.inRegion(region).endOf(.WeekOfYear)?.day
     }
     
+    public func isIn(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {
+        return self.inRegion().isIn(unit, ofDate: date.inRegion())
+    }
+    
+    public func isBefore(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {
+        return self.inRegion().isBefore(unit, ofDate: date.inRegion())
+    }
+    
+    public func isAfter(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {
+        return self.inRegion().isAfter(unit, ofDate: date.inRegion())
+    }
+    
     public func isToday() -> Bool {
         return self.inRegion().isInToday()
     }
@@ -508,12 +533,43 @@ extension NSDate {
         return self.inRegion().isInTomorrow()
     }
     
+    public func inSameDayAsDate(date: NSDate) -> Bool {
+        return self.inRegion().inSameDayAsDate(date.inRegion())
+    }
+
+    
     /**
      Return true if date is a weekend day into specified region calendar
      
      - returns: true if date is tomorrow into specified region calendar
      */
-    public func isWeekend(inCalendar cal :CalendarType = CalendarType.Gregorian) -> Bool? {
+    public func isWeekend() -> Bool? {
         return self.inRegion().isInWeekend()
     }
+    
+    public func isLeapYear() -> Bool? {
+        return self.inRegion().leapYear
+    }
+    
+    public func isLeapMonth() -> Bool? {
+        return self.inRegion().leapMonth
+    }
+    
+
+}
+
+extension NSDate {
+    
+    public class func today() -> NSDate {
+        return DateRegion().today().absoluteTime
+    }
+    
+    public class func yesterday() -> NSDate {
+        return DateRegion().yesterday().absoluteTime
+    }
+    
+    public class func tomorrow() -> NSDate {
+        return DateRegion().tomorrow().absoluteTime
+    }
+    
 }

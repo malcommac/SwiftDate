@@ -72,9 +72,7 @@ public class DateRegion: Equatable {
     /// - Returns: the date of today at midnight (00:00) in the current calendar and default time zone.
     ///
     public func today() -> DateInRegion {
-        let components = calendar.components([.Era, .Year, .Month, .Day, .Calendar, .TimeZone], fromDate: NSDate())
-        let date = calendar.dateFromComponents(components)!
-        return DateInRegion(region: self, absoluteTime: date)
+        return DateInRegion(region: self).startOf(.Day)!
     }
 
     /// Yesterday's date

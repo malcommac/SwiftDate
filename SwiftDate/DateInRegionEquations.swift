@@ -49,19 +49,17 @@ public func ==(left: DateInRegion, right: DateInRegion) -> Bool {
 
 extension DateInRegion {
 
-    /// Returns whether the given date is on the same day as the receiver.
+    /// Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
     ///
     /// - Parameters:
     ///     - date: a date to compare against
     ///
-    /// - Returns: a boolean indicating whether the receiver is on the same day as the given date
-    ///
-    /// - note: This value is interpreted in the context of the calendar of the receiver
+    /// - Returns: a boolean indicating whether the receiver is on the same day as the given date in the time zone and calendar of the receiver.
     ///
     /// - seealso: [isDate:inSameDayAsDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/isDate:inSameDayAsDate:)
     ///
-    public func inSameDayAsDate(date: NSDate) -> Bool {
-        return calendar.isDate(self.absoluteTime, inSameDayAsDate: date)
+    public func inSameDayAsDate(date: DateInRegion) -> Bool {
+        return calendar.isDate(self.absoluteTime, inSameDayAsDate: date.absoluteTime)
     }
 
     /// Returns whether the given date is equal to the receiver.

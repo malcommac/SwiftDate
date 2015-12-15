@@ -33,7 +33,7 @@ public protocol TimeZoneConvertible {
 
 public enum TimeZones : String, TimeZoneConvertible {
 	case GMT		= "GMT"
-	case Locale		= "LOCALE"
+	case Local		= "LOCALE"
 	case Default	= "DEFAULT"
 	case System		= "SYSTEM"
 	
@@ -42,7 +42,7 @@ public enum TimeZones : String, TimeZoneConvertible {
 		switch self {
 		case .GMT:
 			return NSTimeZone(abbreviation: "GMT")!
-		case .Locale:
+		case .Local:
 			return NSTimeZone.localTimeZone()
 		case .Default:
 			return NSTimeZone.defaultTimeZone()

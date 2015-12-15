@@ -74,24 +74,35 @@ class DateRegionStringSpec: QuickSpec {
                 }
             }
             
-            context("relative strings EN") {
-                let en_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.GMT, localeID: "en_US")
-                let justNowDate = NSDate() + 1.hours + 12.minutes
-                let str_justNowDate = justNowDate.toRelativeCocoaString(inRegion: en_utc_region) // should return 'Today' (in English)
+            context("relative strings") {
                 
-                expect(str_justNowDate).toNot(beNil())
-                expect(str_justNowDate!.lowercaseString) == "today"
-            }
-            
-            context("relative strings IT") {
-                let it_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.GMT, locale: NSLocale(localeIdentifier: "it_IT"))
-                let justNowDate = NSDate() + 1.hours + 12.minutes
-                let str_justNowDate = justNowDate.toRelativeCocoaString(inRegion: it_utc_region) // should return 'Oggi' (in Italian)
+                it("should return today in en_US locale") {
+                    let newYork = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.America.New_York, localeID: "en_US")
+                    let date = NSDate()
+                    let str = date.toRelativeCocoaString(inRegion: newYork) // should return 'Today' (in English)
+                    
+                    expect(str).toNot(beNil())
+                    expect(str!) == "Today"
+                }
                 
-                expect(str_justNowDate).toNot(beNil())
-                expect(str_justNowDate!.lowercaseString) == "oggi"
+                it("should return tomorrow in it_IT locale") {
+                    let it_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.GMT, locale: NSLocale(localeIdentifier: "it_IT"))
+                    let date = NSDate() + 1.days
+                    let str = date.toRelativeCocoaString(inRegion: it_utc_region) // should return 'Oggi' (in Italian)
+                    
+                    expect(str).toNot(beNil())
+                    expect(str!) == "domani"
+                }
+                
+                it("should return the day after tomorrow in nl_NL locale") {
+                    let amsterdam = DateRegion(calendarType: CalendarType.Gregorian, timeZoneID: "CET", locale: NSLocale(localeIdentifier: "nl_NL"))
+                    let date = NSDate() + 2.days
+                    let str = date.toRelativeCocoaString(inRegion: amsterdam) // should return 'Overmorgen' (in Dutch)
+                    
+                    expect(str).toNot(beNil())
+                    expect(str!) == "Overmorgen"
+                }
             }
-            
         }
     }
 }

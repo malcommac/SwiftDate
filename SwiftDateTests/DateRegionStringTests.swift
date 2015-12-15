@@ -75,7 +75,7 @@ class DateRegionStringSpec: QuickSpec {
             }
             
             context("relative strings EN") {
-                let en_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZoneNames.Other.UTC, localeID: "en_US")
+                let en_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.GMT, localeID: "en_US")
                 let justNowDate = NSDate() + 1.hours + 12.minutes
                 let str_justNowDate = justNowDate.toRelativeCocoaString(inRegion: en_utc_region) // should return 'Today' (in English)
                 
@@ -84,7 +84,7 @@ class DateRegionStringSpec: QuickSpec {
             }
             
             context("relative strings IT") {
-                let it_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZoneNames.Other.UTC, locale: NSLocale(localeIdentifier: "it_IT"))
+                let it_utc_region = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.GMT, locale: NSLocale(localeIdentifier: "it_IT"))
                 let justNowDate = NSDate() + 1.hours + 12.minutes
                 let str_justNowDate = justNowDate.toRelativeCocoaString(inRegion: it_utc_region) // should return 'Oggi' (in Italian)
                 

@@ -223,7 +223,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 var expectedEndDate: DateInRegion!
                 beforeEach {
                     expectedStartDate = DateInRegion(year: 2015, month: 11, day: 7, region: netherlands)!
-                    expectedEndDate = (expectedStartDate + 1.days)!.endOf(.Day)!
+                    expectedEndDate = (expectedStartDate + 1.days).endOf(.Day)
                 }
 
                 it("should return next weekend on Friday") {
@@ -297,7 +297,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 var expectedEndDate: DateInRegion!
                 beforeEach {
                     expectedStartDate = DateInRegion(year: 2015, month: 10, day: 31, region: netherlands)!
-                    expectedEndDate = (expectedStartDate + 1.days)!.endOf(.Day)!
+                    expectedEndDate = (expectedStartDate + 1.days).endOf(.Day)
                 }
 
                 it("should return last week's weekend on Sunday") {

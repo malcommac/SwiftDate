@@ -35,6 +35,7 @@
 		1F244E4E1C1A3AA00011E0E9 /* NSDateEquationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E461C1A3AA00011E0E9 /* NSDateEquationsTests.swift */; };
 		1F244E511C1B4CE00011E0E9 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F244E471C1A3AA00011E0E9 /* NSDateTests.swift */; };
 		1F244E521C1B4CF90011E0E9 /* DateRegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C20EC1C03C1FB0068D224 /* DateRegionStringTests.swift */; };
+		1FA8A86E1C1F45CC00F9768A /* DateInRegionComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */; };
 		1FABEAB71C1C691C00C053C8 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABEAB61C1C691C00C053C8 /* NSDateInterval.swift */; };
 		B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082147161A50FB56097ED503 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		1F244E451C1A3AA00011E0E9 /* NSDateComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentPortTests.swift; sourceTree = "<group>"; };
 		1F244E461C1A3AA00011E0E9 /* NSDateEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEquationsTests.swift; sourceTree = "<group>"; };
 		1F244E471C1A3AA00011E0E9 /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
+		1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionComparisonTests.swift; sourceTree = "<group>"; };
 		1FABEAB61C1C691C00C053C8 /* NSDateInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateInterval.swift; sourceTree = "<group>"; };
 		22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				1F244E471C1A3AA00011E0E9 /* NSDateTests.swift */,
 				084C20EC1C03C1FB0068D224 /* DateRegionStringTests.swift */,
 				084C20EE1C03C1FB0068D224 /* Info.plist */,
+				1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */,
 			);
 			path = SwiftDateTests;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F244E511C1B4CE00011E0E9 /* NSDateTests.swift in Sources */,
+				1FA8A86E1C1F45CC00F9768A /* DateInRegionComparisonTests.swift in Sources */,
 				1F244E4E1C1A3AA00011E0E9 /* NSDateEquationsTests.swift in Sources */,
 				1F244E4B1C1A3AA00011E0E9 /* DateInRegionTests.swift in Sources */,
 				1F244E481C1A3AA00011E0E9 /* DateInRegionComponentPortTests.swift in Sources */,

@@ -94,7 +94,7 @@ public extension DateInRegion {
 
     /// Nearest rounded hour from the date expressed in this region's timezone
     public var nearestHour :Int {
-        let date = (self + 30.minutes)!
+        let date = self + 30.minutes
         return Int(date.hour!);
     }
     
@@ -252,7 +252,7 @@ public extension DateInRegion {
         guard calendar.isDateInWeekend(self.absoluteTime) else {
             return nil
         }
-        let date = (self - 2.days)!
+        let date = self - 2.days
         return date.nextWeekend()
     }
 
@@ -263,7 +263,7 @@ public extension DateInRegion {
     /// - Note: The weekend returned when the receiver is in a weekend is the previous weekend not the current one.
     ///
     public func previousWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
-        let date = (self - 9.days)!
+        let date = self - 9.days
         return date.nextWeekend()
     }
 

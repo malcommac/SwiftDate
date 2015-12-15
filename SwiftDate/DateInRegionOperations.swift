@@ -99,7 +99,7 @@ public extension DateInRegion {
 ///
 /// - note: This value is calculated in the context of the calendar of the date
 ///
-public func - (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion? {
+public func - (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion {
     return lhs + (-rhs)
 }
 
@@ -113,8 +113,8 @@ public func - (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion? {
 ///
 /// - note: This value is calculated in the context of the calendar of the date
 ///
-public func + (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion? {
-    return lhs.addComponents(rhs)
+public func + (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion {
+    return lhs.addComponents(rhs)!
 }
 
 

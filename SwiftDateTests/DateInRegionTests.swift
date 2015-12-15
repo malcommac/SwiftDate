@@ -575,7 +575,7 @@ class DateInRegionSpec: QuickSpec {
 
             it("should add properly") {
                 let date = DateInRegion(year: 1999, month: 12, day: 31)!
-                let testDate = (date + 1.weeks)!
+                let testDate = date + 1.weeks
 
                 expect(testDate.year) == 2000
                 expect(testDate.month) == 1
@@ -612,7 +612,7 @@ class DateInRegionSpec: QuickSpec {
             }
 
             it("should return start of second") {
-                let testDate = date.startOf(.Second)!
+                let testDate = date.startOf(.Second)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -624,7 +624,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of minute") {
-                let testDate = date.startOf(.Minute)!
+                let testDate = date.startOf(.Minute)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -636,7 +636,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of hour") {
-                let testDate = date.startOf(.Hour)!
+                let testDate = date.startOf(.Hour)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -648,7 +648,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of day") {
-                let testDate = date.startOf(.Day)!
+                let testDate = date.startOf(.Day)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -661,7 +661,7 @@ class DateInRegionSpec: QuickSpec {
             
             it("should return start of day for midnight") {
                 date = date.startOf(.Day)
-                let testDate = date.startOf(.Day)!
+                let testDate = date.startOf(.Day)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -673,7 +673,7 @@ class DateInRegionSpec: QuickSpec {
             }
 
             it("should return start of week in Europe") {
-                let testDate = date.startOf(.WeekOfYear)!
+                let testDate = date.startOf(.WeekOfYear)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -685,7 +685,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of year for week in Europe") {
-                let testDate = date.startOf(.YearForWeekOfYear)!
+                let testDate = date.startOf(.YearForWeekOfYear)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 1
@@ -697,7 +697,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of weekday") {
-                let testDate = date.startOf(.Weekday)!
+                let testDate = date.startOf(.Weekday)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -710,7 +710,7 @@ class DateInRegionSpec: QuickSpec {
             
             it("should return start of week in USA") {
                 let usaDate = DateInRegion(fromDate: date, region: newYork)
-                let testDate = usaDate.startOf(.WeekOfYear)!
+                let testDate = usaDate.startOf(.WeekOfYear)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -722,7 +722,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of month") {
-                let testDate = date.startOf(.Month)!
+                let testDate = date.startOf(.Month)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12
@@ -734,7 +734,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of year") {
-                let testDate = date.startOf(.Year)!
+                let testDate = date.startOf(.Year)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 1
@@ -746,7 +746,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of era") {
-                let testDate = date.startOf(.Era)!
+                let testDate = date.startOf(.Era)
 
                 expect(testDate.year) == 1
                 expect(testDate.month) == 1
@@ -763,7 +763,7 @@ class DateInRegionSpec: QuickSpec {
 
             it("should return end of day") {
                 let date = DateInRegion(year: 1999, month: 1, day: 1, hour: 14, minute: 15, second: 16, nanosecond: 17)!
-                let testDate = date.endOf(.Day)!
+                let testDate = date.endOf(.Day)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 1
@@ -776,7 +776,7 @@ class DateInRegionSpec: QuickSpec {
 
             it("should return end of month") {
                 let date = DateInRegion(year: 1999, month: 1, day: 1, hour: 14, minute: 15, second: 16, nanosecond: 17)!
-                let testDate = date.endOf(.Month)!
+                let testDate = date.endOf(.Month)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 1
@@ -788,7 +788,7 @@ class DateInRegionSpec: QuickSpec {
             
             it("should return end of year") {
                 let date = DateInRegion(year: 1999, month: 1, day: 1, hour: 14, minute: 15, second: 16, nanosecond: 17)!
-                let testDate = date.endOf(.Year)!
+                let testDate = date.endOf(.Year)
 
                 expect(testDate.year) == 1999
                 expect(testDate.month) == 12

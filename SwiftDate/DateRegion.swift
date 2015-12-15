@@ -88,7 +88,7 @@ public class DateRegion: Equatable {
     /// - Returns: the date of today at midnight (00:00) in the current calendar and default time zone.
     ///
     public func today() -> DateInRegion {
-        return DateInRegion(region: self).startOf(.Day)!
+        return DateInRegion(region: self).startOf(.Day)
     }
 
     /// Yesterday's date
@@ -96,7 +96,7 @@ public class DateRegion: Equatable {
     /// - Returns: the date of yesterday at midnight (00:00)
     ///
     public func yesterday() -> DateInRegion {
-        return (today() - 1.days)!
+        return today() - 1.days
     }
 
     /// Tomorrow's date
@@ -104,7 +104,7 @@ public class DateRegion: Equatable {
     /// - Returns: the date of tomorrow at midnight (00:00)
     ///
     public func tomorrow() -> DateInRegion {
-        return (today() + 1.days)!
+        return today() + 1.days
     }
 
 }

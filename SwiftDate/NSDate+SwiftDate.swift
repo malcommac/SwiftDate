@@ -288,7 +288,7 @@ extension NSDate {
      - returns: the date representing that start of that unit
      */
     public func startOf(unit :NSCalendarUnit, inRegion region :DateRegion) -> NSDate {
-        return self.inRegion(region).startOf(unit)!.absoluteTime
+        return self.inRegion(region).startOf(unit).absoluteTime
     }
     
     /**
@@ -300,7 +300,7 @@ extension NSDate {
      - returns: the date representing that end of that unit
      */
     public func endOf(unit :NSCalendarUnit, inRegion region :DateRegion) -> NSDate {
-        return self.inRegion(region).startOf(unit)!.absoluteTime
+        return self.inRegion(region).startOf(unit).absoluteTime
     }
     
     
@@ -511,7 +511,7 @@ extension NSDate {
      - returns: first day of the week in calendar, nil if region is not valid
      */
     public func firstDayOfWeek(inRegion region: DateRegion = DateRegion()) -> Int? {
-        return self.inRegion(region).startOf(.WeekOfYear)?.day
+        return self.inRegion(region).startOf(.WeekOfYear).day
     }
     
     /**
@@ -522,7 +522,7 @@ extension NSDate {
      - returns: last day of the week in calendar, nil if region is not valid
      */
     public func lastDayOfWeek(inRegion region: DateRegion = DateRegion()) -> Int? {
-        return self.inRegion(region).endOf(.WeekOfYear)?.day
+        return self.inRegion(region).endOf(.WeekOfYear).day
     }
     
     public func isIn(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {

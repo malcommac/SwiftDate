@@ -1,11 +1,26 @@
-
 //
-//  NSDateComponents.swift
-//  JHCalendar
+//	SwiftDate, an handy tool to manage date and timezones in swift
+//	Created by:				Daniele Margutti
+//	Main contributors:		Jeroen Houtzager
 //
-//  Created by Jeroen Houtzager on 12/10/15.
-//  Copyright © 2015 Jeroen Houtzager. All rights reserved.
 //
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in
+//	all copies or substantial portions of the Software.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//	THE SOFTWARE.
 
 /// DateInRegion is a wrapper around NSDate that exposes the properties of NSDateComponents. Thus offering date functions with a flexibility that I was looking for:
 ///    - Use the object as an NSDate. I.e. as an absolute time.
@@ -106,7 +121,7 @@ public class DateInRegion {
         timeZoneID: String = "",
         localeID: String = "",
         calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneRegion? = nil,
+        timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
         timeZone aTimeZone: NSTimeZone? = nil,
         locale aLocale: NSLocale? = nil,
@@ -144,7 +159,7 @@ public class DateInRegion {
         timeZoneID: String = "",
         localeID: String = "",
         calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneRegion? = nil,
+        timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
         timeZone aTimeZone: NSTimeZone? = nil,
         locale aLocale: NSLocale? = nil,
@@ -178,7 +193,7 @@ public class DateInRegion {
         timeZoneID: String = "",
         localeID: String = "",
         calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneRegion? = nil,
+        timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
         timeZone aTimeZone: NSTimeZone? = nil,
         locale aLocale: NSLocale? = nil,
@@ -213,7 +228,7 @@ public class DateInRegion {
         timeZoneID: String = "",
         localeID: String = "",
         calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneRegion? = nil,
+        timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
         timeZone aTimeZone: NSTimeZone? = nil,
         locale aLocale: NSLocale? = nil,

@@ -22,8 +22,8 @@ SwiftDate allows you:
 SwiftDate 2.0 is completely rewritten version of SwiftDate. We added support for timezones and fixed/changed many methods and properties. Due to these changes old SwiftDate 1.2 code may not work properly. We don't provide any updgrading doc because everything is pretty simple; lots of methods has the same names and DateInRegion is a new structure.
 If you have problems or question create an issue; we will be happy to answer :)
 
-## CocoaPods and Chartage
-SwiftDate 2 package is compatible both with CocoaPods and Chartage.
+## CocoaPods and Carthage
+SwiftDate 2 package is compatible both with CocoaPods and Carthage.
 
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SwiftDate.
 Simply add these lines to your pod file:

@@ -37,6 +37,7 @@
 		1F244E521C1B4CF90011E0E9 /* DateRegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C20EC1C03C1FB0068D224 /* DateRegionStringTests.swift */; };
 		1FA8A86E1C1F45CC00F9768A /* DateInRegionComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */; };
 		1FABEAB71C1C691C00C053C8 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABEAB61C1C691C00C053C8 /* NSDateInterval.swift */; };
+		7A81B63DE01A254F664FF9CF /* Pods_SwiftDateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDEFEF499874849D945263 /* Pods_SwiftDateTests.framework */; };
 		A723AD1B1C23F67D007F626F /* SwiftDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 084C20E01C03C1FB0068D224 /* SwiftDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A723AD1C1C23F6B9007F626F /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABEAB61C1C691C00C053C8 /* NSDateInterval.swift */; };
 		A723AD1D1C23F6B9007F626F /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084C20F81C03C25B0068D224 /* DateInRegion.swift */; };
@@ -56,7 +57,6 @@
 		A723AD2B1C23F6B9007F626F /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C3E1C176C210084EA37 /* NSDateComponents+SwiftDate.swift */; };
 		A723AD2C1C23F6B9007F626F /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C401C176DD30084EA37 /* NSTimeZone+SwiftDate.swift */; };
 		A723AD2D1C23F6B9007F626F /* NSCalendar+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C421C1774470084EA37 /* NSCalendar+SwiftDate.swift */; };
-		B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082147161A50FB56097ED503 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		082147161A50FB56097ED503 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0844E2271067FE7577192093 /* Pods-SwiftDateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests.release.xcconfig"; sourceTree = "<group>"; };
 		084C20DD1C03C1FB0068D224 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		084C20E01C03C1FB0068D224 /* SwiftDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDate.h; sourceTree = "<group>"; };
 		084C20E21C03C1FB0068D224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +108,8 @@
 		22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A723AD131C23F648007F626F /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C155B0444C13E697BB60A324 /* Pods-SwiftDateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DACDEFEF499874849D945263 /* Pods_SwiftDateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				084C20E81C03C1FB0068D224 /* SwiftDate.framework in Frameworks */,
+				7A81B63DE01A254F664FF9CF /* Pods_SwiftDateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +210,8 @@
 			children = (
 				22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */,
 				8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */,
+				C155B0444C13E697BB60A324 /* Pods-SwiftDateTests.debug.xcconfig */,
+				0844E2271067FE7577192093 /* Pods-SwiftDateTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				082147161A50FB56097ED503 /* Pods.framework */,
+				DACDEFEF499874849D945263 /* Pods_SwiftDateTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,12 +251,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 084C20F11C03C1FB0068D224 /* Build configuration list for PBXNativeTarget "SwiftDate" */;
 			buildPhases = (
-				871361268F8CC3B8EB331AF3 /* Check Pods Manifest.lock */,
 				084C20D81C03C1FB0068D224 /* Sources */,
 				084C20D91C03C1FB0068D224 /* Frameworks */,
 				084C20DA1C03C1FB0068D224 /* Headers */,
 				084C20DB1C03C1FB0068D224 /* Resources */,
-				BBFF1EAEDD581C4EEB4D346D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,9 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 084C20F41C03C1FB0068D224 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */;
 			buildPhases = (
+				338BE2BB464D597DBD02172A /* Check Pods Manifest.lock */,
 				084C20E31C03C1FB0068D224 /* Sources */,
 				084C20E41C03C1FB0068D224 /* Frameworks */,
 				084C20E51C03C1FB0068D224 /* Resources */,
+				B9C700252EAF29A75FB2AA3A /* Embed Pods Frameworks */,
+				290665F18BC19ECF7F8872F2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -362,7 +369,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		871361268F8CC3B8EB331AF3 /* Check Pods Manifest.lock */ = {
+		290665F18BC19ECF7F8872F2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		338BE2BB464D597DBD02172A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,19 +399,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BBFF1EAEDD581C4EEB4D346D /* Copy Pods Resources */ = {
+		B9C700252EAF29A75FB2AA3A /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -564,7 +586,6 @@
 		};
 		084C20F21C03C1FB0068D224 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -583,7 +604,6 @@
 		};
 		084C20F31C03C1FB0068D224 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -602,6 +622,7 @@
 		};
 		084C20F51C03C1FB0068D224 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C155B0444C13E697BB60A324 /* Pods-SwiftDateTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftDateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -612,6 +633,7 @@
 		};
 		084C20F61C03C1FB0068D224 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0844E2271067FE7577192093 /* Pods-SwiftDateTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftDateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

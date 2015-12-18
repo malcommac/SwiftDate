@@ -6,5 +6,8 @@ xcodeproj 'SwiftDate.xcodeproj'
 
 use_frameworks!
 
+target 'SwiftDateTests' do
 pod 'Quick'
 pod 'Nimble'
+end
+

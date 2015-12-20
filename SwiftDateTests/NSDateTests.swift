@@ -244,12 +244,12 @@ class NSDateSpec: QuickSpec {
                 
                 it("should report false for isWeekend with a weekday") {
                     let day = NSDate(year: 2015, month: 12, day: 15, region: amsterdam)!
-                    expect(day.isWeekend()) == false
+                    expect(day.isWeekend(inRegion: amsterdam)) == false
                 }
                 
                 it("should report true for isWeekend with a saturday") {
                     let day = NSDate(year: 2015, month: 12, day: 5, region: amsterdam)!
-                    expect(day.isWeekend()) == true
+                    expect(day.isWeekend(inRegion: amsterdam)) == true
                 }
                 
             }

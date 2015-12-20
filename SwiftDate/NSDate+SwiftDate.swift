@@ -525,32 +525,32 @@ extension NSDate {
         return self.inRegion(region).endOf(.WeekOfYear).day
     }
     
-    public func isIn(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {
-        return self.inRegion().isIn(unit, ofDate: date.inRegion())
+    public func isIn(unit: NSCalendarUnit, ofDate date: NSDate, inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).isIn(unit, ofDate: date.inRegion(region))
     }
     
-    public func isBefore(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {
-        return self.inRegion().isBefore(unit, ofDate: date.inRegion())
+    public func isBefore(unit: NSCalendarUnit, ofDate date: NSDate, inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).isBefore(unit, ofDate: date.inRegion(region))
     }
     
-    public func isAfter(unit: NSCalendarUnit, ofDate date: NSDate) -> Bool {
-        return self.inRegion().isAfter(unit, ofDate: date.inRegion())
+    public func isAfter(unit: NSCalendarUnit, ofDate date: NSDate, inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).isAfter(unit, ofDate: date.inRegion(region))
     }
     
-    public func isToday() -> Bool {
-        return self.inRegion().isInToday()
+    public func isToday(inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).isInToday()
     }
     
-    public func isYesterday() -> Bool {
-        return self.inRegion().isInYesterday()
+    public func isYesterday(inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).isInYesterday()
     }
     
-    public func isTomorrow() -> Bool {
-        return self.inRegion().isInTomorrow()
+    public func isTomorrow(inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).isInTomorrow()
     }
     
-    public func inSameDayAsDate(date: NSDate) -> Bool {
-        return self.inRegion().inSameDayAsDate(date.inRegion())
+    public func inSameDayAsDate(date: NSDate, inRegion region: DateRegion = DateRegion()) -> Bool {
+        return self.inRegion(region).inSameDayAsDate(date.inRegion(region))
     }
 
     
@@ -559,16 +559,16 @@ extension NSDate {
      
      - returns: true if date is tomorrow into specified region calendar
      */
-    public func isWeekend() -> Bool? {
-        return self.inRegion().isInWeekend()
+    public func isWeekend(inRegion region: DateRegion = DateRegion()) -> Bool? {
+        return self.inRegion(region).isInWeekend()
     }
     
-    public func isLeapYear() -> Bool? {
-        return self.inRegion().leapYear
+    public func isLeapYear(inRegion region: DateRegion = DateRegion()) -> Bool? {
+        return self.inRegion(region).leapYear
     }
     
-    public func isLeapMonth() -> Bool? {
-        return self.inRegion().leapMonth
+    public func isLeapMonth(inRegion region: DateRegion = DateRegion()) -> Bool? {
+        return self.inRegion(region).leapMonth
     }
     
 
@@ -576,16 +576,16 @@ extension NSDate {
 
 extension NSDate {
     
-    public class func today() -> NSDate {
-        return DateRegion().today().absoluteTime
+    public class func today(inRegion region: DateRegion = DateRegion()) -> NSDate {
+        return region.today().absoluteTime
     }
     
-    public class func yesterday() -> NSDate {
-        return DateRegion().yesterday().absoluteTime
+    public class func yesterday(inRegion region: DateRegion = DateRegion()) -> NSDate {
+        return region.yesterday().absoluteTime
     }
     
-    public class func tomorrow() -> NSDate {
-        return DateRegion().tomorrow().absoluteTime
+    public class func tomorrow(inRegion region: DateRegion = DateRegion()) -> NSDate {
+        return region.tomorrow().absoluteTime
     }
     
 }

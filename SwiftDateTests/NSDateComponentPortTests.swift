@@ -10,13 +10,97 @@
 
 import Quick
 import Nimble
-import SwiftDate
+@testable import SwiftDate
 
 class NSDateComponentPortSpec: QuickSpec {
     
     override func spec() {
         
         describe("NSDateComponentPort") {
+            
+            context("valueForComponentYMD") {
+                
+                let date = NSDate(era: 1, year: 2002, month: 3, day: 4, hour: 5, minute: 6, second: 7, nanosecond: 87654321)
+                
+                it("should report a valid date") {
+                    expect(date).toNot(beNil())
+                }
+                
+                it("should report a valid era") {
+                    expect(date!.era) == 1
+                }
+                
+                it("should report a valid year") {
+                    expect(date!.year) == 2002
+                }
+                
+                it("should report a valid month") {
+                    expect(date!.month) == 3
+                }
+                
+                it("should report a valid day") {
+                    expect(date!.day) == 4
+                }
+                
+                it("should report a valid hour") {
+                    expect(date!.hour) == 5
+                }
+                
+                it("should report a valid minute") {
+                    expect(date!.minute) == 6
+                }
+                
+                it("should report a valid second") {
+                    expect(date!.second) == 7
+                }
+                
+                it("should report a valid nanosecond") {
+                    expect(date!.nanosecond).to(beCloseTo(87654321, within: 10))
+                }
+                
+            }
+            
+            context("valueForComponentYWD") {
+                
+                let date = NSDate(era: 1, yearForWeekOfYear: 2, weekOfYear: 3, weekday: 4)
+                
+                it("should report a valid date") {
+                    expect(date).toNot(beNil())
+                }
+                
+                it("should report a valid era") {
+                    expect(date!.era) == 1
+                }
+                
+                it("should report a valid yearForWeekOfYear") {
+                    expect(date!.yearForWeekOfYear) == 2
+                }
+                
+                it("should report a valid weekOfYear") {
+                    expect(date!.weekOfYear) == 3
+                }
+                
+                it("should report a valid weekday") {
+                    expect(date!.weekday) == 4
+                }
+                
+                it("should report a valid hour") {
+                    expect(date!.hour) == 0
+                }
+                
+                it("should report a valid minute") {
+                    expect(date!.minute) == 0
+                }
+                
+                it("should report a valid second") {
+                    expect(date!.second) == 0
+                }
+                
+                it("should report a valid nanosecond") {
+                    expect(date!.nanosecond) == 0
+                }
+                
+            }
             
             context("component initialisation") {
                 

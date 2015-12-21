@@ -43,12 +43,14 @@ public class DateRegion: Equatable {
     /// Initialise with a calendar and/or a time zone
     ///
     /// - Parameters:
+    ///     - calendarID: the calendar identifier to work with to assign, default = the current calendar
+    ///     - timeZoneID: the time zone identifier or -name to work with, default is the default time zone
+    ///     - localeID: the locale ID to work with, default is the current locale
+    ///     - calendarType: the calendar to work with to assign in `CalendarType` format, default = the current calendar
+    ///     - timeZoneRegion: the time zone to work with in `TimeZoneConvertible` format, default is the default time zone
     ///     - calendar: the calendar to work with to assign, default = the current calendar
     ///     - timeZone: the time zone to work with, default is the default time zone
     ///     - locale: the locale to work with, default is the current locale
-    ///     - calendarID: the calendar ID to work with to assign, default = the current calendar
-    ///     - timeZoneID: the time zone ID to work with, default is the default time zone
-    ///     - localeID: the locale ID to work with, default is the current locale
     ///     - region: a region to copy
     ///
     /// - Note: parameters higher in the list take precedence over parameters lower in the list. E.g.

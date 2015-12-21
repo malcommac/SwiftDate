@@ -69,11 +69,11 @@ let thisRegion = DateRegion(calendarID: "hebrew")
 let romeRegion = DateRegion(calType: CalendarType.Gregorian, tzType: TimeZoneNames.Europe.Rome)
 
 // Create a region for China using Buddhist calendar
-let chinaRegion = DateRegion(calType: CalendarType.Buddhist, tzType: TimeZoneNames.Asia.Shanghai, localeID: "zh_Hans_CN")
+let chinaRegion = DateRegion(calType: CalendarType.Buddhist, tzType: TimeZones.Asia.Shanghai, localeID: "zh_Hans_CN")
 ```
 
 ### Calendar & time zone identification helpers
-SwiftDate represent Calendars and TimeZones with custom structures that reflect classic NSTimeZone and NSCalendar identifiers. Using `CalendarType` and `TimeZoneNames.[DateRegion].[Place]` you can easily create objects without remembering identifiers. You can get instances of NSCalendar from CalendarType by calling the  `toCalendar()` method. In the same way, using `toTimeZone()` you can get an NSTimeZone instance from a `TimeZoneNames` structure.
+SwiftDate represent Calendars and TimeZones with custom structures that reflect classic NSTimeZone and NSCalendar identifiers. Using `CalendarType` and `TimeZones` you can easily create objects without remembering identifiers. You can get instances of NSCalendar from CalendarType by calling the  `toCalendar()` method. In the same way, using `toTimeZone()` you can get an NSTimeZone instance from a `TimeZones` structure.
 
 In addition, you can use the plain identifier string if you want.
 
@@ -89,12 +89,12 @@ let islamic2 = DateRegion(calendarID: NSCalendarIdentifierIslamicCivil)
 let islamic3 = DateRegion(calendar: NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamicCivil))
 
 // Create a region with the time zone for Eastern Standard Time (New York time)
-let newYork1 = DateRegion(timeZoneName: TimeZoneNames.America.New_York)
+let newYork1 = DateRegion(timeZoneRegion: TimeZoneNames.America.New_York)
 let newYork2 = DateRegion(timeZoneID: "EST")
 let newYork3 = DateRegion(timeZoneID: "America/New_York")
 
 // Create a region with the time zone for UTC (Universal Standard time)
-let utc1 = DateRegion(timeZoneName: TimeZoneNames.UTC)
+let utc1 = DateRegion(timeZoneRegion: TimeZoneNames.UTC)
 let utc2 = DateRegion(timeZoneID: "UTC")
 let utc3 = DateRegion(timeZoneID: "etc/UTC")
 ```

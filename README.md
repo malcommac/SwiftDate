@@ -28,7 +28,7 @@ When you work with `NSDate` you are working with an absolute time and components
 
 
 # Reference documentation
-- [Usage guide](./Documentation/Usage.md)
+- [User guide](./Documentation/UserGuide.md)
 - [Installation guide](./Documentation/Installation.md)
 - [Upgrade guide](./Documentation/UpgradeGuide.md)
 

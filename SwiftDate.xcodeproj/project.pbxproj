@@ -73,7 +73,7 @@
 		1F1B3C3A1C15EA600084EA37 /* Dictionary+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+SwiftDate.swift"; sourceTree = "<group>"; };
 		1F1B3C3C1C16BC330084EA37 /* NSDateFormatter+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+SwiftDate.swift"; sourceTree = "<group>"; };
 		1F1B3C3E1C176C210084EA37 /* NSDateComponents+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+SwiftDate.swift"; sourceTree = "<group>"; };
-		1F1B3C401C176DD30084EA37 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimeZone+SwiftDate.swift"; sourceTree = "<group>"; };
+		1F1B3C401C176DD30084EA37 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSTimeZone+SwiftDate.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1F1B3C421C1774470084EA37 /* NSCalendar+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+SwiftDate.swift"; sourceTree = "<group>"; };
 		1F244E401C1A3AA00011E0E9 /* DateInRegionComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionComponentPortTests.swift; sourceTree = "<group>"; };
 		1F244E411C1A3AA00011E0E9 /* DateInRegionEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionEquationsTests.swift; sourceTree = "<group>"; };
@@ -83,6 +83,10 @@
 		1F244E451C1A3AA00011E0E9 /* NSDateComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentPortTests.swift; sourceTree = "<group>"; };
 		1F244E461C1A3AA00011E0E9 /* NSDateEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEquationsTests.swift; sourceTree = "<group>"; };
 		1F244E471C1A3AA00011E0E9 /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
+		1F5B8C7E1C289676002758AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1F5B8C7F1C289683002758AA /* Installation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Installation.md; path = Documentation/Installation.md; sourceTree = "<group>"; };
+		1F5B8C801C289683002758AA /* UpgradeGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; name = UpgradeGuide.md; path = Documentation/UpgradeGuide.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
+		1F5B8C811C289683002758AA /* UserGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; name = UserGuide.md; path = Documentation/UserGuide.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionComparisonTests.swift; sourceTree = "<group>"; };
 		1FABEAB61C1C691C00C053C8 /* NSDateInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateInterval.swift; sourceTree = "<group>"; };
 		22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		084C20D31C03C1FB0068D224 = {
 			isa = PBXGroup;
 			children = (
+				1F5B8C7D1C289660002758AA /* Documentation */,
 				084C20DF1C03C1FB0068D224 /* SwiftDate */,
 				084C20EB1C03C1FB0068D224 /* SwiftDateTests */,
 				084C20DE1C03C1FB0068D224 /* Products */,
@@ -172,6 +177,17 @@
 				1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */,
 			);
 			path = SwiftDateTests;
+			sourceTree = "<group>";
+		};
+		1F5B8C7D1C289660002758AA /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				1F5B8C7E1C289676002758AA /* README.md */,
+				1F5B8C7F1C289683002758AA /* Installation.md */,
+				1F5B8C801C289683002758AA /* UpgradeGuide.md */,
+				1F5B8C811C289683002758AA /* UserGuide.md */,
+			);
+			name = Documentation;
 			sourceTree = "<group>";
 		};
 		D0C93536BF9E1C6D9E709C4D /* Pods */ = {
@@ -408,6 +424,8 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -455,6 +473,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

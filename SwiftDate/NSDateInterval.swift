@@ -22,14 +22,25 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+import Foundation
 
-//! Project version number for SwiftDate.
-FOUNDATION_EXPORT double SwiftDateVersionNumber;
-
-//! Project version string for SwiftDate.
-FOUNDATION_EXPORT const unsigned char SwiftDateVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SwiftDate/PublicHeader.h>
-
-
+/// Alternative API from swift.org for avoiding AutoreleasingUnsafeMutablePointer usage in NSCalendar and NSFormatter
+/// - Experiment: This is a draft API currently under consideration for official import into Foundation as a suitable alternative to the AutoreleasingUnsafeMutablePointer usage case of returning a NSDate + NSTimeInterval or using a pair of dates representing a range
+/// - Note: Since this API is under consideration it may be either removed or revised in the near future
+public class NSDateInterval : NSObject {
+    public internal(set) var start: NSDate
+    public internal(set) var end: NSDate
+    
+    public var interval: NSTimeInterval {
+        return end.timeIntervalSinceReferenceDate - start.timeIntervalSinceReferenceDate
+    }
+    
+    public required init(start: NSDate, end: NSDate) {
+        self.start = start
+        self.end = end
+    }
+    
+    public convenience init(start: NSDate, interval: NSTimeInterval) {
+        self.init(start: start, end: NSDate(timeInterval: interval, sinceDate: start))
+    }
+}

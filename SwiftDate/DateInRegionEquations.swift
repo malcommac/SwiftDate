@@ -74,7 +74,7 @@ extension DateInRegion {
     ///
     /// - seealso: [isDate:inSameDayAsDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/isDate:inSameDayAsDate:)
     ///
-    public func inSameDayAsDate(date: DateInRegion) -> Bool {
+    public func isInSameDayAsDate(date: DateInRegion) -> Bool {
         return calendar.isDate(self.absoluteTime, inSameDayAsDate: date.absoluteTime)
     }
 

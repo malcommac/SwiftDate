@@ -213,43 +213,43 @@ class NSDateSpec: QuickSpec {
                 
                 // Note: these tests are not exhaustive as they are pretty thoroughly tested in DateInRegionComparisonTests
                 
-                it("should report true for isToday with today's date") {
-                    expect(NSDate().isToday()) == true
+                it("should report true for isInToday with today's date") {
+                    expect(NSDate().isInToday()) == true
                 }
                 
-                it("should report false for isToday with yesterday's date") {
-                    expect((NSDate() - 1.days).isToday()) == false
+                it("should report false for isInToday with yesterday's date") {
+                    expect((NSDate() - 1.days).isInToday()) == false
                 }
                 
-                it("should report true for isYesterday with yesterday's date") {
-                    expect((NSDate() - 1.days).isYesterday()) == true
+                it("should report true for isInYesterday with yesterday's date") {
+                    expect((NSDate() - 1.days).isInYesterday()) == true
                 }
                 
-                it("should report false for isYesterday with today's date") {
-                    expect(NSDate().isYesterday()) == false
+                it("should report false for isInYesterday with today's date") {
+                    expect(NSDate().isInYesterday()) == false
                 }
                 
-                it("should report true for isTomorrow with tomorrows date") {
-                    expect((NSDate() + 1.days).isTomorrow()) == true
+                it("should report true for isInTomorrow with tomorrows date") {
+                    expect((NSDate() + 1.days).isInTomorrow()) == true
                 }
                 
-                it("should report false for isTomorrow with today's date") {
-                    expect(NSDate().isTomorrow()) == false
+                it("should report false for isInTomorrow with today's date") {
+                    expect(NSDate().isInTomorrow()) == false
                 }
                 
                 it("should report true for isSameDaysAsDate with the same day") {
                     let day = NSDate()
-                    expect(day.inSameDayAsDate(day)) == true
+                    expect(day.isInSameDayAsDate(day)) == true
                 }
                 
                 it("should report false for isWeekend with a weekday") {
                     let day = NSDate(year: 2015, month: 12, day: 15, region: amsterdam)!
-                    expect(day.isWeekend(inRegion: amsterdam)) == false
+                    expect(day.isInWeekend(inRegion: amsterdam)) == false
                 }
                 
                 it("should report true for isWeekend with a saturday") {
                     let day = NSDate(year: 2015, month: 12, day: 5, region: amsterdam)!
-                    expect(day.isWeekend(inRegion: amsterdam)) == true
+                    expect(day.isInWeekend(inRegion: amsterdam)) == true
                 }
                 
             }

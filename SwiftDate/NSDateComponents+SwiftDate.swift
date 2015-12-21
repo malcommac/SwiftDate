@@ -132,32 +132,36 @@ public func | (lhs: NSDateComponents, rhs :NSDateComponents) -> NSDateComponents
     return dc
 }
 
+/// Add date components to one another
+///
 public func + (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
     return sumDateComponents(lhs, rhs: rhs)
 }
 
+/// subtract date components from one another
+///
 public func - (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
     return sumDateComponents(lhs, rhs: rhs, sum: false)
 }
 
-private func sumDateComponents(lhs :NSDateComponents, rhs :NSDateComponents, sum :Bool = true) -> NSDateComponents {
+/// Helper function for date component sum * subtract
+///
+internal func sumDateComponents(lhs :NSDateComponents, rhs :NSDateComponents, sum :Bool = true) -> NSDateComponents {
     let newComponents = NSDateComponents()
     let components = DateInRegion.componentFlagSet
     for unit in components {
         let leftValue = lhs.valueForComponent(unit)
         let rightValue = rhs.valueForComponent(unit)
         
-        if leftValue == NSDateComponentUndefined && rightValue == NSDateComponentUndefined {
-            continue // unit we won't touch
+        guard leftValue != NSDateComponentUndefined || rightValue != NSDateComponentUndefined else {
+            continue // both are undefined, don't touch
         }
         
-        if leftValue != NSDateComponentUndefined && rightValue != NSDateComponentUndefined {
-            let finalValue =  ((leftValue + rightValue) * (sum == true ? 1 : -1))
-            newComponents.setValue( finalValue, forComponent: unit)
-        } else {
-            let finalValue = ( (leftValue != NSDateComponentUndefined ? leftValue : rightValue) * (sum == true ? 1 : -1))
-            newComponents.setValue(finalValue, forComponent: unit)
-        }
+        let checkedLeftValue = leftValue == NSDateComponentUndefined ? 0 : leftValue
+        let checkedRightValue = rightValue == NSDateComponentUndefined ? 0 : rightValue
+        
+        let finalValue =  checkedLeftValue + (sum ? checkedRightValue : -checkedRightValue)
+        newComponents.setValue(finalValue, forComponent: unit)
     }
     return newComponents
 }

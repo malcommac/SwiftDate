@@ -187,6 +187,54 @@ class NSDateComponentPortSpec: QuickSpec {
                 
             }
             
+            context("component calculations") {
+                
+                let undefined = NSDateComponents()
+                let zero = 0.days
+                let day1 = 1.days
+                
+                it("should return undefined with undefined components") {
+                    expect(sumDateComponents(undefined, rhs: undefined)) == undefined
+                }
+                
+                it("should return 1 day with 1 day summed with undefined components") {
+                    expect(sumDateComponents(day1, rhs: undefined)) == day1
+                }
+                
+                it("should return 1 day with undefined components summed with 1 day") {
+                    expect(sumDateComponents(undefined, rhs: day1)) == day1
+                }
+                
+                it("should return zero with zero components") {
+                    expect(sumDateComponents(zero, rhs: zero)) == zero
+                }
+                
+                it("should return 1 day with 1 day summed with zero components") {
+                    expect(sumDateComponents(day1, rhs: zero)) == day1
+                }
+                
+                it("should return 1 day with zero components summed with 1 day") {
+                    expect(sumDateComponents(zero, rhs: day1)) == day1
+                }
+                
+                it("should return 2 days with 1 day components summed") {
+                    expect(sumDateComponents(day1, rhs: day1)) == 2.days
+                }
+                
+                it("should return zero with 1 day components subtracted") {
+                    expect(sumDateComponents(day1, rhs: day1, sum: false)) == zero
+                }
+                
+                it("should sum properly with +") {
+                    expect(1.days + 1.days) == 2.days
+                }
+                
+                it("should subtract properly with -") {
+                    expect(1.days - 1.days) == 0.days
+                }
+                
+            }
+            
         }
     }
 }

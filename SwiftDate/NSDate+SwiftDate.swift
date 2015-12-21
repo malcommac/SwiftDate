@@ -217,10 +217,10 @@ extension NSDate {
      
      - returns: a new absolute time from self plus passed components
      */
-    public func add(years years: Int? = nil, months: Int? = nil, weekOfYear: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> NSDate {
+    public func add(years years: Int? = nil, months: Int? = nil, weeks: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> NSDate {
         
         let date = self.inRegion()
-        let newDate = date.add(years: years, months: months, weekOfYear: weekOfYear, days: days, hours: hours, minutes: minutes, seconds: seconds, nanoseconds: nanoseconds)
+        let newDate = date.add(years: years, months: months, weeks: weeks, days: days, hours: hours, minutes: minutes, seconds: seconds, nanoseconds: nanoseconds)
         return newDate.absoluteTime
     }
     

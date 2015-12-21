@@ -43,12 +43,12 @@ public extension DateInRegion {
         return calendar.components(unitFlags, fromDate: self.absoluteTime, toDate: toDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
     }
     
-    public func add(years years: Int? = nil, months: Int? = nil, weekOfYear: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> DateInRegion {
+    public func add(years years: Int? = nil, months: Int? = nil, weeks: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> DateInRegion {
         let components = NSDateComponents()
         
         components.year = years ?? NSDateComponentUndefined
         components.month = months ?? NSDateComponentUndefined
-        components.weekOfYear = weekOfYear ?? NSDateComponentUndefined
+        components.weekOfYear = weeks ?? NSDateComponentUndefined
         components.day = days ?? NSDateComponentUndefined
         components.hour = hours ?? NSDateComponentUndefined
         components.minute = minutes ?? NSDateComponentUndefined

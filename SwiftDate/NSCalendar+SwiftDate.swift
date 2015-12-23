@@ -106,7 +106,7 @@ public enum CalendarType {
     case Local(_: Bool)
     case Current
     case AutoUpdatingCurrent
-    case Gregorian, Buddhist, Chinese, Coptic, EthiopicAmeteMihret, EthiopicAmeteAlem, Hebrew, ISO8601, Indian, Islamic, IslamicCivil, Japanese, Persian, RepubliOfChina, IslamicTabluar, IslamicUmmAlQura
+    case Gregorian, Buddhist, Chinese, Coptic, EthiopicAmeteMihret, EthiopicAmeteAlem, Hebrew, ISO8601, Indian, Islamic, IslamicCivil, Japanese, Persian, RepublicOfChina, IslamicTabular, IslamicUmmAlQura
     
     public func toCalendar() -> NSCalendar {
         var identifier : String
@@ -126,8 +126,8 @@ public enum CalendarType {
         case .IslamicCivil:			identifier = NSCalendarIdentifierIslamicCivil
         case .Japanese:				identifier = NSCalendarIdentifierJapanese
         case .Persian:				identifier = NSCalendarIdentifierPersian
-        case .RepubliOfChina:		identifier = NSCalendarIdentifierRepublicOfChina
-        case .IslamicTabluar:		identifier = NSCalendarIdentifierIslamicTabular
+        case .RepublicOfChina:		identifier = NSCalendarIdentifierRepublicOfChina
+        case .IslamicTabular:		identifier = NSCalendarIdentifierIslamicTabular
         case .IslamicUmmAlQura:		identifier = NSCalendarIdentifierIslamicUmmAlQura
         case .Local(let autoUpdate):
             if autoUpdate {

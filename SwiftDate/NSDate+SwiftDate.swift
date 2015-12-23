@@ -198,6 +198,7 @@ extension NSDate {
      
      - returns: a new date instance with components created from refDate and only specified components set by passing input params
      */
+    @available(*, renamed="init(fromDate, ...)")
     public convenience init(refDate date : NSDate,
         era						: Int? = nil,
         year					: Int? = nil,
@@ -214,6 +215,7 @@ extension NSDate {
             self.init(timeIntervalSinceReferenceDate: date.absoluteTime!.timeIntervalSinceReferenceDate)
     }
     
+    @available(*, renamed="init(fromDate, ...)")
     public convenience init(refDate date : NSDate,
         era						: Int? = nil,
         yearForWeekOfYear       : Int? = nil,
@@ -226,8 +228,20 @@ extension NSDate {
         region					: DateRegion = DateRegion()) {
             
             
-            let date = DateInRegion(fromDate: date.inRegion(), era: era, yearForWeekOfYear: yearForWeekOfYear ?? date.yearForWeekOfYear, weekOfYear: weekOfYear ?? date.weekOfYear, weekday: weekday ?? date.weekday, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: region)!
-            self.init(timeIntervalSinceReferenceDate: date.absoluteTime!.timeIntervalSinceReferenceDate)
+            let newComponents = NSDateComponents()
+            newComponents.era = era ?? date.era ?? 1
+            newComponents.yearForWeekOfYear = yearForWeekOfYear ?? date.yearForWeekOfYear ?? 2001
+            newComponents.month = weekOfYear ?? date.weekOfYear ?? 1
+            newComponents.day = weekday ?? date.weekday ?? 1
+            newComponents.hour = hour ?? date.hour ?? 0
+            newComponents.minute = minute ?? date.minute ?? 0
+            newComponents.second = second ?? date.second ?? 0
+            newComponents.nanosecond = nanosecond ?? date.nanosecond ?? 0
+            newComponents.calendar = region.calendar
+            newComponents.timeZone = region.timeZone
+
+            let date = NSCalendar.currentCalendar().dateFromComponents(newComponents)!
+            self.init(timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate)
     }
     
     /**

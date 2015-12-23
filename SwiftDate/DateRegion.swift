@@ -23,7 +23,7 @@
 //	THE SOFTWARE.
 
 public class DateRegion: Equatable {
-
+    
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
     ///
     public let calendar: NSCalendar!
@@ -60,14 +60,16 @@ public class DateRegion: Equatable {
         calendarID: String = "",
         timeZoneID: String = "",
         localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
         calendarType: CalendarType? = nil,
         timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
         timeZone aTimeZone: NSTimeZone? = nil,
         locale aLocale: NSLocale? = nil,
         region: DateRegion? = nil) {
-            calendar = aCalendar ?? calendarType?.toCalendar() ?? NSCalendar(calendarIdentifier: calendarID) ?? region?.calendar ?? NSCalendar.currentCalendar()
-            timeZone = aTimeZone ?? timeZoneRegion?.timeZone ?? NSTimeZone(abbreviation: timeZoneID) ?? NSTimeZone(name: timeZoneID) ?? region?.timeZone ?? NSTimeZone.defaultTimeZone()
+            calendar = aCalendar ?? calType?.toCalendar() ?? calendarType?.toCalendar() ?? NSCalendar(calendarIdentifier: calendarID) ?? region?.calendar ?? NSCalendar.currentCalendar()
+            timeZone = aTimeZone ?? tzName?.timeZone ?? timeZoneRegion?.timeZone ?? NSTimeZone(abbreviation: timeZoneID) ?? NSTimeZone(name: timeZoneID) ?? region?.timeZone ?? NSTimeZone.defaultTimeZone()
             locale = aLocale ?? (localeID != "" ? NSLocale(localeIdentifier: localeID): nil) ?? region?.locale ?? aCalendar?.locale ?? NSLocale.currentLocale()
             
             // Assign calendar fields

@@ -92,12 +92,25 @@ public class DateInRegion {
         region = newRegion
     }
     
+    /**
+     Initialise a `DateInRegion` object from another `DateInRegion` object, setting its region.
+     
+     - Parameters:
+     - fromDate: date to copy
+     - region: date region to set. If `nil` ignore it.
+     */
     public convenience init(
         fromDate: DateInRegion,
         region newRegion: DateRegion? = nil) {
             self.init(absoluteTime: fromDate.absoluteTime, region: newRegion ?? fromDate.region)
     }
     
+    /**
+     Initialise a `DateInRegion` object from a set of date components. Returns `nil` if the components contain insufficient or contradicting information.
+     
+     - Parameters:
+     - components: date components to set
+     */
     public convenience init?(_ newComponents: NSDateComponents) {
         let newRegion = DateRegion(calendar: newComponents.calendar, timeZone: newComponents.timeZone, locale: newComponents.calendar?.locale)
         if let newDate = newRegion.calendar.dateFromComponents(newComponents) {
@@ -107,8 +120,103 @@ public class DateInRegion {
         }
     }
     
+    /**
+     Initialise a `DateInRegion` object from a number of date properties.
+     Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother. In such a case the parameter highest in the parameter list below has priority. All parameters but `fromDate` are optional.
+     
+     Use this initialiser if you have a source date from which to copy the properties.
+     
+     - Parameters:
+         - fromDate: DateInRegion,
+         - era: era to set (optional)
+         - year: year number  to set (optional)
+         - month: month number to set (optional)
+         - day: day number to set (optional)
+         - hour: hour number to set (optional)
+         - minute: minute number to set (optional)
+         - second: second number to set (optional)
+         - nanosecond: nanosecond number to set (optional)
+         - calendarID: calendar identifier to set (optional)
+         - timeZoneID: time zone abbreviation or nameto set (optional)
+         - localeID: locale identifier to set (optional)
+         - calType: calendar type to set (optional), renamed to calendarType, will be deprecated in SwiftDate v2.2
+         - tzName: time zone region to set (optional), renamed to timeZoneRegion, will be deprecated in SwiftDate v2.2
+         - calendarType: calendar type to set (optional)
+         - timeZoneRegion: time zone region to set (optional)
+         - calendar: calendar object to set (optional)
+         - timeZone: time zone object to set (optional)
+         - locale: locale object to set (optional)
+         -  region: date region to set (optional)
+     */
     public convenience init?(
-        fromDate: DateInRegion? = nil,
+        fromDate: DateInRegion,
+        era: Int? = nil,
+        year: Int? = nil,
+        month: Int? = nil,
+        day: Int? = nil,
+        hour: Int? = nil,
+        minute: Int? = nil,
+        second: Int? = nil,
+        nanosecond: Int? = nil,
+        calendarID: String = "",
+        timeZoneID: String = "",
+        localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
+        calendarType: CalendarType? = nil,
+        timeZoneRegion: TimeZoneConvertible? = nil,
+        calendar aCalendar: NSCalendar? = nil,
+        timeZone aTimeZone: NSTimeZone? = nil,
+        locale aLocale: NSLocale? = nil,
+        region aRegion: DateRegion? = nil) {
+            
+            
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion ?? fromDate.region)
+            
+            let newComponents = NSDateComponents()
+            newComponents.era = era ?? fromDate.era ?? 1
+            newComponents.year = year ?? fromDate.year ?? 2001
+            newComponents.month = month ?? fromDate.month ?? 1
+            newComponents.day = day ?? fromDate.day ?? 1
+            newComponents.hour = hour ?? fromDate.hour ?? 0
+            newComponents.minute = minute ?? fromDate.minute ?? 0
+            newComponents.second = second ?? fromDate.second ?? 0
+            newComponents.nanosecond = nanosecond ?? fromDate.nanosecond ?? 0
+            newComponents.calendar = newRegion.calendar
+            newComponents.timeZone = newRegion.timeZone
+            
+            self.init(newComponents)
+    }
+    
+    
+    /**
+     Initialise a `DateInRegion` object from a number of date properties.
+     Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother. In such a case the parameter highest in the parameter list below has priority. All parameters but `year`, `month` and `day` are optional.
+     
+     Use this initialiser if you have a year, month dan day number.
+     
+     - Parameters:
+     - era: era to set (optional)
+     - year: year number  to set
+     - month: month number to set
+     - day: day number to set
+     - hour: hour number to set (optional)
+     - minute: minute number to set (optional)
+     - second: second number to set (optional)
+     - nanosecond: nanosecond number to set (optional)
+     - calendarID: calendar identifier to set (optional)
+     - timeZoneID: time zone abbreviation or nameto set (optional)
+     - localeID: locale identifier to set (optional)
+     - calType: calendar type to set (optional), renamed to calendarType, will be deprecated in SwiftDate v2.2
+     - tzName: time zone region to set (optional), renamed to timeZoneRegion, will be deprecated in SwiftDate v2.2
+     - calendarType: calendar type to set (optional)
+     - timeZoneRegion: time zone region to set (optional)
+     - calendar: calendar object to set (optional)
+     - timeZone: time zone object to set (optional)
+     - locale: locale object to set (optional)
+     -  region: date region to set (optional)
+     */
+    public convenience init?(
         era: Int? = nil,
         year: Int,
         month: Int,
@@ -120,6 +228,8 @@ public class DateInRegion {
         calendarID: String = "",
         timeZoneID: String = "",
         localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
         calendarType: CalendarType? = nil,
         timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
@@ -127,17 +237,18 @@ public class DateInRegion {
         locale aLocale: NSLocale? = nil,
         region aRegion: DateRegion? = nil) {
             
-            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion ?? fromDate?.region)
+            
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
             
             let newComponents = NSDateComponents()
-            newComponents.era = era ?? fromDate?.era ?? 1
+            newComponents.era = era ?? 1
             newComponents.year = year
             newComponents.month = month
             newComponents.day = day
-            newComponents.hour = hour ?? fromDate?.hour ?? 0
-            newComponents.minute = minute ?? fromDate?.minute ?? 0
-            newComponents.second = second ?? fromDate?.second ?? 0
-            newComponents.nanosecond = nanosecond ?? fromDate?.nanosecond ?? 0
+            newComponents.hour = hour ?? 0
+            newComponents.minute = minute ?? 0
+            newComponents.second = second ?? 0
+            newComponents.nanosecond = nanosecond ?? 0
             newComponents.calendar = newRegion.calendar
             newComponents.timeZone = newRegion.timeZone
             
@@ -145,8 +256,34 @@ public class DateInRegion {
     }
     
     
+    /**
+     Initialise a `DateInRegion` object from a number of date properties.
+     Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother. In such a case the parameter highest in the parameter list below has priority. All parameters but `yearForWeekOfYear`, `weekOfYear` and `weekday` are optional.
+     
+     Use this initialiser if you have a source date based on week number from which to copy the properties.
+     
+     - Parameters:
+     - era: era to set (optional)
+     - yearForWeekOfYear: year number  to set
+     - weekOfYear: week number to set
+     - weekday: weekday number to set
+     - hour: hour number to set (optional)
+     - minute: minute number to set (optional)
+     - second: second number to set (optional)
+     - nanosecond: nanosecond number to set (optional)
+     - calendarID: calendar identifier to set (optional)
+     - timeZoneID: time zone abbreviation or nameto set (optional)
+     - localeID: locale identifier to set (optional)
+     - calType: calendar type to set (optional), renamed to calendarType, will be deprecated in SwiftDate v2.2
+     - tzName: time zone region to set (optional), renamed to timeZoneRegion, will be deprecated in SwiftDate v2.2
+     - calendarType: calendar type to set (optional)
+     - timeZoneRegion: time zone region to set (optional)
+     - calendar: calendar object to set (optional)
+     - timeZone: time zone object to set (optional)
+     - locale: locale object to set (optional)
+     -  region: date region to set (optional)
+     */
     public convenience init?(
-        fromDate: DateInRegion? = nil,
         era: Int? = nil,
         yearForWeekOfYear: Int,
         weekOfYear: Int,
@@ -158,6 +295,8 @@ public class DateInRegion {
         calendarID: String = "",
         timeZoneID: String = "",
         localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
         calendarType: CalendarType? = nil,
         timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
@@ -165,52 +304,23 @@ public class DateInRegion {
         locale aLocale: NSLocale? = nil,
         region aRegion: DateRegion? = nil) {
             
-            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion ?? fromDate?.region)
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
             
             let newComponents = NSDateComponents()
-            newComponents.era = era ?? fromDate?.era ?? 1
+            newComponents.era = era ?? 1
             newComponents.yearForWeekOfYear = yearForWeekOfYear
             newComponents.weekOfYear = weekOfYear
             newComponents.weekday = weekday
-            newComponents.hour = hour ?? fromDate?.hour ?? 0
-            newComponents.minute = minute ?? fromDate?.minute ?? 0
-            newComponents.second = second ?? fromDate?.second ?? 0
-            newComponents.nanosecond = nanosecond ?? fromDate?.nanosecond ?? 0
+            newComponents.hour = hour ?? 0
+            newComponents.minute = minute ?? 0
+            newComponents.second = second ?? 0
+            newComponents.nanosecond = nanosecond ?? 0
             newComponents.calendar = newRegion.calendar
             newComponents.timeZone = newRegion.timeZone
             
             self.init(newComponents)
     }
     
-    
-    public convenience init?(
-        fromDate: DateInRegion? = nil,
-        hour: Int,
-        minute: Int = 0,
-        second: Int = 0,
-        nanosecond: Int = 0,
-        calendarID: String = "",
-        timeZoneID: String = "",
-        localeID: String = "",
-        calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneConvertible? = nil,
-        calendar aCalendar: NSCalendar? = nil,
-        timeZone aTimeZone: NSTimeZone? = nil,
-        locale aLocale: NSLocale? = nil,
-        region aRegion: DateRegion? = nil) {
-            
-            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion ?? fromDate?.region)
-            
-            let newComponents = fromDate?.components ?? NSDateComponents()
-            newComponents.hour = hour
-            newComponents.minute = minute
-            newComponents.second = second
-            newComponents.nanosecond = nanosecond
-            newComponents.calendar = newRegion.calendar
-            newComponents.timeZone = newRegion.timeZone
-            
-            self.init(newComponents)
-    }
     
     /**
      Initialize a new DateInRegion string from a specified date string, a given format and a destination region for the date
@@ -227,6 +337,8 @@ public class DateInRegion {
         calendarID: String = "",
         timeZoneID: String = "",
         localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
         calendarType: CalendarType? = nil,
         timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
@@ -234,7 +346,7 @@ public class DateInRegion {
         locale aLocale: NSLocale? = nil,
         region aRegion: DateRegion? = nil) {
             
-            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
             
             let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
             cachedFormatter.formatter.timeZone = newRegion.timeZone

@@ -26,8 +26,73 @@
 /// Extension for initialisation
 extension NSDate {
     
+    /**
+     Initialise a `NSDate` object from a number of date properties.
+     Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother. In such a case the parameter highest in the parameter list below has priority. All parameters but `fromDate` are optional.
+     
+     Use this initialiser if you have a source date from which to copy the properties.
+     
+     
+     - Parameters:
+         - fromDate: DateInRegion,
+         - era: era to set (optional)
+         - year: year number  to set (optional)
+         - month: month number to set (optional)
+         - day: day number to set (optional)
+         - hour: hour number to set (optional)
+         - minute: minute number to set (optional)
+         - second: second number to set (optional)
+         - nanosecond: nanosecond number to set (optional)
+         - calendarID: calendar identifier to set (optional)
+         - timeZoneID: time zone abbreviation or nameto set (optional)
+         - localeID: locale identifier to set (optional)
+         - calType: calendar type to set (optional), renamed to calendarType, will be deprecated in SwiftDate v2.2
+         - tzName: time zone region to set (optional), renamed to timeZoneRegion, will be deprecated in SwiftDate v2.2
+         - calendarType: calendar type to set (optional)
+         - timeZoneRegion: time zone region to set (optional)
+         - calendar: calendar object to set (optional)
+         - timeZone: time zone object to set (optional)
+         - locale: locale object to set (optional)
+         -  region: date region to set (optional)
+     
+     - Note: the properties provided are evaluated for the calendar, time zone and locale data provided. If you have provided none, then the default device settings will be used.
+     
+     - Remark: Return value is an `NSDate` object that does not remember the calendar, time zone or locale information. If you need that, use `DateinRegion`.
+     
+     - Returns: An absolute date for the properties provided.
+     */
     public convenience init?(
-        fromDate: NSDate? = nil,
+        fromDate: NSDate,
+        era: Int? = nil,
+        year: Int? = nil,
+        month: Int? = nil,
+        day: Int? = nil,
+        hour: Int? = nil,
+        minute: Int? = nil,
+        second: Int? = nil,
+        nanosecond: Int? = nil,
+        calendarID: String = "",
+        timeZoneID: String = "",
+        localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
+        calendarType: CalendarType? = nil,
+        timeZoneRegion: TimeZoneConvertible? = nil,
+        calendar aCalendar: NSCalendar? = nil,
+        timeZone aTimeZone: NSTimeZone? = nil,
+        locale aLocale: NSLocale? = nil,
+        region aRegion: DateRegion? = nil) {
+            
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
+
+            if let dateInRegion = DateInRegion(fromDate: fromDate.inRegion(newRegion), era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: newRegion) {
+                self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
+            } else {
+                return nil
+            }
+    }
+    
+    public convenience init?(
         era: Int? = nil,
         year: Int,
         month: Int,
@@ -39,6 +104,8 @@ extension NSDate {
         calendarID: String = "",
         timeZoneID: String = "",
         localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
         calendarType: CalendarType? = nil,
         timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
@@ -46,7 +113,9 @@ extension NSDate {
         locale aLocale: NSLocale? = nil,
         region aRegion: DateRegion? = nil) {
             
-            if let dateInRegion = DateInRegion(fromDate: fromDate?.inRegion(), era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion) {
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
+
+            if let dateInRegion = DateInRegion(era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: newRegion) {
                 self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
             } else {
                 return nil
@@ -55,7 +124,6 @@ extension NSDate {
     
     
     public convenience init?(
-        fromDate: NSDate? = nil,
         era: Int? = nil,
         yearForWeekOfYear: Int,
         weekOfYear: Int,
@@ -67,6 +135,8 @@ extension NSDate {
         calendarID: String = "",
         timeZoneID: String = "",
         localeID: String = "",
+        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
+        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
         calendarType: CalendarType? = nil,
         timeZoneRegion: TimeZoneConvertible? = nil,
         calendar aCalendar: NSCalendar? = nil,
@@ -74,30 +144,9 @@ extension NSDate {
         locale aLocale: NSLocale? = nil,
         region aRegion: DateRegion? = nil) {
             
-            if let dateInRegion = DateInRegion(fromDate: fromDate?.inRegion(), era: era, yearForWeekOfYear: yearForWeekOfYear, weekOfYear: weekOfYear, weekday: weekday, hour: hour, minute: minute, second: second, nanosecond: nanosecond, calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion) {
-                self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
-            } else {
-                return nil
-            }
-    }
-    
-    public convenience init?(
-        fromDate: NSDate? = nil,
-        hour: Int,
-        minute: Int = 0,
-        second: Int = 0,
-        nanosecond: Int = 0,
-        calendarID: String = "",
-        timeZoneID: String = "",
-        localeID: String = "",
-        calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneConvertible? = nil,
-        calendar aCalendar: NSCalendar? = nil,
-        timeZone aTimeZone: NSTimeZone? = nil,
-        locale aLocale: NSLocale? = nil,
-        region aRegion: DateRegion? = nil) {
-            
-            if let dateInRegion = DateInRegion(fromDate: fromDate?.inRegion(), hour: hour, minute: minute, second: second, nanosecond: nanosecond, calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion) {
+            let newRegion = DateRegion(calendarID: calendarID, timeZoneID: timeZoneID, localeID: localeID, calType: calType, tzName: tzName, calendarType: calendarType, timeZoneRegion: timeZoneRegion, calendar: aCalendar, timeZone: aTimeZone, locale: aLocale, region: aRegion)
+
+            if let dateInRegion = DateInRegion(era: era, yearForWeekOfYear: yearForWeekOfYear, weekOfYear: weekOfYear, weekday: weekday, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: newRegion) {
                 self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
             } else {
                 return nil
@@ -537,20 +586,46 @@ extension NSDate {
         return self.inRegion(region).isAfter(unit, ofDate: date.inRegion(region))
     }
     
+    @available(*, deprecated, renamed="isInToday")
+    public func isToday() -> Bool {
+        return self.isInToday()
+    }
+    
     public func isInToday(inRegion region: DateRegion = DateRegion()) -> Bool {
         return self.inRegion(region).isInToday()
+    }
+    
+    @available(*, deprecated, renamed="isInYesterday")
+    public func isYesterday() -> Bool {
+        return self.isInYesterday()
     }
     
     public func isInYesterday(inRegion region: DateRegion = DateRegion()) -> Bool {
         return self.inRegion(region).isInYesterday()
     }
     
+    @available(*, deprecated, renamed="isInTomorrow")
+    public func isTomorrow() -> Bool {
+        return self.isInTomorrow()
+    }
+    
     public func isInTomorrow(inRegion region: DateRegion = DateRegion()) -> Bool {
         return self.inRegion(region).isInTomorrow()
     }
     
+    @available(*, deprecated, renamed="isInSameDayAsDate")
+    public func inSameDayAsDate(date: NSDate) -> Bool {
+        return self.isInSameDayAsDate(date)
+    }
+    
+    
     public func isInSameDayAsDate(date: NSDate, inRegion region: DateRegion = DateRegion()) -> Bool {
         return self.inRegion(region).isInSameDayAsDate(date.inRegion(region))
+    }
+
+    @available(*, deprecated, renamed="isInWeekend")
+    public func isWeekend() -> Bool? {
+        return self.inRegion().isInWeekend()
     }
 
     

@@ -299,50 +299,31 @@ class DateInRegionSpec: QuickSpec {
 
             context("conversions") {
 
-                it("should convert to another calendar") {
-                    let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-                    let region2 = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "CET", localeID: "nl_NL")
-                    let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                    let date2 = DateInRegion(fromDate: date1, region: region2)
+                let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
+                let region2 = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "IST", localeID: "jp_JP")
+                let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
+                let date2 = date1.inRegion(region2)
 
+                it("should convert to another calendar") {
                     expect(date2.day) == 22
                     expect(date2.month) == 4
                     expect(date2.year) == 5760
                 }
                 
                 it("should convert to another time zone") {
-                    let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "UTC", localeID: "nl_NL")
-                    let region2 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "IST", localeID: "nl_NL")
-                    let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                    let date2 = DateInRegion(fromDate: date1, region: region2)
-
                     expect(date2.minute) == 30
-                    expect(date2.hour) == 5
-                    expect(date2.day) == 31
-                    expect(date2.month) == 12
-                    expect(date2.year) == 1999
+                    expect(date2.hour) == 4
+                    expect(date2.day) == 22
+                    expect(date2.month) == 4
+                    expect(date2.year) == 5760
                 }
                 
                 it("should convert to another locale") {
-                    let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-                    let region2 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "jp_JP")
-                    let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                    let date2 = DateInRegion(fromDate: date1, region: region2)
-
-                    expect(date2.toString(dateStyle: .MediumStyle)) == "Dec 31, 1999"
+                    expect(date2.toString(dateStyle: .MediumStyle)) == "22 Tevet 5760"
                 }
                 
                 it("should convert to another region") {
-                    let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-                    let region2 = DateRegion(calendarID: NSCalendarIdentifierBuddhist, timeZoneID: "Asia/Tokyo", localeID: "ja_JP")
-                    let date1 = DateInRegion(year: 1999, month: 12, day: 31, hour: 12, region: region1)!
-                    let date2 = date1.inRegion(region2)
-
                     expect(date2.region) == region2
-                    expect(date2.hour) == 20
-                    expect(date2.day) == 31
-                    expect(date2.month) == 12
-                    expect(date2.year) == 2542
                 }
                 
             }
@@ -435,7 +416,7 @@ class DateInRegionSpec: QuickSpec {
                 }
 
                 it("should assign calendar, time zone and locale properly") {
-                    let testDate = DateInRegion(fromDate: date, region: china)
+                    let testDate = date.inRegion(china)
                     expect(testDate.toString()) == "佛历2543年1月1日 上午6:59:59"
                 }
 
@@ -709,7 +690,7 @@ class DateInRegionSpec: QuickSpec {
             }
             
             it("should return start of week in USA") {
-                let usaDate = DateInRegion(fromDate: date, region: newYork)
+                let usaDate = date.inRegion(newYork)
                 let testDate = usaDate.startOf(.WeekOfYear)
 
                 expect(testDate.year) == 1999
@@ -803,7 +784,7 @@ class DateInRegionSpec: QuickSpec {
         context("Copying") {
             it("should create a copy and not a reference") {
                 let a = DateInRegion()
-                let b = DateInRegion(fromDate: a)
+                let b = a.inRegion(a.region)
 
                 expect(a) == b
             }

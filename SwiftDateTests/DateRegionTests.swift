@@ -22,6 +22,21 @@ class DateregionSpec: QuickSpec {
             let india = DateRegion(calendarID: NSCalendarIdentifierIndian, timeZoneID: "IST", localeID: "en_IN")
             let hebrew = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "Asia/Jerusalem", localeID: "he_IL")
 
+            context("soon to be deprecated parameters") {
+                let china = DateRegion(calType: CalendarType.RepublicOfChina, tzName: TimeZones.Asia.Shanghai)
+                let dubai = DateRegion(calType: CalendarType.IslamicCivil, tzName: TimeZones.Asia.Dubai)
+                
+                it("should have the specified calendar") {
+                    expect(china.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierRepublicOfChina)
+                    expect(dubai.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamicCivil)
+                }
+                
+                it("should have the specified time zone") {
+                    expect(china.timeZone) == NSTimeZone(name: "Asia/Shanghai")
+                    expect(dubai.timeZone) == NSTimeZone(name: "Asia/Dubai")
+                }
+            }
+            
             context("initialisation") {
 
                 it("should have the default time zone & locale in the current calendar") {

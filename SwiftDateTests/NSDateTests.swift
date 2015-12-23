@@ -18,6 +18,22 @@ class NSDateSpec: QuickSpec {
 
         describe("NSDate extension") {
 
+            context("soon to be deprecated parameters") {
+                
+                it("should have been initialised with the specified time zone and calendar") {
+                    let date = NSDate(year: 1437, month: 3, day: 13, hour: 3, calType: .IslamicCivil, tzName: TimeZones.Asia.Dubai)!
+                    
+                    expect(date.toString()) == "Dec 25, 2015, 12:00:00 AM"
+                }
+                
+                it("should have been initialised with the specified time zone and calendar") {
+                    let date = NSDate(year: 2015, month: 12, day: 25, calType: .Gregorian, tzName: TimeZones.Europe.Amsterdam)!
+                    
+                    expect(date.toString()) == "Dec 25, 2015, 12:00:00 AM"
+                }
+                
+            }
+            
             let newYork = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "America/New York", localeID: "en_US")
             let amsterdam = DateRegion(calendar: CalendarType.Gregorian.toCalendar(), timeZoneID: "CET", localeID: "nl_NL")
             let rome = DateRegion(calendarType: CalendarType.Gregorian, timeZoneRegion: TimeZones.Europe.Rome, localeID: "it_IT")
@@ -26,7 +42,6 @@ class NSDateSpec: QuickSpec {
 
                 let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
                 let timeZone = NSTimeZone(abbreviation: "CET")
-
 
                 it("should return the specified YMD date in the default region") {
                     let date = NSDate(year: 2012, month: 3, day: 4)
@@ -58,9 +73,12 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should return the specified time in the specified region") {
-                    let date = NSDate(hour: 13, minute: 14, second: 15, region: rome)
+                    let date = NSDate(year: 2015, month: 12, day: 25, hour: 13, minute: 14, second: 15, region: rome)
 
                     let components = NSDateComponents()
+                    components.year = 2015
+                    components.month = 12
+                    components.day = 25
                     components.hour = 13
                     components.minute = 14
                     components.second = 15
@@ -72,9 +90,13 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should return the specified time in the specified region with a fromDate") {
-                    let date = NSDate(fromDate: NSDate(), hour: 13, minute: 14, second: 15, region: amsterdam)
+                    let date0 = NSDate(year: 2015, month: 12, day: 25, region: rome)!
+                    let date = NSDate(fromDate: date0, hour: 13, minute: 14, second: 15, region: amsterdam)
 
                     let components = calendar.components([.Year, .Month, .Day], fromDate: NSDate())
+                    components.year = 2015
+                    components.month = 12
+                    components.day = 25
                     components.hour = 13
                     components.minute = 14
                     components.second = 15

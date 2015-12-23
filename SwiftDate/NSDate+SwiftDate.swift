@@ -204,20 +204,6 @@ extension NSDate {
         year					: Int? = nil,
         month					: Int? = nil,
         day						: Int? = nil,
-        hour					: Int? = nil,
-        minute					: Int? = nil,
-        second					: Int? = nil,
-        nanosecond				: Int? = nil,
-        region					: DateRegion = DateRegion()) {
-            
-            
-            let date = DateInRegion(fromDate: date.inRegion(), era: era, year: year ?? date.year, month: month ?? date.month, day: day ?? date.day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, region: region)!
-            self.init(timeIntervalSinceReferenceDate: date.absoluteTime!.timeIntervalSinceReferenceDate)
-    }
-    
-    @available(*, renamed="init(fromDate, ...)")
-    public convenience init(refDate date : NSDate,
-        era						: Int? = nil,
         yearForWeekOfYear       : Int? = nil,
         weekOfYear				: Int? = nil,
         weekday					: Int? = nil,
@@ -230,9 +216,12 @@ extension NSDate {
             
             let newComponents = NSDateComponents()
             newComponents.era = era ?? date.era ?? 1
-            newComponents.yearForWeekOfYear = yearForWeekOfYear ?? date.yearForWeekOfYear ?? 2001
+            newComponents.year = year ?? date.year ?? 2001
             newComponents.month = weekOfYear ?? date.weekOfYear ?? 1
             newComponents.day = weekday ?? date.weekday ?? 1
+            newComponents.yearForWeekOfYear = yearForWeekOfYear ?? date.yearForWeekOfYear ?? NSDateComponentUndefined
+            newComponents.weekOfYear = weekOfYear ?? date.weekOfYear ?? NSDateComponentUndefined
+            newComponents.weekday = weekday ?? date.weekday ?? NSDateComponentUndefined
             newComponents.hour = hour ?? date.hour ?? 0
             newComponents.minute = minute ?? date.minute ?? 0
             newComponents.second = second ?? date.second ?? 0

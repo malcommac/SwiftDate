@@ -22,6 +22,14 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
+// Backward compatibility resolves issue https://github.com/malcommac/SwiftDate/issues/121
+//
+@available(*, renamed="DateRegion")
+public typealias Region = DateRegion
+
+/// DateRegion encapsulates all objects you need when representing a date ffrom an absolute time like NSDate.
+///
+@available(*, introduced=2.1)
 public class DateRegion: Equatable {
     
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.

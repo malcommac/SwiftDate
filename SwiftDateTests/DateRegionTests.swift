@@ -23,8 +23,9 @@ class DateregionSpec: QuickSpec {
             let hebrew = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "Asia/Jerusalem", localeID: "he_IL")
 
             context("soon to be deprecated parameters") {
+                // CalType, tzName & Region type
                 let china = DateRegion(calType: CalendarType.RepublicOfChina, tzName: TimeZones.Asia.Shanghai)
-                let dubai = DateRegion(calType: CalendarType.IslamicCivil, tzName: TimeZones.Asia.Dubai)
+                let dubai = Region(calType: CalendarType.IslamicCivil, tzName: TimeZones.Asia.Dubai)
                 
                 it("should have the specified calendar") {
                     expect(china.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierRepublicOfChina)

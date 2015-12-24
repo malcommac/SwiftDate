@@ -38,9 +38,9 @@ public class DateInRegion :CustomStringConvertible,CustomDebugStringConvertible 
 	
 	/// Return the UTCDate represented into current timezone region. Note: NSDate is always expressed in UTC (so the final date is the original UTC date plus/minus differences between UTC and the currently specified timezone)
 	public var localDate : NSDate? {
-		return UTCDate.dateByAddingTimeInterval(NSTimeInterval(region.timeZone.secondsFromGMT))
+		return UTCDate.dateByAddingTimeInterval(NSTimeInterval(region.timeZone.secondsFromGMTForDate(UTCDate)))
 	}
-	
+
 	/// return the components of the date into defined region
 	public var components :NSDateComponents? {
 		return region.calendar.componentsInTimeZone(region.timeZone, fromDate: UTCDate)

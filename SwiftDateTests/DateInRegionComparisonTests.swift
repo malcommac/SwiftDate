@@ -10,7 +10,7 @@
 
 import Quick
 import Nimble
-@testable import SwiftDate
+import SwiftDate
 
 class DateInRegionComparisonSpec: QuickSpec {
     
@@ -18,9 +18,10 @@ class DateInRegionComparisonSpec: QuickSpec {
         
         describe("DateInRegionComparisons") {
             
+            let region = Region(calendarName: .Gregorian, timeZoneName: .AmericaParamaribo, localeName: .Dutch)
+            let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, region: region)!
+
             context("compareDates") {
-                
-                let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, calendarType: CalendarType.Gregorian, timeZoneID: "CET")!
                 
                 it("should report proper results for year granularity unit") {
                     let date1 = date - 1.years
@@ -88,7 +89,6 @@ class DateInRegionComparisonSpec: QuickSpec {
             
             context("isIn") {
                 
-                let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, calendarType: CalendarType.Gregorian, timeZoneID: "CET")!
                 
                 it("should report proper results for year granularity unit") {
                     let date1 = date - 1.years
@@ -163,8 +163,6 @@ class DateInRegionComparisonSpec: QuickSpec {
             
             context("isBefore") {
                 
-                let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, calendarType: CalendarType.Gregorian, timeZoneID: "CET")!
-                
                 it("should report proper results for year granularity unit") {
                     let date1 = date - 1.years
                     let date2 = date - 1.months
@@ -237,8 +235,6 @@ class DateInRegionComparisonSpec: QuickSpec {
             }
             
             context("isAfter") {
-                
-                let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, calendarType: CalendarType.Gregorian, timeZoneID: "CET")!
                 
                 it("should report proper results for year granularity unit") {
                     let date1 = date - 1.years

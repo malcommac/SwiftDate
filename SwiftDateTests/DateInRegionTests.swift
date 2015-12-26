@@ -13,14 +13,16 @@ import Nimble
 
 @testable import SwiftDate
 
-class DateInRegionSpec: QuickSpec {
+class RegionSpec: QuickSpec {
 
     override func spec() {
 
-        let newYork = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "America/New York", localeID: "en_US")
-        let netherlands = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "Europe/Amsterdam", localeID: "nl_NL")
-        let italy = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "Europe/Rome", localeID: "it_IT")
-        let utc = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "UTC", localeID: "en_UK")
+        let newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
+        let amsterdam = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
+        let rome = Region(calendarName: .Gregorian, timeZoneName: .EuropeRome, localeName: .ItalianItaly)
+        let jerusalem = Region(calendarName: .Hebrew, timeZoneName: .AsiaJerusalem, localeName: .EnglishIsrael)
+        let bangkok = Region(calendarName: .Buddhist, timeZoneName: .AsiaBangkok, localeName: .ThaiThailand)
+        let utc = Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .English)
 
         describe("DateInRegion") {
 
@@ -33,7 +35,7 @@ class DateInRegionSpec: QuickSpec {
 
                 it("should have the default region as default") {
                     let date = DateInRegion()
-                    let expectedRegion = DateRegion()
+                    let expectedRegion = Region()
 
                     expect(date).toNot(beNil())
                     expect(date.region) == expectedRegion
@@ -45,7 +47,7 @@ class DateInRegionSpec: QuickSpec {
                 }
 
                 it("should return the current date") {
-                    let jhDate = DateInRegion(region: netherlands)
+                    let jhDate = DateInRegion(region: amsterdam)
                     let nsDate = NSDate()
 
                     let expectedInterval = NSTimeInterval(Double(nsDate.timeIntervalSinceReferenceDate))
@@ -60,7 +62,7 @@ class DateInRegionSpec: QuickSpec {
                     components.day = 5
                     let nsDate = calendar.dateFromComponents(components)!
 
-                    let jhDate = DateInRegion(absoluteTime: nsDate, region: netherlands)
+                    let jhDate = DateInRegion(absoluteTime: nsDate, region: amsterdam)
 
                     let expectedInterval = NSTimeInterval(Double(nsDate.timeIntervalSinceReferenceDate))
                     expect(jhDate.timeIntervalSinceReferenceDate) == expectedInterval
@@ -98,13 +100,13 @@ class DateInRegionSpec: QuickSpec {
                 }
                 
                 it("should report the maximum date") {
-                    let testDate = DateInRegion(year: 5, month: 2, day: 3, region: netherlands)!
+                    let testDate = DateInRegion(year: 5, month: 2, day: 3, region: amsterdam)!
                     let maxDate = DateInRegion.latestDate(
-                        DateInRegion(year: 1, month: 2, day: 3, region: netherlands)!,
-                        DateInRegion(year: 2, month: 2, day: 3, region: netherlands)!,
-                        DateInRegion(year: 3, month: 2, day: 3, region: netherlands)!,
+                        DateInRegion(year: 1, month: 2, day: 3, region: amsterdam)!,
+                        DateInRegion(year: 2, month: 2, day: 3, region: amsterdam)!,
+                        DateInRegion(year: 3, month: 2, day: 3, region: amsterdam)!,
                         testDate,
-                        DateInRegion(year: 4, month: 2, day: 3, region: netherlands)!)
+                        DateInRegion(year: 4, month: 2, day: 3, region: amsterdam)!)
                     expect(maxDate) == testDate
                 }
 
@@ -150,12 +152,12 @@ class DateInRegionSpec: QuickSpec {
                     expect(date.minute) == 0
                     expect(date.second) == 0
                     expect(date.nanosecond) == 0
-                    expect(date.region) == DateRegion()
+                    expect(date.region) == Region()
                 }
 
 
                 it("should return a midnight date with nil YWD initialisation") {
-                    let date = DateInRegion(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, region: netherlands)!
+                    let date = DateInRegion(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, region: amsterdam)!
 
                     expect(date.year) == 1492
                     expect(date.month) == 4
@@ -164,7 +166,7 @@ class DateInRegionSpec: QuickSpec {
                     expect(date.minute) == 0
                     expect(date.second) == 0
                     expect(date.nanosecond) == 0
-                    expect(date.region) == netherlands
+                    expect(date.region) == amsterdam
                 }
 
 
@@ -174,7 +176,7 @@ class DateInRegionSpec: QuickSpec {
                     expect(date.year) == 1999
                     expect(date.month) == 12
                     expect(date.day) == 31
-                    expect(date.region) == DateRegion()
+                    expect(date.region) == Region()
                 }
 
                 it("should return a 123 date for YWD initialisation") {
@@ -209,9 +211,9 @@ class DateInRegionSpec: QuickSpec {
                     expect(components.year) == 1999
                     expect(components.month) == 12
                     expect(components.day) == 31
-                    expect(components.calendar) == DateRegion().calendar
-                    expect(components.timeZone) == DateRegion().timeZone
-                    expect(components.calendar!.locale) == DateRegion().locale
+                    expect(components.calendar) == Region().calendar
+                    expect(components.timeZone) == Region().timeZone
+                    expect(components.calendar!.locale) == Region().locale
                 }
                 
             }
@@ -239,7 +241,7 @@ class DateInRegionSpec: QuickSpec {
 
                 it("should return proper leap month for Gregorian calendars") {
                     for year in 1500...2500 {
-                        let date = DateInRegion(year: year, month: 2, day: 1, region: netherlands)!
+                        let date = DateInRegion(year: year, month: 2, day: 1, region: amsterdam)!
 
                         if year < 1582 {
                             expect(date.leapMonth).to(beFalse(), description: "years < 1582 have no leap year")
@@ -260,7 +262,7 @@ class DateInRegionSpec: QuickSpec {
                         // Skip February
                         if month == 2 { continue }
 
-                        let date = DateInRegion(year: 2000, month: month, day: 1, region: netherlands)!
+                        let date = DateInRegion(year: 2000, month: month, day: 1, region: amsterdam)!
 
                         expect(date.leapMonth).to(beFalse(), description: "months other than February can never be leap months")
                     }
@@ -268,7 +270,7 @@ class DateInRegionSpec: QuickSpec {
                 
                 it("should return proper leap year for Gregorian calendars") {
                     for year in 1500...2500 {
-                        let date = DateInRegion(year: year, month: 8, day: 1, region: netherlands)!
+                        let date = DateInRegion(year: year, month: 8, day: 1, region: amsterdam)!
 
                         if year < 1582 {
                             expect(date.leapYear).to(beFalse(), description: "years < 1582 have no leap year")
@@ -299,10 +301,8 @@ class DateInRegionSpec: QuickSpec {
 
             context("conversions") {
 
-                let region1 = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-                let region2 = DateRegion(calendarID: NSCalendarIdentifierHebrew, timeZoneID: "IST", localeID: "jp_JP")
-                let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: region1)!
-                let date2 = date1.inRegion(region2)
+                let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: amsterdam)!
+                let date2 = date1.inRegion(jerusalem)
 
                 it("should convert to another calendar") {
                     expect(date2.day) == 22
@@ -311,8 +311,8 @@ class DateInRegionSpec: QuickSpec {
                 }
                 
                 it("should convert to another time zone") {
-                    expect(date2.minute) == 30
-                    expect(date2.hour) == 4
+                    expect(date2.minute) == 0
+                    expect(date2.hour) == 1
                     expect(date2.day) == 22
                     expect(date2.month) == 4
                     expect(date2.year) == 5760
@@ -323,14 +323,14 @@ class DateInRegionSpec: QuickSpec {
                 }
                 
                 it("should convert to another region") {
-                    expect(date2.region) == region2
+                    expect(date2.region) == jerusalem
                 }
                 
             }
 
             context("descriptions") {
 
-                let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: italy)!
+                let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: rome)!
                 
                 it("Should output a proper description") {
                     expect(date.description) == "31 dic 1999, 23:59:59 CET"
@@ -407,17 +407,15 @@ class DateInRegionSpec: QuickSpec {
             
             context("date formatter") {
 
-                let china = DateRegion(calendarID: NSCalendarIdentifierBuddhist, timeZoneID: "Asia/Shanghai", localeID: "zh_CN")
-                let netherlands = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-                let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: netherlands)!
+                let date = DateInRegion(year: 1999, month: 12, day: 31, hour: 23, minute: 59, second: 59, nanosecond: 500000000, region: amsterdam)!
 
                 it("should initiate default date formatter") {
                     expect(date.toString()) == "31 dec. 1999 23:59:59"
                 }
 
                 it("should assign calendar, time zone and locale properly") {
-                    let testDate = date.inRegion(china)
-                    expect(testDate.toString()) == "佛历2543年1月1日 上午6:59:59"
+                    let testDate = date.inRegion(bangkok)
+                    expect(testDate.toString(.LongStyle)) == "1 มกราคม 2543 5 นาฬิกา 59 นาที 59 วินาที GMT+7"
                 }
 
                 it("should return a proper string by default") {
@@ -442,7 +440,7 @@ class DateInRegionSpec: QuickSpec {
                 }
                 
                 it("should return a proper date string with relative conversion") {
-                    let date = DateInRegion(region: netherlands)
+                    let date = DateInRegion(region: amsterdam)
                     let date2 = (date - 2.seconds)!
                     expect(date2.toRelativeString(date)) == "vandaag"
                 }
@@ -589,7 +587,7 @@ class DateInRegionSpec: QuickSpec {
 
             var date: DateInRegion!
             beforeEach {
-                date = DateInRegion(year: 1999, month: 12, day: 31, hour: 14, minute: 15, second: 16, nanosecond: 17, region: netherlands)!
+                date = DateInRegion(year: 1999, month: 12, day: 31, hour: 14, minute: 15, second: 16, nanosecond: 17, region: amsterdam)!
             }
 
             it("should return start of second") {

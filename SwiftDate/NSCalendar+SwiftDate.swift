@@ -71,15 +71,15 @@ public extension NSCalendar {
     }
    
     /**
-     Create a new NSCalendar instance from CalendarType structure. You can also use <CalendarType>.toCalendar() to get
+     Create a new NSCalendar instance from CalendarName structure. You can also use <CalendarName>.calendar to get
      a new instance of NSCalendar with picked type.
      
      - parameter type: type of the calendar
      
      - returns: instance of the new NSCalendar
      */
-    public static func fromType(type :CalendarType) -> NSCalendar! {
-        return type.toCalendar()
+    public static func fromType(type :CalendarName) -> NSCalendar! {
+        return type.calendar
     }
     
     /**
@@ -91,24 +91,25 @@ public extension NSCalendar {
      */
     @available(*, deprecated=2.0.3, message="locale was deprecated, use currentCalendar() or autoupdatingCurrentCalendar() ")
     static func locale(autoUpdate :Bool) -> NSCalendar! {
-        return NSCalendar.fromType(CalendarType.Local(autoUpdate))
+        return NSCalendar.fromType(CalendarName.Local(autoUpdate))
     }
 }
 
 
-//MARK: - Structure: CalendarType -
+//MARK: - Structure: CalendarName -
 
 /**
 *  @brief  This structure represent a shortcut from NSCalendar init function.
 */
-public enum CalendarType {
+public enum CalendarName
+{
     @available(*, deprecated=2.0.3, message="Local was deprecated, use Current or AutoUpdatingCurrent")
     case Local(_: Bool)
     case Current
     case AutoUpdatingCurrent
     case Gregorian, Buddhist, Chinese, Coptic, EthiopicAmeteMihret, EthiopicAmeteAlem, Hebrew, ISO8601, Indian, Islamic, IslamicCivil, Japanese, Persian, RepublicOfChina, IslamicTabular, IslamicUmmAlQura
     
-    public func toCalendar() -> NSCalendar {
+    public var calendar: NSCalendar {
         var identifier : String
         switch self {
         case .Current:				return NSCalendar.currentCalendar()

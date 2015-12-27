@@ -140,7 +140,7 @@ class NSDateComponentPortSpec: QuickSpec {
                 
                 
                 it("should return a midnight date with nil YWD initialisation") {
-                    let newYork = DateRegion(localeID: "en_US")
+                    let newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
                     let date = NSDate(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, region: newYork)!
                     let components = NSDateComponents()
                     components.yearForWeekOfYear = 1492
@@ -173,7 +173,7 @@ class NSDateComponentPortSpec: QuickSpec {
             context("special components") {
                 
                 let date = NSDate(year: 2015, month: 12, day: 16)!
-                let newYork = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "America/New York", localeID: "en_US")
+                let newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
                 
                 it("should report the proper first day of the week") {
                     let firstDay = date.firstDayOfWeek(inRegion: newYork)!

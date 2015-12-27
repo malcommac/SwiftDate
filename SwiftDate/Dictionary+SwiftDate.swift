@@ -67,10 +67,14 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
         return DateInRegion(self.components())
     }
     
-    func dateRegion() -> DateRegion? {
+    func dateRegion() -> Region? {
         let components = self.components()
         
-        return DateRegion(components)
+        let calendar = components.calendar ?? NSCalendar.currentCalendar()
+        let timeZone = components.timeZone ?? NSTimeZone.defaultTimeZone()
+        let locale = calendar.locale ?? NSLocale.currentLocale()
+        
+        return Region(calendar: calendar, timeZone: timeZone, locale: locale)
     }
     
     /**

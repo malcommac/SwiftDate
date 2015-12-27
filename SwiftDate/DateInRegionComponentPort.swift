@@ -235,7 +235,7 @@ public extension DateInRegion {
             let newComponents = components
             newComponents.month = 2
             newComponents.day = 10
-            let testDate = DateInRegion(newComponents)!
+            let testDate = newComponents.dateInRegion!
             return testDate.leapMonth
         }
 

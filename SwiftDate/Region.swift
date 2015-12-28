@@ -22,10 +22,10 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
-/// Region encapsulates all objects you need when representing a date ffrom an absolute time like NSDate.
+/// Region encapsulates all objects you need when representing a date from an absolute time like NSDate.
 ///
 @available(*, introduced=2.0)
-public class Region: Equatable {
+public struct Region: Equatable {
     
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
     ///
@@ -69,7 +69,7 @@ public class Region: Equatable {
     /// - Parameters:
     ///     - components: the date components to initialise with
     ///
-    internal convenience init(_ components: NSDateComponents) {
+    internal init(_ components: NSDateComponents) {
             
             let calendar = components.calendar ?? NSCalendar.currentCalendar()
             let timeZone = components.timeZone ?? NSTimeZone.defaultTimeZone()
@@ -85,7 +85,7 @@ public class Region: Equatable {
     ///     - timeZoneName: the time zone to work with in `TimeZoneConvertible` format, default is the default time zone
     ///     - localeName: the locale to work with, default is the current locale
     ///
-    public convenience init(
+    public init(
         calendarName: CalendarName? = nil,
         timeZoneName: TimeZoneName? = nil,
         localeName: LocaleName? = nil) {

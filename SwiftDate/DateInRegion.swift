@@ -37,9 +37,9 @@
 
 import Foundation
 
-// MARK: - Initialisations
-
-public class DateInRegion {
+/// DateInRegion is a wrapper around NSDate that exposes the properties of NSDateComponents while adding region information to replresent the dat in that region.
+///
+public struct DateInRegion {
     
     /// Set to loop throuhg all NSCalendarUnit values
     ///
@@ -50,6 +50,8 @@ public class DateInRegion {
     internal static let componentFlags: NSCalendarUnit = [.Day, .Month, .Year, .Hour, .Minute, .Second, .Nanosecond, .TimeZone, .Calendar, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekOfMonth]
     
     
+    // MARK: - Instance variables
+   
     /// NSDate value (i.e. absolute time) around which the DateInRegion evolves.
     ///
     /// - warning: Please note that the date is immutable alike NSDate. This keeps the main datemvalue of this class thread safe.
@@ -76,6 +78,8 @@ public class DateInRegion {
     ///
     public var locale: NSLocale! { return region.locale }
     
+    // MARK: - Initialisations
+
     /// Initialise with a date, a region and  some properties.
     /// This initialiser can be used to copy a date while
     /// setting certain properties.
@@ -100,7 +104,7 @@ public class DateInRegion {
      
      - Note: This initialiser is for internal use only as we prefer the components.dateInRegion use outside the lib.
      */
-    internal convenience init?(_ components: NSDateComponents) {
+    internal init?(_ components: NSDateComponents) {
         let region = Region(components)
         if let absoluteTime = region.calendar.dateFromComponents(components) {
             self.init(absoluteTime: absoluteTime, region: region)
@@ -137,7 +141,7 @@ public class DateInRegion {
          - locale: locale object to set (optional)
          -  region: region to set (optional)
      */
-    public convenience init?(
+    public init?(
         fromDate: DateInRegion,
         era: Int? = nil,
         year: Int? = nil,
@@ -192,7 +196,7 @@ public class DateInRegion {
      - locale: locale object to set (optional)
      -  region: region to set (optional)
      */
-    public convenience init?(
+    public init?(
         era: Int? = nil,
         year: Int,
         month: Int,
@@ -246,7 +250,7 @@ public class DateInRegion {
      - locale: locale object to set (optional)
      -  region: region to set (optional)
      */
-    public convenience init?(
+    public init?(
         era: Int? = nil,
         yearForWeekOfYear: Int,
         weekOfYear: Int,
@@ -282,7 +286,7 @@ public class DateInRegion {
      
      - returns: a new DateInRegion instance
      */
-    public convenience init?(
+    public init?(
         fromString date: String,
         format: DateFormat,
         region: Region? = nil) {

@@ -22,6 +22,8 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
+import Foundation
+
 // Backward compatibility resolves issue https://github.com/malcommac/SwiftDate/issues/121
 //
 @available(*, renamed="DateRegion")

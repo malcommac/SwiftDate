@@ -1,0 +1,80 @@
+/* 
+  Localizable.strings
+  testappswiftdate
+
+  Created by daniele on 05/01/16.
+  Copyright © 2016 daniele. All rights reserved.
+*/
+
+
+"N_NOW_SHORT_S"		= 	"now";
+"N_NOW_SHORT_P"		= 	"now";
+"N_NOW_DEFAULT_S"	=	"%ds";
+"N_NOW_DEFAULT_P"	=	"%ds";
+"N_NOW_LONG_S"		=	"%d sec";
+"N_NOW_LONG_P"		=	"%d secs";
+"N_NOW_FULL_S"		=	"%d second";
+"N_NOW_FULL_P"		=	"%d seconds";
+
+"N_1H_SHORT_S"		=	"%dm";
+"N_1H_SHORT_P"		=	"%dm";
+"N_1H_DEFAULT_S"	=	"%dmin";
+"N_1H_DEFAULT_P"	=	"%dmins";
+"N_1H_LONG_S"		=	"%d minute";
+"N_1H_LONG_P"		=	"%d minutes";
+"N_1H_FULL"			=	"%@, %@";
+
+"N_24H_SHORT_S"		=	"%dh";
+"N_24H_SHORT_P"		=	"%dh";
+"N_24H_DEFAULT_S"	=	"%dhr";
+"N_24H_DEFAULT_P"	=	"%dhrs";
+"N_24H_LONG_S"		=	"%d hour";
+"N_24H_LONG_P"		=	"%d hours";
+"N_24H_FULL_S"		=	"%d hour (%@)";
+"N_24H_FULL_P"		=	"%d hours (%@)";
+
+"N_48H_SHORT"		=	"yda";
+"N_48H_DEFAULT"		=	"yest";
+"N_48H_LONG"		=	"yest (%@)";
+"N_48H_FULL"		=	"yesterday (%@)";
+
+"N_1W_SHORT_S"		=	"%dd";
+"N_1W_SHORT_P"		=	"%dd";
+"N_1W_DEFAULT_S"	=	"%dday";
+"N_1W_DEFAULT_P"	=	"%ddays";
+"N_1W_LONG_S"		=	"%d day (%@)";
+"N_1W_LONG_P"		=	"%d days (%@)";
+"N_1W_FULL_S"		=	"%d day ago (%@)";
+"N_1W_FULL_P"		=	"%d days ago (%@)";
+
+"N_4W_SHORT_S"		=	"%dw";
+"N_4W_SHORT_P"		=	"%dw";
+"N_4W_DEFAULT_S"	=	"%dwk";
+"N_4W_DEFAULT_P"	=	"%dwks";
+"N_4W_LONG_S"		=	"%d week";
+"N_4W_LONG_P"		=	"%d weeks";
+"N_4W_FULL_S"		=	"%d week (%@)";
+"N_4W_FULL_P"		=	"%d weeks (%@)";
+
+"N_1Y_SHORT_S"		=	"%dmo";
+"N_1Y_SHORT_P"		=	"%dmos";
+"N_1Y_DEFAULT_S"	=	"%d mth";
+"N_1Y_DEFAULT_P"	=	"%d mths";
+"N_1Y_LONG_S"		=	"%d month";
+"N_1Y_LONG_P"		=	"%d months";
+"N_1Y_FULL_S"		=	"%d month (%@)";
+"N_1Y_FULL_P"		=	"%d months (%@)";
+
+"N_MY_SHORT_S"		=	"%dy";
+"N_MY_SHORT_P"		=	"%dys";
+"N_MY_DEFAULT_S"	=	"%d year";
+"N_MY_DEFAULT_P"	=	"%d years";
+"N_MY_LONG_S"		=	"last year";
+"N_MY_LONG_P"		=	"%d years";
+"N_MY_FULL_S"		=	"YYYY";
+"N_MY_FULL_P"		=	"YYYY (%@)";
+
+"TIMEFORMAT"	=	"HH:mm";
+"DATEFORMAT_DAYNAME"	=	"EEE dd (HH:mm)";
+"DATEFORMAT_MONTHNAME_TIME"	=	"MMM dd (HH:mm)";
+"DATEFORMAT_MONTHNAME"	=	"MMM dd";

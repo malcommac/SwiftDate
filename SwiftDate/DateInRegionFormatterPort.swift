@@ -24,9 +24,145 @@
 
 import Foundation
 
+/**
+Date Formatting Style
+
+- Short:   Shortest representation
+- Default: Default representation
+- Long:    Long colloquial representation
+- Full:    Very long representation which include other detailed info
+*/
+public enum DateFormatterStyle {
+	case Short
+	case Default
+	case Long
+	case Full
+}
+
 //MARK: - From DateInRegion to String -
 
+public extension String {
+
+	/**
+	Localize a string aganist SDLocalizable.strings file
+	
+	- parameter argList: variable arguments list
+	
+	- returns: localized version of the string
+	*/
+	internal func sd_loc(argList: CVarArgType...) -> String {
+		let bundle = NSBundle(forClass: DateInRegion.self)
+		let value = NSLocalizedString(self, tableName: "SDLocalizable", bundle: bundle, value: "", comment: "")
+		return withVaList(argList) {
+			NSString(format: value, locale: NSLocale.currentLocale(), arguments: $0)
+		} as String
+	}
+}
+
 public extension DateInRegion {
+	
+	/**
+	Natural language representation of the difference between two dates (self and refDate)
+	
+	- parameter refDate: reference date (if not specified a new DateInRegion with current date will be used instead)
+	- parameter style:   style of the formatter
+	
+	- returns: natural representation of the string
+	*/
+	public func toNaturalString(refDate :DateInRegion = DateInRegion(), style :DateFormatterStyle) -> String {
+		let min = difference(refDate, unitFlags: .Minute)!.minute
+		let hours = difference(refDate, unitFlags: .Hour)!.hour
+		let days = difference(refDate, unitFlags: .Day)!.day
+		let weeks = difference(refDate, unitFlags: .WeekdayOrdinal)!.weekdayOrdinal
+		let months = difference(refDate, unitFlags: .Month)!.month
+		
+		if min < 1 { // Less than 1 minute ago
+			let sec = difference(refDate, unitFlags: .Second)!.second
+			let suffix = (sec == 1 ? "S" : "P")
+			switch style {
+			case .Short:		return "N_NOW_SHORT_\(suffix)".sd_loc()
+			case .Default:		return "N_NOW_DEFAULT_\(suffix)".sd_loc()
+			case .Long:			return "N_NOW_LONG_\(suffix)".sd_loc(sec)
+			case .Full:			return "N_NOW_FULL_\(suffix)".sd_loc(sec)
+			}
+		}
+		else if min < 60 { // Less than 1 hour ago
+			let suffix = (min == 1 ? "S" : "P")
+			switch style {
+			case .Short:		return "N_1H_SHORT_\(suffix)".sd_loc(min)
+			case .Default:		return "N_1H_DEFAULT_\(suffix)".sd_loc(min)
+			case .Long:			return "N_1H_LONG_\(suffix)".sd_loc(min)
+			case .Full:
+				let sec = difference(refDate, unitFlags: .Second)!.second
+				return "N_1H_FULL".sd_loc(	"N_1H_LONG_\(suffix)".sd_loc(min),"N_NOW_LONG_\(suffix)".sd_loc(sec))
+			}
+		}
+		else if hours < 24 { // Less than 24 hours ago
+			let suffix = (hours == 1 ? "S" : "P")
+			switch style {
+			case .Short:		return "N_24H_SHORT_\(suffix)".sd_loc(hours)
+			case .Default:		return "N_24H_DEFAULT_\(suffix)".sd_loc(hours)
+			case .Long:			return "N_24H_LONG_\(suffix)".sd_loc(hours)
+			case .Full:
+				let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
+				return "N_24H_FULL_\(suffix)".sd_loc(hours,time)
+			}
+		}
+		else if hours < 48 { // Less than 48 hours ago
+			switch style {
+			case .Short:		return "N_48H_SHORT".sd_loc()
+			case .Default:		return "N_48H_DEFAULT".sd_loc()
+			case .Long:
+				let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
+				return "N_48H_LONG".sd_loc(time)
+			case .Full:
+				let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
+				return "N_48H_FULL".sd_loc(time)
+			}
+		}
+		else if days < 7 { // Less than 7 days ago
+			let suffix = (days == 1 ? "S" : "P")
+			let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
+			switch style {
+			case .Short:		return "N_1W_SHORT_\(suffix)".sd_loc(days)
+			case .Default:		return "N_1W_DEFAULT_\(suffix)".sd_loc(days)
+			case .Long:			return "N_1W_LONG_\(suffix)".sd_loc("TIMEFORMAT".sd_loc(time))
+			case .Full:			return "N_1W_FULL_\(suffix)".sd_loc("TIMEFORMAT".sd_loc(time))
+			}
+		}
+		else if weeks < 4 { // Less than 1 month ago
+			let suffix = (weeks == 1 ? "S" : "P")
+			switch style {
+			case .Short:		return "N_4W_SHORT_\(suffix)".sd_loc(weeks)
+			case .Default:		return "N_4W_DEFAULT_\(suffix)".sd_loc(weeks)
+			case .Long:			return "N_4W_LONG_\(suffix)".sd_loc(weeks)
+			case .Full:
+				let date = self.toString(DateFormat.Custom("DATEFORMAT_DAYNAME".sd_loc()))!
+				return "N_4W_FULL_\(suffix)".sd_loc(weeks,date)
+			}
+		} else if months < 12 { // Less than 1 year ago
+			let suffix = (months == 1 ? "S" : "P")
+			switch style {
+			case .Short:		return "N_1Y_SHORT_\(suffix)".sd_loc(months)
+			case .Default:		return "N_1Y_DEFAULT_\(suffix)".sd_loc(months)
+			case .Long:			return "N_1Y_LONG_\(suffix)".sd_loc(months)
+			case .Full:
+				let date = self.toString(DateFormat.Custom("DATEFORMAT_MONTHNAME_TIME".sd_loc()))!
+				return "N_1Y_FULL_\(suffix)".sd_loc(months,date)
+			}
+		} else { // 1 year or over
+			let years = difference(refDate, unitFlags: .Year)!.year
+			let suffix = (years == 1 ? "S" : "P")
+			switch style {
+			case .Short:		return "N_MY_SHORT_\(suffix)".sd_loc(years)
+			case .Default:		return "N_MY_DEFAULT_\(suffix)".sd_loc(years)
+			case .Long:			return "N_MY_LONG_\(suffix)".sd_loc(years)
+			case .Full:
+				let date = self.toString(DateFormat.Custom("DATEFORMAT_MONTHNAME".sd_loc()))!
+				return "N_MY_FULL_\(suffix)".sd_loc(self.year!,date)
+			}
+		}
+	}
     
     /**
      Return an ISO8601 string from current UTC Date of the region

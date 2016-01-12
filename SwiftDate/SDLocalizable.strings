@@ -36,7 +36,7 @@
 "N_48H_SHORT"		=	"yda";
 "N_48H_DEFAULT"		=	"yest";
 "N_48H_LONG"		=	"yest. %@";
-"N_48H_FULL"		=	"yesterday %@";
+"N_48H_FULL"		=	"yesterday (%@)";
 
 "N_1W_SHORT_S"		=	"%dd";
 "N_1W_SHORT_P"		=	"%dd";

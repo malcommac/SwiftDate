@@ -78,3 +78,95 @@
 "DATEFORMAT_DAYNAME"	=	"EEE dd, HH:mm";
 "DATEFORMAT_MONTHNAME_TIME"	=	"MMM dd, HH:mm";
 "DATEFORMAT_MONTHNAME"	=	"MMM dd, YYYY";
+
+// COMPONENTS FORMATTING
+
+// Short
+"U_NANOSECOND_SHORT_S"	= "n";
+"U_NANOSECOND_SHORT_P"	= "n";
+
+"U_SECOND_SHORT_S"		= "s";
+"U_SECOND_SHORT_P"		= "s";
+
+"U_MINUTE_SHORT_S"		= "m";
+"U_MINUTE_SHORT_P"		= "m";
+
+"U_HOUR_SHORT_S"		= "h";
+"U_HOUR_SHORT_P"		= "h";
+
+"U_DAY_SHORT_S"			= "d";
+"U_DAY_SHORT_P"			= "d";
+
+"U_MONTH_SHORT_S"		= "m";
+"U_MONTH_SHORT_P"		= "m";
+
+"U_YEAR_SHORT_S"		= "y";
+"U_YEAR_SHORT_P"		= "y";
+
+// Default
+"U_NANOSECOND_DEFAULT_S"	= "%d ns";
+"U_NANOSECOND_DEFAULT_P"	= "%d ns";
+
+"U_SECOND_DEFAULT_S"		= "%d s";
+"U_SECOND_DEFAULT_P"		= "%d s";
+
+"U_MINUTE_DEFAULT_S"		= "%d m";
+"U_MINUTE_DEFAULT_P"		= "%d ms";
+
+"U_HOUR_DEFAULT_S"			= "%d h";
+"U_HOUR_DEFAULT_P"			= "%d hs";
+
+"U_DAY_DEFAULT_S"			= "%d d";
+"U_DAY_DEFAULT_P"			= "%d ds";
+
+"U_MONTH_DEFAULT_S"			= "%d m";
+"U_MONTH_DEFAULT_P"			= "%d ms";
+
+"U_YEAR_DEFAULT_S"			= "%d y";
+"U_YEAR_DEFAULT_P"			= "%d ys";
+
+// Long
+"U_NANOSECOND_DEFAULT_S"	= "%d ns";
+"U_NANOSECOND_DEFAULT_P"	= "%d ns";
+
+"U_SECOND_DEFAULT_S"		= "%d sec";
+"U_SECOND_DEFAULT_P"		= "%d secs";
+
+"U_MINUTE_DEFAULT_S"		= "%d min";
+"U_MINUTE_DEFAULT_P"		= "%d mins";
+
+"U_HOUR_DEFAULT_S"			= "%d hr";
+"U_HOUR_DEFAULT_P"			= "%d hrs";
+
+"U_DAY_DEFAULT_S"			= "%d dy";
+"U_DAY_DEFAULT_P"			= "%d dys";
+
+"U_MONTH_DEFAULT_S"			= "%d mth";
+"U_MONTH_DEFAULT_P"			= "%d mths";
+
+"U_YEAR_DEFAULT_S"			= "%d yr";
+"U_YEAR_DEFAULT_P"			= "%d yrs";
+
+// Long
+"U_NANOSECOND_DEFAULT_S"	= "%d nanosecond";
+"U_NANOSECOND_DEFAULT_P"	= "%d nanoseconds";
+
+"U_SECOND_DEFAULT_S"		= "%d second";
+"U_SECOND_DEFAULT_P"		= "%d seconds";
+
+"U_MINUTE_DEFAULT_S"		= "%d minute";
+"U_MINUTE_DEFAULT_P"		= "%d minutes";
+
+"U_HOUR_DEFAULT_S"			= "%d hour";
+"U_HOUR_DEFAULT_P"			= "%d hours";
+
+"U_DAY_DEFAULT_S"			= "%d day";
+"U_DAY_DEFAULT_P"			= "%d days";
+
+"U_MONTH_DEFAULT_S"			= "%d month";
+"U_MONTH_DEFAULT_P"			= "%d months";
+
+"U_YEAR_DEFAULT_S"			= "%d year";
+"U_YEAR_DEFAULT_P"			= "%d years";
+
+

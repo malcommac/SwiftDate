@@ -69,7 +69,7 @@ public extension DateInRegion {
 	
 	- returns: natural representation of the string
 	*/
-	public func toNaturalString(refDate :DateInRegion = DateInRegion(), style :DateFormatterStyle) -> String {
+	public func toNaturalString(refDate :DateInRegion = DateInRegion(), style :DateFormatterStyle = .Default) -> String {
 		let min = difference(refDate, unitFlags: .Minute)!.minute
 		let hours = difference(refDate, unitFlags: .Hour)!.hour
 		let days = difference(refDate, unitFlags: .Day)!.day
@@ -163,7 +163,63 @@ public extension DateInRegion {
 			}
 		}
 	}
-    
+	
+	/**
+	Return a list components which express the difference in term of each
+	
+	- parameter refDate: reference date. if missing default new DateInRegion() is used instead
+	- parameter units:   units to get. Units are enumerated in order so resulting array has the same order of the specified unit. If missing [Nanosecond,Second,Minute,Hour,Day,WeekOfMonth,Month,Year] is used as default configuration. Only units with a value different from 0 are included into the final array.
+	- parameter maxUnits: if specified only the first maxUnits with a non null value will be part of the final array (units are enumerated in order as specified by units param)
+	- parameter style:	style used to print unit of measurement
+	
+	- returns: an array of translated measurement units or nil if all specified components are null
+	*/
+	public func toComponentsStrings(refDate :DateInRegion = DateInRegion(), units :[NSCalendarUnit]? = nil, maxUnits cUnits :Int = 0, style :DateFormatterStyle = .Default) -> [String]? {
+		
+		var cmps :[String] = []
+		let unitsToCompare = (units != nil ? units! : [.Nanosecond, .Second, .Minute, .Hour, .Day, .WeekOfMonth, .Month, .Year])
+		let diff = difference(refDate, unitFlags: NSCalendarUnit(unitsToCompare))
+		let translate_style = translateStyle(style)
+		
+		var cIdx = 0
+		for unit in unitsToCompare {
+			let value = diff?.valueForComponent(unit)
+			let translate_symbol = translateCalendarUnit(unit)
+			if value > 0 && translate_symbol != nil {
+				let translate_qt = (value == 1 ? "S" : "P")
+				let translated_value = "U_\(translate_symbol!)_\(translate_style)_\(translate_qt)".sd_loc(value!)
+				cmps.append(translated_value)
+				cIdx++
+			}
+			if cUnits != 0 && cIdx == cUnits { break }
+		}
+		
+		
+		return (cmps.count > 0 ? cmps : nil)
+	}
+	
+	private func translateStyle(style :DateFormatterStyle) -> String {
+		switch style {
+		case DateFormatterStyle.Short:		return "SHORT"
+		case DateFormatterStyle.Default:	return "DEFAULT"
+		case DateFormatterStyle.Long:		return "LONG"
+		case DateFormatterStyle.Full:		return "FULL"
+		}
+	}
+	
+	private func translateCalendarUnit(unit :NSCalendarUnit) -> String? {
+		switch unit {
+		case NSCalendarUnit.Nanosecond: return "NANOSECOND"
+		case NSCalendarUnit.Second:		return "SECOND"
+		case NSCalendarUnit.Minute:		return "MINUTE"
+		case NSCalendarUnit.Hour:		return "HOUR"
+		case NSCalendarUnit.Day:		return "DAY"
+		case NSCalendarUnit.Month:		return "MONTH"
+		case NSCalendarUnit.Year:		return "YEAR"
+		default:						return nil // other values are ignored
+		}
+	}
+	
     /**
      Return an ISO8601 string from current UTC Date of the region
      

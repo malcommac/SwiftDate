@@ -43,7 +43,7 @@ public class DateInRegion {
     
     /// Set to loop throuhg all NSCalendarUnit values
     ///
-    internal static let componentFlagSet: [NSCalendarUnit] = [.Day, .Month, .Year, .Hour, .Minute, .Second, .Nanosecond, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal, .WeekOfMonth]
+    internal static let componentFlagSet: [NSCalendarUnit] = [.Nanosecond, .Second, .Minute, .Hour, .Day, .Month, .Year, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal, .WeekOfMonth]
     
     /// NSCalendarUnit values used to obtain data from a date with a calendar and time zone
     ///

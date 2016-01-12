@@ -97,8 +97,8 @@
 "U_DAY_SHORT_S"			= "d";
 "U_DAY_SHORT_P"			= "d";
 
-"U_MONTH_SHORT_S"		= "m";
-"U_MONTH_SHORT_P"		= "m";
+"U_MONTH_SHORT_S"		= "mn";
+"U_MONTH_SHORT_P"		= "mn";
 
 "U_YEAR_SHORT_S"		= "y";
 "U_YEAR_SHORT_P"		= "y";
@@ -119,8 +119,8 @@
 "U_DAY_DEFAULT_S"			= "%d d";
 "U_DAY_DEFAULT_P"			= "%d ds";
 
-"U_MONTH_DEFAULT_S"			= "%d m";
-"U_MONTH_DEFAULT_P"			= "%d ms";
+"U_MONTH_DEFAULT_S"			= "%d mn";
+"U_MONTH_DEFAULT_P"			= "%d mns";
 
 "U_YEAR_DEFAULT_S"			= "%d y";
 "U_YEAR_DEFAULT_P"			= "%d ys";

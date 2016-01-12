@@ -414,7 +414,36 @@ extension NSDate {
         let refDateInRegion = DateInRegion(absoluteTime: refDate, region: region)
         return DateInRegion(absoluteTime: self, region: region).toRelativeString(refDateInRegion, abbreviated: abbreviated, maxUnits: maxUnits)
     }
-    
+ 
+	/**
+	Natural language representation of the difference between two dates (self and refDate)
+	
+	- parameter refDate: reference date (if not specified a new DateInRegion with current date will be used instead)
+	- parameter region:  region assigned both for reference date and self date
+	- parameter style:   style of the formatter
+	
+	- returns: natural representation of the string
+	*/
+	public func toNaturalString(fromDate refDate: NSDate = NSDate(), inRegion region :DateRegion = DateRegion(), style :DateFormatterStyle = .Default) -> String {
+		let refDateInRegion = DateInRegion(absoluteTime: refDate, region: region)
+		return DateInRegion(absoluteTime: self, region: region).toNaturalString(refDateInRegion, style: style)
+	}
+	
+	/**
+	Return a list components which express the difference in term of each
+	
+	- parameter refDate: reference date
+	- parameter region:  region assigned both for reference date and self date
+	- parameter units:   units to get. Units are enumerated in order so resulting array has the same order of the specified unit. If missing [Nanosecond,Second,Minute,Hour,Day,WeekOfMonth,Month,Year] is used as default configuration. Only units with a value different from 0 are included into the final array.
+	- parameter maxUnits: if specified only the first maxUnits with a non null value will be part of the final array (units are enumerated in order as specified by units param)
+	- parameter style:	style used to print unit of measurement
+	
+	- returns: an array of translated measurement units or nil if all specified components are null
+	*/
+	public func toComponentsStrings(fromDate refDate: NSDate = NSDate(), inRegion region :DateRegion = DateRegion(), units :[NSCalendarUnit]? = nil, maxUnits cUnits :Int = 0, style :DateFormatterStyle = .Default) -> [String]? {
+		let refDateInRegion = DateInRegion(absoluteTime: refDate, region: region)
+		return DateInRegion(absoluteTime: self, region: region).toComponentsStrings(refDateInRegion, units: units, maxUnits: cUnits, style: style)
+	}
 }
 
 // MARK: - Adoption of Comparable protocol

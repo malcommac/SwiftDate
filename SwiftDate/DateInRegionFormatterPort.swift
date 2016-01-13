@@ -309,16 +309,18 @@ public extension DateInRegion {
             timeStyle: (time == true ? NSDateFormatterStyle.LongStyle: NSDateFormatterStyle.NoStyle))
     }
     
-    public func toRelativeCocoaString() -> String? {
-        let formatter = NSDateFormatter()
-        formatter.locale = region.locale
-        formatter.calendar = region.calendar
-        formatter.timeZone = region.timeZone
-        formatter.dateStyle = .MediumStyle
-        formatter.doesRelativeDateFormatting = true
-        return formatter.stringFromDate(absoluteTime)
-    }
-    
+	public func toRelativeCocoaString(style :NSDateFormatterStyle = NSDateFormatterStyle.MediumStyle) -> String? {
+		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
+        cachedFormatter.formatter.locale = region.locale
+        cachedFormatter.formatter.calendar = region.calendar
+        cachedFormatter.formatter.timeZone = region.timeZone
+        cachedFormatter.formatter.dateStyle = .MediumStyle
+        cachedFormatter.formatter.doesRelativeDateFormatting = true
+        let str = cachedFormatter.formatter.stringFromDate(absoluteTime)
+		cachedFormatter.restoreState()
+		return str
+	}
+	
     public func toRelativeString(fromDate: DateInRegion!, abbreviated: Bool = false, maxUnits: Int = 1) -> String {
         let seconds = fromDate.absoluteTime.timeIntervalSinceDate(absoluteTime)
         if fabs(seconds) < 1 {

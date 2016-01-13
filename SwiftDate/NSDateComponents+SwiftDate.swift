@@ -32,11 +32,11 @@ public extension NSDateComponents {
      Create a new date from a specific date by adding self components
      
      - parameter refDate: reference date
-     - parameter region: optional region to define the timezone and calendar. By default is UTC DateRegion
+     - parameter region: optional region to define the timezone and calendar. By default is UTC Region
      
      - returns: a new NSDate instance in UTC format
      */
-    public func fromDate(refDate :NSDate!, inRegion region: DateRegion = DateRegion()) -> NSDate {
+    public func fromDate(refDate :NSDate!, inRegion region: Region = Region()) -> NSDate {
         let date = region.calendar.dateByAddingComponents(self, toDate: refDate, options: NSCalendarOptions(rawValue: 0))
         return date!
     }
@@ -45,11 +45,11 @@ public extension NSDateComponents {
      Create a new date from a specific date by subtracting self components
      
      - parameter refDate: reference date
-     - parameter region: optional region to define the timezone and calendar. By default is UTC DateRegion
+     - parameter region: optional region to define the timezone and calendar. By default is UTC Region
      
      - returns: a new NSDate instance in UTC format
      */
-    public func agoFromDate(refDate :NSDate!, inRegion region: DateRegion = DateRegion()) -> NSDate {
+    public func agoFromDate(refDate :NSDate!, inRegion region: Region = Region()) -> NSDate {
         for unit in DateInRegion.componentFlagSet {
             let value = self.valueForComponent(unit)
             if value != NSDateComponentUndefined {
@@ -64,11 +64,11 @@ public extension NSDateComponents {
      So you can make something like:
      let date = 4.days.fromNow()
      
-     - parameter region: optional region to define the timezone and calendar. By default is UTC DateRegion
+     - parameter region: optional region to define the timezone and calendar. By default is UTC Region
      
      - returns: a new NSDate instance in UTC format
      */
-    public func fromNow(inRegion region: DateRegion = DateRegion()) -> NSDate {
+    public func fromNow(inRegion region: Region = Region()) -> NSDate {
         return fromDate(NSDate(), inRegion: region)
     }
     
@@ -77,11 +77,11 @@ public extension NSDateComponents {
      So you can make something like:
      let date = 5.hours.ago()
      
-     - parameter region: optional region to define the timezone and calendar. By default is UTC DateRegion
+     - parameter region: optional region to define the timezone and calendar. By default is UTC Region
      
      - returns: a new NSDate instance in UTC format
      */
-    public func ago(inRegion region: DateRegion = DateRegion()) -> NSDate {
+    public func ago(inRegion region: Region = Region()) -> NSDate {
         return agoFromDate(NSDate())
     }
     
@@ -99,18 +99,9 @@ public extension NSDateComponents {
         }
     }
     
-    public func inRegion(region : DateRegion? = nil) -> DateInRegion? {
-        if let calendar = region?.calendar {
-            self.calendar = calendar
-        }
-        if let timeZone = region?.timeZone {
-            self.timeZone = timeZone
-        }
-        if let locale = region?.locale {
-            self.calendar?.locale = locale
-        }
-        let dateInRegion = DateInRegion(self)
-        return dateInRegion
+    /// The dateInRegion for the current components
+    public var dateInRegion: DateInRegion? {
+        return DateInRegion(self)
     }
         
 }

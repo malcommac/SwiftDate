@@ -14,8 +14,8 @@ class DateInRegionHashableTests: QuickSpec {
 
     override func spec() {
 
-        let netherlands = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
-        let utc = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "UTC", localeID: "en_UK")
+        let netherlands = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
+        let utc = Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .English)
 
         describe("DateInRegionHashable") {
 

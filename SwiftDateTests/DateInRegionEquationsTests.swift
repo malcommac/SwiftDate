@@ -16,8 +16,8 @@ class DateInRegionEquationsTests: QuickSpec {
 
         describe("DateInRegionEquations") {
 
-            let china = DateRegion(calendarID: NSCalendarIdentifierBuddhist, timeZoneID: "CHT", localeID: "zh_CN")
-            let netherlands = DateRegion(calendarID: NSCalendarIdentifierGregorian, timeZoneID: "CET", localeID: "nl_NL")
+            let amsterdam = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
+            let shanghai = Region(calendarName: .Chinese, timeZoneName: .AsiaShanghai, localeName: .ChineseChina)
 
             it("should return true for equating a different object with the same properties") {
                 let date1 = DateInRegion(year: 1999, month: 12, day: 31)!
@@ -41,8 +41,8 @@ class DateInRegionEquationsTests: QuickSpec {
             }
 
             it("should return false for equating objects with different regions") {
-                let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: netherlands)!
-                let date2 = DateInRegion(year: 1999, month: 12, day: 31, region: china)!
+                let date1 = DateInRegion(year: 1999, month: 12, day: 31, region: amsterdam)!
+                let date2 = DateInRegion(year: 1999, month: 12, day: 31, region: shanghai)!
 
                 expect(date1 == date2) == false
             }

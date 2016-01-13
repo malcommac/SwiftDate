@@ -27,12 +27,12 @@ import Foundation
 // Backward compatibility resolves issue https://github.com/malcommac/SwiftDate/issues/121
 //
 @available(*, renamed="DateRegion")
-public typealias Region = DateRegion
+public typealias DateRegion = Region
 
-/// DateRegion encapsulates all objects you need when representing a date ffrom an absolute time like NSDate.
+/// Region encapsulates all objects you need when representing a date from an absolute time like NSDate.
 ///
-@available(*, introduced=2.1)
-public class DateRegion: Equatable {
+@available(*, introduced=2.0)
+public struct Region: Equatable {
     
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
     ///
@@ -53,48 +53,55 @@ public class DateRegion: Equatable {
     /// Initialise with a calendar and/or a time zone
     ///
     /// - Parameters:
-    ///     - calendarID: the calendar identifier to work with to assign, default = the current calendar
-    ///     - timeZoneID: the time zone identifier or -name to work with, default is the default time zone
-    ///     - localeID: the locale ID to work with, default is the current locale
-    ///     - calendarType: the calendar to work with to assign in `CalendarType` format, default = the current calendar
-    ///     - timeZoneRegion: the time zone to work with in `TimeZoneConvertible` format, default is the default time zone
-    ///     - calendar: the calendar to work with to assign, default = the current calendar
-    ///     - timeZone: the time zone to work with, default is the default time zone
-    ///     - locale: the locale to work with, default is the current locale
-    ///     - region: a region to copy
+    ///     - calendar: the calendar to work with
+    ///     - timeZone: the time zone to work with
+    ///     - locale: the locale to work with
     ///
-    /// - Note: parameters higher in the list take precedence over parameters lower in the list. E.g.
-    ///     `DateRegion(locale: mylocale, localeID: "en_AU", region)` will copy region and set locale to mylocale, not `en_AU`.
-    ///
-    public init(
-        calendarID: String = "",
-        timeZoneID: String = "",
-        localeID: String = "",
-        calType: CalendarType? = nil, // Deprecate in SwiftDate v2.2
-        tzName: TimeZoneConvertible? = nil, // Deprecate in SwiftDate v2.2
-        calendarType: CalendarType? = nil,
-        timeZoneRegion: TimeZoneConvertible? = nil,
-        calendar aCalendar: NSCalendar? = nil,
-        timeZone aTimeZone: NSTimeZone? = nil,
-        locale aLocale: NSLocale? = nil,
-        region: DateRegion? = nil) {
-            calendar = aCalendar ?? calType?.toCalendar() ?? calendarType?.toCalendar() ?? NSCalendar(calendarIdentifier: calendarID) ?? region?.calendar ?? NSCalendar.currentCalendar()
-            timeZone = aTimeZone ?? tzName?.timeZone ?? timeZoneRegion?.timeZone ?? NSTimeZone(abbreviation: timeZoneID) ?? NSTimeZone(name: timeZoneID) ?? region?.timeZone ?? NSTimeZone.defaultTimeZone()
-            locale = aLocale ?? (localeID != "" ? NSLocale(localeIdentifier: localeID): nil) ?? region?.locale ?? aCalendar?.locale ?? NSLocale.currentLocale()
+    internal init(
+        calendar: NSCalendar,
+        timeZone: NSTimeZone,
+        locale: NSLocale) {
+            
+            self.calendar = calendar
+            self.timeZone = timeZone
+            self.locale = locale
             
             // Assign calendar fields
-            calendar.timeZone = timeZone
-            calendar.locale = locale
+            self.calendar.timeZone = self.timeZone
+            self.calendar.locale = locale
     }
     
-    /// Initialise with components (calendar, time zone, locale in calendar
+    /// Initialise with a date components
     ///
     /// - Parameters:
-    ///     - components: the date components that should contain the calendar and time zone, default = the current 
-    ///         calendar and default time zone
+    ///     - components: the date components to initialise with
     ///
-    public convenience init(_ components: NSDateComponents) {
-        self.init(calendar: components.calendar, timeZone: components.timeZone, locale: components.calendar?.locale)
+    internal init(_ components: NSDateComponents) {
+            
+            let calendar = components.calendar ?? NSCalendar.currentCalendar()
+            let timeZone = components.timeZone ?? NSTimeZone.defaultTimeZone()
+            let locale = calendar.locale ?? NSLocale.currentLocale()
+        
+        self.init(calendar: calendar, timeZone: timeZone, locale: locale)
+    }
+    
+    /// Initialise with a calendar and/or a time zone
+    ///
+    /// - Parameters:
+    ///     - calendarName: the calendar to work with to assign in `CalendarName` format, default = the current calendar
+    ///     - timeZoneName: the time zone to work with in `TimeZoneConvertible` format, default is the default time zone
+    ///     - localeName: the locale to work with, default is the current locale
+    ///
+    public init(
+        calendarName: CalendarName? = nil,
+        timeZoneName: TimeZoneName? = nil,
+        localeName: LocaleName? = nil) {
+            
+            let calendar = calendarName?.calendar ?? NSCalendar.currentCalendar()
+            let timeZone = timeZoneName?.timeZone ?? NSTimeZone.defaultTimeZone()
+            let locale = localeName?.locale ?? NSLocale.currentLocale()
+            
+            self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }
     
     /// Today's date
@@ -123,7 +130,7 @@ public class DateRegion: Equatable {
 
 }
 
-public func ==(left: DateRegion, right: DateRegion) -> Bool {
+public func ==(left: Region, right: Region) -> Bool {
     if left.calendar.calendarIdentifier != right.calendar.calendarIdentifier {
         return false
     }
@@ -139,13 +146,13 @@ public func ==(left: DateRegion, right: DateRegion) -> Bool {
     return true
 }
 
-extension DateRegion: Hashable {
+extension Region: Hashable {
     public var hashValue: Int {
         return calendar.hashValue ^ timeZone.hashValue ^ locale.hashValue
     }
 }
 
-extension DateRegion: CustomStringConvertible {
+extension Region: CustomStringConvertible {
     public var description: String {
         let timeZoneAbbreviation = timeZone.abbreviation ?? ""
         return "\(calendar.calendarIdentifier); \(timeZone.name):\(timeZoneAbbreviation); \(locale.localeIdentifier)"

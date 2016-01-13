@@ -31,6 +31,8 @@ When you work with `NSDate` you are working with an absolute time and components
 - [User guide](./Documentation/UserGuide.md)
 - [Installation guide](./Documentation/Installation.md)
 - [Upgrade guide](./Documentation/UpgradeGuide.md)
+- [Design guide](./Documentation/Design.md)
+- [Change history](./CHANGELOG.md)
 
 
 # Author

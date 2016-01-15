@@ -10,19 +10,18 @@ Just a gentle reminder checklist
 - Register all enhancements, bugs & questions in the issue list
 - [TBC](https://github.com/malcommac/SwiftDate/issues/131) Follow style guide
 
-
 ###Checklist before merging in `develop`
-- Issue registered in github.
+- Issue registered in github and commit message contains `Fixes #<issue_number>`.
 - Test code present.
+- Code complies to design.
 - Documentation updated.
 - [TBC](https://github.com/malcommac/SwiftDate/issues/134) Make sure that code coverage is not lower than before adding the code.
 - Tests successfully with Travis.
 - Documentation is updated.
-- Concensus in the team (especially with Daniele).
+- Consensus in the team (especially with Daniele).
 
 ##Release
-- Check for code coverage of tests
-- Quality check for documentation
+- Overall quality check: code style, code test coverage, documentation
 - `git flow release start`
 - Assess all issues and close those that were resolved
 - [Generate](https://github.com/skywinder/Github-Changelog-Generator) the change log

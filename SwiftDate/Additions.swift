@@ -187,17 +187,20 @@ internal extension NSDateFormatter {
 		var dateFormat	:String?
 		var locale		:NSLocale?
 		var timeZone	:NSTimeZone?
+		var relative	:Bool
 		
 		init(formatter :NSDateFormatter) {
 			dateFormat = formatter.dateFormat
 			locale = formatter.locale
 			timeZone = formatter.timeZone
+			relative = formatter.doesRelativeDateFormatting
 		}
 		
 		func restoreInto(formatter :NSDateFormatter) {
 			formatter.dateFormat = self.dateFormat
 			formatter.locale = self.locale
 			formatter.timeZone = self.timeZone
+			formatter.doesRelativeDateFormatting = self.relative
 		}
 	}
 }

@@ -29,8 +29,7 @@ import Foundation
 public extension DateInRegion {
 	
 	/**
-	This method produces a colloquial representation of time elapsed between this date (`self`) and another reference date (`refDate`).
-	
+	This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and another reference `DateInRegion` (`refDate`).
 	
 	- parameter refDate reference date to compare (if not specified current date into `self` region is used)
 	- parameter style 	style of the output string
@@ -52,9 +51,16 @@ public extension DateInRegion {
 	}
 
     /**
-     Return an `ISO8601` string from current UTC Date of the region
+     Return an `ISO8601` string from current UTC Date of the region.
+	 More information about this standard can be found on [Wikipedia/ISO8601](https://en.wikipedia.org/wiki/ISO_8601).
+	
+ 	 Some examples of the formatted output are:
+	* `2016-01-11T17:31:10+00:00`
+	* `2016-01-11T17:31:10Z`
+	* `20160111T173110Z`
+
      
-     - returns: a new string or nil if DateInRegion does not contains any valid date
+     - returns: a new string or nil if `DateInRegion` does not contains any valid date
      */
     public func toISO8601String() -> String? {
         guard let _ = absoluteTime else {
@@ -95,15 +101,16 @@ public extension DateInRegion {
     }
 	
     /**
-     Convert a DateInRegion date into a date with date & time style specific format style
+     Convert a `DateInRegion` date into a date with date & time style specific format style
      
      - parameter style: style to format both date and time (if you specify this you don't need to specify dateStyle,timeStyle)
      - parameter dateStyle: style to format the date
      - parameter timeStyle: style to format the time
+	 - parameter relative: `true` indicates whether the receiver uses phrases such as “today” and “tomorrow” for the date component.
      
      - returns: a new string which represent the date expressed into the current region or nil if region does not contain valid date
      */
-    public func toString(style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil, timeStyle: NSDateFormatterStyle? = nil) -> String? {
+	public func toString(style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil, timeStyle: NSDateFormatterStyle? = nil, relative :Bool = false) -> String? {
         guard let _ = absoluteTime else {
             return nil
         }
@@ -119,41 +126,95 @@ public extension DateInRegion {
 			cachedFormatter.locale = self.region.locale
 			cachedFormatter.calendar = self.region.calendar
 			cachedFormatter.timeZone = self.region.timeZone
+			cachedFormatter.doesRelativeDateFormatting = relative
 			let value = cachedFormatter.stringFromDate(self.absoluteTime)
 			
 			return value
 		}
     }
 	
-    public func toShortString(date: Bool? = true, time: Bool? = true) -> String? {
+	/**
+	Convert this `DateInRegion` date in a string representation where you have date/time in short form
+	
+	Example of this output is:
+	`"1/1/15, 11:00 AM"`
+	
+	- parameter date `true` to include date in output string, `false` to omit it
+	- parameter time `true` to include time in output string, `false` to omit it
+	
+	- returns: output string representation of the date represented by `self`
+	*/
+    public func toShortString(date date: Bool? = true, time: Bool? = true) -> String? {
         return toString(dateStyle: (date == true ? NSDateFormatterStyle.ShortStyle: NSDateFormatterStyle.NoStyle),
             timeStyle: (time == true ? NSDateFormatterStyle.ShortStyle: NSDateFormatterStyle.NoStyle))
     }
-    
-    public func toMediumString(date: Bool? = true, time: Bool? = true) -> String? {
+	
+	/**
+	Convert this `DateInRegion` date in a string representation where you have date/time in medium form
+	
+	Example of this output is:
+	`"Jan 1, 2015, 11:00:00 AM"`
+	
+	- parameter date `true` to include date in output string, `false` to omit it
+	- parameter time `true` to include time in output string, `false` to omit it
+	
+	- returns: output string representation of the date represented by `self`
+	*/
+    public func toMediumString(date date: Bool? = true, time: Bool? = true) -> String? {
         return toString(dateStyle: (date == true ? NSDateFormatterStyle.MediumStyle: NSDateFormatterStyle.NoStyle),
             timeStyle: (time == true ? NSDateFormatterStyle.MediumStyle: NSDateFormatterStyle.NoStyle))
     }
-    
-    public func toLongString(date: Bool? = true, time: Bool? = true) -> String? {
+	
+	/**
+	Convert this `DateInRegion` date in a string representation where you have date/time in long form
+	
+	Example of this output is:
+	`"January 1, 2015 at 11:00:00 AM GMT+1"`
+	
+	- parameter date `true` to include date in output string, `false` to omit it
+	- parameter time `true` to include time in output string, `false` to omit it
+	
+	- returns: output string representation of the date represented by `self`
+	*/
+    public func toLongString(date date: Bool? = true, time: Bool? = true) -> String? {
         return toString(dateStyle: (date == true ? NSDateFormatterStyle.LongStyle: NSDateFormatterStyle.NoStyle),
             timeStyle: (time == true ? NSDateFormatterStyle.LongStyle: NSDateFormatterStyle.NoStyle))
     }
-    
-	public func toRelativeCocoaString(style :NSDateFormatterStyle = NSDateFormatterStyle.MediumStyle) -> String? {
+	
+	@available(*, deprecated=2.2, message="Use toString(style:dateStyle:timeStyle:) with relative parameters")
+	/**
+	Output relative string representation of the date.
+	**This method was deprecated: use `toString(style:dateStyle:timeStyle:)` instead.**
+	
+	- parameter style style of the formatted output
+	
+	- returns: string representation
+	*/
+	public func toRelativeCocoaString(style style :NSDateFormatterStyle = NSDateFormatterStyle.MediumStyle) -> String? {
 		let cachedFormatter = sharedDateFormatter()
 		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
 			cachedFormatter.locale = self.region.locale
 			cachedFormatter.calendar = self.region.calendar
 			cachedFormatter.timeZone = self.region.timeZone
-			cachedFormatter.dateStyle = .MediumStyle
+			cachedFormatter.dateStyle = style
 			cachedFormatter.doesRelativeDateFormatting = true
 			let str = cachedFormatter.stringFromDate(self.absoluteTime)
 			return str
 		}
 	}
 	
-    public func toRelativeString(fromDate: DateInRegion!, abbreviated: Bool = false, maxUnits: Int = 1) -> String {
+	@available(*, deprecated=2.2, message="Use toNaturalString() with relative parameters")
+	/**
+	Output colloquial representation of the string.
+	**This method was deprecated: use `toString(style:dateStyle:timeStyle:)` instead.**
+	
+	- parameter fromDate reference date
+	- parameter abbreviated `true` to use abbreviated form
+	- parameter maxUnits number of non zero units to print
+	
+	- returns: colloquial string representation
+	*/
+	public func toRelativeString(fromDate: DateInRegion!, abbreviated: Bool = false, maxUnits: Int = 1) -> String {
         let seconds = fromDate.absoluteTime.timeIntervalSinceDate(absoluteTime)
         if fabs(seconds) < 1 {
             return "just now"._sdLocalize
@@ -191,31 +252,31 @@ public extension DateInRegion {
 public extension String {
     
     /**
-     Convert a string into NSDate by passing conversion format
+     Convert a string into `NSDate` by passing conversion format
      
      - parameter format: format used to parse the string
      
-     - returns: a new NSDate instance or nil if something went wrong during parsing
+     - returns: a new `NSDate` instance or nil if something went wrong during parsing
      */
     public func toDate(format: DateFormat) -> NSDate? {
         return self.toDateInRegion(format)?.absoluteTime
     }
     
     /**
-     Convert a string into DateInRegion by passing conversion format
+     Convert a string into `DateInRegion` by passing conversion format
      
      - parameter format: format used to parse the string
      
-     - returns: a new NSDate instance or nil if something went wrong during parsing
+     - returns: a new `NSDate` instance or nil if something went wrong during parsing
      */
     public func toDateInRegion(format: DateFormat) -> DateInRegion? {
         return DateInRegion(fromString: self, format: format)
     }
     
     /**
-     Convert a string which represent an ISO8601 date into NSDate
+     Convert a string which represent an `ISO8601` date into `NSDate`
      
-     - returns: NSDate instance or nil if string cannot be parsed
+     - returns: `NSDate` instance or nil if string cannot be parsed
      */
     public func toDateFromISO8601() -> NSDate? {
         return toDate(DateFormat.ISO8601)

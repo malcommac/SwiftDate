@@ -30,7 +30,7 @@ public extension NSTimeInterval {
 	public func toString(style :FormatterStyle = FormatterStyle()) -> String? {
 		let formatter :NSDateComponentsFormatter = sharedDateComponentsFormatter()
 		return formatter.beginSessionContext({ (Void) -> (String?) in
-			formatter.setStyle(style)
+			style.restoreInto(formatter)
 			return formatter.stringFromTimeInterval(self)
 		})
 	}

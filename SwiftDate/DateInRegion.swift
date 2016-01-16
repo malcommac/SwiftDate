@@ -290,49 +290,52 @@ public struct DateInRegion {
         fromString date: String,
         format: DateFormat,
         region: Region? = nil) {
-            
-            let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-            if let region = region {
-                cachedFormatter.formatter.timeZone = region.timeZone
-                cachedFormatter.formatter.calendar = region.calendar
-                cachedFormatter.formatter.locale = region.locale
-            }
-            let parsedDate: NSDate?
-            
-            switch format {
-            case .ISO8601: // 1972-07-16T08:15:30-05:00
-                cachedFormatter.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-                cachedFormatter.formatter.dateFormat = String.ISO8601Formatter(fromString: date)
-                parsedDate = cachedFormatter.formatter.dateFromString(date)
-            case .ISO8601Date:
-                cachedFormatter.formatter.dateFormat = "yyyy-MM-dd"
-                parsedDate = cachedFormatter.formatter.dateFromString(date)
-            case .AltRSS: // 09 Sep 2011 15:26:08 +0200
-                var formattedString: NSString = date
-                if formattedString.hasSuffix("Z") {
-                    formattedString = formattedString.substringToIndex(formattedString.length-1) + "UTC"
-                }
-                cachedFormatter.formatter.dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
-                parsedDate = cachedFormatter.formatter.dateFromString(formattedString as String)
-            case .RSS: // Fri, 09 Sep 2011 15:26:08 +0200
-                var formattedString: NSString = date
-                if formattedString.hasSuffix("Z") {
-                    formattedString = formattedString.substringToIndex(formattedString.length-1) + "UTC"
-                }
-                cachedFormatter.formatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
-                parsedDate = cachedFormatter.formatter.dateFromString(formattedString as String)
-            case .Extended:
-                cachedFormatter.formatter.dateFormat = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
-                parsedDate = cachedFormatter.formatter.dateFromString(date)
-            case .Custom(let dateFormat):
-                cachedFormatter.formatter.dateFormat = dateFormat
-                parsedDate = cachedFormatter.formatter.dateFromString(date)
-            }
-            guard let _ = parsedDate else {
-                return nil
-            }
-            self.init(absoluteTime: parsedDate!, region: region)
-            cachedFormatter.restoreState()
+			
+			let cFormatter = sharedDateFormatter()
+			let parsedDate = cFormatter.beginSessionContext { (Void) -> (NSDate?) in
+				if let region = region {
+					cFormatter.timeZone = region.timeZone
+					cFormatter.calendar = region.calendar
+					cFormatter.locale = region.locale
+				}
+				let parsedDate: NSDate?
+				
+				switch format {
+				case .ISO8601: // 1972-07-16T08:15:30-05:00
+					cFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+					cFormatter.dateFormat = String.ISO8601Formatter(fromString: date)
+					parsedDate = cFormatter.dateFromString(date)
+				case .ISO8601Date:
+					cFormatter.dateFormat = "yyyy-MM-dd"
+					parsedDate = cFormatter.dateFromString(date)
+				case .AltRSS: // 09 Sep 2011 15:26:08 +0200
+					var formattedString: NSString = date
+					if formattedString.hasSuffix("Z") {
+						formattedString = formattedString.substringToIndex(formattedString.length-1) + "UTC"
+					}
+					cFormatter.dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
+					parsedDate = cFormatter.dateFromString(formattedString as String)
+				case .RSS: // Fri, 09 Sep 2011 15:26:08 +0200
+					var formattedString: NSString = date
+					if formattedString.hasSuffix("Z") {
+						formattedString = formattedString.substringToIndex(formattedString.length-1) + "UTC"
+					}
+					cFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
+					parsedDate = cFormatter.dateFromString(formattedString as String)
+				case .Extended:
+					cFormatter.dateFormat = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
+					parsedDate = cFormatter.dateFromString(date)
+				case .Custom(let dateFormat):
+					cFormatter.dateFormat = dateFormat
+					parsedDate = cFormatter.dateFromString(date)
+				}
+				return parsedDate
+			}
+
+			guard let _ = parsedDate else {
+				return nil
+			}
+			self.init(absoluteTime: parsedDate!, region: region)
     }
     
     func inRegion(region: Region) -> DateInRegion {

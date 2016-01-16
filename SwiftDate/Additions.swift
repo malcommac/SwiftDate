@@ -70,6 +70,26 @@ public struct FormatterStyle {
 		self.units = units ?? [.Year, .Month, .WeekOfMonth, .Day, .Hour, .Minute, .Second]
 		self.maxUnits = max
 	}
+	
+	internal func restoreInto(formatter :NSDateComponentsFormatter) {
+		formatter.unitsStyle = self.style
+		formatter.allowedUnits = self.units
+		formatter.maximumUnitCount = self.maxUnits
+		formatter.includesApproximationPhrase = self.approximate
+		formatter.includesTimeRemainingPhrase = self.approximatePast
+		formatter.zeroFormattingBehavior = self.zeroBehavior
+		formatter.collapsesLargestUnit = self.collapsesLargestUnit
+	}
+	
+	internal init(formatter :NSDateComponentsFormatter) {
+		self.style = formatter.unitsStyle
+		self.units = formatter.allowedUnits
+		self.maxUnits = formatter.maximumUnitCount
+		self.approximate = formatter.includesApproximationPhrase
+		self.approximatePast = formatter.includesTimeRemainingPhrase
+		self.zeroBehavior = formatter.zeroFormattingBehavior
+		self.collapsesLargestUnit = formatter.collapsesLargestUnit
+	}
 }
 
 //MARK: - NSDateComponentsFormatter -
@@ -84,30 +104,12 @@ internal extension NSDateComponentsFormatter {
 	- returns: the result of the operation
 	*/
 	func beginSessionContext<T>(block :(Void) -> (T?)) -> T? {
-		let saved_cfg = self.getStyleFormatter()
+		let saved_cfg = FormatterStyle(formatter: self)
 		let block_result = block()
-		self.setStyle(saved_cfg)
+		saved_cfg.restoreInto(self)
 		return block_result
 	}
 	
-	internal func setStyle(fstyle :FormatterStyle) {
-		self.unitsStyle = fstyle.style
-		self.allowedUnits = fstyle.units
-		self.maximumUnitCount = fstyle.maxUnits
-		self.includesApproximationPhrase = fstyle.approximate
-		self.includesTimeRemainingPhrase = fstyle.approximatePast
-		self.zeroFormattingBehavior = fstyle.zeroBehavior
-		self.collapsesLargestUnit = fstyle.collapsesLargestUnit
-	}
-	
-	internal func getStyleFormatter() -> FormatterStyle {
-		var formatter = FormatterStyle(style: self.unitsStyle, units: self.allowedUnits, max: self.maximumUnitCount)
-		formatter.approximate = self.includesApproximationPhrase
-		formatter.approximatePast = self.includesTimeRemainingPhrase
-		formatter.zeroBehavior = self.zeroFormattingBehavior
-		formatter.collapsesLargestUnit = self.collapsesLargestUnit
-		return formatter
-	}
 }
 
 //MARK: - Common Share Functions -
@@ -145,4 +147,39 @@ internal func sharedDateComponentsFormatter() -> NSDateComponentsFormatter {
 	return threadLocalObj(name, create: { (Void) -> NSDateComponentsFormatter in
 		return NSDateComponentsFormatter()
 	})
+}
+
+internal func sharedDateFormatter() -> NSDateFormatter {
+	let name = "SwiftDate_\(NSStringFromClass(NSDateFormatter.self))"
+	return threadLocalObj(name, create: { (Void) -> NSDateFormatter in
+		return NSDateFormatter()
+	})
+}
+
+internal extension NSDateFormatter {
+
+	func beginSessionContext<T>(block :(Void) -> (T?)) -> T? {
+		let saved_cfg = NSDateFormatterConfig(formatter: self)
+		let block_result = block()
+		saved_cfg.restoreInto(self)
+		return block_result
+	}
+	
+	struct NSDateFormatterConfig {
+		var dateFormat	:String?
+		var locale		:NSLocale?
+		var timeZone	:NSTimeZone?
+		
+		init(formatter :NSDateFormatter) {
+			dateFormat = formatter.dateFormat
+			locale = formatter.locale
+			timeZone = formatter.timeZone
+		}
+		
+		func restoreInto(formatter :NSDateFormatter) {
+			formatter.dateFormat = self.dateFormat
+			formatter.locale = self.locale
+			formatter.timeZone = self.timeZone
+		}
+	}
 }

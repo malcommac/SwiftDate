@@ -41,7 +41,7 @@ public extension DateInRegion {
 		let refDate = (rDate != nil ? rDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
 		let formatter :NSDateComponentsFormatter = sharedDateComponentsFormatter()
 		return formatter.beginSessionContext({ (Void) -> (String?) in
-			formatter.setStyle(style)
+			style.restoreInto(formatter)
 			formatter.calendar = self.calendar
 			// NOTE: why this method still return nil?
 			// let str2 = formatter.stringFromDate(refDate.absoluteTime, toDate: self.absoluteTime)
@@ -60,17 +60,17 @@ public extension DateInRegion {
         guard let _ = absoluteTime else {
             return nil
         }
-        let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-        
-        cachedFormatter.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        cachedFormatter.formatter.timeZone = NSTimeZone(abbreviation: "UTC")
-        cachedFormatter.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        let value = cachedFormatter.formatter.stringFromDate(absoluteTime).stringByAppendingString("Z")
-        
-        cachedFormatter.restoreState()
-        return value
+		
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+			cachedFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+			cachedFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+			cachedFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+			let value = cachedFormatter.stringFromDate(self.absoluteTime).stringByAppendingString("Z")
+			return value
+		}
     }
-    
+	
     /**
      Convert a DateInRegion to a string using region's timezone, locale and calendar
      
@@ -82,19 +82,18 @@ public extension DateInRegion {
         guard let _ = absoluteTime else {
             return nil
         }
-        let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-        
-        let dateFormatString = dateFormat.formatString
-        cachedFormatter.formatter.dateFormat = dateFormatString
-        cachedFormatter.formatter.timeZone = region.timeZone
-        cachedFormatter.formatter.calendar = region.calendar
-        cachedFormatter.formatter.calendar.locale = region.calendar.locale
-        let value = cachedFormatter.formatter.stringFromDate(self.absoluteTime!)
-        
-        cachedFormatter.restoreState()
-        return value
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+			let dateFormatString = dateFormat.formatString
+			cachedFormatter.dateFormat = dateFormatString
+			cachedFormatter.timeZone = self.region.timeZone
+			cachedFormatter.calendar = self.region.calendar
+			cachedFormatter.calendar.locale = self.region.calendar.locale
+			let value = cachedFormatter.stringFromDate(self.absoluteTime!)
+			return value
+		}
     }
-    
+	
     /**
      Convert a DateInRegion date into a date with date & time style specific format style
      
@@ -108,23 +107,24 @@ public extension DateInRegion {
         guard let _ = absoluteTime else {
             return nil
         }
-        let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-        
-        cachedFormatter.formatter.dateStyle = style ?? dateStyle ?? .NoStyle
-        cachedFormatter.formatter.timeStyle = style ?? timeStyle ?? .NoStyle
-        if cachedFormatter.formatter.dateStyle == .NoStyle && cachedFormatter.formatter.timeStyle == .NoStyle {
-            cachedFormatter.formatter.dateStyle = .MediumStyle
-            cachedFormatter.formatter.timeStyle = .MediumStyle
-        }
-        cachedFormatter.formatter.locale = region.locale
-        cachedFormatter.formatter.calendar = region.calendar
-        cachedFormatter.formatter.timeZone = region.timeZone
-        let value = cachedFormatter.formatter.stringFromDate(absoluteTime)
-        
-        cachedFormatter.restoreState()
-        return value
+		
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+			cachedFormatter.dateStyle = style ?? dateStyle ?? .NoStyle
+			cachedFormatter.timeStyle = style ?? timeStyle ?? .NoStyle
+			if cachedFormatter.dateStyle == .NoStyle && cachedFormatter.timeStyle == .NoStyle {
+				cachedFormatter.dateStyle = .MediumStyle
+				cachedFormatter.timeStyle = .MediumStyle
+			}
+			cachedFormatter.locale = self.region.locale
+			cachedFormatter.calendar = self.region.calendar
+			cachedFormatter.timeZone = self.region.timeZone
+			let value = cachedFormatter.stringFromDate(self.absoluteTime)
+			
+			return value
+		}
     }
-    
+	
     public func toShortString(date: Bool? = true, time: Bool? = true) -> String? {
         return toString(dateStyle: (date == true ? NSDateFormatterStyle.ShortStyle: NSDateFormatterStyle.NoStyle),
             timeStyle: (time == true ? NSDateFormatterStyle.ShortStyle: NSDateFormatterStyle.NoStyle))
@@ -141,15 +141,16 @@ public extension DateInRegion {
     }
     
 	public func toRelativeCocoaString(style :NSDateFormatterStyle = NSDateFormatterStyle.MediumStyle) -> String? {
-		let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-        cachedFormatter.formatter.locale = region.locale
-        cachedFormatter.formatter.calendar = region.calendar
-        cachedFormatter.formatter.timeZone = region.timeZone
-        cachedFormatter.formatter.dateStyle = .MediumStyle
-        cachedFormatter.formatter.doesRelativeDateFormatting = true
-        let str = cachedFormatter.formatter.stringFromDate(absoluteTime)
-		cachedFormatter.restoreState()
-		return str
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+			cachedFormatter.locale = self.region.locale
+			cachedFormatter.calendar = self.region.calendar
+			cachedFormatter.timeZone = self.region.timeZone
+			cachedFormatter.dateStyle = .MediumStyle
+			cachedFormatter.doesRelativeDateFormatting = true
+			let str = cachedFormatter.stringFromDate(self.absoluteTime)
+			return str
+		}
 	}
 	
     public func toRelativeString(fromDate: DateInRegion!, abbreviated: Bool = false, maxUnits: Int = 1) -> String {

@@ -161,14 +161,14 @@ public extension DateInRegion {
     /// Week day name of the date expressed in this region's locale
     var weekdayName: String? {
         guard let _ = absoluteTime else { return nil }
-        let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-        
-        cachedFormatter.formatter.dateFormat = "EEEE"
-        cachedFormatter.formatter.locale = region.locale
-        let value = cachedFormatter.formatter.stringFromDate(absoluteTime)
-        
-        cachedFormatter.restoreState()
-        return value
+		
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+			cachedFormatter.dateFormat = "EEEE"
+			cachedFormatter.locale = self.region.locale
+			let value = cachedFormatter.stringFromDate(self.absoluteTime)
+			return value
+		}
     }
     
     /// Nmber of days into current's date month expressed in current region calendar and locale
@@ -200,11 +200,13 @@ public extension DateInRegion {
     /// Month name of the date expressed in this region's timezone using region's locale
     public var monthName :String? {
         guard let _ = absoluteTime else { return nil }
-        let cachedFormatter = NSDateFormatter.cachedFormatter().saveState()
-        cachedFormatter.formatter.locale = region.locale
-        let value = cachedFormatter.formatter.monthSymbols[self.month! - 1] as String
-        cachedFormatter.restoreState()
-        return value
+		
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+			cachedFormatter.locale = self.region.locale
+			let value = cachedFormatter.monthSymbols[self.month! - 1] as String
+			return value
+		}
     }
     
 

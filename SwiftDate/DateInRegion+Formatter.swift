@@ -24,204 +24,35 @@
 
 import Foundation
 
-/**
-Date Formatting Style
-
-- Short:   Shortest representation
-- Default: Default representation
-- Long:    Long colloquial representation
-- Full:    Very long representation which include other detailed info
-*/
-public enum DateFormatterStyle {
-	case Short
-	case Default
-	case Long
-	case Full
-}
-
-//MARK: - From DateInRegion to String -
-
-public extension String {
-
-	/**
-	Localize a string aganist SDLocalizable.strings file
-	
-	- parameter argList: variable arguments list
-	
-	- returns: localized version of the string
-	*/
-	internal func sd_loc(argList: CVarArgType...) -> String {
-		let bundle = NSBundle(forClass: DateInRegion.self)
-		let value = NSLocalizedString(self, tableName: "SDLocalizable", bundle: bundle, value: "", comment: "")
-		return withVaList(argList) {
-			NSString(format: value, locale: NSLocale.currentLocale(), arguments: $0)
-		} as String
-	}
-}
+// MARK: - DateInRegion Formatter Extension -
 
 public extension DateInRegion {
 	
 	/**
-	Natural language representation of the difference between two dates (self and refDate)
+	This method produces a colloquial representation of time elapsed between this date (`self`) and another reference date (`refDate`).
 	
-	- parameter refDate: reference date (if not specified a new DateInRegion with current date will be used instead)
-	- parameter style:   style of the formatter
 	
-	- returns: natural representation of the string
+	- parameter refDate reference date to compare (if not specified current date into `self` region is used)
+	- parameter style 	style of the output string
+	
+	- returns: formatted string or nil if representation cannot be provided
 	*/
-	public func toNaturalString(refDate :DateInRegion = DateInRegion(), style :DateFormatterStyle = .Default) -> String {
-		let min = difference(refDate, unitFlags: .Minute)!.minute
-		let hours = difference(refDate, unitFlags: .Hour)!.hour
-		let days = difference(refDate, unitFlags: .Day)!.day
-		let weeks = difference(refDate, unitFlags: .WeekdayOrdinal)!.weekdayOrdinal
-		let months = difference(refDate, unitFlags: .Month)!.month
-		
-		if min < 1 { // Less than 1 minute ago
-			let sec = difference(refDate, unitFlags: .Second)!.second
-			let suffix = (sec == 1 ? "S" : "P")
-			switch style {
-			case .Short:		return "N_NOW_SHORT_\(suffix)".sd_loc()
-			case .Default:		return "N_NOW_DEFAULT_\(suffix)".sd_loc()
-			case .Long:			return "N_NOW_LONG_\(suffix)".sd_loc(sec)
-			case .Full:			return "N_NOW_FULL_\(suffix)".sd_loc(sec)
-			}
-		}
-		else if min < 60 { // Less than 1 hour ago
-			let suffix = (min == 1 ? "S" : "P")
-			switch style {
-			case .Short:		return "N_1H_SHORT_\(suffix)".sd_loc(min)
-			case .Default:		return "N_1H_DEFAULT_\(suffix)".sd_loc(min)
-			case .Long:			return "N_1H_LONG_\(suffix)".sd_loc(min)
-			case .Full:
-				let sec = difference(refDate, unitFlags: .Second)!.second
-				return "N_1H_FULL".sd_loc(	"N_1H_LONG_\(suffix)".sd_loc(min),"N_NOW_LONG_\(suffix)".sd_loc(sec))
-			}
-		}
-		else if hours < 24 { // Less than 24 hours ago
-			let suffix = (hours == 1 ? "S" : "P")
-			switch style {
-			case .Short:		return "N_24H_SHORT_\(suffix)".sd_loc(hours)
-			case .Default:		return "N_24H_DEFAULT_\(suffix)".sd_loc(hours)
-			case .Long:			return "N_24H_LONG_\(suffix)".sd_loc(hours)
-			case .Full:
-				let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
-				return "N_24H_FULL_\(suffix)".sd_loc(hours,time)
-			}
-		}
-		else if hours < 48 { // Less than 48 hours ago
-			switch style {
-			case .Short:		return "N_48H_SHORT".sd_loc()
-			case .Default:		return "N_48H_DEFAULT".sd_loc()
-			case .Long:
-				let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
-				return "N_48H_LONG".sd_loc(time)
-			case .Full:
-				let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
-				return "N_48H_FULL".sd_loc(time)
-			}
-		}
-		else if days < 7 { // Less than 7 days ago
-			let suffix = (days == 1 ? "S" : "P")
-			let time = self.toString(DateFormat.Custom("TIMEFORMAT".sd_loc()))!
-			switch style {
-			case .Short:		return "N_1W_SHORT_\(suffix)".sd_loc(days)
-			case .Default:		return "N_1W_DEFAULT_\(suffix)".sd_loc(days)
-			case .Long:			return "N_1W_LONG_\(suffix)".sd_loc("TIMEFORMAT".sd_loc(time))
-			case .Full:			return "N_1W_FULL_\(suffix)".sd_loc("TIMEFORMAT".sd_loc(time))
-			}
-		}
-		else if weeks < 4 { // Less than 1 month ago
-			let suffix = (weeks == 1 ? "S" : "P")
-			switch style {
-			case .Short:		return "N_4W_SHORT_\(suffix)".sd_loc(weeks)
-			case .Default:		return "N_4W_DEFAULT_\(suffix)".sd_loc(weeks)
-			case .Long:			return "N_4W_LONG_\(suffix)".sd_loc(weeks)
-			case .Full:
-				let date = self.toString(DateFormat.Custom("DATEFORMAT_DAYNAME".sd_loc()))!
-				return "N_4W_FULL_\(suffix)".sd_loc(weeks,date)
-			}
-		} else if months < 12 { // Less than 1 year ago
-			let suffix = (months == 1 ? "S" : "P")
-			switch style {
-			case .Short:		return "N_1Y_SHORT_\(suffix)".sd_loc(months)
-			case .Default:		return "N_1Y_DEFAULT_\(suffix)".sd_loc(months)
-			case .Long:			return "N_1Y_LONG_\(suffix)".sd_loc(months)
-			case .Full:
-				let date = self.toString(DateFormat.Custom("DATEFORMAT_MONTHNAME_TIME".sd_loc()))!
-				return "N_1Y_FULL_\(suffix)".sd_loc(months,date)
-			}
-		} else { // 1 year or over
-			let years = difference(refDate, unitFlags: .Year)!.year
-			let suffix = (years == 1 ? "S" : "P")
-			switch style {
-			case .Short:		return "N_MY_SHORT_\(suffix)".sd_loc(years)
-			case .Default:		return "N_MY_DEFAULT_\(suffix)".sd_loc(years)
-			case .Long:			return "N_MY_LONG_\(suffix)".sd_loc(years)
-			case .Full:
-				let date = self.toString(DateFormat.Custom("DATEFORMAT_MONTHNAME".sd_loc()))!
-				return "N_MY_FULL_\(suffix)".sd_loc(self.year!,date)
-			}
-		}
+	public func toNaturalString(refDate rDate:DateInRegion?, style :FormatterStyle = FormatterStyle()) -> String? {
+		let refDate = (rDate != nil ? rDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
+		let formatter :NSDateComponentsFormatter = sharedDateComponentsFormatter()
+		return formatter.beginSessionContext({ (Void) -> (String?) in
+			formatter.setStyle(style)
+			formatter.calendar = self.calendar
+			// NOTE: why this method still return nil?
+			// let str2 = formatter.stringFromDate(refDate.absoluteTime, toDate: self.absoluteTime)
+			let diff = fabs(self.absoluteTime.timeIntervalSinceDate(refDate.absoluteTime))
+			let str = formatter.stringFromTimeInterval(diff)
+			return str
+		})
 	}
-	
-	/**
-	Return a list components which express the difference in term of each
-	
-	- parameter refDate: reference date. if missing default new DateInRegion() is used instead
-	- parameter units:   units to get. Units are enumerated in order so resulting array has the same order of the specified unit. If missing [Nanosecond,Second,Minute,Hour,Day,WeekOfMonth,Month,Year] is used as default configuration. Only units with a value different from 0 are included into the final array.
-	- parameter maxUnits: if specified only the first maxUnits with a non null value will be part of the final array (units are enumerated in order as specified by units param)
-	- parameter style:	style used to print unit of measurement
-	
-	- returns: an array of translated measurement units or nil if all specified components are null
-	*/
-	public func toComponentsStrings(refDate :DateInRegion = DateInRegion(), units :[NSCalendarUnit]? = nil, maxUnits cUnits :Int = 0, style :DateFormatterStyle = .Default) -> [String]? {
-		
-		var cmps :[String] = []
-		let unitsToCompare = (units != nil ? units! : [.Nanosecond, .Second, .Minute, .Hour, .Day, .WeekOfMonth, .Month, .Year])
-		let diff = difference(refDate, unitFlags: NSCalendarUnit(unitsToCompare))
-		let translate_style = translateStyle(style)
-		
-		var cIdx = 0
-		for unit in unitsToCompare {
-			let value = diff?.valueForComponent(unit)
-			let translate_symbol = translateCalendarUnit(unit)
-			if value > 0 && translate_symbol != nil {
-				let translate_qt = (value == 1 ? "S" : "P")
-				let translated_value = "U_\(translate_symbol!)_\(translate_style)_\(translate_qt)".sd_loc(value!)
-				cmps.append(translated_value)
-				cIdx++
-			}
-			if cUnits != 0 && cIdx == cUnits { break }
-		}
-		
-		
-		return (cmps.count > 0 ? cmps : nil)
-	}
-	
-	private func translateStyle(style :DateFormatterStyle) -> String {
-		switch style {
-		case DateFormatterStyle.Short:		return "SHORT"
-		case DateFormatterStyle.Default:	return "DEFAULT"
-		case DateFormatterStyle.Long:		return "LONG"
-		case DateFormatterStyle.Full:		return "FULL"
-		}
-	}
-	
-	private func translateCalendarUnit(unit :NSCalendarUnit) -> String? {
-		switch unit {
-		case NSCalendarUnit.Nanosecond: return "NANOSECOND"
-		case NSCalendarUnit.Second:		return "SECOND"
-		case NSCalendarUnit.Minute:		return "MINUTE"
-		case NSCalendarUnit.Hour:		return "HOUR"
-		case NSCalendarUnit.Day:		return "DAY"
-		case NSCalendarUnit.Month:		return "MONTH"
-		case NSCalendarUnit.Year:		return "YEAR"
-		default:						return nil // other values are ignored
-		}
-	}
-	
+
     /**
-     Return an ISO8601 string from current UTC Date of the region
+     Return an `ISO8601` string from current UTC Date of the region
      
      - returns: a new string or nil if DateInRegion does not contains any valid date
      */

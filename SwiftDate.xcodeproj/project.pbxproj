@@ -19,7 +19,6 @@
 		08CCC47F1C28ABF60023EF41 /* DateInRegionComponentPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C0F1C15DFA30084EA37 /* DateInRegionComponentPort.swift */; };
 		08CCC4801C28ABF60023EF41 /* DateInRegionDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C101C15DFA30084EA37 /* DateInRegionDescription.swift */; };
 		08CCC4811C28ABF60023EF41 /* DateInRegionEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C111C15DFA30084EA37 /* DateInRegionEquations.swift */; };
-		08CCC4821C28ABF60023EF41 /* DateInRegionFormatterPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C121C15DFA30084EA37 /* DateInRegionFormatterPort.swift */; };
 		08CCC4831C28ABF60023EF41 /* DateInRegionHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C131C15DFA30084EA37 /* DateInRegionHashable.swift */; };
 		08CCC4841C28ABF60023EF41 /* DateInRegionNSDatePort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C141C15DFA30084EA37 /* DateInRegionNSDatePort.swift */; };
 		08CCC4851C28ABF60023EF41 /* DateInRegionOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C151C15DFA30084EA37 /* DateInRegionOperations.swift */; };
@@ -40,7 +39,6 @@
 		08CCC4BE1C28AC440023EF41 /* DateInRegionComponentPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C0F1C15DFA30084EA37 /* DateInRegionComponentPort.swift */; };
 		08CCC4BF1C28AC440023EF41 /* DateInRegionDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C101C15DFA30084EA37 /* DateInRegionDescription.swift */; };
 		08CCC4C01C28AC440023EF41 /* DateInRegionEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C111C15DFA30084EA37 /* DateInRegionEquations.swift */; };
-		08CCC4C11C28AC440023EF41 /* DateInRegionFormatterPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C121C15DFA30084EA37 /* DateInRegionFormatterPort.swift */; };
 		08CCC4C21C28AC440023EF41 /* DateInRegionHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C131C15DFA30084EA37 /* DateInRegionHashable.swift */; };
 		08CCC4C31C28AC440023EF41 /* DateInRegionNSDatePort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C141C15DFA30084EA37 /* DateInRegionNSDatePort.swift */; };
 		08CCC4C41C28AC440023EF41 /* DateInRegionOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C151C15DFA30084EA37 /* DateInRegionOperations.swift */; };
@@ -59,7 +57,6 @@
 		08CCC4E71C28AC800023EF41 /* DateInRegionComponentPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C0F1C15DFA30084EA37 /* DateInRegionComponentPort.swift */; };
 		08CCC4E81C28AC800023EF41 /* DateInRegionDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C101C15DFA30084EA37 /* DateInRegionDescription.swift */; };
 		08CCC4E91C28AC800023EF41 /* DateInRegionEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C111C15DFA30084EA37 /* DateInRegionEquations.swift */; };
-		08CCC4EA1C28AC800023EF41 /* DateInRegionFormatterPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C121C15DFA30084EA37 /* DateInRegionFormatterPort.swift */; };
 		08CCC4EB1C28AC800023EF41 /* DateInRegionHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C131C15DFA30084EA37 /* DateInRegionHashable.swift */; };
 		08CCC4EC1C28AC800023EF41 /* DateInRegionNSDatePort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C141C15DFA30084EA37 /* DateInRegionNSDatePort.swift */; };
 		08CCC4ED1C28AC800023EF41 /* DateInRegionOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C151C15DFA30084EA37 /* DateInRegionOperations.swift */; };
@@ -71,11 +68,18 @@
 		08CCC4F31C28AC800023EF41 /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C3E1C176C210084EA37 /* NSDateComponents+SwiftDate.swift */; };
 		08CCC4F41C28AC800023EF41 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C401C176DD30084EA37 /* NSTimeZone+SwiftDate.swift */; };
 		08CCC4F51C28AC800023EF41 /* NSCalendar+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C421C1774470084EA37 /* NSCalendar+SwiftDate.swift */; };
+		08F4BB441C4AC4A200DE0454 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB421C4AC4A200DE0454 /* Additions.swift */; };
+		08F4BB451C4AC4A200DE0454 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB421C4AC4A200DE0454 /* Additions.swift */; };
+		08F4BB461C4AC4A200DE0454 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB421C4AC4A200DE0454 /* Additions.swift */; };
+		08F4BB471C4AC4A200DE0454 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB421C4AC4A200DE0454 /* Additions.swift */; };
+		08F4BB481C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB431C4AC4A200DE0454 /* DateInRegion+Formatter.swift */; };
+		08F4BB491C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB431C4AC4A200DE0454 /* DateInRegion+Formatter.swift */; };
+		08F4BB4A1C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB431C4AC4A200DE0454 /* DateInRegion+Formatter.swift */; };
+		08F4BB4B1C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4BB431C4AC4A200DE0454 /* DateInRegion+Formatter.swift */; };
 		1F1B3C1A1C15DFA30084EA37 /* DateInRegionComparisons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C0E1C15DFA30084EA37 /* DateInRegionComparisons.swift */; };
 		1F1B3C1C1C15DFA30084EA37 /* DateInRegionComponentPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C0F1C15DFA30084EA37 /* DateInRegionComponentPort.swift */; };
 		1F1B3C1E1C15DFA30084EA37 /* DateInRegionDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C101C15DFA30084EA37 /* DateInRegionDescription.swift */; };
 		1F1B3C201C15DFA30084EA37 /* DateInRegionEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C111C15DFA30084EA37 /* DateInRegionEquations.swift */; };
-		1F1B3C221C15DFA30084EA37 /* DateInRegionFormatterPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C121C15DFA30084EA37 /* DateInRegionFormatterPort.swift */; };
 		1F1B3C241C15DFA30084EA37 /* DateInRegionHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C131C15DFA30084EA37 /* DateInRegionHashable.swift */; };
 		1F1B3C261C15DFA30084EA37 /* DateInRegionNSDatePort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C141C15DFA30084EA37 /* DateInRegionNSDatePort.swift */; };
 		1F1B3C281C15DFA30084EA37 /* DateInRegionOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B3C151C15DFA30084EA37 /* DateInRegionOperations.swift */; };
@@ -175,11 +179,12 @@
 		08CCC4DB1C28AC760023EF41 /* SwiftDateWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDateWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08CCC4DD1C28AC760023EF41 /* SwiftDateWatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDateWatchOS.h; sourceTree = "<group>"; };
 		08CCC4DF1C28AC760023EF41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08F4BB421C4AC4A200DE0454 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		08F4BB431C4AC4A200DE0454 /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
 		1F1B3C0E1C15DFA30084EA37 /* DateInRegionComparisons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionComparisons.swift; sourceTree = "<group>"; };
 		1F1B3C0F1C15DFA30084EA37 /* DateInRegionComponentPort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DateInRegionComponentPort.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1F1B3C101C15DFA30084EA37 /* DateInRegionDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionDescription.swift; sourceTree = "<group>"; };
 		1F1B3C111C15DFA30084EA37 /* DateInRegionEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionEquations.swift; sourceTree = "<group>"; };
-		1F1B3C121C15DFA30084EA37 /* DateInRegionFormatterPort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionFormatterPort.swift; sourceTree = "<group>"; };
 		1F1B3C131C15DFA30084EA37 /* DateInRegionHashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionHashable.swift; sourceTree = "<group>"; };
 		1F1B3C141C15DFA30084EA37 /* DateInRegionNSDatePort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionNSDatePort.swift; sourceTree = "<group>"; };
 		1F1B3C151C15DFA30084EA37 /* DateInRegionOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInRegionOperations.swift; sourceTree = "<group>"; };
@@ -331,11 +336,12 @@
 				1FABEAB61C1C691C00C053C8 /* NSDateInterval.swift */,
 				084C20F81C03C25B0068D224 /* DateInRegion.swift */,
 				1F1B3C171C15DFA30084EA37 /* Region.swift */,
+				08F4BB421C4AC4A200DE0454 /* Additions.swift */,
+				08F4BB431C4AC4A200DE0454 /* DateInRegion+Formatter.swift */,
 				1F1B3C0E1C15DFA30084EA37 /* DateInRegionComparisons.swift */,
 				1F1B3C0F1C15DFA30084EA37 /* DateInRegionComponentPort.swift */,
 				1F1B3C101C15DFA30084EA37 /* DateInRegionDescription.swift */,
 				1F1B3C111C15DFA30084EA37 /* DateInRegionEquations.swift */,
-				1F1B3C121C15DFA30084EA37 /* DateInRegionFormatterPort.swift */,
 				1F1B3C131C15DFA30084EA37 /* DateInRegionHashable.swift */,
 				1F1B3C141C15DFA30084EA37 /* DateInRegionNSDatePort.swift */,
 				1F1B3C151C15DFA30084EA37 /* DateInRegionOperations.swift */,
@@ -677,7 +683,7 @@
 		084C20D41C03C1FB0068D224 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Daniele Margutti";
 				TargetAttributes = {
@@ -827,6 +833,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F1B3C281C15DFA30084EA37 /* DateInRegionOperations.swift in Sources */,
+				08F4BB441C4AC4A200DE0454 /* Additions.swift in Sources */,
 				1F1B3C201C15DFA30084EA37 /* DateInRegionEquations.swift in Sources */,
 				1F1B3C3B1C15EA600084EA37 /* Dictionary+SwiftDate.swift in Sources */,
 				1F1B3C261C15DFA30084EA37 /* DateInRegionNSDatePort.swift in Sources */,
@@ -839,9 +846,9 @@
 				1F1B3C1E1C15DFA30084EA37 /* DateInRegionDescription.swift in Sources */,
 				1F1B3C3D1C16BC330084EA37 /* NSDateFormatter+SwiftDate.swift in Sources */,
 				1F1B3C3F1C176C210084EA37 /* NSDateComponents+SwiftDate.swift in Sources */,
+				08F4BB481C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */,
 				1F70735F1C3066E200DA76D3 /* TEAM.md in Sources */,
 				1F1B3C431C1774470084EA37 /* NSCalendar+SwiftDate.swift in Sources */,
-				1F1B3C221C15DFA30084EA37 /* DateInRegionFormatterPort.swift in Sources */,
 				1F1B3C241C15DFA30084EA37 /* DateInRegionHashable.swift in Sources */,
 				1FA4FE761C3002F4002E4FAA /* NSLocale+SwiftDate.swift in Sources */,
 				1F1B3C381C15E8CF0084EA37 /* NSDate+SwiftDate.swift in Sources */,
@@ -876,7 +883,6 @@
 				08CCC47F1C28ABF60023EF41 /* DateInRegionComponentPort.swift in Sources */,
 				08CCC4801C28ABF60023EF41 /* DateInRegionDescription.swift in Sources */,
 				08CCC4811C28ABF60023EF41 /* DateInRegionEquations.swift in Sources */,
-				08CCC4821C28ABF60023EF41 /* DateInRegionFormatterPort.swift in Sources */,
 				08CCC4831C28ABF60023EF41 /* DateInRegionHashable.swift in Sources */,
 				08CCC4841C28ABF60023EF41 /* DateInRegionNSDatePort.swift in Sources */,
 				08CCC4851C28ABF60023EF41 /* DateInRegionOperations.swift in Sources */,
@@ -886,8 +892,10 @@
 				08CCC4891C28ABF60023EF41 /* NSDate+SwiftDate.swift in Sources */,
 				08CCC48A1C28ABF60023EF41 /* NSDateFormatter+SwiftDate.swift in Sources */,
 				08CCC48B1C28ABF60023EF41 /* NSDateComponents+SwiftDate.swift in Sources */,
+				08F4BB451C4AC4A200DE0454 /* Additions.swift in Sources */,
 				08CCC48C1C28ABF60023EF41 /* NSTimeZone+SwiftDate.swift in Sources */,
 				08CCC48D1C28ABF60023EF41 /* NSCalendar+SwiftDate.swift in Sources */,
+				08F4BB491C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +911,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F4BB461C4AC4A200DE0454 /* Additions.swift in Sources */,
+				08F4BB4A1C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,7 +926,6 @@
 				08CCC4BE1C28AC440023EF41 /* DateInRegionComponentPort.swift in Sources */,
 				08CCC4BF1C28AC440023EF41 /* DateInRegionDescription.swift in Sources */,
 				08CCC4C01C28AC440023EF41 /* DateInRegionEquations.swift in Sources */,
-				08CCC4C11C28AC440023EF41 /* DateInRegionFormatterPort.swift in Sources */,
 				08CCC4C21C28AC440023EF41 /* DateInRegionHashable.swift in Sources */,
 				08CCC4C31C28AC440023EF41 /* DateInRegionNSDatePort.swift in Sources */,
 				08CCC4C41C28AC440023EF41 /* DateInRegionOperations.swift in Sources */,
@@ -942,7 +951,6 @@
 				08CCC4E71C28AC800023EF41 /* DateInRegionComponentPort.swift in Sources */,
 				08CCC4E81C28AC800023EF41 /* DateInRegionDescription.swift in Sources */,
 				08CCC4E91C28AC800023EF41 /* DateInRegionEquations.swift in Sources */,
-				08CCC4EA1C28AC800023EF41 /* DateInRegionFormatterPort.swift in Sources */,
 				08CCC4EB1C28AC800023EF41 /* DateInRegionHashable.swift in Sources */,
 				08CCC4EC1C28AC800023EF41 /* DateInRegionNSDatePort.swift in Sources */,
 				08CCC4ED1C28AC800023EF41 /* DateInRegionOperations.swift in Sources */,
@@ -952,8 +960,10 @@
 				08CCC4F11C28AC800023EF41 /* NSDate+SwiftDate.swift in Sources */,
 				08CCC4F21C28AC800023EF41 /* NSDateFormatter+SwiftDate.swift in Sources */,
 				08CCC4F31C28AC800023EF41 /* NSDateComponents+SwiftDate.swift in Sources */,
+				08F4BB471C4AC4A200DE0454 /* Additions.swift in Sources */,
 				08CCC4F41C28AC800023EF41 /* NSTimeZone+SwiftDate.swift in Sources */,
 				08CCC4F51C28AC800023EF41 /* NSCalendar+SwiftDate.swift in Sources */,
+				08F4BB4B1C4AC4A200DE0454 /* DateInRegion+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

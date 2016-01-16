@@ -8,6 +8,56 @@
 
 import Foundation
 
+/**
+Return the current thread's `NSDateComponentsFormatter` instance. This component is used internally.
+When using it be sure to call `beginSessionContext(create:)` method to preserve and restore configuration of the object.
+
+- returns: an instance of the formatter
+*/
+internal func sharedDateComponentsFormatter() -> NSDateComponentsFormatter {
+	let name = "SwiftDate_\(NSStringFromClass(NSDateComponentsFormatter.self))"
+	return threadLocalObj(name, create: { (Void) -> NSDateComponentsFormatter in
+		return NSDateComponentsFormatter()
+	})
+}
+
+/**
+Return the current thread's `NSDateFormatter` instance. This component is used internally.
+When using it be sure to call `beginSessionContext(create:)` method to preserve and restore configuration of the object.
+
+- returns: an instance of the formatter
+*/
+internal func sharedDateFormatter() -> NSDateFormatter {
+	let name = "SwiftDate_\(NSStringFromClass(NSDateFormatter.self))"
+	return threadLocalObj(name, create: { (Void) -> NSDateFormatter in
+		return NSDateFormatter()
+	})
+}
+
+/**
+Provide a mechanism to create and return local-thread object you can share.
+
+Basically you assign a key to the object and return the initializated instance in `create` block.
+Again this code is used internally to provide a common way to create local-thread date formatter as like
+`NSDateFormatter` (which is expensive to create) or `NSDateComponentsFormatter`.
+Instance is saved automatically into current thread own dictionary.
+
+- parameter key:    identification string of the object
+- parameter create: creation block. At the end of the block you need to provide the instance you want to save.
+
+- returns: the instance you have created into the current thread
+*/
+internal func threadLocalObj<T: AnyObject>(key :String, create : (Void) -> T) -> T {
+	if let cachedObj = NSThread.currentThread().threadDictionary[key] as? T {
+		return cachedObj
+	} else {
+		let newObject = create()
+		NSThread.currentThread().threadDictionary[key] = newObject
+		return newObject
+	}
+}
+
+
 //MARK: - FormatterStyle -
 
 /**
@@ -97,7 +147,7 @@ public struct FormatterStyle {
 internal extension NSDateComponentsFormatter {
 	
 	/**
-	This method is used to provide a session context to use use an instance of `NSDateComponentsFormatter`. When you start a new session the current attributes of the instance are saved automatically and restored at the end of the session. We have this function because a single `NSDateComponentsFormatter` is shared along a thread. *You don't need to use it externally so it's a private method *.
+	This method is used to provide a session context to create and use an instance of `NSDateComponentsFormatter` by preserving pre-task configuration. When you start a new session the current attributes of the instance are saved automatically and restored at the end of the session. We have this function because a single `NSDateComponentsFormatter` is shared along a thread. *You don't need to use it externally so it's a private method *.
 	
 	- parameter block: block to execute your formast operation. It could return something
 	
@@ -114,50 +164,15 @@ internal extension NSDateComponentsFormatter {
 
 //MARK: - Common Share Functions -
 
-/**
-Provide a mechanism to create and return local-thread object you can share.
-
-Basically you assign a key to the object and return the initializated instance in `create` block.
-Again this code is used internally to provide a common way to create local-thread date formatter as like
-`NSDateFormatter` (which is expensive to create) or `NSDateComponentsFormatter`.
-Instance is saved automatically into current thread own dictionary.
-
-- parameter key:    identification string of the object
-- parameter create: creation block. At the end of the block you need to provide the instance you want to save.
-
-- returns: the instance you have created into the current thread
-*/
-internal func threadLocalObj<T: AnyObject>(key :String, create : (Void) -> T) -> T {
-	if let cachedObj = NSThread.currentThread().threadDictionary[key] as? T {
-		return cachedObj
-	} else {
-		let newObject = create()
-		NSThread.currentThread().threadDictionary[key] = newObject
-		return newObject
-	}
-}
-
-/**
-Return the current thread's NSDateComponentsFormatter instance. This component is used internally.
-
-- returns: the instance of the formatter into the current thread.
-*/
-internal func sharedDateComponentsFormatter() -> NSDateComponentsFormatter {
-	let name = "SwiftDate_\(NSStringFromClass(NSDateComponentsFormatter.self))"
-	return threadLocalObj(name, create: { (Void) -> NSDateComponentsFormatter in
-		return NSDateComponentsFormatter()
-	})
-}
-
-internal func sharedDateFormatter() -> NSDateFormatter {
-	let name = "SwiftDate_\(NSStringFromClass(NSDateFormatter.self))"
-	return threadLocalObj(name, create: { (Void) -> NSDateFormatter in
-		return NSDateFormatter()
-	})
-}
-
 internal extension NSDateFormatter {
 
+	/**
+	This method is used to provide a session context to create and use an instance of `NSDateFormatter` by preserving pre-task configuration. When you start a new session the current attributes of the instance are saved automatically and restored at the end of the session. We have this function because a single `NSDateFormatter` is shared along a thread. *You don't need to use it externally so it's a private method *.
+	
+	- parameter block: block to execute your formast operation. It could return something
+	
+	- returns: the result of the operation
+	*/
 	func beginSessionContext<T>(block :(Void) -> (T?)) -> T? {
 		let saved_cfg = NSDateFormatterConfig(formatter: self)
 		let block_result = block()
@@ -165,6 +180,9 @@ internal extension NSDateFormatter {
 		return block_result
 	}
 	
+	/**
+	*  This is the object we use to store attributes of NSDateFormatter. We don't need to expose it.
+	*/
 	struct NSDateFormatterConfig {
 		var dateFormat	:String?
 		var locale		:NSLocale?

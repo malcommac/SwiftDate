@@ -8,7 +8,8 @@
 
 - Upgrade "Other" time zone types to the main division [\#108](https://github.com/malcommac/SwiftDate/issues/108)
 - UTCDate vs NSDate [\#91](https://github.com/malcommac/SwiftDate/issues/91)
-- the result of "toRelativeString" can be returned  in chinese? [\#65](https://github.com/malcommac/SwiftDate/issues/65)
+- NSTimeInterval has now a `toString(style:)` method which allows you to return a readable locale-based interval string [\#137](https://github.com/malcommac/SwiftDate/issues/137)
+- Both `DateInRegion` and `NSDate` has now a `toNaturalString(refDate:style:)` method which allows you to return a colloquial string which represent the elapsed time between two interval (FormatterStyle is the struct used to represent a set of attributes for formatting)
 
 **Fixed bugs:**
 
@@ -27,6 +28,12 @@
 - Revert "Fix ISO8601Formatter not able to parse +hhmm timezone \(Issue \#94\)" [\#105](https://github.com/malcommac/SwiftDate/pull/105) ([malcommac](https://github.com/malcommac))
 - Use absolute time as opposed to UTC time [\#101](https://github.com/malcommac/SwiftDate/pull/101) ([Hout](https://github.com/Hout))
 - Fix ISO8601Formatter not able to parse +hhmm timezone \(Issue \#94\) [\#100](https://github.com/malcommac/SwiftDate/pull/100) ([NebulaFox](https://github.com/NebulaFox))
+
+**Deprecated methods:**
+
+- `toRelativeCocoaString(fromDate:abbreviated:maxUnits:)` is now deprecated in favor of `toString(style:)` (both in DateInRegion and NSDate)
+- `toRelativeString(style:)` is now deprecated in favor of `toNaturalString(refDate:style:)` (both in DateInRegion and NSDate)
+
 
 ## [2.0.2](https://github.com/malcommac/SwiftDate/tree/2.0.2) (2015-12-02)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.1...2.0.2)

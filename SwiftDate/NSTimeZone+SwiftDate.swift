@@ -28,12 +28,12 @@ import Foundation
 
 
 public enum TimeZoneName: String {
-    
+
     public var description: String {
         return self.rawValue
     }
-    
-    public var timeZone : NSTimeZone {
+
+    public var timeZone: NSTimeZone {
         switch self {
         case .Local:
             return NSTimeZone.localTimeZone()
@@ -45,7 +45,7 @@ public enum TimeZoneName: String {
             return NSTimeZone(name: self.rawValue)!
         }
     }
-    
+
     case AfricaAbidjan = "Africa/Abidjan"
     case AfricaAccra = "Africa/Accra"
     case AfricaAddisAbaba = "Africa/Addis_Ababa"

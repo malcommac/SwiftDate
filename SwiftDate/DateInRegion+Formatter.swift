@@ -27,24 +27,25 @@ import Foundation
 // MARK: - DateInRegion Formatter Extension -
 
 public extension DateInRegion {
-	
-	/**
-	This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and another reference `DateInRegion` (`refDate`).
-	
-	- parameter refDate reference date to compare (if not specified current date into `self` region is used)
-	- parameter style 	style of the output string
-	
-	- returns: formatted string or nil if representation cannot be provided
-	*/
-	public func toNaturalString(refDate rDate:DateInRegion?, style :FormatterStyle = FormatterStyle()) -> String? {
-		let refDate = (rDate != nil ? rDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
-		let formatter :NSDateComponentsFormatter = sharedDateComponentsFormatter()
+  
+   /**
+   This method produces a colloquial representation of time elapsed
+   between this `DateInRegion` (`self`) and another reference `DateInRegion` (`refDate`).
+   
+   - parameter refDate reference date to compare (if not specified current date into `self` region is used)
+   - parameter style style of the output string
+   
+   - returns: formatted string or nil if representation cannot be provided
+   */
+	public func toNaturalString(refDate: DateInRegion?, style: FormatterStyle = FormatterStyle()) -> String? {
+		let rDate = (refDate != nil ? refDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
+		let formatter: NSDateComponentsFormatter = sharedDateComponentsFormatter()
 		return formatter.beginSessionContext({ (Void) -> (String?) in
 			style.restoreInto(formatter)
 			formatter.calendar = self.calendar
 			// NOTE: why this method still return nil?
 			// let str2 = formatter.stringFromDate(refDate.absoluteTime, toDate: self.absoluteTime)
-			let diff = fabs(self.absoluteTime.timeIntervalSinceDate(refDate.absoluteTime))
+			let diff = fabs(self.absoluteTime.timeIntervalSinceDate(rDate.absoluteTime))
 			let str = formatter.stringFromTimeInterval(diff)
 			return str
 		})
@@ -52,23 +53,22 @@ public extension DateInRegion {
 
     /**
      Return an `ISO8601` string from current UTC Date of the region.
-	 More information about this standard can be found on [Wikipedia/ISO8601](https://en.wikipedia.org/wiki/ISO_8601).
+	 venMore information about this standard can be found on [Wikipedia/ISO8601](https://en.wikipedia.org/wiki/ISO_8601).
 	
  	 Some examples of the formatted output are:
 	* `2016-01-11T17:31:10+00:00`
 	* `2016-01-11T17:31:10Z`
 	* `20160111T173110Z`
 
-     
      - returns: a new string or nil if `DateInRegion` does not contains any valid date
      */
     public func toISO8601String() -> String? {
         guard let _ = absoluteTime else {
             return nil
         }
-		
+
 		let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+		return cachedFormatter.beginSessionContext { () -> (String?) in
 			cachedFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 			cachedFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
 			cachedFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
@@ -181,7 +181,7 @@ public extension DateInRegion {
             timeStyle: (time == true ? NSDateFormatterStyle.LongStyle: NSDateFormatterStyle.NoStyle))
     }
 	
-	@available(*, deprecated=2.2, message="Use toString(style:dateStyle:timeStyle:) with relative parameters")
+	@available(*, deprecated=2.2, message="Use toString(style:dateStyle:timeStyle:relative:) with relative parameters")
 	/**
 	Output relative string representation of the date.
 	**This method was deprecated: use `toString(style:dateStyle:timeStyle:)` instead.**

@@ -354,23 +354,28 @@ extension NSDate {
         style: NSDateFormatterStyle? = nil,
         dateStyle: NSDateFormatterStyle? = nil,
         timeStyle: NSDateFormatterStyle? = nil,
-        inRegion region :Region = Region()) -> String? {
+        inRegion region :Region = Region(),
+      	relative: Bool = false) -> String? {
             
             let refDateInRegion = DateInRegion(absoluteTime: self, region: region)
-            return refDateInRegion.toString(style, dateStyle: dateStyle, timeStyle: timeStyle)
+            return refDateInRegion.toString(style, dateStyle: dateStyle, timeStyle: timeStyle, relative: relative)
     }
-    
+  
+  @available(*, deprecated=2.2, message="Use toString(style:dateStyle:timeStyle:relative:) with relative parameters")
     /**
      Return relative representation of the date in a specified region
      
      - parameter region: region of destination (Region() is used when argument is not specified)
+  	 - paramater style: style used to format the string
      
      - returns: string representation in form of relative date (just now, 3 seconds...)
      */
-    public func toRelativeCocoaString(inRegion region :Region = Region()) -> String? {
-        return DateInRegion(absoluteTime: self, region: region).toRelativeCocoaString()
+  	public func toRelativeCocoaString(inRegion region :Region = Region(), style: NSDateFormatterStyle) -> String? {
+    	return DateInRegion(absoluteTime: self, region: region).toRelativeCocoaString(style: style)
     }
-    
+  
+  
+  @available(*, deprecated=2.2, message="Use toNaturalString() with relative parameters")
     /**
      Return relative representation of the self absolute time (expressed in region region) compared to another UTC refDate (always expressed in the same region)
      
@@ -385,6 +390,21 @@ extension NSDate {
         let refDateInRegion = DateInRegion(absoluteTime: refDate, region: region)
         return DateInRegion(absoluteTime: self, region: region).toRelativeString(refDateInRegion, abbreviated: abbreviated, maxUnits: maxUnits)
     }
+
+  /**
+   This method produces a colloquial representation of time elapsed
+   between this `NSDate` (`self`) and another reference `NSDate` (`refDate`) both expressed in passed `DateInRegion`
+   
+   - parameter refDate reference date to compare (if not specified current date into `self` region is used)
+   - parameter style style of the output string
+   
+   - returns: formatted string or nil if representation cannot be provided
+   */
+  	public func toNaturalString(refDate: NSDate, inRegion region :Region = Region(), style: FormatterStyle = FormatterStyle()) -> String? {
+    		let selfInRegion = DateInRegion(absoluteTime: self, region: region)
+      	let refInRegion = DateInRegion(absoluteTime: refDate, region: region)
+      	return selfInRegion.toNaturalString(refInRegion, style: style)
+  	}
 }
 
 // MARK: - Adoption of Comparable protocol

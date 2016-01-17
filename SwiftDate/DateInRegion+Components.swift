@@ -34,7 +34,8 @@ public extension DateInRegion {
     ///     yearForWeekOfYear, weekOfYear, weekday<s>, quarter</s> and weekOfMonth.
     /// Values returned are in the context of the calendar and time zone properties.
     ///
-    /// - Returns: An NSDateComponents object containing date decomposed into the components as specified.
+    /// - Returns: An NSDateComponents object containing date decomposed
+	///   into the components as specified.
     ///
     public var components: NSDateComponents {
         return calendar.components(DateInRegion.componentFlags, fromDate: self.absoluteTime)
@@ -93,12 +94,12 @@ public extension DateInRegion {
     }
 
     /// Nearest rounded hour from the date expressed in this region's timezone
-    public var nearestHour :Int {
+    public var nearestHour: Int {
         let date = self + 30.minutes
-        return Int(date.hour!);
+        return Int(date.hour!)
     }
-    
-   /// The number of minute units for the receiver.
+
+    /// The number of minute units for the receiver.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
@@ -149,8 +150,9 @@ public extension DateInRegion {
     }
 
     /// The ordinal number of weekday units for the receiver.
-    /// Weekday ordinal units represent the position of the weekday within the next larger calendar unit,
-    ///     such as the month. For example, 2 is the weekday ordinal unit for the second Friday of the month.
+    /// Weekday ordinal units represent the position of the weekday within
+ 	/// the next larger calendar unit, such as the month.
+	/// For example, 2 is the weekday ordinal unit for the second Friday of the month.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
@@ -161,26 +163,27 @@ public extension DateInRegion {
     /// Week day name of the date expressed in this region's locale
     var weekdayName: String? {
         guard let _ = absoluteTime else { return nil }
-		
+
 		let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+		return cachedFormatter.beginSessionContext { () -> (String?) in
 			cachedFormatter.dateFormat = "EEEE"
 			cachedFormatter.locale = self.region.locale
 			let value = cachedFormatter.stringFromDate(self.absoluteTime)
 			return value
 		}
     }
-    
+
     /// Nmber of days into current's date month expressed in current region calendar and locale
-    public var monthDays :Int? {
+    public var monthDays: Int? {
         guard let _ = absoluteTime else { return nil }
-        return region.calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: absoluteTime).length
+        return region.calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: absoluteTime).length
     }
-    
+
     /** QUARTER IS NOT INCLUDED DUE TO INCORRECT REPRESENTATION OF QUARTER IN NSCALENDAR
     /// The number of quarter units for the receiver.
-    /// Weekday ordinal units represent the position of the weekday within the next larger calendar unit,
-    ///     such as the month. For example, 2 is the weekday ordinal unit for the second Friday of the month.
+    /// Weekday ordinal units represent the position of the weekday within the next larger
+	/// calendar unit, such as the month. For example, 2 is the weekday
+	/// ordinal unit for the second Friday of the month.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
@@ -198,17 +201,17 @@ public extension DateInRegion {
     }
 
     /// Month name of the date expressed in this region's timezone using region's locale
-    public var monthName :String? {
+    public var monthName: String? {
         guard let _ = absoluteTime else { return nil }
-		
+
 		let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { (Void) -> (String?) in
+		return cachedFormatter.beginSessionContext { () -> (String?) in
 			cachedFormatter.locale = self.region.locale
 			let value = cachedFormatter.monthSymbols[self.month! - 1] as String
 			return value
 		}
     }
-    
+
 
     /// Boolean value that indicates whether the month is a leap month.
     /// ``YES`` if the month is a leap month, ``NO`` otherwise
@@ -218,7 +221,7 @@ public extension DateInRegion {
     public var leapMonth: Bool {
         // Library function for leap contains a bug for Gregorian calendars, implemented workaround
         if calendar.calendarIdentifier == NSCalendarIdentifierGregorian && year >= 1582 {
-            let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: absoluteTime)
+            let range = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: absoluteTime)
             return range.length == 29
         }
 
@@ -247,8 +250,8 @@ public extension DateInRegion {
 
     /// Returns two DateInRegion objects indicating the start and the end of the current weekend .
     ///
-    /// - Returns: a tuple of two DateInRegion objects indicating the start and the end of the current weekend.
-    ///     If this is nto a weekend, then `nil` is returned.
+    /// - Returns: a tuple of two DateInRegion objects indicating the start and the end of
+	///   the current weekend. If this is unto a weekend, then `nil` is returned.
     ///
     public func thisWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
         guard calendar.isDateInWeekend(self.absoluteTime) else {
@@ -258,35 +261,44 @@ public extension DateInRegion {
         return date.nextWeekend()
     }
 
-    /// Returns two DateInRegion objects indicating the start and the end of the previous weekend before the date.
+    /// Returns two DateInRegion objects indicating the start and the end of
+	/// the previous weekend before the date.
     ///
-    /// - Returns: a tuple of two DateInRegion objects indicating the start and the end of the next weekend after the date.
+    /// - Returns: a tuple of two DateInRegion objects indicating the start
+	///   and the end of the next weekend after the date.
     ///
-    /// - Note: The weekend returned when the receiver is in a weekend is the previous weekend not the current one.
+    /// - Note: The weekend returned when the receiver is in a weekend is
+	///   the previous weekend not the current one.
     ///
     public func previousWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
         let date = self - 9.days
         return date.nextWeekend()
     }
 
-    /// Returns two DateInRegion objects indicating the start and the end of the next weekend after the date.
+    /// Returns two DateInRegion objects indicating the start and the end
+	/// of the next weekend after the date.
     ///
-    /// - Returns: a tuple of two DateInRegion objects indicating the start and the end of the next weekend after the date.
+    /// - Returns: a tuple of two DateInRegion objects indicating the
+	///   start and the end of the next weekend after the date.
     ///
-    /// - Note: The weekend returned when the receiver is in a weekend is the next weekend not the current one.
+    /// - Note: The weekend returned when the receiver is in a weekend
+	///   is the next weekend not the current one.
     ///
     public func nextWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
-        var weekendStart: NSDate?
-        var timeInterval: NSTimeInterval = 0
-        if !calendar.nextWeekendStartDate(&weekendStart, interval: &timeInterval, options: NSCalendarOptions(rawValue: 0), afterDate: self.absoluteTime) {
+        var wkStart: NSDate?
+        var tInt: NSTimeInterval = 0
+		let opt = NSCalendarOptions(rawValue: 0)
+		let d = self.absoluteTime
+        if !calendar.nextWeekendStartDate(&wkStart, interval: &tInt, options: opt, afterDate: d) {
             return nil
         }
 
-        // Subtract one thousandth of a second to distinguish from Midnigth on the next Monday for the isEqualDate function of NSDate
-        let weekendEnd = weekendStart!.dateByAddingTimeInterval(timeInterval - 0.001)
+        // Subtract one thousandth of a second to distinguish from Midnigth
+		// on the next Monday for the isEqualDate function of NSDate
+        let wkEnd = wkStart!.dateByAddingTimeInterval(tInt - 0.001)
 
-        let startDate = DateInRegion(absoluteTime: weekendStart!, region: region)
-        let endDate = DateInRegion(absoluteTime: weekendEnd, region: region)
+        let startDate = DateInRegion(absoluteTime: wkStart!, region: region)
+        let endDate = DateInRegion(absoluteTime: wkEnd, region: region)
         return (startDate, endDate)
     }
 

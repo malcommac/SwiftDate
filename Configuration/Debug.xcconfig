@@ -1,4 +1,3 @@
-#include "Pods/Target Support Files/Pods/Pods.debug.xcconfig"
 #include "Base.xcconfig"
 
 BITCODE_GENERATION_MODE = marker;

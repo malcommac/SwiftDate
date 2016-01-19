@@ -41,7 +41,7 @@
 		1FA4FE711C2FFAB7002E4FAA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FE701C2FFAB7002E4FAA /* main.swift */; };
 		1FA8A86E1C1F45CC00F9768A /* DateInRegionComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */; };
 		1FEECDD61C2E9D6B00E8A78A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEECDD51C2E9D6B00E8A78A /* main.swift */; };
-		B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082147161A50FB56097ED503 /* Pods.framework */; };
+		C0CC3085A593E9B586794066 /* Pods_SwiftDateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74ECB162038607B5EA08D698 /* Pods_SwiftDateTests.framework */; };
 		FB343FE51C4DEBB20021DB56 /* Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE41C4DEBB20021DB56 /* Base.xcconfig */; };
 		FB343FEA1C4DEBFF0021DB56 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE61C4DEBFF0021DB56 /* Debug.xcconfig */; };
 		FB343FEB1C4DEBFF0021DB56 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE71C4DEBFF0021DB56 /* Release.xcconfig */; };
@@ -129,6 +129,7 @@
 		1FEECDD31C2E9D6B00E8A78A /* time-zone-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "time-zone-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEECDD51C2E9D6B00E8A78A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		74ECB162038607B5EA08D698 /* Pods_SwiftDateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FB343FE41C4DEBB20021DB56 /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = Configuration/Base.xcconfig; sourceTree = "<group>"; };
 		FB343FE61C4DEBFF0021DB56 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Configuration/Debug.xcconfig; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				084C20E81C03C1FB0068D224 /* SwiftDate.framework in Frameworks */,
+				C0CC3085A593E9B586794066 /* Pods_SwiftDateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				082147161A50FB56097ED503 /* Pods.framework */,
+				74ECB162038607B5EA08D698 /* Pods_SwiftDateTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,12 +331,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 084C20F11C03C1FB0068D224 /* Build configuration list for PBXNativeTarget "SwiftDate" */;
 			buildPhases = (
-				871361268F8CC3B8EB331AF3 /* Check Pods Manifest.lock */,
 				084C20D81C03C1FB0068D224 /* Sources */,
 				084C20D91C03C1FB0068D224 /* Frameworks */,
 				084C20DA1C03C1FB0068D224 /* Headers */,
 				084C20DB1C03C1FB0068D224 /* Resources */,
-				BBFF1EAEDD581C4EEB4D346D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,9 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 084C20F41C03C1FB0068D224 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */;
 			buildPhases = (
+				61154A9FA27A3F3D41BEEC4D /* Check Pods Manifest.lock */,
 				084C20E31C03C1FB0068D224 /* Sources */,
 				084C20E41C03C1FB0068D224 /* Frameworks */,
 				084C20E51C03C1FB0068D224 /* Resources */,
+				E2598E55E9470859C22F2223 /* Embed Pods Frameworks */,
+				DC5465F1567D7CFFCC5E5066 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -465,7 +468,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		871361268F8CC3B8EB331AF3 /* Check Pods Manifest.lock */ = {
+		61154A9FA27A3F3D41BEEC4D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,7 +483,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BBFF1EAEDD581C4EEB4D346D /* Copy Pods Resources */ = {
+		DC5465F1567D7CFFCC5E5066 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -492,7 +495,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2598E55E9470859C22F2223 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -106,6 +106,11 @@
 		1FA8A86E1C1F45CC00F9768A /* DateInRegionComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA8A86D1C1F45CC00F9768A /* DateInRegionComparisonTests.swift */; };
 		1FEECDD61C2E9D6B00E8A78A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEECDD51C2E9D6B00E8A78A /* main.swift */; };
 		B7DAF265CC345165AE7763E3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082147161A50FB56097ED503 /* Pods.framework */; };
+		FB343FE51C4DEBB20021DB56 /* Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE41C4DEBB20021DB56 /* Base.xcconfig */; };
+		FB343FEA1C4DEBFF0021DB56 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE61C4DEBFF0021DB56 /* Debug.xcconfig */; };
+		FB343FEB1C4DEBFF0021DB56 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE71C4DEBFF0021DB56 /* Release.xcconfig */; };
+		FB343FEC1C4DEBFF0021DB56 /* SwiftDate.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE81C4DEBFF0021DB56 /* SwiftDate.xcconfig */; };
+		FB343FED1C4DEBFF0021DB56 /* Tests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FB343FE91C4DEBFF0021DB56 /* Tests.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +223,11 @@
 		1FEECDD51C2E9D6B00E8A78A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FB343FE41C4DEBB20021DB56 /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = Configuration/Base.xcconfig; sourceTree = "<group>"; };
+		FB343FE61C4DEBFF0021DB56 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Configuration/Debug.xcconfig; sourceTree = "<group>"; };
+		FB343FE71C4DEBFF0021DB56 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Configuration/Release.xcconfig; sourceTree = "<group>"; };
+		FB343FE81C4DEBFF0021DB56 /* SwiftDate.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = SwiftDate.xcconfig; path = Configuration/SwiftDate.xcconfig; sourceTree = "<group>"; };
+		FB343FE91C4DEBFF0021DB56 /* Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Tests.xcconfig; path = Configuration/Tests.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +304,7 @@
 		084C20D31C03C1FB0068D224 = {
 			isa = PBXGroup;
 			children = (
+				FB343FE31C4DEB970021DB56 /* Configurations */,
 				1F7073601C30686E00DA76D3 /* Generators */,
 				1FC8EBA01C30402F00440686 /* Documentation */,
 				084C20DF1C03C1FB0068D224 /* SwiftDate */,
@@ -471,6 +482,18 @@
 				082147161A50FB56097ED503 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB343FE31C4DEB970021DB56 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				FB343FE41C4DEBB20021DB56 /* Base.xcconfig */,
+				FB343FE61C4DEBFF0021DB56 /* Debug.xcconfig */,
+				FB343FE71C4DEBFF0021DB56 /* Release.xcconfig */,
+				FB343FE81C4DEBFF0021DB56 /* SwiftDate.xcconfig */,
+				FB343FE91C4DEBFF0021DB56 /* Tests.xcconfig */,
+			);
+			name = Configurations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -742,7 +765,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB343FEB1C4DEBFF0021DB56 /* Release.xcconfig in Resources */,
+				FB343FEC1C4DEBFF0021DB56 /* SwiftDate.xcconfig in Resources */,
+				FB343FED1C4DEBFF0021DB56 /* Tests.xcconfig in Resources */,
 				1F70735E1C3066E200DA76D3 /* LICENSE in Resources */,
+				FB343FE51C4DEBB20021DB56 /* Base.xcconfig in Resources */,
+				FB343FEA1C4DEBFF0021DB56 /* Debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,6 +1028,7 @@
 /* Begin XCBuildConfiguration section */
 		084C20EF1C03C1FB0068D224 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB343FE61C4DEBFF0021DB56 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1050,6 +1079,7 @@
 		};
 		084C20F01C03C1FB0068D224 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB343FE71C4DEBFF0021DB56 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1093,7 +1123,7 @@
 		};
 		084C20F21C03C1FB0068D224 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FB343FE81C4DEBFF0021DB56 /* SwiftDate.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -1112,7 +1142,7 @@
 		};
 		084C20F31C03C1FB0068D224 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D976A898E66738A8E4A1CE8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = FB343FE81C4DEBFF0021DB56 /* SwiftDate.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -1131,6 +1161,7 @@
 		};
 		084C20F51C03C1FB0068D224 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB343FE91C4DEBFF0021DB56 /* Tests.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftDateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1141,6 +1172,7 @@
 		};
 		084C20F61C03C1FB0068D224 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB343FE91C4DEBFF0021DB56 /* Tests.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftDateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

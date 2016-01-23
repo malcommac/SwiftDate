@@ -22,14 +22,33 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+import Foundation
 
-//! Project version number for SwiftDate.
-FOUNDATION_EXPORT double SwiftDateVersionNumber;
+public extension NSTimeInterval {
+	/// Returns an NSDate object initialized relative to the current date and time
+	/// by a given number of seconds.
+	public var fromNow: NSDate? {
+		return NSDate(timeIntervalSinceNow: self)
+	}
 
-//! Project version string for SwiftDate.
-FOUNDATION_EXPORT const unsigned char SwiftDateVersionString[];
+	/// Returns an NSDate object initialized relative to the current date and time
+	/// by a given number of seconds in the past
+	public var ago: NSDate? {
+		return NSDate(timeIntervalSinceNow: -self)
+	}
 
-// In this header, you should import all the public headers of your framework using statements like #import <SwiftDate/PublicHeader.h>
+	/**
+	Convert a time interval to a formatted string representing its absolute value
 
+	- parameter style: style attributes to use
 
+	- returns: a formatted string or nil if formatter fails
+	*/
+	public func toString(style: FormatterStyle = FormatterStyle()) -> String? {
+		let formatter: NSDateComponentsFormatter = sharedDateComponentsFormatter()
+		return formatter.beginSessionContext({ (Void) -> (String?) in
+			style.restoreInto(formatter)
+			return formatter.stringFromTimeInterval(self)
+		})
+	}
+}

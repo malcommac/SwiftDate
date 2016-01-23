@@ -22,14 +22,44 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+import Foundation
 
-//! Project version number for SwiftDate.
-FOUNDATION_EXPORT double SwiftDateVersionNumber;
+// MARK: - Equations
 
-//! Project version string for SwiftDate.
-FOUNDATION_EXPORT const unsigned char SwiftDateVersionString[];
+extension DateInRegion: Equatable {}
 
-// In this header, you should import all the public headers of your framework using statements like #import <SwiftDate/PublicHeader.h>
 
+/// Returns true when the given date is equal to the receiver.
+/// Just the dates are compared. Calendars, time zones are irrelevant.
+///
+/// - Parameters:
+///     - date: a date to compare against
+///
+/// - Returns: a boolean indicating whether the receiver is equal to the given date
+///
+public func ==(left: DateInRegion, right: DateInRegion) -> Bool {
+
+    // Compare the content, first the date
+    guard left.absoluteTime.isEqualToDate(right.absoluteTime) else {
+        return false
+    }
+
+    // Then the calendar
+    guard left.calendar.calendarIdentifier == right.calendar.calendarIdentifier else {
+        return false
+    }
+
+    // Then the time zone
+    guard left.timeZone.secondsFromGMTForDate(left.absoluteTime) == right.timeZone.secondsFromGMTForDate(right.absoluteTime) else {
+        return false
+    }
+
+    // Then the locale
+    guard left.locale.localeIdentifier == right.locale.localeIdentifier else {
+        return false
+    }
+
+    // We have made it! They are equal!
+    return true
+}
 

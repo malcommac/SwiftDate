@@ -1,0 +1,2 @@
+#include "TestBase.xcconfig"
+#include "Pods/Target Support Files/Pods-SwiftDateTests/Pods-SwiftDateTests.release.xcconfig"

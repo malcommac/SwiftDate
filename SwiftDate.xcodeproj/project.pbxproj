@@ -214,6 +214,7 @@
 		1FC8EBA41C30403B00440686 /* UserGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = UserGuide.md; path = Documentation/UserGuide.md; sourceTree = "<group>"; };
 		1FC8EBA51C30404E00440686 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		1FC8EBA61C30404E00440686 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1FE22DD21C543275005215D6 /* SwiftDate.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftDate.podspec; sourceTree = SOURCE_ROOT; };
 		1FEECDD31C2E9D6B00E8A78A /* time-zone-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "time-zone-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEECDD51C2E9D6B00E8A78A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		22815C82A9C48EAAFB7A255F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -328,6 +329,7 @@
 		084C20DF1C03C1FB0068D224 /* SwiftDate */ = {
 			isa = PBXGroup;
 			children = (
+				1FE22DD21C543275005215D6 /* SwiftDate.podspec */,
 				084C20E01C03C1FB0068D224 /* SwiftDate.h */,
 				08EF42CE1C4BA9E800745703 /* NSDateInterval.swift */,
 				08EF42C01C4BA9E800745703 /* Additions.swift */,

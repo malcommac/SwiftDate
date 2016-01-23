@@ -1,8 +1,7 @@
 # Change Log
 
 ## [v3.0.0](https://github.com/malcommac/SwiftDate/tree/v3.0.0) (2016-01-23)
-
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...3.0.0)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...v3.0.0)
 
 **Implemented enhancements:**
 

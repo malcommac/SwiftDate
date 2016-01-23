@@ -1,23 +1,43 @@
 # Change Log
 
-## [Unreleased](https://github.com/malcommac/SwiftDate/tree/HEAD)
+## [v3.0.0](https://github.com/malcommac/SwiftDate/tree/v3.0.0) (2016-01-23)
 
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...HEAD)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...3.0.0)
 
 **Implemented enhancements:**
 
+- Feature request: duration formatting [\#137](https://github.com/malcommac/SwiftDate/issues/137)
+- Add documentation to XCode project [\#132](https://github.com/malcommac/SwiftDate/issues/132)
+- Generate change log [\#130](https://github.com/malcommac/SwiftDate/issues/130)
+- Generator for locale & timeZone structures [\#129](https://github.com/malcommac/SwiftDate/issues/129)
+- Use full descriptive parameter names for calType & tzName [\#120](https://github.com/malcommac/SwiftDate/issues/120)
+- Use isInToday\(\) as opposed to isToday\(\) [\#118](https://github.com/malcommac/SwiftDate/issues/118)
+- Create tests for DateInRegion comparision functions [\#111](https://github.com/malcommac/SwiftDate/issues/111)
+- Time zone type hierarchy is not region - country - city [\#110](https://github.com/malcommac/SwiftDate/issues/110)
 - Upgrade "Other" time zone types to the main division [\#108](https://github.com/malcommac/SwiftDate/issues/108)
+- Adobt Quick & Nimble for behaviour-driven testing [\#103](https://github.com/malcommac/SwiftDate/issues/103)
+- Create many minimal & separate test cases [\#102](https://github.com/malcommac/SwiftDate/issues/102)
+- Converting a time zone should be done by changing region, not with UTC and time zone funcs [\#99](https://github.com/malcommac/SwiftDate/issues/99)
+- No love for cocoa relative formatting [\#97](https://github.com/malcommac/SwiftDate/issues/97)
+- Make the default region the local region in all aspects [\#96](https://github.com/malcommac/SwiftDate/issues/96)
+- Extend NSDate such that it behaves like DateInRegion for the default or local region [\#95](https://github.com/malcommac/SwiftDate/issues/95)
 - UTCDate vs NSDate [\#91](https://github.com/malcommac/SwiftDate/issues/91)
-- NSTimeInterval has now a `toString(style:)` method which allows you to return a readable locale-based interval string [\#137](https://github.com/malcommac/SwiftDate/issues/137)
-- Both `DateInRegion` and `NSDate` has now a `toNaturalString(refDate:style:)` method which allows you to return a colloquial string which represent the elapsed time between two interval (FormatterStyle is the struct used to represent a set of attributes for formatting)
+- disagree with lack of upgrade doc [\#89](https://github.com/malcommac/SwiftDate/issues/89)
+- Support for relative/pretty date formatting [\#79](https://github.com/malcommac/SwiftDate/issues/79)
+- the result of "toRelativeString" can be returned  in chinese? [\#65](https://github.com/malcommac/SwiftDate/issues/65)
 
 **Fixed bugs:**
 
 - Release what's currently planned as 2.1 as 3.0 to comply with semver [\#121](https://github.com/malcommac/SwiftDate/issues/121)
+- 1.days - 1.hours results in \(-1.days, -1.hours\) components [\#119](https://github.com/malcommac/SwiftDate/issues/119)
+- Typo in time zone type [\#109](https://github.com/malcommac/SwiftDate/issues/109)
+- localDate is a derivative from the absolute time [\#98](https://github.com/malcommac/SwiftDate/issues/98)
 - toString\(.ISO0861\) formats timezone incorrectly [\#94](https://github.com/malcommac/SwiftDate/issues/94)
+- license file issue [\#88](https://github.com/malcommac/SwiftDate/issues/88)
 
 **Closed issues:**
 
+- Consider using struct as opposed to class [\#136](https://github.com/malcommac/SwiftDate/issues/136)
 - Docset - missing metadata? [\#87](https://github.com/malcommac/SwiftDate/issues/87)
 - Region has no defaultRegion [\#86](https://github.com/malcommac/SwiftDate/issues/86)
 - Make code for autoUpdate self explanatory [\#85](https://github.com/malcommac/SwiftDate/issues/85)
@@ -28,12 +48,6 @@
 - Revert "Fix ISO8601Formatter not able to parse +hhmm timezone \(Issue \#94\)" [\#105](https://github.com/malcommac/SwiftDate/pull/105) ([malcommac](https://github.com/malcommac))
 - Use absolute time as opposed to UTC time [\#101](https://github.com/malcommac/SwiftDate/pull/101) ([Hout](https://github.com/Hout))
 - Fix ISO8601Formatter not able to parse +hhmm timezone \(Issue \#94\) [\#100](https://github.com/malcommac/SwiftDate/pull/100) ([NebulaFox](https://github.com/NebulaFox))
-
-**Deprecated methods:**
-
-- `toRelativeCocoaString(fromDate:abbreviated:maxUnits:)` is now deprecated in favor of `toString(style:)` (both in DateInRegion and NSDate)
-- `toRelativeString(style:)` is now deprecated in favor of `toNaturalString(refDate:style:)` (both in DateInRegion and NSDate)
-
 
 ## [2.0.2](https://github.com/malcommac/SwiftDate/tree/2.0.2) (2015-12-02)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.1...2.0.2)

@@ -27,9 +27,7 @@
 		08188EAC1C5A422300109396 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188E991C5A422300109396 /* NSTimeInterval+SwiftDate.swift */; };
 		08188EAD1C5A422300109396 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188E9A1C5A422300109396 /* NSTimeZone+SwiftDate.swift */; };
 		08188EAE1C5A422300109396 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188E9B1C5A422300109396 /* Region.swift */; };
-		08188EC61C5A428D00109396 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08188EC51C5A428D00109396 /* Nimble.framework */; };
 		08188EC71C5A429E00109396 /* Nimble.framework in Resources */ = {isa = PBXBuildFile; fileRef = 08188EC51C5A428D00109396 /* Nimble.framework */; };
-		08188EC91C5A430D00109396 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08188EC81C5A430D00109396 /* Quick.framework */; };
 		08188ECB1C5A432400109396 /* Quick.framework in Resources */ = {isa = PBXBuildFile; fileRef = 08188EC81C5A430D00109396 /* Quick.framework */; };
 		08188ED31C5A436300109396 /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188ED21C5A436300109396 /* SwiftDateTests.swift */; };
 		08188ED51C5A436300109396 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08188E7E1C5A421400109396 /* SwiftDate.framework */; };
@@ -45,8 +43,8 @@
 		08188EE41C5A438100109396 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB71C5A424200109396 /* NSDateTests.swift */; };
 		08188EE51C5A438100109396 /* RegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB81C5A424200109396 /* RegionStringTests.swift */; };
 		08188EE61C5A438100109396 /* RegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB91C5A424200109396 /* RegionTests.swift */; };
-		08188EFF1C5A539000109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EFE1C5A539000109396 /* main.swift */; };
-		08188F021C5A53A300109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188F011C5A53A300109396 /* main.swift */; };
+		08188F051C5A916F00109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188F041C5A916F00109396 /* main.swift */; };
+		08188F071C5A917D00109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188F061C5A917D00109396 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +118,8 @@
 		08188ED41C5A436300109396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08188EEB1C5A52EC00109396 /* locale-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "locale-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08188EF61C5A534F00109396 /* timezone-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "timezone-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
-		08188EFE1C5A539000109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../time-zone-gen/main.swift"; sourceTree = "<group>"; };
-		08188F011C5A53A300109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../locale-gen/main.swift"; sourceTree = "<group>"; };
+		08188F041C5A916F00109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../time-zone-gen/main.swift"; sourceTree = "<group>"; };
+		08188F061C5A917D00109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../locale-gen/main.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +127,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08188EC91C5A430D00109396 /* Quick.framework in Frameworks */,
-				08188EC61C5A428D00109396 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +255,7 @@
 		08188EEC1C5A52EC00109396 /* locale-gen */ = {
 			isa = PBXGroup;
 			children = (
-				08188F011C5A53A300109396 /* main.swift */,
+				08188F061C5A917D00109396 /* main.swift */,
 			);
 			path = "locale-gen";
 			sourceTree = "<group>";
@@ -267,7 +263,7 @@
 		08188EF71C5A534F00109396 /* timezone-gen */ = {
 			isa = PBXGroup;
 			children = (
-				08188EFE1C5A539000109396 /* main.swift */,
+				08188F041C5A916F00109396 /* main.swift */,
 			);
 			path = "timezone-gen";
 			sourceTree = "<group>";
@@ -468,7 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08188F021C5A53A300109396 /* main.swift in Sources */,
+				08188F071C5A917D00109396 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08188EFF1C5A539000109396 /* main.swift in Sources */,
+				08188F051C5A916F00109396 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,7 +594,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielemagutti.SwiftDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -620,6 +618,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielemagutti.SwiftDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};
@@ -738,6 +738,7 @@
 				08188EF01C5A52EC00109396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08188EFA1C5A534F00109396 /* Build configuration list for PBXNativeTarget "timezone-gen" */ = {
 			isa = XCConfigurationList;
@@ -746,6 +747,7 @@
 				08188EFC1C5A534F00109396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

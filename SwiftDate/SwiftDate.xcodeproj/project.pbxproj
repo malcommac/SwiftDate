@@ -27,8 +27,6 @@
 		08188EAC1C5A422300109396 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188E991C5A422300109396 /* NSTimeInterval+SwiftDate.swift */; };
 		08188EAD1C5A422300109396 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188E9A1C5A422300109396 /* NSTimeZone+SwiftDate.swift */; };
 		08188EAE1C5A422300109396 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188E9B1C5A422300109396 /* Region.swift */; };
-		08188EC71C5A429E00109396 /* Nimble.framework in Resources */ = {isa = PBXBuildFile; fileRef = 08188EC51C5A428D00109396 /* Nimble.framework */; };
-		08188ECB1C5A432400109396 /* Quick.framework in Resources */ = {isa = PBXBuildFile; fileRef = 08188EC81C5A430D00109396 /* Quick.framework */; };
 		08188ED31C5A436300109396 /* SwiftDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188ED21C5A436300109396 /* SwiftDateTests.swift */; };
 		08188ED51C5A436300109396 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08188E7E1C5A421400109396 /* SwiftDate.framework */; };
 		08188EDB1C5A437000109396 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08188EC51C5A428D00109396 /* Nimble.framework */; };
@@ -401,8 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08188EC71C5A429E00109396 /* Nimble.framework in Resources */,
-				08188ECB1C5A432400109396 /* Quick.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

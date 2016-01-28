@@ -45,6 +45,8 @@
 		08188EE41C5A438100109396 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB71C5A424200109396 /* NSDateTests.swift */; };
 		08188EE51C5A438100109396 /* RegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB81C5A424200109396 /* RegionStringTests.swift */; };
 		08188EE61C5A438100109396 /* RegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB91C5A424200109396 /* RegionTests.swift */; };
+		08188EFF1C5A539000109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EFE1C5A539000109396 /* main.swift */; };
+		08188F021C5A53A300109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188F011C5A53A300109396 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,27 @@
 			remoteInfo = SwiftDate;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		08188EE91C5A52EC00109396 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		08188EF41C5A534F00109396 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08188E7E1C5A421400109396 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +118,10 @@
 		08188ED01C5A436300109396 /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08188ED21C5A436300109396 /* SwiftDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDateTests.swift; sourceTree = "<group>"; };
 		08188ED41C5A436300109396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08188EEB1C5A52EC00109396 /* locale-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "locale-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08188EF61C5A534F00109396 /* timezone-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "timezone-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08188EFE1C5A539000109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../time-zone-gen/main.swift"; sourceTree = "<group>"; };
+		08188F011C5A53A300109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../locale-gen/main.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +144,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08188EE81C5A52EC00109396 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08188EF31C5A534F00109396 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -125,6 +166,8 @@
 			children = (
 				08188E801C5A421400109396 /* SwiftDate */,
 				08188ED11C5A436300109396 /* SwiftDateTests */,
+				08188EEC1C5A52EC00109396 /* locale-gen */,
+				08188EF71C5A534F00109396 /* timezone-gen */,
 				08188E7F1C5A421400109396 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,6 +177,8 @@
 			children = (
 				08188E7E1C5A421400109396 /* SwiftDate.framework */,
 				08188ED01C5A436300109396 /* SwiftDateTests.xctest */,
+				08188EEB1C5A52EC00109396 /* locale-gen */,
+				08188EF61C5A534F00109396 /* timezone-gen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +256,22 @@
 			path = SwiftDateTests;
 			sourceTree = "<group>";
 		};
+		08188EEC1C5A52EC00109396 /* locale-gen */ = {
+			isa = PBXGroup;
+			children = (
+				08188F011C5A53A300109396 /* main.swift */,
+			);
+			path = "locale-gen";
+			sourceTree = "<group>";
+		};
+		08188EF71C5A534F00109396 /* timezone-gen */ = {
+			isa = PBXGroup;
+			children = (
+				08188EFE1C5A539000109396 /* main.swift */,
+			);
+			path = "timezone-gen";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -261,6 +322,40 @@
 			productReference = 08188ED01C5A436300109396 /* SwiftDateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		08188EEA1C5A52EC00109396 /* locale-gen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08188EF11C5A52EC00109396 /* Build configuration list for PBXNativeTarget "locale-gen" */;
+			buildPhases = (
+				08188EE71C5A52EC00109396 /* Sources */,
+				08188EE81C5A52EC00109396 /* Frameworks */,
+				08188EE91C5A52EC00109396 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "locale-gen";
+			productName = "locale-gen";
+			productReference = 08188EEB1C5A52EC00109396 /* locale-gen */;
+			productType = "com.apple.product-type.tool";
+		};
+		08188EF51C5A534F00109396 /* timezone-gen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08188EFA1C5A534F00109396 /* Build configuration list for PBXNativeTarget "timezone-gen" */;
+			buildPhases = (
+				08188EF21C5A534F00109396 /* Sources */,
+				08188EF31C5A534F00109396 /* Frameworks */,
+				08188EF41C5A534F00109396 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "timezone-gen";
+			productName = "timezone-gen";
+			productReference = 08188EF61C5A534F00109396 /* timezone-gen */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +370,12 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					08188ECF1C5A436300109396 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					08188EEA1C5A52EC00109396 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					08188EF51C5A534F00109396 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -293,6 +394,8 @@
 			targets = (
 				08188E7D1C5A421400109396 /* SwiftDate */,
 				08188ECF1C5A436300109396 /* SwiftDateTests */,
+				08188EEA1C5A52EC00109396 /* locale-gen */,
+				08188EF51C5A534F00109396 /* timezone-gen */,
 			);
 		};
 /* End PBXProject section */
@@ -358,6 +461,22 @@
 				08188EE51C5A438100109396 /* RegionStringTests.swift in Sources */,
 				08188EE61C5A438100109396 /* RegionTests.swift in Sources */,
 				08188ED31C5A436300109396 /* SwiftDateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08188EE71C5A52EC00109396 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08188F021C5A53A300109396 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08188EF21C5A534F00109396 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08188EFF1C5A539000109396 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +651,56 @@
 			};
 			name = Release;
 		};
+		08188EEF1C5A52EC00109396 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		08188EF01C5A52EC00109396 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		08188EFB1C5A534F00109396 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		08188EFC1C5A534F00109396 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -551,12 +720,30 @@
 				08188E881C5A421400109396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08188ED81C5A436300109396 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08188ED91C5A436300109396 /* Debug */,
 				08188EDA1C5A436300109396 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08188EF11C5A52EC00109396 /* Build configuration list for PBXNativeTarget "locale-gen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08188EEF1C5A52EC00109396 /* Debug */,
+				08188EF01C5A52EC00109396 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		08188EFA1C5A534F00109396 /* Build configuration list for PBXNativeTarget "timezone-gen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08188EFB1C5A534F00109396 /* Debug */,
+				08188EFC1C5A534F00109396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

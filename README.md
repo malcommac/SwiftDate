@@ -2,7 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 
-Welcome to SwiftDate 2, the second major release of our Date Management Library for Apple's platforms: the goal of this project is to allow developers to manage easily dates operation and timezones conversions in Swift. SwiftDate allows you to:
+Welcome to SwiftDate 3 a Date Management Library for Apple's platforms: the goal of this project is to allow developers to manage easily dates operation and timezones conversions in Swift. SwiftDate allows you to:
 - [x] Perform **calculations with dates**: `aDate + 2.weeks + 1.hours` or `(1.years - 2.hours + 16.minutes).fromNow()`
 - [x] **Compare dates** with math operators `<,>,==,<=,>=`. For example you can do `aDate1 >= aDate2` or `aDate1.inTimeRange("15:20","20:20")`
 - [x] **Easily get time components**. E.g. `aDateInRegion.day` or `hour, minutes etc.`

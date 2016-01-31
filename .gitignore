@@ -17,6 +17,7 @@ DerivedData
 MoneyNetwork.xcodeproj/xcuserdata
 #Breakpoints_v2.xcbkptlist
 xcschememanagement.plist
+SwiftDate/Carthage
 Pods/Manifest.lock
 Pods/Headers/Private/Nimble/DSL.h
 Pods/Headers/Private/Nimble/Nimble.h

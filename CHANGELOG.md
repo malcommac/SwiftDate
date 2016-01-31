@@ -1,5 +1,9 @@
 # Change Log
 
+## [v3.0.1](https://github.com/malcommac/SwiftDate/releases/tag/3.0.1) (2016-01-28)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0..v3.0.1)
+- Fixed Carthage build (SwiftDate now compiles on iOS,TvOS,OSX and WatchOS)
+
 ## [v3.0.0](https://github.com/malcommac/SwiftDate/tree/v3.0.0) (2016-01-23)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...v3.0.0)
 

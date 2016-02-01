@@ -199,7 +199,7 @@ let date = inRome.absoluteTime() ... // get the absolute time: '2015-01-31 23:45
 Properties and functions available:
 
 Property/function|Description|NSDate|DateInRegion
---|--|:-:|:-:|:-:
+---|---|---|---
 `era`|Returns the era number of the receiver|x|x
 `year`|Returns the year number of the receiver|x|x
 `yearForWeekOfYear`|Returns the year number for the weekOfYear of the receiver|x|x
@@ -236,7 +236,7 @@ Property/function|Description|NSDate|DateInRegion
 Class functions available:
 
 Function|Description|NSDate|DateInRegion|DateRegion
---|--|:-:|:-:|:-:
+---|---|---|---|---
 `today()`|Returns today at midnight|x|.|x
 `tomorrow()`|Returns tomorrow at midnight|x|.|x
 `yesterday()`|Returns yesterday at midnight|x|.|x
@@ -296,7 +296,7 @@ Date objects can be compared with the regular math comparison operators:
 Other comparisons are in the functions:
 
 Property/function|Description|NSDate|DateInRegion
---|--|:-:|:-:|:-:
+---|---|---|---
 `isInToday()`|returns `true` if the receiver is in today|x|x
 `isInYesterday()`|returns `true` if the receiver is in yesterday|x|x
 `isInTomorrow()`|returns `true` if the receiver is in tomorrow|x|x

@@ -43,12 +43,8 @@ public enum ISO8601Style: String {
 public enum DateFormat {
     case Custom(String)					// Custom formatting method
 	case ISO8601Format(ISO8601Style?)	// ISO8601 format with style
-	
-	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.CompleteDateTimeSeconds)")
-	case ISO8601						// ISO8601 Format: "2015-01-22T15:20:00Z"
-
-	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.CompleteDate)")
-	case ISO8601Date					// ISO8601 Only Date: "2015-01-22"
+	case ISO8601						// ISO8601 with time (.CompleteDateTimeSeconds)
+	case ISO8601Date					// ISO8601 onlt with data (.CompleteDate)
     case RSS							// RSS style formatter
     case AltRSS							// Alt RSS Formatter
     case Extended						// Extended date Formatter
@@ -56,8 +52,8 @@ public enum DateFormat {
     var formatString: String {
         switch self {
         case .Custom(let format):		return format
-        case .ISO8601:					return "yyyy-MM-dd'T'HH:mm:ssZ"
-        case .ISO8601Date:				return "yyyy-MM-dd"
+		case .ISO8601:					return (ISO8601Style.CompleteDateTimeSeconds).rawValue
+        case .ISO8601Date:				return (ISO8601Style.CompleteDate).rawValue
 		case .ISO8601Format(let style): return (style != nil ? style! : ISO8601Style.CompleteDateTimeSeconds).rawValue
 		case .RSS:						return "EEE, d MMM yyyy HH:mm:ss ZZZ"
         case .AltRSS:					return "d MMM yyyy HH:mm:ss ZZZ"

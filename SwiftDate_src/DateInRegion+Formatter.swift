@@ -279,7 +279,7 @@ public extension String {
      - returns: `NSDate` instance or nil if string cannot be parsed
      */
     public func toDateFromISO8601() -> NSDate? {
-        return toDate(DateFormat.ISO8601)
+		return toDate(DateFormat.ISO8601Format(ISO8601Style.CompleteDateTimeSeconds))
     }
     
     var _sdLocalize: String {

@@ -293,6 +293,9 @@ public struct DateInRegion {
 				case .ISO8601Date:
 					cFormatter.dateFormat = "yyyy-MM-dd"
 					parsedDate = cFormatter.dateFromString(date)
+				case .ISO8601Format(let style):
+					cFormatter.dateFormat = style!.rawValue
+					parsedDate = cFormatter.dateFromString(date)
 				case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 					var formattedString: NSString = date
 					if formattedString.hasSuffix("Z") {

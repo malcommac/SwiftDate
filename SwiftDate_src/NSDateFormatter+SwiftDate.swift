@@ -24,6 +24,25 @@
 
 import Foundation
 
+/**
+Formatter options for ISO8601
+
+- Year Year only format (yyyy)
+- YearAndMonth Year plus month (yyyy-MM)
+- Date Full date (yyyy-MM-dd)
+- DateTime date plus time without seconds (yyyy-MM-dd'T'HH:mmZ)
+- Full full date time with seconds (yyyy-MM-dd'T'HH:mm:ssZ)
+- Extended extended date-time format with fractional seconds (yyyy-MM-dd'T'HH:mm:ss.SSSZ)
+*/
+public enum ISO8601Type: String {
+	case Year					= "yyyy"
+	case YearMonth				= "yyyy-MM"
+	case Date					= "yyyy-MM-dd"
+	case DateTime				= "yyyy-MM-dd'T'HH:mmZ"
+	case Full					= "yyyy-MM-dd'T'HH:mm:ssZ"
+	case Extended				= "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+}
+
 //MARK: - Structure: DateFormat -
 
 /**
@@ -32,21 +51,22 @@ import Foundation
 *			See: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/DataFormatting/Articles/dfDateFormatting10_4.html#//apple_ref/doc/uid/TP40002369-SW1
 */
 public enum DateFormat {
-    case Custom(String)		// Custom formatting method
-    case ISO8601			// ISO8601 Format: "2015-01-22T15:20:00Z"
-    case ISO8601Date		// ISO8601 Only Date: "2015-01-22"
-    case RSS				// RSS style formatter
-    case AltRSS				// Alt RSS Formatter
-    case Extended			// Extended date Formatter
-    
+    case Custom(String)					// Custom formatting method
+	case ISO8601(ISO8601Type?)			// ISO8601 format with style. You can omit type, .Full option is used.
+	@available(*, deprecated=3.0.3, message="Use ISO8601(.Date)")
+	case ISO8601Date					// ISO8601 Date Only Format (same of ISO8601(.Date))
+    case RSS							// RSS style formatter
+    case AltRSS							// Alt RSS Formatter
+    case Extended						// Extended date Formatter
+	
     var formatString: String {
         switch self {
-        case .Custom(let format):	return format
-        case .ISO8601:				return "yyyy-MM-dd'T'HH:mm:ssZ"
-        case .ISO8601Date:			return "yyyy-MM-dd"
-        case .RSS:					return "EEE, d MMM yyyy HH:mm:ss ZZZ"
-        case .AltRSS:				return "d MMM yyyy HH:mm:ss ZZZ"
-        case .Extended:				return "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
+        case .Custom(let format):		return format
+        case .ISO8601Date:				return (ISO8601Type.Date).rawValue
+		case .ISO8601(let type):		return (type != nil ? type! : ISO8601Type.Full).rawValue
+		case .RSS:						return "EEE, d MMM yyyy HH:mm:ss ZZZ"
+        case .AltRSS:					return "d MMM yyyy HH:mm:ss ZZZ"
+        case .Extended:					return "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
         }
     }
 }

@@ -36,7 +36,7 @@ Formatter options for ISO8601
 */
 public enum ISO8601Type: String {
 	case Year					= "yyyy"
-	case YearAndMonth			= "yyyy-MM"
+	case YearMonth				= "yyyy-MM"
 	case Date					= "yyyy-MM-dd"
 	case DateTime				= "yyyy-MM-dd'T'HH:mmZ"
 	case Full					= "yyyy-MM-dd'T'HH:mm:ssZ"

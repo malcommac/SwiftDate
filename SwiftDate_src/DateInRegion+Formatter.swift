@@ -94,7 +94,7 @@ public extension DateInRegion {
 			cachedFormatter.dateFormat = dateFormatString
 			cachedFormatter.timeZone = self.region.timeZone
 			cachedFormatter.calendar = self.region.calendar
-			cachedFormatter.calendar.locale = self.region.calendar.locale
+			cachedFormatter.locale = self.region.locale
 			let value = cachedFormatter.stringFromDate(self.absoluteTime!)
 			return value
 		}

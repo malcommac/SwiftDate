@@ -161,7 +161,7 @@ public extension DateInRegion {
     }
 
     /// Week day name of the date expressed in this region's locale
-    var weekdayName: String? {
+    public var weekdayName: String? {
         guard let _ = absoluteTime else { return nil }
 
 		let cachedFormatter = sharedDateFormatter()

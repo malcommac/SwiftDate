@@ -2,8 +2,9 @@
 
 ## [v3.0.3](https://github.com/malcommac/SwiftDate/releases/tag/3.0.3) (2016-)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2..v3.0.3)
-- Deprecated .toISO8101String(). Use .toString(.ISO8601) instead ([Commit](https://github.com/malcommac/SwiftDate/commit/9451ed3fcf3ba996a347ea96ce45694371aa4f3a))
+- Deprecated ```.toISO8101String()```. Use ```.toString(.ISO8601)``` instead ([Commit](https://github.com/malcommac/SwiftDate/commit/9451ed3fcf3ba996a347ea96ce45694371aa4f3a))
 - Locale is not set to calendar object but inside the formatter ([Commit](https://github.com/malcommac/SwiftDate/commit/0ccc172d506034f1cd1b949100fbfca3f16bf303))
+- DateFormat's ```ISO8601``` enum type now allows to specify the ISO8601 variant (```Year,YearMonth,Date,DateTime,Full``` or ```Extended```). When omitted ```.Full``` is used instead.
 
 ## [v3.0.1](https://github.com/malcommac/SwiftDate/releases/tag/3.0.1) (2016-01-28)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0..v3.0.1)

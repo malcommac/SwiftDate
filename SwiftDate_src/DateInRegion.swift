@@ -286,15 +286,12 @@ public struct DateInRegion {
 				let parsedDate: NSDate?
 
 				switch format {
-				case .ISO8601: // 1972-07-16T08:15:30-05:00
-					cFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-					cFormatter.dateFormat = String.ISO8601Formatter(fromString: date)
-					parsedDate = cFormatter.dateFromString(date)
 				case .ISO8601Date:
 					cFormatter.dateFormat = "yyyy-MM-dd"
 					parsedDate = cFormatter.dateFromString(date)
-				case .ISO8601Format(let style):
-					cFormatter.dateFormat = style!.rawValue
+				case .ISO8601(let type):
+					cFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+					cFormatter.dateFormat = type!.rawValue
 					parsedDate = cFormatter.dateFromString(date)
 				case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 					var formattedString: NSString = date

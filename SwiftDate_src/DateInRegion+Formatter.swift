@@ -62,6 +62,7 @@ public extension DateInRegion {
 
      - returns: a new string or nil if `DateInRegion` does not contains any valid date
      */
+	@available(*, deprecated=3.0.2, message="Use toString(.ISO8601)")
     public func toISO8601String() -> String? {
 		return self.toString(.ISO8601)
     }

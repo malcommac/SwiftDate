@@ -29,7 +29,31 @@ class DateRegionStringSpec: QuickSpec {
                 it("should return proper ISO 8601 date string") {
                     expect(utcDate.toString(DateFormat.ISO8601Date)) == "2015-04-13"
                 }
-                
+				
+				it("should return proper ISO 8601 (year format) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Year))) == "2015"
+				}
+				
+				it("should return proper ISO 8601 (year/month format) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.YearMonth))) == "2015-04"
+				}
+				
+				it("should return proper ISO 8601 (date format) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Date))) == "2015-04-13"
+				}
+				
+				it("should return proper ISO 8601 (date time format) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.DateTime))) == "2015-04-13T22:10"
+				}
+				
+				it("should return proper ISO 8601 (full format) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Full))) == "2015-04-13T22:10:00+0000"
+				}
+				
+				it("should return proper ISO 8601 (extended with fractional seconds format) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Extended))) == "2015-04-13T22:10:00.000+0000"
+				}
+				
                 it("should return proper Alt RSS date string") {
                     expect(utcDate.toString(DateFormat.AltRSS)) == "13 Apr 2015 22:10:00 +0000"
                 }

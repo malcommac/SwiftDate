@@ -62,19 +62,9 @@ public extension DateInRegion {
 
      - returns: a new string or nil if `DateInRegion` does not contains any valid date
      */
+	@available(*, deprecated=3.0.2, message="Use toString(.ISO8601)")
     public func toISO8601String() -> String? {
-        guard let _ = absoluteTime else {
-            return nil
-        }
-
-		let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { () -> (String?) in
-			cachedFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-			cachedFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
-			cachedFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-			let value = cachedFormatter.stringFromDate(self.absoluteTime).stringByAppendingString("Z")
-			return value
-		}
+		return self.toString(.ISO8601)
     }
 	
     /**

@@ -336,7 +336,8 @@ extension NSDate {
      
      - returns: string representation of the date into the region
      */
-    public func toString(format :DateFormat, inRegion region :Region = Region()) -> String? {
+    public func toString(format :DateFormat, inRegion region :Region? = nil) -> String? {
+		let region = region ?? Region()
         return DateInRegion(absoluteTime: self, region: region).toString(format)
     }
     

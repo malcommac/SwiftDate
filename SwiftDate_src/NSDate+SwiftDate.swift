@@ -188,7 +188,7 @@ extension NSDate {
             let newComponents = NSDateComponents()
             newComponents.era = era ?? date.era ?? 1
             newComponents.year = year ?? date.year ?? 2001
-            newComponents.month = weekOfYear ?? date.weekOfYear ?? 1
+            newComponents.month = month ?? date.month ?? 1
             newComponents.day = weekday ?? date.weekday ?? 1
             newComponents.yearForWeekOfYear = yearForWeekOfYear ?? date.yearForWeekOfYear ?? NSDateComponentUndefined
             newComponents.weekOfYear = weekOfYear ?? date.weekOfYear ?? NSDateComponentUndefined

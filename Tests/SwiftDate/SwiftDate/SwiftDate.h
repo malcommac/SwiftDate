@@ -2,11 +2,11 @@
 //  SwiftDate.h
 //  SwiftDate
 //
-//  Created by daniele on 28/01/16.
-//  Copyright © 2016 breakfastcode. All rights reserved.
+//  Created by Jeroen Houtzager on 20/02/16.
+//  Copyright © 2016 Jeroen Houtzager. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for SwiftDate.
 FOUNDATION_EXPORT double SwiftDateVersionNumber;

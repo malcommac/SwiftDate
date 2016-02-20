@@ -68,25 +68,6 @@ public extension DateInRegion {
         let components = dict.components()
         return self.add(components)
     }
-    
-
-
-    /// Returns a new DateInRegion object representing the absolute time calculated by adding given components to the receiver.
-    ///
-    /// - Parameters:
-    ///     - components: the components to add to the receiver
-    ///
-    /// - Returns: A new DateInRegion object representing the absolute time calculated by adding to date the calendrical components specified by components.
-    ///
-    /// - note: This value is calculated in the context of the calendar of the receiver
-    ///
-    internal func addComponents(components: NSDateComponents) -> DateInRegion? {
-        let newDate = calendar.dateByAddingComponents(components, toDate: self.absoluteTime, options: NSCalendarOptions(rawValue: 0))
-        guard newDate != nil else {
-            return nil
-        }
-        return DateInRegion(absoluteTime: newDate!, region: region)
-    }
 }
 
 /// Returns a new DateInRegion object representing a new time calculated by subtracting given right hand components from the left hand date.
@@ -114,7 +95,7 @@ public func - (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion {
 /// - note: This value is calculated in the context of the calendar of the date
 ///
 public func + (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion {
-    return lhs.addComponents(rhs)!
+    return lhs.add(rhs)
 }
 
 

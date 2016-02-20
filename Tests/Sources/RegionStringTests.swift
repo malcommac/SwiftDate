@@ -23,11 +23,11 @@ class DateRegionStringSpec: QuickSpec {
                 let utcDate = DateInRegion(year: 2015, month: 4, day: 13, hour: 22, minute: 10, region: utc)!
                 
                 it("should return proper ISO 8601 string") {
-                    expect(utcDate.toString(DateFormat.ISO8601)) == "2015-04-13T22:10:00+0000"
+                    expect(utcDate.toString(DateFormat.ISO8601Format(.Full))) == "2015-04-13T22:10:00+0000"
                 }
                 
                 it("should return proper ISO 8601 date string") {
-                    expect(utcDate.toString(DateFormat.ISO8601Date)) == "2015-04-13"
+                    expect(utcDate.toString(DateFormat.ISO8601Format(.Date))) == "2015-04-13"
                 }
 				
 				it("should return proper ISO 8601 (year format) string") {
@@ -77,13 +77,13 @@ class DateRegionStringSpec: QuickSpec {
                 let localDate = date.inRegion()
 
                 it("should return proper ISO 8601 string") {
-                    expect(localDate.toString(DateFormat.ISO8601)!.hasPrefix("2015-04-13T22:10:00"))
-                    expect(date.toString(DateFormat.ISO8601)!.hasPrefix("2015-04-13T22:10:00"))
+                    expect(localDate.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00"))
+                    expect(date.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00"))
                 }
 
                 it("should return proper ISO 8601 date string") {
-                    expect(localDate.toString(DateFormat.ISO8601Date)) == "2015-04-13"
-                    expect(date.toString(DateFormat.ISO8601Date)) == "2015-04-13"
+                    expect(localDate.toString(DateFormat.ISO8601Format(.Date))) == "2015-04-13"
+                    expect(date.toString(DateFormat.ISO8601Format(.Date))) == "2015-04-13"
                 }
 
                 it("should return proper Alt RSS date string") {

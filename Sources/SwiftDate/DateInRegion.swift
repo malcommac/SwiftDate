@@ -321,7 +321,7 @@ public struct DateInRegion {
 				return parsedDate
 			}
 
-			guard let _ = parsedDate else {
+			guard parsedDate != nil else {
 				return nil
 			}
 			self.init(absoluteTime: parsedDate!, region: region)

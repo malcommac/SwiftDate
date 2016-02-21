@@ -52,8 +52,8 @@ public extension DateInRegion {
 	}
 
     /**
-     Return an `ISO8601` string from current UTC Date of the region.
-	 venMore information about this standard can be found on [Wikipedia/ISO8601](https://en.wikipedia.org/wiki/ISO_8601).
+     Return an `ISO8601` string for the date.
+	 More information about this standard can be found on [Wikipedia/ISO8601](https://en.wikipedia.org/wiki/ISO_8601).
 
  	 Some examples of the formatted output are:
 	* `2016-01-11T17:31:10+00:00`

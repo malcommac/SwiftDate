@@ -29,12 +29,14 @@ import Foundation
 @available(*, renamed="DateRegion")
 public typealias DateRegion = Region
 
-/// Region encapsulates all objects you need when representing a date from an absolute time like NSDate.
+/// Region encapsulates all objects you need when representing a date from an absolute time like
+/// NSDate.
 ///
 @available(*, introduced=2.0)
 public struct Region: Equatable {
 
-    /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
+    /// Calendar to interpret date values. You can alter the calendar to adjust the representation
+    /// of date to your needs.
     ///
     public let calendar: NSCalendar!
 
@@ -88,8 +90,10 @@ public struct Region: Equatable {
     /// Initialise with a calendar and/or a time zone
     ///
     /// - Parameters:
-    ///     - calendarName: the calendar to work with to assign in `CalendarName` format, default = the current calendar
-    ///     - timeZoneName: the time zone to work with in `TimeZoneConvertible` format, default is the default time zone
+    ///     - calendarName: the calendar to work with to assign in `CalendarName` format, default =
+    ///         the current calendar
+    ///     - timeZoneName: the time zone to work with in `TimeZoneConvertible` format, default is
+    ///             the default time zone
     ///     - localeName: the locale to work with, default is the current locale
     ///
     public init(
@@ -106,7 +110,8 @@ public struct Region: Equatable {
 
     /// Today's date
     ///
-    /// - Returns: the date of today at midnight (00:00) in the current calendar and default time zone.
+    /// - Returns: the date of today at midnight (00:00) in the current calendar and default time
+    ///     zone.
     ///
     public func today() -> DateInRegion {
         return DateInRegion(region: self).startOf(.Day)
@@ -130,7 +135,7 @@ public struct Region: Equatable {
 
 }
 
-public func ==(left: Region, right: Region) -> Bool {
+public func == (left: Region, right: Region) -> Bool {
     if left.calendar.calendarIdentifier != right.calendar.calendarIdentifier {
         return false
     }
@@ -155,6 +160,7 @@ extension Region: Hashable {
 extension Region: CustomStringConvertible {
     public var description: String {
         let timeZoneAbbreviation = timeZone.abbreviation ?? ""
-        return "\(calendar.calendarIdentifier); \(timeZone.name):\(timeZoneAbbreviation); \(locale.localeIdentifier)"
+        return "\(calendar.calendarIdentifier); \(timeZone.name):\(timeZoneAbbreviation); " +
+        "\(locale.localeIdentifier)"
     }
 }

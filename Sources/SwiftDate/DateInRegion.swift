@@ -295,14 +295,16 @@ public struct DateInRegion {
 				case .AltRSS: // 09 Sep 2011 15:26:08 +0200
 					var formattedString: NSString = date
 					if formattedString.hasSuffix("Z") {
-						formattedString = formattedString.substringToIndex(formattedString.length-1) + "UTC"
+						formattedString = formattedString.substringToIndex(formattedString.length-1)
+                            + "UTC"
 					}
 					cFormatter.dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
 					parsedDate = cFormatter.dateFromString(formattedString as String)
 				case .RSS: // Fri, 09 Sep 2011 15:26:08 +0200
 					var formattedString: NSString = date
 					if formattedString.hasSuffix("Z") {
-						formattedString = formattedString.substringToIndex(formattedString.length-1) + "UTC"
+						formattedString = formattedString.substringToIndex(formattedString.length-1)
+                            + "UTC"
 					}
 					cFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
 					parsedDate = cFormatter.dateFromString(formattedString as String)
@@ -361,9 +363,6 @@ extension DateInRegion: CustomDebugStringConvertible {
 		formatter.calendar = self.calendar
 		formatter.timeZone = self.timeZone
 		descriptor.append(formatter.stringFromDate(self.absoluteTime))
-
-		//formatter.timeZone = NSTimeZone(abbreviation: "UTC")
-		//descriptor.append("UTC\t\(formatter.stringFromDate(self.absoluteTime))")
 
 		descriptor.append("Calendar: \(calendar.calendarIdentifier)")
 		descriptor.append("Time zone: \(timeZone.name)")

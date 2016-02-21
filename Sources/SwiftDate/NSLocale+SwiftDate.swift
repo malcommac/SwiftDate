@@ -24,6 +24,9 @@
 
 import Foundation
 
+// swiftlint:disable file_length
+// swiftlint:disable type_body_length
+// swiftlint:disable type_name
 
 public enum LocaleName: String {
 

@@ -80,16 +80,24 @@ public enum ISO8601Type: String {
 
 //MARK: - Structure: DateFormat -
 
+// swiftlint:disable line_length
+
 /**
 *  @brief	DateFormat structure is used to parse and format an NSDate.
 *			Custom formats are the same provided by iOS.
 *			See: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/DataFormatting/Articles/dfDateFormatting10_4.html#//apple_ref/doc/uid/TP40002369-SW1
 */
+
+// enable line_length
+
+
 public enum DateFormat {
     case Custom(String)					// Custom formatting method
-	case ISO8601Format(ISO8601Type?)	// ISO8601 format with style. You can omit type, .Full option is used.
+	case ISO8601Format(ISO8601Type?)	// ISO8601 format with style.
+                                        // You can omit type, .Full option is used.
 	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.Full)")
-	case ISO8601						// ISO8601 format with style. You can omit type, .Full option is used.
+	case ISO8601						// ISO8601 format with style.
+                                        // You can omit type, .Full option is used.
 	@available(*, deprecated=3.0.3, message="Use ISO8601(.Date)")
 	case ISO8601Date					// ISO8601 Date Only Format (same of ISO8601(.Date))
     case RSS							// RSS style formatter
@@ -112,45 +120,52 @@ public enum DateFormat {
 
 // MARK: - Extension - ISO8601 Formatter
 
-// This class extension provide a single method which attempt to handle all different ISO8601 formatters to return
+// This class extension provide a single method which attempt to handle all different ISO8601
+// formatters to return
 // best format string which can handle provided date
 
 extension String {
-    /**
-     Attempts to handle all different ISO8601 formatters
-     and returns correct date format for string
-     http://www.w3.org/TR/NOTE-datetime
-     */
+
+    private enum IS08601Format: Int {
+        // YYYY (eg 1997)
+        case Year = 4
+
+        // YYYY-MM (eg 1997-07)
+        case YearAndMonth = 7
+
+        // YYYY-MM-DD (eg 1997-07-16)
+        case CompleteDate = 10
+
+        // YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)
+        case CompleteDatePlusHoursAndMinutes = 22
+
+        // YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20Z)
+        case CompleteDatePlusHoursAndMinutesAndZ = 17
+
+        // YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
+        case CompleteDatePlusHoursMinutesAndSeconds = 25
+
+        // YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30Z)
+        case CompleteDatePlusHoursAndMinutesAndSecondsAndZ = 20
+        // swiftlint:disable:previous type_name
+
+        // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
+        case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond = 28
+        // swiftlint:disable:previous type_name
+
+        // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45Z)
+        case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ = 23
+        // swiftlint:disable:previous type_name
+    }
+
+    /// Handle all different ISO8601 formatters and returns correct date format for string
+    ///
+    /// - parameters:
+    ///     - fromString: string to be formatted
+    ///
+    /// - returns: formatted string
+    ///
     static func ISO8601Formatter(fromString string: String) -> String {
-
-        enum IS08601Format: Int {
-            // YYYY (eg 1997)
-            case Year = 4
-
-            // YYYY-MM (eg 1997-07)
-            case YearAndMonth = 7
-
-            // YYYY-MM-DD (eg 1997-07-16)
-            case CompleteDate = 10
-
-            // YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)
-            case CompleteDatePlusHoursAndMinutes = 22
-
-            // YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20Z)
-            case CompleteDatePlusHoursAndMinutesAndZ = 17
-
-            // YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
-            case CompleteDatePlusHoursMinutesAndSeconds = 25
-
-            // YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30Z)
-            case CompleteDatePlusHoursAndMinutesAndSecondsAndZ = 20
-
-            // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
-            case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond = 28
-
-            // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45Z)
-            case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ = 23
-        }
 
         var dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 

@@ -24,8 +24,10 @@
 
 import Foundation
 
-//MARK: - TimeZoneNames -
+// MARK: - TimeZoneNames -
 
+// swiftlint:disable file_length
+// swiftlint:disable type_body_length
 
 public enum TimeZoneName: String {
 

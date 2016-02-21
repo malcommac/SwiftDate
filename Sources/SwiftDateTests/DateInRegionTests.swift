@@ -344,32 +344,32 @@ class RegionSpec: QuickSpec {
             
             context("init from string") {
 
-                it("should init from a ISO 8601 string without Z") {
-                    let string = "2015-01-05T22:10:55.200"
+                it("should init from a ISO 8601 string without Z (YYYY-MM-DDThh:mm:ss)") {
+                    let string = "2015-01-05T22:10:55+0000"
                     let date = DateInRegion(fromString: string, format: DateFormat.ISO8601Format(.Full), region: utc)
                     expect(date).toNot(beNil())
-                    //                    expect(date!.year) == 2015
-                    //                    expect(date!.month) == 1
-                    //                    expect(date!.day) == 5
-                    //                    expect(date!.hour) == 22
-                    //                    expect(date!.minute) == 10
-                    //                    expect(date!.second) == 55
-                    //                    expect(date!.timeZone.secondsFromGMT) == 0
+                    expect(date!.year) == 2015
+                    expect(date!.month) == 1
+                    expect(date!.day) == 5
+                    expect(date!.hour) == 22
+                    expect(date!.minute) == 10
+                    expect(date!.second) == 55
+                    expect(date!.timeZone.secondsFromGMT) == 0
                 }
-                
+
                 it("should init from a ISO 8601 string with Z") {
-                    let string = "2015-01-05T22:10:55.200Z"
+                    let string = "2015-01-05T22:10:55Z"
                     let date = DateInRegion(fromString: string, format: DateFormat.ISO8601Format(.Full), region: utc)
                     expect(date).toNot(beNil())
-                    //                    expect(date!.year) == 2015
-                    //                    expect(date!.month) == 1
-                    //                    expect(date!.day) == 5
-                    //                    expect(date!.hour) == 22
-                    //                    expect(date!.minute) == 10
-                    //                    expect(date!.second) == 55
-                    //                    expect(date!.timeZone.secondsFromGMT) == 0
+                    expect(date!.year) == 2015
+                    expect(date!.month) == 1
+                    expect(date!.day) == 5
+                    expect(date!.hour) == 22
+                    expect(date!.minute) == 10
+                    expect(date!.second) == 55
+                    expect(date!.timeZone.secondsFromGMT) == 0
                 }
-                
+
                 it("should init from ISO 8601 date string") {
                     let string = "2015-01-05"
                     let date = DateInRegion(fromString: string, format: DateFormat.ISO8601Format(.Date), region: utc)
@@ -397,16 +397,16 @@ class RegionSpec: QuickSpec {
                 }
 
                 it("should init from Alt RSS date string with Z") {
-                    let string = "09 Sep 2011 15:26:08 -0400Z"
+                    let string = "09 Sep 2011 15:26:08 Z"
                     let date = DateInRegion(fromString: string, format: DateFormat.AltRSS, region: utc)
                     expect(date).toNot(beNil())
-//                    expect(date!.year) == 2011
-//                    expect(date!.month) == 9
-//                    expect(date!.day) == 9
-//                    expect(date!.hour) == 19
-//                    expect(date!.minute) == 26
-//                    expect(date!.second) == 08
-//                    expect(date!.timeZone.secondsFromGMT) == 0
+                    expect(date!.year) == 2011
+                    expect(date!.month) == 9
+                    expect(date!.day) == 9
+                    expect(date!.hour) == 15
+                    expect(date!.minute) == 26
+                    expect(date!.second) == 08
+                    expect(date!.timeZone.secondsFromGMT) == 0
                 }
 
                 it("should init from RSS date string") {
@@ -423,17 +423,17 @@ class RegionSpec: QuickSpec {
                 }
 
                 it("should init from Extended date string") {
-                    let string = "Fri 09-Sep-2011 AD 15:26:08.123 CET"
+                    let string = "Fri 09-Sep-2011 AD 15:26:08.123 +0100"
                     let date = DateInRegion(fromString: string, format: DateFormat.Extended, region: utc)
                     expect(date).toNot(beNil())
-//                    expect(date!.year) == 2011
-//                    expect(date!.month) == 9
-//                    expect(date!.day) == 9
-//                    expect(date!.hour) == 13
-//                    expect(date!.minute) == 26
-//                    expect(date!.second) == 08
-//                    expect(date!.nanosecond) == 123000000
-//                    expect(date!.timeZone.secondsFromGMT) == 3600
+                    expect(date!.year) == 2011
+                    expect(date!.month) == 9
+                    expect(date!.day) == 9
+                    expect(date!.hour) == 14
+                    expect(date!.minute) == 26
+                    expect(date!.second) == 08
+                    expect(date!.nanosecond).to(beCloseTo(123000000, within: 100))
+                    expect(date!.timeZone.secondsFromGMT) == 0
                 }
 
                 it("should init from custom format date string") {

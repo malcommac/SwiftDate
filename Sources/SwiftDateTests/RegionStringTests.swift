@@ -23,7 +23,7 @@ class DateRegionStringSpec: QuickSpec {
                 let utcDate = DateInRegion(year: 2015, month: 4, day: 13, hour: 22, minute: 10, region: utc)!
                 
                 it("should return proper ISO 8601 string") {
-                    expect(utcDate.toString(DateFormat.ISO8601Format(.Full))) == "2015-04-13T22:10:00+0000"
+                    expect(utcDate.toString(DateFormat.ISO8601Format(.Full))) == "2015-04-13T22:10:00Z"
                 }
                 
                 it("should return proper ISO 8601 date string") {
@@ -43,15 +43,15 @@ class DateRegionStringSpec: QuickSpec {
 				}
 				
 				it("should return proper ISO 8601 (date time format) string") {
-					expect(utcDate.toString(DateFormat.ISO8601Format(.DateTime))) == "2015-04-13T22:10+0000"
+					expect(utcDate.toString(DateFormat.ISO8601Format(.DateTime))) == "2015-04-13T22:10Z"
 				}
 				
 				it("should return proper ISO 8601 (full format) string") {
-					expect(utcDate.toString(DateFormat.ISO8601Format(.Full))) == "2015-04-13T22:10:00+0000"
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Full))) == "2015-04-13T22:10:00Z"
 				}
 				
 				it("should return proper ISO 8601 (extended with fractional seconds format) string") {
-					expect(utcDate.toString(DateFormat.ISO8601Format(.Extended))) == "2015-04-13T22:10:00.000+0000"
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Extended))) == "2015-04-13T22:10:00.000Z"
 				}
 				
                 it("should return proper Alt RSS date string") {

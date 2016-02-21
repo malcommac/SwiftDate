@@ -24,23 +24,58 @@
 
 import Foundation
 
-/**
-Formatter options for ISO8601
-
-- Year Year only format (yyyy)
-- YearAndMonth Year plus month (yyyy-MM)
-- Date Full date (yyyy-MM-dd)
-- DateTime date plus time without seconds (yyyy-MM-dd'T'HH:mmZ)
-- Full full date time with seconds (yyyy-MM-dd'T'HH:mm:ssZ)
-- Extended extended date-time format with fractional seconds (yyyy-MM-dd'T'HH:mm:ss.SSSZ)
-*/
+/// Formatter options for ISO8601 according to [link](https://www.w3.org/TR/NOTE-datetime)
+///
+/// - `Year`: Year -
+///     `YYYY` (eg 1997)
+/// - `YearMonth`: Year and month -
+///     `YYYY-MM` (eg 1997-07)
+/// - `Date`: Complete date -
+///     `YYYY-MM-DD` (eg 1997-07-16)
+/// - `DateTime`: Complete date plus hours and minutes -
+///     `YYYY-MM-DDThh:mmTZD` (eg 1997-07-16T19:20+01:00)
+/// - `Full`: Complete date plus hours, minutes and seconds -
+///     `YYYY-MM-DDThh:mm:ssTZD` (eg 1997-07-16T19:20:30+01:00)
+/// - `Extended`: Complete date plus hours, minutes, seconds and a decimal fraction of a
+/// second -
+///     `YYYY-MM-DDThh:mm:ss.sTZD` (eg 1997-07-16T19:20:30.45+01:00)
+///
+/// where:
+///
+/// - `YYYY` = four-digit year
+/// - `MM`   = two-digit month (01=January, etc.)
+/// - `DD`   = two-digit day of month (01 through 31)
+/// - `hh`   = two digits of hour (00 through 23) (am/pm NOT allowed)
+/// - `mm`   = two digits of minute (00 through 59)
+/// - `ss`   = two digits of second (00 through 59)
+/// - `s`    = one or more digits representing a decimal fraction of a second
+/// - `TZD`  = time zone designator (Z or +hh:mm or -hh:mm)
+///
+/// This profile does not specify how many digits may be used to represent the decimal 
+/// fraction of a second. An adopting standard that permits fractions of a second must 
+/// specify both the minimum number of digits (a number greater than or equal to one) and 
+/// the maximum number of digits (the maximum may be stated to be "unlimited").
+///
+/// This profile defines two ways of handling time zone offsets:
+///
+/// Times are expressed in UTC (Coordinated Universal Time), with a special UTC designator 
+/// ("Z").
+/// Times are expressed in local time, together with a time zone offset in hours and 
+/// minutes. A time zone offset of "+hh:mm" indicates that the date/time uses a local time 
+/// zone which is "hh" hours and "mm" minutes ahead of UTC. A time zone offset of "-hh:mm" 
+/// indicates that the date/time uses a local time zone which is "hh" hours and "mm" 
+/// minutes behind UTC.
+///
+/// A standard referencing this profile should permit one or both of these ways of 
+/// handling time zone offsets.
+///
 public enum ISO8601Type: String {
 	case Year					= "yyyy"
 	case YearMonth				= "yyyy-MM"
 	case Date					= "yyyy-MM-dd"
-	case DateTime				= "yyyy-MM-dd'T'HH:mmZ"
-	case Full					= "yyyy-MM-dd'T'HH:mm:ssZ"
-	case Extended				= "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+	case DateTime				= "yyyy-MM-dd'T'HH:mmZZZZZ"
+	case Full					= "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+	case Extended				= "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
 }
 
 //MARK: - Structure: DateFormat -
@@ -69,7 +104,7 @@ public enum DateFormat {
 		case .ISO8601:					return (ISO8601Type.Full).rawValue
 		case .RSS:						return "EEE, d MMM yyyy HH:mm:ss ZZZ"
         case .AltRSS:					return "d MMM yyyy HH:mm:ss ZZZ"
-        case .Extended:					return "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
+        case .Extended:					return "eee dd-MMM-yyyy GG HH:mm:ss.SSS ZZZ"
         }
     }
 }

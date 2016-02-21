@@ -124,14 +124,10 @@ extension NSDate {
             }
     }
     
-    public convenience init?(components: NSDateComponents) {
-        if let dateInRegion = DateInRegion(components) {
-            let absoluteTime = dateInRegion.absoluteTime
-            guard absoluteTime != nil else { return nil }
-            self.init(timeIntervalSinceReferenceDate: absoluteTime!.timeIntervalSinceReferenceDate)
-        } else {
-            return nil
-        }
+    public convenience init(components: NSDateComponents) {
+        let dateInRegion = DateInRegion(components)
+        let absoluteTime = dateInRegion.absoluteTime
+        self.init(timeIntervalSinceReferenceDate: absoluteTime!.timeIntervalSinceReferenceDate)
     }
     
     /**

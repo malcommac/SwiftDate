@@ -42,13 +42,17 @@ public struct Region: Equatable {
     /// Because the time zone is part of calendar, this is a shortcut to that variable.
     /// You can alter the time zone to adjust the representation of date to your needs.
     ///
-    public let timeZone: NSTimeZone!
+    public var timeZone: NSTimeZone {
+        return self.calendar.timeZone
+    }
 
     /// Locale to interpret date values
     /// Because the locale is part of calendar, this is a shortcut to that variable.
     /// You can alter the locale to adjust the representation of date to your needs.
     ///
-    public let locale: NSLocale!
+    public var locale: NSLocale {
+        return self.calendar.locale!
+    }
     
     /// Initialise with a calendar and/or a time zone
     ///
@@ -59,16 +63,12 @@ public struct Region: Equatable {
     ///
     internal init(
         calendar: NSCalendar,
-        timeZone: NSTimeZone,
-        locale: NSLocale) {
+        timeZone: NSTimeZone? = nil,
+        locale: NSLocale? = nil) {
             
             self.calendar = calendar
-            self.timeZone = timeZone
-            self.locale = locale
-            
-            // Assign calendar fields
-            self.calendar.timeZone = self.timeZone
-            self.calendar.locale = locale
+            self.calendar.locale = locale ?? calendar.locale ?? NSLocale.currentLocale()
+            self.calendar.timeZone = timeZone ?? calendar.timeZone ?? NSTimeZone.defaultTimeZone()
     }
     
     /// Initialise with a date components
@@ -79,8 +79,8 @@ public struct Region: Equatable {
     internal init(_ components: NSDateComponents) {
             
             let calendar = components.calendar ?? NSCalendar.currentCalendar()
-            let timeZone = components.timeZone ?? NSTimeZone.defaultTimeZone()
-            let locale = calendar.locale ?? NSLocale.currentLocale()
+            let timeZone = components.timeZone
+            let locale = calendar.locale
         
         self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }

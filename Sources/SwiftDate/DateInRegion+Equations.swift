@@ -38,28 +38,6 @@ extension DateInRegion: Equatable {}
 /// - Returns: a boolean indicating whether the receiver is equal to the given date
 ///
 public func ==(left: DateInRegion, right: DateInRegion) -> Bool {
-
-    // Compare the content, first the date
-    guard left.absoluteTime.isEqualToDate(right.absoluteTime) else {
-        return false
-    }
-
-    // Then the calendar
-    guard left.calendar.calendarIdentifier == right.calendar.calendarIdentifier else {
-        return false
-    }
-
-    // Then the time zone
-    guard left.timeZone.secondsFromGMTForDate(left.absoluteTime) == right.timeZone.secondsFromGMTForDate(right.absoluteTime) else {
-        return false
-    }
-
-    // Then the locale
-    guard left.locale.localeIdentifier == right.locale.localeIdentifier else {
-        return false
-    }
-
-    // We have made it! They are equal!
-    return true
+    return left.isEqualToDate(right)
 }
 

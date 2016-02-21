@@ -109,16 +109,12 @@ public struct DateInRegion {
 
 	- parameter components date components to set
 
-	- returns: a new instance of `DateInRegion` or nil if components does
-			   not contains enough information to prepare a valid date.
+	- returns: a new instance of `DateInRegion`
 	*/
-    internal init?(_ components: NSDateComponents) {
+    internal init(_ components: NSDateComponents) {
         let region = Region(components)
-        if let absoluteTime = region.calendar.dateFromComponents(components) {
-            self.init(absoluteTime: absoluteTime, region: region)
-        } else {
-            return nil
-        }
+        let absoluteTime = region.calendar.dateFromComponents(components)
+        self.init(absoluteTime: absoluteTime, region: region)
     }
 
 	/**
@@ -161,8 +157,7 @@ public struct DateInRegion {
             newComponents.minute = minute ?? fromDate.minute ?? 0
             newComponents.second = second ?? fromDate.second ?? 0
             newComponents.nanosecond = nanosecond ?? fromDate.nanosecond ?? 0
-            newComponents.calendar = region?.calendar
-            newComponents.timeZone = region?.timeZone
+            newComponents.calendar = region?.calendar ?? fromDate.calendar
 
             self.init(newComponents)
     }
@@ -367,8 +362,8 @@ extension DateInRegion: CustomDebugStringConvertible {
 		formatter.timeZone = self.timeZone
 		descriptor.append(formatter.stringFromDate(self.absoluteTime))
 
-		formatter.timeZone = NSTimeZone(abbreviation: "UTC")
-		descriptor.append("UTC\t\(formatter.stringFromDate(self.absoluteTime))")
+		//formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+		//descriptor.append("UTC\t\(formatter.stringFromDate(self.absoluteTime))")
 
 		descriptor.append("Calendar: \(calendar.calendarIdentifier)")
 		descriptor.append("Time zone: \(timeZone.name)")

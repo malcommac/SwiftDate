@@ -152,7 +152,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 
                 it("should return a date of 0001-01-01 00:00:00.000 in the default region for component initialisation") {
                     let components = NSDateComponents()
-                    let date = DateInRegion(components)!
+                    let date = DateInRegion(components)
                     
                     expect(date.year) == 1
                     expect(date.month) == 1

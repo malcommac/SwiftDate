@@ -13,7 +13,7 @@ import Nimble
 
 @testable import SwiftDate
 
-class RegionSpec: QuickSpec {
+class DateInRegionSpec: QuickSpec {
 
 
     override func spec() {
@@ -54,7 +54,13 @@ class RegionSpec: QuickSpec {
                     let expectedInterval = NSTimeInterval(Double(nsDate.timeIntervalSinceReferenceDate))
                     expect(jhDate.timeIntervalSinceReferenceDate) ≈ (expectedInterval, 1)
                 }
-
+                
+                it("should return a reference date") {
+                    let refDate = DateInRegion(year: 2001, month: 2, day: 3, region: amsterdam)!
+                    let date = DateInRegion(fromDate: refDate)
+                    expect(date) == refDate
+                }
+                
                 it("should return the specified date") {
                     let calendar = NSCalendar(identifier: NSCalendarIdentifierJapanese)!
                     let components = NSDateComponents()
@@ -191,12 +197,12 @@ class RegionSpec: QuickSpec {
                 it("should return a date of 0001-01-01 00:00:00.000 UTC for component initialisation") {
                     let components = NSDateComponents()
                     let nsDate = NSCalendar.currentCalendar().dateFromComponents(components)!
-                    let date = DateInRegion(components)!
+                    let date = DateInRegion(components)
                     let expectedDate = DateInRegion(absoluteTime: nsDate)
 
                     expect(date) == expectedDate
                 }
-
+                
                 it("should return a proper date") {
                     let date = DateInRegion(year: 1999, month: 12, day: 31, region: newYork)!
                     let components = date.components
@@ -207,7 +213,7 @@ class RegionSpec: QuickSpec {
                 }
                 
                 it("should return a proper date from components chaining") {
-                    let date = DateInRegion(1999.years | 12.months | 31.days)!
+                    let date = DateInRegion(1999.years | 12.months | 31.days)
                     let components = date.components
                     expect(components.year) == 1999
                     expect(components.month) == 12
@@ -338,11 +344,17 @@ class RegionSpec: QuickSpec {
                 }
                 
                 it("Should output a proper debug description") {
-                    expect(date.debugDescription) == "31 dicembre 1999 23:59:59 CET\nUTC\t31 dicembre 1999 22:59:59 GMT\nCalendar: gregorian\nTime zone: Europe/Rome\nLocale: it_IT"
+                    expect(date.debugDescription) == "31 dicembre 1999 23:59:59 CET\nCalendar: gregorian\nTime zone: Europe/Rome\nLocale: it_IT"
                 }
             }
             
             context("init from string") {
+
+                it("should fail init with nil return") {
+                    let string = "2015-01-05T22:10:abc"
+                    let date = DateInRegion(fromString: string, format: DateFormat.ISO8601Format(.Full), region: utc)
+                    expect(date).to(beNil())
+                }
 
                 it("should init from a ISO 8601 string without Z (YYYY-MM-DDThh:mm:ss)") {
                     let string = "2015-01-05T22:10:55+0000"
@@ -409,7 +421,7 @@ class RegionSpec: QuickSpec {
                     expect(date!.timeZone.secondsFromGMT) == 0
                 }
 
-                it("should init from RSS date string") {
+                it("should init from RSS date string with time zone") {
                     let string = "Fri, 09 Sep 2011 15:26:08 +0200"
                     let date = DateInRegion(fromString: string, format: DateFormat.RSS, region: utc)
                     expect(date).toNot(beNil())
@@ -417,6 +429,19 @@ class RegionSpec: QuickSpec {
                     expect(date!.month) == 9
                     expect(date!.day) == 9
                     expect(date!.hour) == 13
+                    expect(date!.minute) == 26
+                    expect(date!.second) == 08
+                    expect(date!.timeZone.secondsFromGMT) == 0
+                }
+
+                it("should init from RSS date string with Z") {
+                    let string = "Fri, 09 Sep 2011 15:26:08 Z"
+                    let date = DateInRegion(fromString: string, format: DateFormat.RSS, region: utc)
+                    expect(date).toNot(beNil())
+                    expect(date!.year) == 2011
+                    expect(date!.month) == 9
+                    expect(date!.day) == 9
+                    expect(date!.hour) == 15
                     expect(date!.minute) == 26
                     expect(date!.second) == 08
                     expect(date!.timeZone.secondsFromGMT) == 0

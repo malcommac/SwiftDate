@@ -42,7 +42,7 @@ public extension DateInRegion {
     public func compareDate(date: DateInRegion, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult {
         return calendar.compareDate(self.absoluteTime, toDate: date.absoluteTime, toUnitGranularity: unit)
     }
-    
+
     /// Compares equality of two given dates based on their components down to a given unit granularity.
     ///
     /// - Parameters:
@@ -56,7 +56,7 @@ public extension DateInRegion {
     public func isIn(unit: NSCalendarUnit, ofDate date: DateInRegion) -> Bool {
         return self.compareDate(date, toUnitGranularity: unit) == .OrderedSame
     }
-    
+
     /// Compares whether the receiver is before `date` based on their components down to a given unit granularity.
     ///
     /// - Parameters:
@@ -70,7 +70,7 @@ public extension DateInRegion {
     public func isBefore(unit: NSCalendarUnit, ofDate date: DateInRegion) -> Bool {
         return self.compareDate(date, toUnitGranularity: unit) == .OrderedAscending
     }
-    
+
     /// Compares whether the receiver is after `date` based on their components down to a given unit granularity.
     ///
     /// - Parameters:
@@ -84,7 +84,7 @@ public extension DateInRegion {
     public func isAfter(unit: NSCalendarUnit, ofDate date: DateInRegion) -> Bool {
         return self.compareDate(date, toUnitGranularity: unit) == .OrderedDescending
     }
-    
+
     /// Returns whether the given date is in today.
     ///
     /// - Returns: a boolean indicating whether the receiver is in today
@@ -133,32 +133,42 @@ public extension DateInRegion {
         return calendar.isDateInWeekend(absoluteTime)
     }
 
-  /// Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
-  ///
-  /// - Parameters:
-  ///     - date: a date to compare against
-  ///
-  /// - Returns: a boolean indicating whether the receiver is on the same day as the given date in the time zone and calendar of the receiver.
-  ///
-  /// - seealso: [isDate:inSameDayAsDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/isDate:inSameDayAsDate:)
-  ///
-  public func isInSameDayAsDate(date: DateInRegion) -> Bool {
-    return calendar.isDate(self.absoluteTime, inSameDayAsDate: date.absoluteTime)
-  }
-  
-  /// Returns whether the given date is equal to the receiver.
-  ///
-  /// - Parameters:
-  ///     - date: a date to compare against
-  ///
-  /// - Returns: a boolean indicating whether the receiver is equal to the given date
-  ///
-  /// - seealso: [isEqualToDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/index.html#//apple_ref/occ/instm/NSDate/isEqualToDate:)
-  ///
-  public func isEqualToDate(right: DateInRegion) -> Bool {
-    return absoluteTime.isEqualToDate(right.absoluteTime)
-  }
-  
+    /// Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
+    ///
+    /// - Parameters:
+    ///     - date: a date to compare against
+    ///
+    /// - Returns: a boolean indicating whether the receiver is on the same day as the given date in the time zone and calendar of the receiver.
+    ///
+    /// - seealso: [isDate:inSameDayAsDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/isDate:inSameDayAsDate:)
+    ///
+    public func isInSameDayAsDate(date: DateInRegion) -> Bool {
+        return calendar.isDate(self.absoluteTime, inSameDayAsDate: date.absoluteTime)
+    }
+
+    /// Returns whether the given date is equal to the receiver.
+    ///
+    /// - Parameters:
+    ///     - date: a date to compare against
+    ///
+    /// - Returns: a boolean indicating whether the receiver is equal to the given date
+    ///
+    /// - seealso: [isEqualToDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/index.html#//apple_ref/occ/instm/NSDate/isEqualToDate:)
+    ///
+    public func isEqualToDate(right: DateInRegion) -> Bool {
+        // Compare the content, first the date
+        if absoluteTime != right.absoluteTime {
+            return false
+        }
+
+        // Then the region
+        if region != right.region {
+            return false
+        }
+        
+        // We have made it! They are equal!
+        return true
+    }
 }
 
 // MARK: - Comparable delegate

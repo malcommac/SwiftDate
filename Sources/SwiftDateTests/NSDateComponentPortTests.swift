@@ -156,9 +156,8 @@ class NSDateComponentPortSpec: QuickSpec {
                 
                 it("should return a date of 0001-01-01 00:00:00.000 in the default region for component initialisation") {
                     let components = NSDateComponents()
-                    let date = NSDate(components: components)!
+                    let date = NSDate(components: components)
                     
-                    expect(date).toNot(beNil())
                     let calendar = NSCalendar.currentCalendar()
                     let testComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
                     expect(testComponents.year) == 1

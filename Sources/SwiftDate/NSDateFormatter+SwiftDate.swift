@@ -51,22 +51,22 @@ import Foundation
 /// - `s`    = one or more digits representing a decimal fraction of a second
 /// - `TZD`  = time zone designator (Z or +hh:mm or -hh:mm)
 ///
-/// This profile does not specify how many digits may be used to represent the decimal 
-/// fraction of a second. An adopting standard that permits fractions of a second must 
-/// specify both the minimum number of digits (a number greater than or equal to one) and 
+/// This profile does not specify how many digits may be used to represent the decimal
+/// fraction of a second. An adopting standard that permits fractions of a second must
+/// specify both the minimum number of digits (a number greater than or equal to one) and
 /// the maximum number of digits (the maximum may be stated to be "unlimited").
 ///
 /// This profile defines two ways of handling time zone offsets:
 ///
-/// Times are expressed in UTC (Coordinated Universal Time), with a special UTC designator 
+/// Times are expressed in UTC (Coordinated Universal Time), with a special UTC designator
 /// ("Z").
-/// Times are expressed in local time, together with a time zone offset in hours and 
-/// minutes. A time zone offset of "+hh:mm" indicates that the date/time uses a local time 
-/// zone which is "hh" hours and "mm" minutes ahead of UTC. A time zone offset of "-hh:mm" 
-/// indicates that the date/time uses a local time zone which is "hh" hours and "mm" 
+/// Times are expressed in local time, together with a time zone offset in hours and
+/// minutes. A time zone offset of "+hh:mm" indicates that the date/time uses a local time
+/// zone which is "hh" hours and "mm" minutes ahead of UTC. A time zone offset of "-hh:mm"
+/// indicates that the date/time uses a local time zone which is "hh" hours and "mm"
 /// minutes behind UTC.
 ///
-/// A standard referencing this profile should permit one or both of these ways of 
+/// A standard referencing this profile should permit one or both of these ways of
 /// handling time zone offsets.
 ///
 public enum ISO8601Type: String {
@@ -95,7 +95,7 @@ public enum DateFormat {
     case RSS							// RSS style formatter
     case AltRSS							// Alt RSS Formatter
     case Extended						// Extended date Formatter
-	
+
     var formatString: String {
         switch self {
         case .Custom(let format):		return format
@@ -122,38 +122,38 @@ extension String {
      http://www.w3.org/TR/NOTE-datetime
      */
     static func ISO8601Formatter(fromString string: String) -> String {
-        
+
         enum IS08601Format: Int {
             // YYYY (eg 1997)
             case Year = 4
-            
+
             // YYYY-MM (eg 1997-07)
             case YearAndMonth = 7
-            
+
             // YYYY-MM-DD (eg 1997-07-16)
             case CompleteDate = 10
-            
+
             // YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)
             case CompleteDatePlusHoursAndMinutes = 22
-            
+
             // YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20Z)
             case CompleteDatePlusHoursAndMinutesAndZ = 17
-            
+
             // YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
             case CompleteDatePlusHoursMinutesAndSeconds = 25
-            
+
             // YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30Z)
             case CompleteDatePlusHoursAndMinutesAndSecondsAndZ = 20
-            
+
             // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
             case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecond = 28
-            
+
             // YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45Z)
             case CompleteDatePlusHoursMinutesSecondsAndDecimalFractionOfSecondAndZ = 23
         }
-        
+
         var dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
+
         if let dateStringCount = IS08601Format(rawValue: string.characters.count) {
             switch dateStringCount {
             case .Year:
@@ -173,4 +173,3 @@ extension String {
         return dateFormatter
     }
 }
-

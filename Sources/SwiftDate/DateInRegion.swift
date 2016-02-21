@@ -49,7 +49,7 @@ public struct DateInRegion {
     /// Set to loop throuhg all NSCalendarUnit values
     ///
     internal static let componentFlagSet: [NSCalendarUnit] = [.Nanosecond, .Second, .Minute, .Hour, .Day, .Month, .Year, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal, .WeekOfMonth]
-    
+
     /// NSCalendarUnit values used to obtain data from a date with a calendar and time zone
     ///
     internal static let componentFlags: NSCalendarUnit = [.Day, .Month, .Year, .Hour, .Minute, .Second, .Nanosecond, .TimeZone, .Calendar, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekOfMonth]
@@ -136,7 +136,7 @@ public struct DateInRegion {
 
 	- returns: a new `DateInRegion` or nil if init fails
 	*/
-    public init?(
+    public init(
         fromDate: DateInRegion,
         era: Int? = nil,
         year: Int? = nil,
@@ -149,14 +149,14 @@ public struct DateInRegion {
         region: Region? = nil) {
 
             let newComponents = NSDateComponents()
-            newComponents.era = era ?? fromDate.era ?? 1
-            newComponents.year = year ?? fromDate.year ?? 2001
-            newComponents.month = month ?? fromDate.month ?? 1
-            newComponents.day = day ?? fromDate.day ?? 1
-            newComponents.hour = hour ?? fromDate.hour ?? 0
-            newComponents.minute = minute ?? fromDate.minute ?? 0
-            newComponents.second = second ?? fromDate.second ?? 0
-            newComponents.nanosecond = nanosecond ?? fromDate.nanosecond ?? 0
+            newComponents.era = era ?? fromDate.era!
+            newComponents.year = year ?? fromDate.year!
+            newComponents.month = month ?? fromDate.month!
+            newComponents.day = day ?? fromDate.day!
+            newComponents.hour = hour ?? fromDate.hour!
+            newComponents.minute = minute ?? fromDate.minute!
+            newComponents.second = second ?? fromDate.second!
+            newComponents.nanosecond = nanosecond ?? fromDate.nanosecond!
             newComponents.calendar = region?.calendar ?? fromDate.calendar
 
             self.init(newComponents)
@@ -181,7 +181,7 @@ public struct DateInRegion {
 
    - returns: a new `DateInRegion` or nil if init fails
    */
-    public init?(
+    public init(
         era: Int? = nil,
         year: Int,
         month: Int,
@@ -228,7 +228,7 @@ public struct DateInRegion {
      - nanosecond: nanosecond number to set (optional)
      - region: region to set (optional)
      */
-    public init?(
+    public init(
         era: Int? = nil,
         yearForWeekOfYear: Int,
         weekOfYear: Int,
@@ -376,7 +376,7 @@ extension DateInRegion: CustomDebugStringConvertible {
 //MARK: - DateInRegion Hashable -
 
 extension DateInRegion: Hashable {
-  
+
 	/// Allows to generate an unique hash vaalue for an instance of `DateInRegion`
 	public var hashValue: Int {
 		return absoluteTime.hashValue ^ region.hashValue

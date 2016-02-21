@@ -43,6 +43,7 @@
 		1FAA83DE1C79CA020084BAB6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAA83DC1C79CA020084BAB6 /* Quick.framework */; };
 		1FAA83E11C79CA5C0084BAB6 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FAA83DB1C79CA020084BAB6 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FAA83E21C79CA5C0084BAB6 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FAA83DC1C79CA020084BAB6 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FAA83E41C7A3EE50084BAB6 /* NSDateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,7 @@
 		1FAA83531C79C67D0084BAB6 /* DateInRegionEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionEquationsTests.swift; path = ../../Sources/SwiftDateTests/DateInRegionEquationsTests.swift; sourceTree = "<group>"; };
 		1FAA83541C79C67D0084BAB6 /* DateInRegionHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionHashableTests.swift; path = ../../Sources/SwiftDateTests/DateInRegionHashableTests.swift; sourceTree = "<group>"; };
 		1FAA83551C79C67D0084BAB6 /* DateInRegionOperationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionOperationsTests.swift; path = ../../Sources/SwiftDateTests/DateInRegionOperationsTests.swift; sourceTree = "<group>"; };
-		1FAA83561C79C67D0084BAB6 /* DateInRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionTests.swift; path = ../../Sources/SwiftDateTests/DateInRegionTests.swift; sourceTree = "<group>"; };
+		1FAA83561C79C67D0084BAB6 /* DateInRegionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = DateInRegionTests.swift; path = ../../Sources/SwiftDateTests/DateInRegionTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1FAA83571C79C67D0084BAB6 /* NSDateComponentPortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateComponentPortTests.swift; path = ../../Sources/SwiftDateTests/NSDateComponentPortTests.swift; sourceTree = "<group>"; };
 		1FAA83581C79C67D0084BAB6 /* NSDateEquationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateEquationsTests.swift; path = ../../Sources/SwiftDateTests/NSDateEquationsTests.swift; sourceTree = "<group>"; };
 		1FAA83591C79C67D0084BAB6 /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateTests.swift; path = ../../Sources/SwiftDateTests/NSDateTests.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		1FAA83DA1C79C7BC0084BAB6 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		1FAA83DB1C79CA020084BAB6 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		1FAA83DC1C79CA020084BAB6 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateIntervalTests.swift; path = ../../Sources/SwiftDateTests/NSDateIntervalTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				1FAA835A1C79C67D0084BAB6 /* RegionStringTests.swift */,
 				1FAA835B1C79C67D0084BAB6 /* RegionTests.swift */,
 				1FAA83A21C79C6DA0084BAB6 /* Info.plist */,
+				1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */,
 			);
 			path = SwiftDateTests;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				1FAA83D01C79C75A0084BAB6 /* DateInRegionComponentPortTests.swift in Sources */,
 				1FAA83D21C79C75A0084BAB6 /* DateInRegionHashableTests.swift in Sources */,
 				1FAA83D11C79C75A0084BAB6 /* DateInRegionEquationsTests.swift in Sources */,
+				1FAA83E41C7A3EE50084BAB6 /* NSDateIntervalTests.swift in Sources */,
 				1FAA83D81C79C75A0084BAB6 /* RegionStringTests.swift in Sources */,
 				1FAA83D51C79C75A0084BAB6 /* NSDateComponentPortTests.swift in Sources */,
 				1FAA83D41C79C75A0084BAB6 /* DateInRegionTests.swift in Sources */,
@@ -541,6 +545,7 @@
 				1FAA83A51C79C6DA0084BAB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FAA83A61C79C6DA0084BAB6 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +554,7 @@
 				1FAA83A81C79C6DA0084BAB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

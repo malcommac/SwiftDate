@@ -40,4 +40,3 @@ extension DateInRegion: Equatable {}
 public func ==(left: DateInRegion, right: DateInRegion) -> Bool {
     return left.isEqualToDate(right)
 }
-

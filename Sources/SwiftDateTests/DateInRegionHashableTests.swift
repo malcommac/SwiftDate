@@ -20,25 +20,25 @@ class DateInRegionHashableTests: QuickSpec {
         describe("DateInRegionHashable") {
 
             it("should return an equal hash for the same date reference") {
-                let date1 = DateInRegion(year: 1999, month: 12, day: 31)!
+                let date1 = DateInRegion(year: 1999, month: 12, day: 31)
 
                 expect(date1.hashValue) == date1.hashValue
             }
-            
+
             it("should return an equal hash for the same date value") {
-                let date1 = DateInRegion(year: 1999, month: 12, day: 31)!
-                let date2 = DateInRegion(year: 1999, month: 12, day: 31)!
+                let date1 = DateInRegion(year: 1999, month: 12, day: 31)
+                let date2 = DateInRegion(year: 1999, month: 12, day: 31)
 
                 expect(date1.hashValue) == date2.hashValue
             }
-            
+
             it("should return an unequal hash for a different date value") {
-                let date1 = DateInRegion(year: 1999, month: 12, day: 31)!
-                let date2 = DateInRegion(year: 1999, month: 12, day: 30)!
+                let date1 = DateInRegion(year: 1999, month: 12, day: 31)
+                let date2 = DateInRegion(year: 1999, month: 12, day: 30)
 
                 expect(date1.hashValue) != date2.hashValue
             }
-            
+
             it("should return an unequal hash for a different time zone value") {
                 let date = NSDate()
                 let date1 = DateInRegion(absoluteTime: date, region: netherlands)
@@ -46,10 +46,10 @@ class DateInRegionHashableTests: QuickSpec {
 
                 expect(date1.hashValue) != date2.hashValue
             }
-            
+
         }
 
     }
 
-        
+
 }

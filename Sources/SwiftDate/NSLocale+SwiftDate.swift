@@ -26,12 +26,12 @@ import Foundation
 
 
 public enum LocaleName: String {
-    
+
     public var description: String {
         return self.rawValue
     }
-    
-    public var locale : NSLocale {
+
+    public var locale: NSLocale {
         switch self {
         case .Current:
             return NSLocale.currentLocale()
@@ -41,10 +41,10 @@ public enum LocaleName: String {
             return NSLocale(localeIdentifier: self.rawValue)
         }
     }
-    
+
     case Current = "Current"
     case System = "System"
-    
+
     case Afrikaans = "af"
     case AfrikaansNamibia = "af_NA"
     case AfrikaansSouthAfrica = "af_ZA"

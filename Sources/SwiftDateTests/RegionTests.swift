@@ -69,9 +69,9 @@ class DateregionSpec: QuickSpec {
 
                     expect(yesterday.calendar.isDateInYesterday(yesterday.absoluteTime))
                 }
-                
+
             }
-            
+
             context("equation") {
 
                 it("should return true when equal") {
@@ -79,39 +79,38 @@ class DateregionSpec: QuickSpec {
 
                     expect(region) == region
                 }
-                
+
                 it("should return true when equal values") {
                     let region1 = Region()
                     let region2 = Region()
 
                     expect(region1) == region2
                 }
-                
+
                 it("should return false when unequal calendars") {
                     let region1 = Region(calendarName: .Islamic)
                     let region2 = Region(calendarName: .IslamicCivil)
 
                     expect(region1) != region2
                 }
-                
+
                 it("should return false when unequal time zones") {
                     let region1 = Region(timeZoneName: .AmericaKralendijk)
                     let region2 = Region(timeZoneName: .AfricaWindhoek)
 
                     expect(region1) != region2
                 }
-                
+
                 it("should return false when unequal locales") {
                     let region1 = Region(localeName: .HausaNiger)
                     let region2 = Region(localeName: .EnglishFiji)
 
                     expect(region1) != region2
                 }
-                
+
             }
-            
+
 
         }
     }
 }
-

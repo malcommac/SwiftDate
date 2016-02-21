@@ -165,7 +165,7 @@ public extension DateInRegion {
         if region != right.region {
             return false
         }
-        
+
         // We have made it! They are equal!
         return true
     }
@@ -203,5 +203,3 @@ public func <(ldate: DateInRegion, rdate: DateInRegion) -> Bool {
 public func >(ldate: DateInRegion, rdate: DateInRegion) -> Bool {
     return ldate.absoluteTime.compare(rdate.absoluteTime) == .OrderedDescending
 }
-
-

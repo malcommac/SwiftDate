@@ -33,7 +33,7 @@ public typealias DateRegion = Region
 ///
 @available(*, introduced=2.0)
 public struct Region: Equatable {
-    
+
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation of date to your needs.
     ///
     public let calendar: NSCalendar!
@@ -53,7 +53,7 @@ public struct Region: Equatable {
     public var locale: NSLocale {
         return self.calendar.locale!
     }
-    
+
     /// Initialise with a calendar and/or a time zone
     ///
     /// - Parameters:
@@ -65,26 +65,26 @@ public struct Region: Equatable {
         calendar: NSCalendar,
         timeZone: NSTimeZone? = nil,
         locale: NSLocale? = nil) {
-            
+
             self.calendar = calendar
             self.calendar.locale = locale ?? calendar.locale ?? NSLocale.currentLocale()
             self.calendar.timeZone = timeZone ?? calendar.timeZone ?? NSTimeZone.defaultTimeZone()
     }
-    
+
     /// Initialise with a date components
     ///
     /// - Parameters:
     ///     - components: the date components to initialise with
     ///
     internal init(_ components: NSDateComponents) {
-            
+
             let calendar = components.calendar ?? NSCalendar.currentCalendar()
             let timeZone = components.timeZone
             let locale = calendar.locale
-        
+
         self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }
-    
+
     /// Initialise with a calendar and/or a time zone
     ///
     /// - Parameters:
@@ -96,14 +96,14 @@ public struct Region: Equatable {
         calendarName: CalendarName? = nil,
         timeZoneName: TimeZoneName? = nil,
         localeName: LocaleName? = nil) {
-            
+
             let calendar = calendarName?.calendar ?? NSCalendar.currentCalendar()
             let timeZone = timeZoneName?.timeZone ?? NSTimeZone.defaultTimeZone()
             let locale = localeName?.locale ?? NSLocale.currentLocale()
-            
+
             self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }
-    
+
     /// Today's date
     ///
     /// - Returns: the date of today at midnight (00:00) in the current calendar and default time zone.
@@ -139,7 +139,7 @@ public func ==(left: Region, right: Region) -> Bool {
         return false
     }
 
-    if left.locale.localeIdentifier != right.locale.localeIdentifier  {
+    if left.locale.localeIdentifier != right.locale.localeIdentifier {
         return false
     }
 

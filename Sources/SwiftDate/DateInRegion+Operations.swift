@@ -42,10 +42,10 @@ public extension DateInRegion {
     public func difference(toDate: DateInRegion, unitFlags: NSCalendarUnit) -> NSDateComponents? {
         return calendar.components(unitFlags, fromDate: self.absoluteTime, toDate: toDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
     }
-    
-    public func add(years years: Int? = nil, months: Int? = nil, weeks: Int? = nil, days: Int? = nil,hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> DateInRegion {
+
+    public func add(years years: Int? = nil, months: Int? = nil, weeks: Int? = nil, days: Int? = nil, hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil, nanoseconds: Int? = nil) -> DateInRegion {
         let components = NSDateComponents()
-        
+
         components.year = years ?? NSDateComponentUndefined
         components.month = months ?? NSDateComponentUndefined
         components.weekOfYear = weeks ?? NSDateComponentUndefined
@@ -54,16 +54,16 @@ public extension DateInRegion {
         components.minute = minutes ?? NSDateComponentUndefined
         components.second = seconds ?? NSDateComponentUndefined
         components.nanosecond = nanoseconds ?? NSDateComponentUndefined
-        
+
         let newDate = self.add(components)
         return newDate
     }
-    
+
     public func add(components: NSDateComponents) -> DateInRegion {
         let absoluteTime = region.calendar.dateByAddingComponents(components, toDate: self.absoluteTime, options: NSCalendarOptions(rawValue: 0))!
         return DateInRegion(absoluteTime: absoluteTime, region: self.region)
     }
-    
+
     public func add(components dict: [NSCalendarUnit : AnyObject]) -> DateInRegion {
         let components = dict.components()
         return self.add(components)
@@ -116,5 +116,3 @@ public prefix func - (dateComponents: NSDateComponents) -> NSDateComponents {
     }
     return result
 }
-
-

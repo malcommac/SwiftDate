@@ -41,7 +41,7 @@ extension NSCalendarUnit: CalendarAsDictionaryKey {
 }
 
 extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
-    
+
     func components() -> NSDateComponents {
         let components = NSDateComponents()
         for (key, value) in self {
@@ -55,31 +55,31 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
         }
         return components
     }
-    
+
     /**
      Convert a dictionary of <NSCalendarUnit,Value> in a DateInRegion. Both timeZone and calendar must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s locale will be used instead.
-     
+
      - parameter locale: optional locale (Region().locale if nil)
-     
+
      - returns: DateInRegion if date components are complete, nil if cannot be used to generate a valid date
      */
     func dateInRegion() -> DateInRegion? {
         return DateInRegion(self.components())
     }
-    
+
     func dateRegion() -> Region? {
         let components = self.components()
-        
+
         let calendar = components.calendar ?? NSCalendar.currentCalendar()
         let timeZone = components.timeZone ?? NSTimeZone.defaultTimeZone()
         let locale = calendar.locale ?? NSLocale.currentLocale()
-        
+
         return Region(calendar: calendar, timeZone: timeZone, locale: locale)
     }
-    
+
     /**
      Convert a dictionary of <NSCalendarUnit,Value> in absolute time NSDate instance. Both timeZone and calendar must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s locale will be used instead.
-     
+
      - returns: absolute time NSDate object, nil if dictionary values cannot be used to generate a valid date
      */
     func absoluteTime() -> NSDate? {
@@ -88,5 +88,3 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
     }
 
 }
-
-

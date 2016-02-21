@@ -19,7 +19,7 @@ class DateInRegionOperationsSpec: QuickSpec {
         describe("DateInRegionOperations") {
 
             let region = Region(calendarName: .Gregorian, timeZoneName: .AmericaParamaribo, localeName: .Dutch)
-            let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, region: region)!
+            let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, region: region)
 
             context("add with components") {
 

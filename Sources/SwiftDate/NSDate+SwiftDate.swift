@@ -380,69 +380,69 @@ extension NSDate {
     /// Get the year component of the date in current region (use inRegion(...).year to get the year
     /// component in specified time zone)
     public var year: Int {
-        return self.inRegion().year!
+        return self.inRegion().year
     }
 
     /// Get the month component of the date in current region (use inRegion(...).month to get the
     /// month component in specified time zone)
     public var month: Int {
-        return self.inRegion().month!
+        return self.inRegion().month
     }
 
     /// Get the month name component of the date in current region (use inRegion(...).monthName to
     /// get the month's name component in specified time zone)
     public var monthName: String {
-        return self.inRegion().monthName!
+        return self.inRegion().monthName
     }
 
     /// Get the week of month component of the date in current region (use inRegion(...).weekOfMonth
     /// to get the week of month component in specified time zone)
     public var weekOfMonth: Int {
-        return self.inRegion().weekOfMonth!
+        return self.inRegion().weekOfMonth
     }
 
     /// Get the year for week of year component of the date in current region (use
     /// `inRegion(...).yearForWeekOfYear` to get the year week of year component in specified
     /// time zone)
     public var yearForWeekOfYear: Int {
-        return self.inRegion().yearForWeekOfYear!
+        return self.inRegion().yearForWeekOfYear
     }
 
     /// Get the week of year component of the date in current region (use inRegion(...).weekOfYear
     /// to get the week of year component in specified time zone)
     public var weekOfYear: Int {
-        return self.inRegion().weekOfYear!
+        return self.inRegion().weekOfYear
     }
 
     /// Get the weekday component of the date in current region (use inRegion(...).weekday to get
     /// the weekday component in specified time zone)
     public var weekday: Int {
-        return self.inRegion().weekday!
+        return self.inRegion().weekday
     }
 
     /// Get the weekday ordinal component of the date in current region
     /// (use inRegion(...).weekdayOrdinal to get the weekday ordinal component in specified
     /// time zone)
     public var weekdayOrdinal: Int {
-        return self.inRegion().weekdayOrdinal!
+        return self.inRegion().weekdayOrdinal
     }
 
     /// Get the day component of the date in current region (use inRegion(...).day to get the day
     /// component in specified time zone)
     public var day: Int {
-        return self.inRegion().day!
+        return self.inRegion().day
     }
 
     /// Get the number of days of the current date's month in current region (use
     /// inRegion(...).monthDays to get it in specified time zone)
     public var monthDays: Int {
-        return self.inRegion().monthDays!
+        return self.inRegion().monthDays
     }
 
     /// Get the hour component of the current date's hour in current region (use inRegion(...).hour
     /// to get it in specified time zone)
     public var hour: Int {
-        return self.inRegion().hour!
+        return self.inRegion().hour
     }
 
     /// Get the nearest hour component of the current date's hour in current region (use
@@ -454,25 +454,25 @@ extension NSDate {
     /// Get the minute component of the current date's minute in current region (use
     /// inRegion(...).minute to get it in specified time zone)
     public var minute: Int {
-        return self.inRegion().minute!
+        return self.inRegion().minute
     }
 
     /// Get the second component of the current date's second in current region (use
     /// inRegion(...).second to get it in specified time zone)
     public var second: Int {
-        return self.inRegion().second!
+        return self.inRegion().second
     }
 
     /// Get the nanoscend component of the current date's nanosecond in current region (use
     /// inRegion(...).nanosecond to get it in specified time zone)
     public var nanosecond: Int {
-        return self.inRegion().nanosecond!
+        return self.inRegion().nanosecond
     }
 
     /// Get the era component of the current date's era in current region (use inRegion(...).era
     /// to get it in specified time zone)
     public var era: Int {
-        return self.inRegion().era!
+        return self.inRegion().era
     }
 
 

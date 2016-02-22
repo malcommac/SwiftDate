@@ -50,7 +50,9 @@ public extension NSCalendar {
 
     /// Revised API for avoiding usage of AutoreleasingUnsafeMutablePointer.
     /// The current exposed API in Foundation on Darwin platforms is:
-    /// public func rangeOfUnit(unit: NSCalendarUnit, startDate datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
+    /// `public func rangeOfUnit(unit: NSCalendarUnit, startDate datep: 
+    /// AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: 
+    /// UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool`
     /// which is not implementable on Linux due to the lack of being able to properly implement AutoreleasingUnsafeMutablePointer.
     /// - Experiment: This is a draft API currently under consideration for official import into Foundation as a suitable alternative
     /// - Note: Since this API is under consideration it may be either removed or revised in the near future

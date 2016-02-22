@@ -234,6 +234,21 @@ class NSDateComponentPortSpec: QuickSpec {
 
             }
 
+            context("nearest hour") {
+
+                let date = DateInRegion(year: 2002, month: 3, day: 4, hour: 5, minute: 30)
+
+                it("should report the next hour on 30 minutes") {
+                    expect(date.nearestHour) == 6
+                }
+
+                it("should report the previous hour on 30 minutes minus a little") {
+                    let date2 = date - 1000.nanoseconds
+                    expect(date2.nearestHour) == 5
+                }
+
+            }
+
         }
     }
 }

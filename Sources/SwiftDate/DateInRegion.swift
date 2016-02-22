@@ -100,42 +100,42 @@ public struct DateInRegion {
         region = newRegion ?? Region()
     }
 
-	/**
-	Initialise a `DateInRegion` object from a set of date components.
-	May returns `nil` if the components contain insufficient or contradicting information.
-
-	- Note: This initialiser is for internal use only as we prefer the `components.dateInRegion`
- 			use outside the lib.
-
-	- parameter components date components to set
-
-	- returns: a new instance of `DateInRegion`
-	*/
+    /// Initialise a `DateInRegion` object from a set of date components. Default values will be 
+    /// used if the components are insufficient to create a date.
+    ///
+    /// - parameters:
+    ///     - components: date components to generate the date from
+    ///
+    /// - returns: a new `DateInRegion`
+    ///
     internal init(_ components: NSDateComponents) {
         let region = Region(components)
         let absoluteTime = region.calendar.dateFromComponents(components)
         self.init(absoluteTime: absoluteTime, region: region)
     }
 
-	/**
-	Initialise a `DateInRegion` object from a number of date properties.
-	Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother.
-	In such a case the parameter highest in the parameter list below has priority.
-	All parameters but `fromDate` are optional.
 
-	- parameter fromDate reference `DateInRegion`
-	- parameter era era to set (optional)
-	- parameter year year number  to set (optional)
-	- parameter month year number  to set (optional)
-	- parameter day day number to set (optional)
-	- parameter hour hour number to set (optional)
-	- parameter minute minute number to set (optional)
-	- parameter second second number to set (optional)
-	- parameter nanosecond nanosecond number to set (optional)
-	- parameter region region to set (optional)
-
-	- returns: a new `DateInRegion` or nil if init fails
-	*/
+    /// Initialise a `DateInRegion` object from a source date and a number of optional date 
+    /// properties.
+    ///
+    /// Please note that if a new region is specified, parameters are evaluated against that region.
+    /// I.e. you might have a different absolute time generated. To use time zone conversion you
+    /// should use `date.inRegion()`.
+    ///
+    /// - parameters:
+    ///     - fromDate: reference `DateInRegion`
+    ///     - era: era to set (optional)
+    ///     - year: year number  to set (optional)
+    ///     - month: year number  to set (optional)
+    ///     - day: day number to set (optional)
+    ///     - hour: hour number to set (optional)
+    ///     - minute: minute number to set (optional)
+    ///     - second: second number to set (optional)
+    ///     - nanosecond: nanosecond number to set (optional)
+    ///     - region: region to set (optional)
+    ///
+    /// - returns: a new `DateInRegion`
+    /// 
     public init(
         fromDate: DateInRegion,
         era: Int? = nil,
@@ -149,14 +149,14 @@ public struct DateInRegion {
         region: Region? = nil) {
 
             let newComponents = NSDateComponents()
-            newComponents.era = era ?? fromDate.era!
-            newComponents.year = year ?? fromDate.year!
-            newComponents.month = month ?? fromDate.month!
-            newComponents.day = day ?? fromDate.day!
-            newComponents.hour = hour ?? fromDate.hour!
-            newComponents.minute = minute ?? fromDate.minute!
-            newComponents.second = second ?? fromDate.second!
-            newComponents.nanosecond = nanosecond ?? fromDate.nanosecond!
+            newComponents.era = era ?? fromDate.era
+            newComponents.year = year ?? fromDate.year
+            newComponents.month = month ?? fromDate.month
+            newComponents.day = day ?? fromDate.day
+            newComponents.hour = hour ?? fromDate.hour
+            newComponents.minute = minute ?? fromDate.minute
+            newComponents.second = second ?? fromDate.second
+            newComponents.nanosecond = nanosecond ?? fromDate.nanosecond
             newComponents.calendar = region?.calendar ?? fromDate.calendar
 
             self.init(newComponents)
@@ -325,13 +325,15 @@ public struct DateInRegion {
     }
 
 
-  /**
-   Convert self `DateInRegion`'s date in an another date allowing composition inside the library
 
-   - parameter region new destination region for the date
-
-   - returns: the new `DateInRegion`
-   */
+    /// Convert receiver to another region with the same absolute time.
+    /// Typically used for regional conversions (time zone, calendar, locale)
+    ///
+    /// - parameters:
+    ///     - region: new destination region for the date
+    ///
+    /// - returns: the new `DateInRegion` object with the new region
+    /// 
     public func inRegion(region: Region) -> DateInRegion {
         return DateInRegion(absoluteTime: self.absoluteTime, region: region)
     }

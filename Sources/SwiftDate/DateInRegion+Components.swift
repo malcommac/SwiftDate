@@ -46,18 +46,24 @@ public extension DateInRegion {
     ///
     /// - Parameters:
     ///     - flag: specifies the calendrical unit that should be returned
-    ///
     /// - Returns: The value of the NSDateComponents object for the date.
-    internal func valueForComponent(flag: NSCalendarUnit) -> Int? {
-        let value = calendar.components(flag, fromDate: absoluteTime).valueForComponent(flag)
-        return value == NSDateComponentUndefined ? nil: value
+    /// - remark: asserts that no calendar or time zone flags are specified. 
+    ///   If one of these is present, an assertion fails and execution will halt.
+    ///
+    internal func valueForComponent(flag: NSCalendarUnit) -> Int {
+        assert(!flag.contains(.Calendar))
+        assert(!flag.contains(.TimeZone))
+
+        let components = calendar.components(flag, fromDate: absoluteTime)
+        let value = components.valueForComponent(flag)
+        return value
     }
 
     /// The number of era units for the receiver.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var era: Int? {
+    public var era: Int {
         return valueForComponent(.Era)
     }
 
@@ -65,7 +71,7 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var year: Int? {
+    public var year: Int {
         return valueForComponent(.Year)
     }
 
@@ -73,7 +79,7 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var month: Int? {
+    public var month: Int {
         return valueForComponent(.Month)
     }
 
@@ -81,7 +87,7 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var day: Int? {
+    public var day: Int {
         return valueForComponent(.Day)
     }
 
@@ -89,21 +95,21 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var hour: Int? {
+    public var hour: Int {
         return valueForComponent(.Hour)
     }
 
     /// Nearest rounded hour from the date expressed in this region's timezone
     public var nearestHour: Int {
         let date = self + 30.minutes
-        return Int(date.hour!)
+        return Int(date.hour)
     }
 
     /// The number of minute units for the receiver.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var minute: Int? {
+    public var minute: Int {
         return valueForComponent(.Minute)
     }
 
@@ -111,7 +117,7 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var second: Int? {
+    public var second: Int {
         return valueForComponent(.Second)
     }
 
@@ -119,23 +125,23 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var nanosecond: Int? {
+    public var nanosecond: Int {
         return valueForComponent(.Nanosecond)
     }
 
-    /// The ISO 8601 week-numbering year of the receiver.
+    /// The week-numbering year of the receiver.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var yearForWeekOfYear: Int? {
+    public var yearForWeekOfYear: Int {
         return valueForComponent(.YearForWeekOfYear)
     }
 
-    /// The ISO 8601 week date of the year for the receiver.
+    /// The week date of the year for the receiver.
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var weekOfYear: Int? {
+    public var weekOfYear: Int {
         return valueForComponent(.WeekOfYear)
     }
 
@@ -145,7 +151,7 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var weekday: Int? {
+    public var weekday: Int {
         return valueForComponent(.Weekday)
     }
 
@@ -156,26 +162,24 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var weekdayOrdinal: Int? {
+    public var weekdayOrdinal: Int {
         return valueForComponent(.WeekdayOrdinal)
     }
 
     /// Week day name of the date expressed in this region's locale
-    public var weekdayName: String? {
-        guard let _ = absoluteTime else { return nil }
+    public var weekdayName: String {
 
-		let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { () -> (String?) in
+        let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { () -> (String) in
 			cachedFormatter.dateFormat = "EEEE"
 			cachedFormatter.locale = self.region.locale
 			let value = cachedFormatter.stringFromDate(self.absoluteTime)
 			return value
-		}
+		}!
     }
 
     /// Nmber of days into current's date month expressed in current region calendar and locale
-    public var monthDays: Int? {
-        guard let _ = absoluteTime else { return nil }
+    public var monthDays: Int {
         return region.calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: absoluteTime).length
     }
 
@@ -196,20 +200,18 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public var weekOfMonth: Int? {
+    public var weekOfMonth: Int {
         return valueForComponent(.WeekOfMonth)
     }
 
     /// Month name of the date expressed in this region's timezone using region's locale
-    public var monthName: String? {
-        guard let _ = absoluteTime else { return nil }
-
+    public var monthName: String {
 		let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { () -> (String?) in
+		return cachedFormatter.beginSessionContext { () -> (String) in
 			cachedFormatter.locale = self.region.locale
-			let value = cachedFormatter.monthSymbols[self.month! - 1] as String
+			let value = cachedFormatter.monthSymbols[self.month - 1] as String
 			return value
-		}
+		}!
     }
 
 

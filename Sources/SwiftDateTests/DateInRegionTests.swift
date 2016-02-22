@@ -816,7 +816,7 @@ class DateInRegionSpec: QuickSpec {
                 expect(testDate.hour) == 23
                 expect(testDate.minute) == 59
                 expect(testDate.second) == 59
-                expect(Double(testDate.nanosecond!)/1000000000) ≈ 0.999
+                expect(Double(testDate.nanosecond)/1000000000) ≈ 0.999
             }
 
             it("should return end of month") {

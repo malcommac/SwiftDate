@@ -87,6 +87,25 @@ class DateInRegionComparisonSpec: QuickSpec {
                 }
             }
 
+            context("isEqualToDate") {
+
+                it("should report true when comparing to the same date") {
+                    expect(date.isEqualToDate(date)) == true
+                }
+
+                it("should report false when comparing to a date with different time") {
+                    let date2 = date + 1.seconds
+                    expect(date.isEqualToDate(date2)) == false
+                }
+
+                it("should report false when comparing to a date with different region") {
+                    let region = Region(localeName: .ItalianItaly)
+                    let date2 = date.inRegion(region)
+                    expect(date.isEqualToDate(date2)) == false
+                }
+
+            }
+
             context("isIn") {
 
 

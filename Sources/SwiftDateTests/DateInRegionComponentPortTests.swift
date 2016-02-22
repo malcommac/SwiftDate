@@ -346,13 +346,108 @@ class DateInRegionComponentPortSpec: QuickSpec {
 
                 it("should return week's weekend on Monday") {
                     let date = DateInRegion(year: 2015, month: 11, day: 2, region: amsterdam)
-
+                    
                     let weekend = date.previousWeekend()!
-
+                    
                     expect(weekend.startDate) == expectedStartDate
                     expect(weekend.endDate) == expectedEndDate
                 }
             }
+            
+            context("This weekend") {
+
+                let expectedStartDate = DateInRegion(year: 2016, month: 2, day: 20, region: amsterdam)
+                let expectedEndDate = (expectedStartDate + 1.days).endOf(.Day)
+
+
+                it("should return this weekend on Sunday") {
+                    let date = DateInRegion(year: 2016, month: 2, day: 21, region: amsterdam)
+
+                    let weekend = date.thisWeekend()!
+
+                    expect(weekend.startDate) == expectedStartDate
+                    expect(weekend.endDate) == expectedEndDate
+                }
+                
+                it("should return this weekend on Saturday") {
+                    let date = DateInRegion(year: 2016, month: 2, day: 20, region: amsterdam)
+
+                    let weekend = date.thisWeekend()!
+
+                    expect(weekend.startDate) == expectedStartDate
+                    expect(weekend.endDate) == expectedEndDate
+                }
+                
+                it("should return error on Monday") {
+                    let date = DateInRegion(year: 2016, month: 2, day: 22, region: amsterdam)
+
+                    let weekend = date.thisWeekend()
+                    expect(weekend).to(beNil())
+                }
+
+                it("should return error on Friday") {
+                    let date = DateInRegion(year: 2016, month: 2, day: 19, region: amsterdam)
+
+                    let weekend = date.thisWeekend()
+                    expect(weekend).to(beNil())
+                }
+
+                // According to the Apple docs, weekend functions return nil if no weekend exists
+                // for the calendar & locale. However, below we test all combinations of calendars
+                // and locales; no weekendless combinations exist (yet)
+                //
+                //                it("should return error if no weekend in calendar") {
+                //
+                //
+                //                    for calendarName in [NSCalendarIdentifierGregorian,
+                //                        NSCalendarIdentifierBuddhist, NSCalendarIdentifierChinese,
+                //                        NSCalendarIdentifierCoptic, NSCalendarIdentifierEthiopicAmeteMihret,
+                //                        NSCalendarIdentifierEthiopicAmeteAlem, NSCalendarIdentifierHebrew,
+                //                        NSCalendarIdentifierISO8601, NSCalendarIdentifierIndian,
+                //                        NSCalendarIdentifierIslamic, NSCalendarIdentifierIslamicCivil,
+                //                        NSCalendarIdentifierJapanese, NSCalendarIdentifierPersian,
+                //                        NSCalendarIdentifierRepublicOfChina, NSCalendarIdentifierIslamicTabular,
+                //                        NSCalendarIdentifierIslamicUmmAlQura] {
+                //                        print(calendarName)
+                //                        let calendar = NSCalendar(calendarIdentifier: calendarName)!
+                //                        for localeName in NSLocale.availableLocaleIdentifiers() {
+                //                            let locale = NSLocale(localeIdentifier: localeName)
+                //                            let region = Region(calendar: calendar, locale: locale)
+                //                            let date = DateInRegion(region: region)
+                //                            let weekend = date.nextWeekend()
+                //                            expect(weekend).toNot(beNil())
+                //                        }
+                //                    }
+                //
+                //                }
+                
+            }
+            
+            context("nearest hour") {
+
+                let date = DateInRegion(year: 2002, month: 3, day: 4, hour: 5, minute: 30, region: newYork)
+
+                it("should report the next hour on 30 minutes") {
+                    expect(date.nearestHour) == 6
+                }
+                
+                it("should report the previous hour on 30 minutes minus a little") {
+                    let date2 = date - 1000.nanoseconds
+                    expect(date2.nearestHour) == 5
+                }
+                
+            }
+
+            context("weekdayName") {
+
+                let date = DateInRegion(year: 2002, month: 3, day: 4, hour: 5, minute: 30, region: newYork)
+
+                it("should report the weekday name") {
+                    expect(date.weekdayName) == "Monday"
+                }
+
+            }
+
         }
     }
 }

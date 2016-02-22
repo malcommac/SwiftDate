@@ -25,6 +25,7 @@
 import Foundation
 
 public extension NSTimeInterval {
+    
 	/// Returns an NSDate object initialized relative to the current date and time
 	/// by a given number of seconds.
 	public var fromNow: NSDate? {

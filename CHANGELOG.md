@@ -10,7 +10,7 @@
 
 ## [v3.0.2](https://github.com/malcommac/SwiftDate/releases/tag/3.0.1) (2016-01-28)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0..v3.0.2)
-- ```.endOf``` of NSDate extension now correctly call ```.endOf``` of the DateInRegion counterpart
+- .endOf of NSDate extension now correctly call .endOf of the DateInRegion counterpart
 
 ## [v3.0.1](https://github.com/malcommac/SwiftDate/releases/tag/3.0.1) (2016-01-28)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0..v3.0.1)

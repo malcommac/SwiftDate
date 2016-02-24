@@ -77,8 +77,8 @@ class DateRegionStringSpec: QuickSpec {
                 let localDate = date.inRegion()
 
                 it("should return proper ISO 8601 string") {
-                    expect(localDate.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00"))
-                    expect(date.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00"))
+                    expect(localDate.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00")) == true
+                    expect(date.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00")) == true
                 }
 
                 it("should return proper ISO 8601 date string") {
@@ -87,13 +87,13 @@ class DateRegionStringSpec: QuickSpec {
                 }
 
                 it("should return proper Alt RSS date string") {
-                    expect(localDate.toString(DateFormat.AltRSS)!.hasPrefix("13 Apr 2015 22:10:00"))
-                    expect(date.toString(DateFormat.AltRSS)!.hasPrefix("13 Apr 2015 22:10:00"))
+                    expect(localDate.toString(DateFormat.AltRSS)!.hasPrefix("13 Apr 2015 22:10:00")) == true
+                    expect(date.toString(DateFormat.AltRSS)!.hasPrefix("13 Apr 2015 22:10:00")) == true
                 }
 
                 it("should return proper RSS date string") {
-                    expect(localDate.toString(DateFormat.RSS)!.hasPrefix("Mon, 13 Apr 2015 22:10:00"))
-                    expect(date.toString(DateFormat.RSS)!.hasPrefix("Mon, 13 Apr 2015 22:10:00"))
+                    expect(localDate.toString(DateFormat.RSS)!.hasPrefix("Mon, 13 Apr 2015 22:10:00")) == true
+                    expect(date.toString(DateFormat.RSS)!.hasPrefix("Mon, 13 Apr 2015 22:10:00")) == true
                 }
 
                 it("should return proper custom date string") {
@@ -102,8 +102,8 @@ class DateRegionStringSpec: QuickSpec {
                 }
 
                 it("should return proper custom date string") {
-                    expect(localDate.toString(DateFormat.Custom("eee d MMM YYYY, m 'minutes after' HH '(timezone is' Z')'"))!.hasPrefix("Mon 13 Apr 2015, 10 minutes after 22 (timezone is "))
-                    expect(date.toString(DateFormat.Custom("eee d MMM YYYY, m 'minutes after' HH '(timezone is' Z')'"))!.hasPrefix("Mon 13 Apr 2015, 10 minutes after 22 (timezone is "))
+                    expect(localDate.toString(DateFormat.Custom("eee d MMM YYYY, m 'minutes after' HH '(timezone is' Z')'"))!.hasPrefix("Mon 13 Apr 2015, 10 minutes after 22 (timezone is ")) == true
+                    expect(date.toString(DateFormat.Custom("eee d MMM YYYY, m 'minutes after' HH '(timezone is' Z')'"))!.hasPrefix("Mon 13 Apr 2015, 10 minutes after 22 (timezone is ")) == true
                 }
             }
         }

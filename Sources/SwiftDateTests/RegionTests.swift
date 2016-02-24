@@ -54,20 +54,20 @@ class DateregionSpec: QuickSpec {
                 it("should return a proper current date for today") {
                     let today = region.today()
 
-                    expect(today.calendar.isDateInToday(today.absoluteTime))
+                    expect(today.calendar.isDateInToday(today.absoluteTime)) == true
                     expect(today.region) == region
                 }
 
                 it("should return a proper tomorrow") {
                     let tomorrow = Region().tomorrow()
 
-                    expect(tomorrow.calendar.isDateInTomorrow(tomorrow.absoluteTime))
+                    expect(tomorrow.calendar.isDateInTomorrow(tomorrow.absoluteTime)) == true
                 }
 
                 it("should return a proper yesterday") {
                     let yesterday = Region().yesterday()
 
-                    expect(yesterday.calendar.isDateInYesterday(yesterday.absoluteTime))
+                    expect(yesterday.calendar.isDateInYesterday(yesterday.absoluteTime)) == true
                 }
 
             }

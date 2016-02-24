@@ -38,7 +38,8 @@ public extension NSDateComponents {
      - returns: a new NSDate instance
      */
     public func fromDate(refDate: NSDate!, inRegion region: Region = Region()) -> NSDate {
-        let date = region.calendar.dateByAddingComponents(self, toDate: refDate, options: NSCalendarOptions(rawValue: 0))
+        let date = region.calendar.dateByAddingComponents(self, toDate: refDate,
+            options: NSCalendarOptions(rawValue: 0))
         return date!
     }
 
@@ -58,7 +59,8 @@ public extension NSDateComponents {
                 self.setValue((value * -1), forComponent: unit)
             }
         }
-        return region.calendar.dateByAddingComponents(self, toDate: refDate, options: NSCalendarOptions(rawValue: 0))!
+        return region.calendar.dateByAddingComponents(self, toDate: refDate,
+            options: NSCalendarOptions(rawValue: 0))!
     }
 
     /**

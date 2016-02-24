@@ -28,7 +28,7 @@ import Foundation
 
 public typealias DateComponentDictionary = [ NSCalendarUnit: AnyObject ]
 
-//MARK: - Extension: NSCalendarUnit -
+// MARK: - Extension: NSCalendarUnit -
 
 protocol CalendarAsDictionaryKey: Hashable {}
 
@@ -46,7 +46,9 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
         let components = NSDateComponents()
         for (key, value) in self {
             if let value = value as? Int {
-                components.setValue(value, forComponent: key as! NSCalendarUnit)
+                if let key = key as? NSCalendarUnit {
+                    components.setValue(value, forComponent: key)
+                }
             } else if let value = value as? NSCalendar {
                 components.calendar = value
             } else if let value = value as? NSTimeZone {
@@ -57,11 +59,12 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
     }
 
     /**
-     Convert a dictionary of <NSCalendarUnit,Value> in a DateInRegion. Both timeZone and calendar must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s locale will be used instead.
+     Convert a dictionary of <NSCalendarUnit,Value> in a DateInRegion. Both timeZone and calendar
+     must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s
+     locale will be used instead.
 
-     - parameter locale: optional locale (Region().locale if nil)
-
-     - returns: DateInRegion if date components are complete, nil if cannot be used to generate a valid date
+     - returns: DateInRegion if date components are complete, nil if cannot be used to generate a
+        valid date
      */
     func dateInRegion() -> DateInRegion? {
         return DateInRegion(self.components())
@@ -78,9 +81,12 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
     }
 
     /**
-     Convert a dictionary of <NSCalendarUnit,Value> in absolute time NSDate instance. Both timeZone and calendar must be specified into the dictionary. You can also specify a locale; if nil UTCRegion()'s locale will be used instead.
+     Convert a dictionary of <NSCalendarUnit,Value> in absolute time NSDate instance. Both timeZone
+     and calendar must be specified into the dictionary. You can also specify a locale; if nil
+     default locale will be used instead.
 
-     - returns: absolute time NSDate object, nil if dictionary values cannot be used to generate a valid date
+     - returns: absolute time NSDate object, nil if dictionary values cannot be used to generate a
+     valid date
      */
     func absoluteTime() -> NSDate? {
         let date = self.dateInRegion()

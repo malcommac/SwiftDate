@@ -26,6 +26,8 @@ import Foundation
 
 extension DateInRegion {
 
+    // swiftlint:disable line_length
+
     /// Time interval since the reference date at 1 January 2001
     ///
     /// - Returns: the number of seconds as an NSTimeInterval.
@@ -36,30 +38,36 @@ extension DateInRegion {
         return absoluteTime.timeIntervalSinceReferenceDate
     }
 
-    /// Creates and returns a DateInRegion object representing a date in the distant past (in terms of centuries).
+    /// Creates and returns a DateInRegion object representing a date in the distant past (in terms
+    /// of centuries).
     ///
-    /// - Returns: A ``DateInRegion`` object representing a date in the distant past (in terms of centuries).
+    /// - Returns: A ``DateInRegion`` object representing a date in the distant past (in terms of
+    ///     centuries).
     ///
     public static func distantFuture() -> DateInRegion {
         return DateInRegion(absoluteTime: NSDate.distantFuture())
     }
 
-    /// Creates and returns a DateInRegion object representing a date in the distant future (in terms of centuries).
+    /// Creates and returns a DateInRegion object representing a date in the distant future (in
+    /// terms of centuries).
     ///
-    /// - Returns: A ``DateInRegion`` object representing a date in the distant future (in terms of centuries).
+    /// - Returns: A ``DateInRegion`` object representing a date in the distant future (in terms of
+    ///     centuries).
     ///
     public static func distantPast() -> DateInRegion {
         return DateInRegion(absoluteTime: NSDate.distantPast())
     }
 
-    /// Returns a DateInRegion object representing a date that is the earliest from a given range of dates.
-    /// The dates are compared in absolute time, i.e. time zones, locales and calendars have no effect
-    /// on the comparison.
+    /// Returns a DateInRegion object representing a date that is the earliest from a given range
+    /// of dates.
+    /// The dates are compared in absolute time, i.e. time zones, locales and calendars have no
+    /// effect on the comparison.
     ///
     /// - Parameters:
     ///     - dates: a number of dates to be evaluated
     ///
-    /// - Returns: a ``DateInRegion`` object representing a date that is the earliest from a given range of dates.
+    /// - Returns: a ``DateInRegion`` object representing a date that is the earliest from a given
+    ///     range of dates.
     ///
     public static func earliestDate(dates: DateInRegion ...) -> DateInRegion {
         var currentMinimum = DateInRegion.distantFuture()
@@ -71,14 +79,15 @@ extension DateInRegion {
         return currentMinimum
     }
 
-    /// Returns a DateInRegion object representing a date that is the latest from a given range of dates.
-    /// The dates are compared in absolute time, i.e. time zones, locales and calendars have no effect
-    /// on the comparison.
+    /// Returns a DateInRegion object representing a date that is the latest from a given range of
+    /// dates. The dates are compared in absolute time, i.e. time zones, locales and calendars have
+    /// no effect on the comparison.
     ///
     /// - Parameters:
     ///     - dates: a number of dates to be evaluated
     ///
-    /// - Returns: a ``DateInRegion`` object representing a date that is the latest from a given range of dates.
+    /// - Returns: a ``DateInRegion`` object representing a date that is the latest from a given
+    ///     range of dates.
     ///
     public static func latestDate(dates: DateInRegion ...) -> DateInRegion {
         var currentMaximum = DateInRegion.distantPast()

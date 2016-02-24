@@ -47,7 +47,7 @@ public extension DateInRegion {
     /// - Parameters:
     ///     - flag: specifies the calendrical unit that should be returned
     /// - Returns: The value of the NSDateComponents object for the date.
-    /// - remark: asserts that no calendar or time zone flags are specified. 
+    /// - remark: asserts that no calendar or time zone flags are specified.
     ///   If one of these is present, an assertion fails and execution will halt.
     ///
     internal func valueForComponent(flag: NSCalendarUnit) -> Int {

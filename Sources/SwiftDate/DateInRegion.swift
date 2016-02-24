@@ -48,11 +48,15 @@ public struct DateInRegion {
 
     /// Set to loop throuhg all NSCalendarUnit values
     ///
-    internal static let componentFlagSet: [NSCalendarUnit] = [.Nanosecond, .Second, .Minute, .Hour, .Day, .Month, .Year, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal, .WeekOfMonth]
+    internal static let componentFlagSet: [NSCalendarUnit] = [.Nanosecond, .Second, .Minute, .Hour,
+        .Day, .Month, .Year, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal,
+        .WeekOfMonth]
 
     /// NSCalendarUnit values used to obtain data from a date with a calendar and time zone
     ///
-    internal static let componentFlags: NSCalendarUnit = [.Day, .Month, .Year, .Hour, .Minute, .Second, .Nanosecond, .TimeZone, .Calendar, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekOfMonth]
+    internal static let componentFlags: NSCalendarUnit = [.Day, .Month, .Year, .Hour, .Minute,
+        .Second, .Nanosecond, .TimeZone, .Calendar, .YearForWeekOfYear, .WeekOfYear, .Weekday,
+        .Quarter, .WeekOfMonth]
 
     // MARK: - Instance variables
 
@@ -86,27 +90,25 @@ public struct DateInRegion {
 
     // MARK: - Initialisations
 
-	/**
-	Initialise with a date, a region and  some properties.
-	This initialiser can be used to copy a date while setting certain properties.
 
-	- parameter newDate the date to assign, `default = NSDate()` (that is the current time)
-	- parameter newRegion the region to work with to assign, default = the current region
-
-	- returns: a new instance of `DateInRegion`
-	*/
+	/// Initialise with a date, a region and  some properties.
+	/// This initialiser can be used to copy a date while setting certain properties.
+    ///
+    ///	- parameters:
+    ///     - absoluteTime: the date to assign, `default = NSDate()` (that is the current
+    ///     time)
+    ///     - region: the region to work with to assign, default = the current region
+    ///
     public init(absoluteTime newDate: NSDate? = nil, region newRegion: Region? = nil) {
         absoluteTime = newDate ?? NSDate()
         region = newRegion ?? Region()
     }
 
-    /// Initialise a `DateInRegion` object from a set of date components. Default values will be 
+    /// Initialise a `DateInRegion` object from a set of date components. Default values will be
     /// used if the components are insufficient to create a date.
     ///
     /// - parameters:
     ///     - components: date components to generate the date from
-    ///
-    /// - returns: a new `DateInRegion`
     ///
     internal init(_ components: NSDateComponents) {
         let region = Region(components)
@@ -115,7 +117,7 @@ public struct DateInRegion {
     }
 
 
-    /// Initialise a `DateInRegion` object from a source date and a number of optional date 
+    /// Initialise a `DateInRegion` object from a source date and a number of optional date
     /// properties.
     ///
     /// Please note that if a new region is specified, parameters are evaluated against that region.
@@ -134,8 +136,6 @@ public struct DateInRegion {
     ///     - nanosecond: nanosecond number to set (optional)
     ///     - region: region to set (optional)
     ///
-    /// - returns: a new `DateInRegion`
-    /// 
     public init(
         fromDate: DateInRegion,
         era: Int? = nil,
@@ -162,25 +162,23 @@ public struct DateInRegion {
             self.init(newComponents)
     }
 
-   /**
-   Initialise a `DateInRegion` object from a number of date properties.
-   Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother.
-   In such a case the parameter highest in the parameter list below has priority.
-   All parameters but `year`, `month` and `day` are optional.
 
-   - Paramaters:
-   - era: era to set (optional)
-   - year: year number  to set
-   - month: month number to set
-   - day: day number to set
-   - hour: hour number to set (optional)
-   - minute: minute number to set (optional)
-   - second: second number to set (optional)
-   - nanosecond: nanosecond number to set (optional)
-   - region: region to set (optional)
-
-   - returns: a new `DateInRegion` or nil if init fails
-   */
+    ///  Initialise a `DateInRegion` object from a number of date properties.
+    ///  Parameters are kind of fuzzy; they can overlap functionality and can contradict eachother.
+    ///  In such a case the parameter highest in the parameter list below has priority.
+    ///  All parameters but `year`, `month` and `day` are optional.
+    ///
+    ///  - Parameters:
+    ///   - era: era to set (optional)
+    ///   - year: year number  to set
+    ///   - month: month number to set
+    ///   - day: day number to set
+    ///   - hour: hour number to set (optional)
+    ///   - minute: minute number to set (optional)
+    ///   - second: second number to set (optional)
+    ///   - nanosecond: nanosecond number to set (optional)
+    ///   - region: region to set (optional)
+    ///
     public init(
         era: Int? = nil,
         year: Int,
@@ -255,65 +253,55 @@ public struct DateInRegion {
     }
 
 
-    /**
-     Initialize a new DateInRegion string from a specified date string,
-		 a given format and a destination region for the date
+    /// Initialize a new DateInRegion string from a specified date string, a given format and a
+    /// destination region for the date
+    ///
+    ///     - parameter fromString: date value as string
+    ///     - parameter format: format used to parse string
+    ///     - parameter region: region of destination (date is parsed with the
+    ///   	   format specified by the string value)
+    ///
+    public init?(fromString dateString: String, format: DateFormat,
+        region nilRegion: Region? = nil) {
 
-     - parameter date: date value as string
-     - parameter format: format used to parse string
-     - parameter region: region of destination (date is parsed with the
-   	   format specified by the string value)
-
-     - returns: a new DateInRegion instance
-     */
-    public init?(
-        fromString date: String,
-        format: DateFormat,
-        region: Region? = nil) {
+            let region = nilRegion ?? Region()
 
 			let cFormatter = sharedDateFormatter()
 			let parsedDate = cFormatter.beginSessionContext { () -> (NSDate?) in
-				if let region = region {
-					cFormatter.timeZone = region.timeZone
-					cFormatter.calendar = region.calendar
-					cFormatter.locale = region.locale
-				}
-				let parsedDate: NSDate?
+                cFormatter.timeZone = region.timeZone
+                cFormatter.calendar = region.calendar
+                cFormatter.locale = region.locale
+
+                let parsedDate: NSDate?
+
+                let stringWithTimeZone = dateString.hasSuffix("Z")
+                    ? dateString.substringToIndex(dateString.endIndex.advancedBy(-1)) + "+0000"
+                    : dateString
 
 				switch format {
 				case .ISO8601Date:
 					cFormatter.dateFormat = "yyyy-MM-dd"
-					parsedDate = cFormatter.dateFromString(date)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				case .ISO8601:
 					cFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 					cFormatter.dateFormat = (ISO8601Type.Full).rawValue
-					parsedDate = cFormatter.dateFromString(date)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				case .ISO8601Format(let type):
 					cFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
 					cFormatter.dateFormat = type!.rawValue
-					parsedDate = cFormatter.dateFromString(date)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				case .AltRSS: // 09 Sep 2011 15:26:08 +0200
-					var formattedString: NSString = date
-					if formattedString.hasSuffix("Z") {
-						formattedString = formattedString.substringToIndex(formattedString.length-1)
-                            + "UTC"
-					}
 					cFormatter.dateFormat = "d MMM yyyy HH:mm:ss ZZZ"
-					parsedDate = cFormatter.dateFromString(formattedString as String)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				case .RSS: // Fri, 09 Sep 2011 15:26:08 +0200
-					var formattedString: NSString = date
-					if formattedString.hasSuffix("Z") {
-						formattedString = formattedString.substringToIndex(formattedString.length-1)
-                            + "UTC"
-					}
 					cFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss ZZZ"
-					parsedDate = cFormatter.dateFromString(formattedString as String)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				case .Extended:
 					cFormatter.dateFormat = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
-					parsedDate = cFormatter.dateFromString(date)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				case .Custom(let dateFormat):
 					cFormatter.dateFormat = dateFormat
-					parsedDate = cFormatter.dateFromString(date)
+					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
 				}
 				return parsedDate
 			}
@@ -333,7 +321,7 @@ public struct DateInRegion {
     ///     - region: new destination region for the date
     ///
     /// - returns: the new `DateInRegion` object with the new region
-    /// 
+    ///
     public func inRegion(region: Region) -> DateInRegion {
         return DateInRegion(absoluteTime: self.absoluteTime, region: region)
     }

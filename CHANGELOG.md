@@ -1,5 +1,12 @@
 # Change Log
 
+## [3.0.5](https://github.com/malcommac/SwiftDate/tree/3.0.5) (2016-02-25)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.4...3.0.5)
+
+**Implemented enhancements:**
+
+- Remove component dictionaries [\#163](https://github.com/malcommac/SwiftDate/issues/163)
+
 ## [3.0.4](https://github.com/malcommac/SwiftDate/tree/3.0.4) (2016-02-24)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2...3.0.4)
 
@@ -17,18 +24,6 @@
 
 - NSDate initializer buggy [\#161](https://github.com/malcommac/SwiftDate/issues/161)
 - SwiftDate 在真机环境中使用会返回nil，但模拟器不会什么原因？ [\#158](https://github.com/malcommac/SwiftDate/issues/158)
-
-## [v3.0.3](https://github.com/malcommac/SwiftDate/releases/tag/3.0.3) (2016-)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2..v3.0.3)
-
-**Closed issues:**
-
-- Deprecated ```.toISO8101String()```. Use ```.toString(.ISO8601)``` instead [Commit](https://github.com/malcommac/SwiftDate/commit/9451ed3fcf3ba996a347ea96ce45694371aa4f3a)
-- Locale is not set to calendar object but inside the formatter ([Commit](https://github.com/malcommac/SwiftDate/commit/0ccc172d506034f1cd1b949100fbfca3f16bf303))
-- DateFormat type now adds ```ISO8601Format``` enum type now allows to specify the ISO8601 variant (```Year,YearMonth,Date,DateTime,Full``` or ```Extended```). When omitted ```.Full``` is used instead.
-- Deprecated DateFormat's types ```ISO8601``` and ```ISO8601Date```. You can use ```ISO8601Format()``` with relative options.
-- ```weekdayName``` is now a public var in ```DateInRegion```
-
 
 ## [3.0.2](https://github.com/malcommac/SwiftDate/tree/3.0.2) (2016-02-15)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.1...3.0.2)

@@ -93,6 +93,9 @@ extension NSDate {
     //// - parameter dateComponentDictionary: paramters dictionary, each key must be an
     ///     NSCalendarUnit
     ///
+    /// - remark: deprecated! You should use 
+    ///
+    @available(*, deprecated=3.0.5, message="Use init(components) or init(year:month: etc) instead")
     public convenience init?(dateComponentDictionary: DateComponentDictionary) {
 
         let absoluteTime = dateComponentDictionary.absoluteTime()
@@ -199,6 +202,7 @@ extension NSDate {
 
      - returns: a new absolute time from self plus passed components dictionary
      */
+    @available(*, deprecated=3.0.5, message="Use add(components) or + instead")
     public func add(params: [NSCalendarUnit : AnyObject]) -> NSDate {
         let date = self.inRegion().add(components: params)
         return date.absoluteTime

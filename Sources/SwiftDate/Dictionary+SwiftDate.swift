@@ -26,6 +26,7 @@ import Foundation
 
 // MARK: - Generate a Date from a Dictionary of NSCalendarUnit:Value
 
+@available(*, deprecated=3.0.5, message="Use NSDateComponents instead")
 public typealias DateComponentDictionary = [ NSCalendarUnit: AnyObject ]
 
 // MARK: - Extension: NSCalendarUnit -

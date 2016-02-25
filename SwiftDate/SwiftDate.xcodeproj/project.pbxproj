@@ -43,6 +43,8 @@
 		08188EE61C5A438100109396 /* RegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188EB91C5A424200109396 /* RegionTests.swift */; };
 		08188F051C5A916F00109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188F041C5A916F00109396 /* main.swift */; };
 		08188F071C5A917D00109396 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08188F061C5A917D00109396 /* main.swift */; };
+		0873225D1C79C2AD005A39D6 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0873225C1C79C2AD005A39D6 /* DateFormatter.swift */; };
+		08FF7BA01C7D049A00F0787F /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08FF7B9F1C7D049A00F0787F /* SwiftDate.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,8 @@
 		08188EF61C5A534F00109396 /* timezone-gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "timezone-gen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08188F041C5A916F00109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../time-zone-gen/main.swift"; sourceTree = "<group>"; };
 		08188F061C5A917D00109396 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "../../locale-gen/main.swift"; sourceTree = "<group>"; };
+		0873225C1C79C2AD005A39D6 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = ../../SwiftDate_src/DateFormatter.swift; sourceTree = "<group>"; };
+		08FF7B9F1C7D049A00F0787F /* SwiftDate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftDate.bundle; path = ../../SwiftDate_src/SwiftDate.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,8 @@
 				08188E991C5A422300109396 /* NSTimeInterval+SwiftDate.swift */,
 				08188E9A1C5A422300109396 /* NSTimeZone+SwiftDate.swift */,
 				08188E9B1C5A422300109396 /* Region.swift */,
+				0873225C1C79C2AD005A39D6 /* DateFormatter.swift */,
+				08FF7B9F1C7D049A00F0787F /* SwiftDate.bundle */,
 			);
 			name = "SwiftDate Sources";
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08FF7BA01C7D049A00F0787F /* SwiftDate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +439,7 @@
 				08188EAB1C5A422300109396 /* NSLocale+SwiftDate.swift in Sources */,
 				08188EA91C5A422300109396 /* NSDateFormatter+SwiftDate.swift in Sources */,
 				08188E9C1C5A422300109396 /* Additions.swift in Sources */,
+				0873225D1C79C2AD005A39D6 /* DateFormatter.swift in Sources */,
 				08188EA01C5A422300109396 /* DateInRegion+Equations.swift in Sources */,
 				08188EA11C5A422300109396 /* DateInRegion+Formatter.swift in Sources */,
 				08188EA51C5A422300109396 /* Dictionary+SwiftDate.swift in Sources */,

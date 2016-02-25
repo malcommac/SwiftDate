@@ -1,0 +1,147 @@
+// UNIT NAMES
+// YEARS
+"unitname_positional_y"				=	"";
+"unitname_positional_yy"			=	"";
+"unitname_abbreviated_y"			=	"y";
+"unitname_abbreviated_yy"			=	"y";
+"unitname_short_y"					=	"yr";
+"unitname_short_yy"					=	"yrs";
+"unitname_full_y"					=	"year";
+"unitname_full_yy"					=	"years";
+"unitname_colloquial_y"				=	"year";
+"unitname_colloquial_yy"			=	"years";
+// MONTHS
+"unitname_positional_m"				=	"";
+"unitname_positional_mm"			=	"";
+"unitname_abbreviated_m"			=	"m";
+"unitname_abbreviated_mm"			=	"m";
+"unitname_short_m"					=	"mo";
+"unitname_short_mm"					=	"mo";
+"unitname_full_m"					=	"month";
+"unitname_full_mm"					=	"months";
+"unitname_colloquial_m"				=	"month";
+"unitname_colloquial_mm"			=	"months";
+// WEEKS
+"unitname_positional_w"				=	"";
+"unitname_positional_ww"			=	"";
+"unitname_abbreviated_w"			=	"w";
+"unitname_abbreviated_ww"			=	"w";
+"unitname_short_w"					=	"wk";
+"unitname_short_ww"					=	"wk";
+"unitname_full_w"					=	"week";
+"unitname_full_ww"					=	"weeks";
+"unitname_colloquial_w"				=	"weeks";
+"unitname_colloquial_ww"			=	"weeks";
+// DAYS
+"unitname_positional_d"				=	"";
+"unitname_positional_dd"			=	"";
+"unitname_abbreviated_d"			=	"d";
+"unitname_abbreviated_dd"			=	"d";
+"unitname_short_d"					=	"dy";
+"unitname_short_dd"					=	"dy";
+"unitname_full_d"					=	"day";
+"unitname_full_dd"					=	"days";
+"unitname_colloquial_d"				=	"days";
+"unitname_colloquial_dd"			=	"days";
+// HOURS
+"unitname_positional_h"				=	"";
+"unitname_positional_hh"			=	"";
+"unitname_abbreviated_h"			=	"h";
+"unitname_abbreviated_hh"			=	"h";
+"unitname_short_h"					=	"h";
+"unitname_short_hh"					=	"hs";
+"unitname_full_h"					=	"hour";
+"unitname_full_hh"					=	"hours";
+"unitname_colloquial_h"				=	"hours";
+"unitname_colloquial_hh"			=	"hours";
+// MINUTES
+"unitname_positional_M"				=	"";
+"unitname_positional_MM"			=	"";
+"unitname_abbreviated_M"			=	"m";
+"unitname_abbreviated_MM"			=	"m";
+"unitname_short_M"					=	"min";
+"unitname_short_MM"					=	"mins";
+"unitname_full_M"					=	"minute";
+"unitname_full_MM"					=	"minutes";
+"unitname_colloquial_M"				=	"minutes";
+"unitname_colloquial_MM"			=	"minutes";
+// SECONDS
+"unitname_positional_s"				=	"";
+"unitname_positional_ss"			=	"";
+"unitname_abbreviated_s"			=	"s";
+"unitname_abbreviated_ss"			=	"s";
+"unitname_short_s"					=	"sec";
+"unitname_short_ss"					=	"secs";
+"unitname_full_s"					=	"second";
+"unitname_full_ss"					=	"seconds";
+"unitname_colloquial_s"				=	"second";
+"unitname_colloquial_ss"			=	"seconds";
+
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"next year";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"on %d";			// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"last year";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d";				// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"next month";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"in %d months";		// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"past month";		// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"%d months ago";	// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"next week";		// week,future,singular:	"next week"
+"colloquial_f_ww"					=	"in %ld weeks";		// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"past week";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"%d weeks ago";		// week,past,plural:		"in 3 weeks"
+
+"colloquial_f_d"					=	"tomorrow";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd"					=	"in %d days";		// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"yesterday";		// day,past,singular:		"yesterday"
+"colloquial_p_dd"					=	"%d days ago";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"in one hour";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh"					=	"in %ld hours";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"one hour ago";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh"					=	"%d hours ago";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"in one minute";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM"					=	"in %ld minutes";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"one minute ago";	// minute,past,singular:	"one minute ago"
+"colloquial_p_MM"					=	"%d minutes ago";	// minute,past,plural:		"3 minutes ago"
+
+"colloquial_f_s"					=	"in one second";	// second,future,singular:	"in one second"
+"colloquial_f_ss"					=	"in %d seconds";	// seconds,future,plural:	"in 3 seconds"
+"colloquial_p_s"					=	"one second ago";	// second,past,singular:	"one second ago"
+"colloquial_p_ss"					=	"%d seconds ago";	// second,past,plural:		"3 seconds ago"
+
+"colloquial_now"					=	"just now";			// less than 5 minutes if .allowsNowOnColloquial is set
+
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"'('MMM yyyy')'";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"'('MMM yyyy')'";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"'('MMM, dd yyyy')'";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"'('MMM, dd yyyy')'";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"'('EEE, MMM dd')'";			// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"'('EEE, MMM dd')'";			// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"'('EEE, MMM dd')'";			// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"'('EEE, MMM dd')'";			// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"'(at' HH:mm')'";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_h"					=	"'(at' HH:mm')'";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+
+// VALUES SEPARATOR (between each time unit components, ie ":" in "12:30" between hours and minutes)
+"valuesep_positional"				= 	":";
+"valuesep_abbreviated"				= 	"";
+"valuesep_short"					= 	"";
+"valuesep_full"						= 	" ";
+"valuesep_colloquial"				= 	" ";
+
+// UNIT SEPARATOR (between each printed unit, ie ", " in "12 days, 4 months")
+"unitsep_positional"				=	" ";
+"unitsep_abbreviated"				= 	" ";
+"unitsep_short"						= 	" ";
+"unitsep_full"						= 	" ";
+"unitsep_colloquial"				= 	", ";

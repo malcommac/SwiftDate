@@ -93,7 +93,7 @@ extension NSDate {
     //// - parameter dateComponentDictionary: paramters dictionary, each key must be an
     ///     NSCalendarUnit
     ///
-    /// - remark: deprecated! You should use 
+    /// - remark: deprecated! You should init(components) or init(year:month: etc) instead
     ///
     @available(*, deprecated=3.0.5, message="Use init(components) or init(year:month: etc) instead")
     public convenience init?(dateComponentDictionary: DateComponentDictionary) {
@@ -133,8 +133,7 @@ extension NSDate {
     /// Create a new DateInRegion object. It will represent an absolute time expressed in a
     /// particular world region.
     ///
-    /// - parameters:
-    ///     - region: region to associate. If not specified defaultRegion() will be used
+    /// - parameter region: region to associate. If not specified defaultRegion() will be used
     ///         instead. Use Region.setDefaultRegion() to define a default region for your
     ///         application.
     //

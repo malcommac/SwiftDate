@@ -71,103 +71,141 @@ public enum TimePeriodAnchor {
 public class TimePeriod: Equatable {
 	public var startDate: DateInRegion!
 	public var endDate: DateInRegion!
-	
-	public init(fromDate f: DateInRegion!, toDate t: DateInRegion!) {
-		self.startDate = f
-		self.endDate = t
+
+	public init(fromDate: DateInRegion!, toDate: DateInRegion!) {
+		self.startDate = fromDate
+		self.endDate = toDate
 	}
-	
+
 	public static func initWithLargePeriod() -> TimePeriod {
 		let region = Region(timeZoneName: TimeZoneName.Gmt)
 		let f = DateInRegion(absoluteTime: NSDate.distantPast(), region: region)
 		let t = DateInRegion(absoluteTime: NSDate.distantFuture(), region: region)
 		return TimePeriod(fromDate: f, toDate: t)
 	}
-	
-	public func isEqualTo(period p: TimePeriod) -> Bool {
-		return self == p
+
+	public func isEqualTo(period: TimePeriod) -> Bool {
+		return self == period
 	}
-	
-	public func isInside(period p: TimePeriod) -> Bool {
-		return p.startDate <= self.startDate && p.endDate >= self.endDate
+
+	public func isInside(period: TimePeriod) -> Bool {
+		return period.startDate <= self.startDate && period.endDate >= self.endDate
 	}
-	
-	public func contains(period p: TimePeriod) -> Bool {
-		return self.startDate <= p.startDate && self.endDate >= p.endDate
+
+	public func contains(period: TimePeriod) -> Bool {
+		return self.startDate <= period.startDate && self.endDate >= period.endDate
 	}
-	
-	public func overlapsWith(period p: TimePeriod) -> Bool {
+
+	public func overlapsWith(period: TimePeriod) -> Bool {
 		// Outside -> Inside
-		if p.startDate <= self.startDate && p.endDate >= self.endDate {
+		if period.startDate <= self.startDate && period.endDate >= self.endDate {
 			return true
 		}
 		// Enclosing
-		if p.startDate >= self.startDate && p.endDate <= self.endDate {
+		if period.startDate >= self.startDate && period.endDate <= self.endDate {
 			return true
 		}
 		// Inside->Out
-		if p.startDate <= self.endDate && p.endDate > self.endDate {
+		if period.startDate <= self.endDate && period.endDate > self.endDate {
 			return true
 		}
 		return false
 	}
-	
-	public func intersecs(period p: TimePeriod) -> Bool {
+
+	public func intersecs(period: TimePeriod) -> Bool {
 		// Outside -> Inside
-		if p.startDate <= self.startDate && p.endDate >= self.endDate {
+		if period.startDate <= self.startDate && period.endDate >= self.endDate {
 			return true
 		}
 		// Enclosing
-		if p.startDate >= self.startDate && p.endDate <= self.endDate {
+		if period.startDate >= self.startDate && period.endDate <= self.endDate {
 			return true
 		}
 		// Inside -> Out
-		if p.startDate <= self.endDate && p.endDate > self.endDate {
+		if period.startDate <= self.endDate && period.endDate > self.endDate {
 			return true
 		}
 		return false
 	}
-	
-	public func relationWith(period p: TimePeriod) -> TimePeriodRelation {
-		guard self.startDate < self.endDate && p.startDate < p.endDate else { return .None }
-		
-		if p.endDate < self.startDate { return .StartTouching }
-		if p.startDate < self.startDate && p.endDate < self.endDate { return .StartInside }
-		if p.startDate == self.startDate && p.endDate > self.endDate { return .InsideStartTouching }
-		if p.startDate == self.startDate && p.endDate < self.endDate { return .EnclosingStartTouching }
-		if p.startDate > self.startDate && p.endDate < self.endDate { return .Enclosing }
-		if p.startDate > self.startDate && p.endDate == self.endDate { return .EnclosingEndTouching }
-		if p.startDate == self.startDate && p.endDate == self.endDate { return .ExtactMatch }
-		if p.startDate < self.startDate && p.endDate > self.endDate { return .Inside }
-		if p.startDate < self.startDate && p.endDate == self.endDate { return .InsideEndTouching }
-		if p.startDate < self.endDate && p.endDate > self.endDate { return .EndInside }
-		if p.startDate == self.endDate && p.endDate > self.endDate { return .EndTouching }
-		if p.startDate > self.endDate { return .Before }
+
+    // swiftlint:disable:next cyclomatic_complexity
+	public func relationWith(period: TimePeriod) -> TimePeriodRelation {
+        guard self.startDate < self.endDate else {
+            return .None
+        }
+        guard period.startDate < period.endDate else {
+            return .None
+        }
+
+		if period.endDate < self.startDate {
+            return .StartTouching
+        }
+		if period.startDate < self.startDate && period.endDate < self.endDate {
+            return .StartInside
+        }
+		if period.startDate == self.startDate && period.endDate > self.endDate {
+            return .InsideStartTouching
+        }
+		if period.startDate == self.startDate && period.endDate < self.endDate {
+            return .EnclosingStartTouching
+        }
+		if period.startDate > self.startDate && period.endDate < self.endDate {
+            return .Enclosing
+        }
+		if period.startDate > self.startDate && period.endDate == self.endDate {
+            return .EnclosingEndTouching
+        }
+		if period.startDate == self.startDate && period.endDate == self.endDate {
+            return .ExtactMatch
+        }
+		if period.startDate < self.startDate && period.endDate > self.endDate {
+            return .Inside
+        }
+		if period.startDate < self.startDate && period.endDate == self.endDate {
+            return .InsideEndTouching
+        }
+		if period.startDate < self.endDate && period.endDate > self.endDate {
+            return .EndInside
+        }
+		if period.startDate == self.endDate && period.endDate > self.endDate {
+            return .EndTouching
+        }
+		if period.startDate > self.endDate {
+            return .Before
+        }
 		return .None
 	}
-	
-	public func gapWith(period p: TimePeriod) -> NSTimeInterval {
-		if self.endDate < p.startDate { return fabs(self.endDate.absoluteTime.timeIntervalSinceDate(p.startDate.absoluteTime)) }
-		if p.endDate < self.startDate { return fabs(p.endDate.absoluteTime.timeIntervalSinceDate(self.startDate.absoluteTime)) }
+
+	public func gapWith(period: TimePeriod) -> NSTimeInterval {
+        if self.endDate < period.startDate {
+            return fabs(self.endDate.absoluteTime.timeIntervalSinceDate(
+                period.startDate.absoluteTime))
+        }
+        if period.endDate < self.startDate {
+            return fabs(period.endDate.absoluteTime.timeIntervalSinceDate(
+                self.startDate.absoluteTime))
+        }
 		return 0
 	}
-	
-	public func containsDate(date d: DateInRegion, interval i: TimePeriodInterval = .Open) -> Bool {
-		switch i {
+
+	public func containsDate(date: DateInRegion, interval: TimePeriodInterval = .Open) -> Bool {
+		switch interval {
 		case .Open:
-			return (self.startDate < d && self.endDate > d)
+			return (self.startDate < date && self.endDate > date)
 		case .Close:
-			return (self.startDate <= d && self.endDate >= d)
+			return (self.startDate <= date && self.endDate >= date)
 		}
 	}
-	
-	public func shiftPeriod(direction dir: TimeIntervalShift, by amount: Int = 1, of unit: NSCalendarUnit) {
+
+	public func shiftPeriod(direction: TimeIntervalShift, by amount: Int = 1,
+	            of unit: NSCalendarUnit) {
 		let incrementValue = (amount < 0 ? -amount : amount)
 		self.startDate = self.startDate.add(components: [unit : incrementValue])
 		self.endDate = self.endDate.add(components: [unit : incrementValue])
 	}
-	
-	public func lengthenWithAnchor(anchor: TimePeriodAnchor, by amount: Int = 1, of unit: NSCalendarUnit) {
+
+	public func lengthenWithAnchor(anchor: TimePeriodAnchor, by amount: Int = 1,
+	            of unit: NSCalendarUnit) {
 		switch anchor {
 		case .Start:
 			self.endDate = self.endDate.add(components: [unit : amount])
@@ -178,8 +216,9 @@ public class TimePeriod: Equatable {
 			self.startDate = self.startDate.add(components: [unit : -amount])
 		}
 	}
-	
-	public func shortenWithAnchor(anchor: TimePeriodAnchor, by amount: Int = 1, of unit: NSCalendarUnit) {
+
+	public func shortenWithAnchor(anchor: TimePeriodAnchor, by amount: Int = 1,
+	            of unit: NSCalendarUnit) {
 		switch anchor {
 		case .Start:
 			self.endDate = self.endDate.add(components: [unit : -amount])
@@ -190,13 +229,13 @@ public class TimePeriod: Equatable {
 			self.startDate = self.startDate.add(components: [unit : amount])
 		}
 	}
-	
+
 	public func durationIn(unit: NSCalendarUnit) -> NSInteger {
 		return self.startDate.difference(self.endDate, unitFlags: [unit])!.valueForComponent(unit)
 	}
-	
+
 }
 
-public func ==(left: TimePeriod, right: TimePeriod) -> Bool {
+public func == (left: TimePeriod, right: TimePeriod) -> Bool {
 	return left.startDate.isEqualToDate(right.startDate) && left.endDate.isEqualToDate(right.endDate)
 }

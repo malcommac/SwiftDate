@@ -376,7 +376,7 @@ internal extension NSDate {
         }
     }
 
-
+    // swiftlint:disable:next cyclomatic_complexity
     private func sdLocalizeStringForValue(singular: Bool, unit: NSCalendarUnit,
         abbreviated: Bool = false) -> String {
 

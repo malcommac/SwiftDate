@@ -126,35 +126,6 @@ let date = (6.days + 2.hours).fromDate(anotherDate) // an `NSDate` 6 days and 2 
 let date = (6.hours + 2.minutes).fromNow(region: inRome)
 ```
 
-### From a dictionary of time units
-By passing a dictionary (`[NSCalendarUnit : AnyObject]`). In this case remeber to specify both calendar and timezone with `NSCalendarUnit.Calendar` and `NSCalendarUnit.TimeZone`.
-
-```swift
-var compDict : [NSCalendarUnit:AnyObject]
-compDict[.Year] = 2015
-compDict[.Month] = 12
-compDict[.Day] = 25
-compDict[.Hour] = 20
-compDict[.Minute] = 15
-compDict[.Second] = 33
-compDict[.Calendar] = CalendarType.Gregorian.toCalendar() // produce an NSCalendar
-compDict[.TimeZone] = TimeZoneNames.Europe.Rome.toTimeZone() // produce an NSTimeZone
-
-// Date is parsed as 25 Dec 2015 at 20:15:33 in Rome (GMT+1)
-// Resulting absolute time will be 1 hour before (19:15:33)
-let date = compDict.toabsoluteTime()
-
-// You can also create a `DateInRegion` with these components
-let dateInRome = DateInRegion(components: compDict)
-```
-
-The same result can be accomplished using:
-
-```swift
-let date = NSDate(params : compDict) // by passing a dict of type [NSCalendarUnit:AnyObject]
-let date = NSDate(components: compos) // by passing an NSDateComponents instance
-```
-
 ### By passing time units as init parameters
 Via init parameters: all parameters are optional unless refDate (the reference date used to fill undefined/not passed components) and the region:
 
@@ -199,7 +170,7 @@ let date = inRome.absoluteTime() ... // get the absolute time: '2015-01-31 23:45
 Properties and functions available:
 
 Property/function|Description|NSDate|DateInRegion
---|--|:-:|:-:|:-:
+---|---|---|---
 `era`|Returns the era number of the receiver|x|x
 `year`|Returns the year number of the receiver|x|x
 `yearForWeekOfYear`|Returns the year number for the weekOfYear of the receiver|x|x
@@ -236,7 +207,7 @@ Property/function|Description|NSDate|DateInRegion
 Class functions available:
 
 Function|Description|NSDate|DateInRegion|DateRegion
---|--|:-:|:-:|:-:
+---|---|---|---|---
 `today()`|Returns today at midnight|x|.|x
 `tomorrow()`|Returns tomorrow at midnight|x|.|x
 `yesterday()`|Returns yesterday at midnight|x|.|x
@@ -263,7 +234,6 @@ let newDateInRegion = initialDateInRegion + 1.days + 2.hours // 2012-01-02 02:00
 You can also use add() methods set to add components to your date. Both of them are available for plain `NSDate` and `DateInRegion`:
 - `add(years:months:weeks:days:hours:minutes:seconds:nanoseconds:)` where all parameters are optional
 - `add(components:)` you can pass an `NSDateComponents` to add
-- `add(params:)` where you can pass an `[NSCalendarUnit:AnyObject]` dictionary
 
 ```swift
 // Reference date is: Thu, 19 Nov 2015 19:00:00 UTC (1447959600 from 1970)
@@ -296,7 +266,7 @@ Date objects can be compared with the regular math comparison operators:
 Other comparisons are in the functions:
 
 Property/function|Description|NSDate|DateInRegion
---|--|:-:|:-:|:-:
+---|---|---|---
 `isInToday()`|returns `true` if the receiver is in today|x|x
 `isInYesterday()`|returns `true` if the receiver is in yesterday|x|x
 `isInTomorrow()`|returns `true` if the receiver is in tomorrow|x|x

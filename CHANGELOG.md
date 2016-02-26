@@ -1,20 +1,62 @@
 # Change Log
 
-## [v3.0.3](https://github.com/malcommac/SwiftDate/releases/tag/3.0.3) (2016-)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2..v3.0.3)
-- Deprecated ```.toISO8101String()```. Use ```.toString(.ISO8601)``` instead ([Commit](https://github.com/malcommac/SwiftDate/commit/9451ed3fcf3ba996a347ea96ce45694371aa4f3a))
-- Locale is not set to calendar object but inside the formatter ([Commit](https://github.com/malcommac/SwiftDate/commit/0ccc172d506034f1cd1b949100fbfca3f16bf303))
-- DateFormat type now adds ```ISO8601Format``` enum type now allows to specify the ISO8601 variant (```Year,YearMonth,Date,DateTime,Full``` or ```Extended```). When omitted ```.Full``` is used instead.
-- Deprecated DateFormat's types ```ISO8601``` and ```ISO8601Date```. You can use ```ISO8601Format()``` with relative options.
-- ```weekdayName``` is now a public var in ```DateInRegion```
+## [3.0.5](https://github.com/malcommac/SwiftDate/tree/3.0.5) (2016-02-25)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.4...3.0.5)
 
-## [v3.0.2](https://github.com/malcommac/SwiftDate/releases/tag/3.0.1) (2016-01-28)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0..v3.0.2)
-- ```.endOf``` of NSDate extension now correctly call ```.endOf``` of the DateInRegion counterpart
+**Implemented enhancements:**
 
-## [v3.0.1](https://github.com/malcommac/SwiftDate/releases/tag/3.0.1) (2016-01-28)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0..v3.0.1)
-- Fixed Carthage build (SwiftDate now compiles on iOS,TvOS,OSX and WatchOS)
+- Remove component dictionaries [\#163](https://github.com/malcommac/SwiftDate/issues/163)
+
+## [3.0.4](https://github.com/malcommac/SwiftDate/tree/3.0.4) (2016-02-24)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2...3.0.4)
+
+**Implemented enhancements:**
+
+- Follow SWIFT style guide [\#131](https://github.com/malcommac/SwiftDate/issues/131)
+
+**Fixed bugs:**
+
+- "toString" format not working properly with 12 hour clock [\#155](https://github.com/malcommac/SwiftDate/issues/155)
+- Translation [\#150](https://github.com/malcommac/SwiftDate/issues/150)
+- weekdayName isn't public [\#147](https://github.com/malcommac/SwiftDate/issues/147)
+
+**Closed issues:**
+
+- NSDate initializer buggy [\#161](https://github.com/malcommac/SwiftDate/issues/161)
+- SwiftDate 在真机环境中使用会返回nil，但模拟器不会什么原因？ [\#158](https://github.com/malcommac/SwiftDate/issues/158)
+
+## [3.0.2](https://github.com/malcommac/SwiftDate/tree/3.0.2) (2016-02-15)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.1...3.0.2)
+
+**Implemented enhancements:**
+
+- Mac OS X, watchOS, tvOS Support [\#115](https://github.com/malcommac/SwiftDate/issues/115)
+
+**Closed issues:**
+
+- Issue with creating DateInRegion with NSTimeZone [\#154](https://github.com/malcommac/SwiftDate/issues/154)
+- Missing "toISO8601String" methods in NSDate [\#149](https://github.com/malcommac/SwiftDate/issues/149)
+- Carthage fails when building SwiftDate [\#145](https://github.com/malcommac/SwiftDate/issues/145)
+
+**Merged pull requests:**
+
+- Fix for .endOf function from NSDate [\#159](https://github.com/malcommac/SwiftDate/pull/159) ([malcommac](https://github.com/malcommac))
+- Fix typo. [\#152](https://github.com/malcommac/SwiftDate/pull/152) ([ya-s-u](https://github.com/ya-s-u))
+- Fix NSDate.endOf [\#151](https://github.com/malcommac/SwiftDate/pull/151) ([ansinyutin](https://github.com/ansinyutin))
+
+## [3.0.1](https://github.com/malcommac/SwiftDate/tree/3.0.1) (2016-01-28)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.0...3.0.1)
+
+**Merged pull requests:**
+
+- Feature/carthage fix [\#146](https://github.com/malcommac/SwiftDate/pull/146) ([malcommac](https://github.com/malcommac))
+
+## [3.0.0](https://github.com/malcommac/SwiftDate/tree/3.0.0) (2016-01-25)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/v3.0.0...3.0.0)
+
+**Closed issues:**
+
+- Can you update the docs? [\#138](https://github.com/malcommac/SwiftDate/issues/138)
 
 ## [v3.0.0](https://github.com/malcommac/SwiftDate/tree/v3.0.0) (2016-01-23)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/2.0.2...v3.0.0)
@@ -22,6 +64,9 @@
 **Implemented enhancements:**
 
 - Feature request: duration formatting [\#137](https://github.com/malcommac/SwiftDate/issues/137)
+- No love for cocoa relative formatting [\#97](https://github.com/malcommac/SwiftDate/issues/97)
+- Support for relative/pretty date formatting [\#79](https://github.com/malcommac/SwiftDate/issues/79)
+- the result of "toRelativeString" can be returned  in chinese? [\#65](https://github.com/malcommac/SwiftDate/issues/65)
 - Add documentation to XCode project [\#132](https://github.com/malcommac/SwiftDate/issues/132)
 - Generate change log [\#130](https://github.com/malcommac/SwiftDate/issues/130)
 - Generator for locale & timeZone structures [\#129](https://github.com/malcommac/SwiftDate/issues/129)
@@ -33,21 +78,18 @@
 - Adobt Quick & Nimble for behaviour-driven testing [\#103](https://github.com/malcommac/SwiftDate/issues/103)
 - Create many minimal & separate test cases [\#102](https://github.com/malcommac/SwiftDate/issues/102)
 - Converting a time zone should be done by changing region, not with UTC and time zone funcs [\#99](https://github.com/malcommac/SwiftDate/issues/99)
-- No love for cocoa relative formatting [\#97](https://github.com/malcommac/SwiftDate/issues/97)
 - Make the default region the local region in all aspects [\#96](https://github.com/malcommac/SwiftDate/issues/96)
 - Extend NSDate such that it behaves like DateInRegion for the default or local region [\#95](https://github.com/malcommac/SwiftDate/issues/95)
 - UTCDate vs NSDate [\#91](https://github.com/malcommac/SwiftDate/issues/91)
 - disagree with lack of upgrade doc [\#89](https://github.com/malcommac/SwiftDate/issues/89)
-- Support for relative/pretty date formatting [\#79](https://github.com/malcommac/SwiftDate/issues/79)
-- the result of "toRelativeString" can be returned  in chinese? [\#65](https://github.com/malcommac/SwiftDate/issues/65)
 
 **Fixed bugs:**
 
+- toString\(.ISO0861\) formats timezone incorrectly [\#94](https://github.com/malcommac/SwiftDate/issues/94)
 - Release what's currently planned as 2.1 as 3.0 to comply with semver [\#121](https://github.com/malcommac/SwiftDate/issues/121)
 - 1.days - 1.hours results in \(-1.days, -1.hours\) components [\#119](https://github.com/malcommac/SwiftDate/issues/119)
 - Typo in time zone type [\#109](https://github.com/malcommac/SwiftDate/issues/109)
 - localDate is a derivative from the absolute time [\#98](https://github.com/malcommac/SwiftDate/issues/98)
-- toString\(.ISO0861\) formats timezone incorrectly [\#94](https://github.com/malcommac/SwiftDate/issues/94)
 - license file issue [\#88](https://github.com/malcommac/SwiftDate/issues/88)
 
 **Closed issues:**

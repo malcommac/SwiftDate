@@ -1,5 +1,17 @@
+# .gitignore
+
+*~
 .DS_Store
+
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
 build/
+DerivedData
+
+## Various settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -8,117 +20,30 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-!default.xcworkspace
 xcuserdata
-profile
+
+## Other
+*.xccheckout
 *.moved-aside
-DerivedData
-.idea/
-MoneyNetwork.xcodeproj/xcuserdata
-#Breakpoints_v2.xcbkptlist
-xcschememanagement.plist
-SwiftDate/Carthage
-Pods/Manifest.lock
-Pods/Headers/Private/Nimble/DSL.h
-Pods/Headers/Private/Nimble/Nimble.h
-Pods/Headers/Private/Nimble/NMBExceptionCapture.h
-Pods/Headers/Private/Quick/NSString+QCKSelectorName.h
-Pods/Headers/Private/Quick/QCKDSL.h
-Pods/Headers/Private/Quick/Quick.h
-Pods/Headers/Private/Quick/QuickConfiguration.h
-Pods/Headers/Private/Quick/QuickSpec.h
-Pods/Headers/Private/Quick/World+DSL.h
-Pods/Headers/Private/Quick/World.h
-Pods/Nimble/LICENSE.md
-Pods/Nimble/README.md
-Pods/Nimble/Nimble/DSL+Wait.swift
-Pods/Nimble/Nimble/DSL.swift
-Pods/Nimble/Nimble/Expectation.swift
-Pods/Nimble/Nimble/Expression.swift
-Pods/Nimble/Nimble/FailureMessage.swift
-Pods/Nimble/Nimble/Nimble.h
-Pods/Nimble/Nimble/ObjCExpectation.swift
-Pods/Nimble/Nimble/Adapters/AdapterProtocols.swift
-Pods/Nimble/Nimble/Adapters/AssertionDispatcher.swift
-Pods/Nimble/Nimble/Adapters/AssertionRecorder.swift
-Pods/Nimble/Nimble/Adapters/NimbleXCTestHandler.swift
-Pods/Nimble/Nimble/Matchers/AllPass.swift
-Pods/Nimble/Nimble/Matchers/BeAKindOf.swift
-Pods/Nimble/Nimble/Matchers/BeAnInstanceOf.swift
-Pods/Nimble/Nimble/Matchers/BeCloseTo.swift
-Pods/Nimble/Nimble/Matchers/BeEmpty.swift
-Pods/Nimble/Nimble/Matchers/BeginWith.swift
-Pods/Nimble/Nimble/Matchers/BeGreaterThan.swift
-Pods/Nimble/Nimble/Matchers/BeGreaterThanOrEqualTo.swift
-Pods/Nimble/Nimble/Matchers/BeIdenticalTo.swift
-Pods/Nimble/Nimble/Matchers/BeLessThan.swift
-Pods/Nimble/Nimble/Matchers/BeLessThanOrEqual.swift
-Pods/Nimble/Nimble/Matchers/BeLogical.swift
-Pods/Nimble/Nimble/Matchers/BeNil.swift
-Pods/Nimble/Nimble/Matchers/Contain.swift
-Pods/Nimble/Nimble/Matchers/EndWith.swift
-Pods/Nimble/Nimble/Matchers/Equal.swift
-Pods/Nimble/Nimble/Matchers/HaveCount.swift
-Pods/Nimble/Nimble/Matchers/Match.swift
-Pods/Nimble/Nimble/Matchers/MatcherProtocols.swift
-Pods/Nimble/Nimble/Matchers/RaisesException.swift
-Pods/Nimble/Nimble/Matchers/ThrowError.swift
-Pods/Nimble/Nimble/objc/DSL.h
-Pods/Nimble/Nimble/objc/DSL.m
-Pods/Nimble/Nimble/objc/NMBExceptionCapture.h
-Pods/Nimble/Nimble/objc/NMBExceptionCapture.m
-Pods/Nimble/Nimble/Utils/Functional.swift
-Pods/Nimble/Nimble/Utils/Poll.swift
-Pods/Nimble/Nimble/Utils/SourceLocation.swift
-Pods/Nimble/Nimble/Utils/Stringers.swift
-Pods/Nimble/Nimble/Wrappers/AsyncMatcherWrapper.swift
-Pods/Nimble/Nimble/Wrappers/MatcherFunc.swift
-Pods/Nimble/Nimble/Wrappers/ObjCMatcher.swift
-Pods/Pods.xcodeproj/project.pbxproj
-Pods/Quick/LICENSE
-Pods/Quick/README.md
-Pods/Quick/Quick/Callsite.swift
-Pods/Quick/Quick/Example.swift
-Pods/Quick/Quick/ExampleGroup.swift
-Pods/Quick/Quick/ExampleMetadata.swift
-Pods/Quick/Quick/Filter.swift
-Pods/Quick/Quick/NSString+QCKSelectorName.h
-Pods/Quick/Quick/NSString+QCKSelectorName.m
-Pods/Quick/Quick/Quick.h
-Pods/Quick/Quick/QuickSpec.h
-Pods/Quick/Quick/QuickSpec.m
-Pods/Quick/Quick/World.h
-Pods/Quick/Quick/World.swift
-Pods/Quick/Quick/Configuration/Configuration.swift
-Pods/Quick/Quick/Configuration/QuickConfiguration.h
-Pods/Quick/Quick/Configuration/QuickConfiguration.m
-Pods/Quick/Quick/DSL/DSL.swift
-Pods/Quick/Quick/DSL/QCKDSL.h
-Pods/Quick/Quick/DSL/QCKDSL.m
-Pods/Quick/Quick/DSL/World+DSL.h
-Pods/Quick/Quick/DSL/World+DSL.swift
-Pods/Quick/Quick/Hooks/Closures.swift
-Pods/Quick/Quick/Hooks/ExampleHooks.swift
-Pods/Quick/Quick/Hooks/SuiteHooks.swift
-Pods/Target Support Files/Nimble/Info.plist
-Pods/Target Support Files/Nimble/Nimble-dummy.m
-Pods/Target Support Files/Nimble/Nimble-prefix.pch
-Pods/Target Support Files/Nimble/Nimble-umbrella.h
-Pods/Target Support Files/Nimble/Nimble.modulemap
-Pods/Target Support Files/Nimble/Nimble.xcconfig
-Pods/Target Support Files/Pods/Info.plist
-Pods/Target Support Files/Pods/Pods-acknowledgements.markdown
-Pods/Target Support Files/Pods/Pods-acknowledgements.plist
-Pods/Target Support Files/Pods/Pods-dummy.m
-Pods/Target Support Files/Pods/Pods-frameworks.sh
-Pods/Target Support Files/Pods/Pods-resources.sh
-Pods/Target Support Files/Pods/Pods-umbrella.h
-Pods/Target Support Files/Pods/Pods.debug.xcconfig
-Pods/Target Support Files/Pods/Pods.modulemap
-Pods/Target Support Files/Pods/Pods.release.xcconfig
-Pods/Target Support Files/Quick/Info.plist
-Pods/Target Support Files/Quick/Quick-dummy.m
-Pods/Target Support Files/Quick/Quick-prefix.pch
-Pods/Target Support Files/Quick/Quick-umbrella.h
-Pods/Target Support Files/Quick/Quick.modulemap
-Pods/Target Support Files/Quick/Quick.xcconfig
+*.xcuserstate
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+# Bundler
+.bundle
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
+#
+Pods/
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+Carthage/

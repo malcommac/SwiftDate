@@ -55,10 +55,8 @@ SwiftDate v1.2 | SwiftDate v2
 `NSDate(refDate:year: etc)` | `NSDate(fromDate:year: etc)`
 `NSDate.today(timezone:)`<br>Equivalent for yesterday and tomorrow | No change for the default region (calendar, locale, time zone)<br>`region.today()` if you want to have the today value for another region
 `nsdate.set(year: etc)`|`NSDate(fromDate:year: etc)` If you want to set a date component
-Not available|`nsdate.set(componentsDict:)`
 `nsdate.set(name:value:)`|`NSDate(fromDate:year: etc)`
 `nsdate.add(year: etc)`|`NSDate + 1.year etc`
-`nsdate.add(componentsDict)`|`NSDate + 1.year etc`
 `nsdate.toUTC`|There is no `NSDate` object for UTC or whatever time zone. It can be represented as such though by creating a `DateInRegion` object with the UTC time zone:<br> `nsdate.inRegion(timeZoneName: .Gmt)`
 `nsdate.toLocalTime`|There is no `NSDate` for local time or whatever time zone. It can be represented as such though by creating a `DateInRegion` object with the local time zone:<br> `nsdate.inRegion()`
 `nsdate.toTimeZone(timeZone:)`|There is no `NSDate` for local time or whatever time zone. It can be represented as such though by creating a `DateInRegion` object with the local time zone:<br> `nsdate.inRegion(timeZoneName: .AmericaNewYork)`

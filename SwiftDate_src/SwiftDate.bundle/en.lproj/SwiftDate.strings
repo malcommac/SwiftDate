@@ -114,6 +114,10 @@
 "colloquial_p_ss"					=	"%d seconds ago";	// second,past,plural:		"3 seconds ago"
 
 "colloquial_now"					=	"just now";			// less than 5 minutes if .allowsNowOnColloquial is set
+"colloquial_thisnight"				=	"this night";		// today between 00:00-00:06
+"colloquial_thismorning"			=	"this morning";		// today between 06:00-12:00
+"colloquial_thisafternoon"			=	"this afternoon";	// today between 12:00-18:00
+"colloquial_thisevening"			=	"this evening";		// today between 18:00-24:00
 
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
@@ -131,6 +135,8 @@
 "relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
 "relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+
+"relevanttime_today"				=	"HH:mm";					// for colloquial 'today' variants
 
 // VALUES SEPARATOR (between each time unit components, ie ":" in "12:30" between hours and minutes)
 "valuesep_positional"				= 	":";

@@ -1,8 +1,0 @@
-machine:
-  xcode:
-    version: "7.0"
-
-test:
-  override:
-    - NIMBLE_RUNTIME_IOS_SDK_VERSION=9.0 ./test ios
-    - NIMBLE_RUNTIME_OSX_SDK_VERSION=10.10 ./test osx

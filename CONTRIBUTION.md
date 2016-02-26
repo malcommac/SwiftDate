@@ -8,7 +8,7 @@ Just a gentle reminder checklist
 ###General
 - Work with the git branch model. Please refer to [this](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/) blog for more information on `git flow`.
 - Register all enhancements, bugs & questions in the issue list
-- [TBC](https://github.com/malcommac/SwiftDate/issues/131) Follow style guide
+- Follow (style guide)[]
 
 ###Checklist before merging in `develop`
 - Issue registered in github and commit message contains `Fixes #<issue_number>`.

@@ -1,5 +1,22 @@
 # Change Log
 
+## [3.0.6](https://github.com/malcommac/SwiftDate/tree/3.0.6) (2016-02-26)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.5...3.0.6)
+
+**Implemented enhancements:**
+
+- Mixing relative and non-relative format for different time components [\#164](https://github.com/malcommac/SwiftDate/issues/164)
+
+**Fixed bugs:**
+
+- Can't use Carthage & Cocoapods anymore \(3.0.5\) [\#167](https://github.com/malcommac/SwiftDate/issues/167)
+- DateInterval string formatting is buggy [\#143](https://github.com/malcommac/SwiftDate/issues/143)
+
+**Closed issues:**
+
+- Fix Travis [\#166](https://github.com/malcommac/SwiftDate/issues/166)
+- ISO8601 Format issue [\#165](https://github.com/malcommac/SwiftDate/issues/165)
+
 ## [3.0.5](https://github.com/malcommac/SwiftDate/tree/3.0.5) (2016-02-25)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.4...3.0.5)
 
@@ -8,7 +25,7 @@
 - Remove component dictionaries [\#163](https://github.com/malcommac/SwiftDate/issues/163)
 
 ## [3.0.4](https://github.com/malcommac/SwiftDate/tree/3.0.4) (2016-02-24)
-[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2...3.0.4)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.3...3.0.4)
 
 **Implemented enhancements:**
 
@@ -16,7 +33,6 @@
 
 **Fixed bugs:**
 
-- "toString" format not working properly with 12 hour clock [\#155](https://github.com/malcommac/SwiftDate/issues/155)
 - Translation [\#150](https://github.com/malcommac/SwiftDate/issues/150)
 - weekdayName isn't public [\#147](https://github.com/malcommac/SwiftDate/issues/147)
 
@@ -24,6 +40,13 @@
 
 - NSDate initializer buggy [\#161](https://github.com/malcommac/SwiftDate/issues/161)
 - SwiftDate 在真机环境中使用会返回nil，但模拟器不会什么原因？ [\#158](https://github.com/malcommac/SwiftDate/issues/158)
+
+## [3.0.3](https://github.com/malcommac/SwiftDate/tree/3.0.3) (2016-02-16)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.2...3.0.3)
+
+**Fixed bugs:**
+
+- "toString" format not working properly with 12 hour clock [\#155](https://github.com/malcommac/SwiftDate/issues/155)
 
 ## [3.0.2](https://github.com/malcommac/SwiftDate/tree/3.0.2) (2016-02-15)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.1...3.0.2)

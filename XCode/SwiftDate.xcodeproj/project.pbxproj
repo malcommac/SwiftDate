@@ -106,25 +106,6 @@
 		90F1F3E21C7F6BF900B22B90 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */; };
 		90F1F3E31C7F6BF900B22B90 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */; };
 		90F1F3E41C7F6BF900B22B90 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83BB1C79C70E0084BAB6 /* Region.swift */; };
-		90F1F3F41C7F703500B22B90 /* DateInRegionComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83511C79C67D0084BAB6 /* DateInRegionComparisonTests.swift */; };
-		90F1F3F51C7F703500B22B90 /* DateInRegionComponentPortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83521C79C67D0084BAB6 /* DateInRegionComponentPortTests.swift */; };
-		90F1F3F61C7F703500B22B90 /* DateInRegionEquationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83531C79C67D0084BAB6 /* DateInRegionEquationsTests.swift */; };
-		90F1F3F71C7F703500B22B90 /* DateInRegionHashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83541C79C67D0084BAB6 /* DateInRegionHashableTests.swift */; };
-		90F1F3F81C7F703500B22B90 /* DateInRegionOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83551C79C67D0084BAB6 /* DateInRegionOperationsTests.swift */; };
-		90F1F3F91C7F703500B22B90 /* DateInRegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83561C79C67D0084BAB6 /* DateInRegionTests.swift */; };
-		90F1F3FA1C7F703500B22B90 /* NSDateComponentPortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83571C79C67D0084BAB6 /* NSDateComponentPortTests.swift */; };
-		90F1F3FB1C7F703500B22B90 /* NSDateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FBD1C7B2EEA00FCFD97 /* NSDateComponentsTests.swift */; };
-		90F1F3FC1C7F703500B22B90 /* NSDateEquationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83581C79C67D0084BAB6 /* NSDateEquationsTests.swift */; };
-		90F1F3FD1C7F703500B22B90 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83591C79C67D0084BAB6 /* NSDateTests.swift */; };
-		90F1F3FE1C7F703500B22B90 /* RegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA835A1C79C67D0084BAB6 /* RegionStringTests.swift */; };
-		90F1F3FF1C7F703500B22B90 /* RegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA835B1C79C67D0084BAB6 /* RegionTests.swift */; };
-		90F1F4001C7F703500B22B90 /* NSDateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */; };
-		90F1F4011C7F703500B22B90 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FB71C7B23AC00FCFD97 /* NSCalendarTests.swift */; };
-		90F1F4021C7F703500B22B90 /* NSTimeZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FBB1C7B2CC300FCFD97 /* NSTimeZoneTests.swift */; };
-		90F1F4031C7F703500B22B90 /* NSTimeIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FB91C7B29AD00FCFD97 /* NSTimeIntervalTests.swift */; };
-		90F1F4101C7F720E00B22B90 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1F40E1C7F720E00B22B90 /* Nimble.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		90F1F4111C7F720E00B22B90 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1F40F1C7F720E00B22B90 /* Quick.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		90F1F4121C7F724800B22B90 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1F3891C7F6AF500B22B90 /* SwiftDate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,13 +115,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1FAA83911C79C6DA0084BAB6;
 			remoteInfo = SwiftDate;
-		};
-		90F1F3EF1C7F6F8400B22B90 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1FAA83181C79C5F00084BAB6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90F1F3881C7F6AF500B22B90;
-			remoteInfo = "SwiftDate-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -211,11 +185,6 @@
 		90F1F3CA1C7F6BEE00B22B90 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F1F3CC1C7F6BEE00B22B90 /* SwiftDate-WatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDate-WatchOS.h"; sourceTree = "<group>"; };
 		90F1F3CE1C7F6BEE00B22B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90F1F3E91C7F6F8400B22B90 /* SwiftDateTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDateTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90F1F3ED1C7F6F8400B22B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90F1F40E1C7F720E00B22B90 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		90F1F40F1C7F720E00B22B90 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
-		90F1F41B1C7F7BF900B22B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,16 +224,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90F1F3E61C7F6F8400B22B90 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90F1F4121C7F724800B22B90 /* SwiftDate.framework in Frameworks */,
-				90F1F4101C7F720E00B22B90 /* Nimble.framework in Frameworks */,
-				90F1F4111C7F720E00B22B90 /* Quick.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -278,8 +237,6 @@
 				90F1F3AB1C7F6BB800B22B90 /* SwiftDate-tvOS */,
 				90F1F3CB1C7F6BEE00B22B90 /* SwiftDate-WatchOS */,
 				90F1F4041C7F706400B22B90 /* SwiftDateTests-OSX */,
-				90F1F3EA1C7F6F8400B22B90 /* SwiftDateTests-iOS */,
-				90F1F4181C7F7BF900B22B90 /* SwiftDateTests-tvOS */,
 				1FAA83211C79C5F00084BAB6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -292,7 +249,6 @@
 				90F1F3891C7F6AF500B22B90 /* SwiftDate.framework */,
 				90F1F3AA1C7F6BB800B22B90 /* SwiftDate.framework */,
 				90F1F3CA1C7F6BEE00B22B90 /* SwiftDate.framework */,
-				90F1F3E91C7F6F8400B22B90 /* SwiftDateTests-iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -392,16 +348,6 @@
 			path = "SwiftDate-WatchOS";
 			sourceTree = "<group>";
 		};
-		90F1F3EA1C7F6F8400B22B90 /* SwiftDateTests-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				90F1F4071C7F717C00B22B90 /* Carthage */,
-				90F1F3ED1C7F6F8400B22B90 /* Info.plist */,
-			);
-			name = "SwiftDateTests-iOS";
-			path = SwiftDateTests;
-			sourceTree = "<group>";
-		};
 		90F1F4041C7F706400B22B90 /* SwiftDateTests-OSX */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,31 +355,6 @@
 				1FAA83A21C79C6DA0084BAB6 /* Info.plist */,
 			);
 			name = "SwiftDateTests-OSX";
-			sourceTree = "<group>";
-		};
-		90F1F4071C7F717C00B22B90 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				90F1F40E1C7F720E00B22B90 /* Nimble.framework */,
-				90F1F40F1C7F720E00B22B90 /* Quick.framework */,
-			);
-			name = Carthage;
-			sourceTree = "<group>";
-		};
-		90F1F4181C7F7BF900B22B90 /* SwiftDateTests-tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				90F1F4331C7F7C9500B22B90 /* Carthage */,
-				90F1F41B1C7F7BF900B22B90 /* Info.plist */,
-			);
-			path = "SwiftDateTests-tvOS";
-			sourceTree = "<group>";
-		};
-		90F1F4331C7F7C9500B22B90 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Carthage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -565,25 +486,6 @@
 			productReference = 90F1F3CA1C7F6BEE00B22B90 /* SwiftDate.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		90F1F3E81C7F6F8400B22B90 /* SwiftDateTests-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90F1F3F11C7F6F8400B22B90 /* Build configuration list for PBXNativeTarget "SwiftDateTests-iOS" */;
-			buildPhases = (
-				90F1F3E51C7F6F8400B22B90 /* Sources */,
-				90F1F3E61C7F6F8400B22B90 /* Frameworks */,
-				90F1F3E71C7F6F8400B22B90 /* Resources */,
-				90F1F4061C7F70F900B22B90 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				90F1F3F01C7F6F8400B22B90 /* PBXTargetDependency */,
-			);
-			name = "SwiftDateTests-iOS";
-			productName = SwiftDateTests;
-			productReference = 90F1F3E91C7F6F8400B22B90 /* SwiftDateTests-iOS.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -609,9 +511,6 @@
 					90F1F3C91C7F6BEE00B22B90 = {
 						CreatedOnToolsVersion = 7.3;
 					};
-					90F1F3E81C7F6F8400B22B90 = {
-						CreatedOnToolsVersion = 7.3;
-					};
 				};
 			};
 			buildConfigurationList = 1FAA831B1C79C5F00084BAB6 /* Build configuration list for PBXProject "SwiftDate" */;
@@ -629,7 +528,6 @@
 				1FAA83911C79C6DA0084BAB6 /* SwiftDate-OSX */,
 				1FAA839A1C79C6DA0084BAB6 /* SwiftDateTests-OSX */,
 				90F1F3881C7F6AF500B22B90 /* SwiftDate-iOS */,
-				90F1F3E81C7F6F8400B22B90 /* SwiftDateTests-iOS */,
 				90F1F3A91C7F6BB800B22B90 /* SwiftDate-tvOS */,
 				90F1F3C91C7F6BEE00B22B90 /* SwiftDate-watchOS */,
 			);
@@ -672,32 +570,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90F1F3E71C7F6F8400B22B90 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		90F1F4061C7F70F900B22B90 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../XCode/Carthage/Build/iOS/Quick.framework",
-				"$(SRCROOT)/../XCode/Carthage/Build/iOS/Nimble.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1FAA838D1C79C6DA0084BAB6 /* Sources */ = {
@@ -827,29 +700,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90F1F3E51C7F6F8400B22B90 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90F1F3FC1C7F703500B22B90 /* NSDateEquationsTests.swift in Sources */,
-				90F1F3F61C7F703500B22B90 /* DateInRegionEquationsTests.swift in Sources */,
-				90F1F3F71C7F703500B22B90 /* DateInRegionHashableTests.swift in Sources */,
-				90F1F3FE1C7F703500B22B90 /* RegionStringTests.swift in Sources */,
-				90F1F3FA1C7F703500B22B90 /* NSDateComponentPortTests.swift in Sources */,
-				90F1F3FF1C7F703500B22B90 /* RegionTests.swift in Sources */,
-				90F1F4011C7F703500B22B90 /* NSCalendarTests.swift in Sources */,
-				90F1F3FB1C7F703500B22B90 /* NSDateComponentsTests.swift in Sources */,
-				90F1F3F41C7F703500B22B90 /* DateInRegionComparisonTests.swift in Sources */,
-				90F1F3F81C7F703500B22B90 /* DateInRegionOperationsTests.swift in Sources */,
-				90F1F3F91C7F703500B22B90 /* DateInRegionTests.swift in Sources */,
-				90F1F4031C7F703500B22B90 /* NSTimeIntervalTests.swift in Sources */,
-				90F1F3F51C7F703500B22B90 /* DateInRegionComponentPortTests.swift in Sources */,
-				90F1F3FD1C7F703500B22B90 /* NSDateTests.swift in Sources */,
-				90F1F4001C7F703500B22B90 /* NSDateIntervalTests.swift in Sources */,
-				90F1F4021C7F703500B22B90 /* NSTimeZoneTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -857,11 +707,6 @@
 			isa = PBXTargetDependency;
 			target = 1FAA83911C79C6DA0084BAB6 /* SwiftDate-OSX */;
 			targetProxy = 1FAA839D1C79C6DA0084BAB6 /* PBXContainerItemProxy */;
-		};
-		90F1F3F01C7F6F8400B22B90 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 90F1F3881C7F6AF500B22B90 /* SwiftDate-iOS */;
-			targetProxy = 90F1F3EF1C7F6F8400B22B90 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -883,7 +728,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -928,7 +773,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -962,6 +807,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftDate-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.houtzager.SwiftDate;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -984,6 +830,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftDate-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.houtzager.SwiftDate;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1032,7 +879,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "SwiftDate-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.houtzager.SwiftDate-iOS";
 				SDKROOT = iphoneos;
@@ -1054,7 +901,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "SwiftDate-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.houtzager.SwiftDate-iOS";
 				SDKROOT = iphoneos;
@@ -1082,7 +929,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1104,7 +951,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1130,7 +977,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1154,44 +1001,7 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		90F1F3F21C7F6F8400B22B90 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = SwiftDateTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.houtzager.SwiftDateTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		90F1F3F31C7F6F8400B22B90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = SwiftDateTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.houtzager.SwiftDateTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1248,15 +1058,6 @@
 			buildConfigurations = (
 				90F1F3D01C7F6BEE00B22B90 /* Debug */,
 				90F1F3D11C7F6BEE00B22B90 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90F1F3F11C7F6F8400B22B90 /* Build configuration list for PBXNativeTarget "SwiftDateTests-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90F1F3F21C7F6F8400B22B90 /* Debug */,
-				90F1F3F31C7F6F8400B22B90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

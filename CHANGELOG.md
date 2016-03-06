@@ -1,5 +1,12 @@
 # Change Log
 
+## [3.0.8](https://github.com/malcommac/SwiftDate/tree/3.0.8) (2016-03-06)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.7...3.0.8)
+
+**Fixed bugs:**
+
+- endOf and startOf with default region [\#175](https://github.com/malcommac/SwiftDate/issues/175)
+
 ## [3.0.7](https://github.com/malcommac/SwiftDate/tree/3.0.7) (2016-02-28)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.6...3.0.7)
 

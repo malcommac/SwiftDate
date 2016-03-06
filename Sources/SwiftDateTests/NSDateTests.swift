@@ -383,6 +383,16 @@ class NSDateSpec: QuickSpec {
                     expect(day.isInWeekend(inRegion: amsterdam)) == true
                 }
 
+                it("should report proper startOf without region") {
+                    let day = NSDate()
+                    expect(day.startOf(.Day)) == NSDate.today()
+                }
+
+                it("should report proper endOf without region") {
+                    let day = NSDate()
+                    expect(day.endOf(.Day).timeIntervalSinceReferenceDate).to(beCloseTo(NSDate.tomorrow().timeIntervalSinceReferenceDate, within: 1))
+                }
+
                 it("should report proper startOf") {
                     let day = NSDate(year: 2015, month: 12, day: 5, region: amsterdam)
                     expect(day.startOf(.Month, inRegion: amsterdam)) == NSDate(year: 2015, month: 12, day: 1, region: amsterdam)

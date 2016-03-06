@@ -151,25 +151,25 @@
 		1FAA83921C79C6DA0084BAB6 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAA839B1C79C6DA0084BAB6 /* SwiftDateTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDateTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAA83A21C79C6DA0084BAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftDateTests/Info.plist; sourceTree = "<group>"; };
-		1FAA83A91C79C70E0084BAB6 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Additions.swift; path = ../../Sources/SwiftDate/Additions.swift; sourceTree = "<group>"; };
-		1FAA83AA1C79C70E0084BAB6 /* DateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = ../../Sources/SwiftDate/DateInRegion.swift; sourceTree = "<group>"; };
-		1FAA83AB1C79C70E0084BAB6 /* DateInRegion+Comparisons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Comparisons.swift"; path = "../../Sources/SwiftDate/DateInRegion+Comparisons.swift"; sourceTree = "<group>"; };
-		1FAA83AC1C79C70E0084BAB6 /* DateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "../../Sources/SwiftDate/DateInRegion+Components.swift"; sourceTree = "<group>"; };
-		1FAA83AD1C79C70E0084BAB6 /* DateInRegion+Equations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Equations.swift"; path = "../../Sources/SwiftDate/DateInRegion+Equations.swift"; sourceTree = "<group>"; };
-		1FAA83AE1C79C70E0084BAB6 /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "../../Sources/SwiftDate/DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
-		1FAA83AF1C79C70E0084BAB6 /* DateInRegion+NSDatePort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+NSDatePort.swift"; path = "../../Sources/SwiftDate/DateInRegion+NSDatePort.swift"; sourceTree = "<group>"; };
-		1FAA83B01C79C70E0084BAB6 /* DateInRegion+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Operations.swift"; path = "../../Sources/SwiftDate/DateInRegion+Operations.swift"; sourceTree = "<group>"; };
-		1FAA83B11C79C70E0084BAB6 /* DateInRegion+StartEnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+StartEnd.swift"; path = "../../Sources/SwiftDate/DateInRegion+StartEnd.swift"; sourceTree = "<group>"; };
-		1FAA83B21C79C70E0084BAB6 /* Dictionary+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+SwiftDate.swift"; path = "../../Sources/SwiftDate/Dictionary+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83B31C79C70E0084BAB6 /* NSCalendar+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSCalendar+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSCalendar+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSDate+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateComponents+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSDateComponents+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateFormatter+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSDateFormatter+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateInterval.swift; path = ../../Sources/SwiftDate/NSDateInterval.swift; sourceTree = "<group>"; };
-		1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLocale+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSLocale+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeInterval+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSTimeInterval+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeZone+SwiftDate.swift"; path = "../../Sources/SwiftDate/NSTimeZone+SwiftDate.swift"; sourceTree = "<group>"; };
-		1FAA83BB1C79C70E0084BAB6 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = ../../Sources/SwiftDate/Region.swift; sourceTree = "<group>"; };
+		1FAA83A91C79C70E0084BAB6 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Additions.swift; path = ../Sources/SwiftDate/Additions.swift; sourceTree = SOURCE_ROOT; };
+		1FAA83AA1C79C70E0084BAB6 /* DateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = ../Sources/SwiftDate/DateInRegion.swift; sourceTree = SOURCE_ROOT; };
+		1FAA83AB1C79C70E0084BAB6 /* DateInRegion+Comparisons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Comparisons.swift"; path = "../Sources/SwiftDate/DateInRegion+Comparisons.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83AC1C79C70E0084BAB6 /* DateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "../Sources/SwiftDate/DateInRegion+Components.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83AD1C79C70E0084BAB6 /* DateInRegion+Equations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Equations.swift"; path = "../Sources/SwiftDate/DateInRegion+Equations.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83AE1C79C70E0084BAB6 /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "../Sources/SwiftDate/DateInRegion+Formatter.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83AF1C79C70E0084BAB6 /* DateInRegion+NSDatePort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+NSDatePort.swift"; path = "../Sources/SwiftDate/DateInRegion+NSDatePort.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B01C79C70E0084BAB6 /* DateInRegion+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Operations.swift"; path = "../Sources/SwiftDate/DateInRegion+Operations.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B11C79C70E0084BAB6 /* DateInRegion+StartEnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+StartEnd.swift"; path = "../Sources/SwiftDate/DateInRegion+StartEnd.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B21C79C70E0084BAB6 /* Dictionary+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+SwiftDate.swift"; path = "../Sources/SwiftDate/Dictionary+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B31C79C70E0084BAB6 /* NSCalendar+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSCalendar+SwiftDate.swift"; path = "../Sources/SwiftDate/NSCalendar+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+SwiftDate.swift"; path = "../Sources/SwiftDate/NSDate+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateComponents+SwiftDate.swift"; path = "../Sources/SwiftDate/NSDateComponents+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateFormatter+SwiftDate.swift"; path = "../Sources/SwiftDate/NSDateFormatter+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateInterval.swift; path = ../Sources/SwiftDate/NSDateInterval.swift; sourceTree = SOURCE_ROOT; };
+		1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLocale+SwiftDate.swift"; path = "../Sources/SwiftDate/NSLocale+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeInterval+SwiftDate.swift"; path = "../Sources/SwiftDate/NSTimeInterval+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeZone+SwiftDate.swift"; path = "../Sources/SwiftDate/NSTimeZone+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
+		1FAA83BB1C79C70E0084BAB6 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = ../Sources/SwiftDate/Region.swift; sourceTree = SOURCE_ROOT; };
 		1FAA83DA1C79C7BC0084BAB6 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateIntervalTests.swift; path = ../../Sources/SwiftDateTests/NSDateIntervalTests.swift; sourceTree = "<group>"; };
 		905EAD0A1C7E16F800302F49 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -498,6 +498,7 @@
 				TargetAttributes = {
 					1FAA83911C79C6DA0084BAB6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = RMNVT3XS3A;
 					};
 					1FAA839A1C79C6DA0084BAB6 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -797,6 +798,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -809,6 +812,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.houtzager.SwiftDate;
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -820,6 +824,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -832,6 +838,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.houtzager.SwiftDate;
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

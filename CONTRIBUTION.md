@@ -21,7 +21,7 @@ Just a gentle reminder checklist
 - Consensus in the team (especially with Daniele).
 
 ##Release
-- Overall quality check: code style, code test coverage, documentation
+- Overall quality check: code style, code test coverage, documentation, minimum deployment targets (OSX 10.10, iOS 8.0, tvOS 9.0, watchOS 2.0)
 - `git flow release start`
 - Assess all issues and close those that were resolved
 - [Generate](https://github.com/skywinder/Github-Changelog-Generator) the change log

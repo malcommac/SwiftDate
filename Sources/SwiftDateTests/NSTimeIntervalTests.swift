@@ -40,7 +40,7 @@ class NSTimeIntervalSpec: QuickSpec {
                     let rome = Region(timeZoneName: .EuropeRome)
                     let date = NSDate(year: 2011, month: 10, day: 9, region: rome)
                     let interval = date.timeIntervalSinceReferenceDate
-                    expect(interval.toString()) == "10y 9m 6d 22h"
+                    expect(interval.toString()) == "10y 9m 5d 22h"
                 }
             }
         }

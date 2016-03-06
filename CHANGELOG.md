@@ -1,5 +1,12 @@
 # Change Log
 
+## [3.0.7](https://github.com/malcommac/SwiftDate/tree/3.0.7) (2016-02-28)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.6...3.0.7)
+
+**Fixed bugs:**
+
+- Minimum deployment targets for frameworks [\#169](https://github.com/malcommac/SwiftDate/issues/169)
+
 ## [3.0.6](https://github.com/malcommac/SwiftDate/tree/3.0.6) (2016-02-26)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.5...3.0.6)
 

@@ -70,9 +70,9 @@ Not available|`nsdate.leapMonth`
 `nsdate.isToday()`|`nsdate.isInToday()`
 `nsdate.isTomorrow()`|`nsdate.isInTomorrow()`
 `nsdate.isYesterday()`|`nsdate.isInYesterday()`
-`nsdate.isThisWeek()`|`nsdate.isIn(.Week)`
-`nsdate.isThisMonth()`|`nsdate.isIn(.Week)`
-`nsdate.isThisYear()`|`nsdate.isIn(.Week)`
+`nsdate.isThisWeek()`|`nsdate.isIn(.WeekOfYear)`
+`nsdate.isThisMonth()`|`nsdate.isIn(.Month)`
+`nsdate.isThisYear()`|`nsdate.isIn(.Year)`
 `nsdate.isSameWeekOf(date:)`|`nsdate.isIn(.WeekOfYear, ofDate:)`
 `nsdate.dateAtWeekStart()`|`nsdate.startOf(.WeekOfYear)`
 `nsdate.beginningOfDay()`|`nsdate.startOf(.Day)`

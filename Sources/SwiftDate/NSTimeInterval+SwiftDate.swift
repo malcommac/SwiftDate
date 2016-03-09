@@ -24,6 +24,12 @@
 
 import Foundation
 
+private let NANOSECONDS_IN_SECOND = 1000.0
+private let SECONDS_IN_MINUTE = 60.0
+private let MINUTES_IN_HOUR = 60.0
+private let HOURS_IN_DAY = 24.0
+private let DAYS_IN_WEEK = 7.0
+
 public extension NSTimeInterval {
 
 	/// Returns an NSDate object initialized relative to the current date and time
@@ -52,4 +58,40 @@ public extension NSTimeInterval {
 			return formatter.stringFromTimeInterval(self)
 		})
 	}
+
+    /// Returns a this NSTimeInterval in nanoseconds
+    ///
+    public var nanoseconds: Double {
+        return seconds * NANOSECONDS_IN_SECOND
+    }
+
+    /// Returns a this NSTimeInterval in seconds
+    ///
+    public var seconds: Double {
+        return self
+    }
+
+    /// Returns a this NSTimeInterval in minutes
+    ///
+    public var minutes: Double {
+        return seconds / SECONDS_IN_MINUTE
+    }
+
+    /// Returns a this NSTimeInterval in hours
+    ///
+    public var hours: Double {
+        return minutes / MINUTES_IN_HOUR
+    }
+
+    /// Returns a this NSTimeInterval in days
+    ///
+    public var days: Double {
+        return hours / HOURS_IN_DAY
+    }
+
+    /// Returns a this NSTimeInterval in weeks
+    ///
+    public var weeks: Double {
+        return days / DAYS_IN_WEEK
+    }
 }

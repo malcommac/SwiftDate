@@ -43,6 +43,44 @@ class NSTimeIntervalSpec: QuickSpec {
                     expect(interval.toString()) == "10y 9m 5d 22h"
                 }
             }
+
+            context("conversions") {
+                it ("should return nanoseconds") {
+                    let timeInterval = NSTimeInterval(4)
+                    let nanoseconds = timeInterval.nanoseconds
+                    expect(nanoseconds) == 4000.0
+                }
+
+                it ("should return seconds") {
+                    let timeInterval = NSTimeInterval(4)
+                    let seconds = timeInterval.seconds
+                    expect(seconds) == 4.0
+                }
+
+                it ("should return minutes") {
+                    let timeInterval = NSTimeInterval(150)
+                    let minutes = timeInterval.minutes
+                    expect(minutes) == 2.5
+                }
+
+                it ("should return hours") {
+                    let timeInterval = NSTimeInterval(5400)
+                    let hours = timeInterval.hours
+                    expect(hours) == 1.5
+                }
+
+                it ("should return days") {
+                    let timeInterval = NSTimeInterval(172800)
+                    let days = timeInterval.days
+                    expect(days) == 2.0
+                }
+
+                it ("should return weeks") {
+                    let timeInterval = NSTimeInterval(2419200)
+                    let weeks = timeInterval.weeks
+                    expect(weeks) == 4.0
+                }
+            }
         }
     }
 }

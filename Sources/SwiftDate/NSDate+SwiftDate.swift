@@ -247,7 +247,7 @@ extension NSDate {
 
      - returns: the date representing that start of that unit
      */
-    public func startOf(unit: NSCalendarUnit, inRegion region: Region) -> NSDate {
+    public func startOf(unit: NSCalendarUnit, inRegion region: Region? = nil) -> NSDate {
         return self.inRegion(region).startOf(unit).absoluteTime
     }
 
@@ -259,7 +259,7 @@ extension NSDate {
 
      - returns: the date representing that end of that unit
      */
-    public func endOf(unit: NSCalendarUnit, inRegion region: Region) -> NSDate {
+    public func endOf(unit: NSCalendarUnit, inRegion region: Region? = nil) -> NSDate {
         return self.inRegion(region).endOf(unit).absoluteTime
     }
 

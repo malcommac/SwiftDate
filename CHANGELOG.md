@@ -1,5 +1,18 @@
 # Change Log
 
+## [3.0.9](https://github.com/malcommac/SwiftDate/tree/3.0.9) (2016-03-21)
+[Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.8...3.0.9)
+
+**Fixed bugs:**
+
+- Bad version in installation docs [\#183](https://github.com/malcommac/SwiftDate/issues/183)
+- 1.years - 2.hours [\#180](https://github.com/malcommac/SwiftDate/issues/180)
+
+**Closed issues:**
+
+- toNaturalString & maxUnits = 1 sometimes shows 2 units  [\#174](https://github.com/malcommac/SwiftDate/issues/174)
+- Documents need to update [\#172](https://github.com/malcommac/SwiftDate/issues/172)
+
 ## [3.0.8](https://github.com/malcommac/SwiftDate/tree/3.0.8) (2016-03-06)
 [Full Changelog](https://github.com/malcommac/SwiftDate/compare/3.0.7...3.0.8)
 

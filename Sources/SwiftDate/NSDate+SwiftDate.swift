@@ -604,6 +604,15 @@ extension NSDate {
     }
 
 
+    public func isInPast() -> Bool {
+        return self < NSDate()
+    }
+
+    public func isInFuture() -> Bool {
+        return self > NSDate()
+    }
+
+
 }
 
 extension NSDate {

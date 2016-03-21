@@ -25,6 +25,8 @@
 import Foundation
 
 /// Extension for initialisation
+
+// swiftlint:disable file_length
 extension NSDate {
 
     /// Initialise a `NSDate` object from a number of date properties.
@@ -93,7 +95,7 @@ extension NSDate {
     //// - parameter dateComponentDictionary: paramters dictionary, each key must be an
     ///     NSCalendarUnit
     ///
-    /// - remark: deprecated! You should use 
+    /// - remark: deprecated! You should init(components) or init(year:month: etc) instead
     ///
     @available(*, deprecated=3.0.5, message="Use init(components) or init(year:month: etc) instead")
     public convenience init?(dateComponentDictionary: DateComponentDictionary) {
@@ -142,6 +144,8 @@ extension NSDate {
     ///     query for each component and it will be returned taking care of the region components
     ///     specified.
     ///
+    // Unknown why swiftlint warns here...
+    // swiftlint:disable:next valid_docs
     public func inRegion(region: Region? = nil) -> DateInRegion {
         let dateInRegion = DateInRegion(absoluteTime: self, region: region)
         return dateInRegion
@@ -604,10 +608,18 @@ extension NSDate {
     }
 
 
+    /// Returns whether the given date is in the past.
+    ///
+    /// - Returns: a boolean indicating whether the receiver is in the past
+    ///
     public func isInPast() -> Bool {
         return self < NSDate()
     }
 
+    /// Returns whether the given date is in the past.
+    ///
+    /// - Returns: a boolean indicating whether the receiver is in the past
+    ///
     public func isInFuture() -> Bool {
         return self > NSDate()
     }

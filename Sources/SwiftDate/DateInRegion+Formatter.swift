@@ -26,6 +26,7 @@ import Foundation
 
 // MARK: - DateInRegion Formatter Extension -
 
+// swiftlint:disable file_length
 public extension DateInRegion {
 
    /**
@@ -376,7 +377,7 @@ internal extension NSDate {
         }
     }
 
-
+    // swiftlint:disable:next cyclomatic_complexity
     private func sdLocalizeStringForValue(singular: Bool, unit: NSCalendarUnit,
         abbreviated: Bool = false) -> String {
 

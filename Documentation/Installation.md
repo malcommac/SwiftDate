@@ -6,7 +6,7 @@ SwiftDate 2 is compatible with both CocoaPods and Carthage.
 
 ```
 platform :ios, '8.0'
-pod "SwiftDate", "~> 2.0"
+pod "SwiftDate"
 ```
 
 ## Carthage
@@ -22,10 +22,9 @@ $ brew install carthage
 To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "malcommac/SwiftDate" ~> 2.0
+github "malcommac/SwiftDate"
 ```
 
 Run `carthage` to build the framework and drag the built `SwiftDate.framework` into your Xcode project.
 
-## Manually
-<!-- TODO: add manual installation process -->
+

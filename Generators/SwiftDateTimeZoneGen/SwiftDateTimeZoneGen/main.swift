@@ -51,9 +51,9 @@ print(" ")
 
 
 for index in timeZoneNames.indices {
-    
+
     let name = timeZoneNames[index]
-    
+
     print("case \(name.toCamelCase()) = \"\(name)\"")
 
 }

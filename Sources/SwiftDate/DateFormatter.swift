@@ -47,11 +47,11 @@ public enum DateFormatterComponentsStyle {
 
     public var localizedCode: String {
         switch self {
-        case .Positional: return "positional"
-        case .Abbreviated: return "abbreviated"
-        case .Short: return "short"
-        case .Full: return "full"
-        case .Colloquial: return "colloquial"
+        case .Positional: 	return "positional"
+        case .Abbreviated: 	return "abbreviated"
+        case .Short: 		return "short"
+        case .Full: 		return "full"
+        case .Colloquial: 	return "colloquial"
         }
     }
 	
@@ -126,7 +126,7 @@ public class DateFormatter {
 
     /// For interval less than 5 minutes if this value is true the equivalent of 'just now' is
     /// printed in the output string
-    public var allowsNowOnColloquial: Bool = false
+    public var fallbackToNow: Bool = false
 
     /// This is the bundle where the localized data is placed
     private lazy var bundle: NSBundle? = {
@@ -246,7 +246,7 @@ public class DateFormatter {
             if components.minute != 0 { // Minutes difference
                 let value = abs(components.minute)
                 let relevant_str = relevantTimeForUnit(.Minute, date: fromDate, value: value)
-                if self.allowsNowOnColloquial == true && components.minute < 5 {
+                if self.fallbackToNow == true && components.minute < 5 {
                     // Less than 5 minutes ago is 'just now'
                     return sd_localizedString("colloquial_now", arguments: [])
                 }
@@ -258,7 +258,7 @@ public class DateFormatter {
             if components.second != 0 { // Seconds difference
                 let value = abs(components.second)
                 let relevant_str = relevantTimeForUnit(.Second, date: fromDate, value: value)
-                if self.allowsNowOnColloquial == true { // It's 'now' if allowed
+                if self.fallbackToNow == true { // It's 'now' if allowed
                     return sd_localizedString("colloquial_now", arguments: [])
                 }
                 return colloquialString(.Second, isFuture: isFuture,

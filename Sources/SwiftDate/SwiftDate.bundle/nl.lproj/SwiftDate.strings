@@ -35,11 +35,6 @@
 "colloquial_p_ss"					=	"%d seconden geleden";	// second,past,plural:		"3 seconds ago"
 
 "colloquial_now"					=	"zonet";            // less than 5 minutes if .allowsNowOnColloquial is set
-"colloquial_thisnight"				=	"vannacht";         // today between 00:00-00:06
-"colloquial_thismorning"			=	"vanmorgen";		// today between 06:00-12:00
-"colloquial_thisafternoon"			=	"vanmiddag";        // today between 12:00-18:00
-"colloquial_thisevening"			=	"vanavond";         // today between 18:00-24:00
-
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"'('MMM yyyy')'";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
@@ -56,19 +51,3 @@
 "relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
 "relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
-
-"relevanttime_today"				=	"HH:mm";					// for colloquial 'today' variants
-
-// VALUES SEPARATOR (between each time unit components, ie ":" in "12:30" between hours and minutes)
-"valuesep_positional"				= 	":";
-"valuesep_abbreviated"				= 	"";
-"valuesep_short"					= 	"";
-"valuesep_full"						= 	" ";
-"valuesep_colloquial"				= 	" ";
-
-// UNIT SEPARATOR (between each printed unit, ie ", " in "12 days, 4 months")
-"unitsep_positional"				=	" ";
-"unitsep_abbreviated"				= 	" ";
-"unitsep_short"						= 	" ";
-"unitsep_full"						= 	" ";
-"unitsep_colloquial"				= 	", ";

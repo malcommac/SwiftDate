@@ -139,8 +139,8 @@ public class DateFormatter {
         return bundle
     }()
 
-    public init() {
-
+	public init(unitsStyle style: DateFormatterComponentsStyle = .Full) {
+		self.unitsStyle = style
     }
 
     /**
@@ -286,16 +286,21 @@ public class DateFormatter {
 		let unitFlags: [NSCalendarUnit] = [.Year, .Month, .Day, .Hour, .Minute, .Second]
 		var outputUnits : [String] = []
 		var nonZeroUnitFound: Int = 0
+		var isNegative: Bool? = nil
 
 		for unit in unitFlags {
 			let unitValue = cmps.valueForComponent(unit)
+
+			if isNegative == nil && unitValue < 0 {
+				isNegative = true
+			}
 			
 			// Drop zero (all, leading, middle)
 			let shouldDropZero = (unitValue == 0 && (zeroBehavior == .DropAll || zeroBehavior == .DropLeading && nonZeroUnitFound == 0 || zeroBehavior == .DropMiddle))
 			if shouldDropZero == false {
 				let cmp = NSDateComponents()
-				cmp.setValue(cmps.valueForComponent(unit), forComponent: unit)
-				let str = NSDateComponentsFormatter.localizedStringFromDateComponents(cmps, unitsStyle: unitsStyle.toNSDateFormatterStyle()!)!
+				cmp.setValue( abs(unitValue) , forComponent: unit)
+				let str = NSDateComponentsFormatter.localizedStringFromDateComponents(cmp, unitsStyle: unitsStyle.toNSDateFormatterStyle()!)!
 				outputUnits.append(str)
 			}
 			
@@ -305,7 +310,8 @@ public class DateFormatter {
 				break
 			}
 		}
-		return outputUnits.joinWithSeparator(unitsSeparator)
+		
+		return (isNegative == true ? "-" : "") + outputUnits.joinWithSeparator(self.unitsSeparator)
 	}
 	
         /**

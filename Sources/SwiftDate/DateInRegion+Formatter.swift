@@ -28,6 +28,11 @@ import Foundation
 
 public extension DateInRegion {
 
+	public func toString(fromDate fDate: DateInRegion, style: DateFormatterComponentsStyle) -> String? {
+		let formatter = DateFormatter(unitsStyle: style)
+		return formatter.toString(fromDate: fDate, toDate: self)
+	}
+	
    /**
    This method produces a colloquial representation of time elapsed
    between this `DateInRegion` (`self`) and another reference `DateInRegion` (`refDate`).

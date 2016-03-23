@@ -54,6 +54,16 @@ public enum DateFormatterComponentsStyle {
         case .Colloquial: return "colloquial"
         }
     }
+	
+	internal func toNSDateFormatterStyle() -> NSDateComponentsFormatterUnitsStyle? {
+		switch self {
+		case .Positional: 	return .Positional
+		case .Abbreviated: 	return .Abbreviated
+		case .Short: 		return .Short
+		case .Full: 		return .Full
+		case .Colloquial: 	return nil
+		}
+	}
 }
 
 /**
@@ -91,6 +101,9 @@ public class DateFormatter {
     /// Described the style in which each unit will be printed out
     public var unitsStyle: DateFormatterComponentsStyle = .Full
 
+	/// This describe the separator string between each component when you print data in non colloquial format
+	public var unitsSeparator: String = ","
+	
     /// Tell what kind of time units should be part of the output. Allowed values are a subset of
     /// the NSCalendarUnit mask
     /// .Year, .Month, .Day, .Hour, .Minute, .Second are supported (default values enable all of
@@ -266,114 +279,36 @@ public class DateFormatter {
 
      - returns: representation string
      */
-    private func toComponentsString(fromDate fromDate: DateInRegion, toDate: DateInRegion)
-        -> String? {
+	private func toComponentsString(fromDate fDate: DateInRegion, toDate tDate: DateInRegion) -> String? {
+		let cal = fDate.calendar
+		let cmps = cal.components(allowedUnits, fromDate: fDate.absoluteTime, toDate: tDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
+		
+		let unitFlags: [NSCalendarUnit] = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+		var outputUnits : [String] = []
+		var nonZeroUnitFound: Int = 0
 
-            // Get the components of the date. Date must have the same parent calendar type to
-            // be compared
-            let cal = fromDate.calendar
-            let opt = NSCalendarOptions(rawValue: 0)
-            let components = cal.components(allowedUnits, fromDate: fromDate.absoluteTime,
-                                                          toDate: toDate.absoluteTime, options: opt)
-            let flags: [NSCalendarUnit] = [.Year, .Month, .Day, .Hour, .Minute, .Second]
-
-            var output: [DateFormatterValue] = []
-            var nonZeroUnitFound: Int = 0
-            let value_separator = valueSeparator(forStyle: self.unitsStyle)
-            for flag in flags {
-                // get the value of the current unit
-                let unit_value = abs(components.valueForComponent(flag))
-                let unit_name = unitNameWithValue(unit_value, unit: flag, style: self.unitsStyle)
-
-                // Drop zero (all, leading, middle)
-                let shouldDropZero = (unit_value == 0 && (zeroBehavior == .DropAll ||
-                    zeroBehavior == .DropLeading && nonZeroUnitFound == 0 ||
-                    zeroBehavior == .DropMiddle))
-                if shouldDropZero == false {
-                    output.append( DateFormatterValue(name: unit_name, value: unit_value,
-                        separator: value_separator) )
-                }
-
-                nonZeroUnitFound += (unit_value != 0 ? 1 : 0)
-                // limit the number of values to show
-                if maxUnitCount != nil && nonZeroUnitFound == maxUnitCount! {
-                    break
-                }
-            }
-
-            // Special routine to manage drop zero in traling
-            if zeroBehavior == .DropTrailing {
-                var endFromStart: Int?
-                var endFromEnd: Int?
-                for x in 0..<output.count {
-                    let component = output[x]
-                    if component.value != 0 && endFromStart == nil {
-                        endFromStart = x
-                    } else if component.value == 0 && endFromStart != nil {
-                        endFromEnd = (output.count-x)
-                        break
-                    }
-                }
-                if endFromStart != nil { // remove from start
-                    output.removeRange(0..<endFromStart!)
-                }
-                if endFromEnd != nil { // remove at the end
-                    endFromEnd = (output.count-endFromEnd!)
-                    output.removeRange(endFromEnd!..<output.count)
-                }
-            }
-
-            // separator between each unit of time (ie. ':')
-            let unit_separator = unitSeparator(forStyle: self.unitsStyle)
-            let str_components = output.map { (item) -> String in
-                return item.description
-                }.joinWithSeparator(unit_separator)
-            return str_components
-    }
-
-    /**
-     Get the readable name of a time unit
-
-     - parameter value: value of the time unit
-     - parameter unit: type of unit
-     - parameter style: style to use
-
-     - returns: unit name
-     */
-    private func unitNameWithValue(value: Int, unit: NSCalendarUnit,
-                 style: DateFormatterComponentsStyle) -> String {
-        let localized_unit = unit.localizedCode(value)
-        let localized_style = style.localizedCode
-        let identifier = "unitname_\(localized_style)_\(localized_unit)"
-        return sd_localizedString(identifier)
-    }
-
-    /**
-     Get the value separator string (the string between the time unit value and the name)
-
-     - parameter style: style to use
-
-     - returns: value separator
-     */
-    private func valueSeparator(forStyle style: DateFormatterComponentsStyle) -> String {
-        let identifier = "valuesep_\(style.localizedCode)"
-        return sd_localizedString(identifier)
-    }
-
-    /**
-     Get the unit separator string (the string between each time component unit, ie. ', ' in '2h,
-     4m')
-
-     - parameter style: style to use
-
-     - returns: unit separator
-     */
-    private func unitSeparator(forStyle style: DateFormatterComponentsStyle) -> String {
-        let identifier = "unitsep_\(style.localizedCode)"
-        return sd_localizedString(identifier)
-    }
-
-    /**
+		for unit in unitFlags {
+			let unitValue = cmps.valueForComponent(unit)
+			
+			// Drop zero (all, leading, middle)
+			let shouldDropZero = (unitValue == 0 && (zeroBehavior == .DropAll || zeroBehavior == .DropLeading && nonZeroUnitFound == 0 || zeroBehavior == .DropMiddle))
+			if shouldDropZero == false {
+				let cmp = NSDateComponents()
+				cmp.setValue(cmps.valueForComponent(unit), forComponent: unit)
+				let str = NSDateComponentsFormatter.localizedStringFromDateComponents(cmps, unitsStyle: unitsStyle.toNSDateFormatterStyle()!)!
+				outputUnits.append(str)
+			}
+			
+			nonZeroUnitFound += (unitValue != 0 ? 1 : 0)
+			// limit the number of values to show
+			if maxUnitCount != nil && nonZeroUnitFound == maxUnitCount! {
+				break
+			}
+		}
+		return outputUnits.joinWithSeparator(unitsSeparator)
+	}
+	
+        /**
      Return the colloquial string representation of a time unit
 
      - parameters:

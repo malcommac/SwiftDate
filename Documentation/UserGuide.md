@@ -256,12 +256,12 @@ let gregorianDate = DateInRegion(region: chicago) + 1.years // 21-Dec-2016
 
 ## Comparisons
 Date objects can be compared with the regular math comparison operators:
-- `==` right hand side represents the same moment in time as the left hand side.
-- `!=` right hand side is not at the same moment as the left hand side.
-- `<` right hand side is earlier than the left hand side.
-- `>` right hand side is later than the left hand side.
-- `<=` right hand side is earlier than- or at the same moment as the left hand side.
-- `>=` right hand side is later than- or at the same moment as the left hand side.
+- `==` left hand side represents the same moment in time as the right hand side.
+- `!=` left hand side is not at the same moment as the right hand side.
+- `<` left hand side is earlier than the right hand side.
+- `>` left hand side is later than the right hand side.
+- `<=` left hand side is earlier than- or at the same moment as the right hand side.
+- `>=` left hand side is later than- or at the same moment as the right hand side.
 
 Other comparisons are in the functions:
 

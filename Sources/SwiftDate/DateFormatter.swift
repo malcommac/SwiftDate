@@ -98,10 +98,11 @@ public struct DateZeroBehavior: OptionSetType {
 /// dates or a relative representation of a date
 public class DateFormatter {
 
-    /// Described the style in which each unit will be printed out
+    /// Described the style in which each unit will be printed out. Default is `.Full`
     public var unitsStyle: DateFormatterComponentsStyle = .Full
 
-	/// This describe the separator string between each component when you print data in non colloquial format
+	/// This describe the separator string between each component when you print data in non colloquial format.
+	/// Default is `,`
 	public var unitsSeparator: String = ","
 	
     /// Tell what kind of time units should be part of the output. Allowed values are a subset of

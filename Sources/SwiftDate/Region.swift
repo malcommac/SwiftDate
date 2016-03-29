@@ -63,7 +63,7 @@ public struct Region: Equatable {
     ///     - timeZone: the time zone to work with
     ///     - locale: the locale to work with
     ///
-    internal init(
+    public init(
         calendar: NSCalendar,
         timeZone: NSTimeZone? = nil,
         locale: NSLocale? = nil) {

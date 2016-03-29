@@ -28,7 +28,7 @@ import Foundation
 
 // swiftlint:disable file_length
 public extension DateInRegion {
-
+	
    /**
    This method produces a colloquial representation of time elapsed
    between this `DateInRegion` (`self`) and another reference `DateInRegion` (`refDate`).
@@ -40,11 +40,11 @@ public extension DateInRegion {
 
    - returns: formatted string or nil if representation cannot be provided
    */
+	@available(*, deprecated=3.0.9, obsoleted=3.1, message="Use toString(fromDate:style:)")
 	public func toNaturalString(refDate: DateInRegion?, style: FormatterStyle = FormatterStyle())
         -> String? {
 
-		let rDate = (refDate != nil ? refDate! : DateInRegion(absoluteTime: NSDate(),
-            region: self.region))
+		let rDate = (refDate != nil ? refDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
 		let formatter: NSDateComponentsFormatter = sharedDateComponentsFormatter()
 		return formatter.beginSessionContext({ (Void) -> (String?) in
 			style.restoreInto(formatter)
@@ -74,6 +74,23 @@ public extension DateInRegion {
 		return self.toString(.ISO8601)
     }
 
+	/**
+	Return a string representation of the interval between self date and a reference date.
+	You can specify a style of the output: the first group (`.Positional`, `.Abbreviated`, `.Short`, `.Full`) will print
+	single non-zero time unit components. `.Colloquial` can be used to print a more natural version of the difference.
+	If you need to apply more control upon the formatter you can use `DateFormatter` class directly.
+	
+	- parameter fDate reference date (if not specified default DateRegion() is used)
+	- parameter style style of the ouput
+	
+	- returns: string representation of the difference between self and a reference date
+	*/
+	public func toString(fromDate rDate: DateInRegion?, style: DateFormatterComponentsStyle) -> String? {
+		let formatter = DateFormatter(unitsStyle: style)
+		let rDate = (rDate != nil ? rDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
+		return formatter.toString(fromDate: rDate, toDate: self)
+	}
+	
     /**
      Convert a DateInRegion to a string using region's timezone, locale and calendar
 
@@ -190,82 +207,6 @@ public extension DateInRegion {
         return toString(dateStyle: dateStyle, timeStyle: timeStyle)
     }
 
-	@available(*, deprecated=2.2,
-        message="Use toString(style:dateStyle:timeStyle:relative:) with relative parameters")
-	/**
-	Output relative string representation of the date.
-	**This method was deprecated: use `toString(style:dateStyle:timeStyle:)` instead.**
-
-	- parameter style: style of the formatted output
-
-	- returns: string representation
-	*/
-	public func toRelativeCocoaString(style style: NSDateFormatterStyle =
-        NSDateFormatterStyle.MediumStyle) -> String? {
-
-        let cachedFormatter = sharedDateFormatter()
-		return cachedFormatter.beginSessionContext { (void) -> (String?) in
-			cachedFormatter.locale = self.region.locale
-			cachedFormatter.calendar = self.region.calendar
-			cachedFormatter.timeZone = self.region.timeZone
-			cachedFormatter.dateStyle = style
-			cachedFormatter.doesRelativeDateFormatting = true
-			let str = cachedFormatter.stringFromDate(self.absoluteTime)
-			return str
-		}
-	}
-
-	@available(*, deprecated=2.2, message="Use toNaturalString() with relative parameters")
-	/**
-	Output colloquial representation of the string.
-	**This method was deprecated: use `toString(style:dateStyle:timeStyle:)` instead.**
-
-	- parameter fromDate: reference date
-	- parameter abbreviated: `true` to use abbreviated form
-	- parameter maxUnits: number of non zero units to print
-
-	- returns: colloquial string representation
-	*/
-	public func toRelativeString(fromDate: DateInRegion!, abbreviated: Bool = false,
-        maxUnits: Int = 1) -> String {
-
-        let seconds = fromDate.absoluteTime.timeIntervalSinceDate(absoluteTime)
-        if fabs(seconds) < 1 {
-            return "just now".sdLocalize
-        }
-
-        let significantFlags: NSCalendarUnit = DateInRegion.componentFlags
-        let components = region.calendar.components(significantFlags,
-            fromDate: fromDate.absoluteTime, toDate: absoluteTime, options: [])
-
-        var string = String()
-        var numberOfUnits: Int = 0
-        let unitList: [String] = ["year", "month", "weekOfYear", "day", "hour", "minute",
-            "second", "nanosecond"]
-        for unitName in unitList {
-            let unit: NSCalendarUnit = unitName.sdToCalendarUnit()
-            if ((significantFlags.rawValue & unit.rawValue) != 0) &&
-                (absoluteTime.sdCompareCalendarUnit(NSCalendarUnit.Nanosecond, other: unit)
-                    != .OrderedDescending) {
-
-                    let number: NSNumber = NSNumber(float:
-                        fabsf(components.valueForKey(unitName)!.floatValue))
-                    if Bool(number.integerValue) {
-                        let singular = (number.unsignedIntegerValue == 1)
-                        let suffix = String(format: "%@ %@", arguments:
-                            [number, absoluteTime.sdLocalizeStringForValue(singular, unit: unit,
-                                abbreviated: abbreviated)])
-                        if string.isEmpty {
-                            string = suffix
-                        } else if numberOfUnits < maxUnits {
-                            string += String(format: " %@", arguments: [suffix])
-                        }
-                        numberOfUnits += 1
-                    }
-            }
-        }
-        return string
-    }
 }
 
 //MARK: - DateInRegion Formatters -

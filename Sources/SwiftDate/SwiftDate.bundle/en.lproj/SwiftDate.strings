@@ -29,11 +29,6 @@
 "colloquial_p_M"					=	"one minute ago";	// minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"%d minutes ago";	// minute,past,plural:		"3 minutes ago"
 
-"colloquial_f_s"					=	"in one second";	// second,future,singular:	"in one second"
-"colloquial_f_ss"					=	"in %d seconds";	// seconds,future,plural:	"in 3 seconds"
-"colloquial_p_s"					=	"one second ago";	// second,past,singular:	"one second ago"
-"colloquial_p_ss"					=	"%d seconds ago";	// second,past,plural:		"3 seconds ago"
-
 "colloquial_now"					=	"just now";			// less than 5 minutes if .allowsNowOnColloquial is set
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true

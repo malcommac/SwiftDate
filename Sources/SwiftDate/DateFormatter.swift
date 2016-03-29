@@ -257,14 +257,7 @@ public class DateFormatter {
             }
 
             if components.second != 0 { // Seconds difference
-                let value = abs(components.second)
-                let relevant_str = relevantTimeForUnit(.Second, date: fromDate, value: value)
-                if self.fallbackToNow == true { // It's 'now' if allowed
-                    return sd_localizedString("colloquial_now", arguments: [])
-                }
-                return colloquialString(.Second, isFuture: isFuture,
-                                                 value: value, relevantStr: relevant_str,
-                                                               args: value)
+				return sd_localizedString("colloquial_now", arguments: [])
             }
 
             // Fallback to components output

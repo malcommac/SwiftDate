@@ -29,11 +29,6 @@
 "colloquial_p_M"					=	"een minuut geleden";	// minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"%d minuten geleden";	// minute,past,plural:		"3 minutes ago"
 
-"colloquial_f_s"					=	"over een seconde";	// second,future,singular:	"in one second"
-"colloquial_f_ss"					=	"over %d seconden";	// seconds,future,plural:	"in 3 seconds"
-"colloquial_p_s"					=	"een seconde geleden";	// second,past,singular:	"one second ago"
-"colloquial_p_ss"					=	"%d seconden geleden";	// second,past,plural:		"3 seconds ago"
-
 "colloquial_now"					=	"zonet";            // less than 5 minutes if .allowsNowOnColloquial is set
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true

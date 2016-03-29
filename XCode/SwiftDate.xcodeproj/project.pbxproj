@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0808C26D1CAB30500068C0F2 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808C26C1CAB30500068C0F2 /* DateFormatterTests.swift */; };
 		1F458FB81C7B23AC00FCFD97 /* NSCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FB71C7B23AC00FCFD97 /* NSCalendarTests.swift */; };
 		1F458FBA1C7B29AD00FCFD97 /* NSTimeIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FB91C7B29AD00FCFD97 /* NSTimeIntervalTests.swift */; };
 		1F458FBC1C7B2CC300FCFD97 /* NSTimeZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F458FBB1C7B2CC300FCFD97 /* NSTimeZoneTests.swift */; };
@@ -110,10 +111,6 @@
 		904CFEC11C80739300427EB1 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 904CFE721C80739300427EB1 /* SwiftDate.bundle */; };
 		904CFEC21C80739300427EB1 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 904CFE721C80739300427EB1 /* SwiftDate.bundle */; };
 		904CFEC31C80739300427EB1 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 904CFE721C80739300427EB1 /* SwiftDate.bundle */; };
-		904CFEC41C80739300427EB1 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904CFE731C80739300427EB1 /* TimePeriod.swift */; };
-		904CFEC51C80739300427EB1 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904CFE731C80739300427EB1 /* TimePeriod.swift */; };
-		904CFEC61C80739300427EB1 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904CFE731C80739300427EB1 /* TimePeriod.swift */; };
-		904CFEC71C80739300427EB1 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904CFE731C80739300427EB1 /* TimePeriod.swift */; };
 		90A2B5D91C7FAB790050D018 /* SwiftDate-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 90A2B5D71C7FAB790050D018 /* SwiftDate-OSX.h */; };
 		90F1F38C1C7F6AF500B22B90 /* SwiftDate-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 90F1F38B1C7F6AF500B22B90 /* SwiftDate-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90F1F3AD1C7F6BB800B22B90 /* SwiftDate-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 90F1F3AC1C7F6BB800B22B90 /* SwiftDate-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -145,6 +142,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0808C26C1CAB30500068C0F2 /* DateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterTests.swift; path = ../../Sources/SwiftDateTests/DateFormatterTests.swift; sourceTree = "<group>"; };
 		1F458FB71C7B23AC00FCFD97 /* NSCalendarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSCalendarTests.swift; path = ../../Sources/SwiftDateTests/NSCalendarTests.swift; sourceTree = "<group>"; };
 		1F458FB91C7B29AD00FCFD97 /* NSTimeIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimeIntervalTests.swift; path = ../../Sources/SwiftDateTests/NSTimeIntervalTests.swift; sourceTree = "<group>"; };
 		1F458FBB1C7B2CC300FCFD97 /* NSTimeZoneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimeZoneTests.swift; path = ../../Sources/SwiftDateTests/NSTimeZoneTests.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 		904CFE701C80739300427EB1 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeZone+SwiftDate.swift"; path = "../Sources/SwiftDate/NSTimeZone+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
 		904CFE711C80739300427EB1 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = ../Sources/SwiftDate/Region.swift; sourceTree = SOURCE_ROOT; };
 		904CFE721C80739300427EB1 /* SwiftDate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftDate.bundle; path = ../Sources/SwiftDate/SwiftDate.bundle; sourceTree = SOURCE_ROOT; };
-		904CFE731C80739300427EB1 /* TimePeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimePeriod.swift; path = ../Sources/SwiftDate/TimePeriod.swift; sourceTree = SOURCE_ROOT; };
 		905EAD0A1C7E16F800302F49 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		905EAD0B1C7E16F800302F49 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		90A2B5D61C7FAB790050D018 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "SwiftDate-OSX/Info.plist"; sourceTree = "<group>"; };
@@ -292,7 +289,6 @@
 				904CFE701C80739300427EB1 /* NSTimeZone+SwiftDate.swift */,
 				904CFE711C80739300427EB1 /* Region.swift */,
 				904CFE721C80739300427EB1 /* SwiftDate.bundle */,
-				904CFE731C80739300427EB1 /* TimePeriod.swift */,
 			);
 			path = SwiftDate;
 			sourceTree = "<group>";
@@ -300,6 +296,7 @@
 		1FAA839F1C79C6DA0084BAB6 /* SwiftDateTests */ = {
 			isa = PBXGroup;
 			children = (
+				0808C26C1CAB30500068C0F2 /* DateFormatterTests.swift */,
 				1FAA83511C79C67D0084BAB6 /* DateInRegionComparisonTests.swift */,
 				1FAA83521C79C67D0084BAB6 /* DateInRegionComponentPortTests.swift */,
 				1FAA83531C79C67D0084BAB6 /* DateInRegionEquationsTests.swift */,
@@ -517,7 +514,6 @@
 				TargetAttributes = {
 					1FAA83911C79C6DA0084BAB6 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = RMNVT3XS3A;
 					};
 					1FAA839A1C79C6DA0084BAB6 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -626,7 +622,6 @@
 				904CFE981C80739300427EB1 /* Dictionary+SwiftDate.swift in Sources */,
 				904CFEAC1C80739300427EB1 /* NSDateInterval.swift in Sources */,
 				904CFE881C80739300427EB1 /* DateInRegion+Formatter.swift in Sources */,
-				904CFEC41C80739300427EB1 /* TimePeriod.swift in Sources */,
 				904CFE741C80739300427EB1 /* DateFormatter.swift in Sources */,
 				904CFE801C80739300427EB1 /* DateInRegion+Components.swift in Sources */,
 				904CFE841C80739300427EB1 /* DateInRegion+Equations.swift in Sources */,
@@ -653,6 +648,7 @@
 				1F458FBC1C7B2CC300FCFD97 /* NSTimeZoneTests.swift in Sources */,
 				1FAA83D91C79C75A0084BAB6 /* RegionTests.swift in Sources */,
 				1FAA83CF1C79C75A0084BAB6 /* DateInRegionComparisonTests.swift in Sources */,
+				0808C26D1CAB30500068C0F2 /* DateFormatterTests.swift in Sources */,
 				1FAA83D01C79C75A0084BAB6 /* DateInRegionComponentPortTests.swift in Sources */,
 				1FAA83D21C79C75A0084BAB6 /* DateInRegionHashableTests.swift in Sources */,
 				1FAA83D11C79C75A0084BAB6 /* DateInRegionEquationsTests.swift in Sources */,
@@ -677,7 +673,6 @@
 				904CFE991C80739300427EB1 /* Dictionary+SwiftDate.swift in Sources */,
 				904CFEAD1C80739300427EB1 /* NSDateInterval.swift in Sources */,
 				904CFE891C80739300427EB1 /* DateInRegion+Formatter.swift in Sources */,
-				904CFEC51C80739300427EB1 /* TimePeriod.swift in Sources */,
 				904CFE751C80739300427EB1 /* DateFormatter.swift in Sources */,
 				904CFE811C80739300427EB1 /* DateInRegion+Components.swift in Sources */,
 				904CFE851C80739300427EB1 /* DateInRegion+Equations.swift in Sources */,
@@ -705,7 +700,6 @@
 				904CFE9A1C80739300427EB1 /* Dictionary+SwiftDate.swift in Sources */,
 				904CFEAE1C80739300427EB1 /* NSDateInterval.swift in Sources */,
 				904CFE8A1C80739300427EB1 /* DateInRegion+Formatter.swift in Sources */,
-				904CFEC61C80739300427EB1 /* TimePeriod.swift in Sources */,
 				904CFE761C80739300427EB1 /* DateFormatter.swift in Sources */,
 				904CFE821C80739300427EB1 /* DateInRegion+Components.swift in Sources */,
 				904CFE861C80739300427EB1 /* DateInRegion+Equations.swift in Sources */,
@@ -733,7 +727,6 @@
 				904CFE9B1C80739300427EB1 /* Dictionary+SwiftDate.swift in Sources */,
 				904CFEAF1C80739300427EB1 /* NSDateInterval.swift in Sources */,
 				904CFE8B1C80739300427EB1 /* DateInRegion+Formatter.swift in Sources */,
-				904CFEC71C80739300427EB1 /* TimePeriod.swift in Sources */,
 				904CFE771C80739300427EB1 /* DateFormatter.swift in Sources */,
 				904CFE831C80739300427EB1 /* DateInRegion+Components.swift in Sources */,
 				904CFE871C80739300427EB1 /* DateInRegion+Equations.swift in Sources */,
@@ -777,7 +770,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -822,7 +815,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -846,7 +839,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -871,7 +863,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -894,6 +885,7 @@
 		1FAA83A71C79C6DA0084BAB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -909,6 +901,7 @@
 		1FAA83A81C79C6DA0084BAB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

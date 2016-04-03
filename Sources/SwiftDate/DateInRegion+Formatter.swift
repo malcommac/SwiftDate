@@ -28,7 +28,7 @@ import Foundation
 
 // swiftlint:disable file_length
 public extension DateInRegion {
-	
+
    /**
    This method produces a colloquial representation of time elapsed
    between this `DateInRegion` (`self`) and another reference `DateInRegion` (`refDate`).
@@ -44,7 +44,8 @@ public extension DateInRegion {
 	public func toNaturalString(refDate: DateInRegion?, style: FormatterStyle = FormatterStyle())
         -> String? {
 
-		let rDate = (refDate != nil ? refDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
+		let rDate = (refDate != nil ? refDate! : DateInRegion(absoluteTime: NSDate(),
+            region: self.region))
 		let formatter: NSDateComponentsFormatter = sharedDateComponentsFormatter()
 		return formatter.beginSessionContext({ (Void) -> (String?) in
 			style.restoreInto(formatter)
@@ -76,21 +77,24 @@ public extension DateInRegion {
 
 	/**
 	Return a string representation of the interval between self date and a reference date.
-	You can specify a style of the output: the first group (`.Positional`, `.Abbreviated`, `.Short`, `.Full`) will print
-	single non-zero time unit components. `.Colloquial` can be used to print a more natural version of the difference.
+	You can specify a style of the output: the first group (`.Positional`, `.Abbreviated`,
+    `.Short`, `.Full`) will print
+	single non-zero time unit components. `.Colloquial` can be used to print a more natural
+    version of the difference.
 	If you need to apply more control upon the formatter you can use `DateFormatter` class directly.
-	
-	- parameter fDate reference date (if not specified default DateRegion() is used)
-	- parameter style style of the ouput
-	
+
+	- parameter fromDate: reference date (if not specified default DateRegion() is used)
+	- parameter style: style of the ouput
+
 	- returns: string representation of the difference between self and a reference date
 	*/
-	public func toString(fromDate rDate: DateInRegion?, style: DateFormatterComponentsStyle) -> String? {
+	public func toString(fromDate rDate: DateInRegion?, style: DateFormatterComponentsStyle)
+        -> String? {
 		let formatter = DateFormatter(unitsStyle: style)
 		let rDate = (rDate != nil ? rDate! : DateInRegion(absoluteTime: NSDate(), region: self.region))
 		return formatter.toString(fromDate: rDate, toDate: self)
 	}
-	
+
     /**
      Convert a DateInRegion to a string using region's timezone, locale and calendar
 

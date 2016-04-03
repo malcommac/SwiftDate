@@ -26,6 +26,8 @@ import Foundation
 
 // MARK: - DateFormatter Supporting Data -
 
+// swiftlint:disable file_length
+
 /**
  Constants for specifying how to spell out unit names.
 
@@ -54,7 +56,7 @@ public enum DateFormatterComponentsStyle {
         case .Colloquial: 	return "colloquial"
         }
     }
-	
+
 	internal func toNSDateFormatterStyle() -> NSDateComponentsFormatterUnitsStyle? {
 		switch self {
 		case .Positional: 	return .Positional
@@ -101,10 +103,10 @@ public class DateFormatter {
     /// Described the style in which each unit will be printed out. Default is `.Full`
     public var unitsStyle: DateFormatterComponentsStyle = .Full
 
-	/// This describe the separator string between each component when you print data in non colloquial format.
-	/// Default is `,`
+	/// This describe the separator string between each component when you print data in non
+    /// colloquial format. Default is `,`
 	public var unitsSeparator: String = ","
-	
+
     /// Tell what kind of time units should be part of the output. Allowed values are a subset of
     /// the NSCalendarUnit mask
     /// .Year, .Month, .Day, .Hour, .Minute, .Second are supported (default values enable all of
@@ -273,12 +275,14 @@ public class DateFormatter {
 
      - returns: representation string
      */
-	private func toComponentsString(fromDate fDate: DateInRegion, toDate tDate: DateInRegion) -> String? {
+	private func toComponentsString(fromDate fDate: DateInRegion, toDate tDate: DateInRegion)
+        -> String? {
 		let cal = fDate.calendar
-		let cmps = cal.components(allowedUnits, fromDate: fDate.absoluteTime, toDate: tDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
-		
+		let cmps = cal.components(allowedUnits, fromDate: fDate.absoluteTime,
+            toDate: tDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
+
 		let unitFlags: [NSCalendarUnit] = [.Year, .Month, .Day, .Hour, .Minute, .Second]
-		var outputUnits : [String] = []
+		var outputUnits: [String] = []
 		var nonZeroUnitFound: Int = 0
 		var isNegative: Bool? = nil
 
@@ -288,26 +292,29 @@ public class DateFormatter {
 			if isNegative == nil && unitValue < 0 {
 				isNegative = true
 			}
-			
+
 			// Drop zero (all, leading, middle)
-			let shouldDropZero = (unitValue == 0 && (zeroBehavior == .DropAll || zeroBehavior == .DropLeading && nonZeroUnitFound == 0 || zeroBehavior == .DropMiddle))
+			let shouldDropZero = (unitValue == 0 && (zeroBehavior == .DropAll
+                || zeroBehavior == .DropLeading && nonZeroUnitFound == 0
+                || zeroBehavior == .DropMiddle))
 			if shouldDropZero == false {
 				let cmp = NSDateComponents()
-				cmp.setValue( abs(unitValue) , forComponent: unit)
-				let str = NSDateComponentsFormatter.localizedStringFromDateComponents(cmp, unitsStyle: unitsStyle.toNSDateFormatterStyle()!)!
+				cmp.setValue( abs(unitValue), forComponent: unit)
+				let str = NSDateComponentsFormatter.localizedStringFromDateComponents(cmp,
+                    unitsStyle: unitsStyle.toNSDateFormatterStyle()!)!
 				outputUnits.append(str)
 			}
-			
+
 			nonZeroUnitFound += (unitValue != 0 ? 1 : 0)
 			// limit the number of values to show
 			if maxUnitCount != nil && nonZeroUnitFound == maxUnitCount! {
 				break
 			}
 		}
-		
+
 		return (isNegative == true ? "-" : "") + outputUnits.joinWithSeparator(self.unitsSeparator)
 	}
-	
+
         /**
      Return the colloquial string representation of a time unit
 

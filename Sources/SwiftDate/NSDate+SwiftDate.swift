@@ -302,24 +302,28 @@ extension NSDate {
             return refDateInRegion.toString(style, dateStyle: dateStyle, timeStyle: timeStyle,
                 relative: relative)
     }
-	
+
 	/**
 	Return a string representation of the interval between self date and a reference date.
-	You can specify a style of the output: the first group (`.Positional`, `.Abbreviated`, `.Short`, `.Full`) will print
-	single non-zero time unit components. `.Colloquial` can be used to print a more natural version of the difference.
+	You can specify a style of the output: the first group (`.Positional`, `.Abbreviated`,
+    `.Short`, `.Full`) will print
+	single non-zero time unit components. `.Colloquial` can be used to print a more natural
+    version of the difference.
 	If you need to apply more control upon the formatter you can use `DateFormatter` class directly.
-	
-	- parameter fDate reference date in absolute time
-	- parameter style style of the ouput
-	
+
+     - parameters:
+        - fromDate: reference date in absolute time
+        - inRegion: region for which to format the output string
+
 	- returns: string representation of the difference between self and a reference date
 	*/
-	public func toString(fromDate fDate: NSDate? = nil, inRegion region: Region? = nil, style: DateFormatterComponentsStyle) -> String? {
+	public func toString(fromDate: NSDate? = nil, inRegion region: Region? = nil,
+        style: DateFormatterComponentsStyle) -> String? {
 		let selfInRegion = DateInRegion(absoluteTime: self, region: region)
-		let refDateInRegion = DateInRegion(absoluteTime: fDate, region: region)
+		let refDateInRegion = DateInRegion(absoluteTime: fromDate, region: region)
 		return selfInRegion.toString(fromDate: refDateInRegion, style: style)
 	}
-	
+
 }
 
 // MARK: - Adoption of Comparable protocol

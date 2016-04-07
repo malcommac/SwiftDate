@@ -110,6 +110,25 @@ class DateregionSpec: QuickSpec {
 
             }
 
+            context("default region") {
+
+                it("should return Region with default args if no provider is set") {
+                    let region = Region.defaultRegion()
+
+                    expect(region) == Region()
+                }
+
+                it("should return Region from provider if set") {
+                    Region.defaultRegionProvider = { Region(calendarName: .AutoUpdatingCurrent) }
+                    defer { Region.defaultRegionProvider = nil }
+
+                    let region = Region.defaultRegion()
+
+                    expect(region) == Region(calendarName: .AutoUpdatingCurrent)
+                }
+
+            }
+
 
         }
     }

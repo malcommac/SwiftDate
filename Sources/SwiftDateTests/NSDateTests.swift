@@ -507,6 +507,16 @@ class NSDateSpec: QuickSpec {
 
             context("components") {
 
+                beforeEach {
+                    Region.defaultRegionProvider = {
+                        Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .EnglishUnitedStates)
+                    }
+                }
+
+                afterEach {
+                    Region.defaultRegionProvider = nil
+                }
+
                 it("should report proper month names") {
                     expect(date.monthName) == "February"
                 }
@@ -529,9 +539,13 @@ class NSDateSpec: QuickSpec {
                 let date = NSDate(year: 2001, month: 2, day: 3)
 
                 it("should get default region") {
+                    defer { Region.defaultRegionProvider = nil }
 
                     expect(date.inDefaultRegion()) == date.inRegion()
 
+                    Region.defaultRegionProvider = { Region(calendarName: .AutoUpdatingCurrent) }
+
+                    expect(date.inDefaultRegion()) == date.inRegion()
                 }
 
             }

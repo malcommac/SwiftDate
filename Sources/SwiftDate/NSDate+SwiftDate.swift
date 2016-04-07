@@ -120,7 +120,7 @@ extension NSDate {
     /// - parameter minute: minute to set  (nil to ignore)
     /// - parameter second: second to set  (nil to ignore)
     /// - parameter nanosecond: nanosecond to set  (nil to ignore)
-    /// - parameter region: region to set (if not specified Region() will be used instead
+    /// - parameter region: region to set (if not specified Region.defaultRegion() will be used instead
     ///
     @available(*, renamed="init(fromDate, ...)")
     public convenience init(refDate date: NSDate, era: Int? = nil, year: Int? = nil,
@@ -542,7 +542,7 @@ extension NSDate {
 
 
     public func isInSameDayAsDate(date: NSDate, inRegion optRegion: Region? = nil) -> Bool {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion()
         return self.inRegion(region).isInSameDayAsDate(date.inRegion(region))
     }
 
@@ -593,17 +593,17 @@ extension NSDate {
 extension NSDate {
 
     public class func today(inRegion optRegion: Region? = nil) -> NSDate {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion()
         return region.today().absoluteTime
     }
 
     public class func yesterday(inRegion optRegion: Region? = nil) -> NSDate {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion()
         return region.yesterday().absoluteTime
     }
 
     public class func tomorrow(inRegion optRegion: Region? = nil) -> NSDate {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion()
         return region.tomorrow().absoluteTime
     }
 

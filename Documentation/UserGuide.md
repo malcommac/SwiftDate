@@ -176,6 +176,7 @@ Property/function|Description|NSDate|DateInRegion
 `yearForWeekOfYear`|Returns the year number for the weekOfYear of the receiver|x|x
 `month`|Returns the month number (1...12) of the receiver|x|x
 `monthName`|Returns the month name of the receiver|x|x
+`shortMonthName`|Returns the short month name of the receiver|x|x
 `monthDays`|Returns the number of days in the month (28...31) of the receiver|x|x
 `weekOfYear`|Returns the week number in the year (1...53) of the receiver|x|x
 `weekOfMonth`|Returns the week number in the month (0...5) of the receiver|x|x
@@ -214,7 +215,7 @@ Function|Description|NSDate|DateInRegion|DateRegion
 
 All `NSDate` functions are evaluated against the current region by default. If you want a value for another region you can add the `inRegion:` parameter. E.g. `nsdate.nextWeekend(inRegion: china)` will return the start and end of the next weekend in China. Mind that the return values are `NSDate` objects. If you want `DateInRegion` return values then you can use `nsdate.inRegion(china).nextWeekend()`. This will create a `DateInRegion` object from the `nsdate` object and then evaluate the `nextWeekend` function.
 
-The properties `monthName` and `weekdayName` return `String` objects against the current locale for `NSDate` and for the locale registered with the `DateRegion` for `DateInRegion`.  
+The properties `monthName`, `shortMonthName` and `weekdayName` return `String` objects against the current locale for `NSDate` and for the locale registered with the `DateRegion` for `DateInRegion`.  
 
 ## Calculations with `DateInRegion`/`NSDate`
 Add (`+`) and subtract (`-`) operators are supported both for `NSDate` and `DateInRegion`.

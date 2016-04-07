@@ -388,6 +388,12 @@ extension NSDate {
     public var monthName: String {
         return self.inRegion().monthName
     }
+    
+    /// Get the short month name component of the date in current region (use inRegion(...).shortMonthName to
+    /// get the month's short name component in specified time zone)
+    public var shortMonthName: String {
+        return self.inRegion().shortMonthName
+    }
 
     /// Get the week of month component of the date in current region (use inRegion(...).weekOfMonth
     /// to get the week of month component in specified time zone)

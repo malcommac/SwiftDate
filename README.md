@@ -27,11 +27,16 @@ In SwiftDate you can work with date components both for `DateInRegion` and `NSDa
 When you work with `NSDate` you are working with an absolute time and components are evaluated against your local region. When you work with the `DateInRegion` class then all methods and properties are represented with a region that you can specify.
 
 
-# Reference documentation
-- [User guide](./Documentation/UserGuide.md)
-- [Installation guide](./Documentation/Installation.md)
-- [Upgrade guide](./Documentation/UpgradeGuide.md)
-- [Design guide](./Documentation/Design.md)
+# Documentation
+- [Installation with CocoaPods or Carthage](./Documentation/0.Installation.md)
+- [Create NSDate/DateInRegion and Region](./Documentation/1.CreateDates.md)
+- [Access to date properties](./Documentation/2.InspectDates.md)
+- [Operations with dates](./Documentation/3.OperationsWithDates.md)
+- [Compare dates](./Documentation/4.CompareDates.md)
+- [Conversion between timezones/locale and calendars](./Documentation/5.Conversions.md)
+- [From date to string and natural/relative date formatting](./Documentation/6.DatesToString.md)
+- [Upgrade from older versions](./Documentation/8.UpgradeGuide.md)
+- [Design Guide](./Documentation/7.Design.md)
 - [Change history](./CHANGELOG.md)
 
 
@@ -39,4 +44,4 @@ When you work with `NSDate` you are working with an absolute time and components
 This library was created by [Daniele Margutti](https://github.com/malcommac) with contribution of [Jeroen Houtzager](https://github.com/Hout). Any help is welcome; feel free to post your issue or pull request, in the spirit of open source software.
 
 # Older Versions
-SwiftDate 1.2 branch last revision is available [here](https://github.com/malcommac/SwiftDate/releases/tag/1.2). This version is unsupported.
+SwiftDate 1.2 branch last revision is available [here](https://github.com/malcommac/SwiftDate/releases/tag/1.2). This version is not supported anymore.

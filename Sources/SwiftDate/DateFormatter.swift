@@ -133,11 +133,11 @@ public class DateFormatter {
 
     /// This is the bundle where the localized data is placed
     private lazy var bundle: NSBundle? = {
-        guard let frameworkBundle = NSBundle(identifier: "com.danielemagutti.SwiftDate") else {
-            return nil
-        }
-        let path = NSURL(fileURLWithPath:
-            frameworkBundle.resourcePath!).URLByAppendingPathComponent("SwiftDate.bundle")
+        var frameworkBundle = NSBundle(identifier: "com.danielemagutti.SwiftDate")
+		if frameworkBundle == nil { frameworkBundle = NSBundle.mainBundle() }
+		if frameworkBundle == nil { return nil }
+		let path = NSURL(fileURLWithPath:
+            frameworkBundle!.resourcePath!).URLByAppendingPathComponent("SwiftDate.bundle")
         let bundle = NSBundle(URL: path)
         return bundle
     }()

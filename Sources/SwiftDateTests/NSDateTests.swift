@@ -506,6 +506,10 @@ class NSDateSpec: QuickSpec {
             }
 
             context("components") {
+				
+				it("should report proper short month names") {
+					expect(date.shortMonthName) == "Feb"
+				}
 
                 it("should report proper month names") {
                     expect(date.monthName) == "February"

@@ -101,7 +101,7 @@ public struct DateInRegion {
     ///
     public init(absoluteTime newDate: NSDate? = nil, region newRegion: Region? = nil) {
         absoluteTime = newDate ?? NSDate()
-        region = newRegion ?? Region()
+        region = newRegion ?? Region.defaultRegion
     }
 
     /// Initialise a `DateInRegion` object from a set of date components. Default values will be
@@ -264,7 +264,7 @@ public struct DateInRegion {
     public init?(fromString dateString: String, format: DateFormat,
         region nilRegion: Region? = nil) {
 
-            let region = nilRegion ?? Region()
+            let region = nilRegion ?? Region.defaultRegion
 
 			let cFormatter = sharedDateFormatter()
 			let parsedDate = cFormatter.beginSessionContext { () -> (NSDate?) in

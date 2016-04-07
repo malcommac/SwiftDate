@@ -120,7 +120,7 @@ extension NSDate {
     /// - parameter minute: minute to set  (nil to ignore)
     /// - parameter second: second to set  (nil to ignore)
     /// - parameter nanosecond: nanosecond to set  (nil to ignore)
-    /// - parameter region: region to set (if not specified Region() will be used instead
+    /// - parameter region: region to set (if not specified Region.defaultRegion will be used instead
     ///
     @available(*, renamed="init(fromDate, ...)")
     public convenience init(refDate date: NSDate, era: Int? = nil, year: Int? = nil,
@@ -272,7 +272,7 @@ extension NSDate {
      Return the string representation the date in specified region
 
      - parameter format: format of date
-     - parameter region: region of destination (Region() is used when argument is not specified)
+     - parameter region: region of destination (Region.defaultRegion is used when argument is not specified)
 
      - returns: string representation of the date into the region
      */
@@ -388,6 +388,12 @@ extension NSDate {
     public var monthName: String {
         return self.inRegion().monthName
     }
+	
+	/// Get the short month name component of the date in current region (use inRegion(...).shortMonthName to
+	/// get the month's short name component in specified time zone)
+	public var shortMonthName: String {
+		return self.inRegion().shortMonthName
+	}
 
     /// Get the week of month component of the date in current region (use inRegion(...).weekOfMonth
     /// to get the week of month component in specified time zone)
@@ -542,7 +548,7 @@ extension NSDate {
 
 
     public func isInSameDayAsDate(date: NSDate, inRegion optRegion: Region? = nil) -> Bool {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion
         return self.inRegion(region).isInSameDayAsDate(date.inRegion(region))
     }
 
@@ -593,17 +599,17 @@ extension NSDate {
 extension NSDate {
 
     public class func today(inRegion optRegion: Region? = nil) -> NSDate {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion
         return region.today().absoluteTime
     }
 
     public class func yesterday(inRegion optRegion: Region? = nil) -> NSDate {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion
         return region.yesterday().absoluteTime
     }
 
     public class func tomorrow(inRegion optRegion: Region? = nil) -> NSDate {
-        let region = optRegion ?? Region()
+        let region = optRegion ?? Region.defaultRegion
         return region.tomorrow().absoluteTime
     }
 

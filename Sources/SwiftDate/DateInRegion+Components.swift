@@ -213,6 +213,17 @@ public extension DateInRegion {
 			return value
 		}!
     }
+	
+	/// Short month name of the date expressed in this region's timezone using region's locale
+	public var shortMonthName: String {
+		let cachedFormatter = sharedDateFormatter()
+		return cachedFormatter.beginSessionContext { () -> (String) in
+			cachedFormatter.locale = self.region.locale
+			let value = cachedFormatter.shortMonthSymbols[self.month - 1] as String
+			return value
+		}!
+	}
+
 
 
     /// Boolean value that indicates whether the month is a leap month.

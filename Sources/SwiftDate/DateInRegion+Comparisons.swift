@@ -148,6 +148,22 @@ public extension DateInRegion {
         return calendar.isDateInWeekend(absoluteTime)
     }
 
+    /// Returns whether the given date is in the past.
+    ///
+    /// - Returns: a boolean indicating whether the receiver is in the past
+    ///
+    public func isInPast() -> Bool {
+        return absoluteTime < NSDate()
+    }
+
+    /// Returns whether the given date is in the past.
+    ///
+    /// - Returns: a boolean indicating whether the receiver is in the past
+    ///
+    public func isInFuture() -> Bool {
+        return absoluteTime > NSDate()
+    }
+
     /// Returns whether the given date is on the same day as the receiver in the time zone and
     /// calendar of the receiver.
     ///

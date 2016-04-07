@@ -37,7 +37,7 @@ public extension NSDateComponents {
 
      - returns: a new NSDate instance
      */
-    public func fromDate(refDate: NSDate!, inRegion region: Region = Region()) -> NSDate {
+    public func fromDate(refDate: NSDate!, inRegion region: Region = Region.defaultRegion()) -> NSDate {
         let date = region.calendar.dateByAddingComponents(self, toDate: refDate,
             options: NSCalendarOptions(rawValue: 0))
         return date!
@@ -52,7 +52,7 @@ public extension NSDateComponents {
 
      - returns: a new NSDate instance
      */
-    public func agoFromDate(refDate: NSDate!, inRegion region: Region = Region()) -> NSDate {
+    public func agoFromDate(refDate: NSDate!, inRegion region: Region = Region.defaultRegion()) -> NSDate {
         for unit in DateInRegion.componentFlagSet {
             let value = self.valueForComponent(unit)
             if value != NSDateComponentUndefined {
@@ -73,7 +73,7 @@ public extension NSDateComponents {
 
      - returns: a new NSDate instance
      */
-    public func fromNow(inRegion region: Region = Region()) -> NSDate {
+    public func fromNow(inRegion region: Region = Region.defaultRegion()) -> NSDate {
         return fromDate(NSDate(), inRegion: region)
     }
 
@@ -87,7 +87,7 @@ public extension NSDateComponents {
 
      - returns: a new NSDate instance
      */
-    public func ago(inRegion region: Region = Region()) -> NSDate {
+    public func ago(inRegion region: Region = Region.defaultRegion()) -> NSDate {
         return agoFromDate(NSDate())
     }
 

@@ -1,6 +1,6 @@
 # Installation
 ## CocoaPods
-SwiftDate 2 is compatible with both CocoaPods and Carthage.
+SwiftDate is compatible with both CocoaPods and Carthage.
 
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SwiftDate. Simply add these lines to your pod file:
 

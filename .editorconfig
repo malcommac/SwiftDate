@@ -1,0 +1,12 @@
+# EditorConfig is awesome: http://EditorConfig.org
+# Use this plugin in Xcode: https://github.com/MarcoSero/EditorConfig-Xcode
+
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[**.swift]
+indent_style = space
+indent_size = 4

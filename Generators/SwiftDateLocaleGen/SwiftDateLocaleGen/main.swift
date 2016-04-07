@@ -45,10 +45,10 @@ print(" ")
 
 let englishLocale = NSLocale(localeIdentifier: "en_US")
 
-var names = Dictionary<String,String>()
+var names = Dictionary<String, String>()
 
 for localeID in localeIdentifiers {
-    
+
     let locale = NSLocale(localeIdentifier: localeID)
     if let name = englishLocale.displayNameForKey(NSLocaleIdentifier, value: locale.objectForKey(NSLocaleIdentifier) as? String ?? localeID) {
         names[name] = localeID

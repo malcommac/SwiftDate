@@ -73,8 +73,20 @@ class DateRegionStringSpec: QuickSpec {
 
             context("toString local") {
 
+                let region = Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .EnglishUnitedStates)
+
+                beforeEach {
+                    Region.defaultRegionProvider = { region }
+                }
+
+                afterEach {
+                    Region.defaultRegionProvider = nil
+                }
+
+                NSTimeZone.setDefaultTimeZone(TimeZoneName.Gmt.timeZone)
                 let date = NSDate(year: 2015, month: 4, day: 13, hour: 22, minute: 10)
-                let localDate = date.inRegion()
+                let localDate = date.inRegion(region)
+                NSTimeZone.setDefaultTimeZone(NSTimeZone.systemTimeZone())
 
                 it("should return proper ISO 8601 string") {
                     expect(localDate.toString(DateFormat.ISO8601Format(.Full))!.hasPrefix("2015-04-13T22:10:00")) == true

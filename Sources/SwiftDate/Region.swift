@@ -56,6 +56,12 @@ public struct Region: Equatable {
         return self.calendar.locale!
     }
 
+    /// Closure used by defaultRegion().
+    /// You can override library-wide default to any Region object,
+    /// or memoize Region to reduce overhead of NSCalendar initialization.
+    ///
+    public static var defaultRegionProvider: (() -> Region)?
+
     /// Initialise with a calendar and/or a time zone
     ///
     /// - Parameters:
@@ -63,7 +69,7 @@ public struct Region: Equatable {
     ///     - timeZone: the time zone to work with
     ///     - locale: the locale to work with
     ///
-    internal init(
+    public init(
         calendar: NSCalendar,
         timeZone: NSTimeZone? = nil,
         locale: NSLocale? = nil) {
@@ -133,6 +139,17 @@ public struct Region: Equatable {
         return today() + 1.days
     }
 
+    /// Default Region provided by defaultRegionProvider,
+    /// or Region() if not set.
+    ///
+    /// - Returns: the Region object
+    ///
+    public static func defaultRegion() -> Region {
+        if let provider = Region.defaultRegionProvider {
+            return provider()
+        }
+        return Region()
+    }
 }
 
 public func == (left: Region, right: Region) -> Bool {

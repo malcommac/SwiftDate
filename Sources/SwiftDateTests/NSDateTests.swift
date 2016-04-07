@@ -403,6 +403,22 @@ class NSDateSpec: QuickSpec {
                     expect(day.endOf(.Month, inRegion: amsterdam)) == NSDate(year: 2016, month: 1, day: 1, region: amsterdam) - 1000000.nanoseconds
                 }
 
+                it("should report true for isInPast with a date in the past") {
+                    expect(5.seconds.ago.isInPast()) == true
+                }
+
+                it("should report false for isInPast with a date in the future") {
+                    expect(5.seconds.fromNow.isInPast()) == false
+                }
+
+                it("should report false for isInFuture with a date in the past") {
+                    expect(5.seconds.ago.isInFuture()) == false
+                }
+
+                it("should report true for isInFuture with a date in the future") {
+                    expect(5.seconds.fromNow.isInFuture()) == true
+                }
+
             }
 
             context("Calculations") {
@@ -491,6 +507,16 @@ class NSDateSpec: QuickSpec {
 
             context("components") {
 
+                beforeEach {
+                    Region.defaultRegionProvider = {
+                        Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .EnglishUnitedStates)
+                    }
+                }
+
+                afterEach {
+                    Region.defaultRegionProvider = nil
+                }
+
                 it("should report proper month names") {
                     expect(date.monthName) == "February"
                 }
@@ -513,9 +539,13 @@ class NSDateSpec: QuickSpec {
                 let date = NSDate(year: 2001, month: 2, day: 3)
 
                 it("should get default region") {
+                    defer { Region.defaultRegionProvider = nil }
 
                     expect(date.inDefaultRegion()) == date.inRegion()
 
+                    Region.defaultRegionProvider = { Region(calendarName: .AutoUpdatingCurrent) }
+
+                    expect(date.inDefaultRegion()) == date.inRegion()
                 }
 
             }

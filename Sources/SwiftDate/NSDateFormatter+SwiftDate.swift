@@ -98,7 +98,7 @@ public enum DateFormat {
 	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.Full)")
 	case ISO8601						// ISO8601 format with style.
                                         // You can omit type, .Full option is used.
-	@available(*, deprecated=3.0.3, message="Use ISO8601(.Date)")
+	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.Date)")
 	case ISO8601Date					// ISO8601 Date Only Format (same of ISO8601(.Date))
     case RSS							// RSS style formatter
     case AltRSS							// Alt RSS Formatter

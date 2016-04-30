@@ -88,7 +88,7 @@ public extension NSDateComponents {
      - returns: a new NSDate instance
      */
     public func ago(inRegion region: Region = Region()) -> NSDate {
-        return agoFromDate(NSDate())
+        return agoFromDate(NSDate(), inRegion: region)
     }
 
     /// The same of calling fromNow() with default local region

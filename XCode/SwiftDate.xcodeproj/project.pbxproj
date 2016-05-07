@@ -919,11 +919,8 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-<<<<<<< Updated upstream
 				CLANG_ENABLE_MODULES = YES;
-=======
 				CODE_SIGN_IDENTITY = "iPhone Developer";
->>>>>>> Stashed changes
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -948,11 +945,8 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-<<<<<<< Updated upstream
 				CLANG_ENABLE_MODULES = YES;
-=======
 				CODE_SIGN_IDENTITY = "iPhone Developer";
->>>>>>> Stashed changes
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

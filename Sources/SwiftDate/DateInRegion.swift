@@ -67,6 +67,13 @@ public struct DateInRegion {
     /// If you want to assign a new value then you must assign it to a new instance of DateInRegion.
 	///
     public let absoluteTime: NSDate!
+	
+	/// This method return an NSDate object which contains the absolute representation of datetime
+	/// in region specified timezone.
+	public var localAbsoluteDate: NSDate {
+		let seconds = self.timeZone.secondsFromGMTForDate(self.absoluteTime)
+		return NSDate(timeInterval: NSTimeInterval(seconds), sinceDate: self.absoluteTime)
+	}
 
     /// The region where the date lives. Use it to represent the date.
     public let region: Region

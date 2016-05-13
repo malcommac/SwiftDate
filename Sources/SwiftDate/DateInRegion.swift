@@ -309,6 +309,10 @@ public struct DateInRegion {
 				case .Custom(let dateFormat):
 					cFormatter.dateFormat = dateFormat
 					parsedDate = cFormatter.dateFromString(stringWithTimeZone)
+				case .DotNET:
+					guard let secondsInString = dateString.dotNet_secondsFromString() else { return nil }
+					
+					parsedDate = NSDate(timeIntervalSince1970: secondsInString)
 				}
 				return parsedDate
 			}

@@ -220,7 +220,7 @@ extension NSDate {
 
      - returns: date components with the difference calculated, `nil` on error
      */
-    public func difference(toDate: NSDate, unitFlags: NSCalendarUnit) -> NSDateComponents? {
+    public func difference(toDate: NSDate, unitFlags: NSCalendarUnit) -> NSDateComponents {
         return self.inRegion().difference(toDate.inRegion(), unitFlags: unitFlags)
     }
 

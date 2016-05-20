@@ -80,7 +80,21 @@ extension NSDate {
 
             self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
     }
+    
+    public convenience init(
+        fromJulianDay: Double, region: Region? = nil) {
+        
+            let dateInRegion = DateInRegion(fromJulianDay: fromJulianDay, region: region)
+            self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
+    }
 
+    public convenience init(
+        fromModifiedJulianDay: Double, region: Region? = nil) {
+        
+        let dateInRegion = DateInRegion(fromModifiedJulianDay: fromModifiedJulianDay, region: region)
+        self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
+    }
+    
     public convenience init(components: NSDateComponents) {
         let dateInRegion = DateInRegion(components)
         let absoluteTime = dateInRegion.absoluteTime

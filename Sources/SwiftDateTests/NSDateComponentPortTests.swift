@@ -101,6 +101,20 @@ class NSDateComponentPortSpec: QuickSpec {
                 }
 
             }
+            
+            context("julianDays") {
+                
+                let date = NSDate(era: 1, year: 2016, month: 5, day: 20, hour: 22, minute: 19, second: 7, nanosecond: 87654321)
+
+                it("should report a valid julian day") {
+                    expect(date.julianDay()).to(beCloseTo(2457529.346609, within: 0.000001))
+                }
+
+                it("should report a valid modified julian day") {
+                    expect(date.modifiedJulianDay()).to(beCloseTo(57528.846609, within: 0.000001))
+                }
+
+            }
 
             context("component initialisation") {
 

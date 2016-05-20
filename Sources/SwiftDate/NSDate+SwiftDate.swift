@@ -501,7 +501,16 @@ extension NSDate {
     public var era: Int {
         return self.inRegion().era
     }
+    
+    /// Compute the julian day corresponding to the curren date. The julian day and its modified
+    /// version below are used as linear time stamps in astronomy. 
+    public func julianDay() -> Double {
+        return self.inRegion().julianDay()
+    }
 
+    public func modifiedJulianDay() -> Double {
+        return self.inRegion().modifiedJulianDay()
+    }
 
     /**
      Get the first day of the week in current self absolute time in calendar

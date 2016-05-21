@@ -106,6 +106,15 @@ public extension DateInRegion {
         guard let _ = absoluteTime else {
             return nil
         }
+		
+		if case .DotNET = dateFormat {
+			// Custom .NET JSON Date format
+			let milliseconds = (self.absoluteTime.timeIntervalSince1970 * 1000.0)
+			let tzOffsets = (self.timeZone.secondsFromGMT / 3600)
+			return (NSString(format: "/Date(%.0f%+03d00)/", milliseconds,tzOffsets) as String)
+		}
+		
+		// Other formatter styles
 		let cachedFormatter = sharedDateFormatter()
 		return cachedFormatter.beginSessionContext { (void) -> (String?) in
 			let dateFormatString = dateFormat.formatString

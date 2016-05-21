@@ -40,7 +40,7 @@ public extension DateInRegion {
     ///
     /// - note: This value is calculated in the context of the calendar of the receiver
     ///
-    public func difference(toDate: DateInRegion, unitFlags: NSCalendarUnit) -> NSDateComponents? {
+    public func difference(toDate: DateInRegion, unitFlags: NSCalendarUnit) -> NSDateComponents {
         return calendar.components(unitFlags, fromDate: self.absoluteTime,
             toDate: toDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
     }

@@ -48,7 +48,7 @@ public enum TimeZoneName: String {
         }
     }
 
-    case AfricaAbidjan = "Africa/Abidjan"
+	case AfricaAbidjan = "Africa/Abidjan"
     case AfricaAccra = "Africa/Accra"
     case AfricaAddisAbaba = "Africa/Addis_Ababa"
     case AfricaAlgiers = "Africa/Algiers"

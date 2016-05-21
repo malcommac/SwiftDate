@@ -102,7 +102,8 @@ public enum DateFormat {
 	case ISO8601Date					// ISO8601 Date Only Format (same of ISO8601(.Date))
     case RSS							// RSS style formatter
     case AltRSS							// Alt RSS Formatter
-    case Extended						// Extended date Formatter
+    case Extended						// Extended Date Formatter
+	case DotNET							// .NET JSON Date Formatter
 
     var formatString: String {
         switch self {
@@ -113,6 +114,7 @@ public enum DateFormat {
 		case .RSS:						return "EEE, d MMM yyyy HH:mm:ss ZZZ"
         case .AltRSS:					return "d MMM yyyy HH:mm:ss ZZZ"
         case .Extended:					return "eee dd-MMM-yyyy GG HH:mm:ss.SSS ZZZ"
+		case .DotNET:					return "" // not used, custom format
         }
     }
 }
@@ -187,4 +189,26 @@ extension String {
         }
         return dateFormatter
     }
+	
+	/**
+	Return the value in seconds from a dotNet expressed date object
+	
+	- returns: an NSTimeInterval or nil if string cannot be parsed
+	*/
+	internal func dotNet_secondsFromString() -> NSTimeInterval? {
+		let pattern = "\\/Date\\((-?\\d+)((?:[\\+\\-]\\d+)?)\\)\\/"
+		do {
+			let dotNetExpression = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+			guard let match = dotNetExpression.firstMatchInString(self, options: .ReportCompletion, range: NSMakeRange(0, (self as NSString).length)) else {
+				return nil
+			}
+			let millisecsRange = match.rangeAtIndex(1)
+			if millisecsRange.location == NSNotFound { return nil }
+			let value = (self as NSString).substringWithRange(millisecsRange)
+			let valueInSeconds = (NSTimeInterval(value)! / 1000.0)
+			return valueInSeconds
+		} catch _ {
+			return nil
+		}
+	}
 }

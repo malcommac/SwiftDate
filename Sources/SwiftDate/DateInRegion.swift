@@ -252,6 +252,40 @@ public struct DateInRegion {
             self.init(newComponents)
     }
 
+    /**
+     Initialise a `DateInRegion` object from a julian day.
+     
+     - Parameters:
+     - fromJulianDay: the julian day from which to get the date
+     - region: region to set (optional)
+     */
+    public init(
+        fromJulianDay: Double,
+        region: Region? = nil) {
+        
+        let refDate = NSDate(timeIntervalSinceReferenceDate: 0)
+        let timeInterval = (fromJulianDay - refDate.julianDay()) * 86400.0
+        
+        self.init(absoluteTime: NSDate(timeIntervalSinceReferenceDate: timeInterval), region: region)
+    }
+
+    /**
+     Initialise a `DateInRegion` object from a modified julian day.
+     
+     - Parameters:
+     - fromModifiedJulianDay: the modified julian day from which to get the date
+     - region: region to set (optional)
+     */
+    public init(
+        fromModifiedJulianDay: Double,
+        region: Region? = nil) {
+        
+        let refDate = NSDate(timeIntervalSinceReferenceDate: 0)
+        let timeInterval = (fromModifiedJulianDay - refDate.modifiedJulianDay()) * 86400.0
+        
+        self.init(absoluteTime: NSDate(timeIntervalSinceReferenceDate: timeInterval), region: region)
+    }
+
 
     /// Initialize a new DateInRegion string from a specified date string, a given format and a
     /// destination region for the date

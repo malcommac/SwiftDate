@@ -462,6 +462,14 @@ class NSDateSpec: QuickSpec {
                 it("should return toString with ISO8601 date format") {
                     expect(date.toString(.ISO8601Format(.Date), inRegion: amsterdam)) == "2001-02-03"
                 }
+                
+                it("should return toString with ISO8601 hour minute format") {
+                    expect(date.toString(.ISO8601Format(.HourMinute), inRegion: amsterdam)) == "00:00"
+                }
+                
+                it("should return toString with ISO8601 time format") {
+                    expect(date.toString(.ISO8601Format(.Time), inRegion: amsterdam)) == "00:00:00"
+                }
 
                 it("should return toString with ISO8601 date time format") {
                     expect(date.toString(.ISO8601Format(.DateTime), inRegion: amsterdam)) == "2001-02-03T00:00+01:00"

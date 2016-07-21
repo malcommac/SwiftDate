@@ -121,7 +121,12 @@ public extension DateInRegion {
 			cachedFormatter.dateFormat = dateFormatString
 			cachedFormatter.timeZone = self.region.timeZone
 			cachedFormatter.calendar = self.region.calendar
-			cachedFormatter.locale = self.region.calendar.locale
+			switch dateFormat {
+			case .ISO8601, .ISO8601Format:
+				cachedFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+			default:
+				cachedFormatter.locale = self.region.calendar.locale
+			}
 			let value = cachedFormatter.stringFromDate(self.absoluteTime!)
 			return value
 		}

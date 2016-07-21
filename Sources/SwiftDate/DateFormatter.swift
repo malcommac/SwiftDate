@@ -138,7 +138,7 @@ public class DateFormatter {
 		if frameworkBundle == nil { return nil }
 		let path = NSURL(fileURLWithPath:
             frameworkBundle!.resourcePath!).URLByAppendingPathComponent("SwiftDate.bundle")
-        let bundle = NSBundle(URL: path)
+        let bundle = NSBundle(URL: path!)
         return bundle
     }()
 
@@ -388,7 +388,7 @@ public class DateFormatter {
         }
         let path = NSURL(fileURLWithPath: frameworkBundle.resourcePath!)
             .URLByAppendingPathComponent("SwiftDate.bundle")
-        guard let bundle = NSBundle(URL: path) else {
+        guard let bundle = NSBundle(URL: path!) else {
             return ""
         }
         var localized_str = NSLocalizedString(identifier, tableName: "SwiftDate",

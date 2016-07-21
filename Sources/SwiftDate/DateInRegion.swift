@@ -314,10 +314,11 @@ public struct DateInRegion {
                 cFormatter.locale = region.locale
 
                 let parsedDate: NSDate?
-
-                let stringWithTimeZone = dateString.hasSuffix("Z")
-                    ? dateString.substringToIndex(dateString.endIndex.advancedBy(-1)) + "+0000"
-                    : dateString
+				
+				var stringWithTimeZone = dateString
+				if dateString.hasSuffix("Z") == true && dateString.rangeOfString(".") == nil && dateString.rangeOfString("+") == nil {
+					stringWithTimeZone = dateString.substringToIndex(dateString.endIndex.advancedBy(-1)) + "+0000"
+				}
 
 				switch format {
 				case .ISO8601Date:

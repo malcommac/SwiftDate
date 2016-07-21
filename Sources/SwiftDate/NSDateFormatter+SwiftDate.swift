@@ -73,6 +73,8 @@ public enum ISO8601Type: String {
 	case Year					= "yyyy"
 	case YearMonth				= "yyyy-MM"
 	case Date					= "yyyy-MM-dd"
+	case HourMinute             = "HH:mm"
+	case Time                   = "HH:mm:ss"
 	case DateTime				= "yyyy-MM-dd'T'HH:mmZZZZZ"
 	case Full					= "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
 	case Extended				= "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"

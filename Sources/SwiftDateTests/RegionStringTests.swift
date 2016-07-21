@@ -41,6 +41,14 @@ class DateRegionStringSpec: QuickSpec {
 				it("should return proper ISO 8601 (date format) string") {
 					expect(utcDate.toString(DateFormat.ISO8601Format(.Date))) == "2015-04-13"
 				}
+				
+				it("should return proper ISO 8601 (hour minute) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.HourMinute))) == "22:10"
+				}
+				
+				it("should return proper ISO 8601 (time) string") {
+					expect(utcDate.toString(DateFormat.ISO8601Format(.Time))) == "22:10:00"
+				}
 
 				it("should return proper ISO 8601 (date time format) string") {
 					expect(utcDate.toString(DateFormat.ISO8601Format(.DateTime))) == "2015-04-13T22:10Z"

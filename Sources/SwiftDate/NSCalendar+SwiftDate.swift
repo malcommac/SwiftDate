@@ -25,7 +25,7 @@
 import Foundation
 
 
-internal extension NSCalendarUnit {
+internal extension NSCalendar.Unit {
     private var cfValue: CFCalendarUnit {
         #if os(OSX) || os(iOS)
             return CFCalendarUnit(rawValue: self.rawValue)
@@ -42,10 +42,10 @@ public extension NSCalendar {
     // The code below is part of the Swift.org code. It is included as rangeOfUnit is a very useful
     // function for the startOf and endOf functions.
     // As always we would prefer using Foundation code rather than inventing code ourselves.
-    typealias CFType = CFCalendarRef
+    typealias CFType = CFCalendar
 
     private var cfObject: CFType {
-        return unsafeBitCast(self, CFCalendarRef.self)
+        return unsafeBitCast(self, to: CFCalendar.self)
     }
 
 
@@ -67,7 +67,7 @@ public extension NSCalendar {
     /// - Note: Since this API is under consideration it may be either removed or revised in the
     ///     near future
     ///
-    public func rangeOfUnit(unit: NSCalendarUnit, forDate date: NSDate) -> NSDateInterval? {
+    public func rangeOfUnit(unit: NSCalendar.Unit, forDate date: NSDate) -> NSDateInterval? {
         var start: CFAbsoluteTime = 0.0
         var ti: CFTimeInterval = 0.0
         let res: Bool = withUnsafeMutablePointers(&start, &ti) {
@@ -75,9 +75,9 @@ public extension NSCalendar {
                 tip: UnsafeMutablePointer<CFTimeInterval>) -> Bool in
 
             let startPtr: UnsafeMutablePointer<CFAbsoluteTime> =
-                unsafeBitCast(startp, UnsafeMutablePointer<CFAbsoluteTime>.self)
+                unsafeBitCast(startp, to: UnsafeMutablePointer<CFAbsoluteTime>.self)
             let tiPtr: UnsafeMutablePointer<CFTimeInterval> =
-                unsafeBitCast(tip, UnsafeMutablePointer<CFTimeInterval>.self)
+                unsafeBitCast(tip, to: UnsafeMutablePointer<CFTimeInterval>.self)
             return CFCalendarGetTimeRangeOfUnit(cfObject, unit.cfValue,
                 date.timeIntervalSinceReferenceDate, startPtr, tiPtr)
         }
@@ -111,10 +111,10 @@ public extension NSCalendar {
 
      - returns: a new NSCalendar instance from system settings
      */
-    @available(*, deprecated=2.0.3,
-    message="locale was deprecated, use currentCalendar() or autoupdatingCurrentCalendar() ")
+    @available(*, deprecated: 2.0.3,
+    message: "locale was deprecated, use currentCalendar() or autoupdatingCurrentCalendar() ")
     static func locale(autoUpdate: Bool) -> NSCalendar! {
-        return NSCalendar.fromType(CalendarName.Local(autoUpdate))
+        return NSCalendar.fromType(type: CalendarName.Local(autoUpdate))
     }
 }
 
@@ -126,8 +126,8 @@ public extension NSCalendar {
 */
 public enum CalendarName {
 
-    @available(*, deprecated=2.0.3,
-    message="Local was deprecated, use Current or AutoUpdatingCurrent")
+    @available(*, deprecated: 2.0.3,
+    message: "Local was deprecated, use Current or AutoUpdatingCurrent")
     case Local(_: Bool)
     case Current
     case AutoUpdatingCurrent
@@ -138,31 +138,31 @@ public enum CalendarName {
     public var calendar: NSCalendar {
         var identifier: String
         switch self {
-        case .Current:				return NSCalendar.currentCalendar()
-        case .AutoUpdatingCurrent:	return NSCalendar.autoupdatingCurrentCalendar()
-        case .Gregorian:			identifier = NSCalendarIdentifierGregorian
-        case .Buddhist:				identifier = NSCalendarIdentifierBuddhist
-        case .Chinese:				identifier = NSCalendarIdentifierChinese
-        case .Coptic:				identifier = NSCalendarIdentifierCoptic
-        case .EthiopicAmeteMihret:	identifier = NSCalendarIdentifierEthiopicAmeteMihret
-        case .EthiopicAmeteAlem:	identifier = NSCalendarIdentifierEthiopicAmeteAlem
-        case .Hebrew:				identifier = NSCalendarIdentifierHebrew
-        case .ISO8601:				identifier = NSCalendarIdentifierISO8601
-        case .Indian:				identifier = NSCalendarIdentifierIndian
-        case .Islamic:				identifier = NSCalendarIdentifierIslamic
-        case .IslamicCivil:			identifier = NSCalendarIdentifierIslamicCivil
-        case .Japanese:				identifier = NSCalendarIdentifierJapanese
-        case .Persian:				identifier = NSCalendarIdentifierPersian
-        case .RepublicOfChina:		identifier = NSCalendarIdentifierRepublicOfChina
-        case .IslamicTabular:		identifier = NSCalendarIdentifierIslamicTabular
-        case .IslamicUmmAlQura:		identifier = NSCalendarIdentifierIslamicUmmAlQura
+        case .Current:				return NSCalendar.current as NSCalendar
+        case .AutoUpdatingCurrent:	return NSCalendar.autoupdatingCurrent as NSCalendar
+        case .Gregorian:			identifier = NSCalendar.Identifier.gregorian.rawValue
+        case .Buddhist:				identifier = NSCalendar.Identifier.buddhist.rawValue
+        case .Chinese:				identifier = NSCalendar.Identifier.chinese.rawValue
+        case .Coptic:				identifier = NSCalendar.Identifier.coptic.rawValue
+        case .EthiopicAmeteMihret:	identifier = NSCalendar.Identifier.ethiopicAmeteMihret.rawValue
+        case .EthiopicAmeteAlem:	identifier = NSCalendar.Identifier.ethiopicAmeteAlem.rawValue
+        case .Hebrew:				identifier = NSCalendar.Identifier.hebrew.rawValue
+        case .ISO8601:				identifier = NSCalendar.Identifier.ISO8601.rawValue
+        case .Indian:				identifier = NSCalendar.Identifier.indian.rawValue
+        case .Islamic:				identifier = NSCalendar.Identifier.islamic.rawValue
+        case .IslamicCivil:			identifier = NSCalendar.Identifier.islamicCivil.rawValue
+        case .Japanese:				identifier = NSCalendar.Identifier.japanese.rawValue
+        case .Persian:				identifier = NSCalendar.Identifier.persian.rawValue
+        case .RepublicOfChina:		identifier = NSCalendar.Identifier.republicOfChina.rawValue
+        case .IslamicTabular:		identifier = NSCalendar.Identifier.islamicTabular.rawValue
+        case .IslamicUmmAlQura:		identifier = NSCalendar.Identifier.islamicUmmAlQura.rawValue
         case .Local(let autoUpdate):
             if autoUpdate {
-                return NSCalendar.autoupdatingCurrentCalendar()
+                return NSCalendar.autoupdatingCurrent as NSCalendar
             } else {
-                return NSCalendar.currentCalendar()
+                return NSCalendar.current as NSCalendar
             }
         }
-        return NSCalendar(identifier: identifier)!
+        return NSCalendar(identifier: NSCalendar.Identifier(rawValue: identifier))!
     }
 }

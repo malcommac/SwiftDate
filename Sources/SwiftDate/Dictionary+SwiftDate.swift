@@ -26,14 +26,14 @@ import Foundation
 
 // MARK: - Generate a Date from a Dictionary of NSCalendarUnit:Value
 
-@available(*, deprecated=3.0.5, message="Use NSDateComponents instead")
-public typealias DateComponentDictionary = [ NSCalendarUnit: AnyObject ]
+@available(*, deprecated: 3.0.5, message: "Use NSDateComponents instead")
+public typealias DateComponentDictionary = [ NSCalendar.Unit: AnyObject ]
 
 // MARK: - Extension: NSCalendarUnit -
 
 protocol CalendarAsDictionaryKey: Hashable {}
 
-extension NSCalendarUnit: CalendarAsDictionaryKey {
+extension NSCalendar.Unit: CalendarAsDictionaryKey {
     public var hashValue: Int {
         get {
             return Int(self.rawValue)
@@ -47,13 +47,13 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
         let components = NSDateComponents()
         for (key, value) in self {
             if let value = value as? Int {
-                if let key = key as? NSCalendarUnit {
+                if let key = key as? NSCalendar.Unit {
                     components.setValue(value, forComponent: key)
                 }
             } else if let value = value as? NSCalendar {
-                components.calendar = value
+                components.calendar = value as Calendar
             } else if let value = value as? NSTimeZone {
-                components.timeZone = value
+                components.timeZone = value as TimeZone
             }
         }
         return components
@@ -74,11 +74,11 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
     func dateRegion() -> Region? {
         let components = self.components()
 
-        let calendar = components.calendar ?? NSCalendar.currentCalendar()
-        let timeZone = components.timeZone ?? NSTimeZone.defaultTimeZone()
-        let locale = calendar.locale ?? NSLocale.currentLocale()
+        let calendar = components.calendar ?? NSCalendar.current
+        let timeZone = components.timeZone ?? NSTimeZone.default
+        let locale = calendar.locale ?? NSLocale.current
 
-        return Region(calendar: calendar, timeZone: timeZone, locale: locale)
+        return Region(calendar: calendar as NSCalendar, timeZone: timeZone as NSTimeZone?, locale: locale as NSLocale?)
     }
 
     /**

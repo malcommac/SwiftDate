@@ -38,8 +38,8 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public func startOf(unit: NSCalendarUnit) -> DateInRegion {
-        let absoluteTime = calendar.rangeOfUnit(unit, forDate: self.absoluteTime)!.start
+    public func startOf(unit: NSCalendar.Unit) -> DateInRegion {
+        let absoluteTime = calendar.rangeOfUnit(unit: unit, forDate: self.absoluteTime)!.start
         return DateInRegion(absoluteTime: absoluteTime, region: self.region)
     }
 
@@ -54,11 +54,11 @@ public extension DateInRegion {
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public func endOf(unit: NSCalendarUnit) -> DateInRegion {
+    public func endOf(unit: NSCalendar.Unit) -> DateInRegion {
         // RangeOfUnit returns the start of the next unit; we will subtract one thousandth of a
         // second
-        let startOfNextUnit = calendar.rangeOfUnit(unit, forDate: self.absoluteTime)!.end
-        let endOfThisUnit = NSDate(timeInterval: -0.001, sinceDate: startOfNextUnit)
+        let startOfNextUnit = calendar.rangeOfUnit(unit: unit, forDate: self.absoluteTime)!.end
+        let endOfThisUnit = NSDate(timeInterval: -0.001, since: startOfNextUnit as Date)
         return DateInRegion(absoluteTime: endOfThisUnit, region: self.region)
     }
 

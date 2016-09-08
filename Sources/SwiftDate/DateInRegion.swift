@@ -48,15 +48,15 @@ public struct DateInRegion {
 
     /// Set to loop throuhg all NSCalendarUnit values
     ///
-    internal static let componentFlagSet: [NSCalendarUnit] = [.Nanosecond, .Second, .Minute, .Hour,
-        .Day, .Month, .Year, .YearForWeekOfYear, .WeekOfYear, .Weekday, .Quarter, .WeekdayOrdinal,
-        .WeekOfMonth]
+    internal static let componentFlagSet: [NSCalendar.Unit] = [.nanosecond, .second, .minute, .hour,
+        .day, .month, .year, .yearForWeekOfYear, .weekOfYear, .weekday, .quarter, .weekdayOrdinal,
+        .weekOfMonth]
 
     /// NSCalendarUnit values used to obtain data from a date with a calendar and time zone
     ///
-    internal static let componentFlags: NSCalendarUnit = [.Day, .Month, .Year, .Hour, .Minute,
-        .Second, .Nanosecond, .TimeZone, .Calendar, .YearForWeekOfYear, .WeekOfYear, .Weekday,
-        .Quarter, .WeekOfMonth]
+    internal static let componentFlags: NSCalendar.Unit = [.day, .month, .year, .hour, .minute,
+        .second, .nanosecond, .timeZone, .calendar, .yearForWeekOfYear, .weekOfYear, .weekday,
+        .quarter, .weekOfMonth]
 
     // MARK: - Instance variables
 
@@ -71,8 +71,8 @@ public struct DateInRegion {
 	/// This method return an NSDate object which contains the absolute representation of datetime
 	/// in region specified timezone.
 	public var localAbsoluteDate: NSDate {
-		let seconds = self.timeZone.secondsFromGMTForDate(self.absoluteTime)
-		return NSDate(timeInterval: NSTimeInterval(seconds), sinceDate: self.absoluteTime)
+		let seconds = self.timeZone.secondsFromGMT(for: self.absoluteTime as Date)
+		return NSDate(timeInterval: TimeInterval(seconds), since: self.absoluteTime as Date)
 	}
 
     /// The region where the date lives. Use it to represent the date.
@@ -119,8 +119,8 @@ public struct DateInRegion {
     ///
     internal init(_ components: NSDateComponents) {
         let region = Region(components)
-        let absoluteTime = region.calendar.dateFromComponents(components)
-        self.init(absoluteTime: absoluteTime, region: region)
+        let absoluteTime = region.calendar.date(from: components as DateComponents)
+        self.init(absoluteTime: absoluteTime as NSDate?, region: region)
     }
 
 
@@ -164,7 +164,7 @@ public struct DateInRegion {
             newComponents.minute = minute ?? fromDate.minute
             newComponents.second = second ?? fromDate.second
             newComponents.nanosecond = nanosecond ?? fromDate.nanosecond
-            newComponents.calendar = region?.calendar ?? fromDate.calendar
+            newComponents.calendar = region?.calendar as Calendar?? ?? fromDate.calendar as Calendar?
 
             self.init(newComponents)
     }
@@ -206,8 +206,8 @@ public struct DateInRegion {
             newComponents.minute = minute ?? 0
             newComponents.second = second ?? 0
             newComponents.nanosecond = nanosecond ?? 0
-            newComponents.calendar = region?.calendar
-            newComponents.timeZone = region?.timeZone
+            newComponents.calendar = region?.calendar as Calendar?
+            newComponents.timeZone = region?.timeZone as TimeZone?
 
             self.init(newComponents)
     }
@@ -253,8 +253,8 @@ public struct DateInRegion {
             newComponents.minute = minute ?? 0
             newComponents.second = second ?? 0
             newComponents.nanosecond = nanosecond ?? 0
-            newComponents.calendar = region?.calendar
-            newComponents.timeZone = region?.timeZone
+            newComponents.calendar = region?.calendar as Calendar?
+            newComponents.timeZone = region?.timeZone as TimeZone?
 
             self.init(newComponents)
     }
@@ -379,9 +379,9 @@ extension DateInRegion: CustomDebugStringConvertible {
 
 	/// Returns a full description of the class
 	public var description: String {
-		let formatter = NSDateFormatter()
-		formatter.dateStyle = .MediumStyle
-		formatter.timeStyle = .LongStyle
+		let formatter = DateFormatter()
+		formatter.unitsStyle = .MediumStyle
+		formatter.unitsStyle = .LongStyle
 		formatter.locale = self.locale
 		formatter.calendar = self.calendar
 		formatter.timeZone = self.timeZone
@@ -392,9 +392,9 @@ extension DateInRegion: CustomDebugStringConvertible {
 	public var debugDescription: String {
 		var descriptor: [String] = []
 
-		let formatter = NSDateFormatter()
-		formatter.dateStyle = .LongStyle
-		formatter.timeStyle = .LongStyle
+		let formatter = DateFormatter()
+		formatter.unitsStyle = .LongStyle
+		formatter.unitsStyle = .LongStyle
 		formatter.locale = self.locale
 		formatter.calendar = self.calendar
 		formatter.timeZone = self.timeZone
@@ -404,7 +404,7 @@ extension DateInRegion: CustomDebugStringConvertible {
 		descriptor.append("Time zone: \(timeZone.name)")
 		descriptor.append("Locale: \(locale.localeIdentifier)")
 
-		return descriptor.joinWithSeparator("\n")
+		return descriptor.joined(separator: "\n")
 	}
 }
 

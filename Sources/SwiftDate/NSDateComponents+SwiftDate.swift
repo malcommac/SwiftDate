@@ -38,9 +38,9 @@ public extension NSDateComponents {
      - returns: a new NSDate instance
      */
     public func fromDate(refDate: NSDate!, inRegion region: Region = Region.defaultRegion) -> NSDate {
-        let date = region.calendar.dateByAddingComponents(self, toDate: refDate,
-            options: NSCalendarOptions(rawValue: 0))
-        return date!
+        let date = region.calendar.date(byAdding: self as DateComponents, to: refDate as Date,
+            options: NSCalendar.Options(rawValue: 0))
+        return date! as NSDate
     }
 
     /**
@@ -54,13 +54,13 @@ public extension NSDateComponents {
      */
     public func agoFromDate(refDate: NSDate!, inRegion region: Region = Region.defaultRegion) -> NSDate {
         for unit in DateInRegion.componentFlagSet {
-            let value = self.valueForComponent(unit)
+            let value = self.value(forComponent: unit)
             if value != NSDateComponentUndefined {
                 self.setValue((value * -1), forComponent: unit)
             }
         }
-        return region.calendar.dateByAddingComponents(self, toDate: refDate,
-            options: NSCalendarOptions(rawValue: 0))!
+        return region.calendar.date(byAdding: self as DateComponents, to: refDate as Date,
+            options: NSCalendar.Options(rawValue: 0))! as NSDate
     }
 
     /**
@@ -74,7 +74,7 @@ public extension NSDateComponents {
      - returns: a new NSDate instance
      */
     public func fromNow(inRegion region: Region = Region.defaultRegion) -> NSDate {
-        return fromDate(NSDate(), inRegion: region)
+        return fromDate(refDate: NSDate(), inRegion: region)
     }
 
     /**
@@ -88,20 +88,20 @@ public extension NSDateComponents {
      - returns: a new NSDate instance
      */
     public func ago(inRegion region: Region = Region.defaultRegion) -> NSDate {
-        return agoFromDate(NSDate(), inRegion: region)
+        return agoFromDate(refDate: NSDate(), inRegion: region)
     }
 
     /// The same of calling fromNow() with default local region
     public var fromNow: NSDate {
         get {
-            return fromDate(NSDate())
+            return fromDate(refDate: NSDate())
         }
     }
 
     /// The same of calling ago() with default local region
     public var ago: NSDate {
         get {
-            return agoFromDate(NSDate())
+            return agoFromDate(refDate: NSDate())
         }
     }
 
@@ -117,8 +117,8 @@ public extension NSDateComponents {
 public func | (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
     let dc = NSDateComponents()
     for unit in DateInRegion.componentFlagSet {
-        let lhs_value = lhs.valueForComponent(unit)
-        let rhs_value = rhs.valueForComponent(unit)
+        let lhs_value = lhs.value(forComponent: unit)
+        let rhs_value = rhs.value(forComponent: unit)
         if lhs_value != NSDateComponentUndefined {
             dc.setValue(lhs_value, forComponent: unit)
         }
@@ -138,7 +138,7 @@ public func | (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents
 /// - returns: date components lhs + rhs
 ///
 public func + (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
-    return sumDateComponents(lhs, rhs: rhs)
+    return sumDateComponents(lhs: lhs, rhs: rhs)
 }
 
 /// subtract date components from one another
@@ -150,7 +150,7 @@ public func + (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents
 /// - returns: date components lhs - rhs
 ///
 public func - (lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
-    return sumDateComponents(lhs, rhs: rhs, sum: false)
+    return sumDateComponents(lhs: lhs, rhs: rhs, sum: false)
 }
 
 /// Helper function for date component sum * subtract
@@ -168,8 +168,8 @@ internal func sumDateComponents(lhs: NSDateComponents, rhs: NSDateComponents, su
     let newComponents = NSDateComponents()
     let components = DateInRegion.componentFlagSet
     for unit in components {
-        let leftValue = lhs.valueForComponent(unit)
-        let rightValue = rhs.valueForComponent(unit)
+        let leftValue = lhs.value(forComponent: unit)
+        let rightValue = rhs.value(forComponent: unit)
 
         guard leftValue != NSDateComponentUndefined || rightValue != NSDateComponentUndefined else {
             continue // both are undefined, don't touch
@@ -192,7 +192,7 @@ public extension NSTimeZone {
     ///
     public var timeZone: NSDateComponents {
         let dateComponents = NSDateComponents()
-        dateComponents.timeZone = self
+        dateComponents.timeZone = self as TimeZone
         return dateComponents
     }
 
@@ -205,7 +205,7 @@ public extension NSCalendar {
     ///
     public var calendar: NSDateComponents {
         let dateComponents = NSDateComponents()
-        dateComponents.calendar = self
+        dateComponents.calendar = self as Calendar
         return dateComponents
     }
 

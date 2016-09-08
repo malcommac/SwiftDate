@@ -97,10 +97,10 @@ public enum DateFormat {
     case Custom(String)					// Custom formatting method
 	case ISO8601Format(ISO8601Type?)	// ISO8601 format with style.
                                         // You can omit type, .Full option is used.
-	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.Full)")
+	@available(*, deprecated: 3.0.3, message: "Use ISO8601Format(.Full)")
 	case ISO8601						// ISO8601 format with style.
                                         // You can omit type, .Full option is used.
-	@available(*, deprecated=3.0.3, message="Use ISO8601Format(.Date)")
+	@available(*, deprecated: 3.0.3, message: "Use ISO8601Format(.Date)")
 	case ISO8601Date					// ISO8601 Date Only Format (same of ISO8601(.Date))
     case RSS							// RSS style formatter
     case AltRSS							// Alt RSS Formatter
@@ -197,17 +197,17 @@ extension String {
 	
 	- returns: an NSTimeInterval or nil if string cannot be parsed
 	*/
-	internal func dotNet_secondsFromString() -> NSTimeInterval? {
+	internal func dotNet_secondsFromString() -> TimeInterval? {
 		let pattern = "\\/Date\\((-?\\d+)((?:[\\+\\-]\\d+)?)\\)\\/"
 		do {
-			let dotNetExpression = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
-			guard let match = dotNetExpression.firstMatchInString(self, options: .ReportCompletion, range: NSMakeRange(0, (self as NSString).length)) else {
+			let dotNetExpression = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+			guard let match = dotNetExpression.firstMatch(in: self, options: .reportCompletion, range: NSMakeRange(0, (self as NSString).length)) else {
 				return nil
 			}
-			let millisecsRange = match.rangeAtIndex(1)
+			let millisecsRange = match.rangeAt(1)
 			if millisecsRange.location == NSNotFound { return nil }
-			let value = (self as NSString).substringWithRange(millisecsRange)
-			let valueInSeconds = (NSTimeInterval(value)! / 1000.0)
+			let value = (self as NSString).substring(with: millisecsRange)
+			let valueInSeconds = (TimeInterval(value)! / 1000.0)
 			return valueInSeconds
 		} catch _ {
 			return nil

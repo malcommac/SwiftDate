@@ -40,20 +40,20 @@ public extension DateInRegion {
 
    - returns: formatted string or nil if representation cannot be provided
    */
-	@available(*, deprecated=3.0.9, obsoleted=3.1, message="Use toString(fromDate:style:)")
+	@available(*, deprecated: 3.0.9, obsoleted: 3.1, message: "Use toString(fromDate:style:)")
 	public func toNaturalString(refDate: DateInRegion?, style: FormatterStyle = FormatterStyle())
         -> String? {
 
 		let rDate = (refDate != nil ? refDate! : DateInRegion(absoluteTime: NSDate(),
             region: self.region))
-		let formatter: NSDateComponentsFormatter = sharedDateComponentsFormatter()
-		return formatter.beginSessionContext({ (Void) -> (String?) in
-			style.restoreInto(formatter)
-			formatter.calendar = self.calendar
+		let formatter: DateComponentsFormatter = sharedDateComponentsFormatter()
+		return formatter.beginSessionContext(block: { (Void) -> (String?) in
+			style.restoreInto(formatter: formatter)
+			formatter.calendar = self.calendar as Calendar?
 			// NOTE: why this method still return nil?
 			// let str2 = formatter.stringFromDate(refDate.absoluteTime, toDate: self.absoluteTime)
-			let diff = fabs(self.absoluteTime.timeIntervalSinceDate(rDate.absoluteTime))
-			let str = formatter.stringFromTimeInterval(diff)
+			let diff = fabs(self.absoluteTime.timeIntervalSince(rDate.absoluteTime as Date))
+			let str = formatter.string(from: diff)
 			return str
 		})
 	}
@@ -70,7 +70,7 @@ public extension DateInRegion {
 
      - returns: a new string or nil if `DateInRegion` does not contains any valid date
      */
-	@available(*, deprecated=3.0.2, obsoleted=3.1, message="Use toString(.ISO8601)")
+	@available(*, deprecated: 3.0.2, obsoleted: 3.1, message: "Use toString(.ISO8601)")
     public func toISO8601String() -> String? {
 		return self.toString(.ISO8601)
     }
@@ -145,8 +145,8 @@ public extension DateInRegion {
      - returns: a new string which represent the date expressed into the current region or nil if
         region does not contain valid date
      */
-	public func toString(style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil,
-        timeStyle: NSDateFormatterStyle? = nil, relative: Bool = false) -> String? {
+	public func toString(style: DateFormatter.Style? = nil, dateStyle: DateFormatter.Style? = nil,
+        timeStyle: DateFormatter.Style? = nil, relative: Bool = false) -> String? {
         guard let _ = absoluteTime else {
             return nil
         }
@@ -181,9 +181,9 @@ public extension DateInRegion {
 
 	- returns: output string representation of the date represented by `self`
 	*/
-    public func toShortString(date date: Bool = true, time: Bool = true) -> String? {
-        let dateStyle = date ? NSDateFormatterStyle.ShortStyle : NSDateFormatterStyle.NoStyle
-        let timeStyle = time ? NSDateFormatterStyle.ShortStyle : NSDateFormatterStyle.NoStyle
+    public func toShortString(date: Bool = true, time: Bool = true) -> String? {
+        let dateStyle = date ? DateFormatter.Style.ShortStyle : DateFormatter.Style.NoStyle
+        let timeStyle = time ? DateFormatter.Style.ShortStyle : DateFormatter.Style.NoStyle
 
         return toString(dateStyle: dateStyle, timeStyle: timeStyle)
     }
@@ -200,9 +200,9 @@ public extension DateInRegion {
 
 	- returns: output string representation of the date represented by `self`
 	*/
-    public func toMediumString(date date: Bool = true, time: Bool = true) -> String? {
-        let dateStyle = date ? NSDateFormatterStyle.MediumStyle : NSDateFormatterStyle.NoStyle
-        let timeStyle = time ? NSDateFormatterStyle.MediumStyle : NSDateFormatterStyle.NoStyle
+    public func toMediumString(date: Bool = true, time: Bool = true) -> String? {
+		let dateStyle: DateFormatter.Style = date ? .short : .none
+        let timeStyle = time ? DateFormatter.Style.MediumStyle : DateFormatter.Style.NoStyle
 
         return toString(dateStyle: dateStyle, timeStyle: timeStyle)
     }
@@ -218,9 +218,9 @@ public extension DateInRegion {
 
 	- returns: output string representation of the date represented by `self`
 	*/
-    public func toLongString(date date: Bool = true, time: Bool = true) -> String? {
-        let dateStyle = date ? NSDateFormatterStyle.LongStyle : NSDateFormatterStyle.NoStyle
-        let timeStyle = time ? NSDateFormatterStyle.LongStyle : NSDateFormatterStyle.NoStyle
+    public func toLongString(date: Bool = true, time: Bool = true) -> String? {
+        let dateStyle = date ? DateFormatter.Style.LongStyle : DateFormatter.Style.NoStyle
+        let timeStyle = time ? DateFormatter.Style.LongStyle : DateFormatter.Style.NoStyle
 
         return toString(dateStyle: dateStyle, timeStyle: timeStyle)
     }
@@ -239,7 +239,7 @@ public extension String {
      - returns: a new `NSDate` instance or nil if something went wrong during parsing
      */
     public func toDate(format: DateFormat) -> NSDate? {
-        return self.toDateInRegion(format)?.absoluteTime
+        return self.toDateInRegion(format: format)?.absoluteTime
     }
 
     /**
@@ -259,31 +259,31 @@ public extension String {
      - returns: `NSDate` instance or nil if string cannot be parsed
      */
     public func toDateFromISO8601() -> NSDate? {
-		return toDate(DateFormat.ISO8601Format(.Full))
+		return toDate(format: DateFormat.ISO8601Format(.Full))
     }
 
-    private var sdLocalize: String {
-        return NSBundle.mainBundle().localizedStringForKey(self, value: nil, table: "SwiftDate")
+    internal var sdLocalize: String {
+        return Bundle.main.localizedString(forKey: self, value: nil, table: "SwiftDate")
     }
 
-    private func sdToCalendarUnit() -> NSCalendarUnit {
+    private func sdToCalendarUnit() -> NSCalendar.Unit {
         switch self {
         case "year":
-            return NSCalendarUnit.Year
+            return NSCalendar.Unit.year
         case "month":
-            return NSCalendarUnit.Month
+            return NSCalendar.Unit.month
         case "weekOfYear":
-            return NSCalendarUnit.WeekOfYear
+            return NSCalendar.Unit.weekOfYear
         case "day":
-            return NSCalendarUnit.Day
+            return NSCalendar.Unit.day
         case "hour":
-            return NSCalendarUnit.Hour
+            return NSCalendar.Unit.hour
         case "minute":
-            return NSCalendarUnit.Minute
+            return NSCalendar.Unit.minute
         case "second":
-            return NSCalendarUnit.Second
+            return NSCalendar.Unit.second
         case "nanosecond":
-            return NSCalendarUnit.Nanosecond
+            return NSCalendar.Unit.nanosecond
         default:
             return []
         }
@@ -292,95 +292,95 @@ public extension String {
 
 
 internal extension NSDate {
-    private func sdCompareCalendarUnit(unit: NSCalendarUnit, other: NSCalendarUnit) ->
-        NSComparisonResult {
+    private func sdCompareCalendarUnit(unit: NSCalendar.Unit, other: NSCalendar.Unit) ->
+        ComparisonResult {
 
-        let nUnit = sdNormalizedCalendarUnit(unit)
-        let nOther = sdNormalizedCalendarUnit(other)
+        let nUnit = sdNormalizedCalendarUnit(unit: unit)
+        let nOther = sdNormalizedCalendarUnit(unit: other)
 
-        if (nUnit == NSCalendarUnit.WeekOfYear) != (nOther == NSCalendarUnit.WeekOfYear) {
-            if nUnit == NSCalendarUnit.WeekOfYear {
+        if (nUnit == NSCalendar.Unit.weekOfYear) != (nOther == NSCalendar.Unit.weekOfYear) {
+            if nUnit == NSCalendar.Unit.weekOfYear {
                 switch nUnit {
-                case NSCalendarUnit.Year, NSCalendarUnit.Month:
-                    return .OrderedAscending
+                case NSCalendar.Unit.year, NSCalendar.Unit.month:
+                    return .orderedAscending
                 default:
-                    return .OrderedDescending
+                    return .orderedDescending
                 }
             } else {
                 switch nOther {
-                case NSCalendarUnit.Year, NSCalendarUnit.Month:
-                    return .OrderedDescending
+                case NSCalendar.Unit.year, NSCalendar.Unit.month:
+                    return .orderedDescending
                 default:
-                    return .OrderedAscending
+                    return .orderedAscending
                 }
             }
         } else {
             if nUnit.rawValue > nOther.rawValue {
-                return .OrderedAscending
+                return .orderedAscending
             } else if nUnit.rawValue < nOther.rawValue {
-                return .OrderedDescending
+                return .orderedDescending
             } else {
-                return .OrderedSame
+                return .orderedSame
             }
         }
     }
 
-    private func sdNormalizedCalendarUnit(unit: NSCalendarUnit) -> NSCalendarUnit {
+    private func sdNormalizedCalendarUnit(unit: NSCalendar.Unit) -> NSCalendar.Unit {
         switch unit {
-        case NSCalendarUnit.WeekOfMonth, NSCalendarUnit.WeekOfYear:
-            return NSCalendarUnit.WeekOfYear
-        case NSCalendarUnit.Weekday, NSCalendarUnit.WeekdayOrdinal:
-            return NSCalendarUnit.Day
+        case NSCalendar.Unit.weekOfMonth, NSCalendar.Unit.weekOfYear:
+            return NSCalendar.Unit.weekOfYear
+        case NSCalendar.Unit.weekday, NSCalendar.Unit.weekdayOrdinal:
+            return NSCalendar.Unit.day
         default:
             return unit
         }
     }
 
     // swiftlint:disable:next cyclomatic_complexity
-    private func sdLocalizeStringForValue(singular: Bool, unit: NSCalendarUnit,
+    private func sdLocalizeStringForValue(singular: Bool, unit: NSCalendar.Unit,
         abbreviated: Bool = false) -> String {
 
         var toTranslate: String = ""
         switch unit {
 
-        case NSCalendarUnit.Year where singular:
+        case NSCalendar.Unit.year where singular:
             toTranslate = (abbreviated ? "yr": "year")
-        case NSCalendarUnit.Year where !singular:
+        case NSCalendar.Unit.year where !singular:
             toTranslate = (abbreviated ? "yrs": "years")
 
-        case NSCalendarUnit.Month where singular:
+        case NSCalendar.Unit.month where singular:
             toTranslate = (abbreviated ? "mo": "month")
-        case NSCalendarUnit.Month where !singular:
+        case NSCalendar.Unit.month where !singular:
             toTranslate = (abbreviated ? "mos": "months")
 
-        case NSCalendarUnit.WeekOfYear where singular:
+        case NSCalendar.Unit.weekOfYear where singular:
             toTranslate = (abbreviated ? "wk": "week")
-        case NSCalendarUnit.WeekOfYear where !singular:
+        case NSCalendar.Unit.weekOfYear where !singular:
             toTranslate = (abbreviated ? "wks": "weeks")
 
-        case NSCalendarUnit.Day where singular:
+        case NSCalendar.Unit.day where singular:
             toTranslate = "day"
-        case NSCalendarUnit.Day where !singular:
+        case NSCalendar.Unit.day where !singular:
             toTranslate = "days"
 
-        case NSCalendarUnit.Hour where singular:
+        case NSCalendar.Unit.hour where singular:
             toTranslate = (abbreviated ? "hr": "hour")
-        case NSCalendarUnit.Hour where !singular:
+        case NSCalendar.Unit.hour where !singular:
             toTranslate = (abbreviated ? "hrs": "hours")
 
-        case NSCalendarUnit.Minute where singular:
+        case NSCalendar.Unit.minute where singular:
             toTranslate = (abbreviated ? "min": "minute")
-        case NSCalendarUnit.Minute where !singular:
+        case NSCalendar.Unit.minute where !singular:
             toTranslate = (abbreviated ? "mins": "minutes")
 
-        case NSCalendarUnit.Second where singular:
+        case NSCalendar.Unit.second where singular:
             toTranslate = (abbreviated ? "s": "second")
-        case NSCalendarUnit.Second where !singular:
+        case NSCalendar.Unit.second where !singular:
             toTranslate = (abbreviated ? "s": "seconds")
 
-        case NSCalendarUnit.Nanosecond where singular:
+        case NSCalendar.Unit.nanosecond where singular:
             toTranslate = (abbreviated ? "ns": "nanosecond")
-        case NSCalendarUnit.Nanosecond where !singular:
+        case NSCalendar.Unit.nanosecond where !singular:
             toTranslate = (abbreviated ? "ns": "nanoseconds")
 
         default:
@@ -399,7 +399,7 @@ internal extension NSDate {
         } else if components.day == -1 && components.year == 0 && components.month == 0 &&
             components.weekOfYear == 0 {
             return "yesterday".sdLocalize
-        } else if components == 1 {
+        } else if components.year == 1 {
             return "next year".sdLocalize
         } else if components.month == 1 && components.year == 0 {
             return "next month".sdLocalize

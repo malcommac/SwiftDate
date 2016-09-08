@@ -36,7 +36,7 @@ public class NSDateInterval: NSObject {
     public internal(set) var start: NSDate
     public internal(set) var end: NSDate
 
-    public var interval: NSTimeInterval {
+    public var interval: TimeInterval {
         return end.timeIntervalSinceReferenceDate - start.timeIntervalSinceReferenceDate
     }
 
@@ -45,7 +45,7 @@ public class NSDateInterval: NSObject {
         self.end = end
     }
 
-    public convenience init(start: NSDate, interval: NSTimeInterval) {
-        self.init(start: start, end: NSDate(timeInterval: interval, sinceDate: start))
+    public convenience init(start: NSDate, interval: TimeInterval) {
+        self.init(start: start, end: NSDate(timeInterval: interval, since: start as Date))
     }
 }

@@ -38,5 +38,5 @@ extension DateInRegion: Equatable {}
 /// - Returns: a boolean indicating whether the receiver is equal to the given date
 ///
 public func == (left: DateInRegion, right: DateInRegion) -> Bool {
-    return left.isEqualToDate(right)
+    return left.isEqualToDate(right: right)
 }

@@ -57,12 +57,12 @@ public enum DateFormatterComponentsStyle {
         }
     }
 
-	internal func toNSDateFormatterStyle() -> NSDateComponentsFormatterUnitsStyle? {
+	internal func toNSDateFormatterStyle() -> DateComponentsFormatter.UnitsStyle? {
 		switch self {
-		case .Positional: 	return .Positional
-		case .Abbreviated: 	return .Abbreviated
-		case .Short: 		return .Short
-		case .Full: 		return .Full
+		case .Positional: 	return .positional
+		case .Abbreviated: 	return .abbreviated
+		case .Short: 		return .short
+		case .Full: 		return .full
 		case .Colloquial: 	return nil
 		}
 	}
@@ -71,7 +71,7 @@ public enum DateFormatterComponentsStyle {
 /**
  *  Define how the formatter must work when values contain zeroes.
  */
-public struct DateZeroBehavior: OptionSetType {
+public struct DateZeroBehavior: OptionSet {
     public let rawValue: Int
     public init(rawValue: Int) { self.rawValue = rawValue }
 
@@ -111,7 +111,7 @@ public class DateFormatter {
     /// the NSCalendarUnit mask
     /// .Year, .Month, .Day, .Hour, .Minute, .Second are supported (default values enable all of
     /// them)
-    public var allowedUnits: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+    public var allowedUnits: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
 
     /// Number of units to print from the higher to the lower. Default is unlimited, all values
     /// could be part of the output
@@ -132,13 +132,13 @@ public class DateFormatter {
     public var fallbackToNow: Bool = false
 
     /// This is the bundle where the localized data is placed
-    private lazy var bundle: NSBundle? = {
-        var frameworkBundle = NSBundle(identifier: "com.danielemagutti.SwiftDate")
-		if frameworkBundle == nil { frameworkBundle = NSBundle.mainBundle() }
+    private lazy var bundle: Bundle? = {
+        var frameworkBundle = Bundle(identifier: "com.danielemagutti.SwiftDate")
+		if frameworkBundle == nil { frameworkBundle = Bundle.main }
 		if frameworkBundle == nil { return nil }
 		let path = NSURL(fileURLWithPath:
-            frameworkBundle!.resourcePath!).URLByAppendingPathComponent("SwiftDate.bundle")
-        let bundle = NSBundle(URL: path)
+            frameworkBundle!.resourcePath!).appendingPathComponent("SwiftDate.bundle")
+        let bundle = Bundle(url: path!)
         return bundle
     }()
 
@@ -154,7 +154,7 @@ public class DateFormatter {
 
      - returns: output string representation of the interval
      */
-    public func toString(interval: NSTimeInterval) -> String? {
+    public func toString(interval: TimeInterval) -> String? {
         let region_utc = Region(timeZoneName: TimeZoneName.Gmt)
         let fromDate = DateInRegion(absoluteTime: NSDate(timeIntervalSinceNow: -interval),
                                     region: region_utc)
@@ -170,7 +170,7 @@ public class DateFormatter {
 
      - returns: output string representation of the interval
      */
-    public func toString(fromDate fromDate: DateInRegion, toDate: DateInRegion) -> String? {
+    public func toString(fromDate: DateInRegion, toDate: DateInRegion) -> String? {
         guard fromDate.calendar.calendarIdentifier == toDate.calendar.calendarIdentifier else {
             return nil
         }
@@ -193,73 +193,73 @@ public class DateFormatter {
      - returns: output string representation of the interval
      */
     // swiftlint:disable:next function_body_length
-    private func toColloquialString(fromDate fromDate: DateInRegion, toDate: DateInRegion)
+    private func toColloquialString(fromDate: DateInRegion, toDate: DateInRegion)
         -> String? {
 
             // Get the components of the date. Date must have the same parent calendar type in
             // order to be compared
             let cal = fromDate.calendar
-            let opt = NSCalendarOptions(rawValue: 0)
-            let components = cal.components(allowedUnits, fromDate: fromDate.absoluteTime,
-                                                          toDate: toDate.absoluteTime, options: opt)
+            let opt = NSCalendar.Options(rawValue: 0)
+			let components = cal?.components(allowedUnits, from: fromDate.absoluteTime as Date,
+			                                 to: toDate.absoluteTime as Date, options: opt)
             let isFuture = fromDate > toDate
 
-            if components.year != 0 { // Years difference
-                let value = abs(components.year)
-                let relevant_str = relevantTimeForUnit(.Year, date: fromDate, value: value)
-                return colloquialString(.Year, isFuture: isFuture,
+            if components?.year != 0 { // Years difference
+                let value = Int(abs(Int32(components!.year!)))
+                let relevant_str = relevantTimeForUnit(unit: .year, date: fromDate, value: value)
+				return colloquialString(unit: .year, isFuture: isFuture,
                                                value: value, relevantStr: relevant_str,
                                                              args: fromDate.year)
             }
 
-            if components.month != 0 { // Months difference
-                let value = abs(components.month)
-                let relevant_str = relevantTimeForUnit(.Month, date: fromDate, value: value)
-                return colloquialString(.Month, isFuture: isFuture,
+            if components?.month != 0 { // Months difference
+				let value = Int(abs(Int32(components!.month!)))
+                let relevant_str = relevantTimeForUnit(unit: .month, date: fromDate, value: value)
+                return colloquialString(unit: .month, isFuture: isFuture,
                                                 value: value,
                                                 relevantStr: relevant_str, args: value)
             }
 
             // Weeks difference
-            let daysInWeek = fromDate.calendar.rangeOfUnit(.Day, inUnit: .WeekOfMonth,
-                                                            forDate: fromDate.absoluteTime).length
-            if components.day >= daysInWeek {
-                let weeksNumber = abs(components.day / daysInWeek)
-                let relevant_str = relevantTimeForUnit(.WeekOfYear, date: fromDate,
+			let daysInWeek = fromDate.calendar.range(of: .day, in: .weekOfMonth,
+			                                         for: fromDate.absoluteTime as Date).length
+            if (components?.day)! >= daysInWeek {
+                let weeksNumber = abs((components?.day)! / daysInWeek)
+                let relevant_str = relevantTimeForUnit(unit: .weekOfYear, date: fromDate,
                                                                     value: weeksNumber)
-                return colloquialString(.WeekOfYear, isFuture: isFuture,
+                return colloquialString(unit: .weekOfYear, isFuture: isFuture,
                                                      value: weeksNumber,
                                                      relevantStr: relevant_str, args: weeksNumber)
             }
 
-            if components.day != 0 { // Days difference
-                let value = abs(components.day)
-                let relevant_str = relevantTimeForUnit(.Day, date: fromDate, value: value)
-                return colloquialString(.Day, isFuture: isFuture,
+            if components?.day != 0 { // Days difference
+				let value = Int(abs(Int32(components!.day!)))
+                let relevant_str = relevantTimeForUnit(unit: .day, date: fromDate, value: Int(value))
+                return colloquialString(unit: .day, isFuture: isFuture,
                                               value: value, relevantStr: relevant_str, args: value)
             }
 
-            if components.hour != 0 { // Hours difference
-                let value = abs(components.hour)
-                let relevant_str = relevantTimeForUnit(.Hour, date: fromDate, value: value)
-                return colloquialString(.Hour, isFuture: isFuture,
+            if components?.hour != 0 { // Hours difference
+				let value = Int(abs(Int32(components!.hour!)))
+                let relevant_str = relevantTimeForUnit(unit: .hour, date: fromDate, value: Int(value))
+				return colloquialString(unit: .hour, isFuture: isFuture,
                                                value: value, relevantStr: relevant_str, args: value)
             }
 
-            if components.minute != 0 { // Minutes difference
-                let value = abs(components.minute)
-                let relevant_str = relevantTimeForUnit(.Minute, date: fromDate, value: value)
-                if self.fallbackToNow == true && components.minute < 5 {
+            if components?.minute != 0 { // Minutes difference
+				let value = Int(abs(Int32(components!.minute!)))
+                let relevant_str = relevantTimeForUnit(unit: .minute, date: fromDate, value: Int(value))
+                if self.fallbackToNow == true && (components?.minute)! < 5 {
                     // Less than 5 minutes ago is 'just now'
-                    return sd_localizedString("colloquial_now", arguments: [])
+					return sd_localizedString(identifier: "colloquial_now", arguments: [])
                 }
-                return colloquialString(.Minute, isFuture: isFuture,
+				return colloquialString(unit: .minute, isFuture: isFuture,
                                                  value: value, relevantStr: relevant_str,
                                                                args: value)
             }
 
-            if components.second != 0 { // Seconds difference
-				return sd_localizedString("colloquial_now", arguments: [])
+            if components?.second != 0 { // Seconds difference
+				return sd_localizedString(identifier: "colloquial_now", arguments: [])
             }
 
             // Fallback to components output
@@ -278,16 +278,16 @@ public class DateFormatter {
 	private func toComponentsString(fromDate fDate: DateInRegion, toDate tDate: DateInRegion)
         -> String? {
 		let cal = fDate.calendar
-		let cmps = cal.components(allowedUnits, fromDate: fDate.absoluteTime,
-            toDate: tDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
+			let cmps = cal?.components(allowedUnits, from: fDate.absoluteTime as Date,
+			                           to: tDate.absoluteTime as Date, options: NSCalendar.Options(rawValue: 0))
 
-		let unitFlags: [NSCalendarUnit] = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+		let unitFlags: [Calendar.Component] = [.year, .month, .day, .hour, .minute, .second]
 		var outputUnits: [String] = []
 		var nonZeroUnitFound: Int = 0
 		var isNegative: Bool? = nil
 
 		for unit in unitFlags {
-			let unitValue = cmps.valueForComponent(unit)
+			let unitValue = cmps!.value(for: unit)!
 
 			if isNegative == nil && unitValue < 0 {
 				isNegative = true
@@ -298,9 +298,9 @@ public class DateFormatter {
                 || zeroBehavior == .DropLeading && nonZeroUnitFound == 0
                 || zeroBehavior == .DropMiddle))
 			if shouldDropZero == false {
-				let cmp = NSDateComponents()
-				cmp.setValue( abs(unitValue), forComponent: unit)
-				let str = NSDateComponentsFormatter.localizedStringFromDateComponents(cmp,
+				var cmp = DateComponents()
+				cmp.setValue( abs(unitValue), for: unit)
+				let str = DateComponentsFormatter.localizedString(from: cmp as DateComponents,
                     unitsStyle: unitsStyle.toNSDateFormatterStyle()!)!
 				outputUnits.append(str)
 			}
@@ -312,7 +312,7 @@ public class DateFormatter {
 			}
 		}
 
-		return (isNegative == true ? "-" : "") + outputUnits.joinWithSeparator(self.unitsSeparator)
+		return (isNegative == true ? "-" : "") + outputUnits.joined(separator: self.unitsSeparator)
 	}
 
         /**
@@ -327,10 +327,10 @@ public class DateFormatter {
 
      - returns: value
      */
-    private func colloquialString(unit: NSCalendarUnit, isFuture: Bool, value: Int,
-                 relevantStr: String?, args: CVarArgType...) -> String {
+    private func colloquialString(unit: NSCalendar.Unit, isFuture: Bool, value: Int,
+                 relevantStr: String?, args: CVarArg...) -> String {
         guard let bundle = self.bundle else { return "" }
-        let unit_id = unit.localizedCode(value)
+        let unit_id = unit.localizedCode(value: value)
         let locale_time_id = (isFuture ? "f" : "p")
         let identifier = "colloquial_\(locale_time_id)_\(unit_id)"
 
@@ -340,7 +340,7 @@ public class DateFormatter {
             return NSString(format: localized, arguments: pointer)
         }
 
-        return (relevantStr != nil ? "\(localized_date) \(relevantStr!)" : localized_date) as String
+        return (relevantStr != nil ? "\(localized_date) \(relevantStr!)" : localized_date as String) as String
     }
 
     /**
@@ -352,7 +352,7 @@ public class DateFormatter {
 
      - returns: relevant time string
      */
-    private func relevantTimeForUnit(unit: NSCalendarUnit, date: DateInRegion,
+    private func relevantTimeForUnit(unit: NSCalendar.Unit, date: DateInRegion,
                  value: Int) -> String? {
 
         if !self.includeRelevantTime {
@@ -362,7 +362,7 @@ public class DateFormatter {
             return String()
         }
 
-        let unit_id = unit.localizedCode(value)
+        let unit_id = unit.localizedCode(value: value)
         let id_relative = "relevanttime_\(unit_id)"
         let relative_localized = NSLocalizedString(id_relative,
                                                    tableName: "SwiftDate",
@@ -382,13 +382,13 @@ public class DateFormatter {
 
      - returns: localized string with optional arguments values filled
      */
-    private func sd_localizedString(identifier: String, arguments: CVarArgType...) -> String {
-        guard let frameworkBundle = NSBundle(identifier: "com.danielemagutti.SwiftDate") else {
+    private func sd_localizedString(identifier: String, arguments: CVarArg...) -> String {
+        guard let frameworkBundle = Bundle(identifier: "com.danielemagutti.SwiftDate") else {
             return ""
         }
         let path = NSURL(fileURLWithPath: frameworkBundle.resourcePath!)
-            .URLByAppendingPathComponent("SwiftDate.bundle")
-        guard let bundle = NSBundle(URL: path) else {
+            .appendingPathComponent("SwiftDate.bundle")
+        guard let bundle = Bundle(url: path!) else {
             return ""
         }
         var localized_str = NSLocalizedString(identifier, tableName: "SwiftDate",
@@ -401,7 +401,7 @@ public class DateFormatter {
 
 //MARK: - NSCalendarUnit Extension -
 
-extension NSCalendarUnit {
+extension NSCalendar.Unit {
 
     /**
      Return the localized symbols for each time unit. Singular form is 'X', plural variant is 'XX'
@@ -412,13 +412,13 @@ extension NSCalendarUnit {
      */
     public func localizedCode(value: Int) -> String {
         switch self {
-        case NSCalendarUnit.Year: return (value == 1 ? "y" : "yy")
-        case NSCalendarUnit.Month: return (value == 1 ? "m" : "mm")
-        case NSCalendarUnit.WeekOfYear: return (value == 1 ? "w" : "ww")
-        case NSCalendarUnit.Day: return (value == 1 ? "d" : "dd")
-        case NSCalendarUnit.Hour: return (value == 1 ? "h" : "hh")
-        case NSCalendarUnit.Minute: return (value == 1 ? "M" : "MM")
-        case NSCalendarUnit.Second: return (value == 1 ? "s" : "ss")
+        case NSCalendar.Unit.year: return (value == 1 ? "y" : "yy")
+        case NSCalendar.Unit.month: return (value == 1 ? "m" : "mm")
+        case NSCalendar.Unit.weekOfYear: return (value == 1 ? "w" : "ww")
+        case NSCalendar.Unit.day: return (value == 1 ? "d" : "dd")
+        case NSCalendar.Unit.hour: return (value == 1 ? "h" : "hh")
+        case NSCalendar.Unit.minute: return (value == 1 ? "M" : "MM")
+        case NSCalendar.Unit.second: return (value == 1 ? "s" : "ss")
         default: return ""
         }
     }
@@ -436,7 +436,7 @@ private struct DateFormatterValue: CustomStringConvertible {
     private var value: Int
     private var separator: String
 
-    private var description: String {
+    fileprivate var description: String {
         return "\(value)\(separator)\(name)"
     }
 }

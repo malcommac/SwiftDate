@@ -34,7 +34,7 @@ extension DateInRegion {
     ///
     /// - SeeAlso: [timeIntervalSinceReferenceDate](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/#//apple_ref/occ/instp/NSDate/timeIntervalSinceReferenceDate)
     ///
-    public var timeIntervalSinceReferenceDate: NSTimeInterval {
+    public var timeIntervalSinceReferenceDate: TimeInterval {
         return absoluteTime.timeIntervalSinceReferenceDate
     }
 
@@ -45,7 +45,7 @@ extension DateInRegion {
     ///     centuries).
     ///
     public static func distantFuture() -> DateInRegion {
-        return DateInRegion(absoluteTime: NSDate.distantFuture())
+        return DateInRegion(absoluteTime: NSDate.distantFuture as NSDate?)
     }
 
     /// Creates and returns a DateInRegion object representing a date in the distant future (in
@@ -55,7 +55,7 @@ extension DateInRegion {
     ///     centuries).
     ///
     public static func distantPast() -> DateInRegion {
-        return DateInRegion(absoluteTime: NSDate.distantPast())
+        return DateInRegion(absoluteTime: NSDate.distantPast as NSDate?)
     }
 
     /// Returns a DateInRegion object representing a date that is the earliest from a given range

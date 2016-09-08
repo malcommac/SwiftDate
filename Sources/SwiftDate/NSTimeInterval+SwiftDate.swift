@@ -24,7 +24,7 @@
 
 import Foundation
 
-public extension NSTimeInterval {
+public extension TimeInterval {
 
 	/// Returns an NSDate object initialized relative to the current date and time
 	/// by a given number of seconds.
@@ -46,10 +46,10 @@ public extension NSTimeInterval {
 	- returns: a formatted string or nil if formatter fails
 	*/
 	public func toString(style: FormatterStyle = FormatterStyle()) -> String? {
-		let formatter: NSDateComponentsFormatter = sharedDateComponentsFormatter()
-		return formatter.beginSessionContext({ (Void) -> (String?) in
-			style.restoreInto(formatter)
-			return formatter.stringFromTimeInterval(self)
+		let formatter: DateComponentsFormatter = sharedDateComponentsFormatter()
+		return formatter.beginSessionContext(block: { (Void) -> (String?) in
+			style.restoreInto(formatter: formatter)
+			return formatter.string(from: self)
 		})
 	}
 }

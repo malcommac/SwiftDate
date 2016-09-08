@@ -40,12 +40,12 @@ public extension DateInRegion {
     ///
     /// - note: This value is calculated in the context of the calendar of the receiver
     ///
-    public func difference(toDate: DateInRegion, unitFlags: NSCalendarUnit) -> NSDateComponents {
-        return calendar.components(unitFlags, fromDate: self.absoluteTime,
-            toDate: toDate.absoluteTime, options: NSCalendarOptions(rawValue: 0))
+    public func difference(toDate: DateInRegion, unitFlags: NSCalendar.Unit) -> NSDateComponents {
+		return calendar.components(unitFlags, from: self.absoluteTime as Date,
+		                           to: toDate.absoluteTime as Date, options: NSCalendar.Options(rawValue: 0))
     }
 
-    public func add(years years: Int? = nil, months: Int? = nil, weeks: Int? = nil,
+    public func add(years: Int? = nil, months: Int? = nil, weeks: Int? = nil,
         days: Int? = nil, hours: Int? = nil, minutes: Int? = nil, seconds: Int? = nil,
         nanoseconds: Int? = nil) -> DateInRegion {
 
@@ -72,13 +72,13 @@ public extension DateInRegion {
 	- returns: return a new DateInRegion
 	*/
     public func add(components: NSDateComponents) -> DateInRegion {
-        let absoluteTime = region.calendar.dateByAddingComponents(components,
-            toDate: self.absoluteTime, options: NSCalendarOptions(rawValue: 0))!
-        return DateInRegion(absoluteTime: absoluteTime, region: self.region)
+		let absoluteTime = region.calendar.date(byAdding: components as DateComponents,
+		                                        to: self.absoluteTime as Date, options: NSCalendar.Options(rawValue: 0))!
+        return DateInRegion(absoluteTime: absoluteTime as NSDate?, region: self.region)
     }
 
-	@available(*, deprecated=3.0.5, message="Use add(components) or + instead")
-    public func add(components dict: [NSCalendarUnit : AnyObject]) -> DateInRegion {
+	@available(*, deprecated: 3.0.5, message: "Use add(components) or + instead")
+    public func add(components dict: [NSCalendar.Unit : AnyObject]) -> DateInRegion {
         let components = dict.components()
         return self.add(components)
     }
@@ -129,7 +129,7 @@ public func + (lhs: DateInRegion, rhs: NSDateComponents) -> DateInRegion {
 public prefix func - (dateComponents: NSDateComponents) -> NSDateComponents {
     let result = NSDateComponents()
     for unit in DateInRegion.componentFlagSet {
-        let value = dateComponents.valueForComponent(unit)
+        let value = dateComponents.value(forComponent: unit)
         if value != Int(NSDateComponentUndefined) {
             result.setValue(-value, forComponent: unit)
         }

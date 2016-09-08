@@ -37,9 +37,9 @@ public enum LocaleName: String {
     public var locale: NSLocale {
         switch self {
         case .Current:
-            return NSLocale.currentLocale()
+            return NSLocale.current as NSLocale
         case .System:
-            return NSLocale.systemLocale()
+            return NSLocale.system as NSLocale
         default:
             return NSLocale(localeIdentifier: self.rawValue)
         }

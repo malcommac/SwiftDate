@@ -53,7 +53,7 @@ extension NSDate {
         hour: Int? = nil, minute: Int? = nil, second: Int? = nil, nanosecond: Int? = nil,
         region: Region? = nil) {
 
-            let dateInRegion = DateInRegion(fromDate: fromDate.inRegion(region), era: era,
+            let dateInRegion = DateInRegion(fromDate: fromDate.inRegion(region: region), era: era,
                 year: year, month: month, day: day, hour: hour, minute: minute, second: second,
                 nanosecond: nanosecond, region: region)
             self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
@@ -111,7 +111,7 @@ extension NSDate {
     ///
     /// - remark: deprecated! You should init(components) or init(year:month: etc) instead
     ///
-    @available(*, deprecated=3.0.5, message="Use init(components) or init(year:month: etc) instead")
+    @available(*, deprecated: 3.0.5, message: "Use init(components) or init(year:month: etc) instead")
     public convenience init?(dateComponentDictionary: DateComponentDictionary) {
 
         let absoluteTime = dateComponentDictionary.absoluteTime()
@@ -136,7 +136,7 @@ extension NSDate {
     /// - parameter nanosecond: nanosecond to set  (nil to ignore)
     /// - parameter region: region to set (if not specified Region.defaultRegion will be used instead
     ///
-    @available(*, renamed="init(fromDate, ...)")
+ //   @available(*, renamed: "init(fromDate, ...)")
     public convenience init(refDate date: NSDate, era: Int? = nil, year: Int? = nil,
         month: Int? = nil, day: Int? = nil, yearForWeekOfYear: Int? = nil, weekOfYear: Int? = nil,
         weekday: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil,
@@ -219,8 +219,8 @@ extension NSDate {
 
      - returns: a new absolute time from self plus passed components dictionary
      */
-    @available(*, deprecated=3.0.5, message="Use add(components) or + instead")
-    public func add(params: [NSCalendarUnit : AnyObject]) -> NSDate {
+    @available(*, deprecated: 3.0.5, message: "Use add(components) or + instead")
+    public func add(params: [NSCalendar.Unit : AnyObject]) -> NSDate {
         let date = self.inRegion().add(components: params)
         return date.absoluteTime
     }
@@ -234,8 +234,8 @@ extension NSDate {
 
      - returns: date components with the difference calculated, `nil` on error
      */
-    public func difference(toDate: NSDate, unitFlags: NSCalendarUnit) -> NSDateComponents {
-        return self.inRegion().difference(toDate.inRegion(), unitFlags: unitFlags)
+    public func difference(toDate: NSDate, unitFlags: NSCalendar.Unit) -> NSDateComponents {
+        return self.inRegion().difference(toDate: toDate.inRegion(), unitFlags: unitFlags)
     }
 
     /**
@@ -247,7 +247,7 @@ extension NSDate {
      - returns: date components
      */
     public func components(inRegion region: Region? = nil) -> NSDateComponents {
-        return self.inRegion(region).components
+        return self.inRegion(region: region).components
     }
 
     /// The same of calling components() without specify a region: current region is used instead
@@ -265,8 +265,8 @@ extension NSDate {
 
      - returns: the date representing that start of that unit
      */
-    public func startOf(unit: NSCalendarUnit, inRegion region: Region? = nil) -> NSDate {
-        return self.inRegion(region).startOf(unit).absoluteTime
+    public func startOf(unit: NSCalendar.Unit, inRegion region: Region? = nil) -> NSDate {
+        return self.inRegion(region: region).startOf(unit: unit).absoluteTime
     }
 
     /**
@@ -277,8 +277,8 @@ extension NSDate {
 
      - returns: the date representing that end of that unit
      */
-    public func endOf(unit: NSCalendarUnit, inRegion region: Region? = nil) -> NSDate {
-        return self.inRegion(region).endOf(unit).absoluteTime
+    public func endOf(unit: NSCalendar.Unit, inRegion region: Region? = nil) -> NSDate {
+        return self.inRegion(region: region).endOf(unit: unit).absoluteTime
     }
 
 
@@ -291,7 +291,7 @@ extension NSDate {
      - returns: string representation of the date into the region
      */
     public func toString(format: DateFormat, inRegion region: Region? = nil) -> String? {
-        return self.inRegion(region).toString(format)
+        return self.inRegion(region: region).toString(format)
     }
 
     /**
@@ -308,8 +308,8 @@ extension NSDate {
      egion does not contain valid date
      */
     public func toString(
-        style: NSDateFormatterStyle? = nil, dateStyle: NSDateFormatterStyle? = nil,
-        timeStyle: NSDateFormatterStyle? = nil, inRegion region: Region? = nil,
+        style: DateFormatter.Style? = nil, dateStyle: DateFormatter.Style? = nil,
+        timeStyle: DateFormatter.Style? = nil, inRegion region: Region? = nil,
         relative: Bool = false) -> String? {
 
             let refDateInRegion = DateInRegion(absoluteTime: self, region: region)
@@ -354,7 +354,7 @@ extension NSDate : Comparable {}
  - returns: true if left < right
  */
 public func < (left: NSDate, right: NSDate) -> Bool {
-    return (left.compare(right) == NSComparisonResult.OrderedAscending)
+    return (left.compare(right as Date) == ComparisonResult.orderedAscending)
 }
 
 // MARK: - Date calculations with date components
@@ -507,7 +507,7 @@ extension NSDate {
      - returns: first day of the week in calendar, nil if region is not valid
      */
     public func firstDayOfWeek(inRegion region: Region? = nil) -> Int? {
-        return self.inRegion(region).startOf(.WeekOfYear).day
+        return self.inRegion(region: region).startOf(unit: .weekOfYear).day
     }
 
     /**
@@ -518,64 +518,64 @@ extension NSDate {
      - returns: last day of the week in calendar, nil if region is not valid
      */
     public func lastDayOfWeek(inRegion region: Region? = nil) -> Int? {
-        return self.inRegion(region).endOf(.WeekOfYear).day
+        return self.inRegion(region: region).endOf(unit: .weekOfYear).day
     }
 
-    public func isIn(unit: NSCalendarUnit, ofDate date: NSDate, inRegion region: Region? = nil)
+    public func isIn(unit: NSCalendar.Unit, ofDate date: NSDate, inRegion region: Region? = nil)
         -> Bool {
-            return self.inRegion(region).isIn(unit, ofDate: date.inRegion(region))
+            return self.inRegion(region: region).isIn(unit: unit, ofDate: date.inRegion(region: region))
     }
 
-    public func isBefore(unit: NSCalendarUnit, ofDate date: NSDate,
+    public func isBefore(unit: NSCalendar.Unit, ofDate date: NSDate,
         inRegion region: Region? = nil) -> Bool {
-            return self.inRegion(region).isBefore(unit, ofDate: date.inRegion(region))
+            return self.inRegion(region: region).isBefore(unit: unit, ofDate: date.inRegion(region: region))
     }
 
-    public func isAfter(unit: NSCalendarUnit, ofDate date: NSDate,
+    public func isAfter(unit: NSCalendar.Unit, ofDate date: NSDate,
         inRegion region: Region? = nil) -> Bool {
 
-            return self.inRegion(region).isAfter(unit, ofDate: date.inRegion(region))
+            return self.inRegion(region: region).isAfter(unit: unit, ofDate: date.inRegion(region: region))
     }
 
-    @available(*, deprecated, renamed="isInToday")
+    @available(*, deprecated, renamed: "isInToday")
     public func isToday() -> Bool {
         return self.isInToday()
     }
 
     public func isInToday(inRegion region: Region? = nil) -> Bool {
-        return self.inRegion(region).isInToday()
+        return self.inRegion(region: region).isInToday()
     }
 
-    @available(*, deprecated, renamed="isInYesterday")
+    @available(*, deprecated, renamed: "isInYesterday")
     public func isYesterday() -> Bool {
         return self.isInYesterday()
     }
 
     public func isInYesterday(inRegion region: Region? = nil) -> Bool {
-        return self.inRegion(region).isInYesterday()
+        return self.inRegion(region: region).isInYesterday()
     }
 
-    @available(*, deprecated, renamed="isInTomorrow")
+    @available(*, deprecated, renamed: "isInTomorrow")
     public func isTomorrow() -> Bool {
         return self.isInTomorrow()
     }
 
     public func isInTomorrow(inRegion region: Region? = nil) -> Bool {
-        return self.inRegion(region).isInTomorrow()
+        return self.inRegion(region: region).isInTomorrow()
     }
 
-    @available(*, deprecated, renamed="isInSameDayAsDate")
+    @available(*, deprecated, renamed: "isInSameDayAsDate")
     public func inSameDayAsDate(date: NSDate) -> Bool {
-        return self.isInSameDayAsDate(date)
+        return self.isInSameDayAsDate(date: date)
     }
 
 
     public func isInSameDayAsDate(date: NSDate, inRegion optRegion: Region? = nil) -> Bool {
         let region = optRegion ?? Region.defaultRegion
-        return self.inRegion(region).isInSameDayAsDate(date.inRegion(region))
+        return self.inRegion(region: region).isInSameDayAsDate(date: date.inRegion(region: region))
     }
 
-    @available(*, deprecated, renamed="isInWeekend")
+    @available(*, deprecated, renamed: "isInWeekend")
     public func isWeekend() -> Bool? {
         return self.inRegion().isInWeekend()
     }
@@ -588,15 +588,15 @@ extension NSDate {
      - returns: true if date is tomorrow into specified region calendar
      */
     public func isInWeekend(inRegion region: Region? = nil) -> Bool? {
-        return self.inRegion(region).isInWeekend()
+        return self.inRegion(region: region).isInWeekend()
     }
 
     public func isInLeapYear(inRegion region: Region? = nil) -> Bool? {
-        return self.inRegion(region).leapYear
+        return self.inRegion(region: region).leapYear
     }
 
     public func isInLeapMonth(inRegion region: Region? = nil) -> Bool? {
-        return self.inRegion(region).leapMonth
+        return self.inRegion(region: region).leapMonth
     }
 
 

@@ -67,7 +67,7 @@ public extension NSCalendar {
     /// - Note: Since this API is under consideration it may be either removed or revised in the
     ///     near future
     ///
-    public func rangeOfUnit(unit: NSCalendarUnit, forDate date: NSDate) -> NSDateInterval? {
+    public func rangeOfUnit(unit: NSCalendarUnit, forDate date: NSDate) -> SDNSDateInterval? {
         var start: CFAbsoluteTime = 0.0
         var ti: CFTimeInterval = 0.0
         let res: Bool = withUnsafeMutablePointers(&start, &ti) {
@@ -83,7 +83,7 @@ public extension NSCalendar {
         }
 
         if res {
-            return NSDateInterval(start: NSDate(timeIntervalSinceReferenceDate: start),
+            return SDNSDateInterval(start: NSDate(timeIntervalSinceReferenceDate: start),
                 interval: ti)
         }
         return nil

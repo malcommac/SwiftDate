@@ -32,7 +32,7 @@ import Foundation
 /// - Note: Since this API is under consideration it may be either removed or revised in the near
 ///   future
 ///
-public class NSDateInterval: NSObject {
+public class SDNSDateInterval: NSObject {
     public internal(set) var start: NSDate
     public internal(set) var end: NSDate
 

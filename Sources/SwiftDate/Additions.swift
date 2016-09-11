@@ -23,8 +23,9 @@
 //	THE SOFTWARE.
 
 import Foundation
+import Swift
 
-/// Return the current thread's `NSDateComponentsFormatter` instance. This component is used
+/// Return the current thread's `Foundation.DateComponentsFormatter` instance. This component is used
 /// internally. When using it be sure to call `beginSessionContext(create:)` method to preserve and
 /// restore configuration of the object.
 ///
@@ -37,16 +38,16 @@ internal func sharedDateComponentsFormatter() -> DateComponentsFormatter {
 	})
 }
 
-/// Return the current thread's `NSDateFormatter` instance. This component is used internally.
+/// Return the current thread's `Foundation.DateFormatter` instance. This component is used internally.
 /// When using it be sure to call `beginSessionContext(create:)` method to preserve and restore
 /// configuration of the object.
 ///
 /// - returns: an instance of the formatter
 ///
-internal func sharedDateFormatter() -> DateFormatter {
-	let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
-	return threadLocalObj(key: name, create: { (Void) -> DateFormatter in
-		return DateFormatter()
+internal func sharedDateFormatter() -> FoundationDateFormatter {
+	let name = "SwiftDate_\(NSStringFromClass(FoundationDateFormatter.self))"
+	return threadLocalObj(key: name, create: { (Void) -> FoundationDateFormatter in
+		return FoundationDateFormatter()
 	})
 }
 
@@ -55,7 +56,7 @@ internal func sharedDateFormatter() -> DateFormatter {
 /// Basically you assign a key to the object and return the initializated instance in `create`
 /// block. Again this code is used internally to provide a common way to create local-thread date
 /// formatter as like `NSDateFormatter` (which is expensive to create) or
-/// `NSDateComponentsFormatter`.
+/// `Foundation.DateComponentsFormatter`.
 /// Instance is saved automatically into current thread own dictionary.
 ///
 /// - parameter key:    identification string of the object
@@ -64,7 +65,7 @@ internal func sharedDateFormatter() -> DateFormatter {
 ///
 /// - returns: the instance you have created into the current thread
 ///
-internal func threadLocalObj<T: AnyObject>(key: String, create: (Void) -> T) -> T {
+internal func threadLocalObj<T>(key: String, create: (Void) -> T) -> T {
 	if let cachedObj = Thread.current.threadDictionary[key] as? T {
 		return cachedObj
 	} else {
@@ -79,7 +80,7 @@ internal func threadLocalObj<T: AnyObject>(key: String, create: (Void) -> T) -> 
 
 /// This structure is used to encapsulate all attributes you can use to specify the formatting
 /// behavior of a string or an interval of time. You need to provide it when you want to convert an
-/// `NSDate`, `DateInRegion` or a `NSTimeInterval` instance into a colloquial representation.
+/// `Date`, `DateInRegion` or a `TimeInterval` instance into a colloquial representation.
 ///
 public struct FormatterStyle {
 	/// Configure the strings to use for unit names such as days, hours, minutes and seconds.
@@ -88,28 +89,28 @@ public struct FormatterStyle {
     /// and ten minutes is displayed as “1h 10m”.
 	public var style: DateComponentsFormatter.UnitsStyle = .abbreviated
 
-	/// The bitmask of calendrical units such as day and month to include in the output string.
+	/// The bitmask of calendrical components such as day and month to include in the output string.
     /// By default all available values are
-	/// used; this means each unit of time is part of the output string if the relative value is not
+	/// used; this means each component of time is part of the output string if the relative value is not
     /// zero.
     ///
 	/// You can use:
-	///	* `Year`
-	///	* `Month`
-	///	* `WeekOfMonth`
-	///	* `Day`
-	///	* `Hour`
-	///	* `Minute`
-	///	* `Second`
+	///	* `year`
+	///	* `month`
+	///	* `weekOfMonth`
+	///	* `day`
+	///	* `hour`
+	///	* `minute`
+	///	* `second`
 	///
-	/// Any other value of the `NSCalendarUnit` enum will result in an exception.
-	public var units: NSCalendar.Unit
+	/// Any other value of the `Foundation.Calendar.Component` enum will result in an exception.
+	public var components: Set<Calendar.Component>
 
 	/// This property can be used to limit the number of units displayed in the resulting string.
     /// For example if set to 2, instead of “1h 10m, 30s” the output string will be “1h 10m”. You
     /// can use it to provide a round up version of the output when you are constrained.
     ///
-	public var maxUnits: Int = 0
+	public var maxComponents: Int = 0
 
 	/// Setting the value of this property to `true` adds phrasing to output strings to reflect
     /// that the given time value is approximate and not exact.
@@ -133,28 +134,32 @@ public struct FormatterStyle {
     /// particular unit of time.
 	public var zeroBehavior: DateComponentsFormatter.ZeroFormattingBehavior = .default
 
-    ///	Initialize a new `FormatterStyle` struct you can use to format a `NSDate`,`DateInRegion` or
-    /// `NSTimeInterval`
+    ///	Initialize a new `FormatterStyle` struct you can use to format a `Date`,`DateInRegion` or
+    /// `TimeInterval`
     ///
     ///	- parameter style: abbreviations you could use to format each time unit of the output string
     ///   (by default `.Abbreviated` form is used)
-    ///	- parameter units: units you want to include in output string (by default all values are
+    ///	- parameter components: units you want to include in output string (by default all values are
     ///     set)
     ///	- parameter max: number of units you wan to include in ouput string (by default is `0` and
     ///     means: do not omit anything)
     ///
     public init(style: DateComponentsFormatter.UnitsStyle = .abbreviated,
-        units: NSCalendar.Unit? = nil, max: Int = 0) {
+        components: Set<Calendar.Component>? = nil, max: Int = 0) {
 
 		self.style = style
-		self.units = units ?? [.year, .month, .weekOfMonth, .day, .hour, .minute, .second]
-		self.maxUnits = max
+		self.components = components ?? [.year, .month, .weekOfMonth, .day, .hour, .minute, .second]
+		self.maxComponents = max
 	}
 
 	internal func restoreInto(formatter: DateComponentsFormatter) {
 		formatter.unitsStyle = self.style
-		formatter.allowedUnits = self.units
-		formatter.maximumUnitCount = self.maxUnits
+        formatter.allowedUnits = { () -> NSCalendar.Unit in
+            var units = NSCalendar.Unit()
+            self.components.forEach { units.insert(NSCalendar.Unit(rawValue: $0.rawValue)) }
+            return units
+        }()
+		formatter.maximumUnitCount = self.maxComponents
 		formatter.includesApproximationPhrase = self.approximate
 		formatter.includesTimeRemainingPhrase = self.approximatePast
 		formatter.zeroFormattingBehavior = self.zeroBehavior
@@ -163,8 +168,18 @@ public struct FormatterStyle {
 
 	internal init(formatter: DateComponentsFormatter) {
 		self.style = formatter.unitsStyle
-		self.units = formatter.allowedUnits
-		self.maxUnits = formatter.maximumUnitCount
+        self.components = { () -> Set<Calendar.Component> in
+            var components = Set<Calendar.Component>()
+            for offset in 1...17 {
+                let rawValue = UInt(1 << offset)
+                if let component = Calendar.Component(rawValue: rawValue),
+                    formatter.allowedUnits.contains(NSCalendar.Unit(rawValue: rawValue)) {
+                    components.insert(component)
+                }
+            }
+            return components
+        }()
+		self.maxComponents = formatter.maximumUnitCount
 		self.approximate = formatter.includesApproximationPhrase
 		self.approximatePast = formatter.includesTimeRemainingPhrase
 		self.zeroBehavior = formatter.zeroFormattingBehavior
@@ -172,15 +187,15 @@ public struct FormatterStyle {
 	}
 }
 
-//MARK: - NSDateComponentsFormatter -
+//MARK: - DateComponentsFormatter -
 
 internal extension DateComponentsFormatter {
 
 
     /// This method is used to provide a session context to create and use an instance of
-    /// `NSDateComponentsFormatter` by preserving pre-task configuration. When you start a new
+    /// `DateComponentsFormatter` by preserving pre-task configuration. When you start a new
     /// session the current attributes of the instance are saved automatically and restored at the
-    /// end of the session. We have this function because a single `NSDateComponentsFormatter` is
+    /// end of the session. We have this function because a single `DateComponentsFormatter` is
     /// shared along a thread. *You don't need to use it externally so it's a private method *.
     ///
     ///	- parameter block: block to execute your formast operation. It could return something
@@ -198,12 +213,12 @@ internal extension DateComponentsFormatter {
 
 //MARK: - Common Share Functions -
 
-internal extension DateFormatter {
+internal extension Foundation.DateFormatter {
 
     ///	This method is used to provide a session context to create and use an instance of
-    /// `NSDateFormatter` by preserving pre-task configuration. When you start a new session the
+    /// `DateFormatter` by preserving pre-task configuration. When you start a new session the
     /// current attributes of the instance are saved automatically and restored at the end of the
-    /// session. We have this function because a single `NSDateFormatter` is shared along a thread.
+    /// session. We have this function because a single `DateFormatter` is shared along a thread.
     /// *You don't need to use it externally so it's a private method *.
     ///
     ///	- parameter block: block to execute your formast operation. It could return something
@@ -211,30 +226,30 @@ internal extension DateFormatter {
     ///	- returns: the result of the operation
     ///
     func beginSessionContext<T>(block: (Void) -> (T?)) -> T? {
-		let saved_cfg = NSDateFormatterConfig(formatter: self)
+		let saved_cfg = DateFormatterConfig(formatter: self)
 		let block_result = block()
 		saved_cfg.restoreInto(formatter: self)
 		return block_result
 	}
 
 
-    /// This is the object we use to store attributes of NSDateFormatter. We don't need to expose
+    /// This is the object we use to store attributes of `Foundation.DateFormatter`. We don't need to expose
     /// it.
 	///
-	struct NSDateFormatterConfig {
+	struct DateFormatterConfig {
 		var dateFormat: String?
-		var locale: NSLocale?
-		var timeZone: NSTimeZone?
+		var locale: Locale?
+		var timeZone: TimeZone?
 		var relative: Bool
 
-		init(formatter: DateFormatter) {
+		init(formatter: FoundationDateFormatter) {
 			dateFormat = formatter.dateFormat
 			locale = formatter.locale
 			timeZone = formatter.timeZone
 			relative = formatter.doesRelativeDateFormatting
 		}
 
-		func restoreInto(formatter: DateFormatter) {
+		func restoreInto(formatter: FoundationDateFormatter) {
 			formatter.dateFormat = self.dateFormat
 			formatter.locale = self.locale
 			formatter.timeZone = self.timeZone

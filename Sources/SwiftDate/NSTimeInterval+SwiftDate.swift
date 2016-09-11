@@ -24,18 +24,18 @@
 
 import Foundation
 
-public extension TimeInterval {
+extension TimeInterval {
 
 	/// Returns an NSDate object initialized relative to the current date and time
 	/// by a given number of seconds.
-	public var fromNow: NSDate? {
-		return NSDate(timeIntervalSinceNow: self)
+	public var fromNow: Date? {
+		return Date(timeIntervalSinceNow: self)
 	}
 
 	/// Returns an NSDate object initialized relative to the current date and time
 	/// by a given number of seconds in the past
-	public var ago: NSDate? {
-		return NSDate(timeIntervalSinceNow: -self)
+	public var ago: Date? {
+		return Date(timeIntervalSinceNow: -self)
 	}
 
 	/**

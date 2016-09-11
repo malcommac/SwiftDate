@@ -45,7 +45,7 @@ extension DateInRegion {
     ///     centuries).
     ///
     public static func distantFuture() -> DateInRegion {
-        return DateInRegion(absoluteTime: NSDate.distantFuture as NSDate?)
+        return DateInRegion(absoluteTime: Date.distantFuture)
     }
 
     /// Creates and returns a DateInRegion object representing a date in the distant future (in
@@ -55,7 +55,7 @@ extension DateInRegion {
     ///     centuries).
     ///
     public static func distantPast() -> DateInRegion {
-        return DateInRegion(absoluteTime: NSDate.distantPast as NSDate?)
+        return DateInRegion(absoluteTime: Date.distantPast)
     }
 
     /// Returns a DateInRegion object representing a date that is the earliest from a given range
@@ -69,7 +69,7 @@ extension DateInRegion {
     /// - Returns: a ``DateInRegion`` object representing a date that is the earliest from a given
     ///     range of dates.
     ///
-    public static func earliestDate(dates: DateInRegion ...) -> DateInRegion {
+    public static func earliestDate(in dates: DateInRegion ...) -> DateInRegion {
         var currentMinimum = DateInRegion.distantFuture()
         for thisDate in dates {
             if currentMinimum > thisDate {
@@ -89,7 +89,7 @@ extension DateInRegion {
     /// - Returns: a ``DateInRegion`` object representing a date that is the latest from a given
     ///     range of dates.
     ///
-    public static func latestDate(dates: DateInRegion ...) -> DateInRegion {
+    public static func latestDate(in dates: DateInRegion ...) -> DateInRegion {
         var currentMaximum = DateInRegion.distantPast()
         for thisDate in dates {
             if currentMaximum < thisDate {

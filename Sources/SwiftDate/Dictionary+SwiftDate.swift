@@ -27,13 +27,13 @@ import Foundation
 // MARK: - Generate a Date from a Dictionary of NSCalendarUnit:Value
 
 @available(*, deprecated: 3.0.5, message: "Use NSDateComponents instead")
-public typealias DateComponentDictionary = [ NSCalendar.Unit: AnyObject ]
+public typealias DateComponentDictionary = [ Calendar.Component: Any ]
 
 // MARK: - Extension: NSCalendarUnit -
 
 protocol CalendarAsDictionaryKey: Hashable {}
 
-extension NSCalendar.Unit: CalendarAsDictionaryKey {
+extension Calendar.Component: CalendarAsDictionaryKey {
     public var hashValue: Int {
         get {
             return Int(self.rawValue)
@@ -41,19 +41,19 @@ extension NSCalendar.Unit: CalendarAsDictionaryKey {
     }
 }
 
-extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
+extension Dictionary where Key: CalendarAsDictionaryKey {
 
-    func components() -> NSDateComponents {
-        let components = NSDateComponents()
+    func components() -> DateComponents {
+        var components = DateComponents()
         for (key, value) in self {
             if let value = value as? Int {
-                if let key = key as? NSCalendar.Unit {
-                    components.setValue(value, forComponent: key)
+                if let key = key as? Calendar.Component {
+                    components.setValue(value, for: key)
                 }
-            } else if let value = value as? NSCalendar {
-                components.calendar = value as Calendar
-            } else if let value = value as? NSTimeZone {
-                components.timeZone = value as TimeZone
+            } else if let value = value as? Calendar {
+                components.calendar = value
+            } else if let value = value as? TimeZone {
+                components.timeZone = value
             }
         }
         return components
@@ -74,11 +74,11 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
     func dateRegion() -> Region? {
         let components = self.components()
 
-        let calendar = components.calendar ?? NSCalendar.current
-        let timeZone = components.timeZone ?? NSTimeZone.default
-        let locale = calendar.locale ?? NSLocale.current
+        let calendar = components.calendar ?? Calendar.current
+        let timeZone = components.timeZone ?? TimeZone.current
+        let locale = calendar.locale ?? Locale.current
 
-        return Region(calendar: calendar as NSCalendar, timeZone: timeZone as NSTimeZone?, locale: locale as NSLocale?)
+        return Region(calendar: calendar, timeZone: timeZone, locale: locale)
     }
 
     /**
@@ -89,7 +89,7 @@ extension Dictionary where Value: AnyObject, Key: CalendarAsDictionaryKey {
      - returns: absolute time NSDate object, nil if dictionary values cannot be used to generate a
      valid date
      */
-    func absoluteTime() -> NSDate? {
+    func absoluteTime() -> Date? {
         let date = self.dateInRegion()
         return date?.absoluteTime
     }

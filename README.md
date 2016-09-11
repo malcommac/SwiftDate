@@ -12,6 +12,11 @@ Welcome to SwiftDate 3 a Date Management Library for Apple's platforms: the goal
 - [x] Compatible with Swift 2.0+ and iOS/Mac/WatchOS/tvOS platforms
 - [x] _... many many other shiny things!_
 
+## Swift Versions
+- Swift 2.3 [branch is here](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
+- Swift 3.0 [branch is here](https://github.com/malcommac/SwiftDate/tree/feature/swift-3.0)
+- Swift 2.2 is currently on develop and master
+
 ## What is `NSDate` really?
 `NSDate` is the central class of the date/time handling in Foundation framework. It encapsulates a moment in time that is  internally stored as the number of seconds since Jan 1, 2001 at 00:00 UTC. It is [universal](http://en.wikipedia.org/wiki/Coordinated_Universal_Time) as such that it is the same moment everywhere around the world and beyond (we do not have [star date](https://en.wikipedia.org/wiki/Stardate) yet ;-) ). We call it 'absolute time'.
 

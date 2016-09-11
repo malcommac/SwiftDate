@@ -23,7 +23,7 @@
 		1FAA83D71C79C75A0084BAB6 /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83591C79C67D0084BAB6 /* NSDateTests.swift */; };
 		1FAA83D81C79C75A0084BAB6 /* RegionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA835A1C79C67D0084BAB6 /* RegionStringTests.swift */; };
 		1FAA83D91C79C75A0084BAB6 /* RegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA835B1C79C67D0084BAB6 /* RegionTests.swift */; };
-		1FAA83E41C7A3EE50084BAB6 /* NSDateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */; };
+		1FAA83E41C7A3EE50084BAB6 /* SWDDateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83E31C7A3EE50084BAB6 /* SWDDateIntervalTests.swift */; };
 		902D9E1C1C7E2D3F0081652B /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 905EAD0A1C7E16F800302F49 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		902D9E1D1C7E2D3F0081652B /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 905EAD0B1C7E16F800302F49 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		905EAD161C7E177800302F49 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83A91C79C70E0084BAB6 /* Additions.swift */; };
@@ -40,7 +40,7 @@
 		905EAD211C7E177800302F49 /* NSDate+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */; };
 		905EAD221C7E177800302F49 /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */; };
 		905EAD231C7E177800302F49 /* NSDateFormatter+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */; };
-		905EAD241C7E177800302F49 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */; };
+		905EAD241C7E177800302F49 /* SWDDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* SWDDateInterval.swift */; };
 		905EAD251C7E177800302F49 /* NSLocale+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */; };
 		905EAD261C7E177800302F49 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */; };
 		905EAD271C7E177800302F49 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */; };
@@ -61,7 +61,7 @@
 		90F1F39C1C7F6B1200B22B90 /* NSDate+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */; };
 		90F1F39D1C7F6B1200B22B90 /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */; };
 		90F1F39E1C7F6B1200B22B90 /* NSDateFormatter+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */; };
-		90F1F39F1C7F6B1200B22B90 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */; };
+		90F1F39F1C7F6B1200B22B90 /* SWDDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* SWDDateInterval.swift */; };
 		90F1F3A01C7F6B1200B22B90 /* NSLocale+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */; };
 		90F1F3A11C7F6B1200B22B90 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */; };
 		90F1F3A21C7F6B1200B22B90 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */; };
@@ -81,7 +81,7 @@
 		90F1F3BD1C7F6BC200B22B90 /* NSDate+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */; };
 		90F1F3BE1C7F6BC200B22B90 /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */; };
 		90F1F3BF1C7F6BC200B22B90 /* NSDateFormatter+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */; };
-		90F1F3C01C7F6BC200B22B90 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */; };
+		90F1F3C01C7F6BC200B22B90 /* SWDDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* SWDDateInterval.swift */; };
 		90F1F3C11C7F6BC200B22B90 /* NSLocale+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */; };
 		90F1F3C21C7F6BC200B22B90 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */; };
 		90F1F3C31C7F6BC200B22B90 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */; };
@@ -101,7 +101,7 @@
 		90F1F3DD1C7F6BF900B22B90 /* NSDate+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */; };
 		90F1F3DE1C7F6BF900B22B90 /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */; };
 		90F1F3DF1C7F6BF900B22B90 /* NSDateFormatter+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */; };
-		90F1F3E01C7F6BF900B22B90 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */; };
+		90F1F3E01C7F6BF900B22B90 /* SWDDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B71C79C70E0084BAB6 /* SWDDateInterval.swift */; };
 		90F1F3E11C7F6BF900B22B90 /* NSLocale+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */; };
 		90F1F3E21C7F6BF900B22B90 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */; };
 		90F1F3E31C7F6BF900B22B90 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */; };
@@ -165,13 +165,13 @@
 		1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+SwiftDate.swift"; path = "../Sources/SwiftDate/NSDate+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
 		1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateComponents+SwiftDate.swift"; path = "../Sources/SwiftDate/NSDateComponents+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
 		1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateFormatter+SwiftDate.swift"; path = "../Sources/SwiftDate/NSDateFormatter+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
-		1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateInterval.swift; path = ../Sources/SwiftDate/NSDateInterval.swift; sourceTree = SOURCE_ROOT; };
+		1FAA83B71C79C70E0084BAB6 /* SWDDateInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWDDateInterval.swift; path = ../Sources/SwiftDate/SWDDateInterval.swift; sourceTree = SOURCE_ROOT; };
 		1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLocale+SwiftDate.swift"; path = "../Sources/SwiftDate/NSLocale+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
 		1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeInterval+SwiftDate.swift"; path = "../Sources/SwiftDate/NSTimeInterval+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
 		1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTimeZone+SwiftDate.swift"; path = "../Sources/SwiftDate/NSTimeZone+SwiftDate.swift"; sourceTree = SOURCE_ROOT; };
 		1FAA83BB1C79C70E0084BAB6 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = ../Sources/SwiftDate/Region.swift; sourceTree = SOURCE_ROOT; };
 		1FAA83DA1C79C7BC0084BAB6 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
-		1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateIntervalTests.swift; path = ../../Sources/SwiftDateTests/NSDateIntervalTests.swift; sourceTree = "<group>"; };
+		1FAA83E31C7A3EE50084BAB6 /* SWDDateIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWDDateIntervalTests.swift; path = ../../Sources/SwiftDateTests/SWDDateIntervalTests.swift; sourceTree = "<group>"; };
 		905EAD0A1C7E16F800302F49 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		905EAD0B1C7E16F800302F49 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		90A2B5D61C7FAB790050D018 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "SwiftDate-OSX/Info.plist"; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 				1FAA83B41C79C70E0084BAB6 /* NSDate+SwiftDate.swift */,
 				1FAA83B51C79C70E0084BAB6 /* NSDateComponents+SwiftDate.swift */,
 				1FAA83B61C79C70E0084BAB6 /* NSDateFormatter+SwiftDate.swift */,
-				1FAA83B71C79C70E0084BAB6 /* NSDateInterval.swift */,
+				1FAA83B71C79C70E0084BAB6 /* SWDDateInterval.swift */,
 				1FAA83B81C79C70E0084BAB6 /* NSLocale+SwiftDate.swift */,
 				1FAA83B91C79C70E0084BAB6 /* NSTimeInterval+SwiftDate.swift */,
 				1FAA83BA1C79C70E0084BAB6 /* NSTimeZone+SwiftDate.swift */,
@@ -294,7 +294,7 @@
 				1FAA83591C79C67D0084BAB6 /* NSDateTests.swift */,
 				1FAA835A1C79C67D0084BAB6 /* RegionStringTests.swift */,
 				1FAA835B1C79C67D0084BAB6 /* RegionTests.swift */,
-				1FAA83E31C7A3EE50084BAB6 /* NSDateIntervalTests.swift */,
+				1FAA83E31C7A3EE50084BAB6 /* SWDDateIntervalTests.swift */,
 				1F458FB71C7B23AC00FCFD97 /* NSCalendarTests.swift */,
 				1F458FBB1C7B2CC300FCFD97 /* NSTimeZoneTests.swift */,
 				1F458FB91C7B29AD00FCFD97 /* NSTimeIntervalTests.swift */,
@@ -592,7 +592,7 @@
 				905EAD211C7E177800302F49 /* NSDate+SwiftDate.swift in Sources */,
 				905EAD221C7E177800302F49 /* NSDateComponents+SwiftDate.swift in Sources */,
 				905EAD231C7E177800302F49 /* NSDateFormatter+SwiftDate.swift in Sources */,
-				905EAD241C7E177800302F49 /* NSDateInterval.swift in Sources */,
+				905EAD241C7E177800302F49 /* SWDDateInterval.swift in Sources */,
 				905EAD251C7E177800302F49 /* NSLocale+SwiftDate.swift in Sources */,
 				905EAD261C7E177800302F49 /* NSTimeInterval+SwiftDate.swift in Sources */,
 				905EAD271C7E177800302F49 /* NSTimeZone+SwiftDate.swift in Sources */,
@@ -614,7 +614,7 @@
 				1FAA83D01C79C75A0084BAB6 /* DateInRegionComponentPortTests.swift in Sources */,
 				1FAA83D21C79C75A0084BAB6 /* DateInRegionHashableTests.swift in Sources */,
 				1FAA83D11C79C75A0084BAB6 /* DateInRegionEquationsTests.swift in Sources */,
-				1FAA83E41C7A3EE50084BAB6 /* NSDateIntervalTests.swift in Sources */,
+				1FAA83E41C7A3EE50084BAB6 /* SWDDateIntervalTests.swift in Sources */,
 				1FAA83D81C79C75A0084BAB6 /* RegionStringTests.swift in Sources */,
 				1FAA83D51C79C75A0084BAB6 /* NSDateComponentPortTests.swift in Sources */,
 				1FAA83D41C79C75A0084BAB6 /* DateInRegionTests.swift in Sources */,
@@ -629,7 +629,7 @@
 			files = (
 				90F1F3981C7F6B1200B22B90 /* DateInRegion+Operations.swift in Sources */,
 				90F1F3921C7F6B1200B22B90 /* DateInRegion.swift in Sources */,
-				90F1F39F1C7F6B1200B22B90 /* NSDateInterval.swift in Sources */,
+				90F1F39F1C7F6B1200B22B90 /* SWDDateInterval.swift in Sources */,
 				90F1F39C1C7F6B1200B22B90 /* NSDate+SwiftDate.swift in Sources */,
 				90F1F3931C7F6B1200B22B90 /* DateInRegion+Comparisons.swift in Sources */,
 				90F1F3941C7F6B1200B22B90 /* DateInRegion+Components.swift in Sources */,
@@ -655,7 +655,7 @@
 			files = (
 				90F1F3B91C7F6BC200B22B90 /* DateInRegion+Operations.swift in Sources */,
 				90F1F3B31C7F6BC200B22B90 /* DateInRegion.swift in Sources */,
-				90F1F3C01C7F6BC200B22B90 /* NSDateInterval.swift in Sources */,
+				90F1F3C01C7F6BC200B22B90 /* SWDDateInterval.swift in Sources */,
 				90F1F3BD1C7F6BC200B22B90 /* NSDate+SwiftDate.swift in Sources */,
 				90F1F3B41C7F6BC200B22B90 /* DateInRegion+Comparisons.swift in Sources */,
 				90F1F3B51C7F6BC200B22B90 /* DateInRegion+Components.swift in Sources */,
@@ -681,7 +681,7 @@
 			files = (
 				90F1F3D91C7F6BF900B22B90 /* DateInRegion+Operations.swift in Sources */,
 				90F1F3D31C7F6BF900B22B90 /* DateInRegion.swift in Sources */,
-				90F1F3E01C7F6BF900B22B90 /* NSDateInterval.swift in Sources */,
+				90F1F3E01C7F6BF900B22B90 /* SWDDateInterval.swift in Sources */,
 				90F1F3DD1C7F6BF900B22B90 /* NSDate+SwiftDate.swift in Sources */,
 				90F1F3D41C7F6BF900B22B90 /* DateInRegion+Comparisons.swift in Sources */,
 				90F1F3D51C7F6BF900B22B90 /* DateInRegion+Components.swift in Sources */,
@@ -754,6 +754,7 @@
 				PRODUCT_NAME = SwiftDate;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -791,6 +792,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SwiftDate;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

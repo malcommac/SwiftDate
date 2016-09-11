@@ -26,20 +26,20 @@ import Foundation
 
 // MARK: - start of and end of operations
 
-public extension DateInRegion {
+extension DateInRegion {
 
     /// Takes a date unit and returns a date at the start of that unit.
     /// E.g. DateInRegion().startOf(.Year) would return last New Year at midnight.
     ///
     /// - Parameters:
-    ///     - unit: calendrical unit.
+    ///     - component: calendrical component.
     ///
     /// - Returns: a date at the start of the unit
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public func startOf(unit: NSCalendar.Unit) -> DateInRegion {
-        let absoluteTime = calendar.rangeOfUnit(unit: unit, forDate: self.absoluteTime)!.start
+    public func startOf(component: Calendar.Component) -> DateInRegion {
+        let absoluteTime = calendar.range(of: component, for: self.absoluteTime)!.start
         return DateInRegion(absoluteTime: absoluteTime, region: self.region)
     }
 
@@ -48,17 +48,17 @@ public extension DateInRegion {
     /// That is, if a Georgian calendar is used.
     ///
     /// - Parameters:
-    ///     - unit: calendrical unit.
+    ///     - component: calendrical component.
     ///
     /// - Returns: a date at the end of the unit
     ///
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
-    public func endOf(unit: NSCalendar.Unit) -> DateInRegion {
+    public func endOf(component: Calendar.Component) -> DateInRegion {
         // RangeOfUnit returns the start of the next unit; we will subtract one thousandth of a
         // second
-        let startOfNextUnit = calendar.rangeOfUnit(unit: unit, forDate: self.absoluteTime)!.end
-        let endOfThisUnit = NSDate(timeInterval: -0.001, since: startOfNextUnit as Date)
+        let startOfNextUnit = calendar.range(of: component, for: self.absoluteTime)!.end
+        let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit)
         return DateInRegion(absoluteTime: endOfThisUnit, region: self.region)
     }
 

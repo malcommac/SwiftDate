@@ -27,7 +27,7 @@ import Foundation
 
 // MARK: - NSCalendar & NSDateComponent ports
 
-public extension DateInRegion {
+extension DateInRegion {
 
     /// Returns a NSDateComponents object containing a given date decomposed into components:
     ///     day, month, year, hour, minute, second, nanosecond, timeZone, calendar,
@@ -37,25 +37,24 @@ public extension DateInRegion {
     /// - Returns: An NSDateComponents object containing date decomposed
 	///   into the components as specified.
     ///
-    public var components: NSDateComponents {
-        return calendar.components(DateInRegion.componentFlags, from: self.absoluteTime as Date) as NSDateComponents
+    public var components: DateComponents {
+        return calendar.dateComponents(DateInRegion.componentFlags, from: self.absoluteTime)
     }
 
     /// Returns the value for an NSDateComponents object.
     /// Values returned are in the context of the calendar and time zone properties.
     ///
     /// - Parameters:
-    ///     - flag: specifies the calendrical unit that should be returned
+    ///     - component: specifies the calendrical unit that should be returned
     /// - Returns: The value of the NSDateComponents object for the date.
     /// - remark: asserts that no calendar or time zone flags are specified.
     ///   If one of these is present, an assertion fails and execution will halt.
     ///
-    internal func valueForComponent(flag: NSCalendar.Unit) -> Int {
-        assert(!flag.contains(.calendar))
-        assert(!flag.contains(.timeZone))
+    internal func value(for component: Calendar.Component) -> Int {
+        assert(component != .calendar)
+        assert(component != .timeZone)
 
-        let components = calendar.components(flag, from: absoluteTime as Date)
-        let value = components.valueForComponent(flag)
+        let value = calendar.component(component, from: absoluteTime)
         return value
     }
 
@@ -64,7 +63,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var era: Int {
-        return valueForComponent(flag: .era)
+        return value(for: .era)
     }
 
     /// The number of year units for the receiver.
@@ -72,7 +71,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var year: Int {
-        return valueForComponent(flag: .year)
+        return value(for: .year)
     }
 
     /// The number of month units for the receiver.
@@ -80,7 +79,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var month: Int {
-        return valueForComponent(flag: .month)
+        return value(for: .month)
     }
 
     /// The number of day units for the receiver.
@@ -88,7 +87,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var day: Int {
-        return valueForComponent(flag: .day)
+        return value(for: .day)
     }
 
     /// The number of hour units for the receiver.
@@ -96,7 +95,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var hour: Int {
-        return valueForComponent(flag: .hour)
+        return value(for: .hour)
     }
 
     /// Nearest rounded hour from the date expressed in this region's timezone
@@ -110,7 +109,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var minute: Int {
-        return valueForComponent(flag: .minute)
+        return value(for: .minute)
     }
 
     /// The number of second units for the receiver.
@@ -118,7 +117,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var second: Int {
-        return valueForComponent(flag: .second)
+        return value(for: .second)
     }
 
     /// The number of nanosecond units for the receiver.
@@ -126,7 +125,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var nanosecond: Int {
-        return valueForComponent(flag: .nanosecond)
+        return value(for: .nanosecond)
     }
 
     /// The week-numbering year of the receiver.
@@ -134,7 +133,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var yearForWeekOfYear: Int {
-        return valueForComponent(flag: .yearForWeekOfYear)
+        return value(for: .yearForWeekOfYear)
     }
 
     /// The week date of the year for the receiver.
@@ -142,7 +141,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var weekOfYear: Int {
-        return valueForComponent(flag: .weekOfYear)
+        return value(for: .weekOfYear)
     }
 
     /// The number of weekday units for the receiver.
@@ -152,7 +151,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var weekday: Int {
-        return valueForComponent(flag: .weekday)
+        return value(for: .weekday)
     }
 
     /// The ordinal number of weekday units for the receiver.
@@ -163,7 +162,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var weekdayOrdinal: Int {
-        return valueForComponent(flag: .weekdayOrdinal)
+        return value(for: .weekdayOrdinal)
     }
 
     /// Week day name of the date expressed in this region's locale
@@ -173,14 +172,14 @@ public extension DateInRegion {
 		return cachedFormatter.beginSessionContext { () -> (String) in
 			cachedFormatter.dateFormat = "EEEE"
 			cachedFormatter.locale = self.region.locale
-			let value = cachedFormatter.stringFromDate(self.absoluteTime)
+			let value = cachedFormatter.string(from: self.absoluteTime)
 			return value
 		}!
     }
 
     /// Nmber of days into current's date month expressed in current region calendar and locale
     public var monthDays: Int {
-        return region.calendar.range(of: .day, in: .month, for: absoluteTime as Date).length
+        return region.calendar.range(of: .day, in: .month, for: absoluteTime)?.count ?? 0
     }
 
     /** QUARTER IS NOT INCLUDED DUE TO INCORRECT REPRESENTATION OF QUARTER IN NSCALENDAR
@@ -201,7 +200,7 @@ public extension DateInRegion {
     /// - note: This value is interpreted in the context of the calendar with which it is used
     ///
     public var weekOfMonth: Int {
-        return valueForComponent(flag: .weekOfMonth)
+        return value(for: .weekOfMonth)
     }
 
     /// Month name of the date expressed in this region's timezone using region's locale
@@ -233,13 +232,13 @@ public extension DateInRegion {
     ///
     public var leapMonth: Bool {
         // Library function for leap contains a bug for Gregorian calendars, implemented workaround
-        if calendar.calendarIdentifier == NSCalendar.Identifier.gregorian && year >= 1582 {
-            let range = calendar.range(of: .day, in: .month, for: absoluteTime as Date)
-            return range.length == 29
+        if calendar.identifier == Calendar.Identifier.gregorian && year >= 1582 {
+            let range = calendar.range(of: .day, in: .month, for: absoluteTime)
+            return range?.count == 29
         }
 
         // For other calendars:
-        return calendar.components([.day, .month, .year], from: absoluteTime as Date).isLeapMonth!
+        return calendar.dateComponents([.day, .month, .year], from: absoluteTime).isLeapMonth!
     }
 
     /// Boolean value that indicates whether the year is a leap year.
@@ -249,8 +248,8 @@ public extension DateInRegion {
     ///
     public var leapYear: Bool {
         // Library function for leap contains a bug for Gregorian calendars, implemented workaround
-        if calendar.calendarIdentifier == NSCalendar.Identifier.gregorian {
-            let newComponents = components
+        if calendar.identifier == Calendar.Identifier.gregorian {
+            var newComponents = components
             newComponents.month = 2
             newComponents.day = 10
             let testDate = newComponents.dateInRegion!
@@ -258,7 +257,7 @@ public extension DateInRegion {
         }
 
         // For other calendars:
-        return calendar.components([.day, .month, .year], from: absoluteTime as Date).isLeapMonth!
+        return calendar.dateComponents([.day, .month, .year], from: absoluteTime).isLeapMonth!
     }
     
     /// The julian day corresponding to the current civil date. Note that it is often called Julian Date.
@@ -269,7 +268,7 @@ public extension DateInRegion {
     /// - Returns the Julian Day of the date.
     ///
     public func julianDay() -> Double {
-        let utc = self.inRegion(region: DateRegion(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .English))
+        let utc = self.inRegion(region: DateRegion(calendarName: .gregorian, timeZoneName: .gmt, localeName: .english))
         
         let year = Double(utc.year)
         let month = Double(utc.month)
@@ -297,7 +296,7 @@ public extension DateInRegion {
 	///   the current weekend. If this is unto a weekend, then `nil` is returned.
     ///
     public func thisWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
-        guard calendar.isDateInWeekend(self.absoluteTime as Date) else {
+        guard calendar.isDateInWeekend(self.absoluteTime) else {
             return nil
         }
         let date = self - 2.days
@@ -328,19 +327,18 @@ public extension DateInRegion {
 	///   is the next weekend not the current one.
     ///
     public func nextWeekend() -> (startDate: DateInRegion, endDate: DateInRegion)? {
-        var wkStart: NSDate?
+        var wkStart = Date()
         var tInt: TimeInterval = 0
-		let opt = NSCalendar.Options(rawValue: 0)
 		let d = self.absoluteTime
-        if !calendar.nextWeekendStart(&wkStart, interval: &tInt, options: opt, after: d as! Date) {
+        if !calendar.nextWeekend(startingAfter: d, start: &wkStart, interval: &tInt) {
             return nil
         }
 
         // Subtract one thousandth of a second to distinguish from Midnigth
 		// on the next Monday for the isEqualDate function of NSDate
-        let wkEnd = wkStart!.addingTimeInterval(tInt - 0.001)
+        let wkEnd = wkStart.addingTimeInterval(tInt - 0.001)
 
-        let startDate = DateInRegion(absoluteTime: wkStart!, region: region)
+        let startDate = DateInRegion(absoluteTime: wkStart, region: region)
         let endDate = DateInRegion(absoluteTime: wkEnd, region: region)
         return (startDate, endDate)
     }

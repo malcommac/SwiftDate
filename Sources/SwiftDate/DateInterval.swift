@@ -25,27 +25,27 @@
 import Foundation
 
 /// Alternative API from swift.org for avoiding AutoreleasingUnsafeMutablePointer usage in
-/// NSCalendar and NSFormatter
+/// `Foundation.Calendar` and `Foundation.Formatter`
 /// - Experiment: This is a draft API currently under consideration for official import into
 ///   Foundation as a suitable alternative to the AutoreleasingUnsafeMutablePointer usage case of
 ///   returning a NSDate + NSTimeInterval or using a pair of dates representing a range
 /// - Note: Since this API is under consideration it may be either removed or revised in the near
 ///   future
 ///
-public class NSDateInterval: NSObject {
-    public internal(set) var start: NSDate
-    public internal(set) var end: NSDate
+public struct DateInterval {
+    public internal(set) var start: Foundation.Date
+    public internal(set) var end: Foundation.Date
 
-    public var interval: TimeInterval {
+    public var interval: Foundation.TimeInterval {
         return end.timeIntervalSinceReferenceDate - start.timeIntervalSinceReferenceDate
     }
 
-    public required init(start: NSDate, end: NSDate) {
+    public init(start: Foundation.Date, end: Foundation.Date) {
         self.start = start
         self.end = end
     }
 
-    public convenience init(start: NSDate, interval: TimeInterval) {
-        self.init(start: start, end: NSDate(timeInterval: interval, since: start as Date))
+    public init(start: Foundation.Date, interval: Foundation.TimeInterval) {
+        self.init(start: start, end: Foundation.Date(timeInterval: interval, since: start))
     }
 }

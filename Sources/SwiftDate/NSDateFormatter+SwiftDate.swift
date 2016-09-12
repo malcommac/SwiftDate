@@ -104,7 +104,7 @@ public enum DateFormat {
     case AltRSS							// Alt RSS Formatter
     case Extended						// Extended date Formatter
 
-    var formatString: String {
+    public var formatString: String {
         switch self {
         case .Custom(let format):		return format
         case .ISO8601Date:				return (ISO8601Type.Date).rawValue

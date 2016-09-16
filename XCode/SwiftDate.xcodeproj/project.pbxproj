@@ -514,18 +514,22 @@
 				TargetAttributes = {
 					1FAA83911C79C6DA0084BAB6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						ProvisioningStyle = Automatic;
 					};
 					1FAA839A1C79C6DA0084BAB6 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					90F1F3881C7F6AF500B22B90 = {
 						CreatedOnToolsVersion = 7.3;
+						ProvisioningStyle = Automatic;
 					};
 					90F1F3A91C7F6BB800B22B90 = {
 						CreatedOnToolsVersion = 7.3;
+						ProvisioningStyle = Automatic;
 					};
 					90F1F3C91C7F6BEE00B22B90 = {
 						CreatedOnToolsVersion = 7.3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};

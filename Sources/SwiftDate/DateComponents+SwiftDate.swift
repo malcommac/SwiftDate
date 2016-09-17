@@ -27,7 +27,7 @@ import Foundation
 //MARK: - Extension of Int To Manage Operations -
 
 extension DateComponents {
-    
+
     static var undefined: Int {
         return Int.max
     }
@@ -58,7 +58,7 @@ extension DateComponents {
     public func agoFromDate(_ refDate: Date!, in region: Region = Region.defaultRegion) -> Date {
         var dc = DateComponents()
         for component in DateInRegion.componentFlagSet {
-            if let value = self.value(for: component) {
+            if let value = self.value(for: component), value != DateComponents.undefined {
                 dc.setValue((value * -1), for: component)
             }
         }

@@ -65,9 +65,9 @@ extension DateInRegion {
 
 	/**
 	Add components to an existing date in region instance
-	
+
 	- parameter components: components to add
-	
+
 	- returns: return a new DateInRegion
 	*/
     public func add(_ components: DateComponents) -> DateInRegion {

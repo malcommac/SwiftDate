@@ -67,7 +67,7 @@ public struct DateInRegion {
     /// If you want to assign a new value then you must assign it to a new instance of DateInRegion.
 	///
     public let absoluteTime: Date
-	
+
 	/// This method return an NSDate object which contains the absolute representation of datetime
 	/// in region specified timezone.
 	public var localAbsoluteDate: Date {
@@ -165,7 +165,7 @@ public struct DateInRegion {
             minute: minute ?? fromDate.minute,
             second: second ?? fromDate.second,
             nanosecond: nanosecond ?? fromDate.nanosecond)
-        
+
         self.init(newComponents)
     }
 
@@ -255,13 +255,13 @@ public struct DateInRegion {
             weekday: weekday,
             weekOfYear: weekOfYear,
             yearForWeekOfYear: yearForWeekOfYear)
-        
+
         self.init(newComponents)
     }
 
     /**
      Initialise a `DateInRegion` object from a julian day.
-     
+
      - Parameters:
      - fromJulianDay: the julian day from which to get the date
      - region: region to set (optional)
@@ -269,16 +269,15 @@ public struct DateInRegion {
     public init(
         fromJulianDay: Double,
         region: Region? = nil) {
-        
+
         let refDate = Date(timeIntervalSinceReferenceDate: 0)
         let timeInterval = (fromJulianDay - refDate.julianDay()) * 86400.0
-        
+
         self.init(absoluteTime: Date(timeIntervalSinceReferenceDate: timeInterval), region: region)
     }
 
     /**
      Initialise a `DateInRegion` object from a modified julian day.
-     
      - Parameters:
      - fromModifiedJulianDay: the modified julian day from which to get the date
      - region: region to set (optional)
@@ -286,10 +285,10 @@ public struct DateInRegion {
     public init(
         fromModifiedJulianDay: Double,
         region: Region? = nil) {
-        
+
         let refDate = Date(timeIntervalSinceReferenceDate: 0)
         let timeInterval = (fromModifiedJulianDay - refDate.modifiedJulianDay()) * 86400.0
-        
+
         self.init(absoluteTime: Date(timeIntervalSinceReferenceDate: timeInterval), region: region)
     }
 
@@ -314,7 +313,7 @@ public struct DateInRegion {
                 cFormatter.locale = region.locale
 
                 let parsedDate: Date?
-				
+
 				var stringWithTimeZone = dateString
 				if dateString.hasSuffix("Z") == true && dateString.contains(".") == false && dateString.contains("+") == false {
                     stringWithTimeZone = dateString.substring(to: dateString.index(dateString.endIndex, offsetBy: -1)) + "+0000"
@@ -346,7 +345,7 @@ public struct DateInRegion {
 					parsedDate = cFormatter.date(from: stringWithTimeZone)
 				case .dotNET:
 					guard let secondsInString = dateString.dotNet_secondsFromString() else { return nil }
-					
+
 					parsedDate = Date(timeIntervalSince1970: secondsInString)
 				}
 				return parsedDate

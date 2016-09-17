@@ -47,7 +47,7 @@ public enum LocaleName: String {
 
     case current = "Current"
     case system = "System"
-    
+
     case afrikaans = "af"
     case afrikaansNamibia = "af_NA"
     case afrikaansSouthAfrica = "af_ZA"

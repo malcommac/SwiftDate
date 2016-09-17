@@ -34,7 +34,7 @@ public typealias DateRegion = Region
 ///
 @available(*, introduced:2.0)
 public struct Region: Equatable {
-	
+
 	/// Define the default region to use when you avoid to pass a valid Region() as parameter inside the library itself.
 	/// Default region is composed by
 	public static var defaultRegion: Region = {
@@ -111,7 +111,7 @@ public struct Region: Equatable {
         let calendar = calendarName?.calendar ?? Calendar.current
         let timeZone = timeZoneName?.timeZone ?? NSTimeZone.default
         let locale = localeName?.locale ?? NSLocale.current
-        
+
         self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }
 
@@ -146,7 +146,7 @@ public func == (left: Region, right: Region) -> Bool {
     if left.calendar.identifier != right.calendar.identifier {
         return false
     }
-    
+
     if left.timeZone.identifier != right.timeZone.identifier {
         return false
     }

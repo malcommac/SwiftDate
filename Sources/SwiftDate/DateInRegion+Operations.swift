@@ -57,7 +57,7 @@ extension DateInRegion {
             minute: minutes,
             second: seconds,
             nanosecond: nanosecond,
-            weekOfYear: weekOfYear)
+            weekOfYear: weeks)
 
         let newDate = self.add(components)
         return newDate

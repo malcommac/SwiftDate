@@ -119,10 +119,10 @@ extension DateComponents {
 public func | (lhs: DateComponents, rhs: DateComponents) -> DateComponents {
     var dc = DateComponents()
     for component in DateInRegion.componentFlagSet {
-        if let lhs_value = lhs.value(for: component) {
+        if let lhs_value = lhs.value(for: component), lhs_value != DateComponents.undefined {
             dc.setValue(lhs_value, for: component)
         }
-        if let rhs_value = rhs.value(for: component) {
+        if let rhs_value = rhs.value(for: component), rhs_value != DateComponents.undefined {
             dc.setValue(rhs_value, for: component)
         }
     }

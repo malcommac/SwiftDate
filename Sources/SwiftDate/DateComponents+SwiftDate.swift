@@ -27,6 +27,10 @@ import Foundation
 //MARK: - Extension of Int To Manage Operations -
 
 extension DateComponents {
+    
+    static var undefined: Int {
+        return Int.max
+    }
 
     /**
      Create a new date from a specific date by adding self components
@@ -170,8 +174,8 @@ internal func sumDateComponents(lhs: DateComponents, rhs: DateComponents, sum: B
             continue // both are undefined, don't touch
         }
 
-        let checkedLeftValue = leftValue != Int.max ? leftValue : 0
-        let checkedRightValue = rightValue != Int.max ? rightValue : 0
+        let checkedLeftValue = leftValue != DateComponents.undefined ? leftValue : 0
+        let checkedRightValue = rightValue != DateComponents.undefined ? rightValue : 0
 
         let finalValue =  checkedLeftValue + (sum ? checkedRightValue : -checkedRightValue)
         newComponents.setValue(finalValue, for: component)

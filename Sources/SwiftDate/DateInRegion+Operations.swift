@@ -129,7 +129,9 @@ public prefix func - (dateComponents: DateComponents) -> DateComponents {
     var result = DateComponents()
     for component in DateInRegion.componentFlagSet {
         if let value = dateComponents.value(for: component) {
-            result.setValue(-value, for: component)
+            if value != DateComponents.undefined {
+                result.setValue(-value, for: component)
+            }
         }
     }
     return result

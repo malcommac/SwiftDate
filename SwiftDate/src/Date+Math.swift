@@ -44,3 +44,15 @@ public func + (lhs: Date, rhs: TimeInterval) -> Date {
 public func - (lhs: Date, rhs: TimeInterval) -> Date {
 	return lhs.addingTimeInterval(-rhs)
 }
+
+public func + (lhs: Date, rhs: [Calendar.Component : Int]) -> Date {
+	return try! lhs.add(components: DateInRegion.componentsFrom(values: rhs))
+}
+
+public func - (lhs: Date, rhs: [Calendar.Component : Int]) -> Date {
+	return try! lhs.add(components: DateInRegion.componentsFrom(values: rhs, multipler: -1))
+}
+
+public func - (lhs: Date, rhs: Date) -> TimeInterval {
+	return DateInterval(start: lhs, end: rhs).duration
+}

@@ -10,6 +10,14 @@ import Foundation
 
 public extension DateInRegion {
 	
+	public func string(custom formatString: String) -> String {
+		return self.string(format: .custom(formatString))
+	}
+	
+	public func iso8601(options opts: ISO8601DateFormatter.Options) -> String {
+		return self.string(format: .iso8601(options: opts))
+	}
+	
 	public func string(format: DateFormat) -> String {
 		switch format {
 		case .custom(let format):

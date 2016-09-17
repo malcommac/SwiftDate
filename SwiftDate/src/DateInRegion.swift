@@ -54,11 +54,11 @@ public class DateInRegion: CustomStringConvertible {
 	
 	public init(components: [Calendar.Component : Int], fromRegion region: Region?) throws {
 		let srcRegion = region ?? Region.Local()
-		var components = DateInRegion.componentsFrom(values: components)
-		components.timeZone = srcRegion.timeZone
-		components.calendar = srcRegion.calendar
-		components.calendar!.locale = srcRegion.locale
-		guard let absDate = srcRegion.calendar.date(from: components) else {
+		var cmp = DateInRegion.componentsFrom(values: components)
+		cmp.timeZone = srcRegion.timeZone
+		cmp.calendar = srcRegion.calendar
+		cmp.calendar!.locale = srcRegion.locale
+		guard let absDate = srcRegion.calendar.date(from: cmp) else {
 			throw DateError.FailedToParse
 		}
 		self.absoluteDate = absDate
@@ -101,6 +101,10 @@ public class DateInRegion: CustomStringConvertible {
 	
 	public func toRegion(_ newRegion: Region) -> DateInRegion {
 		return DateInRegion(absoluteDate: self.absoluteDate, in: newRegion)
+	}
+	
+	public func add(interval: TimeInterval) {
+		self.absoluteDate.addTimeInterval(interval)
 	}
 	
 	public var description: String {

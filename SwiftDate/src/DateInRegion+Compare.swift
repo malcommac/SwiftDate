@@ -28,7 +28,7 @@ public extension DateInRegion {
 		return (orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending)
 	}
 	
-	public func isEqualTo(date compareDate: DateInRegion) -> Bool {
+	public func isEqual(to compareDate: DateInRegion) -> Bool {
 		// Compare the content, first the date
 		if self.absoluteDate != compareDate.absoluteDate {
 			return false
@@ -47,7 +47,7 @@ public extension DateInRegion {
 extension DateInRegion: Equatable {}
 
 public func == (left: DateInRegion, right: DateInRegion) -> Bool {
-	return left.isEqualTo(date: right)
+	return left.isEqual(to: right)
 }
 
 public func <= (lhs: DateInRegion, rhs: DateInRegion) -> Bool {

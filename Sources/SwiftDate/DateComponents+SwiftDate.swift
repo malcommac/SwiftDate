@@ -164,15 +164,14 @@ internal func sumDateComponents(lhs: DateComponents, rhs: DateComponents, sum: B
     var newComponents = DateComponents()
     let components = DateInRegion.componentFlagSet
     for component in components {
-        let leftValue = lhs.value(for: component)
-        let rightValue = rhs.value(for: component)
 
-        guard leftValue != nil || rightValue != nil else {
+        guard let leftValue = lhs.value(for: component),
+            let rightValue = rhs.value(for: component) else {
             continue // both are undefined, don't touch
         }
 
-        let checkedLeftValue = leftValue ?? 0
-        let checkedRightValue = rightValue ?? 0
+        let checkedLeftValue = leftValue != Int.max ? leftValue : 0
+        let checkedRightValue = rightValue != Int.max ? rightValue : 0
 
         let finalValue =  checkedLeftValue + (sum ? checkedRightValue : -checkedRightValue)
         newComponents.setValue(finalValue, for: component)

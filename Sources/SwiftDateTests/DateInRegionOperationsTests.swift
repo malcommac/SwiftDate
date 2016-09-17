@@ -18,7 +18,7 @@ class DateInRegionOperationsSpec: QuickSpec {
 
         describe("DateInRegionOperations") {
 
-            let region = Region(calendarName: .Gregorian, timeZoneName: .AmericaParamaribo, localeName: .Dutch)
+            let region = Region(calendarName: .gregorian, timeZoneName: .americaParamaribo, localeName: .dutch)
             let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, region: region)
 
             context("add with components") {
@@ -35,7 +35,7 @@ class DateInRegionOperationsSpec: QuickSpec {
             context("add with dictionary") {
 
                 it("adds with a day") {
-                    expect(date.add(components: [NSCalendarUnit.Day: 1])) == date + 1.days
+                    expect(date.add(components: [Calendar.Component.day: 1])) == date + 1.days
                 }
             }
         }

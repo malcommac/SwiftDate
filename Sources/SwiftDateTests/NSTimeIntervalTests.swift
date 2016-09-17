@@ -19,8 +19,8 @@ class NSTimeIntervalSpec: QuickSpec {
 
             context("fromNow") {
                 it("should return the proper date") {
-                    let now = NSDate()
-                    let interval = NSTimeInterval(3600)
+                    let now = Date()
+                    let interval = TimeInterval(3600)
                     expect(interval.fromNow!) >= now + 1.hours
                     expect(interval.fromNow!) <= now + 1.hours + 1.seconds
                 }
@@ -28,8 +28,8 @@ class NSTimeIntervalSpec: QuickSpec {
 
             context("ago") {
                 it("should return the proper date") {
-                    let now = NSDate()
-                    let interval = NSTimeInterval(3600)
+                    let now = Date()
+                    let interval = TimeInterval(3600)
                     expect(interval.ago!) >= now - 1.hours
                     expect(interval.ago!) <= now - 1.hours + 1.seconds
                 }
@@ -37,8 +37,8 @@ class NSTimeIntervalSpec: QuickSpec {
 
             context("toString") {
                 it("should return the proper string") {
-                    let rome = Region(timeZoneName: .EuropeRome)
-                    let date = NSDate(year: 2011, month: 10, day: 9, region: rome)
+                    let rome = Region(timeZoneName: .europeRome)
+                    let date = Date(year: 2011, month: 10, day: 9, region: rome)
                     let interval = date.timeIntervalSinceReferenceDate
                     expect(interval.toString()) == "10y 9m 5d 22h"
                 }

@@ -18,9 +18,9 @@ class DateInRegionComponentPortSpec: QuickSpec {
 
         describe("DateInRegionComponentPort") {
 
-            let newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
-            let amsterdam = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
-            let utc = Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .English)
+            let newYork = Region(calendarName: .gregorian, timeZoneName: .americaNewYork, localeName: .englishUnitedStates)
+            let amsterdam = Region(calendarName: .gregorian, timeZoneName: .europeAmsterdam, localeName: .dutchNetherlands)
+            let utc = Region(calendarName: .gregorian, timeZoneName: .gmt, localeName: .english)
 
             context("valueForComponentYMD") {
 
@@ -28,35 +28,35 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 let date = DateInRegion(era: 1, year: 2002, month: 3, day: 4, hour: 5, minute: 6, second: 7, nanosecond: 87654321, region: region)
 
                 it("should report a valid era") {
-                    expect(date.valueForComponent(.Era)) == 1
+                    expect(date.value(for: .era)) == 1
                 }
 
                 it("should report a valid year") {
-                    expect(date.valueForComponent(.Year)) == 2002
+                    expect(date.value(for: .year)) == 2002
                 }
 
                 it("should report a valid month") {
-                    expect(date.valueForComponent(.Month)) == 3
+                    expect(date.value(for: .month)) == 3
                 }
 
                 it("should report a valid day") {
-                    expect(date.valueForComponent(.Day)) == 4
+                    expect(date.value(for: .day)) == 4
                 }
 
                 it("should report a valid hour") {
-                    expect(date.valueForComponent(.Hour)) == 5
+                    expect(date.value(for: .hour)) == 5
                 }
 
                 it("should report a valid minute") {
-                    expect(date.valueForComponent(.Minute)) == 6
+                    expect(date.value(for: .minute)) == 6
                 }
 
                 it("should report a valid second") {
-                    expect(date.valueForComponent(.Second)) == 7
+                    expect(date.value(for: .second)) == 7
                 }
 
                 it("should report a valid nanosecond") {
-                    expect(date.valueForComponent(.Nanosecond)).to(beCloseTo(87654321, within: 10))
+                    expect(date.value(for: .nanosecond)).to(beCloseTo(87654321, within: 10))
                 }
 
             }
@@ -67,35 +67,35 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 let date = DateInRegion(era: 1, yearForWeekOfYear: 2, weekOfYear: 3, weekday: 4, region: region)
 
                 it("should report a valid era") {
-                    expect(date.valueForComponent(.Era)) == 1
+                    expect(date.value(for: .era)) == 1
                 }
 
                 it("should report a valid yearForWeekOfYear") {
-                    expect(date.valueForComponent(.YearForWeekOfYear)) == 2
+                    expect(date.value(for: .yearForWeekOfYear)) == 2
                 }
 
                 it("should report a valid weekOfYear") {
-                    expect(date.valueForComponent(.WeekOfYear)) == 3
+                    expect(date.value(for: .weekOfYear)) == 3
                 }
 
                 it("should report a valid weekday") {
-                    expect(date.valueForComponent(.Weekday)) == 4
+                    expect(date.value(for: .weekday)) == 4
                 }
 
                 it("should report a valid hour") {
-                    expect(date.valueForComponent(.Hour)) == 0
+                    expect(date.value(for: .hour)) == 0
                 }
 
                 it("should report a valid minute") {
-                    expect(date.valueForComponent(.Minute)) == 0
+                    expect(date.value(for: .minute)) == 0
                 }
 
                 it("should report a valid second") {
-                    expect(date.valueForComponent(.Second)) == 0
+                    expect(date.value(for: .second)) == 0
                 }
 
                 it("should report a valid nanosecond") {
-                    expect(date.valueForComponent(.Nanosecond)) == 0
+                    expect(date.value(for: .nanosecond)) == 0
                 }
 
             }
@@ -151,7 +151,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 }
 
                 it("should return a date of 0001-01-01 00:00:00.000 in the default region for component initialisation") {
-                    let components = NSDateComponents()
+                    let components = DateComponents()
                     let date = DateInRegion(components)
 
                     expect(date.year) == 1
@@ -217,7 +217,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
             context("Next weekend") {
 
                 let expectedStartDate = DateInRegion(year: 2015, month: 11, day: 7, region: amsterdam)
-                let expectedEndDate = (expectedStartDate + 1.days).endOf(.Day)
+                let expectedEndDate = (expectedStartDate + 1.days).endOf(component: .day)
 
                 it("should return next weekend on Friday") {
                     let date = DateInRegion(year: 2015, month: 11, day: 6, region: amsterdam)
@@ -287,7 +287,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
             context("Previous weekend") {
 
                 let expectedStartDate = DateInRegion(year: 2015, month: 10, day: 31, region: amsterdam)
-                let expectedEndDate = (expectedStartDate + 1.days).endOf(.Day)
+                let expectedEndDate = (expectedStartDate + 1.days).endOf(component: .day)
 
 
                 it("should return last week's weekend on Sunday") {
@@ -357,7 +357,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
             context("This weekend") {
 
                 let expectedStartDate = DateInRegion(year: 2016, month: 2, day: 20, region: amsterdam)
-                let expectedEndDate = (expectedStartDate + 1.days).endOf(.Day)
+                let expectedEndDate = (expectedStartDate + 1.days).endOf(component: .day)
 
 
                 it("should return this weekend on Sunday") {
@@ -399,19 +399,19 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 //                it("should return error if no weekend in calendar") {
                 //
                 //
-                //                    for calendarName in [NSCalendarIdentifierGregorian,
-                //                        NSCalendarIdentifierBuddhist, NSCalendarIdentifierChinese,
-                //                        NSCalendarIdentifierCoptic, NSCalendarIdentifierEthiopicAmeteMihret,
-                //                        NSCalendarIdentifierEthiopicAmeteAlem, NSCalendarIdentifierHebrew,
-                //                        NSCalendarIdentifierISO8601, NSCalendarIdentifierIndian,
-                //                        NSCalendarIdentifierIslamic, NSCalendarIdentifierIslamicCivil,
-                //                        NSCalendarIdentifierJapanese, NSCalendarIdentifierPersian,
-                //                        NSCalendarIdentifierRepublicOfChina, NSCalendarIdentifierIslamicTabular,
-                //                        NSCalendarIdentifierIslamicUmmAlQura] {
+                //                    for calendarName in [CalendarIdentifierGregorian,
+                //                        CalendarIdentifierBuddhist, CalendarIdentifierChinese,
+                //                        CalendarIdentifierCoptic, CalendarIdentifierEthiopicAmeteMihret,
+                //                        CalendarIdentifierEthiopicAmeteAlem, CalendarIdentifierHebrew,
+                //                        CalendarIdentifierISO8601, CalendarIdentifierIndian,
+                //                        CalendarIdentifierIslamic, CalendarIdentifierIslamicCivil,
+                //                        CalendarIdentifierJapanese, CalendarIdentifierPersian,
+                //                        CalendarIdentifierRepublicOfChina, CalendarIdentifierIslamicTabular,
+                //                        CalendarIdentifierIslamicUmmAlQura] {
                 //                        print(calendarName)
-                //                        let calendar = NSCalendar(calendarIdentifier: calendarName)!
-                //                        for localeName in NSLocale.availableLocaleIdentifiers() {
-                //                            let locale = NSLocale(localeIdentifier: localeName)
+                //                        let calendar = Calendar(identifier: calendarName)!
+                //                        for localeName in Locale.availableLocaleIdentifiers() {
+                //                            let locale = Locale(localeIdentifier: localeName)
                 //                            let region = Region(calendar: calendar, locale: locale)
                 //                            let date = DateInRegion(region: region)
                 //                            let weekend = date.nextWeekend()

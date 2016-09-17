@@ -18,7 +18,7 @@ class DateInRegionComparisonSpec: QuickSpec {
 
         describe("DateInRegionComparisons") {
 
-            let region = Region(calendarName: .Gregorian, timeZoneName: .AmericaParamaribo, localeName: .Dutch)
+            let region = Region(calendarName: .gregorian, timeZoneName: .americaParamaribo, localeName: .dutch)
             let date = DateInRegion(year: 2015, month: 12, day: 14, hour: 13, region: region)
 
             context("compareDates") {
@@ -27,63 +27,63 @@ class DateInRegionComparisonSpec: QuickSpec {
                     let date1 = date - 1.years
                     let date2 = date - 1.months
                     let date3 = date + 1.years
-                    expect(date.compareDate(date1, toUnitGranularity: .Year)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .Year)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .Year)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .year)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .year)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .year)) == ComparisonResult.orderedAscending
                 }
 
                 it("should report proper results for month granularity unit") {
                     let date1 = date - 1.months
                     let date2 = date + 1.weeks
                     let date3 = date + 1.months
-                    expect(date.compareDate(date1, toUnitGranularity: .Month)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .Month)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .Month)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .month)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .month)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .month)) == ComparisonResult.orderedAscending
                 }
 
                 it("should report proper results for week granularity unit") {
                     let date1 = date - 1.weeks
                     let date2 = date + 1.days
                     let date3 = date + 1.weeks
-                    expect(date.compareDate(date1, toUnitGranularity: .WeekOfYear)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .WeekOfYear)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .WeekOfYear)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .weekOfYear)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .weekOfYear)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .weekOfYear)) == ComparisonResult.orderedAscending
                 }
 
                 it("should report proper results for day granularity unit") {
                     let date1 = date - 1.days
                     let date2 = date + 1.hours
                     let date3 = date + 1.days
-                    expect(date.compareDate(date1, toUnitGranularity: .Day)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .Day)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .Day)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .day)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .day)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .day)) == ComparisonResult.orderedAscending
                 }
 
                 it("should report proper results for hour granularity unit") {
                     let date1 = date - 1.hours
                     let date2 = date + 1.minutes
                     let date3 = date + 1.hours
-                    expect(date.compareDate(date1, toUnitGranularity: .Hour)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .Hour)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .Hour)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .hour)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .hour)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .hour)) == ComparisonResult.orderedAscending
                 }
 
                 it("should report proper results for minute granularity unit") {
                     let date1 = date - 1.minutes
                     let date2 = date + 1.seconds
                     let date3 = date + 1.minutes
-                    expect(date.compareDate(date1, toUnitGranularity: .Minute)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .Minute)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .Minute)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .minute)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .minute)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .minute)) == ComparisonResult.orderedAscending
                 }
 
                 it("should report proper results for second granularity unit") {
                     let date1 = date - 1.seconds
                     let date2 = date + 100000.nanoseconds
                     let date3 = date + 1.seconds
-                    expect(date.compareDate(date1, toUnitGranularity: .Second)) == NSComparisonResult.OrderedDescending
-                    expect(date.compareDate(date2, toUnitGranularity: .Second)) == NSComparisonResult.OrderedSame
-                    expect(date.compareDate(date3, toUnitGranularity: .Second)) == NSComparisonResult.OrderedAscending
+                    expect(date.compare(date: date1, toGranularity: .second)) == ComparisonResult.orderedDescending
+                    expect(date.compare(date: date2, toGranularity: .second)) == ComparisonResult.orderedSame
+                    expect(date.compare(date: date3, toGranularity: .second)) == ComparisonResult.orderedAscending
                 }
             }
 
@@ -99,8 +99,8 @@ class DateInRegionComparisonSpec: QuickSpec {
                 }
 
                 it("should report false when comparing to a date with different region") {
-                    let region = Region(localeName: .ItalianItaly)
-                    let date2 = date.inRegion(region)
+                    let region = Region(localeName: .italianItaly)
+                    let date2 = date.inRegion(region: region)
                     expect(date.isEqualToDate(date2)) == false
                 }
 
@@ -113,70 +113,70 @@ class DateInRegionComparisonSpec: QuickSpec {
                     let date1 = date - 1.years
                     let date2 = date - 1.months
                     let date3 = date + 1.years
-                    let unit = NSCalendarUnit.Year
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.year
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for month granularity unit") {
                     let date1 = date - 1.months
                     let date2 = date + 1.weeks
                     let date3 = date + 1.months
-                    let unit = NSCalendarUnit.Month
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.month
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for week granularity unit") {
                     let date1 = date - 1.weeks
                     let date2 = date + 1.days
                     let date3 = date + 1.weeks
-                    let unit = NSCalendarUnit.WeekOfYear
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.weekOfYear
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for day granularity unit") {
                     let date1 = date - 1.days
                     let date2 = date + 1.hours
                     let date3 = date + 1.days
-                    let unit = NSCalendarUnit.Day
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.day
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for hour granularity unit") {
                     let date1 = date - 1.hours
                     let date2 = date + 1.minutes
                     let date3 = date + 1.hours
-                    let unit = NSCalendarUnit.Hour
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.hour
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for minute granularity unit") {
                     let date1 = date - 1.minutes
                     let date2 = date + 1.seconds
                     let date3 = date + 1.minutes
-                    let unit = NSCalendarUnit.Minute
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.minute
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for second granularity unit") {
                     let date1 = date - 1.seconds
                     let date2 = date + 100000.nanoseconds
                     let date3 = date + 1.seconds
-                    let unit = NSCalendarUnit.Second
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.second
+                    expect(date.isIn(component: unit, of: date1)) == false
+                    expect(date.isIn(component: unit, of: date2)) == true
+                    expect(date.isIn(component: unit, of: date3)) == false
                 }
             }
 
@@ -186,70 +186,70 @@ class DateInRegionComparisonSpec: QuickSpec {
                     let date1 = date - 1.years
                     let date2 = date - 1.months
                     let date3 = date + 1.years
-                    let unit = NSCalendarUnit.Year
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.year
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
 
                 it("should report proper results for month granularity unit") {
                     let date1 = date - 1.months
                     let date2 = date + 1.weeks
                     let date3 = date + 1.months
-                    let unit = NSCalendarUnit.Month
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.month
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
 
                 it("should report proper results for week granularity unit") {
                     let date1 = date - 1.weeks
                     let date2 = date + 1.days
                     let date3 = date + 1.weeks
-                    let unit = NSCalendarUnit.WeekOfYear
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.weekOfYear
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
 
                 it("should report proper results for day granularity unit") {
                     let date1 = date - 1.days
                     let date2 = date + 1.hours
                     let date3 = date + 1.days
-                    let unit = NSCalendarUnit.Day
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.day
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
 
                 it("should report proper results for hour granularity unit") {
                     let date1 = date - 1.hours
                     let date2 = date + 1.minutes
                     let date3 = date + 1.hours
-                    let unit = NSCalendarUnit.Hour
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.hour
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
 
                 it("should report proper results for minute granularity unit") {
                     let date1 = date - 1.minutes
                     let date2 = date + 1.seconds
                     let date3 = date + 1.minutes
-                    let unit = NSCalendarUnit.Minute
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.minute
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
 
                 it("should report proper results for second granularity unit") {
                     let date1 = date - 1.seconds
                     let date2 = date + 100000.nanoseconds
                     let date3 = date + 1.seconds
-                    let unit = NSCalendarUnit.Second
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.second
+                    expect(date.isBefore(component: unit, of: date1)) == false
+                    expect(date.isBefore(component: unit, of: date2)) == false
+                    expect(date.isBefore(component: unit, of: date3)) == true
                 }
             }
 
@@ -259,70 +259,70 @@ class DateInRegionComparisonSpec: QuickSpec {
                     let date1 = date - 1.years
                     let date2 = date - 1.months
                     let date3 = date + 1.years
-                    let unit = NSCalendarUnit.Year
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.year
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for month granularity unit") {
                     let date1 = date - 1.months
                     let date2 = date + 1.weeks
                     let date3 = date + 1.months
-                    let unit = NSCalendarUnit.Month
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.month
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for week granularity unit") {
                     let date1 = date - 1.weeks
                     let date2 = date + 1.days
                     let date3 = date + 1.weeks
-                    let unit = NSCalendarUnit.WeekOfYear
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.weekOfYear
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for day granularity unit") {
                     let date1 = date - 1.days
                     let date2 = date + 1.hours
                     let date3 = date + 1.days
-                    let unit = NSCalendarUnit.Day
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.day
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for hour granularity unit") {
                     let date1 = date - 1.hours
                     let date2 = date + 1.minutes
                     let date3 = date + 1.hours
-                    let unit = NSCalendarUnit.Hour
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.hour
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for minute granularity unit") {
                     let date1 = date - 1.minutes
                     let date2 = date + 1.seconds
                     let date3 = date + 1.minutes
-                    let unit = NSCalendarUnit.Minute
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.minute
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
 
                 it("should report proper results for second granularity unit") {
                     let date1 = date - 1.seconds
                     let date2 = date + 100000.nanoseconds
                     let date3 = date + 1.seconds
-                    let unit = NSCalendarUnit.Second
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.second
+                    expect(date.isAfter(component: unit, of: date1)) == true
+                    expect(date.isAfter(component: unit, of: date2)) == false
+                    expect(date.isAfter(component: unit, of: date3)) == false
                 }
             }
 
@@ -334,22 +334,22 @@ class DateInRegionComparisonSpec: QuickSpec {
                 }
 
                 it("should report true for today at midnight") {
-                    let date = DateInRegion().startOf(.Day)
+                    let date = DateInRegion().startOf(component: .day)
                     expect(date.isInToday()) == true
                 }
 
                 it("should report true for today just before next midnight") {
-                    let date = DateInRegion().endOf(.Day)
+                    let date = DateInRegion().endOf(component: .day)
                     expect(date.isInToday()) == true
                 }
 
                 it("should report false for tomorrow at midnight") {
-                    let date = (DateInRegion() + 1.days).startOf(.Day)
+                    let date = (DateInRegion() + 1.days).startOf(component: .day)
                     expect(date.isInToday()) == false
                 }
 
                 it("should report false just before last midnight") {
-                    let date = (DateInRegion() - 1.days).endOf(.Day)
+                    let date = (DateInRegion() - 1.days).endOf(component: .day)
                     expect(date.isInToday()) == false
                 }
 
@@ -368,22 +368,22 @@ class DateInRegionComparisonSpec: QuickSpec {
                 }
 
                 it("should report true for yesterday at midnight") {
-                    let date = (DateInRegion() - 1.days).startOf(.Day)
+                    let date = (DateInRegion() - 1.days).startOf(component: .day)
                     expect(date.isInYesterday()) == true
                 }
 
                 it("should report true for yesterday just before next midnight") {
-                    let date = (DateInRegion() - 1.days).endOf(.Day)
+                    let date = (DateInRegion() - 1.days).endOf(component: .day)
                     expect(date.isInYesterday()) == true
                 }
 
                 it("should report false for today at midnight") {
-                    let date = DateInRegion().startOf(.Day)
+                    let date = DateInRegion().startOf(component: .day)
                     expect(date.isInYesterday()) == false
                 }
 
                 it("should report false just yesterday before last midnight") {
-                    let date = (DateInRegion() - 2.days).endOf(.Day)
+                    let date = (DateInRegion() - 2.days).endOf(component: .day)
                     expect(date.isInYesterday()) == false
                 }
 
@@ -403,22 +403,22 @@ class DateInRegionComparisonSpec: QuickSpec {
                 }
 
                 it("should report true for tomorrow at midnight") {
-                    let date = (DateInRegion() + 1.days).startOf(.Day)
+                    let date = (DateInRegion() + 1.days).startOf(component: .day)
                     expect(date.isInTomorrow()) == true
                 }
 
                 it("should report true for tomorrow just before next midnight") {
-                    let date = (DateInRegion() + 1.days).endOf(.Day)
+                    let date = (DateInRegion() + 1.days).endOf(component: .day)
                     expect(date.isInTomorrow()) == true
                 }
 
                 it("should report false for the day after tomorrow at midnight") {
-                    let date = (DateInRegion() + 2.days).startOf(.Day)
+                    let date = (DateInRegion() + 2.days).startOf(component: .day)
                     expect(date.isInTomorrow()) == false
                 }
 
                 it("should report false just tomorrow before last midnight") {
-                    let date = DateInRegion().endOf(.Day)
+                    let date = DateInRegion().endOf(component: .day)
                     expect(date.isInTomorrow()) == false
                 }
 

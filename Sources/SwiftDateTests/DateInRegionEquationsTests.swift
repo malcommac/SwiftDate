@@ -16,8 +16,8 @@ class DateInRegionEquationsTests: QuickSpec {
 
         describe("DateInRegionEquations") {
 
-            let amsterdam = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
-            let shanghai = Region(calendarName: .Chinese, timeZoneName: .AsiaShanghai, localeName: .ChineseChina)
+            let amsterdam = Region(calendarName: .gregorian, timeZoneName: .europeAmsterdam, localeName: .dutchNetherlands)
+            let shanghai = Region(calendarName: .chinese, timeZoneName: .asiaShanghai, localeName: .chineseChina)
 
             it("should return true for equating a different object with the same properties") {
                 let date1 = DateInRegion(year: 1999, month: 12, day: 31)

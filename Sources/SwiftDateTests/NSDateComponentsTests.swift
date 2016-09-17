@@ -15,17 +15,17 @@ class NSDateComponentsSpec: QuickSpec {
 
     override func spec() {
 
-        describe("NSDateComponents") {
+        describe("DateComponents") {
 
-            var components: NSDateComponents!
-            var date: NSDate!
+            var components: DateComponents!
+            var date: Date!
             beforeEach {
-                components = NSDateComponents()
+                components = DateComponents()
                 components.year = 1
                 components.month = 2
                 components.day = 3
                 components.second = 4
-                date = NSDate(year: 2006, month: 7, day: 19, hour: 13)
+                date = Date(year: 2006, month: 7, day: 19, hour: 13)
             }
 
             context("fromDate") {

@@ -12,29 +12,29 @@ import Quick
 import Nimble
 import SwiftDate
 
-class NSDateIntervalSpec: QuickSpec {
+class DateIntervalSpec: QuickSpec {
 
     override func spec() {
 
-        describe("NSDateInterval") {
+        describe("DateInterval") {
 
             context("initialisation") {
 
                 it("start & end") {
-                    let startDate = NSDate(year: 2012, month: 3, day: 4)
-                    let endDate = NSDate(year: 2012, month: 3, day: 5)
+                    let startDate = Date(year: 2012, month: 3, day: 4)
+                    let endDate = Date(year: 2012, month: 3, day: 5)
 
-                    let dateInterval = NSDateInterval(start: startDate, end: endDate)
+                    let dateInterval = SwiftDate.DateInterval(start: startDate, end: endDate)
                     expect(dateInterval).toNot(beNil())
                     expect(dateInterval.start) == startDate
                     expect(dateInterval.end) == endDate
                 }
 
                 it("interval") {
-                    let startDate = NSDate(year: 2012, month: 3, day: 4)
-                    let interval = NSTimeInterval(24 * 60 * 60)
+                    let startDate = Date(year: 2012, month: 3, day: 4)
+                    let interval = TimeInterval(24 * 60 * 60)
 
-                    let dateInterval = NSDateInterval(start: startDate, interval: interval)
+                    let dateInterval = DateInterval(start: startDate, interval: interval)
                     expect(dateInterval).toNot(beNil())
                     expect(dateInterval.start) == startDate
                     expect(dateInterval.interval) == interval

@@ -19,33 +19,33 @@ class DateregionSpec: QuickSpec {
         describe("Region") {
 
             let region = Region()
-            let india = Region(calendarName: .Indian, timeZoneName: .AsiaKolkata, localeName: .HindiIndia)
-            let jerusalem = Region(calendarName: .Hebrew, timeZoneName: .AsiaJerusalem, localeName: .HebrewIsrael)
+            let india = Region(calendarName: .indian, timeZoneName: .asiaKolkata, localeName: .hindiIndia)
+            let jerusalem = Region(calendarName: .hebrew, timeZoneName: .asiaJerusalem, localeName: .hebrewIsrael)
 
             context("initialisation") {
 
                 it("should have the default time zone & locale in the current calendar") {
-                    expect(region.calendar.calendarIdentifier) == NSCalendar.currentCalendar().calendarIdentifier
-                    expect(region.timeZone.abbreviation) == NSTimeZone.defaultTimeZone().abbreviation
-                    expect(region.locale.localeIdentifier) == NSLocale.currentLocale().localeIdentifier
-                    expect(region.calendar.timeZone.abbreviation) == NSTimeZone.defaultTimeZone().abbreviation
-                    expect(region.calendar.locale?.localeIdentifier) == NSLocale.currentLocale().localeIdentifier
+                    expect(region.calendar.identifier) == Calendar.current.identifier
+                    expect(region.timeZone.abbreviation()) == TimeZone.current.abbreviation()
+                    expect(region.locale.identifier) == Locale.current.identifier
+                    expect(region.calendar.timeZone.abbreviation()) == TimeZone.current.abbreviation()
+                    expect(region.calendar.locale?.identifier) == Locale.current.identifier
                 }
 
                 it("should have the specified calendar") {
-                    expect(jerusalem.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)!
+                    expect(jerusalem.calendar) == Calendar(identifier: Calendar.Identifier.hebrew)
                 }
 
                 it("should have the specified time zone") {
-                    expect(jerusalem.timeZone) == NSTimeZone(name: "Asia/Jerusalem")
+                    expect(jerusalem.timeZone) == TimeZone(identifier: "Asia/Jerusalem")
                 }
 
                 it("should have the specified time zone") {
-                    expect(india.timeZone.name) == TimeZoneName.AsiaKolkata.description
+                    expect(india.timeZone.identifier) == TimeZoneName.asiaKolkata.description
                 }
 
                 it("should have the specified locale") {
-                    expect(jerusalem.locale) == NSLocale(localeIdentifier: "he_IL")
+                    expect(jerusalem.locale) == Locale(identifier: "he_IL")
                 }
             }
 
@@ -88,22 +88,22 @@ class DateregionSpec: QuickSpec {
                 }
 
                 it("should return false when unequal calendars") {
-                    let region1 = Region(calendarName: .Islamic)
-                    let region2 = Region(calendarName: .IslamicCivil)
+                    let region1 = Region(calendarName: .islamic)
+                    let region2 = Region(calendarName: .islamicCivil)
 
                     expect(region1) != region2
                 }
 
                 it("should return false when unequal time zones") {
-                    let region1 = Region(timeZoneName: .AmericaKralendijk)
-                    let region2 = Region(timeZoneName: .AfricaWindhoek)
+                    let region1 = Region(timeZoneName: .americaKralendijk)
+                    let region2 = Region(timeZoneName: .africaWindhoek)
 
                     expect(region1) != region2
                 }
 
                 it("should return false when unequal locales") {
-                    let region1 = Region(localeName: .HausaNiger)
-                    let region2 = Region(localeName: .EnglishFiji)
+                    let region1 = Region(localeName: .hausaNiger)
+                    let region2 = Region(localeName: .englishFiji)
 
                     expect(region1) != region2
                 }

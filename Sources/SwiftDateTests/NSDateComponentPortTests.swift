@@ -16,11 +16,11 @@ class NSDateComponentPortSpec: QuickSpec {
 
     override func spec() {
 
-        describe("NSDateComponentPort") {
+        describe("DateComponentPort") {
 
             context("valueForComponentYMD") {
 
-                let date = NSDate(era: 1, year: 2002, month: 3, day: 4, hour: 5, minute: 6, second: 7, nanosecond: 87654321)
+                let date = Date(era: 1, year: 2002, month: 3, day: 4, hour: 5, minute: 6, second: 7, nanosecond: 87654321)
 
                 it("should report a valid date") {
                     expect(date).toNot(beNil())
@@ -62,7 +62,7 @@ class NSDateComponentPortSpec: QuickSpec {
 
             context("valueForComponentYWD") {
 
-                let date = NSDate(era: 1, yearForWeekOfYear: 2, weekOfYear: 3, weekday: 4)
+                let date = Date(era: 1, yearForWeekOfYear: 2, weekOfYear: 3, weekday: 4)
 
                 it("should report a valid date") {
                     expect(date).toNot(beNil())
@@ -104,7 +104,7 @@ class NSDateComponentPortSpec: QuickSpec {
             
             context("julianDays") {
                 
-                let date = NSDate(era: 1, year: 2016, month: 5, day: 20, hour: 22, minute: 19, second: 7, nanosecond: 87654321)
+                let date = Date(era: 1, year: 2016, month: 5, day: 20, hour: 22, minute: 19, second: 7, nanosecond: 87654321)
 
                 it("should report a valid julian day") {
                     expect(date.julianDay()).to(beCloseTo(2457529.346609, within: 0.000001))
@@ -119,34 +119,34 @@ class NSDateComponentPortSpec: QuickSpec {
             context("component initialisation") {
 
                 it("should return a midnight date YMD initialisation (summer)") {
-                    let date = NSDate(year: 2002, month: 6, day: 23)
+                    let date = Date(year: 2002, month: 6, day: 23)
 
                     expect(date).toNot(beNil())
-                    let calendar = NSCalendar.currentCalendar()
-                    let components = calendar.components([.Year, .Month, .Day], fromDate: date)
+                    let calendar = Calendar.current
+                    let components = calendar.dateComponents([.year, .month, .day], from: date)
                     expect(components.year) == 2002
                     expect(components.month) == 6
                     expect(components.day) == 23
-                    expect(components.hour) == NSDateComponentUndefined
-                    expect(components.minute) == NSDateComponentUndefined
+                    expect(components.hour) == nil
+                    expect(components.minute) == nil
                 }
 
                 it("should return a midnight date YMD initialisation (winter)") {
-                    let date = NSDate(year: 2002, month: 12, day: 23)
+                    let date = Date(year: 2002, month: 12, day: 23)
 
                     expect(date).toNot(beNil())
-                    let calendar = NSCalendar.currentCalendar()
-                    let components = calendar.components([.Year, .Month, .Day], fromDate: date)
+                    let calendar = Calendar.current
+                    let components = calendar.dateComponents([.year, .month, .day], from: date)
                     expect(components.year) == 2002
                     expect(components.month) == 12
                     expect(components.day) == 23
                 }
 
                 it("should return a midnight date with nil YMD initialisation") {
-                    let date = NSDate(year: 1912, month: 6, day: 23)
+                    let date = Date(year: 1912, month: 6, day: 23)
 
-                    let calendar = NSCalendar.currentCalendar()
-                    let components = calendar.components([.Year, .Month, .Day], fromDate: date)
+                    let calendar = Calendar.current
+                    var components = calendar.dateComponents([.year, .month, .day], from: date)
                     expect(components.year) == 1912
                     expect(components.month) == 6
                     expect(components.day) == 23
@@ -154,26 +154,26 @@ class NSDateComponentPortSpec: QuickSpec {
 
 
                 it("should return a midnight date with nil YWD initialisation") {
-                    let newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
-                    let date = NSDate(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, region: newYork)
-                    let components = NSDateComponents()
+                    let newYork = Region(calendarName: .gregorian, timeZoneName: .americaNewYork, localeName: .englishUnitedStates)
+                    let date = Date(yearForWeekOfYear: 1492, weekOfYear: 15, weekday: 4, region: newYork)
+                    var components = DateComponents()
                     components.yearForWeekOfYear = 1492
                     components.weekOfYear = 15
                     components.weekday = 4
                     components.calendar = newYork.calendar
                     components.timeZone = newYork.timeZone
-                    let expectedDate = newYork.calendar.dateFromComponents(components)!
+                    let expectedDate = newYork.calendar.date(from: components)!
 
                     expect(date) == expectedDate
                 }
 
 
                 it("should return a date of 0001-01-01 00:00:00.000 in the default region for component initialisation") {
-                    let components = NSDateComponents()
-                    let date = NSDate(components: components)
+                    let components = DateComponents()
+                    let date = Date(components: components)
 
-                    let calendar = NSCalendar.currentCalendar()
-                    let testComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+                    let calendar = Calendar.current
+                    let testComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
                     expect(testComponents.year) == 1
                     expect(testComponents.month) == 1
                     expect(testComponents.day) == 1
@@ -185,8 +185,8 @@ class NSDateComponentPortSpec: QuickSpec {
 
             context("special components") {
 
-                let date = NSDate(year: 2015, month: 12, day: 16)
-                let newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
+                let date = Date(year: 2015, month: 12, day: 16)
+                let newYork = Region(calendarName: .gregorian, timeZoneName: .americaNewYork, localeName: .englishUnitedStates)
 
                 it("should report the proper first day of the week") {
                     let firstDay = date.firstDayOfWeek(inRegion: newYork)
@@ -202,40 +202,40 @@ class NSDateComponentPortSpec: QuickSpec {
 
             context("component calculations") {
 
-                let undefined = NSDateComponents()
+                let undefined = DateComponents()
                 let zero = 0.days
                 let day1 = 1.days
 
                 it("should return undefined with undefined components") {
-                    expect(sumDateComponents(undefined, rhs: undefined)) == undefined
+                    expect(sumDateComponents(lhs: undefined, rhs: undefined)) == undefined
                 }
 
                 it("should return 1 day with 1 day summed with undefined components") {
-                    expect(sumDateComponents(day1, rhs: undefined)) == day1
+                    expect(sumDateComponents(lhs: day1, rhs: undefined)) == day1
                 }
 
                 it("should return 1 day with undefined components summed with 1 day") {
-                    expect(sumDateComponents(undefined, rhs: day1)) == day1
+                    expect(sumDateComponents(lhs: undefined, rhs: day1)) == day1
                 }
 
                 it("should return zero with zero components") {
-                    expect(sumDateComponents(zero, rhs: zero)) == zero
+                    expect(sumDateComponents(lhs: zero, rhs: zero)) == zero
                 }
 
                 it("should return 1 day with 1 day summed with zero components") {
-                    expect(sumDateComponents(day1, rhs: zero)) == day1
+                    expect(sumDateComponents(lhs: day1, rhs: zero)) == day1
                 }
 
                 it("should return 1 day with zero components summed with 1 day") {
-                    expect(sumDateComponents(zero, rhs: day1)) == day1
+                    expect(sumDateComponents(lhs: zero, rhs: day1)) == day1
                 }
 
                 it("should return 2 days with 1 day components summed") {
-                    expect(sumDateComponents(day1, rhs: day1)) == 2.days
+                    expect(sumDateComponents(lhs: day1, rhs: day1)) == 2.days
                 }
 
                 it("should return zero with 1 day components subtracted") {
-                    expect(sumDateComponents(day1, rhs: day1, sum: false)) == zero
+                    expect(sumDateComponents(lhs: day1, rhs: day1, sum: false)) == zero
                 }
 
                 it("should sum properly with +") {

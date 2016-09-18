@@ -109,7 +109,7 @@ extension DateInRegion {
 			let tzOffsets = (self.timeZone.secondsFromGMT(for: self.absoluteTime) / 3600)
 			return (NSString(format: "/Date(%.0f%+03d00)/", milliseconds,tzOffsets) as String)
 		}
-		
+
 		// Other formatter styles
 		let cachedFormatter = sharedDateFormatter()
 		return cachedFormatter.beginSessionContext { (void) -> (String?) in
@@ -427,7 +427,7 @@ extension Calendar.Component {
         case .timeZone:          return 1 << 17
         }
     }
-    
+
     internal init?(rawValue: UInt) {
         switch rawValue {
         case Calendar.Component.era.rawValue:               self = .era

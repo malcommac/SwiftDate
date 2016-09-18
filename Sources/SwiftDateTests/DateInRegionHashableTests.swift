@@ -14,8 +14,8 @@ class DateInRegionHashableTests: QuickSpec {
 
     override func spec() {
 
-        let netherlands = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
-        let utc = Region(calendarName: .Gregorian, timeZoneName: .Gmt, localeName: .English)
+        let netherlands = Region(calendarName: .gregorian, timeZoneName: .europeAmsterdam, localeName: .dutchNetherlands)
+        let utc = Region(calendarName: .gregorian, timeZoneName: .gmt, localeName: .english)
 
         describe("DateInRegionHashable") {
 
@@ -40,7 +40,7 @@ class DateInRegionHashableTests: QuickSpec {
             }
 
             it("should return an unequal hash for a different time zone value") {
-                let date = NSDate()
+                let date = Date()
                 let date1 = DateInRegion(absoluteTime: date, region: netherlands)
                 let date2 = DateInRegion(absoluteTime: date, region: utc)
 

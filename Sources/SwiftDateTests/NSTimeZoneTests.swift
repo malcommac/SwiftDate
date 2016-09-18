@@ -15,24 +15,24 @@ class NSTimeZoneSpec: QuickSpec {
 
     override func spec() {
 
-        describe("NSTimeZone") {
+        describe("TimeZone") {
 
             context("fromName") {
 
                 it("should return local time zone") {
-                    expect(TimeZoneName.Local.timeZone) == NSTimeZone.localTimeZone()
+                    expect(TimeZoneName.local.timeZone) == NSTimeZone.local
                 }
 
                 it("should return default TimeZone") {
-                    expect(TimeZoneName.Default.timeZone) == NSTimeZone.defaultTimeZone()
+                    expect(TimeZoneName.default.timeZone) == NSTimeZone.default
                 }
 
                 it("should return system TimeZone") {
-                    expect(TimeZoneName.System.timeZone) == NSTimeZone.systemTimeZone()
+                    expect(TimeZoneName.system.timeZone) == NSTimeZone.system
                 }
 
                 it("should return CET TimeZone") {
-                    expect(TimeZoneName.EuropeParis.timeZone) == NSTimeZone(abbreviation: "CET")
+                    expect(TimeZoneName.europeParis.timeZone) == TimeZone(abbreviation: "CET")
                 }
             }
         }

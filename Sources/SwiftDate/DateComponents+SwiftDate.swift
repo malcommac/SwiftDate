@@ -28,6 +28,10 @@ import Foundation
 
 extension DateComponents {
 
+    static var undefined: Int {
+        return Int.max
+    }
+
     /**
      Create a new date from a specific date by adding self components
 
@@ -54,7 +58,7 @@ extension DateComponents {
     public func agoFromDate(_ refDate: Date!, in region: Region = Region.defaultRegion) -> Date {
         var dc = DateComponents()
         for component in DateInRegion.componentFlagSet {
-            if let value = self.value(for: component) {
+            if let value = self.value(for: component), value != DateComponents.undefined {
                 dc.setValue((value * -1), for: component)
             }
         }
@@ -115,10 +119,10 @@ extension DateComponents {
 public func | (lhs: DateComponents, rhs: DateComponents) -> DateComponents {
     var dc = DateComponents()
     for component in DateInRegion.componentFlagSet {
-        if let lhs_value = lhs.value(for: component) {
+        if let lhs_value = lhs.value(for: component), lhs_value != DateComponents.undefined {
             dc.setValue(lhs_value, for: component)
         }
-        if let rhs_value = rhs.value(for: component) {
+        if let rhs_value = rhs.value(for: component), rhs_value != DateComponents.undefined {
             dc.setValue(rhs_value, for: component)
         }
     }
@@ -164,15 +168,14 @@ internal func sumDateComponents(lhs: DateComponents, rhs: DateComponents, sum: B
     var newComponents = DateComponents()
     let components = DateInRegion.componentFlagSet
     for component in components {
-        let leftValue = lhs.value(for: component)
-        let rightValue = rhs.value(for: component)
 
-        guard leftValue != nil || rightValue != nil else {
+        guard let leftValue = lhs.value(for: component),
+            let rightValue = rhs.value(for: component) else {
             continue // both are undefined, don't touch
         }
 
-        let checkedLeftValue = leftValue ?? 0
-        let checkedRightValue = rightValue ?? 0
+        let checkedLeftValue = leftValue != DateComponents.undefined ? leftValue : 0
+        let checkedRightValue = rightValue != DateComponents.undefined ? rightValue : 0
 
         let finalValue =  checkedLeftValue + (sum ? checkedRightValue : -checkedRightValue)
         newComponents.setValue(finalValue, for: component)

@@ -193,10 +193,9 @@ extension String {
         }
         return dateFormatter
     }
-	
+
 	/**
 	Return the value in seconds from a dotNet expressed date object
-	
 	- returns: an NSTimeInterval or nil if string cannot be parsed
 	*/
 	internal func dotNet_secondsFromString() -> TimeInterval? {

@@ -212,7 +212,7 @@ extension DateInRegion {
 			return value
 		}!
     }
-	
+
 	/// Short month name of the date expressed in this region's timezone using region's locale
 	public var shortMonthName: String {
 		let cachedFormatter = sharedDateFormatter()
@@ -259,29 +259,29 @@ extension DateInRegion {
         // For other calendars:
         return calendar.dateComponents([.day, .month, .year], from: absoluteTime).isLeapMonth!
     }
-    
+
     /// The julian day corresponding to the current civil date. Note that it is often called Julian Date.
     /// But we prefer Jean Meeus reference textboox where he explains the julian day isn't a Date, but rather a Day.
-    /// The formula can be found in http://scienceworld.wolfram.com/astronomy/JulianDate.html 
+    /// The formula can be found in http://scienceworld.wolfram.com/astronomy/JulianDate.html
     /// It is valid between 1901 and 2099.
     ///
     /// - Returns the Julian Day of the date.
     ///
     public func julianDay() -> Double {
         let utc = self.inRegion(region: DateRegion(calendarName: .gregorian, timeZoneName: .gmt, localeName: .english))
-        
+
         let year = Double(utc.year)
         let month = Double(utc.month)
         let day = Double(utc.day)
         let hour = Double(utc.hour) + Double(utc.minute)/60.0 + (Double(utc.second)+Double(utc.nanosecond)/1e9)/3600.0
-        
+
         var jd = 367.0*year - floor( 7.0*( year+floor((month+9.0)/12.0))/4.0 )
         jd -= floor( 3.0*(floor( (year+(month-9.0)/7.0)/100.0 ) + 1.0)/4.0 )
         jd += floor(275.0*month/9.0) + day + 1721028.5 + hour/24.0
-        
+
         return jd
     }
-    
+
     /// Most popular variant of JD.
     ///
     /// - Returns the Modified Julain Day of the date.

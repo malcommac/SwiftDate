@@ -1,5 +1,5 @@
 //
-//  SwiftDateCalendarTests.swift
+//  NSCalendarTests.swift
 //  SwiftDate
 //
 //  Created by Jeroen Houtzager on 22/02/16.
@@ -15,96 +15,96 @@ class NSCalendarSpec: QuickSpec {
 
     override func spec() {
 
-        describe("NSCalendar") {
+        describe("Calendar") {
 
-            let gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-            let date = NSDate(year: 2016, month: 2, day: 3)
+            let gregorian = Calendar(identifier: Calendar.Identifier.gregorian)
+            let date = Date(year: 2016, month: 2, day: 3)
 
             context("rangeOfUnit") {
 
                 it("day") {
-                    let interval = gregorian.rangeOfUnit(.Day, forDate: date)
+                    let interval = gregorian.range(of: .day, for: date)
                     expect(interval).toNot(beNil())
-                    expect(interval!.start) == NSDate(year: 2016, month: 2, day: 3)
-                    expect(interval!.end) == NSDate(year: 2016, month: 2, day: 4)
+                    expect(interval!.start) == Date(year: 2016, month: 2, day: 3)
+                    expect(interval!.end) == Date(year: 2016, month: 2, day: 4)
                 }
 
                 it("month") {
-                    let interval = gregorian.rangeOfUnit(.Month, forDate: date)
+                    let interval = gregorian.range(of: .month, for: date)
                     expect(interval).toNot(beNil())
-                    expect(interval!.start) == NSDate(year: 2016, month: 2, day: 1)
-                    expect(interval!.end) == NSDate(year: 2016, month: 3, day: 1)
+                    expect(interval!.start) == Date(year: 2016, month: 2, day: 1)
+                    expect(interval!.end) == Date(year: 2016, month: 3, day: 1)
                 }
             }
 
             context("fromType") {
 
                 it("should return a Gregorian calendar") {
-                    expect(CalendarName.Gregorian.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+                    expect(CalendarName.gregorian.calendar) == Calendar(identifier: Calendar.Identifier.gregorian)
                 }
 
                 it("should return a Coptic calendar") {
-                    expect(CalendarName.Coptic.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierCoptic)
+                    expect(CalendarName.coptic.calendar) == Calendar(identifier: Calendar.Identifier.coptic)
                 }
 
                 it("should return a Islamic calendar") {
-                    expect(CalendarName.Islamic.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamic)
+                    expect(CalendarName.islamic.calendar) == Calendar(identifier: Calendar.Identifier.islamic)
                 }
 
                 it("should return a Islamic calendar") {
-                    expect(CalendarName.IslamicCivil.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamicCivil)
+                    expect(CalendarName.islamicCivil.calendar) == Calendar(identifier: Calendar.Identifier.islamicCivil)
                 }
 
                 it("should return a Islamic calendar") {
-                    expect(CalendarName.IslamicTabular.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamicTabular)
+                    expect(CalendarName.islamicTabular.calendar) == Calendar(identifier: Calendar.Identifier.islamicTabular)
                 }
 
                 it("should return a Islamic calendar") {
-                    expect(CalendarName.IslamicUmmAlQura.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierIslamicUmmAlQura)
+                    expect(CalendarName.islamicUmmAlQura.calendar) == Calendar(identifier: Calendar.Identifier.islamicUmmAlQura)
                 }
 
                 it("should return a Buddhist calendar") {
-                    expect(CalendarName.Buddhist.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierBuddhist)
+                    expect(CalendarName.buddhist.calendar) == Calendar(identifier: Calendar.Identifier.buddhist)
                 }
 
                 it("should return a Ethiopian calendar") {
-                    expect(CalendarName.EthiopicAmeteAlem.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierEthiopicAmeteAlem)
+                    expect(CalendarName.ethiopicAmeteAlem.calendar) == Calendar(identifier: Calendar.Identifier.ethiopicAmeteAlem)
                 }
 
                 it("should return a Ethiopian calendar") {
-                    expect(CalendarName.EthiopicAmeteMihret.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierEthiopicAmeteMihret)
+                    expect(CalendarName.ethiopicAmeteMihret.calendar) == Calendar(identifier: Calendar.Identifier.ethiopicAmeteMihret)
                 }
 
                 it("should return a Hebrew calendar") {
-                    expect(CalendarName.Hebrew.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierHebrew)
+                    expect(CalendarName.hebrew.calendar) == Calendar(identifier: Calendar.Identifier.hebrew)
                 }
 
                 it("should return a ISO8601 calendar") {
-                    expect(CalendarName.ISO8601.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierISO8601)
+                    expect(CalendarName.iso8601.calendar) == Calendar(identifier: Calendar.Identifier.iso8601)
                 }
 
                 it("should return an Indian calendar") {
-                    expect(CalendarName.Indian.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierIndian)
+                    expect(CalendarName.indian.calendar) == Calendar(identifier: Calendar.Identifier.indian)
                 }
 
                 it("should return a Japanese calendar") {
-                    expect(CalendarName.Japanese.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierJapanese)
+                    expect(CalendarName.japanese.calendar) == Calendar(identifier: Calendar.Identifier.japanese)
                 }
 
                 it("should return a Persian calendar") {
-                    expect(CalendarName.Persian.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierPersian)
+                    expect(CalendarName.persian.calendar) == Calendar(identifier: Calendar.Identifier.persian)
                 }
 
                 it("should return a current calendar") {
-                    expect(CalendarName.Current.calendar) == NSCalendar.currentCalendar()
+                    expect(CalendarName.current.calendar) == Calendar.current
                 }
 
                 it("should return an autoupdating current calendar") {
-                    expect(CalendarName.AutoUpdatingCurrent.calendar) == NSCalendar.autoupdatingCurrentCalendar()
+                    expect(CalendarName.autoUpdatingCurrent.calendar) == Calendar.autoupdatingCurrent
                 }
 
                 it("should return a chinese calendar") {
-                    expect(CalendarName.RepublicOfChina.calendar) == NSCalendar(calendarIdentifier: NSCalendarIdentifierRepublicOfChina)
+                    expect(CalendarName.republicOfChina.calendar) == Calendar(identifier: Calendar.Identifier.republicOfChina)
                 }
             }
         }

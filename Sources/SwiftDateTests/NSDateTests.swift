@@ -16,57 +16,57 @@ class NSDateSpec: QuickSpec {
 
     override func spec() {
 
-        describe("NSDate extension") {
+        describe("Date extension") {
 
-            var date: NSDate!
+            var date: Date!
             var newYork: Region!
             var amsterdam: Region!
             var rome: Region!
             beforeEach {
-                date = NSDate(year: 2001, month: 2, day: 3, region: amsterdam)
-                newYork = Region(calendarName: .Gregorian, timeZoneName: .AmericaNewYork, localeName: .EnglishUnitedStates)
-                amsterdam = Region(calendarName: .Gregorian, timeZoneName: .EuropeAmsterdam, localeName: .DutchNetherlands)
-                rome = Region(calendarName: .Gregorian, timeZoneName: .EuropeRome, localeName: .ItalianItaly)
+                date = Date(year: 2001, month: 2, day: 3, region: amsterdam)
+                newYork = Region(calendarName: .gregorian, timeZoneName: .americaNewYork, localeName: .englishUnitedStates)
+                amsterdam = Region(calendarName: .gregorian, timeZoneName: .europeAmsterdam, localeName: .dutchNetherlands)
+                rome = Region(calendarName: .gregorian, timeZoneName: .europeRome, localeName: .italianItaly)
             }
 
             context("initialisation") {
 
-                let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-                let timeZone = NSTimeZone(abbreviation: "CET")
+                let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+                let timeZone = TimeZone(abbreviation: "CET")
 
                 it("should return the specified YMD date in the default region") {
-                    let date = NSDate(year: 2012, month: 3, day: 4)
+                    let date = Date(year: 2012, month: 3, day: 4)
 
-                    let calendar = NSCalendar.currentCalendar()
-                    let components = NSDateComponents()
+                    let calendar = Calendar.current
+                    var components = DateComponents()
                     components.year = 2012
                     components.month = 3
                     components.day = 4
                     components.calendar = calendar
-                    components.timeZone = NSTimeZone.defaultTimeZone()
-                    let expectedDate = calendar.dateFromComponents(components)
+                    components.timeZone = NSTimeZone.default
+                    let expectedDate = calendar.date(from: components)
 
                     expect(date) == expectedDate
                 }
 
                 it("should return the specified YWD date in the specified region") {
-                    let date = NSDate(yearForWeekOfYear: 2012, weekOfYear: 3, weekday: 4, region: newYork)
+                    let date = Date(yearForWeekOfYear: 2012, weekOfYear: 3, weekday: 4, region: newYork)
 
-                    let components = NSDateComponents()
+                    var components = DateComponents()
                     components.yearForWeekOfYear = 2012
                     components.weekOfYear = 3
                     components.weekday = 4
                     components.calendar = newYork.calendar
                     components.timeZone = newYork.timeZone
-                    let expectedDate = calendar.dateFromComponents(components)
+                    let expectedDate = calendar.date(from: components as DateComponents)
 
                     expect(date) == expectedDate
                 }
 
                 it("should return the specified time in the specified region") {
-                    let date = NSDate(year: 2015, month: 12, day: 25, hour: 13, minute: 14, second: 15, region: rome)
+                    let date = Date(year: 2015, month: 12, day: 25, hour: 13, minute: 14, second: 15, region: rome)
 
-                    let components = NSDateComponents()
+                    var components = DateComponents()
                     components.year = 2015
                     components.month = 12
                     components.day = 25
@@ -75,24 +75,23 @@ class NSDateSpec: QuickSpec {
                     components.second = 15
                     components.calendar = rome.calendar
                     components.timeZone = rome.timeZone
-                    let expectedDate = calendar.dateFromComponents(components)
+                    let expectedDate = calendar.date(from: components as DateComponents)
 
                     expect(date) == expectedDate
                 }
 
                 it("should return the specified time in the specified region with a fromDate") {
-                    let date0 = NSDate(year: 2015, month: 12, day: 25, region: rome)
-                    let date1 = NSDate(fromDate: date0)
+                    let date0 = Date(year: 2015, month: 12, day: 25, region: rome)
+                    let date1 = Date(fromDate: date0)
 
                     expect(date1) == date0
                 }
 
-
                 it("should return the specified time in the specified region with a fromDate") {
-                    let date0 = NSDate(year: 2015, month: 12, day: 25, region: rome)
-                    let date1 = NSDate(fromDate: date0, hour: 13, minute: 14, second: 15, region: amsterdam)
+                    let date0 = Date(year: 2015, month: 12, day: 25, region: rome)
+                    let date1 = Date(fromDate: date0, hour: 13, minute: 14, second: 15, region: amsterdam)
 
-                    let components = calendar.components([.Year, .Month, .Day], fromDate: date1)
+                    var components = calendar.dateComponents([.year, .month, .day], from: date1)
                     components.year = 2015
                     components.month = 12
                     components.day = 25
@@ -101,39 +100,39 @@ class NSDateSpec: QuickSpec {
                     components.second = 15
                     components.calendar = amsterdam.calendar
                     components.timeZone = amsterdam.timeZone
-                    let expectedDate = calendar.dateFromComponents(components)
+                    let expectedDate = calendar.date(from: components)
 
                     expect(date1) == expectedDate
                 }
 
 
                 it("should return the specified time in the specified region with a refDate") {
-                    let date0 = NSDate(year: 2015, month: 12, day: 25, region: rome)
-                    let date = NSDate(refDate: date0)
+                    let date0 = Date(year: 2015, month: 12, day: 25, region: rome)
+                    let date = Date(refDate: date0)
 
                     expect(date) == date0
                 }
 
                 it("should return the specified time with a componect dictionary") {
-                    let date = NSDate(dateComponentDictionary: [.Year: 2015, .Month: 2, .Day: 3])
+                    let date = Date(dateComponentDictionary: [.year: 2015, .month: 2, .day: 3])
 
-                    let expectedDate = NSDate(year: 2015, month: 2, day: 3)
+                    let expectedDate = Date(year: 2015, month: 2, day: 3)
 
                     expect(date) == expectedDate
                 }
 
                 it("should return the specified time in the specified region with components") {
-                    let components = NSDateComponents()
+                    var components = DateComponents()
                     components.year = 2012
                     components.month = 3
                     components.day = 4
                     components.hour = 13
                     components.minute = 14
                     components.second = 15
-                    components.calendar = calendar
-                    components.timeZone = timeZone
-                    let date = NSDate(components: components)
-                    let expectedDate = calendar.dateFromComponents(components)
+                    components.calendar = calendar as Calendar
+                    components.timeZone = timeZone as TimeZone?
+                    let date = Date(components: components)
+                    let expectedDate = calendar.date(from: components as DateComponents)
 
                     expect(date) == expectedDate
                 }
@@ -143,7 +142,7 @@ class NSDateSpec: QuickSpec {
             context("Region") {
 
                 it("Should convert to the right region") {
-                    let date = NSDate()
+                    let date = Date()
 
                     let newYorkDate = date.inRegion(newYork)
 
@@ -155,7 +154,7 @@ class NSDateSpec: QuickSpec {
 
             context("period comparisons") {
 
-                let date = NSDate(year: 2015, month: 12, day: 16, region: newYork)
+                let date = Date(year: 2015, month: 12, day: 16, region: newYork)
 
                 it("should report the proper first day of the week") {
                     let firstDay = date.firstDayOfWeek(inRegion: newYork)!
@@ -171,77 +170,77 @@ class NSDateSpec: QuickSpec {
 
             context("isIn") {
 
-                let date = NSDate(year: 2015, month: 12, day: 14, hour: 13, region: amsterdam)
+                let date = Date(year: 2015, month: 12, day: 14, hour: 13, region: amsterdam)
 
                 it("should report proper results for year granularity unit") {
                     let date1 = date - 1.years
                     let date2 = date - 1.months
                     let date3 = date + 1.years
-                    let unit = NSCalendarUnit.Year
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.year
+                    expect(date.isIn(component: unit, ofDate: date1)) == false
+                    expect(date.isIn(component: unit, ofDate: date2)) == true
+                    expect(date.isIn(component: unit, ofDate: date3)) == false
                 }
 
                 it("should report proper results for month granularity unit") {
                     let date1 = date - 1.months
                     let date2 = date + 1.weeks
                     let date3 = date + 1.months
-                    let unit = NSCalendarUnit.Month
-                    expect(date.isIn(unit, ofDate: date1)) == false
-                    expect(date.isIn(unit, ofDate: date2)) == true
-                    expect(date.isIn(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.month
+                    expect(date.isIn(component: unit, ofDate: date1)) == false
+                    expect(date.isIn(component: unit, ofDate: date2)) == true
+                    expect(date.isIn(component: unit, ofDate: date3)) == false
                 }
 
             }
 
             context("isBefore") {
 
-                let date = NSDate(year: 2015, month: 12, day: 14, hour: 13, region: amsterdam)
+                let date = Date(year: 2015, month: 12, day: 14, hour: 13, region: amsterdam)
 
                 it("should report proper results for minute granularity unit") {
                     let date1 = date - 1.minutes
                     let date2 = date + 1.seconds
                     let date3 = date + 1.minutes
-                    let unit = NSCalendarUnit.Minute
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.minute
+                    expect(date.isBefore(component: unit, ofDate: date1)) == false
+                    expect(date.isBefore(component: unit, ofDate: date2)) == false
+                    expect(date.isBefore(component: unit, ofDate: date3)) == true
                 }
 
                 it("should report proper results for second granularity unit") {
                     let date1 = date - 1.seconds
                     let date2 = date + 100000.nanoseconds
                     let date3 = date + 1.seconds
-                    let unit = NSCalendarUnit.Second
-                    expect(date.isBefore(unit, ofDate: date1)) == false
-                    expect(date.isBefore(unit, ofDate: date2)) == false
-                    expect(date.isBefore(unit, ofDate: date3)) == true
+                    let unit = Calendar.Component.second
+                    expect(date.isBefore(component: unit, ofDate: date1)) == false
+                    expect(date.isBefore(component: unit, ofDate: date2)) == false
+                    expect(date.isBefore(component: unit, ofDate: date3)) == true
                 }
             }
 
             context("isAfter") {
 
-                let date = NSDate(year: 2015, month: 12, day: 14, hour: 13, region: amsterdam)
+                let date = Date(year: 2015, month: 12, day: 14, hour: 13, region: amsterdam)
 
                 it("should report proper results for week granularity unit") {
                     let date1 = date - 1.weeks
                     let date2 = date + 1.days
                     let date3 = date + 1.weeks
-                    let unit = NSCalendarUnit.WeekOfYear
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.weekOfYear
+                    expect(date.isAfter(component: unit, ofDate: date1)) == true
+                    expect(date.isAfter(component: unit, ofDate: date2)) == false
+                    expect(date.isAfter(component: unit, ofDate: date3)) == false
                 }
 
                 it("should report proper results for hour granularity unit") {
                     let date1 = date - 1.hours
                     let date2 = date + 1.minutes
                     let date3 = date + 1.hours
-                    let unit = NSCalendarUnit.Hour
-                    expect(date.isAfter(unit, ofDate: date1)) == true
-                    expect(date.isAfter(unit, ofDate: date2)) == false
-                    expect(date.isAfter(unit, ofDate: date3)) == false
+                    let unit = Calendar.Component.hour
+                    expect(date.isAfter(component: unit, ofDate: date1)) == true
+                    expect(date.isAfter(component: unit, ofDate: date2)) == false
+                    expect(date.isAfter(component: unit, ofDate: date3)) == false
                 }
 
             }
@@ -253,12 +252,12 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should report proper leap months") {
-                    let date = NSDate(year: 2004, month: 2, day: 2)
+                    let date = Date(year: 2004, month: 2, day: 2)
                     expect(date.isInLeapMonth()) == true
                 }
 
                 it("should report proper leap year") {
-                    let date = NSDate(year: 2004, month: 2, day: 2)
+                    let date = Date(year: 2004, month: 2, day: 2)
                     expect(date.isInLeapYear()) == true
                 }
 
@@ -270,7 +269,7 @@ class NSDateSpec: QuickSpec {
 
             context("Comparisons") {
 
-                var date1: NSDate!
+                var date1: Date!
                 beforeEach {
                     date1 = date + 1.days
                 }
@@ -306,37 +305,37 @@ class NSDateSpec: QuickSpec {
                 // Note: these tests are not exhaustive as they are pretty thoroughly tested in DateInRegionComparisonTests
 
                 it("should report true for isInToday with today's date") {
-                    expect(NSDate().isInToday()) == true
+                    expect(Date().isInToday()) == true
                 }
 
                 it("should report false for isInToday with yesterday's date") {
-                    expect((NSDate() - 1.days).isInToday()) == false
+                    expect((Date() - 1.days).isInToday()) == false
                 }
 
                 it("should report true for isInYesterday with yesterday's date") {
-                    expect((NSDate() - 1.days).isInYesterday()) == true
+                    expect((Date() - 1.days).isInYesterday()) == true
                 }
 
                 it("should report false for isInYesterday with today's date") {
-                    expect(NSDate().isInYesterday()) == false
+                    expect(Date().isInYesterday()) == false
                 }
 
                 it("should report true for isInTomorrow with tomorrows date") {
-                    expect((NSDate() + 1.days).isInTomorrow()) == true
+                    expect((Date() + 1.days).isInTomorrow()) == true
                 }
 
                 it("should report false for isInTomorrow with today's date") {
-                    expect(NSDate().isInTomorrow()) == false
+                    expect(Date().isInTomorrow()) == false
                 }
 
                 it("should report true for isSameDaysAsDate with the same day") {
-                    let day = NSDate()
-                    expect(day.isInSameDayAsDate(day)) == true
+                    let day = Date()
+                    expect(day.isInSameDayAsDate(date: day)) == true
                 }
 
                 it("should report today") {
-                    let day = NSDate.today()
-                    let now = NSDate()
+                    let day = Date.today()
+                    let now = Date()
 
                     expect(day.year) == now.year
                     expect(day.month) == now.month
@@ -348,8 +347,8 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should report yesterday") {
-                    let day = NSDate.yesterday()
-                    let now = NSDate() - 1.days
+                    let day = Date.yesterday()
+                    let now = Date() - 1.days
 
                     expect(day.year) == now.year
                     expect(day.month) == now.month
@@ -361,8 +360,8 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should report tomorrow") {
-                    let day = NSDate.tomorrow()
-                    let now = NSDate() + 1.days
+                    let day = Date.tomorrow()
+                    let now = Date() + 1.days
 
                     expect(day.year) == now.year
                     expect(day.month) == now.month
@@ -374,33 +373,33 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should report false for isWeekend with a weekday") {
-                    let day = NSDate(year: 2015, month: 12, day: 15, region: amsterdam)
+                    let day = Date(year: 2015, month: 12, day: 15, region: amsterdam)
                     expect(day.isInWeekend(inRegion: amsterdam)) == false
                 }
 
                 it("should report true for isWeekend with a saturday") {
-                    let day = NSDate(year: 2015, month: 12, day: 5, region: amsterdam)
+                    let day = Date(year: 2015, month: 12, day: 5, region: amsterdam)
                     expect(day.isInWeekend(inRegion: amsterdam)) == true
                 }
 
                 it("should report proper startOf without region") {
-                    let day = NSDate()
-                    expect(day.startOf(.Day)) == NSDate.today()
+                    let day = Date()
+                    expect(day.startOf(component: .day)) == Date.today()
                 }
 
                 it("should report proper endOf without region") {
-                    let day = NSDate()
-                    expect(day.endOf(.Day).timeIntervalSinceReferenceDate).to(beCloseTo(NSDate.tomorrow().timeIntervalSinceReferenceDate, within: 1))
+                    let day = Date()
+                    expect(day.endOf(component: .day).timeIntervalSinceReferenceDate).to(beCloseTo(Date.tomorrow().timeIntervalSinceReferenceDate, within: 1))
                 }
 
                 it("should report proper startOf") {
-                    let day = NSDate(year: 2015, month: 12, day: 5, region: amsterdam)
-                    expect(day.startOf(.Month, inRegion: amsterdam)) == NSDate(year: 2015, month: 12, day: 1, region: amsterdam)
+                    let day = Date(year: 2015, month: 12, day: 5, region: amsterdam)
+                    expect(day.startOf(component: .month, in: amsterdam)) == Date(year: 2015, month: 12, day: 1, region: amsterdam)
                 }
 
                 it("should report proper endOf") {
-                    let day = NSDate(year: 2015, month: 12, day: 5, region: amsterdam)
-                    expect(day.endOf(.Month, inRegion: amsterdam)) == NSDate(year: 2016, month: 1, day: 1, region: amsterdam) - 1000000.nanoseconds
+                    let day = Date(year: 2015, month: 12, day: 5, region: amsterdam)
+                    expect(day.endOf(component: .month, in: amsterdam)) == Date(year: 2016, month: 1, day: 1, region: amsterdam) - 1000000.nanoseconds
                 }
 
                 it("should report true for isInPast with a date in the past") {
@@ -423,14 +422,14 @@ class NSDateSpec: QuickSpec {
 
             context("Calculations") {
 
-                let date = NSDate(year: 2001, month: 2, day: 3)
+                let date = Date(year: 2001, month: 2, day: 3)
 
                 it("should add zero") {
                     expect(date.add()) == date
                 }
 
                 it("should add one day") {
-                    expect(date.add(1.days)) == NSDate(year: 2001, month: 2, day: 4)
+                    expect(date.add(components: 1.days)) == Date(year: 2001, month: 2, day: 4)
                 }
 
                 it("should get components") {
@@ -442,15 +441,15 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should calculate difference with the same date and no flags") {
-                    let date2 = NSDate(fromDate: date)
-                    let difference = date.difference(date2, unitFlags: [])
+                    let date2 = Date(fromDate: date)
+                    let difference = date.difference(to: date2, componentFlags: [])
 
-                    expect(difference) == NSDateComponents()
+                    expect(difference) == DateComponents()
                 }
 
                 it("should calculate difference with the same date and flags") {
-                    let date2 = NSDate(fromDate: date)
-                    let difference = date.difference(date2, unitFlags: [.Day, .Month, .Year])
+                    let date2 = Date(fromDate: date)
+                    let difference = date.difference(to: date2, componentFlags: [.day, .month, .year])
 
                     expect(difference) == 0.days + 0.months + 0.years
                 }
@@ -464,51 +463,51 @@ class NSDateSpec: QuickSpec {
                 }
 
                 it("should return toString with custom format") {
-                    expect(date.toString(.Custom("dd-MMM-yy"), inRegion: amsterdam)) == "03-feb.-01"
+                    expect(date.toString(format: .custom("dd-MMM-yy"), in: amsterdam)) == "03-feb.-01"
                 }
 
                 it("should return toString with ISO8601 year format") {
-                    expect(date.toString(.ISO8601Format(.Year), inRegion: amsterdam)) == "2001"
+                    expect(date.toString(format: .iso8601Format(.year), in: amsterdam)) == "2001"
                 }
 
                 it("should return toString with ISO8601 year month format") {
-                    expect(date.toString(.ISO8601Format(.YearMonth), inRegion: amsterdam)) == "2001-02"
+                    expect(date.toString(format: .iso8601Format(.yearMonth), in: amsterdam)) == "2001-02"
                 }
 
                 it("should return toString with ISO8601 date format") {
-                    expect(date.toString(.ISO8601Format(.Date), inRegion: amsterdam)) == "2001-02-03"
+                    expect(date.toString(format: .iso8601Format(.date), in: amsterdam)) == "2001-02-03"
                 }
 				
 				it("should return proper ISO 8601 (hour minute) string") {
-					expect(utcDate.toString(DateFormat.ISO8601Format(.HourMinute))) == "22:10"
+					expect(date.toString(format: DateFormat.iso8601Format(.hourMinute))) == "22:10"
 				}
 				
 				it("should return proper ISO 8601 (time) string") {
-					expect(utcDate.toString(DateFormat.ISO8601Format(.Time))) == "22:10:00"
+					expect(date.toString(format: DateFormat.iso8601Format(.time))) == "22:10:00"
 				}
 
                 it("should return toString with ISO8601 date time format") {
-                    expect(date.toString(.ISO8601Format(.DateTime), inRegion: amsterdam)) == "2001-02-03T00:00+01:00"
+                    expect(date.toString(format: .iso8601Format(.dateTime), in: amsterdam)) == "2001-02-03T00:00+01:00"
                 }
 
                 it("should return toString with full ISO8601 format") {
-                    expect(date.toString(.ISO8601Format(.Full), inRegion: amsterdam)) == "2001-02-03T00:00:00+01:00"
+                    expect(date.toString(format: .iso8601Format(.full), in: amsterdam)) == "2001-02-03T00:00:00+01:00"
                 }
 
                 it("should return toString with extended ISO8601 format") {
-                    expect(date.toString(.ISO8601Format(.Extended), inRegion: amsterdam)) == "2001-02-03T00:00:00.000+01:00"
+                    expect(date.toString(format: .iso8601Format(.extended), in: amsterdam)) == "2001-02-03T00:00:00.000+01:00"
                 }
 
                 it("should return toString with RSS format") {
-                    expect(date.toString(.RSS, inRegion: amsterdam)) == "za, 3 feb. 2001 00:00:00 +0100"
+                    expect(date.toString(format: .rss, in: amsterdam)) == "za, 3 feb. 2001 00:00:00 +0100"
                 }
 
-                it("should return toString with AltRSS format") {
-                    expect(date.toString(.AltRSS, inRegion: amsterdam)) == "3 feb. 2001 00:00:00 +0100"
+                it("should return toString with altRSS format") {
+                    expect(date.toString(format: .altRSS, in: amsterdam)) == "3 feb. 2001 00:00:00 +0100"
                 }
 
                 it("should return toString with extended format") {
-                    expect(date.toString(.Extended, inRegion: amsterdam)) == "za 03-feb.-2001 n.Chr. 00:00:00.000 +0100"
+                    expect(date.toString(format: .extended, in: amsterdam)) == "za 03-feb.-2001 n.Chr. 00:00:00.000 +0100"
                 }
 
             }
@@ -538,7 +537,7 @@ class NSDateSpec: QuickSpec {
 
             context("region") {
 
-                let date = NSDate(year: 2001, month: 2, day: 3)
+                let date = Date(year: 2001, month: 2, day: 3)
 
                 it("should get default region") {
 

@@ -82,21 +82,21 @@ extension Date {
 
             self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
     }
-    
+
     public init(
         fromJulianDay: Double, region: Region? = nil) {
-        
+
             let dateInRegion = DateInRegion(fromJulianDay: fromJulianDay, region: region)
             self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
     }
 
     public init(
         fromModifiedJulianDay: Double, region: Region? = nil) {
-        
+
         let dateInRegion = DateInRegion(fromModifiedJulianDay: fromModifiedJulianDay, region: region)
         self.init(timeIntervalSinceReferenceDate: dateInRegion.timeIntervalSinceReferenceDate)
     }
-    
+
     public init(components: DateComponents) {
         let dateInRegion = DateInRegion(components)
         let absoluteTime = dateInRegion.absoluteTime
@@ -385,7 +385,7 @@ extension Date {
     public var monthName: String {
         return self.inRegion().monthName
     }
-	
+
 	/// Get the short month name component of the date in current region (use inRegion(...).shortMonthName to
 	/// get the month's short name component in specified time zone)
 	public var shortMonthName: String {
@@ -471,9 +471,9 @@ extension Date {
     public var era: Int {
         return self.inRegion().era
     }
-    
+
     /// Compute the julian day corresponding to the curren date. The julian day and its modified
-    /// version below are used as linear time stamps in astronomy. 
+    /// version below are used as linear time stamps in astronomy.
     public func julianDay() -> Double {
         return self.inRegion().julianDay()
     }

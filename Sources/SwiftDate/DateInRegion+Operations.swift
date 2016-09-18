@@ -57,7 +57,7 @@ extension DateInRegion {
             minute: minutes,
             second: seconds,
             nanosecond: nanosecond,
-            weekOfYear: weekOfYear)
+            weekOfYear: weeks)
 
         let newDate = self.add(components)
         return newDate
@@ -65,9 +65,9 @@ extension DateInRegion {
 
 	/**
 	Add components to an existing date in region instance
-	
+
 	- parameter components: components to add
-	
+
 	- returns: return a new DateInRegion
 	*/
     public func add(_ components: DateComponents) -> DateInRegion {
@@ -129,7 +129,9 @@ public prefix func - (dateComponents: DateComponents) -> DateComponents {
     var result = DateComponents()
     for component in DateInRegion.componentFlagSet {
         if let value = dateComponents.value(for: component) {
-            result.setValue(-value, for: component)
+            if value != DateComponents.undefined {
+                result.setValue(-value, for: component)
+            }
         }
     }
     return result

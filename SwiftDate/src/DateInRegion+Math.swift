@@ -21,8 +21,13 @@ extension DateComponents {
 
 extension DateInRegion {
 	
-	internal static func componentsFrom(values: [Calendar.Component : Int], multipler: Int? = nil) -> DateComponents {
+	internal static func componentsFrom(values: [Calendar.Component : Int], multipler: Int? = nil, setRegion region: Region? = nil) -> DateComponents {
 		var cmps = DateComponents()
+		if region != nil {
+			cmps.calendar = region!.calendar
+			cmps.calendar!.locale = region!.locale
+			cmps.timeZone = region!.timeZone
+		}
 		values.forEach { key,value in
 			if key != .timeZone && key != .calendar {
 				cmps.setValue( (multipler == nil ? value : value * multipler!), for: key)

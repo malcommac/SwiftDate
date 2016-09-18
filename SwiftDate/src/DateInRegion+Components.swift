@@ -14,8 +14,9 @@ extension DateInRegion {
 		if cmp == .calendar || cmp == .timeZone {
 			assertionFailure("You can't get the value of the calendar/timezone component")
 		}
-		let component = self.region.calendar.component(cmp, from: self.absoluteDate)
-		return component
+		let components = self.region.calendar.dateComponents([cmp], from: self.absoluteDate)
+		let value = components.value(for: cmp)
+		return value!
 	}
 	
 	public var components: DateComponents {

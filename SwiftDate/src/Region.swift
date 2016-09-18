@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Region {
+public class Region: CustomStringConvertible {
 	private(set) var timeZone: TimeZone
 	private(set) var calendar: Calendar
 	private(set) var locale: Locale
@@ -17,6 +17,7 @@ public class Region {
 		let parser = DateFormatter()
 		parser.timeZone = self.timeZone
 		parser.calendar = self.calendar
+		parser.calendar.timeZone = self.timeZone
 		parser.locale = self.locale
 		return parser
 	}()
@@ -31,19 +32,26 @@ public class Region {
 		let parser = DateIntervalFormatter()
 		parser.timeZone = self.timeZone
 		parser.calendar = self.calendar
+		parser.calendar.timeZone = self.timeZone
 		parser.locale = self.locale
 		return parser
 	}()
 	
+	public var description: String {
+		return "Region with timezone: \(self.timeZone), calendar: \(self.calendar), locale: \(self.locale)"
+	}
+	
 	public init(tz: TimeZone, cal: Calendar, loc: Locale) {
 		self.timeZone = tz
 		self.calendar = cal
+		self.calendar.timeZone = tz
 		self.locale = loc
 	}
 	
 	public init(tz: TimeZones, cal: Calendars, loc: Locales) {
 		self.timeZone = tz.timeZone
 		self.calendar = cal.calendar
+		self.calendar.timeZone = tz.timeZone
 		self.locale = loc.locale
 	}
 	

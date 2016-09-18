@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		
+		let newYork = Region(tz: TimeZones.americaNewYork, cal: Calendars.gregorian, loc: Locales.englishUnitedStates)
+		let amsterdam = Region(tz: TimeZones.europeAmsterdam, cal: Calendars.gregorian, loc: Locales.dutchNetherlands)
+		let utc = Region(tz: TimeZones.gmt, cal: Calendars.gregorian, loc: Locales.english)
+
+		for region in [newYork, amsterdam, utc] {
+			let date = try! DateInRegion(components: [.year: 1912, .month: 6, .day: 23], fromRegion: region)
+			let c = date.hour
+			print("\(date)")
+		}
+		
 		return true
 	}
 

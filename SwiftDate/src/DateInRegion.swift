@@ -52,12 +52,9 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
-	public init(components: [Calendar.Component : Int], fromRegion region: Region?) throws {
+	public init(components: [Calendar.Component : Int], fromRegion region: Region? = nil) throws {
 		let srcRegion = region ?? Region.Local()
-		var cmp = DateInRegion.componentsFrom(values: components)
-		cmp.timeZone = srcRegion.timeZone
-		cmp.calendar = srcRegion.calendar
-		cmp.calendar!.locale = srcRegion.locale
+		let cmp = DateInRegion.componentsFrom(values: components, setRegion: srcRegion)
 		guard let absDate = srcRegion.calendar.date(from: cmp) else {
 			throw DateError.FailedToParse
 		}
@@ -65,7 +62,7 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
-	public init(string: String, format: DateFormat, fromRegion region: Region?) throws {
+	public init(string: String, format: DateFormat, fromRegion region: Region? = nil) throws {
 		let srcRegion = region ?? Region.Local()
 		switch format {
 		case .custom(let format):

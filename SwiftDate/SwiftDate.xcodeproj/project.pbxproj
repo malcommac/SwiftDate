@@ -13,7 +13,6 @@
 		21247DA91D82CDA600A9A6B2 /* Calendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA71D82CCB300A9A6B2 /* Calendars.swift */; };
 		2126CA881D87F62F006BEC94 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA871D87F62F006BEC94 /* Commons.swift */; };
 		2126CA891D88003F006BEC94 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA871D87F62F006BEC94 /* Commons.swift */; };
-		2126CA8B1D880A57006BEC94 /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */; };
 		212838451D8357F200DA70EA /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838441D8357F200DA70EA /* Region.swift */; };
 		212838491D83582300DA70EA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838481D83582300DA70EA /* Extensions.swift */; };
 		2128384B1D83588100DA70EA /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128384A1D83588100DA70EA /* DateInRegion+Components.swift */; };
@@ -411,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2149832B1D8C49E1001E72EC /* TestDateInRegion+Components.swift in Sources */,
-				2126CA8B1D880A57006BEC94 /* TestDateInRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

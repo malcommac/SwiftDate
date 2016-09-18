@@ -127,8 +127,8 @@ class NSDateComponentPortSpec: QuickSpec {
                     expect(components.year) == 2002
                     expect(components.month) == 6
                     expect(components.day) == 23
-                    expect(components.hour) == nil
-                    expect(components.minute) == nil
+                    expect(components.hour).to(beNil())
+                    expect(components.minute).to(beNil())
                 }
 
                 it("should return a midnight date YMD initialisation (winter)") {

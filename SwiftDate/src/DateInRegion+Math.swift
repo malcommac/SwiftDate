@@ -38,50 +38,32 @@ extension DateInRegion {
 	
 }
 
-public func + (lhs: DateInRegion, rhs: DateComponents) throws -> DateInRegion {
-	guard let nextDate = lhs.region.calendar.date(byAdding: rhs, to: lhs.absoluteDate) else {
-		throw DateError.FailedToCalculate
-	}
-	return DateInRegion(absoluteDate: nextDate, in: lhs.region.copy())
+public func + (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
+	let nextDate = lhs.region.calendar.date(byAdding: rhs, to: lhs.absoluteDate)
+	return DateInRegion(absoluteDate: nextDate!, in: lhs.region.copy())
 }
 
-public func - (lhs: DateInRegion, rhs: DateComponents) throws -> DateInRegion {
-	return try lhs + (-rhs)
+public func - (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
+	return lhs + (-rhs)
 }
 
-public func + (lhs: DateInRegion, rhs: DateComponents) throws -> Date {
-	guard let nextDate = lhs.region.calendar.date(byAdding: rhs, to: lhs.absoluteDate) else {
-		throw DateError.FailedToCalculate
-	}
-	return nextDate
-}
-
-public func - (lhs: DateInRegion, rhs: DateComponents) throws -> Date {
-	return try lhs + (-rhs)
-}
-
-public func + (lhs: DateInRegion, rhs: [Calendar.Component : Int]) throws -> Date {
+public func + (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegion {
 	let cmps = DateInRegion.componentsFrom(values: rhs)
-	return try lhs + cmps
+	return lhs + cmps
 }
 
-public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) throws -> Date {
+public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegion {
 	var invertedCmps: [Calendar.Component : Int] = [:]
 	rhs.forEach { invertedCmps[$0] = -$1 }
-	return try lhs + invertedCmps
-}
-
-public func + (lhs: DateInRegion, rhs: [Calendar.Component : Int]) throws -> DateInRegion {
-	let cmps = DateInRegion.componentsFrom(values: rhs)
-	return try lhs + cmps
-}
-
-public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) throws -> DateInRegion {
-	var invertedCmps: [Calendar.Component : Int] = [:]
-	rhs.forEach { invertedCmps[$0] = -$1 }
-	return try lhs + invertedCmps
+	return lhs + invertedCmps
 }
 
 public func - (lhs: DateInRegion, rhs: DateInRegion) -> TimeInterval {
-	return DateInterval(start: lhs.absoluteDate, end: rhs.absoluteDate).duration
+	var interval: TimeInterval = 0
+	if lhs.absoluteDate < rhs.absoluteDate {
+		interval = -(DateInterval(start: lhs.absoluteDate, end: rhs.absoluteDate)).duration
+	} else {
+		interval = (DateInterval(start: rhs.absoluteDate, end: lhs.absoluteDate)).duration
+	}
+	return interval
 }

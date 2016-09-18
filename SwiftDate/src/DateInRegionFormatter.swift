@@ -86,7 +86,7 @@ public class DateInRegionFormatter {
 		for component in componentFlags {
 			let value = cmps.value(for: component)
 			
-			if value != nil && value! < 0 {
+			if value != nil && value != Int(NSDateComponentUndefined) && value! < 0 {
 				intervalIsNegative = true
 			}
 				

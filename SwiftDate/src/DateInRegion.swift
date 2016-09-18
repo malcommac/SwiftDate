@@ -41,6 +41,11 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
+	public init() {
+		self.absoluteDate = Date()
+		self.region = Region.Local()
+	}
+	
 	public init(components: DateComponents) throws {
 		guard let srcRegion = Region(components: components) else {
 			throw DateError.MissingCalTzOrLoc

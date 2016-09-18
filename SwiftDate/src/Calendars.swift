@@ -103,7 +103,7 @@ extension Calendar {
 	typealias CFType = CFCalendar
 	
 	private var cfObject: CFType {
-		return unsafeBitCast(self, to: CFCalendar.self)
+		return unsafeBitCast(self as NSCalendar, to: CFCalendar.self)
 	}
 	
 	

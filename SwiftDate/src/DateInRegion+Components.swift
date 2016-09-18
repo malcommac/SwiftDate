@@ -44,7 +44,7 @@ extension DateInRegion {
 	}
 	
 	public var nearestHour: Int {
-		let date: DateInRegion = try! self + 30.minutes
+		let date: DateInRegion = (self + 30.minutes)
 		return Int(date.hour)
 	}
 	
@@ -145,31 +145,31 @@ extension DateInRegion {
 		guard self.region.calendar.isDateInWeekend(self.absoluteDate) else {
 			return nil
 		}
-		let date: DateInRegion = try! (self - 2.days)
+		let date: DateInRegion = (self - 2.days)
 		return date.nextWeekend
 	}
 	
 	public var nextWeekend: (startDate: DateInRegion, endDate: DateInRegion)? {
-		var wkStart: Date?
+		var wkStart: Date = self.absoluteDate
 		var tInt: TimeInterval = 0
 		let d = self.absoluteDate
 		
 		let calendar = self.region.calendar
-		if !calendar.nextWeekend(startingAfter: d, start: &wkStart!, interval: &tInt) {
+		if calendar.nextWeekend(startingAfter: d, start: &wkStart, interval: &tInt) == false {
 			return nil
 		}
 		
 		// Subtract one thousandth of a second to distinguish from Midnigth
 		// on the next Monday for the isEqualDate function of NSDate
-		let wkEnd = wkStart!.addingTimeInterval(tInt - 0.001)
+		let wkEnd = wkStart.addingTimeInterval(tInt - 0.001)
 		
-		let startDate = DateInRegion(absoluteDate: wkStart!, in: region)
+		let startDate = DateInRegion(absoluteDate: wkStart, in: region)
 		let endDate = DateInRegion(absoluteDate: wkEnd, in: region)
 		return (startDate, endDate)
 	}
 	
 	public var previousWeekend: (startDate: DateInRegion, endDate: DateInRegion)? {
-		let date: DateInRegion = try! (self - 9.days)
+		let date: DateInRegion = (self - 9.days)
 		return date.nextWeekend
 	}
 	
@@ -215,15 +215,15 @@ extension DateInRegion {
 	}
 
 	public var nextMonth: DateInRegion {
-		let startDay = self.region.calendar.startOfDay(for: self.absoluteDate)
-		let nextDate = self.region.calendar.date(byAdding: .month, value: 1, to: startDay)
-		return DateInRegion(absoluteDate: nextDate!, in: self.region.copy())
+		let refDate = self.startOfDay.absoluteDate
+		let nextMonth = self.region.calendar.date(byAdding: .month, value: 1, to: refDate)
+		return DateInRegion(absoluteDate: nextMonth!, in: self.region.copy())
 	}
 	
 	public var prevMonth: DateInRegion {
-		let startDay = self.region.calendar.startOfDay(for: self.absoluteDate)
-		let nextDate = self.region.calendar.date(byAdding: .month, value: -1, to: startDay)
-		return DateInRegion(absoluteDate: nextDate!, in: self.region.copy())
+		let refDate = self.startOfDay.absoluteDate
+		let prevMonth = self.region.calendar.date(byAdding: .month, value: -1, to: refDate)
+		return DateInRegion(absoluteDate: prevMonth!, in: self.region.copy())
 	}
 	
 	public func startOf(component: Calendar.Component) -> DateInRegion {

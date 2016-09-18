@@ -14,8 +14,8 @@ public extension Date {
 		return self.string(format: .custom(formatString))
 	}
 	
-	public func iso8601(options opts: ISO8601DateFormatter.Options) -> String {
-		return self.string(format: .iso8601(options: opts))
+	public func iso8601(opts: ISO8601DateFormatter.Options? = nil) -> String {
+		return self.string(format: .iso8601(options: opts ?? [.withInternetDateTime]))
 	}
 	
 	public func string(format: DateFormat, in region: Region? = nil) -> String {

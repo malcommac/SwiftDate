@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083DBDEB1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */; };
+		083DBDEC1D8F078300F38B5F /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */; };
+		083DBDEE1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */; };
 		21247DA41D82C68D00A9A6B2 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA31D82C68D00A9A6B2 /* TimeZone.swift */; };
 		21247DA61D82C8F800A9A6B2 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA31D82C68D00A9A6B2 /* TimeZone.swift */; };
 		21247DA81D82CCB300A9A6B2 /* Calendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA71D82CCB300A9A6B2 /* Calendars.swift */; };
@@ -68,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Compare.swift"; sourceTree = "<group>"; };
+		083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Formatter.swift"; sourceTree = "<group>"; };
 		21247DA31D82C68D00A9A6B2 /* TimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZone.swift; path = src/TimeZone.swift; sourceTree = SOURCE_ROOT; };
 		21247DA71D82CCB300A9A6B2 /* Calendars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendars.swift; path = src/Calendars.swift; sourceTree = SOURCE_ROOT; };
 		2126CA871D87F62F006BEC94 /* Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commons.swift; path = src/Commons.swift; sourceTree = SOURCE_ROOT; };
@@ -217,6 +222,8 @@
 				2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */,
 				21C3011B1D829C8B00B0E02C /* Info.plist */,
 				2149832A1D8C49E1001E72EC /* TestDateInRegion+Components.swift */,
+				083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */,
+				083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */,
 			);
 			path = SwiftDateTests;
 			sourceTree = "<group>";
@@ -409,6 +416,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083DBDEB1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift in Sources */,
+				083DBDEC1D8F078300F38B5F /* TestDateInRegion.swift in Sources */,
+				083DBDEE1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift in Sources */,
 				2149832B1D8C49E1001E72EC /* TestDateInRegion+Components.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

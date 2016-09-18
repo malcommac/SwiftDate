@@ -23,7 +23,7 @@ public extension Date {
 	}
 	
 	public func add(components: DateComponents) throws -> Date {
-		let date: DateInRegion = try! self.inGMTRegion() + components
+		let date: DateInRegion = self.inGMTRegion() + components
 		return date.absoluteDate
 	}
 	

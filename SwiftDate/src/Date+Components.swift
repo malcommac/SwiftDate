@@ -176,10 +176,6 @@ public extension Date {
 		return self.inDateDefaultRegion().endOf(component: component).absoluteDate
 	}
 	
-	public var timeIntervalSinceReferenceDate: TimeInterval {
-		return self.inDateDefaultRegion().timeIntervalSinceReferenceDate
-	}
-	
 	public func atTime(hour: Int, minute: Int, second: Int) throws -> Date {
 		return try self.inDateDefaultRegion().atTime(hour: hour, minute: minute, second: second).absoluteDate
 	}

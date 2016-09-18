@@ -11,7 +11,7 @@ import Foundation
 public extension DateComponents {
 	
 	public func from(date: Date, in region: Region? = nil) -> Date? {
-		let srcRegion = region ?? DateDefaultRegion
+		let srcRegion = region ?? Region.GMT()
 		return srcRegion.calendar.date(byAdding: self, to: date)
 	}
 	
@@ -24,7 +24,7 @@ public extension DateComponents {
 	}
 	
 	public func ago(from date: Date, in region: Region? = nil) -> Date? {
-		let srcRegion = region ?? DateDefaultRegion
+		let srcRegion = region ?? Region.GMT()
 		return srcRegion.calendar.date(byAdding: -self, to: date)
 	}
 	

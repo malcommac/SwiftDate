@@ -10,9 +10,10 @@ import Foundation
 
 public prefix func - (dateComponents: DateComponents) -> DateComponents {
 	var invertedCmps = DateComponents()
+	
 	DateComponents.allComponents.forEach { component in
 		let value = dateComponents.value(for: component)
-		if value != nil {
+		if value != nil && value != Int(NSDateComponentUndefined) {
 			invertedCmps.setValue(-value!, for: component)
 		}
 	}
@@ -47,7 +48,7 @@ public extension DateComponents {
 			let left = lhs.value(for: component)
 			let right = rhs.value(for: component)
 			
-			if left != nil && right != nil {
+			if left != nil && right != nil && left != Int(NSDateComponentUndefined) && right != Int(NSDateComponentUndefined) {
 				let value = left! + (right! * multipler)
 				newCmps.setValue(value, for: component)
 			}
@@ -59,7 +60,7 @@ public extension DateComponents {
 		var list: [Calendar.Component : Int] = [:]
 		DateComponents.allComponents.forEach { component in
 			let value = self.value(for: component)
-			if value != nil {
+			if value != nil && value != Int(NSDateComponentUndefined) {
 				list[component] = value!
 			}
 		}

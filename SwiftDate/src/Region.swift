@@ -61,9 +61,9 @@ public class Region: CustomStringConvertible {
 	}
 	
 	public convenience init?(components: DateComponents) {
-		guard let tz = components.timeZone, let cal = components.calendar, let loc = components.calendar?.locale else {
-			return nil
-		}
+		let tz = components.timeZone ?? TimeZones.current.timeZone
+		let cal = components.calendar ?? Calendars.gregorian.calendar
+		let loc = cal.locale ?? Locales.current.locale
 		self.init(tz: tz, cal: cal, loc: loc)
 	}
 	
@@ -116,3 +116,10 @@ public func == (left: Region, right: Region) -> Bool {
 	
 	return true
 }
+
+extension Region: Hashable {
+	public var hashValue: Int {
+		return self.calendar.hashValue ^ self.timeZone.hashValue ^ self.locale.hashValue
+	}
+}
+

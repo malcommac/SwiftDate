@@ -69,3 +69,12 @@ public func < (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 public func > (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 	return lhs.absoluteDate.compare(rhs.absoluteDate) == .orderedDescending
 }
+
+
+extension DateInRegion: Hashable {
+	
+	/// Allows to generate an unique hash vaalue for an instance of `DateInRegion`
+	public var hashValue: Int {
+		return self.absoluteDate.hashValue ^ region.hashValue
+	}
+}

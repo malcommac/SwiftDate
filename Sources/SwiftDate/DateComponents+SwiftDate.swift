@@ -171,7 +171,12 @@ internal func sumDateComponents(lhs: DateComponents, rhs: DateComponents, sum: B
 
         guard let leftValue = lhs.value(for: component),
             let rightValue = rhs.value(for: component) else {
-            continue // both are undefined, don't touch
+                continue // both are nil, don't touch
+        }
+
+        guard leftValue != DateComponents.undefined ||
+            rightValue != DateComponents.undefined else {
+                continue // both are undefined, don't touch
         }
 
         let checkedLeftValue = leftValue != DateComponents.undefined ? leftValue : 0

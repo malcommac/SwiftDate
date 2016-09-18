@@ -56,7 +56,7 @@ class DateInRegionComponentPortSpec: QuickSpec {
                 }
 
                 it("should report a valid nanosecond") {
-                    expect(date.value(for: .nanosecond)).to(beCloseTo(87654321, within: 10))
+                    expect(Double(date.value(for: .nanosecond))).to(beCloseTo(87654321, within: 10))
                 }
 
             }

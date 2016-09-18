@@ -55,7 +55,7 @@ class NSDateComponentPortSpec: QuickSpec {
                 }
 
                 it("should report a valid nanosecond") {
-                    expect(date.nanosecond).to(beCloseTo(87654321, within: 10))
+                    expect(Double(date.nanosecond)).to(beCloseTo(87654321, within: 10))
                 }
 
             }

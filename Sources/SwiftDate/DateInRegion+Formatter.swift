@@ -193,7 +193,7 @@ extension DateInRegion {
 	- returns: output string representation of the date represented by `self`
 	*/
     public func toMediumString(date: Bool = true, time: Bool = true) -> String? {
-		let dateStyle: FoundationDateFormatter.Style = date ? .short : .none
+		let dateStyle: FoundationDateFormatter.Style = date ? .medium : .none
         let timeStyle = time ? FoundationDateFormatter.Style.medium : FoundationDateFormatter.Style.none
 
         return toString(dateStyle: dateStyle, timeStyle: timeStyle)

@@ -201,7 +201,6 @@ class TestDateInRegion_Components: XCTestCase {
 		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.days).endOf(component: .day)
 		
 		var daysToTest: [DateInRegion] = []
-		daysToTest.append(try! DateInRegion(components: [.year: 2015, .month: 11, .day: 7], fromRegion: amsterdam))
 		daysToTest.append(try! DateInRegion(components: [.year: 2015, .month: 11, .day: 6], fromRegion: amsterdam))
 		daysToTest.append(try! DateInRegion(components: [.year: 2015, .month: 11, .day: 5], fromRegion: amsterdam))
 		daysToTest.append(try! DateInRegion(components: [.year: 2015, .month: 11, .day: 4], fromRegion: amsterdam))

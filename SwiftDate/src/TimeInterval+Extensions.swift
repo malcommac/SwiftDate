@@ -33,8 +33,9 @@ public extension TimeInterval {
 		return value
 	}
 
-	public func string(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String? {
+	public func string(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil, locale: Locale? = nil) throws -> String? {
 		let formatter = DateInRegionFormatter()
+		formatter.locale = locale
 		formatter.maxComponentCount = max
 		formatter.unitStyle = unitStyle
 		formatter.zeroBehavior = zero ?? .dropAll

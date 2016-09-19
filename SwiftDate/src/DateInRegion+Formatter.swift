@@ -52,14 +52,33 @@ public extension DateInRegion {
 		return formatter.string(from: self.absoluteDate)
 	}
 	
-	public func colloquialSinceNow() throws -> (date: String, time: String?) {
-		let formatter = DateInRegionFormatter()
+	public func colloquialSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
 		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
-		return try formatter.colloquial(from: self, to: now)
+		return try self.colloquial(toDate: now, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
 	}
 	
-	public func colloquial(toDate date: DateInRegion) throws -> (date: String, time: String?) {
+	public func colloquial(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
 		let formatter = DateInRegionFormatter()
+		formatter.locale = self.region.locale
+		formatter.maxComponentCount = max
+		formatter.unitStyle = unitStyle
+		formatter.zeroBehavior = zero ?? .dropAll
+		formatter.unitSeparator = separator ?? ","
 		return try formatter.colloquial(from: self, to: date)
+	}
+	
+	public func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
+		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
+		return try self.timeComponents(toDate: now, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+	}
+	
+	public func timeComponents(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
+		let formatter = DateInRegionFormatter()
+		formatter.locale = self.region.locale
+		formatter.maxComponentCount = max
+		formatter.unitStyle = unitStyle
+		formatter.zeroBehavior = zero ?? .dropAll
+		formatter.unitSeparator = separator ?? ","
+		return try formatter.timeComponents(from: self, to: date)
 	}
 }

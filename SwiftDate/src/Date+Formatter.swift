@@ -35,14 +35,26 @@ public extension Date {
 		return DateInRegion(absoluteDate: self, in: srcRegion).string(dateStyle: dateStyle, timeStyle: timeStyle)
 	}
 	
-	public func colloquialSinceNow(in region: Region? = nil) throws -> (date: String, time: String?) {
+	public func colloquialSinceNow(in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
-		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow()
+		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(unitStyle: unitStyle, max: max, zero: zero, separator: separator)
 	}
 	
-	public func colloquial(to: Date, in region: Region? = nil) throws -> (date: String, time: String?) {
+	public func colloquial(to: Date, in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
 		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
-		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion)
+		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+	}
+	
+	public func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
+		return try self.timeComponents(to: Date(), unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+	}
+	
+	public func timeComponents(to: Date, in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
+		
+		let srcRegion = region ?? DateDefaultRegion
+		let fromDateInRegion = DateInRegion(absoluteDate: self, in: srcRegion)
+		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
+		return try fromDateInRegion.timeComponents(toDate: toDateInRegion, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
 	}
 }

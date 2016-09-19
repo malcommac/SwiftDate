@@ -42,12 +42,14 @@ public class DateInRegionFormatter {
 	public var useImminentInterval: Bool = true
 
 	public var includeRelevantTime: Bool = true
+	
+	public var locale: Locale?
 
 	public init() {
 
 	}
 	
-	private lazy var rsrcBundle: Bundle? = {
+	private lazy var resourceBundle: Bundle? = {
 		var framework = Bundle(identifier: "com.danielemargutti.SwiftDate")
 		if framework == nil { framework = Bundle.main }
 		guard let _ = framework else {
@@ -61,6 +63,18 @@ public class DateInRegionFormatter {
 		}
 		return bundle!
 	}()
+	
+	private func localizedResourceBundle() -> Bundle? {
+		guard let locale = self.locale else {
+			return self.resourceBundle
+		}
+		
+		let localeID = locale.collatorIdentifier
+		guard let innerLanguagePath = self.resourceBundle?.path(forResource: localeID, ofType: "lproj") else {
+			return nil
+		}
+		return Bundle(path: innerLanguagePath)
+	}
 	
 	public func timeComponents(interval: TimeInterval) throws  -> String {
 		let UTCRegion = Region(tz: TimeZones.gmt, cal: Calendars.current, loc: Locales.current)
@@ -172,7 +186,7 @@ public class DateInRegionFormatter {
 		guard self.includeRelevantTime == true else {
 			return nil
 		}
-		guard let bundle = self.rsrcBundle else {
+		guard let bundle = self.localizedResourceBundle() else {
 			throw DateError.MissingRsrcBundle
 		}
 		
@@ -189,7 +203,7 @@ public class DateInRegionFormatter {
 	}
 	
 	private func stringLocalized(identifier: String, arguments: CVarArg...) throws -> String {
-		guard let bundle = self.rsrcBundle else {
+		guard let bundle = self.localizedResourceBundle() else {
 			throw DateError.MissingRsrcBundle
 		}
 		var localized_str = NSLocalizedString(identifier, tableName: "SwiftDate", bundle: bundle, comment: "")
@@ -198,7 +212,7 @@ public class DateInRegionFormatter {
 	}
 	
 	private func localized(unit: Calendar.Component, withValue value: Int, asFuture: Bool, args: CVarArg...) throws -> String {
-		guard let bundle = self.rsrcBundle else {
+		guard let bundle = self.localizedResourceBundle() else {
 			throw DateError.MissingRsrcBundle
 		}
 

@@ -189,7 +189,7 @@
 			children = (
 				21C3010D1D829C8B00B0E02C /* SwiftDate */,
 				21C301181D829C8B00B0E02C /* SwiftDateTests */,
-				21C3012C1D829D7900B0E02C /* dEMO */,
+				21C3012C1D829D7900B0E02C /* Demo */,
 				21C3010C1D829C8B00B0E02C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 			path = SwiftDateTests;
 			sourceTree = "<group>";
 		};
-		21C3012C1D829D7900B0E02C /* dEMO */ = {
+		21C3012C1D829D7900B0E02C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
 				21C3012D1D829D7900B0E02C /* AppDelegate.swift */,
@@ -238,6 +238,7 @@
 				21C301361D829D7900B0E02C /* LaunchScreen.storyboard */,
 				21C301391D829D7900B0E02C /* Info.plist */,
 			);
+			name = Demo;
 			path = dEMO;
 			sourceTree = "<group>";
 		};

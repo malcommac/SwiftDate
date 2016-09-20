@@ -62,14 +62,14 @@ public extension DateInRegion {
 	}
 	
 	
-	/// Get the representation of the absolute time interval between self date and a given date both
+	/// Get the representation of the absolute time interval between `self` date and a given date
 	///
 	/// - parameter date:      date to compare
 	/// - parameter dateStyle: style to format the date
 	/// - parameter timeStyle: style to format the time
 	///
 	/// - returns: a new string which represent the interval from given dates
-	public func intervalString(toDate date: DateInRegion, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
+	public func intervalString(toDate date: DateInRegion, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .medium) -> String {
 		let formatter = self.region.intervalFormatter()
 		formatter.dateStyle = dateStyle
 		formatter.timeStyle = timeStyle
@@ -77,10 +77,10 @@ public extension DateInRegion {
 	}
 	
 	
-	/// Convert a `DateInRegion` date into a date with date & time style specific format style
+	/// Convert a `DateInRegion` date into a string with date & time style specific format style
 	///
-	/// - parameter dateStyle: style to format the date
-	/// - parameter timeStyle: style to format the time
+	/// - parameter dateStyle: style of the date (if not specified `.medium`)
+	/// - parameter timeStyle: style of the time (if not specified `.medium`)
 	///
 	/// - returns: a new string which represent the date expressed into the current region
 	public func string(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
@@ -150,6 +150,7 @@ public extension DateInRegion {
 	/// This method produces a string by printing the interval between self and another date and output a string where each
 	/// calendar component is printed.
 	///
+	/// - parameter toDate:	date to compare
 	/// - parameter unitStyle: style of the output string
 	/// - parameter max:       max number of the time components to write (nil means no limit)
 	/// - parameter zero:      the behaviour to use with zero value components

@@ -8,19 +8,20 @@
 
 import Foundation
 
-extension DateComponents {
-	
-	internal static let allComponentsSet: Set<Calendar.Component> = [.nanosecond, .second, .minute, .hour,
-	                                                                 .day, .month, .year, .yearForWeekOfYear, .weekOfYear, .weekday, .quarter, .weekdayOrdinal,
-	                                                                 .weekOfMonth]
-	
-	internal static let allComponents: [Calendar.Component] =  [.nanosecond, .second, .minute, .hour,
-	                                                           .day, .month, .year, .yearForWeekOfYear, .weekOfYear, .weekday, .quarter, .weekdayOrdinal,
-	                                                           .weekOfMonth]
-}
+
+
+// MARK: - DateInRegion Private Extension
 
 extension DateInRegion {
+
 	
+	/// Return a `DateComponent` object from a given set of `Calendar.Component` object with associated values and a specific region
+	///
+	/// - parameter values:    calendar components to set (with their values)
+	/// - parameter multipler: optional multipler (by default is nil; to make an inverse component value it should be multipled by -1)
+	/// - parameter region:    optional region to set
+	///
+	/// - returns: a `DateComponents` object
 	internal static func componentsFrom(values: [Calendar.Component : Int], multipler: Int? = nil, setRegion region: Region? = nil) -> DateComponents {
 		var cmps = DateComponents()
 		if region != nil {
@@ -37,6 +38,12 @@ extension DateInRegion {
 	}
 	
 }
+
+// MARK: - DateInRegion Support for math operation
+
+// These functions allows us to make something like
+//		`let newDate = (date - 3.days + 3.months)`
+// We can sum algebrically a `DateInRegion` object with a calendar component.
 
 public func + (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
 	let nextDate = lhs.region.calendar.date(byAdding: rhs, to: lhs.absoluteDate)

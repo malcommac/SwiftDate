@@ -41,3 +41,22 @@ public enum DateFormat {
 	case rss(alt: Bool)
 	case dotNET
 }
+
+
+
+// MARK: - DateComponents Private Extension
+
+extension DateComponents {
+	
+	
+	/// Define a list of all calendar components as a set
+	internal static let allComponentsSet: Set<Calendar.Component> = [.nanosecond, .second, .minute, .hour,
+	                                                                 .day, .month, .year, .yearForWeekOfYear, .weekOfYear, .weekday, .quarter, .weekdayOrdinal,
+	                                                                 .weekOfMonth]
+	
+	
+	/// Define a list of all calendar components as array
+	internal static let allComponents: [Calendar.Component] =  [.nanosecond, .second, .minute, .hour,
+	                                                            .day, .month, .year, .yearForWeekOfYear, .weekOfYear, .weekday, .quarter, .weekdayOrdinal,
+	                                                            .weekOfMonth]
+}

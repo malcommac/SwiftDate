@@ -109,7 +109,7 @@ public extension Date {
 	}
 	
 	public var modifiedJulianDay: Double {
-		return self.inDateDefaultRegion().modifiedJulianDay()
+		return self.inDateDefaultRegion().modifiedJulianDay
 	}
 	
 	public var thisWeekend: (startDate: DateInRegion, endDate: DateInRegion)? {

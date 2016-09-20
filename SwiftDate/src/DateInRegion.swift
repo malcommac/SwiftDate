@@ -32,7 +32,7 @@ public class DateInRegion: CustomStringConvertible {
 	/// The new instance express given date into specified region.
 	///
 	/// - parameter absoluteDate: absolute `Date` object
-	/// - parameter region:       region in which you would express given date (absolute time will be converted into passed region)
+	/// - parameter region:       `Region` in which you would express given date (absolute time will be converted into passed region)
 	///
 	/// - returns: a new instance of the `DateInRegion` object
 	public init(absoluteDate: Date, in region: Region? = nil) {
@@ -41,11 +41,26 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
+	
+	/// Initialize a new DateInRegion set to the current date in local's device region (`Region.Local()`).
+	///
+	/// - returns: a new DateInRegion object
 	public init() {
 		self.absoluteDate = Date()
 		self.region = Region.Local()
 	}
 	
+	
+	/// Initialize a new `DateInRegion` object from a `DateComponents` object.
+	/// Both `TimeZone`, `Locale` and `Calendar` must be specified in `DateComponents` instance in order to get a valid result; if omitted a `MissingCalTzOrLoc` exception will thrown.
+	/// If from given components a valid Date cannot be created a `FailedToParse`
+	/// exception will thrown.
+	///
+	/// - parameter components: `DateComponents` with valid components used to generate a new date
+	///
+	/// - throws: throw an exception when `DateComponents` does not include required components used to generate a valid date (it must also include information about timezone, calendar and locale)
+	///
+	/// - returns: a new `DateInRegion` from given components
 	public init(components: DateComponents) throws {
 		guard let srcRegion = Region(components: components) else {
 			throw DateError.MissingCalTzOrLoc
@@ -57,6 +72,18 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
+	
+	
+	/// Initialize a new `DateInRegion` where components are specified in an dictionary
+	/// where the key is `Calendar.Component` and the value is an int; region informations
+	/// (timezone, locale and calendars) are specified separately by the region parameter.
+	///
+	/// - parameter components: calendar components keys and values to assign
+	/// - parameter region:     region in which the date is expressed. If `nil` local region will used instead (`Region.Local()`)
+	///
+	/// - throws: throw a `FailedToParse` exception if date cannot be generated with given set of values
+	///
+	/// - returns: a new `DateInRegion` instance expressed in passed region
 	public init(components: [Calendar.Component : Int], fromRegion region: Region? = nil) throws {
 		let srcRegion = region ?? Region.Local()
 		let cmp = DateInRegion.componentsFrom(values: components, setRegion: srcRegion)
@@ -67,6 +94,16 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
+	
+	/// Initialize a new `DateInRegion` created from passed format rexpressed in specified region.
+	///
+	/// - parameter string: string with date to parse
+	/// - parameter format: format in which the date is expressed (see `DateFormat`)
+	/// - parameter region: region in which the date should be expressed (if nil `Region.Local()` will be used instead)
+	///
+	/// - throws: throw an `FailedToParse` exception if date cannot be parsed
+	///
+	/// - returns: a new DateInRegion from given string
 	public init(string: String, format: DateFormat, fromRegion region: Region? = nil) throws {
 		let srcRegion = region ?? Region.Local()
 		switch format {
@@ -101,14 +138,26 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
+	
+	/// Convert a `DateInRegion` instance to a new specified `Region`
+	///
+	/// - parameter newRegion: destination region in which returned `DateInRegion` instance will be expressed in
+	///
+	/// - returns: a new `DateInRegion` expressed in passed destination region
 	public func toRegion(_ newRegion: Region) -> DateInRegion {
 		return DateInRegion(absoluteDate: self.absoluteDate, in: newRegion)
 	}
 	
+	
+	/// Modify absolute date value of the `DateInRegion` instance by adding a fixed value of seconds
+	///
+	/// - parameter interval: seconds to add
 	public func add(interval: TimeInterval) {
 		self.absoluteDate.addTimeInterval(interval)
 	}
 	
+	
+	/// Return a description of the `DateInRegion`
 	public var description: String {
 		let formatter = DateFormatter()
 		formatter.dateStyle = .medium

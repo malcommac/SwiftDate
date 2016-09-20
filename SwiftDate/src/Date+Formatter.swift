@@ -23,11 +23,11 @@ public extension Date {
 		return DateInRegion(absoluteDate: self, in: srcRegion).string(format: format)
 	}
 	
-	public func string(toDate: Date, in region: Region? = nil, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
+	public func intervalString(toDate: Date, in region: Region? = nil, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
 		let srcRegion = region ?? DateDefaultRegion
 		let srcDate = DateInRegion(absoluteDate: self, in: srcRegion)
 		let toDateInRegion = DateInRegion(absoluteDate: toDate, in: srcRegion)
-		return srcDate.string(toDate: toDateInRegion, dateStyle: dateStyle, timeStyle: timeStyle)
+		return srcDate.intervalString(toDate: toDateInRegion, dateStyle: dateStyle, timeStyle: timeStyle)
 	}
 	
 	public func string(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium, in region: Region? = nil) -> String {

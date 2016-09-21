@@ -7,6 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0812F9971D9296AD00F65854 /* SwiftDate-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9891D9296AD00F65854 /* SwiftDate-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0812F99E1D9296C100F65854 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C301251D829CB000B0E02C /* DateInRegion.swift */; };
+		0812F99F1D9296C100F65854 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128384A1D83588100DA70EA /* DateInRegion+Components.swift */; };
+		0812F9A01D9296C100F65854 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838501D8358DC00DA70EA /* DateInRegion+Math.swift */; };
+		0812F9A11D9296C100F65854 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34CA1D8571EA00ECC8A5 /* DateInRegion+Compare.swift */; };
+		0812F9A21D9296C100F65854 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34CC1D85A0F400ECC8A5 /* DateInRegion+Formatter.swift */; };
+		0812F9A31D9296C400F65854 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE58881D8AD72E00731B74 /* Date+Components.swift */; };
+		0812F9A41D9296C400F65854 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34BF1D85573A00ECC8A5 /* Date+Math.swift */; };
+		0812F9A51D9296C400F65854 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE588B1D8AEDD200731B74 /* Date+Compare.swift */; };
+		0812F9A61D9296C400F65854 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE58911D8AF5B900731B74 /* Date+Formatter.swift */; };
+		0812F9A71D9296C800F65854 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838441D8357F200DA70EA /* Region.swift */; };
+		0812F9A81D9296C800F65854 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE588E1D8AEFFE00731B74 /* DateComponents+Extension.swift */; };
+		0812F9A91D9296C800F65854 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D21D85B13B00ECC8A5 /* TimeInterval+Extensions.swift */; };
+		0812F9AA1D9296C800F65854 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D01D85B08C00ECC8A5 /* DateInRegionFormatter.swift */; };
+		0812F9AB1D9296C800F65854 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838481D83582300DA70EA /* Extensions.swift */; };
+		0812F9AC1D9296C800F65854 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA871D87F62F006BEC94 /* Commons.swift */; };
+		0812F9AD1D9296C800F65854 /* Calendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA71D82CCB300A9A6B2 /* Calendars.swift */; };
+		0812F9AE1D9296C800F65854 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA31D82C68D00A9A6B2 /* TimeZone.swift */; };
+		0812F9AF1D9296C800F65854 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34C71D856B2D00ECC8A5 /* Locales.swift */; };
+		0812F9B01D9296CC00F65854 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215D34D71D85D10A00ECC8A5 /* SwiftDate.bundle */; };
+		0812F9DA1D9298A900F65854 /* SwiftDateWatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9D81D9298A900F65854 /* SwiftDateWatchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0812F9DE1D9298B600F65854 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C301251D829CB000B0E02C /* DateInRegion.swift */; };
+		0812F9DF1D9298B600F65854 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128384A1D83588100DA70EA /* DateInRegion+Components.swift */; };
+		0812F9E01D9298B600F65854 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838501D8358DC00DA70EA /* DateInRegion+Math.swift */; };
+		0812F9E11D9298B600F65854 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34CA1D8571EA00ECC8A5 /* DateInRegion+Compare.swift */; };
+		0812F9E21D9298B600F65854 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34CC1D85A0F400ECC8A5 /* DateInRegion+Formatter.swift */; };
+		0812F9E31D9298B600F65854 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE58881D8AD72E00731B74 /* Date+Components.swift */; };
+		0812F9E41D9298B600F65854 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34BF1D85573A00ECC8A5 /* Date+Math.swift */; };
+		0812F9E51D9298B600F65854 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE588B1D8AEDD200731B74 /* Date+Compare.swift */; };
+		0812F9E61D9298B600F65854 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE58911D8AF5B900731B74 /* Date+Formatter.swift */; };
+		0812F9E71D9298B600F65854 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838441D8357F200DA70EA /* Region.swift */; };
+		0812F9E81D9298B600F65854 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE588E1D8AEFFE00731B74 /* DateComponents+Extension.swift */; };
+		0812F9E91D9298B600F65854 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D21D85B13B00ECC8A5 /* TimeInterval+Extensions.swift */; };
+		0812F9EA1D9298B600F65854 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D01D85B08C00ECC8A5 /* DateInRegionFormatter.swift */; };
+		0812F9EB1D9298B600F65854 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838481D83582300DA70EA /* Extensions.swift */; };
+		0812F9EC1D9298B600F65854 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA871D87F62F006BEC94 /* Commons.swift */; };
+		0812F9ED1D9298B600F65854 /* Calendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA71D82CCB300A9A6B2 /* Calendars.swift */; };
+		0812F9EE1D9298B600F65854 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA31D82C68D00A9A6B2 /* TimeZone.swift */; };
+		0812F9EF1D9298B600F65854 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34C71D856B2D00ECC8A5 /* Locales.swift */; };
+		0812F9F01D9298B900F65854 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215D34D71D85D10A00ECC8A5 /* SwiftDate.bundle */; };
+		0812F9FA1D929F2600F65854 /* SwiftDate_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9F81D929F2600F65854 /* SwiftDate_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0812F9FE1D929F3500F65854 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C301251D829CB000B0E02C /* DateInRegion.swift */; };
+		0812F9FF1D929F3500F65854 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128384A1D83588100DA70EA /* DateInRegion+Components.swift */; };
+		0812FA001D929F3500F65854 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838501D8358DC00DA70EA /* DateInRegion+Math.swift */; };
+		0812FA011D929F3500F65854 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34CA1D8571EA00ECC8A5 /* DateInRegion+Compare.swift */; };
+		0812FA021D929F3500F65854 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34CC1D85A0F400ECC8A5 /* DateInRegion+Formatter.swift */; };
+		0812FA031D929F3500F65854 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE58881D8AD72E00731B74 /* Date+Components.swift */; };
+		0812FA041D929F3500F65854 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34BF1D85573A00ECC8A5 /* Date+Math.swift */; };
+		0812FA051D929F3500F65854 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE588B1D8AEDD200731B74 /* Date+Compare.swift */; };
+		0812FA061D929F3500F65854 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE58911D8AF5B900731B74 /* Date+Formatter.swift */; };
+		0812FA071D929F3500F65854 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838441D8357F200DA70EA /* Region.swift */; };
+		0812FA081D929F3500F65854 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE588E1D8AEFFE00731B74 /* DateComponents+Extension.swift */; };
+		0812FA091D929F3500F65854 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D21D85B13B00ECC8A5 /* TimeInterval+Extensions.swift */; };
+		0812FA0A1D929F3500F65854 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D01D85B08C00ECC8A5 /* DateInRegionFormatter.swift */; };
+		0812FA0B1D929F3500F65854 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212838481D83582300DA70EA /* Extensions.swift */; };
+		0812FA0C1D929F3500F65854 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA871D87F62F006BEC94 /* Commons.swift */; };
+		0812FA0D1D929F3500F65854 /* Calendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA71D82CCB300A9A6B2 /* Calendars.swift */; };
+		0812FA0E1D929F3500F65854 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21247DA31D82C68D00A9A6B2 /* TimeZone.swift */; };
+		0812FA0F1D929F3500F65854 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34C71D856B2D00ECC8A5 /* Locales.swift */; };
+		0812FA101D929F3800F65854 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215D34D71D85D10A00ECC8A5 /* SwiftDate.bundle */; };
 		083DBDEB1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */; };
 		083DBDEC1D8F078300F38B5F /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */; };
 		083DBDEE1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */; };
@@ -39,7 +99,7 @@
 		215D34D61D85B4C900ECC8A5 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D34D01D85B08C00ECC8A5 /* DateInRegionFormatter.swift */; };
 		215D34D81D85D10A00ECC8A5 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215D34D71D85D10A00ECC8A5 /* SwiftDate.bundle */; };
 		215D34D91D85D10A00ECC8A5 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215D34D71D85D10A00ECC8A5 /* SwiftDate.bundle */; };
-		21C301151D829C8B00B0E02C /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; };
+		21C301151D829C8B00B0E02C /* SwiftDate_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate_iOS.framework */; };
 		21C3011C1D829C8B00B0E02C /* SwiftDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C3010E1D829C8B00B0E02C /* SwiftDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21C301261D829CB000B0E02C /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C301251D829CB000B0E02C /* DateInRegion.swift */; };
 		21C3012E1D829D7900B0E02C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012D1D829D7900B0E02C /* AppDelegate.swift */; };
@@ -69,6 +129,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0812F9871D9296AD00F65854 /* SwiftDate_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0812F9891D9296AD00F65854 /* SwiftDate-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDate-macOS.h"; sourceTree = "<group>"; };
+		0812F98A1D9296AD00F65854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0812F9D61D9298A900F65854 /* SwiftDate_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0812F9D81D9298A900F65854 /* SwiftDateWatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDateWatchOS.h; sourceTree = "<group>"; };
+		0812F9D91D9298A900F65854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0812F9F61D929F2600F65854 /* SwiftDate_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0812F9F81D929F2600F65854 /* SwiftDate_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDate_tvOS.h; sourceTree = "<group>"; };
+		0812F9F91D929F2600F65854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Compare.swift"; sourceTree = "<group>"; };
 		083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Formatter.swift"; sourceTree = "<group>"; };
 		21247DA31D82C68D00A9A6B2 /* TimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZone.swift; path = src/TimeZone.swift; sourceTree = SOURCE_ROOT; };
@@ -87,13 +156,13 @@
 		215D34D01D85B08C00ECC8A5 /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = src/DateInRegionFormatter.swift; sourceTree = SOURCE_ROOT; };
 		215D34D21D85B13B00ECC8A5 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Extensions.swift"; path = "src/TimeInterval+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		215D34D71D85D10A00ECC8A5 /* SwiftDate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftDate.bundle; path = src/SwiftDate.bundle; sourceTree = SOURCE_ROOT; };
-		21C3010B1D829C8B00B0E02C /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21C3010B1D829C8B00B0E02C /* SwiftDate_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3010E1D829C8B00B0E02C /* SwiftDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDate.h; sourceTree = "<group>"; };
 		21C3010F1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C301141D829C8B00B0E02C /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3011B1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C301251D829CB000B0E02C /* DateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = src/DateInRegion.swift; sourceTree = SOURCE_ROOT; };
-		21C3012B1D829D7900B0E02C /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21C3012B1D829D7900B0E02C /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3012D1D829D7900B0E02C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C3012F1D829D7900B0E02C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21C301321D829D7900B0E02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +176,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0812F9831D9296AD00F65854 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9D21D9298A900F65854 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9F21D929F2600F65854 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C301071D829C8B00B0E02C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C301151D829C8B00B0E02C /* SwiftDate.framework in Frameworks */,
+				21C301151D829C8B00B0E02C /* SwiftDate_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +222,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0812F9881D9296AD00F65854 /* SwiftDate-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				0812F9891D9296AD00F65854 /* SwiftDate-macOS.h */,
+				0812F98A1D9296AD00F65854 /* Info.plist */,
+			);
+			path = "SwiftDate-macOS";
+			sourceTree = "<group>";
+		};
+		0812F9D71D9298A900F65854 /* SwiftDateWatchOS */ = {
+			isa = PBXGroup;
+			children = (
+				0812F9D81D9298A900F65854 /* SwiftDateWatchOS.h */,
+				0812F9D91D9298A900F65854 /* Info.plist */,
+			);
+			path = SwiftDateWatchOS;
+			sourceTree = "<group>";
+		};
+		0812F9F71D929F2600F65854 /* SwiftDate_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				0812F9F81D929F2600F65854 /* SwiftDate_tvOS.h */,
+				0812F9F91D929F2600F65854 /* Info.plist */,
+			);
+			path = SwiftDate_tvOS;
+			sourceTree = "<group>";
+		};
+		0812FA111D929FD300F65854 /* Platforms */ = {
+			isa = PBXGroup;
+			children = (
+				0812F9881D9296AD00F65854 /* SwiftDate-macOS */,
+				0812F9D71D9298A900F65854 /* SwiftDateWatchOS */,
+				0812F9F71D929F2600F65854 /* SwiftDate_tvOS */,
+			);
+			name = Platforms;
+			sourceTree = "<group>";
+		};
 		2128384F1D8358B700DA70EA /* Supports */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,8 +302,9 @@
 		21C301011D829C8B00B0E02C = {
 			isa = PBXGroup;
 			children = (
-				21C3010D1D829C8B00B0E02C /* SwiftDate */,
+				21C3010D1D829C8B00B0E02C /* SwiftDate Core Library */,
 				21C301181D829C8B00B0E02C /* SwiftDateTests */,
+				0812FA111D929FD300F65854 /* Platforms */,
 				21C3012C1D829D7900B0E02C /* Demo */,
 				21C3010C1D829C8B00B0E02C /* Products */,
 			);
@@ -185,14 +313,17 @@
 		21C3010C1D829C8B00B0E02C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21C3010B1D829C8B00B0E02C /* SwiftDate.framework */,
+				21C3010B1D829C8B00B0E02C /* SwiftDate_iOS.framework */,
 				21C301141D829C8B00B0E02C /* SwiftDateTests.xctest */,
-				21C3012B1D829D7900B0E02C /* Demo.app */,
+				21C3012B1D829D7900B0E02C /* DemoApp.app */,
+				0812F9871D9296AD00F65854 /* SwiftDate_macOS.framework */,
+				0812F9D61D9298A900F65854 /* SwiftDate_watchOS.framework */,
+				0812F9F61D929F2600F65854 /* SwiftDate_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21C3010D1D829C8B00B0E02C /* SwiftDate */ = {
+		21C3010D1D829C8B00B0E02C /* SwiftDate Core Library */ = {
 			isa = PBXGroup;
 			children = (
 				21C3010E1D829C8B00B0E02C /* SwiftDate.h */,
@@ -201,6 +332,7 @@
 				215D34C41D855BF100ECC8A5 /* Date */,
 				2128384F1D8358B700DA70EA /* Supports */,
 			);
+			name = "SwiftDate Core Library";
 			path = SwiftDate;
 			sourceTree = "<group>";
 		};
@@ -233,6 +365,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0812F9841D9296AD00F65854 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9971D9296AD00F65854 /* SwiftDate-macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9D31D9298A900F65854 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9DA1D9298A900F65854 /* SwiftDateWatchOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9F31D929F2600F65854 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9FA1D929F2600F65854 /* SwiftDate_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C301081D829C8B00B0E02C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,9 +400,63 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		21C3010A1D829C8B00B0E02C /* SwiftDate */ = {
+		0812F9861D9296AD00F65854 /* SwiftDate_macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21C3011F1D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDate" */;
+			buildConfigurationList = 0812F9981D9296AD00F65854 /* Build configuration list for PBXNativeTarget "SwiftDate_macOS" */;
+			buildPhases = (
+				0812F9821D9296AD00F65854 /* Sources */,
+				0812F9831D9296AD00F65854 /* Frameworks */,
+				0812F9841D9296AD00F65854 /* Headers */,
+				0812F9851D9296AD00F65854 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDate_macOS;
+			productName = "SwiftDate-macOS";
+			productReference = 0812F9871D9296AD00F65854 /* SwiftDate_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0812F9D51D9298A900F65854 /* SwiftDate_watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0812F9DB1D9298A900F65854 /* Build configuration list for PBXNativeTarget "SwiftDate_watchOS" */;
+			buildPhases = (
+				0812F9D11D9298A900F65854 /* Sources */,
+				0812F9D21D9298A900F65854 /* Frameworks */,
+				0812F9D31D9298A900F65854 /* Headers */,
+				0812F9D41D9298A900F65854 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDate_watchOS;
+			productName = SwiftDateWatchOS;
+			productReference = 0812F9D61D9298A900F65854 /* SwiftDate_watchOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0812F9F51D929F2600F65854 /* SwiftDate_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0812F9FB1D929F2600F65854 /* Build configuration list for PBXNativeTarget "SwiftDate_tvOS" */;
+			buildPhases = (
+				0812F9F11D929F2600F65854 /* Sources */,
+				0812F9F21D929F2600F65854 /* Frameworks */,
+				0812F9F31D929F2600F65854 /* Headers */,
+				0812F9F41D929F2600F65854 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDate_tvOS;
+			productName = SwiftDate_tvOS;
+			productReference = 0812F9F61D929F2600F65854 /* SwiftDate_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21C3010A1D829C8B00B0E02C /* SwiftDate_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21C3011F1D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDate_iOS" */;
 			buildPhases = (
 				21C301061D829C8B00B0E02C /* Sources */,
 				21C301071D829C8B00B0E02C /* Frameworks */,
@@ -257,9 +467,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftDate;
+			name = SwiftDate_iOS;
 			productName = SwiftDate;
-			productReference = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */;
+			productReference = 21C3010B1D829C8B00B0E02C /* SwiftDate_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		21C301131D829C8B00B0E02C /* SwiftDateTests */ = {
@@ -280,9 +490,9 @@
 			productReference = 21C301141D829C8B00B0E02C /* SwiftDateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		21C3012A1D829D7900B0E02C /* Demo */ = {
+		21C3012A1D829D7900B0E02C /* DemoApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21C3013A1D829D7900B0E02C /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildConfigurationList = 21C3013A1D829D7900B0E02C /* Build configuration list for PBXNativeTarget "DemoApp" */;
 			buildPhases = (
 				21C301271D829D7900B0E02C /* Sources */,
 				21C301281D829D7900B0E02C /* Frameworks */,
@@ -292,9 +502,9 @@
 			);
 			dependencies = (
 			);
-			name = Demo;
+			name = DemoApp;
 			productName = dEMO;
-			productReference = 21C3012B1D829D7900B0E02C /* Demo.app */;
+			productReference = 21C3012B1D829D7900B0E02C /* DemoApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -307,6 +517,18 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Daniele Margutti";
 				TargetAttributes = {
+					0812F9861D9296AD00F65854 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					0812F9D51D9298A900F65854 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					0812F9F51D929F2600F65854 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
 					21C3010A1D829C8B00B0E02C = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = E5DU3FA699;
@@ -338,14 +560,41 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21C3010A1D829C8B00B0E02C /* SwiftDate */,
+				21C3010A1D829C8B00B0E02C /* SwiftDate_iOS */,
+				0812F9861D9296AD00F65854 /* SwiftDate_macOS */,
+				0812F9D51D9298A900F65854 /* SwiftDate_watchOS */,
+				0812F9F51D929F2600F65854 /* SwiftDate_tvOS */,
 				21C301131D829C8B00B0E02C /* SwiftDateTests */,
-				21C3012A1D829D7900B0E02C /* Demo */,
+				21C3012A1D829D7900B0E02C /* DemoApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0812F9851D9296AD00F65854 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9B01D9296CC00F65854 /* SwiftDate.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9D41D9298A900F65854 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9F01D9298B900F65854 /* SwiftDate.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9F41D929F2600F65854 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812FA101D929F3800F65854 /* SwiftDate.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C301091D829C8B00B0E02C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,6 +624,81 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0812F9821D9296AD00F65854 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9A41D9296C400F65854 /* Date+Math.swift in Sources */,
+				0812F9A11D9296C100F65854 /* DateInRegion+Compare.swift in Sources */,
+				0812F9A01D9296C100F65854 /* DateInRegion+Math.swift in Sources */,
+				0812F9A71D9296C800F65854 /* Region.swift in Sources */,
+				0812F99F1D9296C100F65854 /* DateInRegion+Components.swift in Sources */,
+				0812F9A81D9296C800F65854 /* DateComponents+Extension.swift in Sources */,
+				0812F9AA1D9296C800F65854 /* DateInRegionFormatter.swift in Sources */,
+				0812F9AF1D9296C800F65854 /* Locales.swift in Sources */,
+				0812F9AD1D9296C800F65854 /* Calendars.swift in Sources */,
+				0812F9AC1D9296C800F65854 /* Commons.swift in Sources */,
+				0812F99E1D9296C100F65854 /* DateInRegion.swift in Sources */,
+				0812F9A91D9296C800F65854 /* TimeInterval+Extensions.swift in Sources */,
+				0812F9A51D9296C400F65854 /* Date+Compare.swift in Sources */,
+				0812F9A21D9296C100F65854 /* DateInRegion+Formatter.swift in Sources */,
+				0812F9A61D9296C400F65854 /* Date+Formatter.swift in Sources */,
+				0812F9AE1D9296C800F65854 /* TimeZone.swift in Sources */,
+				0812F9A31D9296C400F65854 /* Date+Components.swift in Sources */,
+				0812F9AB1D9296C800F65854 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9D11D9298A900F65854 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812F9E41D9298B600F65854 /* Date+Math.swift in Sources */,
+				0812F9E11D9298B600F65854 /* DateInRegion+Compare.swift in Sources */,
+				0812F9E01D9298B600F65854 /* DateInRegion+Math.swift in Sources */,
+				0812F9E71D9298B600F65854 /* Region.swift in Sources */,
+				0812F9DF1D9298B600F65854 /* DateInRegion+Components.swift in Sources */,
+				0812F9E81D9298B600F65854 /* DateComponents+Extension.swift in Sources */,
+				0812F9EA1D9298B600F65854 /* DateInRegionFormatter.swift in Sources */,
+				0812F9EF1D9298B600F65854 /* Locales.swift in Sources */,
+				0812F9ED1D9298B600F65854 /* Calendars.swift in Sources */,
+				0812F9EC1D9298B600F65854 /* Commons.swift in Sources */,
+				0812F9DE1D9298B600F65854 /* DateInRegion.swift in Sources */,
+				0812F9E91D9298B600F65854 /* TimeInterval+Extensions.swift in Sources */,
+				0812F9E51D9298B600F65854 /* Date+Compare.swift in Sources */,
+				0812F9E21D9298B600F65854 /* DateInRegion+Formatter.swift in Sources */,
+				0812F9E61D9298B600F65854 /* Date+Formatter.swift in Sources */,
+				0812F9EE1D9298B600F65854 /* TimeZone.swift in Sources */,
+				0812F9E31D9298B600F65854 /* Date+Components.swift in Sources */,
+				0812F9EB1D9298B600F65854 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0812F9F11D929F2600F65854 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0812FA041D929F3500F65854 /* Date+Math.swift in Sources */,
+				0812FA011D929F3500F65854 /* DateInRegion+Compare.swift in Sources */,
+				0812FA001D929F3500F65854 /* DateInRegion+Math.swift in Sources */,
+				0812FA071D929F3500F65854 /* Region.swift in Sources */,
+				0812F9FF1D929F3500F65854 /* DateInRegion+Components.swift in Sources */,
+				0812FA081D929F3500F65854 /* DateComponents+Extension.swift in Sources */,
+				0812FA0A1D929F3500F65854 /* DateInRegionFormatter.swift in Sources */,
+				0812FA0F1D929F3500F65854 /* Locales.swift in Sources */,
+				0812FA0D1D929F3500F65854 /* Calendars.swift in Sources */,
+				0812FA0C1D929F3500F65854 /* Commons.swift in Sources */,
+				0812F9FE1D929F3500F65854 /* DateInRegion.swift in Sources */,
+				0812FA091D929F3500F65854 /* TimeInterval+Extensions.swift in Sources */,
+				0812FA051D929F3500F65854 /* Date+Compare.swift in Sources */,
+				0812FA021D929F3500F65854 /* DateInRegion+Formatter.swift in Sources */,
+				0812FA061D929F3500F65854 /* Date+Formatter.swift in Sources */,
+				0812FA0E1D929F3500F65854 /* TimeZone.swift in Sources */,
+				0812FA031D929F3500F65854 /* Date+Components.swift in Sources */,
+				0812FA0B1D929F3500F65854 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C301061D829C8B00B0E02C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,7 +767,7 @@
 /* Begin PBXTargetDependency section */
 		21C301171D829C8B00B0E02C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21C3010A1D829C8B00B0E02C /* SwiftDate */;
+			target = 21C3010A1D829C8B00B0E02C /* SwiftDate_iOS */;
 			targetProxy = 21C301161D829C8B00B0E02C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -468,6 +792,128 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0812F9991D9296AD00F65854 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "SwiftDate-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "danielemargutti.SwiftDate-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0812F99A1D9296AD00F65854 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "SwiftDate-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "danielemargutti.SwiftDate-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0812F9DC1D9298A900F65854 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftDateWatchOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = danielemargutti.SwiftDateWatchOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		0812F9DD1D9298A900F65854 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftDateWatchOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = danielemargutti.SwiftDateWatchOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		0812F9FC1D929F2600F65854 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftDate_tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "danielemargutti.SwiftDate-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		0812F9FD1D929F2600F65854 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftDate_tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "danielemargutti.SwiftDate-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 		21C3011D1D829C8B00B0E02C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,6 +1025,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftDate/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,6 +1047,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftDate/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -663,6 +1111,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0812F9981D9296AD00F65854 /* Build configuration list for PBXNativeTarget "SwiftDate_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0812F9991D9296AD00F65854 /* Debug */,
+				0812F99A1D9296AD00F65854 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0812F9DB1D9298A900F65854 /* Build configuration list for PBXNativeTarget "SwiftDate_watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0812F9DC1D9298A900F65854 /* Debug */,
+				0812F9DD1D9298A900F65854 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0812F9FB1D929F2600F65854 /* Build configuration list for PBXNativeTarget "SwiftDate_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0812F9FC1D929F2600F65854 /* Debug */,
+				0812F9FD1D929F2600F65854 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		21C301051D829C8B00B0E02C /* Build configuration list for PBXProject "SwiftDate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -672,7 +1144,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21C3011F1D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDate" */ = {
+		21C3011F1D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDate_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21C301201D829C8B00B0E02C /* Debug */,
@@ -690,7 +1162,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21C3013A1D829D7900B0E02C /* Build configuration list for PBXNativeTarget "Demo" */ = {
+		21C3013A1D829D7900B0E02C /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21C3013B1D829D7900B0E02C /* Debug */,

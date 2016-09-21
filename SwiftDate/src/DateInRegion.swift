@@ -1,28 +1,41 @@
 //
-//  SwiftDate.swift
-//  SwiftDate
+//	SwiftDate, Full featured Swift date library for parsing, validating, manipulating, and formatting dates and timezones.
+//	Created by:				Daniele Margutti
+//	Main contributors:		Jeroen Houtzager
 //
-//  Created by Daniele Margutti on 09/09/16.
-//  Copyright © 2016 Daniele Margutti. All rights reserved.
 //
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in
+//	all copies or substantial portions of the Software.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//	THE SOFTWARE.
 
 import Foundation
 
-
-/*	`DateInRegion` represent a Date in a specified world region: along with absolute date it essentially encapsulate
-	all informations about the time zone (`TimeZone`), calendar (`Calendar`) and locale (`Locale`).
-	These info are contained inside the `.region` property.
-
-	Using `DateInRegion` you can:
-		* Represent an absolute Date in a specific timezone/calendar/locale
-		* Easy access to all date components (day,month,hour,minute etc.) of the date in specified region
-		* Easily create a new date from string, date components or swift operators
-		* Compare date using Swift operators like `==, !=, <, >, <=, >=` and several
-			additional methods like `isInWeekend,isYesterday`...
-		* Change date by adding or subtracting elements with Swift operators
-			(e.g. `date + 2.days + 15.minutes`)
-*/
-
+///	`DateInRegion` represent a Date in a specified world region: along with absolute date it essentially encapsulate
+///	all informations about the time zone (`TimeZone`), calendar (`Calendar`) and locale (`Locale`).
+///	These info are contained inside the `.region` property.
+///
+///	Using `DateInRegion` you can:
+///		* Represent an absolute Date in a specific timezone/calendar/locale
+///		* Easy access to all date components (day,month,hour,minute etc.) of the date in specified region
+///		* Easily create a new date from string, date components or swift operators
+///		* Compare date using Swift operators like `==, !=, <, >, <=, >=` and several
+///			additional methods like `isInWeekend,isYesterday`...
+///		* Change date by adding or subtracting elements with Swift operators
+///			(e.g. `date + 2.days + 15.minutes`)
 public class DateInRegion: CustomStringConvertible {
 	private(set) var region: Region
 	private(set) var absoluteDate: Date

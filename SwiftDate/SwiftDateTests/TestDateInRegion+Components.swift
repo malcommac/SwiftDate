@@ -14,10 +14,10 @@ import XCTest
 
 class TestDateInRegion_Components: XCTestCase {
 	
-	let newYork = Region(tz: TimeZones.americaNewYork, cal: Calendars.gregorian, loc: Locales.englishUnitedStates)
-	let rome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.italianItaly)
-	let amsterdam = Region(tz: TimeZones.europeAmsterdam, cal: Calendars.gregorian, loc: Locales.dutchNetherlands)
-	let utc = Region(tz: TimeZones.gmt, cal: Calendars.gregorian, loc: Locales.english)
+	let newYork = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.englishUnitedStates)
+	let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+	let amsterdam = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
+	let utc = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
 	
 	
 	override func setUp() {
@@ -91,7 +91,7 @@ class TestDateInRegion_Components: XCTestCase {
 	}
 	
 	func test_yearShiftBetweenRegions() {
-		let romeRegion = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.current)
+		let romeRegion = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
 		let romeDate = try! DateInRegion(components: [.year: 2000, .month: 1, .day: 1, .hour: 0, .minute: 0, .second: 0], fromRegion: romeRegion)
 		
 		let gmtRegion = Region.GMT()

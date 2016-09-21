@@ -132,7 +132,7 @@ public func >= (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 extension DateInRegion: Comparable {}
 
 /// Returns whether the given date is later than the receiver.
-/// Just the dates are compared. Calendars, time zones are irrelevant.
+/// Just the dates are compared. CalendarName, time zones are irrelevant.
 ///
 /// - Parameters:
 ///     - date: a date to compare against
@@ -144,7 +144,7 @@ public func < (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 }
 
 /// Returns whether the given date is earlier than the receiver.
-/// Just the dates are compared. Calendars, time zones are irrelevant.
+/// Just the dates are compared. CalendarName, time zones are irrelevant.
 ///
 /// - Parameters:
 ///     - date: a date to compare against

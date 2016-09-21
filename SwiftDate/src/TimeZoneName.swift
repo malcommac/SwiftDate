@@ -24,10 +24,10 @@
 
 import Foundation
 
-/// MARK: - TimeZones Shortcut
+/// MARK: - TimeZoneName Shortcut
 
 /// This enum allows you set a valid timezone using swift's type safe support
-public enum TimeZones: String {
+public enum TimeZoneName: String {
 	
 	/// Return a valid TimeZone instance from an enum
 	public var timeZone: TimeZone {

@@ -24,10 +24,10 @@
 
 import Foundation
 
-// MARK: - Calendars Shortcut
+// MARK: - CalendarName Shortcut
 
 /// This enum allows you set a valid calendar using swift's type safe support
-public enum Calendars {
+public enum CalendarName {
 	case current, currentAutoUpdating
 	case gregorian, buddhist, chinese, coptic, ethiopicAmeteMihret, ethiopicAmeteAlem, hebrew,
 	iso8601, indian, islamic, islamicCivil, japanese, persian, republicOfChina, islamicTabular,
@@ -174,7 +174,7 @@ extension Calendar {
 	/// - parameter type: type of the calendar
 	///
 	/// - returns: instance of the new Calendar
-	public static func fromType(_ type: Calendars) -> Calendar {
+	public static func fromType(_ type: CalendarName) -> Calendar {
 		return type.calendar
 	}
 	

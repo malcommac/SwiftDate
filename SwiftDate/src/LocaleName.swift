@@ -27,7 +27,7 @@ import Foundation
 //MARK: - Locale Shortcut
 
 /// This enum allows you set a valid locale using swift's type safe support
-public enum Locales: String {
+public enum LocaleName: String {
 	
 	public var description: String {
 		return self.rawValue

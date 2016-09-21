@@ -76,12 +76,12 @@ public class Region: CustomStringConvertible {
 	
 	/// Initialize a new region by passing names for TimeZone, Calendar and Locale
 	///
-	/// - parameter tz:  timezone name to use (see `TimeZones`)
-	/// - parameter cal: calendar name to use (see `Calendars`)
-	/// - parameter loc: locale name to use (see `Locales`)
+	/// - parameter tz:  timezone name to use (see `TimeZoneName`)
+	/// - parameter cal: calendar name to use (see `CalendarName`)
+	/// - parameter loc: locale name to use (see `LocaleName`)
 	///
 	/// - returns: a new `Region`
-	public init(tz: TimeZones, cal: Calendars, loc: Locales) {
+	public init(tz: TimeZoneName, cal: CalendarName, loc: LocaleName) {
 		self.timeZone = tz.timeZone
 		self.calendar = cal.calendar
 		self.calendar.timeZone = tz.timeZone
@@ -95,9 +95,9 @@ public class Region: CustomStringConvertible {
 	///
 	/// - returns: a new `Region`
 	public convenience init?(components: DateComponents) {
-		let tz = components.timeZone ?? TimeZones.current.timeZone
-		let cal = components.calendar ?? Calendars.gregorian.calendar
-		let loc = cal.locale ?? Locales.current.locale
+		let tz = components.timeZone ?? TimeZoneName.current.timeZone
+		let cal = components.calendar ?? CalendarName.gregorian.calendar
+		let loc = cal.locale ?? LocaleName.current.locale
 		self.init(tz: tz, cal: cal, loc: loc)
 	}
 	
@@ -111,8 +111,8 @@ public class Region: CustomStringConvertible {
 	///
 	/// - returns: a new `Region`
 	public static func GMT() -> Region {
-		let tz = TimeZones.gmt.timeZone
-		let cal = Calendars.current.calendar
+		let tz = TimeZoneName.gmt.timeZone
+		let cal = CalendarName.current.calendar
 		let loc = Locale.autoupdatingCurrent
 		return Region(tz: tz, cal: cal, loc: loc)
 	}
@@ -123,8 +123,8 @@ public class Region: CustomStringConvertible {
 	///
 	/// - returns: a new `Region`
 	public static func Local(autoUpdate auto: Bool = true) -> Region {
-		let tz = (auto ? TimeZones.currentAutoUpdating : TimeZones.current).timeZone
-		let cal = (auto ? Calendars.currentAutoUpdating : Calendars.current).calendar
+		let tz = (auto ? TimeZoneName.currentAutoUpdating : TimeZoneName.current).timeZone
+		let cal = (auto ? CalendarName.currentAutoUpdating : CalendarName.current).calendar
 		let loc = (auto ? Locale.autoupdatingCurrent : Locale.current)
 		return Region(tz: tz, cal: cal, loc: loc)
 	}

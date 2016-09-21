@@ -27,7 +27,7 @@ class DateInRegionTest: XCTestCase {
 	func testDateInRegionInit_AbsoluteDate() {
 		// Create a new date for 2005-06-01 10:00:00 UTC
 		let absDate = Date(timeIntervalSince1970: 1117620000)
-		let regionRome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.current)
+		let regionRome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
 		let dateInRome = DateInRegion(absoluteDate: absDate, in: regionRome)
 		let dateInRomeAsString = dateInRome.string(format: .iso8601(options: .withInternetDateTime))
 		XCTAssertEqual("2005-06-01T12:00:00+02:00", dateInRomeAsString, "Failed to generate a valid date in a region")
@@ -40,8 +40,8 @@ class DateInRegionTest: XCTestCase {
 		components.month = 2
 		components.day = 4
 		components.hour = 10
-		components.timeZone = TimeZones.europeRome.timeZone
-		components.calendar = Calendars.current.calendar
+		components.timeZone = TimeZoneName.europeRome.timeZone
+		components.calendar = CalendarName.current.calendar
 		do {
 			// Created DateInRegion instance should report +1 date due to light saving time in Feb
 			let regionInRome = try DateInRegion(components: components)
@@ -54,7 +54,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_ComponentsDict() {
 		do {
-			let regionRome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.current)
+			let regionRome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
 			let cmpDict: [Calendar.Component : Int] = [.year: 2016, .month: 9, .day: 14, .hour: 7]
 			let regionInRome = try DateInRegion(components: cmpDict, fromRegion: regionRome)
 			let dateInRomeAsString = regionInRome.string(format: .iso8601(options: .withInternetDateTime))
@@ -153,8 +153,8 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegion_ConversionToRegion() {
 		do {
-			let sourceRegion_Rome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.current)
-			let destRegion_NY = Region(tz: TimeZones.americaNewYork, cal: Calendars.gregorian, loc: Locales.current)
+			let sourceRegion_Rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
+			let destRegion_NY = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.current)
 			
 			let cmpDict: [Calendar.Component : Int] = [.year: 2016, .month: 9, .day: 14, .hour: 7]
 			

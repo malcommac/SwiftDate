@@ -221,7 +221,7 @@ extension DateInRegion {
 	
 	/// Julian day is the continuous count of days since the beginning of the Julian Period used primarily by astronomers.
 	public var julianDay: Double {
-		let destRegion = Region(tz: TimeZones.gmt, cal: Calendars.gregorian, loc: Locales.english)
+		let destRegion = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
 		let utc = self.toRegion(destRegion)
 		
 		let year = Double(utc.year)

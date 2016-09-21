@@ -13,7 +13,7 @@ import XCTest
 
 class TestDateInRegion_Compare: XCTestCase {
 
-	let refDate = try! DateInRegion(components: [.year: 2015, .month: 12, .day: 14, .hour: 13], fromRegion: Region(tz: TimeZones.americaParamaribo, cal: Calendars.gregorian, loc: Locales.dutch))
+	let refDate = try! DateInRegion(components: [.year: 2015, .month: 12, .day: 14, .hour: 13], fromRegion: Region(tz: TimeZoneName.americaParamaribo, cal: CalendarName.gregorian, loc: LocaleName.dutch))
 	
 	override func setUp() {
 		super.setUp()
@@ -99,7 +99,7 @@ class TestDateInRegion_Compare: XCTestCase {
 		let date2 = refDate + 1.seconds
 		XCTAssertTrue(refDate.isEqual(to: date2) == false, "Failed get compare with future date")
 		
-		let romeRegion = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.italianItaly)
+		let romeRegion = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
 		let dateInRome = refDate.toRegion(romeRegion)
 		XCTAssertTrue(refDate.isEqual(to: dateInRome) == false, "Failed get compare with different region")
 	}
@@ -375,8 +375,8 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_equationOperators() {
-		let d_amsterdam = Region(tz: TimeZones.europeAmsterdam, cal: Calendars.gregorian, loc: Locales.dutchNetherlands)
-		let d_shanghai = Region(tz: TimeZones.asiaShanghai, cal: Calendars.chinese, loc: Locales.chineseChina)
+		let d_amsterdam = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
+		let d_shanghai = Region(tz: TimeZoneName.asiaShanghai, cal: CalendarName.chinese, loc: LocaleName.chineseChina)
 	
 		let date1 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 31])
 		let date2 = date1
@@ -401,8 +401,8 @@ class TestDateInRegion_Compare: XCTestCase {
 		let date3 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30])
 		XCTAssertTrue(date2.hashValue != date3.hashValue, "hould return an unequal hash for a different date value")
 
-		let netherlands = Region(tz: TimeZones.europeAmsterdam, cal: Calendars.gregorian, loc: Locales.dutchNetherlands)
-		let utc = Region(tz: TimeZones.gmt, cal: Calendars.gregorian, loc: Locales.dutchNetherlands)
+		let netherlands = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
+		let utc = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
 		
 		let date4 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: netherlands)
 		let date5 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: utc)

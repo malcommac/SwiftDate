@@ -35,8 +35,8 @@ public extension TimeInterval {
 	/// - parameter calendar:   context calendar to use
 	///
 	/// - returns: a `[Calendar.Component: Int]` which contains the unit in which you want to express the time interval
-	public func `in`(_ components: [Calendar.Component], of calendar: Calendars? = nil) -> [Calendar.Component : Int] {
-		let cal = calendar ?? Calendars.current
+	public func `in`(_ components: [Calendar.Component], of calendar: CalendarName? = nil) -> [Calendar.Component : Int] {
+		let cal = calendar ?? CalendarName.current
 		let dateTo = Date()
 		let dateFrom: Date = dateTo.addingTimeInterval(-self)
 		let cmps = cal.calendar.dateComponents(componentsToSet(components), from: dateFrom, to: dateTo)
@@ -50,8 +50,8 @@ public extension TimeInterval {
 	/// - parameter calendar:  context calendar to use
 	///
 	/// - returns: the value of interval expressed in selected `Calendar.Component`
-	public func `in`(_ component: Calendar.Component, of calendar: Calendars? = nil) -> Int? {
-		let cal = calendar ?? Calendars.current
+	public func `in`(_ component: Calendar.Component, of calendar: CalendarName? = nil) -> Int? {
+		let cal = calendar ?? CalendarName.current
 		let dateTo = Date()
 		let dateFrom: Date = dateTo.addingTimeInterval(-self)
 		let components: Set<Calendar.Component> = [component]

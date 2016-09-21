@@ -13,7 +13,7 @@ import XCTest
 
 class TestDateInRegion_Formatter: XCTestCase {
 	
-	let refDate = try! DateInRegion(components: [.year: 2015, .month: 12, .day: 14, .hour: 13], fromRegion: Region(tz: TimeZones.americaParamaribo, cal: Calendars.gregorian, loc: Locales.dutch))
+	let refDate = try! DateInRegion(components: [.year: 2015, .month: 12, .day: 14, .hour: 13], fromRegion: Region(tz: TimeZoneName.americaParamaribo, cal: CalendarName.gregorian, loc: LocaleName.dutch))
 	
 	override func setUp() {
 		super.setUp()
@@ -24,7 +24,7 @@ class TestDateInRegion_Formatter: XCTestCase {
 	}
 	
 	public func test_toString() {
-		let rome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.italian)
+		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
 		let testDate = try! DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome)
 
 		let iso8601_internetTime = testDate.string(format: .iso8601(options: .withInternetDateTime))
@@ -47,19 +47,19 @@ class TestDateInRegion_Formatter: XCTestCase {
 	}
 	
 	public func test_toStringWithStyle() {
-		let rome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.italian)
+		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
 		let testDate = try! DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome)
 
 		let custom_1 = testDate.string(dateStyle: .full, timeStyle: .full)
 		XCTAssertEqual(custom_1, "sabato 3 febbraio 2001 15:30:00 Ora standard dell’Europa centrale", "Failed get string representation as custom #1")
 
-		let inLondon = testDate.toRegion(Region(tz: TimeZones.europeLondon, cal: Calendars.gregorian, loc: Locales.englishUnitedKingdom))
+		let inLondon = testDate.toRegion(Region(tz: TimeZoneName.europeLondon, cal: CalendarName.gregorian, loc: LocaleName.englishUnitedKingdom))
 		let custom_2 = inLondon.string(dateStyle: .short, timeStyle: .short)
 		XCTAssertEqual(custom_2, "03/02/2001, 14:30", "Failed get string representation as custom #2")
 	}
 	
 	public func test_toColloquialString() {
-		let rome = Region(tz: TimeZones.europeRome, cal: Calendars.gregorian, loc: Locales.italian)
+		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
 	
 		let testDate = try! DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome)
 		let custom_1 = try! testDate.colloquialSinceNow().date

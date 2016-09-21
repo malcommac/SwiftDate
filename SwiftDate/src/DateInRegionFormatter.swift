@@ -136,7 +136,7 @@ public class DateInRegionFormatter {
 	///
 	/// - returns: time components string
 	public func timeComponents(interval: TimeInterval) throws  -> String {
-		let UTCRegion = Region(tz: TimeZones.gmt, cal: Calendars.current, loc: Locales.current)
+		let UTCRegion = Region(tz: TimeZoneName.gmt, cal: CalendarName.current, loc: LocaleName.current)
 		let date = Date()
 		let fromDate = DateInRegion(absoluteDate: date.addingTimeInterval(-interval), in: UTCRegion)
 		let toDate = DateInRegion(absoluteDate: date, in: UTCRegion.copy())

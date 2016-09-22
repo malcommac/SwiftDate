@@ -383,7 +383,7 @@ extension DateInRegion {
 	///
 	/// - returns: the date representing that start of that unit
 	public func startOf(component: Calendar.Component) -> DateInRegion {
-		let absoluteTime = self.region.calendar.range(of: component, for: self.absoluteDate)!.start
+		let absoluteTime = self.region.calendar.rangex(of: component, for: self.absoluteDate)!.start
 		return DateInRegion(absoluteDate: absoluteTime, in: self.region.copy())
 	}
 	
@@ -396,7 +396,7 @@ extension DateInRegion {
 	public func endOf(component: Calendar.Component) -> DateInRegion {
 		// RangeOfUnit returns the start of the next unit; we will subtract one thousandth of a
 		// second
-		let startOfNextUnit = self.region.calendar.range(of: component, for: self.absoluteDate)!.end
+		let startOfNextUnit = self.region.calendar.rangex(of: component, for: self.absoluteDate)!.end
 		let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit)
 		return DateInRegion(absoluteDate: endOfThisUnit, in: self.region.copy())
 	}

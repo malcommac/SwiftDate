@@ -81,10 +81,14 @@ public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegi
 
 public func - (lhs: DateInRegion, rhs: DateInRegion) -> TimeInterval {
 	var interval: TimeInterval = 0
-	if lhs.absoluteDate < rhs.absoluteDate {
-		interval = -(DateInterval(start: lhs.absoluteDate, end: rhs.absoluteDate)).duration
+	if #available(iOS 10.0, *) {
+		if lhs.absoluteDate < rhs.absoluteDate {
+			interval = -(DateInterval(start: lhs.absoluteDate, end: rhs.absoluteDate)).duration
+		} else {
+			interval = (DateInterval(start: rhs.absoluteDate, end: lhs.absoluteDate)).duration
+		}
 	} else {
-		interval = (DateInterval(start: rhs.absoluteDate, end: lhs.absoluteDate)).duration
+		interval = rhs.absoluteDate.timeIntervalSince(lhs.absoluteDate)
 	}
 	return interval
 }

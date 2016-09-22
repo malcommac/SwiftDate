@@ -147,7 +147,7 @@ extension Calendar {
 	/// - Note: Since this API is under consideration it may be either removed or revised in the
 	///     near future
 	///
-	public func range(of component: Calendar.Component, for date: Date) -> DateInterval? {
+	public func rangex(of component: Calendar.Component, for date: Date) -> DateInterval? {
 		var start: CFAbsoluteTime = 0.0
 		var ti: CFTimeInterval = 0.0
 		let res: Bool = withUnsafeMutablePointer(to: &start) { startp -> Bool in

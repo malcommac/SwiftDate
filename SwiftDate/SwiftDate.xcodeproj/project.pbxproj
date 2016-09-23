@@ -215,12 +215,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080BA35F1D95AC87008B60B4 /* SwiftDate_macOS */ = {
+		080BA35F1D95AC87008B60B4 /* macoS */ = {
 			isa = PBXGroup;
 			children = (
 				080BA3601D95AC87008B60B4 /* SwiftDate-macOS.h */,
 				080BA3611D95AC87008B60B4 /* Info.plist */,
 			);
+			name = macoS;
 			path = SwiftDate_macOS;
 			sourceTree = "<group>";
 		};
@@ -233,33 +234,35 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		0812F9D71D9298A900F65854 /* SwiftDateWatchOS */ = {
+		0812F9D71D9298A900F65854 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
 				0812F9D81D9298A900F65854 /* SwiftDate-watchOS.h */,
 				0812F9D91D9298A900F65854 /* Info.plist */,
 			);
+			name = watchOS;
 			path = SwiftDateWatchOS;
 			sourceTree = "<group>";
 		};
-		0812F9F71D929F2600F65854 /* SwiftDate_tvOS */ = {
+		0812F9F71D929F2600F65854 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				0812F9F81D929F2600F65854 /* SwiftDate-tvOS.h */,
 				0812F9F91D929F2600F65854 /* Info.plist */,
 			);
+			name = tvOS;
 			path = SwiftDate_tvOS;
 			sourceTree = "<group>";
 		};
-		0812FA111D929FD300F65854 /* Platforms */ = {
+		0812FA111D929FD300F65854 /* Platforms Builds */ = {
 			isa = PBXGroup;
 			children = (
 				080BA3691D95ADFA008B60B4 /* iOS */,
-				080BA35F1D95AC87008B60B4 /* SwiftDate_macOS */,
-				0812F9D71D9298A900F65854 /* SwiftDateWatchOS */,
-				0812F9F71D929F2600F65854 /* SwiftDate_tvOS */,
+				080BA35F1D95AC87008B60B4 /* macoS */,
+				0812F9D71D9298A900F65854 /* watchOS */,
+				0812F9F71D929F2600F65854 /* tvOS */,
 			);
-			name = Platforms;
+			name = "Platforms Builds";
 			sourceTree = "<group>";
 		};
 		084579811D9542C9003A80A2 /* Formatters */ = {
@@ -340,8 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				21C3010D1D829C8B00B0E02C /* SwiftDate Core Library */,
-				21C301181D829C8B00B0E02C /* Unit Tests */,
-				0812FA111D929FD300F65854 /* Platforms */,
+				21C301181D829C8B00B0E02C /* SwiftDate Unit Tests */,
+				0812FA111D929FD300F65854 /* Platforms Builds */,
 				21C3012C1D829D7900B0E02C /* Demo Application */,
 				21C3010C1D829C8B00B0E02C /* Products */,
 			);
@@ -371,7 +374,7 @@
 			path = SwiftDate;
 			sourceTree = "<group>";
 		};
-		21C301181D829C8B00B0E02C /* Unit Tests */ = {
+		21C301181D829C8B00B0E02C /* SwiftDate Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */,
@@ -380,7 +383,7 @@
 				083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */,
 				21C3011B1D829C8B00B0E02C /* Info.plist */,
 			);
-			name = "Unit Tests";
+			name = "SwiftDate Unit Tests";
 			path = SwiftDateTests;
 			sourceTree = "<group>";
 		};

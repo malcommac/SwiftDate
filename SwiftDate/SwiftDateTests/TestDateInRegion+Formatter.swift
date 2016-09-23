@@ -8,7 +8,7 @@
 
 import Foundation
 import XCTest
-@testable import SwiftDate
+@testable import SwiftDate_iOS
 
 
 class TestDateInRegion_Formatter: XCTestCase {
@@ -77,5 +77,49 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let custom_5 = try! another_Date.timeComponentsSinceNow()
 		XCTAssertEqual(custom_5, "2 hr,5 min,3 sec", "Failed get colloquial representation of an old date")
 	}
-	
+
+	public func test_iso8601_formatter() {
+		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
+		let testDate = try! DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome)
+
+		var options: ISO8601DateTimeFormatter.Options = [.withWeekOfYear,.withMonth,.withDashSeparatorInDate]
+		let string_1 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_1, "02-W05", "Failed get ISO8601 #1 representation of the string")
+
+		options = [.withInternetDateTime]
+		let string_2 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_2, "2001-02-03T15:30:00+01:00", "Failed get ISO8601 #2 representation of the string")
+
+		options = [.withFullDate]
+		let string_3 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_3, "2001-02-03", "Failed get ISO8601 #3 representation of the string")
+		
+		options = [.withFullDate,.withFullTime]
+		let string_4 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_4, "2001-02-03T15:30:00+01:00", "Failed get ISO8601 #4 representation of the string")
+		
+		options = [.withDay,.withMonth]
+		let string_5 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_5, "0203", "Failed get ISO8601 #5 representation of the string")
+		
+		options = [.withWeekOfYear,.withMonth]
+		let string_6 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_6, "02W05", "Failed get ISO8601 #6 representation of the string")
+		
+		options = [.withYear,.withMonth,.withWeekOfYear]
+		let string_7 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_7, "200102W05", "Failed get ISO8601 #7 representation of the string")
+		
+		options = [.withYear,.withMonth,.withDay]
+		let string_8 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_8, "20010203", "Failed get ISO8601 #8 representation of the string")
+		
+		options = [.withYear,.withMonth,.withDay,.withFullTime]
+		let string_9 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_9, "20010203T15:30:00+01:00", "Failed get ISO8601 #9 representation of the string")
+		
+		options = [.withFullDate,.withTimeZone]
+		let string_10 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_10, "2001-02-03T+01:00", "Failed get ISO8601 #10 representation of the string")
+	}
 }

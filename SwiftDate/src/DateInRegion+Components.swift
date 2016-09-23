@@ -143,7 +143,7 @@ extension DateInRegion {
 	/// Week day name of the date
 	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
 	public var weekdayName: String {
-		return self.region.formatter(format: "EEEE").string(from: self.absoluteDate)
+		return self.formatters.dateFormatter(format: "EEEE").string(from: self.absoluteDate)
 	}
 	
 	/// Number of days into current's date month expressed in current region calendar and locale
@@ -171,14 +171,14 @@ extension DateInRegion {
 	/// Month name of the date
 	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
 	public var monthName: String {
-		return self.region.formatter().monthSymbols[self.month-1]
+		return self.formatters.dateFormatter().monthSymbols[self.month-1]
 	}
 	
 	
 	/// Short month name of the date
 	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
 	public var shortMonthName: String {
-		return self.region.formatter().shortMonthSymbols[self.month-1]
+		return self.formatters.dateFormatter().shortMonthSymbols[self.month-1]
 	}
 	
 	
@@ -509,7 +509,7 @@ extension DateInRegion {
 
 public extension Array where Element: DateInRegion {
 	
-	
+	/// Get the latest date from a list
 	public var latestDate: DateInRegion {
 		var currentMaximum = DateInRegion.distantPast
 		self.forEach { cDate in
@@ -520,6 +520,7 @@ public extension Array where Element: DateInRegion {
 		return currentMaximum
 	}
 	
+	/// Get the earliest date from a list
 	public var earliestDate: DateInRegion {
 		var currentMinimum = DateInRegion.distantFuture
 		self.forEach { cDate in

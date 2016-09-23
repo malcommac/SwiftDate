@@ -37,9 +37,119 @@ import Foundation
 ///		* Change date by adding or subtracting elements with Swift operators
 ///			(e.g. `date + 2.days + 15.minutes`)
 public class DateInRegion: CustomStringConvertible {
+	
+	/// region in which the `DateInRegion` is expressed
 	private(set) var region: Region
+	
+	/// Absolute date represented outside the `region`
 	private(set) var absoluteDate: Date
 	
+	/// This is a reference to use formatters
+	internal var formatters: Formatters
+	
+	public class Formatters {
+		private var timeZone: TimeZone
+		private var calendar: Calendar
+		private var locale: Locale
+		
+		/// `DateFormatter` reserved instance (nil unless you set `.useSharedFormatters = false`)
+		private var customDateFormatter: DateFormatter? = nil
+		
+		/// `ISO8601DateTimeFormatter` reserved instance (nil unless you set `.useSharedFormatters = false`)
+		private var customISO8601Formatter: ISO8601DateTimeFormatter? = nil
+		
+		/// `DateIntervalFormatter` reserved instance (nil unless you set `.useSharedFormatters = false`)
+		private var customDateIntervalFormatter: DateIntervalFormatter? = nil
+		
+		/// If true this instance of `DateInRegion` will use formatters shared along calling thread.
+		/// If false a new date formatter is created automatically and used only by a single `DateInRegion`
+		/// Usually you don't need to create a single formatter for each DateInRegion because this
+		/// operation is expensive.
+		/// Unless you need of a particular behaviour you will be happy enough to share a single formatter
+		/// for each thread.
+		public var useSharedFormatters: Bool = true
+		
+		public init(region: Region) {
+			self.timeZone = region.timeZone
+			self.calendar = region.calendar
+			self.locale = region.locale
+		}
+		
+		/// Return an `ISO8601DateTimeFormatter` instance. Returned instance is the one shared along calling thread
+		/// if `.useSharedFormatters = false`; otherwise a reserved instance is created for this `DateInRegion`
+		///
+		/// - parameter options: options to set for formatter
+		///
+		/// - returns: a new instance of the formatter
+		public  func isoFormatter(options: ISO8601DateTimeFormatter.Options) -> ISO8601DateTimeFormatter {
+			var formatter: ISO8601DateTimeFormatter? = nil
+			if useSharedFormatters == true {
+				let name = "SwiftDate_\(NSStringFromClass(ISO8601DateTimeFormatter.self))"
+				formatter = localThreadSingleton(key: name, create: { (Void) -> ISO8601DateTimeFormatter in
+					return ISO8601DateTimeFormatter()
+				})
+			} else {
+				if customISO8601Formatter == nil {
+					customISO8601Formatter = ISO8601DateTimeFormatter()
+					formatter = customISO8601Formatter
+				}
+			}
+			formatter!.formatOptions = options
+			formatter!.timeZone = self.timeZone
+			return formatter!
+		}
+		
+		/// Return an `DateFormatter` instance. Returned instance is the one shared along calling thread
+		/// if `.useSharedFormatters = false`; otherwise a reserved instance is created for this `DateInRegion`
+		///
+		/// - parameter format: if not nil a new `.dateFormat` is also set
+		///
+		/// - returns: a new instance of the formatter
+		public  func dateFormatter(format: String? = nil) -> DateFormatter {
+			var formatter: DateFormatter? = nil
+			if useSharedFormatters == true {
+				let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
+				formatter = localThreadSingleton(key: name, create: { (Void) -> DateFormatter in
+					return DateFormatter()
+				})
+			} else {
+				if customDateFormatter == nil {
+					customDateFormatter = DateFormatter()
+					formatter = customDateFormatter
+				}
+			}
+			if format != nil {
+				formatter!.dateFormat = format!
+			}
+			formatter!.timeZone = self.timeZone
+			formatter!.calendar = self.calendar
+			formatter!.locale = self.locale
+			return formatter!
+		}
+		
+		/// Return an `DateIntervalFormatter` instance. Returned instance is the one shared along calling thread
+		/// if `.useSharedFormatters = false`; otherwise a reserved instance is created for this `DateInRegion`
+		///
+		/// - returns: a new instance of the formatter
+		public  func intervalFormatter() -> DateIntervalFormatter {
+			var formatter: DateIntervalFormatter? = nil
+			if useSharedFormatters == true {
+				let name = "SwiftDate_\(NSStringFromClass(DateIntervalFormatter.self))"
+				formatter = localThreadSingleton(key: name, create: { (Void) -> DateIntervalFormatter in
+					return DateIntervalFormatter()
+				})
+			} else {
+				if customDateIntervalFormatter == nil {
+					customDateIntervalFormatter = DateIntervalFormatter()
+					formatter = customDateIntervalFormatter
+				}
+			}
+			formatter!.timeZone = self.timeZone
+			formatter!.calendar = self.calendar
+			formatter!.locale = self.locale
+			return formatter!
+		}
+	}
 	
 	/// Initialize a new `DateInRegion` object from an absolute date and a destination region.
 	/// The new instance express given date into specified region.
@@ -52,8 +162,8 @@ public class DateInRegion: CustomStringConvertible {
 		let srcRegion = region ?? Region.Local()
 		self.absoluteDate = absoluteDate
 		self.region = srcRegion
+		self.formatters = Formatters(region: srcRegion)
 	}
-	
 	
 	/// Initialize a new DateInRegion set to the current date in local's device region (`Region.Local()`).
 	///
@@ -61,8 +171,8 @@ public class DateInRegion: CustomStringConvertible {
 	public init() {
 		self.absoluteDate = Date()
 		self.region = Region.Local()
+		self.formatters = Formatters(region: self.region)
 	}
-	
 	
 	/// Initialize a new `DateInRegion` object from a `DateComponents` object.
 	/// Both `TimeZone`, `Locale` and `Calendar` must be specified in `DateComponents` instance in order to get a valid result; if omitted a `MissingCalTzOrLoc` exception will thrown.
@@ -83,9 +193,8 @@ public class DateInRegion: CustomStringConvertible {
 		}
 		self.absoluteDate = absDate
 		self.region = srcRegion
+		self.formatters = Formatters(region: srcRegion)
 	}
-	
-	
 	
 	/// Initialize a new `DateInRegion` where components are specified in an dictionary
 	/// where the key is `Calendar.Component` and the value is an int; region informations
@@ -99,6 +208,7 @@ public class DateInRegion: CustomStringConvertible {
 	/// - returns: a new `DateInRegion` instance expressed in passed region
 	public init(components: [Calendar.Component : Int], fromRegion region: Region? = nil) throws {
 		let srcRegion = region ?? Region.Local()
+		self.formatters = Formatters(region: srcRegion)
 		let cmp = DateInRegion.componentsFrom(values: components, setRegion: srcRegion)
 		guard let absDate = srcRegion.calendar.date(from: cmp) else {
 			throw DateError.FailedToParse
@@ -106,7 +216,6 @@ public class DateInRegion: CustomStringConvertible {
 		self.absoluteDate = absDate
 		self.region = srcRegion
 	}
-	
 	
 	/// Initialize a new `DateInRegion` created from passed format rexpressed in specified region.
 	///
@@ -119,26 +228,27 @@ public class DateInRegion: CustomStringConvertible {
 	/// - returns: a new DateInRegion from given string
 	public init(string: String, format: DateFormat, fromRegion region: Region? = nil) throws {
 		let srcRegion = region ?? Region.Local()
+		self.formatters = Formatters(region: srcRegion)
 		switch format {
 		case .custom(let format):
-			guard let date = srcRegion.formatter(format: format).date(from: string) else {
+			guard let date = self.formatters.dateFormatter(format: format).date(from: string) else {
 				throw DateError.FailedToParse
 			}
 			self.absoluteDate = date
 		case .iso8601(let options):
-			guard let date = srcRegion.iso8601Formatter(options: options).date(from: string) else {
+			guard let date = self.formatters.isoFormatter(options: options).date(from: string) else {
 				throw DateError.FailedToParse
 			}
 			self.absoluteDate = date
 		case .extended:
 			let format = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
-			guard let date = srcRegion.formatter(format: format).date(from: string) else {
+			guard let date = self.formatters.dateFormatter(format: format).date(from: string) else {
 				throw DateError.FailedToParse
 			}
 			self.absoluteDate = date
 		case .rss(let isAltRSS):
 			let format = (isAltRSS ? "d MMM yyyy HH:mm:ss ZZZ" : "EEE, d MMM yyyy HH:mm:ss ZZZ")
-			guard let date = srcRegion.formatter(format: format).date(from: string) else {
+			guard let date = self.formatters.dateFormatter(format: format).date(from: string) else {
 				throw DateError.FailedToParse
 			}
 			self.absoluteDate = date
@@ -151,7 +261,6 @@ public class DateInRegion: CustomStringConvertible {
 		self.region = srcRegion
 	}
 	
-	
 	/// Convert a `DateInRegion` instance to a new specified `Region`
 	///
 	/// - parameter newRegion: destination region in which returned `DateInRegion` instance will be expressed in
@@ -161,14 +270,12 @@ public class DateInRegion: CustomStringConvertible {
 		return DateInRegion(absoluteDate: self.absoluteDate, in: newRegion)
 	}
 	
-	
 	/// Modify absolute date value of the `DateInRegion` instance by adding a fixed value of seconds
 	///
 	/// - parameter interval: seconds to add
 	public func add(interval: TimeInterval) {
 		self.absoluteDate.addTimeInterval(interval)
 	}
-	
 	
 	/// Return a description of the `DateInRegion`
 	public var description: String {

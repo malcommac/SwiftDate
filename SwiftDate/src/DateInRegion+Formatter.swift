@@ -28,7 +28,6 @@ import Foundation
 
 public extension DateInRegion {
 	
-	
 	/// Convert a `DateInRegion` to a string according to passed format expressed in region's timezone, locale and calendar.
 	/// Se Apple's "Date Formatting Guide" to see details about the table of symbols you can use to format each date component.
 	/// Since iOS7 and macOS 10.9 it's based upon tr35-31 specs (http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns)
@@ -40,13 +39,12 @@ public extension DateInRegion {
 		return self.string(format: .custom(formatString))
 	}
 	
-	
 	/// Convert a `DateInRegion` to a string using ISO8601 format expressed in region's timezone, locale and calendar.
 	///
-	/// - parameter opts: optional options for ISO8601 formatter specs (see `ISO8601DateFormatter.Options`). If nil `.withInternetDateTime` will be used instead)
+	/// - parameter opts: optional options for ISO8601 formatter specs (see `ISO8601Parser.Options`). If nil `.withInternetDateTime` will be used instead)
 	///
 	/// - returns: a string representing the date in ISO8601 format according to passed options
-	public func iso8601(opts: ISO8601DateFormatter.Options? = nil) -> String {
+	public func iso8601(opts: ISO8601DateTimeFormatter.Options? = nil) -> String {
 		return self.string(format: .iso8601(options: opts ?? [.withInternetDateTime]))
 	}
 	
@@ -59,15 +57,16 @@ public extension DateInRegion {
 	public func string(format: DateFormat) -> String {
 		switch format {
 		case .custom(let format):
-			return self.region.formatter(format: format).string(from: self.absoluteDate)
+			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .iso8601(let options):
-			return self.region.iso8601Formatter(options: options).string(from: self.absoluteDate)
+			let formatter = self.formatters.isoFormatter(options: options)
+			return formatter.string(from: self.absoluteDate)
 		case .rss(let isAltRSS):
 			let format = (isAltRSS ? "d MMM yyyy HH:mm:ss ZZZ" : "EEE, d MMM yyyy HH:mm:ss ZZZ")
-			return self.region.formatter(format: format).string(from: self.absoluteDate)
+			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .extended:
 			let format = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
-			return self.region.formatter(format: format).string(from: self.absoluteDate)
+			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .dotNET:
 			let milliseconds = (self.absoluteDate.timeIntervalSince1970 * 1000.0)
 			let tzOffsets = (self.region.timeZone.secondsFromGMT(for: self.absoluteDate) / 3600)
@@ -85,7 +84,7 @@ public extension DateInRegion {
 	///
 	/// - returns: a new string which represent the interval from given dates
 	public func intervalString(toDate date: DateInRegion, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .medium) -> String {
-		let formatter = self.region.intervalFormatter()
+		let formatter = self.formatters.intervalFormatter()
 		formatter.dateStyle = dateStyle
 		formatter.timeStyle = timeStyle
 		return formatter.string(from: self.absoluteDate, to: date.absoluteDate)
@@ -99,7 +98,7 @@ public extension DateInRegion {
 	///
 	/// - returns: a new string which represent the date expressed into the current region
 	public func string(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
-		let formatter = self.region.formatter()
+		let formatter = self.formatters.dateFormatter()
 		formatter.dateStyle = dateStyle
 		formatter.timeStyle = timeStyle
 		return formatter.string(from: self.absoluteDate)

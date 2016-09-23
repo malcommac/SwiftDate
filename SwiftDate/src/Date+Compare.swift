@@ -40,7 +40,7 @@ public extension Date {
 	///
 	/// - returns: `orderedSame` if the dates are the same down to the given granularity, otherwise
 	///     `orderedAscending` or `orderedDescending`.
-	public func comparex(to date: Date, in region: Region? = nil, granularity: Calendar.Component) -> ComparisonResult {
+	public func compare(to date: Date, in region: Region? = nil, granularity: Calendar.Component) -> ComparisonResult {
 		let srcRegion = region ?? DateDefaultRegion
 		return srcRegion.calendar.compare(self, to: date, toGranularity: granularity)
 	}
@@ -57,7 +57,7 @@ public extension Date {
 	///
 	/// - returns: `true` if the dates are the same down to the given granularity, otherwise `false`
 	public func isIn(date: Date, in region: Region? = nil, granularity: Calendar.Component) -> Bool {
-		return (self.comparex(to: date, granularity: granularity) == .orderedSame)
+		return (self.compare(to: date, granularity: granularity) == .orderedSame)
 	}
 	
 	
@@ -73,7 +73,7 @@ public extension Date {
 	/// - returns: `true` if the unit of the receiver is less than the unit of `date`, otherwise
 	///            `false`
 	public func isBefore(date: Date, orEqual: Bool = false, in region: Region? = nil, granularity: Calendar.Component) -> Bool {
-		let result = self.comparex(to: date, granularity: granularity)
+		let result = self.compare(to: date, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedAscending) : result == .orderedAscending)
 	}
 	
@@ -89,7 +89,7 @@ public extension Date {
 	/// - returns: `true` if the unit of the receiver is greater than the unit of `date`, otherwise
 	///            `false`
 	public func isAfter(date: Date, orEqual: Bool = false, in region: Region? = nil, granularity: Calendar.Component) -> Bool {
-		let result = self.comparex(to: date, granularity: granularity)
+		let result = self.compare(to: date, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending)
 	}
 	

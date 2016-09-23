@@ -24,6 +24,30 @@
 
 import Foundation
 
+
+/// Provide a mechanism to create and return local-thread object you can share.
+/// 
+/// Basically you assign a key to the object and return the initializated instance in `create`
+/// block. Again this code is used internally to provide a common way to create local-thread date
+/// formatter as like `NSDateFormatter` (which is expensive to create) or
+/// `NSDateComponentsFormatter`.
+/// Instance is saved automatically into current thread own dictionary.
+///
+/// - parameter key:    identification string of the object
+/// - parameter create: creation block. At the end of the block you need to provide the instance you
+///						want to save.
+///
+/// - returns: the instance you have created into the current thread
+internal func localThreadSingleton<T: AnyObject>(key: String, create: (Void) -> T) -> T {
+	if let cachedObj = Thread.current.threadDictionary[key] as? T {
+		return cachedObj
+	} else {
+		let newObject = create()
+		Thread.current	.threadDictionary[key] = newObject
+		return newObject
+	}
+}
+
 /// This is the list of all possible errors you can get from the library
 ///
 /// - FailedToParse:        Failed to parse a specific date using provided format
@@ -51,7 +75,7 @@ public enum DateError: Error {
 /// - dotNET:   .NET date format
 public enum DateFormat {
 	case custom(String)
-	case iso8601(options: ISO8601DateFormatter.Options)
+	case iso8601(options: ISO8601DateTimeFormatter.Options)
 	case extended
 	case rss(alt: Bool)
 	case dotNET

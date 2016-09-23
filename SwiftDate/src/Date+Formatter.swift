@@ -29,7 +29,7 @@ import Foundation
 public extension Date {
 	
 	public func stringx(custom formatString: String) -> String {
-		return self.stringx(format: .custom(formatString), in: nil)
+		return self.string(format: .custom(formatString), in: nil)
 	}
 	
 	/// Convert a `Date` to a string using ISO8601 format
@@ -37,8 +37,8 @@ public extension Date {
 	/// - parameter opts: options to format ISO8601 output string (if nil `.withInternetDateTime` will be used instead)
 	///
 	/// - returns: a string representing the date in ISO8601 format according to passed options
-	public func iso8601(opts: ISO8601DateFormatter.Options? = nil) -> String {
-		return self.stringx(format: .iso8601(options: opts ?? [.withInternetDateTime]))
+	public func iso8601(opts: ISO8601DateTimeFormatter.Options? = nil) -> String {
+		return self.string(format: .iso8601(options: opts ?? [.withInternetDateTime]))
 	}
 	
 	/// Convert a `Date` to a string using specified format.
@@ -48,7 +48,7 @@ public extension Date {
 	/// - parameter region: region in which the date should be evaluated (if nil `defaultRegion` will be used instead)
 	///
 	/// - returns: the string representation of the date itself
-	public func stringx(format: DateFormat, in region: Region? = nil) -> String {
+	public func string(format: DateFormat, in region: Region? = nil) -> String {
 		let srcRegion = region ?? DateDefaultRegion
 		return DateInRegion(absoluteDate: self, in: srcRegion).string(format: format)
 	}

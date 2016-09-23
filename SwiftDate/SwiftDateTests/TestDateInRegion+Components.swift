@@ -9,7 +9,7 @@
 import Foundation
 
 import XCTest
-@testable import SwiftDate
+@testable import SwiftDate_iOS
 
 
 class TestDateInRegion_Components: XCTestCase {

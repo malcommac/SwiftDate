@@ -27,34 +27,10 @@ import Foundation
 // MARK: - Region
 
 /// Region encapsulate information about the TimeZone, Calendar and Locale of an absolute time
-public class Region: CustomStringConvertible {
+public struct Region: CustomStringConvertible {
 	private(set) var timeZone: TimeZone
 	private(set) var calendar: Calendar
 	private(set) var locale: Locale
-	
-	private lazy var dateFormatter: DateFormatter = {
-		let parser = DateFormatter()
-		parser.timeZone = self.timeZone
-		parser.calendar = self.calendar
-		parser.calendar.timeZone = self.timeZone
-		parser.locale = self.locale
-		return parser
-	}()
-	
-	private lazy var iso8601Formatter: ISO8601DateFormatter = {
-		let parser = ISO8601DateFormatter()
-		parser.timeZone = self.timeZone
-		return parser
-	}()
-	
-	private lazy var dateIntervalFormatter: DateIntervalFormatter = {
-		let parser = DateIntervalFormatter()
-		parser.timeZone = self.timeZone
-		parser.calendar = self.calendar
-		parser.calendar.timeZone = self.timeZone
-		parser.locale = self.locale
-		return parser
-	}()
 	
 	public var description: String {
 		return "Region with timezone: \(self.timeZone), calendar: \(self.calendar), locale: \(self.locale)"
@@ -94,7 +70,7 @@ public class Region: CustomStringConvertible {
 	/// - parameter components: components to use
 	///
 	/// - returns: a new `Region`
-	public convenience init?(components: DateComponents) {
+	public init?(components: DateComponents) {
 		let tz = components.timeZone ?? TimeZoneName.current.timeZone
 		let cal = components.calendar ?? CalendarName.gregorian.calendar
 		let loc = cal.locale ?? LocaleName.current.locale
@@ -128,22 +104,7 @@ public class Region: CustomStringConvertible {
 		let loc = (auto ? Locale.autoupdatingCurrent : Locale.current)
 		return Region(tz: tz, cal: cal, loc: loc)
 	}
-	
-	internal func formatter(format: String? = nil) -> DateFormatter {
-		if format != nil {
-			self.dateFormatter.dateFormat = format!
-		}
-		return self.dateFormatter
-	}
-	
-	internal func iso8601Formatter(options: ISO8601DateFormatter.Options) -> ISO8601DateFormatter {
-		self.iso8601Formatter.formatOptions = options
-		return self.iso8601Formatter
-	}
-	
-	internal func intervalFormatter() -> DateIntervalFormatter {
-		return self.dateIntervalFormatter
-	}
+
 }
 
 

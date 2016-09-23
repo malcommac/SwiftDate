@@ -361,7 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				21C3010D1D829C8B00B0E02C /* SwiftDate Core Library */,
-				21C301181D829C8B00B0E02C /* SwiftDateTests */,
+				21C301181D829C8B00B0E02C /* Unit Tests */,
 				0812FA111D929FD300F65854 /* Platforms */,
 				21C3012C1D829D7900B0E02C /* Demo */,
 				21C3010C1D829C8B00B0E02C /* Products */,
@@ -394,15 +394,16 @@
 			path = SwiftDate;
 			sourceTree = "<group>";
 		};
-		21C301181D829C8B00B0E02C /* SwiftDateTests */ = {
+		21C301181D829C8B00B0E02C /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */,
-				21C3011B1D829C8B00B0E02C /* Info.plist */,
 				2149832A1D8C49E1001E72EC /* TestDateInRegion+Components.swift */,
 				083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */,
 				083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */,
+				21C3011B1D829C8B00B0E02C /* Info.plist */,
 			);
+			name = "Unit Tests";
 			path = SwiftDateTests;
 			sourceTree = "<group>";
 		};

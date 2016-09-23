@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
-               BuildableName = "SwiftDate_iOS.framework"
+               BuildableName = "SwiftDate.framework"
                BlueprintName = "SwiftDate_iOS"
                ReferencedContainer = "container:SwiftDate.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
-            BuildableName = "SwiftDate_iOS.framework"
+            BuildableName = "SwiftDate.framework"
             BlueprintName = "SwiftDate_iOS"
             ReferencedContainer = "container:SwiftDate.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
-            BuildableName = "SwiftDate_iOS.framework"
+            BuildableName = "SwiftDate.framework"
             BlueprintName = "SwiftDate_iOS"
             ReferencedContainer = "container:SwiftDate.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
-            BuildableName = "SwiftDate_iOS.framework"
+            BuildableName = "SwiftDate.framework"
             BlueprintName = "SwiftDate_iOS"
             ReferencedContainer = "container:SwiftDate.xcodeproj">
          </BuildableReference>

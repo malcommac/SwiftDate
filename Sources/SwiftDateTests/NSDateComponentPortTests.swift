@@ -55,7 +55,7 @@ class NSDateComponentPortSpec: QuickSpec {
                 }
 
                 it("should report a valid nanosecond") {
-                    expect(date.nanosecond).to(beCloseTo(87654321, within: 10))
+                    expect(Double(date.nanosecond)).to(beCloseTo(87654321, within: 10))
                 }
 
             }
@@ -127,8 +127,8 @@ class NSDateComponentPortSpec: QuickSpec {
                     expect(components.year) == 2002
                     expect(components.month) == 6
                     expect(components.day) == 23
-                    expect(components.hour) == nil
-                    expect(components.minute) == nil
+                    expect(components.hour).to(beNil())
+                    expect(components.minute).to(beNil())
                 }
 
                 it("should return a midnight date YMD initialisation (winter)") {

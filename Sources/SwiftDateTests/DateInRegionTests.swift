@@ -457,7 +457,7 @@ class DateInRegionSpec: QuickSpec {
                     expect(date!.hour) == 14
                     expect(date!.minute) == 26
                     expect(date!.second) == 08
-                    expect(date!.nanosecond).to(beCloseTo(123000000, within: 100))
+                    expect(Double(date!.nanosecond)).to(beCloseTo(123000000, within: 100))
                     expect(date!.timeZone.secondsFromGMT()) == 0
                 }
 

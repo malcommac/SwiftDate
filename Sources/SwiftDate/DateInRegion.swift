@@ -392,7 +392,7 @@ extension DateInRegion: CustomDebugStringConvertible {
 		var descriptor: [String] = []
 
 		let formatter = FoundationDateFormatter()
-		formatter.dateStyle = .medium
+		formatter.dateStyle = .long
 		formatter.timeStyle = .long
 		formatter.locale = self.locale
 		formatter.calendar = self.calendar

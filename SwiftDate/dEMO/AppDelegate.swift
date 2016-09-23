@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  dEMO
+//  Demo Application
 //
 //  Created by Daniele Margutti on 09/09/16.
 //  Copyright © 2016 Daniele Margutti. All rights reserved.

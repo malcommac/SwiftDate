@@ -1,2 +1,2 @@
-github "Quick/Quick" "swift-3.0"
-github "Quick/Nimble" "master"
+github "Quick/Quick" "master"
+github "Quick/Nimble"

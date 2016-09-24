@@ -89,7 +89,7 @@ public struct Region: CustomStringConvertible {
 	public static func GMT() -> Region {
 		let tz = TimeZoneName.gmt.timeZone
 		let cal = CalendarName.current.calendar
-		let loc = Locale.autoupdatingCurrent
+		let loc = LocaleName.current.locale
 		return Region(tz: tz, cal: cal, loc: loc)
 	}
 	

@@ -28,6 +28,12 @@ That's an highlight of the main features you can found in SwiftDate:
 * Install SwiftDate via CocoaPods, Chartage or Swift Package Manager
 * Have fun!
 
+## Documentation
+* **On[http://www.swift-date.com](http://www.swift-date.com) to learn more about all available functions with a comprehensive list of examples**
+* The latest full class documentation is available here
+* Code is documented for XCode, so you can use built in documentation panel to learn more about the library.
+* You can generate latest documentation using Jazzy; install Jazzy via ```gem install jazzy``` then, from terminal, move to ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder. See the point below for a pre-generated docs link.
+
 ## Communication
 - If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/swiftdate). (Tag 'swiftdate')
 - If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/swiftdate).

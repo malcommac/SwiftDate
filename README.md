@@ -8,7 +8,7 @@ We really ❤ Swift and we use it since the beginning.
 
 We also think that dates and timezones management should be painless: this is the reason we made SwiftDate, probability the best way to manage date and time in Swift.
 
-Choose SwifDate for your next project, or migrate over your existing projects—you'll be happy you did!
+Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
 ## SwiftDate [website is here](http://malcommac.github.io/SwiftDate)
 

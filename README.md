@@ -30,9 +30,9 @@ That's an highlight of the main features you can found in SwiftDate:
 
 ## Documentation
 * **On[http://www.swift-date.com](http://www.swift-date.com) to learn more about all available functions with a comprehensive list of examples**
-* The latest full class documentation is available here
+* The latest [full class documentation is available here](http://malcommac.github.io/SwiftDate/docs-latest/)
 * Code is documented for XCode, so you can use built in documentation panel to learn more about the library.
-* You can generate latest documentation using Jazzy; install Jazzy via ```gem install jazzy``` then, from terminal, move to ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder. See the point below for a pre-generated docs link.
+* You can generate latest documentation using [Jazzy](https://github.com/realm/jazzy); install Jazzy via ```gem install jazzy``` then, from terminal, move to ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder. See the point below for a pre-generated docs link.
 
 ## Communication
 - If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/swiftdate). (Tag 'swiftdate')

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>SwiftDate for Swift</title>
+
+    <!-- Styles -->
+    <link href="assets/css/theDocs.all.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.ico">
+  </head>
+
+  <body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed">
+
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo-sidebar-alt.png" alt="logo" width=173px height=167px></a>
+
+      <ul class="sidenav dropable sticky">
+        <li>
+          <a class="#" href="#">Overview</a>
+          <ul>
+            <li><a href="overview.html#overview">Overview</a></li>
+            <li><a href="overview.html#main_features">Main Features</a></li>
+            <li><a href="overview.html#requirements">Requirements</a></li>
+            <li><a href="overview.html#install">Install</a></li>
+            <li><a href="overview.html#forkus">Fork Us on GitHub</a></li>
+            <li><a href="overview.html#authors">Authors & License</a></li>
+            <li><a href="overview.html#promote">Your App & SwiftDate</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Main Concepts</a>
+          <ul>
+            <li><a href="main_concepts.html#absolute_time">Date and Absolute Time</a></li>
+            <li><a href="main_concepts.html#dateregion">DateInRegion and Region</a></li>
+            <li><a href="main_concepts.html#default_region">The Default Region</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="active" href="#">Get Components</a>
+          <ul>
+            <li><a href="date_components.html#overview">Overview</a></li>
+            <li><a href="date_components.html#era">era</a></li>
+            <li><a href="date_components.html#year">year</a></li>
+            <li><a href="date_components.html#month">month</a></li>
+            <li><a href="date_components.html#day">day</a></li>
+            <li><a href="date_components.html#hour">hour</a></li>
+            <li><a href="date_components.html#nearesthour">nearestHour</a></li>
+            <li><a href="date_components.html#minute">minute</a></li>
+            <li><a href="date_components.html#second">second</a></li>
+            <li><a href="date_components.html#nanosecond">nanosecond</a></li>
+            <li><a href="date_components.html#yearforweekofyear">yearForWeekOfYear</a></li>
+            <li><a href="date_components.html#weekofyear">weekOfYear</a></li>
+            <li><a href="date_components.html#weekdayordinal">weekdayOrdinal</a></li>
+            <li><a href="date_components.html#weekdayname">weekdayName</a></li>
+            <li><a href="date_components.html#monthdays">monthDays</a></li>
+            <li><a href="date_components.html#quarter">quarter</a></li>
+            <li><a href="date_components.html#weekofmonth">weekOfMonth</a></li>
+            <li><a href="date_components.html#monthname">monthName</a></li>
+            <li><a href="date_components.html#shortmonthname">shortMonthName</a></li>
+            <li><a href="date_components.html#leapmonth">leapMonth</a></li>
+            <li><a href="date_components.html#leapyear">leapYear</a></li>
+            <li><a href="date_components.html#julianday">julianDay</a></li>
+            <li><a href="date_components.html#modifiedjulianday">modifiedJulianDay</a></li>
+            <li><a href="date_components.html#previousweekend">previousWeekend</a></li>
+            <li><a href="date_components.html#thisweekend">thisWeekend</a></li>
+            <li><a href="date_components.html#nextweekend">nextWeekend</a></li>
+            <li><a href="date_components.html#istoday">isToday</a></li>
+            <li><a href="date_components.html#isyesterday">isYesterday</a></li>
+            <li><a href="date_components.html#istomorrow">isTomorrow</a></li>
+            <li><a href="date_components.html#isinweekend">isInWeekend</a></li>
+            <li><a href="date_components.html#isinpast">isInPast</a></li>
+            <li><a href="date_components.html#isinfuture">isInFuture</a></li>
+            <li><a href="date_components.html#isinsamedayof">isInSameDayOf</a></li>
+            <li><a href="date_components.html#startofday">startOfDay</a></li>
+            <li><a href="date_components.html#endofday">endOfDay</a></li>
+            <li><a href="date_components.html#nextmonth">nextMonth</a></li>
+            <li><a href="date_components.html#prevmonth">prevMonth</a></li>
+            <li><a href="date_components.html#startof">startOf</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Parse/Create Dates</a>
+          <ul>
+            <li><a href="parse_create_dates.html#overview">Overview</a></li>
+            <li><a href="parse_create_dates.html#fromstring">Parse Date from Custom String/ISO8601/<br/>AltRSS/RSS/Extended</a></li>
+            <li><a href="parse_create_dates.html#fromnow">Create from now</a></li>
+            <li><a href="parse_create_dates.html#fromdateandregion">Create from Date & Region</a></li>
+            <li><a href="parse_create_dates.html#fromdatecomponents">Create from DateComponents</a></li>
+            <li><a href="parse_create_dates.html#fromtimecomponents">Create from Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Manipulate Dates</a>
+          <ul>
+            <li><a href="manipulate_dates.html#math_operators">Overview</a></li>
+            <li><a href="manipulate_dates.html#dateregion">Math Operators</a></li>
+            <li><a href="manipulate_dates.html#compare_dates">Compare Dates</a></li>
+            <li><a href="manipulate_dates.html#start_oftime_unit">Start of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#end_oftime_unit">End of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#dateatunit">Date at Specified Time</a></li>
+            <li><a href="manipulate_dates.html#dateatcomponents">Date at Specified Time Units</a></li>
+            <li><a href="manipulate_dates.html#latest_date">Latest Date</a></li>
+            <li><a href="manipulate_dates.html#earliest_date">Earliest Date</a></li>
+            <li><a href="manipulate_dates.html#compare_g">Compare (with Granurality)</a></li>
+            <li><a href="manipulate_dates.html#before_g">is Before Date (with Granurality)</a></li>
+            <li><a href="manipulate_dates.html#after_g">is After Date (with Granurality)</a></li>
+            <li><a href="manipulate_dates.html#equal">is Equal</a></li>
+          </ul>
+        </li>
+
+
+        <li>
+          <a href="#">Date Formatting</a>
+          <ul>
+            <li><a href="formatters.html#customstring">Date to Custom Format</a></li>
+            <li><a href="formatters.html#iso8601">Date to ISO8601 Format</a></li>
+            <li><a href="formatters.html#rssaltrss">Date to RSS/AltRSS</a></li>
+            <li><a href="formatters.html#dotnet">Date to .NET</a></li>
+            <li><a href="formatters.html#extended">Date to .Extended</a></li>
+            <li><a href="formatters.html#intervaltostring">Time Interval to string</a></li>
+            <li><a href="formatters.html#datetimestyle">Date & Time with Style</a></li>
+            <li><a href="formatters.html#colloquial">Human Readable/Colloquial String</a></li>
+            <li><a href="formatters.html#timecomponents">Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Foundation Extensions</a>
+          <ul>
+            <li><a href="extensions.html#calendar">Calendar shortcut</a></li>
+            <li><a href="extensions.html#timezone">TimeZone shortcut</a></li>
+            <li><a href="extensions.html#locale">Locale shortcut</a></li>
+            <li><a href="extensions.html#timeinterval">TimeInterval</a></li>
+            <li><a href="extensions.html#datecomponents">DateComponents</a></li>
+          </ul>
+        </li>
+
+
+      </ul>
+
+    </aside>
+    <!-- END Sidebar -->
+
+
+    <header class="site-header navbar-fullwidth">
+
+      <!-- Top navbar & branding -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          <!-- Toggle buttons and brand -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/tarball/master">Download tar.gz</a></li>
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/zipball/master">Download zip</a></li>
+              <li class=""><a href="https://cocoapods.org/pods/SwiftDate">CocoaPods</a></li>
+              <li class="hero"><a href="https://github.com/malcommac/SwiftDate">Fork us on GitHub</a></li>
+            </ul>
+          </div>
+          <!-- END Top navbar -->
+        </div>
+      </nav>
+      <!-- END Top navbar & branding -->
+
+    </header>
+
+
+    <main class="container-fluid">
+      <div class="row">
+
+        <!-- Main content -->
+        <article class="main-content" role="main">
+
+          <header>
+              <section>
+                <h1 id="getcomponents">Overview</h1>
+                <p>Working with time components in SwiftDate is pretty easy; both <code>DateInRegion</code> and plain <code>Date</code>
+                implements the same set of properties and function to query for time units or manage dates.</p>
+                <p>Keep in mind: when using <code>Date</code> objects you are working with a <code>Date</code> instance which is expressed in <code>.defaultRegion</code>.</p>
+                <p>Initial value of this property is <code>Region.GMT()</code> which define a region located in GMT TimeZone and with current device's <code>Locale</code> and <code>Calendar</code>.
+                <p>You can change the default region by calling <code>Date</code> static func <code>.setDefaultRegion()</code>.
+
+                <h2 id="era">era</h2>
+                <p>The number of era units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var era: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+
+                <h2 id="year">year</h2>
+                <p>The number of years units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var year: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="month">month</h2>
+                <p>The number of months units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var month: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="day">day</h2>
+                <p>The number of days units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var day: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="hour">hour</h2>
+                <p>The number of hour units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var hour: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2="nearesthour">nearestHour</h2>
+                <p>Nearest rounded hour from the date.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var nearestHour: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2="minute">minute</h2>
+                <p>The number of minute units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var minute: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2="second">second</h2>
+                <p>The number of second units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var second: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="nanosecond">nanosecond</h2>
+                <p>The number of nanosecond units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var nanosecond: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="yearforweekofyear">yearForWeekOfYear</h2>
+                <p>The number of week-numbering units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var yearForWeekOfYear: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="weekofyear">weekOfYear</h2>
+                <p>The week date of the year for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var weekOfYear: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="weekday">weekday</h2>
+                <p>The number of weekday units for the receiver.</p>
+                <p>Weekday units are the numbers 1 though n, where n is the number of days in the week.<br/>
+                  For example, in the Gregorian calendar, n is 7 and Sunday is represented by 1.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var weekday: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="weekdayordinal">weekdayOrdinal</h2>
+                <p>The ordinal number of weekday units for the receiver.<br/>
+                  Weekday ordinal units represent the position of the weekday within the next larger calendar unit , such as the month.</br>
+                  For example, 2 is the weekday ordinal unit for the second Friday of the month.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var weekdayOrdinal: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="weekdayname">weekdayName</h2>
+                <p>Week day name of the date</p>
+                <h5>Declaration</h5>
+                <code>
+                public var weekdayName: String
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="monthdays">monthDays</h2>
+                <p>Number of days into current's date month expressed in current region calendar and locale</p>
+                <h5>Declaration</h5>
+                <code>
+                public var monthDays: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="quarter">quarter</h2>
+                <p>The number of quarter units for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var quarter: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="weekofmonth">weekOfMonth</h2>
+                <p>The week number in the month for the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var weekOfMonth: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="monthname">monthName</h2>
+                <p>Month name of the date.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var monthName: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="shortmonthname">shortMonthName</h2>
+                <p>Short month name of the date.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var monthName: Int
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="leapmonth">leapMonth</h2>
+                <p>Boolean value that indicates whether the month is a leap month.<br/>
+      	        <p>It return <code>true</code> if the month is a leap month, <code>false</code> otherwise.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var leapMonth: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="leapyear">leapYear</h2>
+                <p>Boolean value that indicates whether the month is a leap year.<br/>
+      	        <p>It return <code>true</code> if the month is a leap year, <code>false</code> otherwise.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var leapYear: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="julianday">julianDay</h2>
+                <p>Julian day is the continuous count of days since the beginning of the Julian Period used primarily by astronomers.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var julianDay: Double
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="modifiedjulianday">modifiedJulianDay</h2>
+                <p>The Modified Julian Date (MJD) was introduced by the Smithsonian Astrophysical Observatory
+      	            in 1957 to record the orbit of Sputnik via an IBM 704 (36-bit machine) and using only 18 bits until August 7, 2576.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var modifiedJulianDay: Double
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="previousweekend">previousWeekend</h2>
+                <p>Returns two <code>DateInRegion</code> objects indicating the start and the end of the previous weekend before the date..<br/>
+                  Object is a tuple of two <code>DateInRegion</code> objects indicating the start and the end of the previous weekend previous the date.<br/>
+                  The weekend returned when the receiver is in a weekend is the previous weekend not the current one.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var previousWeekend: (startDate: DateInRegion, endDate: DateInRegion)?
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="thisweekend">thisWeekend</h2>
+                <p>Returns two <code>DateInRegion</code> objects indicating the start and the end of the current weekend.
+                  The object is a tuple of two <code>DateInRegion</code> objects indicating the start and the end of the current weekend. If this is unto a weekend, then <code>nil</code> is returned.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var thisWeekend: (startDate: DateInRegion, endDate: DateInRegion)?
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="nextweekend">nextWeekend</h2>
+                <p>Returns two <code>DateInRegion</code> objects indicating the start and the end of the next weekend after the date.<br/>
+                	Object is a tuple of two <code>DateInRegion</code> objects indicating the start and the end of the next weekend after the date.<br/>
+                  The weekend returned when the receiver is in a weekend is the next weekend not the current one.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var nextWeekend: (startDate: DateInRegion, endDate: DateInRegion)?
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="istoday">isToday</h2>
+                <p>Returns whether the given date is in today as boolean.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var isToday: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="isyesterday">isYesterday</h2>
+                <p>Returns whether the given date is in yesterday as boolean.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var isYesterday: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="istomorrow">isTomorrow</h2>
+                <p>Returns whether the given date is in tomorrow as boolean.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var isTomorrow: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="isinweekend">isInWeekend</h2>
+                <p>Returns whether the given date is in the weekend.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var isInWeekend: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="isinpast">isInPast</h2>
+                <p>Return true if given date represent a passed date</p>
+                <h5>Declaration</h5>
+                <code>
+                public var isInPast: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="isinfuture">isInFuture</h2>
+                <p>Return true if given date represent a future date</p>
+                <h5>Declaration</h5>
+                <code>
+                public var isInFuture: Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="isinsamedayof">isInSameDayOf()</h2>
+                <p>Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public func isInSameDayOf(date: DateInRegion) -> Bool<br/>
+                public func isInSameDayOf(date: Date) -> Bool
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="startofday">startOfDay</h2>
+                <p>Return the instance representing the first moment date of the given date expressed in the context of the calendar of the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var startOfDay: DateInRegion<br/>
+                public var startOfDay: Date
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="endofday">endOfDay</h2>
+                <p>Return the instance representing the last moment date of the given date expressed in the context of the calendar of the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                public var endOfDay: DateInRegion<br/>
+                public var endOfDay: Date
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="nextmonth">nextMonth</h2>
+                <p>Return a new instance of the date plus one month</p>
+                <h5>Declaration</h5>
+                <code>
+                public var nextMonth: DateInRegion <br/>
+                public var nextMonth: Date
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="prevmonth">prevMonth</h2>
+                <p>Return a new instance of the date minus one month</p>
+                <h5>Declaration</h5>
+                <code>
+                public var prevMonth: DateInRegion <br/>
+                public var prevMonth: Date
+                </code>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+                <h2 id="startof">startOf()</h2>
+                <p>Takes a date unit and returns a date at the start of that unit.</p>
+                <h5>Declaration</h5>
+                <code>
+                public func startOf(component: Calendar.Component) -> DateInRegion <br/>
+                public func startOf(component: Calendar.Component) -> Date
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>component</code>: time unit component to use as reference
+                </ul>
+                <h5>Note</h5>
+                <p>This value is interpreted in the context of the calendar and timezone with which it is used; if caller is <code>DateInRegion</code> the context is defined by the associated <code>.region</code>.
+                If the caller is a plain <code>Date</code> the context is defined by the value of <p>Date.defaultRegion</p></p>
+
+          </header>
+        </article>
+        <!-- END Main content -->
+
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="container-fluid">
+            <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <p>Copyright &copy; 2016 Daniele Margutti - All right reserved</p>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <ul class="footer-menu">
+                  <li><a href="mailto:hello@danielemargutti.com">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- END Footer -->
+
+      </div>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/theDocs.all.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

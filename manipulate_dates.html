@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>SwiftDate for Swift</title>
+
+    <!-- Styles -->
+    <link href="assets/css/theDocs.all.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.ico">
+  </head>
+
+  <body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed">
+
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo-sidebar-alt.png" alt="logo" width=173px height=167px></a>
+
+      <ul class="sidenav dropable sticky">
+        <li>
+          <a class="#" href="#">Overview</a>
+          <ul>
+            <li><a href="overview.html#overview">Overview</a></li>
+            <li><a href="overview.html#main_features">Main Features</a></li>
+            <li><a href="overview.html#requirements">Requirements</a></li>
+            <li><a href="overview.html#install">Install</a></li>
+            <li><a href="overview.html#forkus">Fork Us on GitHub</a></li>
+            <li><a href="overview.html#authors">Authors & License</a></li>
+            <li><a href="overview.html#promote">Your App & SwiftDate</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Main Concepts</a>
+          <ul>
+            <li><a href="main_concepts.html#absolute_time">Date and Absolute Time</a></li>
+            <li><a href="main_concepts.html#dateregion">DateInRegion and Region</a></li>
+            <li><a href="main_concepts.html#default_region">The Default Region</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Get Components</a>
+          <ul>
+            <li><a href="date_components.html#overview">Overview</a></li>
+            <li><a href="date_components.html#era">era</a></li>
+            <li><a href="date_components.html#year">year</a></li>
+            <li><a href="date_components.html#month">month</a></li>
+            <li><a href="date_components.html#day">day</a></li>
+            <li><a href="date_components.html#hour">hour</a></li>
+            <li><a href="date_components.html#nearesthour">nearestHour</a></li>
+            <li><a href="date_components.html#minute">minute</a></li>
+            <li><a href="date_components.html#second">second</a></li>
+            <li><a href="date_components.html#nanosecond">nanosecond</a></li>
+            <li><a href="date_components.html#yearforweekofyear">yearForWeekOfYear</a></li>
+            <li><a href="date_components.html#weekofyear">weekOfYear</a></li>
+            <li><a href="date_components.html#weekdayordinal">weekdayOrdinal</a></li>
+            <li><a href="date_components.html#weekdayname">weekdayName</a></li>
+            <li><a href="date_components.html#monthdays">monthDays</a></li>
+            <li><a href="date_components.html#quarter">quarter</a></li>
+            <li><a href="date_components.html#weekofmonth">weekOfMonth</a></li>
+            <li><a href="date_components.html#monthname">monthName</a></li>
+            <li><a href="date_components.html#shortmonthname">shortMonthName</a></li>
+            <li><a href="date_components.html#leapmonth">leapMonth</a></li>
+            <li><a href="date_components.html#leapyear">leapYear</a></li>
+            <li><a href="date_components.html#julianday">julianDay</a></li>
+            <li><a href="date_components.html#modifiedjulianday">modifiedJulianDay</a></li>
+            <li><a href="date_components.html#previousweekend">previousWeekend</a></li>
+            <li><a href="date_components.html#thisweekend">thisWeekend</a></li>
+            <li><a href="date_components.html#nextweekend">nextWeekend</a></li>
+            <li><a href="date_components.html#istoday">isToday</a></li>
+            <li><a href="date_components.html#isyesterday">isYesterday</a></li>
+            <li><a href="date_components.html#istomorrow">isTomorrow</a></li>
+            <li><a href="date_components.html#isinweekend">isInWeekend</a></li>
+            <li><a href="date_components.html#isinpast">isInPast</a></li>
+            <li><a href="date_components.html#isinfuture">isInFuture</a></li>
+            <li><a href="date_components.html#isinsamedayof">isInSameDayOf</a></li>
+            <li><a href="date_components.html#startofday">startOfDay</a></li>
+            <li><a href="date_components.html#endofday">endOfDay</a></li>
+            <li><a href="date_components.html#nextmonth">nextMonth</a></li>
+            <li><a href="date_components.html#prevmonth">prevMonth</a></li>
+            <li><a href="date_components.html#startof">startOf</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Parse/Create Dates</a>
+          <ul>
+            <li><a href="parse_create_dates.html#overview">Overview</a></li>
+            <li><a href="parse_create_dates.html#fromstring">Parse Date from Custom String/ISO8601/<br/>AltRSS/RSS/Extended</a></li>
+            <li><a href="parse_create_dates.html#fromnow">Create from now</a></li>
+            <li><a href="parse_create_dates.html#fromdateandregion">Create from Date & Region</a></li>
+            <li><a href="parse_create_dates.html#fromdatecomponents">Create from DateComponents</a></li>
+            <li><a href="parse_create_dates.html#fromtimecomponents">Create from Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="active" href="#">Manipulate Dates</a>
+          <ul>
+            <li><a href="manipulate_dates.html#math_operators">Overview</a></li>
+            <li><a href="manipulate_dates.html#dateregion">Math Operators</a></li>
+            <li><a href="manipulate_dates.html#compare_dates">Compare Dates</a></li>
+            <li><a href="manipulate_dates.html#start_oftime_unit">Start of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#end_oftime_unit">End of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#dateatunit">Date at Specified Time</a></li>
+            <li><a href="manipulate_dates.html#dateatcomponents">Date at Specified Time Units</a></li>
+            <li><a href="manipulate_dates.html#latest_date">Latest Date</a></li>
+            <li><a href="manipulate_dates.html#earliest_date">Earliest Date</a></li>
+            <li><a href="manipulate_dates.html#compare_g">Compare with Granurality</a></li>
+            <li><a href="manipulate_dates.html#before_g">Is Before with Granurality</a></li>
+            <li><a href="manipulate_dates.html#after_g">Is After with Granurality</a></li>
+            <li><a href="manipulate_dates.html#equal">Is Equal</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Date Formatting</a>
+          <ul>
+            <li><a href="formatters.html#customstring">Date to Custom Format</a></li>
+            <li><a href="formatters.html#iso8601">Date to ISO8601 Format</a></li>
+            <li><a href="formatters.html#rssaltrss">Date to RSS/AltRSS</a></li>
+            <li><a href="formatters.html#dotnet">Date to .NET</a></li>
+            <li><a href="formatters.html#extended">Date to .Extended</a></li>
+            <li><a href="formatters.html#intervaltostring">Time Interval to string</a></li>
+            <li><a href="formatters.html#datetimestyle">Date & Time with Style</a></li>
+            <li><a href="formatters.html#colloquial">Human Readable/Colloquial String</a></li>
+            <li><a href="formatters.html#timecomponents">Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Foundation Extensions</a>
+          <ul>
+            <li><a href="extensions.html#calendar">Calendar shortcut</a></li>
+            <li><a href="extensions.html#timezone">TimeZone shortcut</a></li>
+            <li><a href="extensions.html#locale">Locale shortcut</a></li>
+            <li><a href="extensions.html#timeinterval">TimeInterval</a></li>
+            <li><a href="extensions.html#datecomponents">DateComponents</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </aside>
+    <!-- END Sidebar -->
+
+
+    <header class="site-header navbar-fullwidth">
+
+      <!-- Top navbar & branding -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          <!-- Toggle buttons and brand -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/tarball/master">Download tar.gz</a></li>
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/zipball/master">Download zip</a></li>
+              <li class=""><a href="https://cocoapods.org/pods/SwiftDate">CocoaPods</a></li>
+              <li class="hero"><a href="https://github.com/malcommac/SwiftDate">Fork us on GitHub</a></li>
+            </ul>
+          </div>
+          <!-- END Top navbar -->
+
+        </div>
+      </nav>
+      <!-- END Top navbar & branding -->
+
+    </header>
+
+
+    <main class="container-fluid">
+      <div class="row">
+
+        <!-- Main content -->
+        <article class="main-content" role="main">
+
+          <header>
+              <section>
+                <h1>Manipulate Dates</h1>
+            <h2 id="absolute_time">Overview</h2>
+            <p>SwiftDate allows you to manipulate date easily; you can add time components to date, get the difference between two dates (and express them in one or more time component)
+              or compare two dates. All of these stuff are available both for <code>Date</code> and <code>DateInRegion</code> instances.</p>
+</section>
+
+              <h2 id="math_operators">Math Operators</h2>
+              <h3>Add time components</h3>
+              <p>You can sum or subtract time components to a date simply using classic math operations avaible in Swift.</p>
+              <p>A new DateInRegion or Date object is generated for your with the new date evaluated in the context of the region in which it was expressed.</p>
+              <p>Available time components are:</p></br>
+              <code>nanoseconds, seconds, minutes, hours, days, weeks, years</code></p>
+              <br/>
+              Below some examples of math operations in action:
+              <script src="https://gist.github.com/malcommac/09df29c27d8364b8fdb1c95101cb4b1b.js"></script>
+
+              <h2 id="compare_dates">Compare Dates</h2>
+              <h5>Description</h5>
+              <p>Comparing <code>Date</code> instances is already part of the Swift 3 Foundation Library.</p>
+              <p>SwiftDate adds the same opportunity for <code>DateInRegion</code> and expand the library by adding several other functions which allows you to compare dates
+                by specifing a granurality</p>
+                <h3>Simple Date Compare</h3>
+                You can compare dates using <code>&gt;,	&gt;=, &lt;, =&lt;</code> operators.
+                So for example:
+                <script src="https://gist.github.com/malcommac/3597ceaf20c8a7a4951080b8df15ddff.js"></script>
+
+                <h2 id="start_oftime_unit">Start of time unit</h2>
+                <h5>Descritpion</h5>
+                <p>With <code>.startOf()</code> you can get a new date from the receiver at the start of given time component unit.</p>
+                <h5>Declaration</h5>
+                <code>startOf(component: Calendar.Component) -> DateInRegion<br/>
+                startOf(component: Calendar.Component) -> Date</code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>component</code>: component to alter</li>
+                </ul>
+                <h5>Result</h5>
+                Return a new <code>DateInRegion</code>/<code>Date</code> where given component is set at it's start.
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/f8c1109fcf13cca94489b01f63dc377d.js"></script>
+
+
+                <h2 id="end_oftime_unit">End of time unit</h2>
+                <h5>Description</h5>
+                <p>With <code>.endOf()</code> you can get a new date from the receiver at the end of given time component unit.</p>
+                <h5>Declaration</h5>
+                <code>endOf(component: Calendar.Component) -> DateInRegion<br/>
+                endOf(component: Calendar.Component) -> Date</code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>component</code>: component to alter</li>
+                </ul>
+                <h5>Result</h5>
+                Return a new <code>DateInRegion</code>/<code>Date</code> where given component is set at it's end.
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/2e023afde622898816bbf3d195f243f5.js"></script>
+
+                <h2 id="dateatunit">Date at Specific Time</h2>
+                <h5>Description</h5>
+                You can get a new date by setting only time units using <code>.atTime(hour:minute:second)</code> function.
+                Note: time components are altered according to the calendar specified by the region of the <code>DateInRegion</code> or by <code>.defaultRegion</code> set in <code>Date</code>.
+                <h5>Exception</h5>
+                Function raise an <code>.FailedToCalculate</code> exception if date cannot be set at given time.
+                <h5>Declaration</h5>
+                <code>
+                  func atTime(hour: Int, minute: Int, second: Int) throws -> DateInRegion<br/>
+                  func atTime(hour: Int, minute: Int, second: Int) throws -> Date
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>hour</code>: hour(s) to set</li>
+                  <li><code>minute</code>: minute(s) to set</li>
+                  <li><code>second</code>: second(s) to set</li>
+                </ul>
+                <h5>Result</h5>
+                Return a new <code>DateInRegion</code>/<code>Date</code> where hour/minute/seconds are set to the specified time.<br/>
+                Keep in mind this function may alter other datetime components if needed.
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/50370e75f619b8f849c36c1d98cd6e59.js"></script>
+
+                <h2 id="dateatcomponent">Date at Specific Time Unit</h2>
+                <h5>Description</h5>
+                <p>Create a new instance calculated by setting a specific component of a given date to a given value, while trying to keep lower components the same.</p>
+                <h5>Declaration</h5>
+                <code>
+                func at(unit: Calendar.Component, value: Int) throws -> DateInRegion<br/>
+                func at(unit: Calendar.Component, value: Int) throws -> Date
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>unit</code>: calendar component unit to alter</li>
+                </ul>
+                <h5>Exception</h5>
+                Function raise an <code>.FailedToCalculate</code> exception if date cannot be set at given time.
+                <h5>Result</h5>
+                Return a new <code>DateInRegion</code>/<code>Date</code> where given component is alter according to passed value.
+                Where possible the function will try to keep lower components.
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/97668266d4059c4d065d6b171c55476b.js"></script>
+
+                <h2 id="dateatcomponents">Date at Specified Time Units</h2>
+                <h5>Description</h5>
+                <p>Create a new instance calculated by setting a list of components of a given date to given values (components are evaluated serially - in order), while trying to keep lower components the same.</p>
+                <p>The order is <code>.nanosecond, .second, .minute, .hour, .day, .month, .year, .yearForWeekOfYear, .weekOfYear, .weekday, .quarter, .weekdayOrdinal, .weekOfMonth</code>.
+                <h5>Declaration</h5>
+                <code>
+                func at(unitsWithValues dict: [Calendar.Component : Int]) throws -> DateInRegion<br/>
+                func at(unitsWithValues dict: [Calendar.Component : Int]) throws -> Date
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>unitsWithValues</code>: calendar component units to alter</li>
+                </ul>
+                <h5>Exception</h5>
+                Function raise an <code>.FailedToCalculate</code> exception if date cannot be set at given components.
+                <h5>Result</h5>
+                Return a new <code>DateInRegion</code>/<code>Date</code> where given components are alter according to passed values.
+                Where possible the function will try to keep lower components.
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/18bc5d44d5a295ca69483a3d98f7f99a.js"></script>
+
+                <h2 id="latest_date">Latest Date</h2>
+                <h5>Description</h5>
+                <p>Returns a <code>DateInRegion</code>/<code>Date</code> object representing a date that is the earliest from a given range of dates.</p>
+                <p>The dates are compared in absolute time, i.e. time zones, locales and calendars have no effect on the comparison.</p>
+                <h5>Declaration</h5>
+                <code>
+                  (DateInRegion) static func latestDate(_ list: [DateInRegion]) -> DateInRegion<br/>
+                  (Date) static func latestDate(_ list: [DateInRegion]) -> Date
+                </code>
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/49aab1f8b7e0fa6db0f8b8459fddffca.js"></script>
+
+                <h2 id="earliest_date">Earliest Date</h2>
+                <h5>Description</h5>
+                <p>Returns a <code>DateInRegion</code>/<code>Date</code>  object representing a date that is the latest from a given range of dates. The dates are compared in absolute time, i.e. time zones, locales and calendars have no effect on the comparison.</p>
+                <h5>Declaration</h5>
+                <code>
+                  (DateInRegion) static func earliestDate(_ list: [DateInRegion]) -> DateInRegion<br/>
+                  (Date) static func earliestDate(_ list: [DateInRegion]) -> Date
+                </code>
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/a415b14a8661237dfd052e2130ffb174.js"></script>
+
+                <h2 id="compare_g">Compare (with Granurality)</h2>
+                <h5>Description</h5>
+                <p>Returns a ComparisonResult value that indicates the ordering of two given dates based on their components down to a given unit granularity.</p>
+                <h5>Declaration</h5>
+                <code>
+                  func compare(to date: DateInRegion, granularity: Calendar.Component) -> ComparisonResult<br/>
+                  func compare(to date: Date, granularity: Calendar.Component) -> ComparisonResult<br/>
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>date</code>: date to compare</li>
+                  <li><code>granularity</code>: The smallest unit that must, along with all larger units, be equal for the given dates to be considered the same.</li>
+                </ul>
+
+                <h2 id="before_g">Is Before Date (with granularity)</h2>
+                <h5>Description</h5>
+                <p>Compares whether the receiver is before/before equal `date` based on their components down to a given unit granularity.</p>
+                <h5>Declaration</h5>
+                <code>
+                  func isBefore(date: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component) -> Bool</br>
+                  func isBefore(date: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool</br>
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>date</code>: date to compare</li>
+                  <li><code>orEqual</code>: <code>true</code> to also check for equality</li>
+                  <li><code>granularity</code>: The smallest unit that must, along with all larger units, be less for the given dates.</li>
+                </ul>
+
+                <h2 id="after_g">Is After Date (with granularity)</h2>
+                <h5>Description</h5>
+                <p>Compares whether the receiver is after date based on their components down to a given unit granularity.</p>
+                <h5>Declaration</h5>
+                <code>
+                  func isAfter(date: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component) -> Bool</br>                  func compare(to date: Date, granularity: Calendar.Component) -> ComparisonResult<br/>
+                  func isAfter(date: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>date</code>: date to compare</li>
+                  <li><code>orEqual</code>: <code>true</code> to also check for equality</li>
+                  <li><code>granularity</code>: The smallest unit that must, along with all larger units, be greater for the given dates</li>
+                </ul>
+
+                <h2 id="equal">Is Equal</h2>
+                <h5>Description</h5>
+                <p>Returns whether the given date is equal to the receiver.</p>
+                <h5>Declaration</h5>
+                <code>
+                  func isEqual(to compareDate: DateInRegion) -> Bool
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>compareDate</code>: a date to compare against</li>
+                </ul>
+
+          </header>
+        </article>
+        <!-- END Main content -->
+
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="container-fluid">
+            <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <p>Copyright &copy; 2016 Daniele Margutti - All right reserved</p>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <ul class="footer-menu">
+                  <li><a href="mailto:hello@danielemargutti.com">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- END Footer -->
+
+      </div>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/theDocs.all.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

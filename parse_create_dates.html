@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>SwiftDate for Swift</title>
+
+    <!-- Styles -->
+    <link href="assets/css/theDocs.all.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.ico">
+  </head>
+
+  <body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed">
+
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo-sidebar-alt.png" alt="logo" width=173px height=167px></a>
+
+      <ul class="sidenav dropable sticky">
+        <li>
+          <a class="#" href="#">Overview</a>
+          <ul>
+            <li><a href="overview.html#overview">Overview</a></li>
+            <li><a href="overview.html#main_features">Main Features</a></li>
+            <li><a href="overview.html#requirements">Requirements</a></li>
+            <li><a href="overview.html#install">Install</a></li>
+            <li><a href="overview.html#forkus">Fork Us on GitHub</a></li>
+            <li><a href="overview.html#authors">Authors & License</a></li>
+            <li><a href="overview.html#promote">Your App & SwiftDate</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Main Concepts</a>
+          <ul>
+            <li><a href="main_concepts.html#absolute_time">Date and Absolute Time</a></li>
+            <li><a href="main_concepts.html#dateregion">DateInRegion and Region</a></li>
+            <li><a href="main_concepts.html#default_region">The Default Region</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Get Components</a>
+          <ul>
+            <li><a href="date_components.html#overview">Overview</a></li>
+            <li><a href="date_components.html#era">era</a></li>
+            <li><a href="date_components.html#year">year</a></li>
+            <li><a href="date_components.html#month">month</a></li>
+            <li><a href="date_components.html#day">day</a></li>
+            <li><a href="date_components.html#hour">hour</a></li>
+            <li><a href="date_components.html#nearesthour">nearestHour</a></li>
+            <li><a href="date_components.html#minute">minute</a></li>
+            <li><a href="date_components.html#second">second</a></li>
+            <li><a href="date_components.html#nanosecond">nanosecond</a></li>
+            <li><a href="date_components.html#yearforweekofyear">yearForWeekOfYear</a></li>
+            <li><a href="date_components.html#weekofyear">weekOfYear</a></li>
+            <li><a href="date_components.html#weekdayordinal">weekdayOrdinal</a></li>
+            <li><a href="date_components.html#weekdayname">weekdayName</a></li>
+            <li><a href="date_components.html#monthdays">monthDays</a></li>
+            <li><a href="date_components.html#quarter">quarter</a></li>
+            <li><a href="date_components.html#weekofmonth">weekOfMonth</a></li>
+            <li><a href="date_components.html#monthname">monthName</a></li>
+            <li><a href="date_components.html#shortmonthname">shortMonthName</a></li>
+            <li><a href="date_components.html#leapmonth">leapMonth</a></li>
+            <li><a href="date_components.html#leapyear">leapYear</a></li>
+            <li><a href="date_components.html#julianday">julianDay</a></li>
+            <li><a href="date_components.html#modifiedjulianday">modifiedJulianDay</a></li>
+            <li><a href="date_components.html#previousweekend">previousWeekend</a></li>
+            <li><a href="date_components.html#thisweekend">thisWeekend</a></li>
+            <li><a href="date_components.html#nextweekend">nextWeekend</a></li>
+            <li><a href="date_components.html#istoday">isToday</a></li>
+            <li><a href="date_components.html#isyesterday">isYesterday</a></li>
+            <li><a href="date_components.html#istomorrow">isTomorrow</a></li>
+            <li><a href="date_components.html#isinweekend">isInWeekend</a></li>
+            <li><a href="date_components.html#isinpast">isInPast</a></li>
+            <li><a href="date_components.html#isinfuture">isInFuture</a></li>
+            <li><a href="date_components.html#isinsamedayof">isInSameDayOf</a></li>
+            <li><a href="date_components.html#startofday">startOfDay</a></li>
+            <li><a href="date_components.html#endofday">endOfDay</a></li>
+            <li><a href="date_components.html#nextmonth">nextMonth</a></li>
+            <li><a href="date_components.html#prevmonth">prevMonth</a></li>
+            <li><a href="date_components.html#startof">startOf</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="active" href="#">Parse/Create Dates</a>
+          <ul>
+            <li><a href="parse_create_dates.html#overview">Overview</a></li>
+            <li><a href="parse_create_dates.html#fromstring">Parse Date from Custom String/ISO8601/<br/>AltRSS/RSS/Extended</a></li>
+            <li><a href="parse_create_dates.html#fromnow">Create from now</a></li>
+            <li><a href="parse_create_dates.html#fromdateandregion">Create from Date & Region</a></li>
+            <li><a href="parse_create_dates.html#fromdatecomponents">Create from DateComponents</a></li>
+            <li><a href="parse_create_dates.html#fromtimecomponents">Create from Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Manipulate Dates</a>
+          <ul>
+            <li><a href="manipulate_dates.html#math_operators">Overview</a></li>
+            <li><a href="manipulate_dates.html#dateregion">Math Operators</a></li>
+            <li><a href="manipulate_dates.html#compare_dates">Compare Dates</a></li>
+            <li><a href="manipulate_dates.html#start_oftime_unit">Start of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#end_oftime_unit">End of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#dateatunit">Date at Specified Time</a></li>
+            <li><a href="manipulate_dates.html#dateatcomponents">Date at Specified Time Units</a></li>
+            <li><a href="manipulate_dates.html#latest_date">Latest Date</a></li>
+            <li><a href="manipulate_dates.html#earliest_date">Earliest Date</a></li>
+            <li><a href="manipulate_dates.html#compare_g">Compare with Granurality</a></li>
+            <li><a href="manipulate_dates.html#before_g">Is Before with Granurality</a></li>
+            <li><a href="manipulate_dates.html#after_g">Is After with Granurality</a></li>
+            <li><a href="manipulate_dates.html#equal">Is Equal</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Date Formatting</a>
+          <ul>
+            <li><a href="formatters.html#customstring">Date to Custom Format</a></li>
+            <li><a href="formatters.html#iso8601">Date to ISO8601 Format</a></li>
+            <li><a href="formatters.html#rssaltrss">Date to RSS/AltRSS</a></li>
+            <li><a href="formatters.html#dotnet">Date to .NET</a></li>
+            <li><a href="formatters.html#extended">Date to .Extended</a></li>
+            <li><a href="formatters.html#intervaltostring">Time Interval to string</a></li>
+            <li><a href="formatters.html#datetimestyle">Date & Time with Style</a></li>
+            <li><a href="formatters.html#colloquial">Human Readable/Colloquial String</a></li>
+            <li><a href="formatters.html#timecomponents">Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Foundation Extensions</a>
+          <ul>
+            <li><a href="extensions.html#calendar">Calendar shortcut</a></li>
+            <li><a href="extensions.html#timezone">TimeZone shortcut</a></li>
+            <li><a href="extensions.html#locale">Locale shortcut</a></li>
+            <li><a href="extensions.html#timeinterval">TimeInterval</a></li>
+            <li><a href="extensions.html#datecomponents">DateComponents</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </aside>
+    <!-- END Sidebar -->
+
+
+    <header class="site-header navbar-fullwidth">
+
+      <!-- Top navbar & branding -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          <!-- Toggle buttons and brand -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/tarball/master">Download tar.gz</a></li>
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/zipball/master">Download zip</a></li>
+              <li class=""><a href="https://cocoapods.org/pods/SwiftDate">CocoaPods</a></li>
+              <li class="hero"><a href="https://github.com/malcommac/SwiftDate">Fork us on GitHub</a></li>
+            </ul>
+          </div>
+          <!-- END Top navbar -->
+
+        </div>
+      </nav>
+      <!-- END Top navbar & branding -->
+
+    </header>
+
+
+    <main class="container-fluid">
+      <div class="row">
+
+        <!-- Main content -->
+        <article class="main-content" role="main">
+
+          <header>
+              <section>
+                <h1>Create and Parse Dates</h1>
+            <h2 id="overview">Overview</h2>
+            <p>There are several ways to create a new date which is expressed in a particular geographic region; it can be created from a pair of <code>Date</code> and <code>Region</code> objects, parsed from a <code>String</code> which define a custom format (SwiftDate supports custom datetime formats, <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601 specs</a>, <a href="https://validator.w3.org/feed/docs/rss2.html">RSS or AltRSS</a> and <a href="https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx">.NET dates</a>) or create by passing a set of <code>Calendar.Component</code> objects.</p>
+            <p>Obviously you can also generate new date derived from math operations between two other dates.</p>
+            <p>In this page are listed all methods related to date creations and are valid both for <code>DateInRegion</code> and <code>Date</code>.
+
+              <h2 id="fromstring">Parse Date from String</h2>
+              <p>Parse strings and transform them into date is a boring activity, you know. SwiftDate can help you by supporting a wide range of formats.</p> You can specify the format you want to use in <code>format</code> parameters: it can be a custom format string or a well known ISO8601 datetime, or again a .NET datetime string.
+               <h5>Declaration</h5>
+                          <code>
+                          func init(string: String, format: DateFormat, fromRegion region: Region? = nil) throws
+                          </code>
+                          <h5>Parameters</h5>
+                          <ul>
+                          <li><code>string</code>: this is the string you want to parse
+                          <li><code>format</code>: this is the format in which you expect the string is formatted. <code>DateFormat</code> is an enum: <code>.custom</code> (for custom format), <code>iso8601</code> to parse all available specs for ISO8601 DateTime Format, <code>extended</code> to parse Extended DateTime format, <code>.rss</code> to parse both RSS and AltRSS datetime formats and <code>.dotNET</code> to parse .NET datetime strings.
+                          <li><code>region</code>: is the region in which you want to express specified date. If nil or not specified <code>Region.Local((</code> is used instead.
+                          </ul>
+                          <h5>Result</h5>
+                          <p>Resulting object is a <code>DateInRegion</code> instance result of the parsing and expressed in given region.
+                          <h5>Example</h5>
+              <script src="https://gist.github.com/malcommac/0dc3fd965e8284ed3cd66eb30fcd91f4.js"></script>
+
+
+            <h2 id="fromnow">Create from now</h2>
+            A pratical shortcut to create a new <code>DateInRegion</code> which is expressed in current device's <code>Region</code> is to use the default <code>init()</code> function of the object itself.</p>
+            <h5>Declaration</h5>
+            <code>
+            func init()
+            </code>
+            <h5>Result</h5>
+            <p>Resulting object is <code>DateInRegion</code> which define the current moment (<code>Date()</code>) expressed in <code>Region.Local()</code>, a particular region defined as local device's <code>.timeZone</code>,<code>.locale</code> and <code>.calendar</code> (all settings are auto-updating)</p>
+            <h5>Example</h5>
+            <script src="https://gist.github.com/malcommac/4ae36da9eaa601b70305c2efc15b0c78.js"></script>
+
+              <h2 id="fromdateandregion">Create from Date & Region</h2>
+              <p>You can create a new DateInRegion object which define a Date and express it in a particular geographic region. Once created all operations made using the new DateInRegion object are expressed in the geographic region; properties and functions automatically take care of all geographic and locale settings.</p>
+              <h5>Declaration</h5>
+              <code>
+              func init(absoluteDate date: Date, in region: Region)
+              </code>
+              <h5>Parameters</h5>
+              <ul>
+              <li><code>date</code>: define the absolute <code>Date</code> you want to use to create the new <code>DateInRegion</code>. Passed date is indipendent from any geographic timezone/calendar or locale because it's expressed in absolute time.</li>
+              <li><code>region</code>: define the destination <code>Region</code> in which you want to express passed <code>date</code></li>
+              </ul>
+              <h5>Result</h5>
+              <p>Resulting object is a <code>DateInRegion</code> instance which represent passed date expressed in a specific region.
+              <h5>Example</h5>
+             <script src="https://gist.github.com/malcommac/f9d01a0ff0d69a6a517e0843cff1a606.js"></script>
+
+              <h2 id="fromdatecomponents">Create from DateComponents</h2>
+  			Another way to create a new <code>DateInRegion</code> is to pass a valid set of calendar's components encapsulated inside a <code>DateComponents</code> object. Both <code>TimeZone</code>, <code>Locale</code> and <code>Calendar</code> must be specified in <code>DateComponents</code> instance in order to get a valid result; if omitted a <code>.MissingCalTzOrLoc</code> exception will thrown.
+              <p>If from given components a valid Date cannot be created a <code>.FailedToParse</code> exception will thrown.
+              <h5>Declaration</h5>
+              <code>
+              func init(components: DateComponents)
+              </code>
+              <h5>Parameters</h5>
+              <ul>
+              <li><code>components</code>: components used to generate the new date</li>
+              </ul>
+              <h5>Result</h5>
+              <p>Resulting object is a <code>DateInRegion</code> instance where the date is expressed by passed DateComponents objct.
+              <h5>Example</h5>
+  <script src="https://gist.github.com/malcommac/c24e8e54c7fcfd0aa247378ccdb2a68b.js"></script>
+              </header>
+
+              <h2 id="fromtimecomponents">Create from Time Components</h2>
+             <p>Is possible to create a new DateInRegion object by passing a set of <code>Calendar.Component</code> and relative values (defined in a Dictionary of type <code>[Calendar.Component:Int]</code> and specify a destination <code>Region</code>.
+         <h5>Declaration</h5>
+              <code>
+              func init(components: [Calendar.Component:Int], in region: Region)
+              </code>
+              <h5>Parameters</h5>
+              <ul>
+              <li><code>components</code>: components used to generate the new date. It's a dictionary where keys are <code>Calendar.Component</code> and values are <code>Int</code> with relative value. Supported components are: <code>.day, .era, .hour, .minute, .month, .nanosecond, .quarter, .second, .weekOfMonth, .weekOfYear, .weekday, .weekdayOrdinal, .year, .yearForWeekOfYear</code></li>
+              <li><code>region</code>: is the region in which you want to express specified date. If nil or not specified <code>Region.Local((</code> is used instead.
+              </ul>
+              <h5>Result</h5>
+              <p>Resulting object is a <code>DateInRegion</code> instance where the date is expressed by passed DateComponents objct.
+              <h5>Example</h5>
+  <script src="https://gist.github.com/malcommac/00c980f7c393e61db96fb90e1df2f3a9.js"></script>
+
+          </section>
+
+
+
+          </header>
+        </article>
+        <!-- END Main content -->
+
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="container-fluid">
+            <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <p>Copyright &copy; 2016 Daniele Margutti - All right reserved</p>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <ul class="footer-menu">
+                  <li><a href="mailto:hello@danielemargutti.com">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- END Footer -->
+
+      </div>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/theDocs.all.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

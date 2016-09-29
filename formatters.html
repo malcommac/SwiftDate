@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>SwiftDate for Swift</title>
+
+    <!-- Styles -->
+    <link href="assets/css/theDocs.all.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.ico">
+  </head>
+
+  <body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed">
+
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo-sidebar-alt.png" alt="logo" width=173px height=167px></a>
+
+      <ul class="sidenav dropable sticky">
+        <li>
+          <a class="#" href="#">Overview</a>
+          <ul>
+            <li><a href="overview.html#overview">Overview</a></li>
+            <li><a href="overview.html#main_features">Main Features</a></li>
+            <li><a href="overview.html#requirements">Requirements</a></li>
+            <li><a href="overview.html#install">Install</a></li>
+            <li><a href="overview.html#forkus">Fork Us on GitHub</a></li>
+            <li><a href="overview.html#authors">Authors & License</a></li>
+            <li><a href="overview.html#promote">Your App & SwiftDate</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Main Concepts</a>
+          <ul>
+            <li><a href="main_concepts.html#absolute_time">Date and Absolute Time</a></li>
+            <li><a href="main_concepts.html#dateregion">DateInRegion and Region</a></li>
+            <li><a href="main_concepts.html#default_region">The Default Region</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Get Components</a>
+          <ul>
+            <li><a href="date_components.html#overview">Overview</a></li>
+            <li><a href="date_components.html#era">era</a></li>
+            <li><a href="date_components.html#year">year</a></li>
+            <li><a href="date_components.html#month">month</a></li>
+            <li><a href="date_components.html#day">day</a></li>
+            <li><a href="date_components.html#hour">hour</a></li>
+            <li><a href="date_components.html#nearesthour">nearestHour</a></li>
+            <li><a href="date_components.html#minute">minute</a></li>
+            <li><a href="date_components.html#second">second</a></li>
+            <li><a href="date_components.html#nanosecond">nanosecond</a></li>
+            <li><a href="date_components.html#yearforweekofyear">yearForWeekOfYear</a></li>
+            <li><a href="date_components.html#weekofyear">weekOfYear</a></li>
+            <li><a href="date_components.html#weekdayordinal">weekdayOrdinal</a></li>
+            <li><a href="date_components.html#weekdayname">weekdayName</a></li>
+            <li><a href="date_components.html#monthdays">monthDays</a></li>
+            <li><a href="date_components.html#quarter">quarter</a></li>
+            <li><a href="date_components.html#weekofmonth">weekOfMonth</a></li>
+            <li><a href="date_components.html#monthname">monthName</a></li>
+            <li><a href="date_components.html#shortmonthname">shortMonthName</a></li>
+            <li><a href="date_components.html#leapmonth">leapMonth</a></li>
+            <li><a href="date_components.html#leapyear">leapYear</a></li>
+            <li><a href="date_components.html#julianday">julianDay</a></li>
+            <li><a href="date_components.html#modifiedjulianday">modifiedJulianDay</a></li>
+            <li><a href="date_components.html#previousweekend">previousWeekend</a></li>
+            <li><a href="date_components.html#thisweekend">thisWeekend</a></li>
+            <li><a href="date_components.html#nextweekend">nextWeekend</a></li>
+            <li><a href="date_components.html#istoday">isToday</a></li>
+            <li><a href="date_components.html#isyesterday">isYesterday</a></li>
+            <li><a href="date_components.html#istomorrow">isTomorrow</a></li>
+            <li><a href="date_components.html#isinweekend">isInWeekend</a></li>
+            <li><a href="date_components.html#isinpast">isInPast</a></li>
+            <li><a href="date_components.html#isinfuture">isInFuture</a></li>
+            <li><a href="date_components.html#isinsamedayof">isInSameDayOf</a></li>
+            <li><a href="date_components.html#startofday">startOfDay</a></li>
+            <li><a href="date_components.html#endofday">endOfDay</a></li>
+            <li><a href="date_components.html#nextmonth">nextMonth</a></li>
+            <li><a href="date_components.html#prevmonth">prevMonth</a></li>
+            <li><a href="date_components.html#startof">startOf</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Parse/Create Dates</a>
+          <ul>
+            <li><a href="parse_create_dates.html#overview">Overview</a></li>
+            <li><a href="parse_create_dates.html#fromstring">Parse Date from Custom String/ISO8601/<br/>AltRSS/RSS/Extended</a></li>
+            <li><a href="parse_create_dates.html#fromnow">Create from now</a></li>
+            <li><a href="parse_create_dates.html#fromdateandregion">Create from Date & Region</a></li>
+            <li><a href="parse_create_dates.html#fromdatecomponents">Create from DateComponents</a></li>
+            <li><a href="parse_create_dates.html#fromtimecomponents">Create from Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Manipulate Dates</a>
+          <ul>
+            <li><a href="manipulate_dates.html#math_operators">Overview</a></li>
+            <li><a href="manipulate_dates.html#dateregion">Math Operators</a></li>
+            <li><a href="manipulate_dates.html#compare_dates">Compare Dates</a></li>
+            <li><a href="manipulate_dates.html#start_oftime_unit">Start of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#end_oftime_unit">End of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#dateatunit">Date at Specified Time</a></li>
+            <li><a href="manipulate_dates.html#dateatcomponents">Date at Specified Time Units</a></li>
+            <li><a href="manipulate_dates.html#latest_date">Latest Date</a></li>
+            <li><a href="manipulate_dates.html#earliest_date">Earliest Date</a></li>
+            <li><a href="manipulate_dates.html#compare_g">Compare with Granurality</a></li>
+            <li><a href="manipulate_dates.html#before_g">Is Before with Granurality</a></li>
+            <li><a href="manipulate_dates.html#after_g">Is After with Granurality</a></li>
+            <li><a href="manipulate_dates.html#equal">Is Equal</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="active" href="#">Date Formatting</a>
+          <ul>
+            <li><a href="formatters.html#customstring">Date to Custom Format</a></li>
+            <li><a href="formatters.html#iso8601">Date to ISO8601 Format</a></li>
+            <li><a href="formatters.html#rssaltrss">Date to RSS/AltRSS</a></li>
+            <li><a href="formatters.html#dotnet">Date to .NET</a></li>
+            <li><a href="formatters.html#extended">Date to .Extended</a></li>
+            <li><a href="formatters.html#intervaltostring">Time Interval to string</a></li>
+            <li><a href="formatters.html#datetimestyle">Date & Time with Style</a></li>
+            <li><a href="formatters.html#colloquial">Human Readable/Colloquial String</a></li>
+            <li><a href="formatters.html#timecomponents">Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Foundation Extensions</a>
+          <ul>
+            <li><a href="extensions.html#calendar">Calendar shortcut</a></li>
+            <li><a href="extensions.html#timezone">TimeZone shortcut</a></li>
+            <li><a href="extensions.html#locale">Locale shortcut</a></li>
+            <li><a href="extensions.html#timeinterval">TimeInterval</a></li>
+            <li><a href="extensions.html#datecomponents">DateComponents</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </aside>
+    <!-- END Sidebar -->
+
+
+    <header class="site-header navbar-fullwidth">
+
+      <!-- Top navbar & branding -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          <!-- Toggle buttons and brand -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/tarball/master">Download tar.gz</a></li>
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/zipball/master">Download zip</a></li>
+              <li class=""><a href="https://cocoapods.org/pods/SwiftDate">CocoaPods</a></li>
+              <li class="hero"><a href="https://github.com/malcommac/SwiftDate">Fork us on GitHub</a></li>
+            </ul>
+          </div>
+          <!-- END Top navbar -->
+
+        </div>
+      </nav>
+      <!-- END Top navbar & branding -->
+
+    </header>
+
+
+    <main class="container-fluid">
+      <div class="row">
+
+        <!-- Main content -->
+        <article class="main-content" role="main">
+
+          <header>
+              <section>
+                <h1>Date Formatting</h1>
+            <h2 id="overview">Overview</h2>
+          <p>SwiftDate exposes several convenient functions to print (and parse, of course) dates and time intervals as strings:</p>
+          <ul>
+            <li>as custom string defined by <a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns">tr35-31</a> format; for example <code>"yyyy-MM-dd"</code> for <code>"2015-01-05"</code></li>
+            <li>as <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> strings with all available sub specs</li>
+            <li>as <a href="https://www.google.it/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&ved=0ahUKEwi2yvfKqbDPAhVGVRQKHaJwAgYQFggkMAE&url=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Faz4se3k1(v%3Dvs.110).aspx&usg=AFQjCNHBDWzv-pMPPzzSHwsmk9G3q-AGRw&sig2=RcITqsMNvsvbeTLXnEGOOw">.NET</a> datetime format</li>
+            <li>as <a href="https://validator.w3.org/feed/docs/rss2.html">AltRSS and RSS</a> datetime format</li>
+            <li>as extended string with date and time</li>
+            <li>time intervals in other time units; for example <code>(date2 - date1).in(.hours)</code></li>
+            <li>human readable / colloquial strings; for example <code>"1 hour ago", "1m", "now"</code> etc. (with locale support)</li>
+            <li>time components between two dates; for example the differences between two dates as <code>"2h,5m,3s"</code></li>
+          </ul>
+          </section>
+
+          <section>
+            <h2 id="customstring">Date to Custom Format</h2>
+              <p>You can convert an instance of <code>DateInRegion</code> or <code>Date</code> to a string with a custom specified string as format using <code>.string()</code> function. A table of the available format specifiers is available in <a href="http://unicode.org/reports/tr35/tr35-10.html#Date_Format_Patterns">this Unicode standard</a> spec and it's the same commonly used in Cocoa.</p>
+              <h3>Declaration</h3>
+              <p>Using .dateFormat:</p>
+                <code>
+                  // with DateFormat set to .custom([format string])<br/>
+                  func string(format: DateFormat) -> String
+                </code>
+              </p>
+                <p>Using shortcut function:</p>
+                <code>
+                  // shortcut to pass directly the format of the string<br/>
+                  func string(custom: String) -> String
+                </code>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>format</code>: a <code>DateFormat</code> struct. To use custom strings pass <code>.custom()</code> and pass the value of the formatter</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/6edce649794334dd930aeaf8fb99dee7.js"></script>
+          </section>
+
+          <section>
+            <h2 id="iso8601">Date to ISO8601 Format</h2>
+              <p>SwiftDate supports a full featured ISO8601 DateTime formatter. It allows you to specify your custom configuration for any variant of the specs. You can use
+              <h3>Declaration</h3>
+                <code>
+                  // with DateFormat set to .custom()
+                  func string(format: DateFormat) -> String
+                </code>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>format</code>: a <code>DateFormat</code> struct. To use custom strings pass <code>.custom()</code> and pass the value of the formatter</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/2791bafbfaac2f2e35037a62daa4c24a.js"></script>
+          </section>
+
+          <section>
+            <h2 id="rssaltrss">Date to AltRSS Format</h2>
+              <p>SwiftDate also supports RSS and AltRSS Date Time format (both for parse and as formatter).
+              <h3>Declaration</h3>
+                <code>
+                  func string(format: DateFormat) -> String // with DateFormat set to .rss(alt: Bool)
+                </code>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>format</code>: a <code>DateFormat</code> struct. To get RSS/AltRSS pass <code>.rss(alt: Bool)</code> and pass true or false to set the alt format.</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/c6250fd03081b3777ff431033fcd177b.js"></script>
+          </section>
+
+          <section>
+            <h2 id="rssaltrss">Date to .NET Format</h2>
+              <p>SwiftDate also supports .NET Date Time format (both for parse and as formatter).
+              <h3>Declaration</h3>
+                <code>
+                  func string(format: DateFormat) -> String // with DateFormat set to .dotNET
+                </code>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>format</code>: a <code>DateFormat</code> struct. To get .NET formatted string pass <code>.dotNET</code> and pass true or false to set the alt format.</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/95d4fe51db8d0cb8cffbe713254b7a8c.js"></script>
+          </section>
+
+          <section>
+            <h2 id="rssaltrss">Date to Extended Format</h2>
+              <p>SwiftDate support extended date time format.
+              <h3>Declaration</h3>
+                <code>
+                  func string(format: DateFormat) -> String // with DateFormat set to .extended
+                </code>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>format</code>: a <code>DateFormat</code> struct. To get extended datetime formatted string pass <code>.extended</code> and pass true or false to set the alt format.</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/b70a6a9f6cc8c256a2a7be7f74dbb595.js"></script>
+          </section>
+
+          <section>
+            <h2 id="intervaltostring">Time Interval to string</h2>
+              <p>It's pretty easy to convert an absolute time interval or a difference between two dates and express it as string in various time components. When possible lower time components are grouped at upper level (so, for example if you want to get .minutes and .seconds of 120secs you will get 0 seconds and 2 minutes.</p>
+              <p>However with an interval of 125 seconds you will get 2 minutes and 5 seconds.</p>
+              <h3>Declaration</h3>
+              Multiple time components<br/>
+                <code>
+                  public func `in`(_ components: [Calendar.Component], of calendar: CalendarName? = nil) -> [Calendar.Component : Int]</br>
+                </code>
+                </p>
+                Single time components<br/>
+                <code>
+                  public func `in`(_ component: Calendar.Component, of calendar: CalendarName? = nil) -> Int?
+                </code>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>component</code> or <code>components</code>: specify the component or an array of compone
+                   <code>.extended</code> and pass true or false to set the alt format.</li>
+              </ul>
+              <h3>Example</h3>
+            <script src="https://gist.github.com/malcommac/18be77c93b2d695f19e443f93b238078.js"></script>
+          </section>
+
+          <section>
+            <h2 id="datetimestyle">Date & Time with Style</h2>
+              <p>You can user standard's Foundation date formatting which allows you to specify a style for date and time.</p>
+              <h3>Declaration</h3>
+                <code>
+                  func string(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String</br>
+                </code>
+                </p>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>dateStyle</code>: the style used to print a date as <code>DateFormatter.Style</code>. If not specified <code>.medium</code> is used.</li>
+                <li><code>timeStyle</code>: the style used to print a time as <code>DateFormatter.Style</code>. If not specified <code>.medium</code> is used.</li>
+              </ul>
+              <h3>Example</h3>
+            <script src="https://gist.github.com/malcommac/0a2f195b1a617fcd96b50726c6d83503.js"></script>
+          </section>
+
+          <section>
+            <h2 id="colloquial">Human Readable/Colloquial String</h2>
+              <p>You can user standard's Foundation date formatting which allows you to specify a style for date and time.</p>
+              <p>Colloquial string represent an human readable format used to express time intervals like difference between dates.</p>
+              <h3>Declaration</h3>
+                <p>Difference between a date and now</p>
+                <code>
+                  func colloquialSinceNow() throws -> (date: String, time: String?)</br>
+                </code>
+                </p>
+                <p>Difference between two dates</p>
+                <code>
+                  func colloquial(toDate date: DateInRegion) throws -> (date: String, time: String?)
+                </code>
+              <h3>Exception</h3>
+              <p>Raise an exception <code>.DifferentCalendar</code> if both date are in different calendars.<br/>
+              <p>Raise an exception <code>.FailedToCalculate</code> if time interval cannot be evaluated</br>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>date</code>: reference date for comparisor</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/1636731130f51936c6e4c395bad4d399.js"></script>
+          </section>
+
+          <section>
+            <h2 id="timecomponents">Time Components</h2>
+              <p>Using SwiftDate you can get the difference between two dates and express it as a string of time components.</p>
+              <p>You can configure the style in which each components will be displayed (ex. "y" or "years"), the number of
+                max components will be displayed and how the formatter should treat zero values.</p>
+              <h3>Declaration</h3>
+                <p>Time components between a date and now</p>
+                <code>
+                  func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String
+                </code>
+                </p>
+                <p>Time components between two dates</p>
+                <code>
+                  func timeComponents(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String</br>
+                </code>
+              <h3>Exception</h3>
+              <p>Raise an exception <code>.DifferentCalendar</code> if both date are in different calendars.<br/>
+              <p>Raise an exception <code>.FailedToCalculate</code> if time interval cannot be evaluated</br>
+              <h3>Parameters</h3>
+              <ul>
+                <li><code>date</code>: reference date for comparisor</li>
+                <li><code>unitStyle</code>: style of the output string</li>
+                <li><code>max</code>: max number of the time components to write (nil means no limit)</li>
+                <li><code>zero</code>: the behaviour to use with zero value components</li>
+                <li><code>separator</code>: separator string between components (default is ',')</li>
+              </ul>
+              <h3>Example</h3>
+              <script src="https://gist.github.com/malcommac/cc005516310e1fe070da863d0299dcc9.js"></script>
+          </section>
+
+          </header>
+        </article>
+        <!-- END Main content -->
+
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="container-fluid">
+            <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <p>Copyright &copy; 2016 Daniele Margutti - All right reserved</p>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <ul class="footer-menu">
+                  <li><a href="mailto:hello@danielemargutti.com">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- END Footer -->
+
+      </div>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/theDocs.all.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

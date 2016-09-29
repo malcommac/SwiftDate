@@ -108,17 +108,12 @@ public extension DateInRegion {
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
 	/// the current date (`Date()`)
 	///
-	/// - parameter unitStyle: style of the output string
-	/// - parameter max:       max number of the time components to write (nil means no limit)
-	/// - parameter zero:      the behaviour to use with zero value components
-	/// - parameter separator: separator string between components (default is ',')
-	///
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation
-	public func colloquialSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
+	public func colloquialSinceNow() throws -> (colloquial: String, time: String?) {
 		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
-		return try self.colloquial(toDate: now, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+		return try self.colloquial(toDate: now)
 	}
 	
 	
@@ -126,21 +121,13 @@ public extension DateInRegion {
 	/// another passed date.
 	///
 	/// - parameter date:      date to compare
-	/// - parameter unitStyle: style of the output string
-	/// - parameter max:       max number of the time components to write (nil means no limit)
-	/// - parameter zero:      the behaviour to use with zero value components
-	/// - parameter separator: separator string between components (default is ',')
 	///
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation
-	public func colloquial(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
+	public func colloquial(toDate date: DateInRegion) throws -> (colloquial: String, time: String?) {
 		let formatter = DateInRegionFormatter()
 		formatter.locale = self.region.locale
-		formatter.maxComponentCount = max
-		formatter.unitStyle = unitStyle
-		formatter.zeroBehavior = zero ?? .dropAll
-		formatter.unitSeparator = separator ?? ","
 		return try formatter.colloquial(from: self, to: date)
 	}
 	

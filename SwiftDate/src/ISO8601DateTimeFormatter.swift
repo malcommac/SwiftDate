@@ -39,44 +39,44 @@ public class ISO8601DateTimeFormatter {
 		/// The date representation includes the year. The format for year is inferred based on the other specified options.
 		/// - If withWeekOfYear is specified, YYYY is used.
 		/// - Otherwise, yyyy is used.
-		static let withYear = ISO8601DateTimeFormatter.Options(rawValue: 1 << 0)
+		public static let withYear = ISO8601DateTimeFormatter.Options(rawValue: 1 << 0)
 		
 		/// The date representation includes the month. The format for month is MM.
-		static let withMonth = ISO8601DateTimeFormatter.Options(rawValue: 1 << 1)
+		public static let withMonth = ISO8601DateTimeFormatter.Options(rawValue: 1 << 1)
 		
 		/// The date representation includes the week of the year.
 		/// The format for week of year is ww, including the W prefix.
-		static let withWeekOfYear = ISO8601DateTimeFormatter.Options(rawValue: 1 << 2)
+		public static let withWeekOfYear = ISO8601DateTimeFormatter.Options(rawValue: 1 << 2)
 		
 		/// The date representation includes the day. The format for day is inferred based on provided options:
 		/// - If withMonth is specified, dd is used.
 		/// - If withWeekOfYear is specified, ee is used.
 		/// - Otherwise, DDD is used.
-		static let withDay = ISO8601DateTimeFormatter.Options(rawValue: 1 << 3)
+		public static let withDay = ISO8601DateTimeFormatter.Options(rawValue: 1 << 3)
 		
 		/// The date representation includes the time. The format for time is HH:mm:ss.
-		static let withTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 4)
+		public static let withTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 4)
 		
 		/// The date representation includes the timezone. The format for timezone is ZZZZZ.
-		static let withTimeZone = ISO8601DateTimeFormatter.Options(rawValue: 1 << 5)
+		public static let withTimeZone = ISO8601DateTimeFormatter.Options(rawValue: 1 << 5)
 		
 		/// The date representation uses a space ( ) instead of T between the date and time.
-		static let withSpaceBetweenDateAndTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 6)
+		public static let withSpaceBetweenDateAndTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 6)
 		
 		/// The date representation uses the dash separator (-) in the date.
-		static let withDashSeparatorInDate = ISO8601DateTimeFormatter.Options(rawValue: 1 << 7)
+		public static let withDashSeparatorInDate = ISO8601DateTimeFormatter.Options(rawValue: 1 << 7)
 		
 		/// The date representation uses the colon separator (:) in the time.
-		static let withFullDate = ISO8601DateTimeFormatter.Options(rawValue: 1 << 8)
+		public static let withFullDate = ISO8601DateTimeFormatter.Options(rawValue: 1 << 8)
 		
 		/// The date representation includes the hour, minute, and second.
-		static let withFullTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 9)
+		public static let withFullTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 9)
 		
 		
 		/// The format used for internet date times, according to the RFC 3339 standard.
 		/// Equivalent to specifying withFullDate, withFullTime, withDashSeparatorInDate,
 		/// withColonSeparatorInTime, and withColonSeparatorInTimeZone.
-		static let withInternetDateTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 10)
+		public static let withInternetDateTime = ISO8601DateTimeFormatter.Options(rawValue: 1 << 10)
 	}
 	
 	/// Options for generating and parsing ISO 8601 date representations.

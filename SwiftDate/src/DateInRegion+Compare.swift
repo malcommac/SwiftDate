@@ -77,7 +77,7 @@ public extension DateInRegion {
 	///
 	/// - parameter date:        date to compare
 	/// - parameter orEqual:     `true` to also check for equality
-	/// - parameter granularity: The smallest unit that must, along with all larger units, be greater
+	/// - parameter granularity: The smallest unit that must, along with all larger units, be greater for the given dates.
 	///
 	/// - returns: `true` if the unit of the receiver is greater than the unit of `date`, otherwise
 	///            `false`

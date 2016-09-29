@@ -180,12 +180,13 @@ public class DateInRegionFormatter {
 							(self.zeroBehavior == .dropMiddle)
 			if willDrop == false {
 				var cmp = DateComponents()
-				cmp.setValue(value!, for: component)
+				print(component)
+				cmp.setValue(abs(value!), for: component)
 				let localizedUnit = DateComponentsFormatter.localizedString(from: cmp, unitsStyle: unitStyle)!
 				output.append(localizedUnit)
 			}
 			
-			nonZeroUnitFound += (isValueZero ? 1 : 0)
+			nonZeroUnitFound += (isValueZero == false ? 1 : 0)
 			// limit the number of values to show
 			if maxComponentCount != nil && nonZeroUnitFound == maxComponentCount! {
 				break
@@ -204,7 +205,7 @@ public class DateInRegionFormatter {
 	///   required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: a colloquial string representing the difference between two dates
-	public func colloquial(from fDate: DateInRegion, to tDate: DateInRegion) throws -> (date: String, time: String?) {
+	public func colloquial(from fDate: DateInRegion, to tDate: DateInRegion) throws -> (colloquial: String, time: String?) {
 		guard fDate.region.calendar == tDate.region.calendar else {
 			throw DateError.DifferentCalendar
 		}

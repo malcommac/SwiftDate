@@ -28,7 +28,7 @@ import Foundation
 
 public extension Date {
 	
-	public func stringx(custom formatString: String) -> String {
+	public func string(custom formatString: String) -> String {
 		return self.string(format: .custom(formatString), in: nil)
 	}
 	
@@ -84,7 +84,6 @@ public extension Date {
 	/// the current date (`Date()`)
 	///
 	/// - parameter region:    region in which both dates will be expressed in
-	/// - parameter unitStyle: style of the output string
 	/// - parameter max:       max number of the time components to write (nil means no limit)
 	/// - parameter zero:      the behaviour to use with zero value components
 	/// - parameter separator: separator string between components (default is ',')
@@ -92,9 +91,9 @@ public extension Date {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation
-	public func colloquialSinceNow(in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
+	public func colloquialSinceNow(in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
-		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow()
 	}
 	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
@@ -102,7 +101,6 @@ public extension Date {
 	///
 	/// - parameter to:        date to compare
 	/// - parameter region:    region in which both dates will be expressed in
-	/// - parameter unitStyle: style of the output string
 	/// - parameter max:       max number of the time components to write (nil means no limit)
 	/// - parameter zero:      the behaviour to use with zero value components
 	/// - parameter separator: separator string between components (default is ',')
@@ -110,10 +108,10 @@ public extension Date {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation of the time elapsed between two dates
-	public func colloquial(to: Date, in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (date: String, time: String?) {
+	public func colloquial(to: Date, in region: Region? = nil, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
 		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
-		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion)
 	}
 	
 	/// This method produces a string by printing the interval between self and current Date and output a string where each

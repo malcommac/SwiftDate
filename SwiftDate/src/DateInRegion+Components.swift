@@ -287,7 +287,7 @@ extension DateInRegion {
 	/// the previous weekend before the date.
 	///
 	/// - Returns: a tuple of two `DateInRegion` objects indicating the start
-	///   and the end of the next weekend after the date.
+	///   and the end of the next weekend previous the date.
 	///
 	/// - Note: The weekend returned when the receiver is in a weekend is
 	///   the previous weekend not the current one.
@@ -347,13 +347,13 @@ extension DateInRegion {
 	}
 	
 	
-	/// Return the instance representing the first moment date of the given date expressed in the context of
+	/// Return the instance representing the first moment date of the given date expressed in the context of the calendar of the receiver
 	public var startOfDay: DateInRegion {
 		let absoluteDate = self.region.calendar.startOfDay(for: self.absoluteDate)
 		return DateInRegion(absoluteDate: absoluteDate, in: self.region.copy())
 	}
 	
-	/// Return the instance representing the last moment date of the given date expressed in the context of
+	/// Return the instance representing the last moment date of the given date expressed in the context of the calendar of the receiver
 	public var endOfDay: DateInRegion {
 		let cal = self.region.calendar
 		var dCmps = DateComponents()

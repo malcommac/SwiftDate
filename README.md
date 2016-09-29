@@ -10,6 +10,8 @@ We also think that dates and timezones management should be painless: this is th
 
 Choose SwifDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
+## SwiftDate [website is here](http://malcommac.github.io/SwiftDate)
+
 ## Main features
 That's an highlight of the main features you can found in SwiftDate:
 
@@ -20,11 +22,11 @@ That's an highlight of the main features you can found in SwiftDate:
 * **Easy and optimized way to get and transform a date from and to strings**: supports both colloquial (human readable) and fixed formats (**ISO8601, AltRSS, RSS, Extended, .NET and custom string as per Unicode standard**)
 * **Express time interval in other time units**; for example `120.seconds.in(.minutes) // 2 minutes`
 * **Many shortcuts to get intervals, work with time units, intervals and common date operations** (`isYesterday,isTomorrow,isBefore()`...)
-* ... [many many other shiny things!](http://www.swift-date.com)
+* ... [many many other shiny things!](http://malcommac.github.io/SwiftDate)
 
 ## How to get started
 
-* **Check our website [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
+* **Check our website [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate) to learn more about all available functions with a comprehensive list of examples**
 * Install SwiftDate via CocoaPods, Chartage or Swift Package Manager
 * Have fun!
 
@@ -110,7 +112,7 @@ Actually current official version is 4.0.0 and it's compatible with:
 Are you searching for an old (unsupported) SwiftDate version?
 Check out:
 * [Swift 2.3 Branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
-* [Swift 2.2 Branch](https://github.com/malcommac/SwiftDate)
+* Swift 2.2 use version 3.0.8 in CocoaPods
 
 ## Credits & License
 SwiftDate is owned and maintained by [Daniele Margutti](http://www.danielemargutti.com/) along with main contribution of [https://github.com/Hout](Jeroen Houtzager).

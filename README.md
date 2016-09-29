@@ -102,7 +102,7 @@ Actually current official version is 4.0.0 and it's compatible with:
 
 * Swift 3.0+
 * iOS 8 or later
-* macOS 10.9 or later
+* macOS 10.10 or later
 * watchOS 2.0 or later
 * tvOS 9.0 or later
 * ...and virtually any platform which is compatible with Swift 3 and implements the Swift Foundation Library

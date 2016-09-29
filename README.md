@@ -1,4 +1,4 @@
-1<p align="center" >
+<p align="center" >
   <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/release/swiftdate-4.0/swiftdate-4-logo.png" width=189px height=191 alt="SwiftDate" title="SwiftDate">
 </p>
 

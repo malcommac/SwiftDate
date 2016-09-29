@@ -1,7 +1,355 @@
-<html>
-    <head>
-        <meta http-equiv="refresh" content="0;url=overview.html" />
-    </head>
-    <body>
-    </body>
-</html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>SwiftDate - The best way to handle date, time and timezones in Swift</title>
+
+    <!-- Styles -->
+    <link href="assets/css/theDocs.all.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.ico">
+  </head>
+
+  <body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed">
+
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo-sidebar-alt.png" alt="logo" width=173px height=167px></a>
+
+      <ul class="sidenav dropable sticky">
+        <li>
+          <a class="active" href="#">Overview</a>
+          <ul>
+            <li><a href="index.html#overview">Overview</a></li>
+            <li><a href="index.html#main_features">Main Features</a></li>
+            <li><a href="index.html#requirements">Requirements</a></li>
+            <li><a href="index.html#install">Install</a></li>
+            <li><a href="index.html#forkus">Fork Us on GitHub</a></li>
+            <li><a href="index.html#authors">Authors & License</a></li>
+            <li><a href="index.html#promote">Your App & SwiftDate</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Main Concepts</a>
+          <ul>
+            <li><a href="main_concepts.html#absolute_time">Date and Absolute Time</a></li>
+            <li><a href="main_concepts.html#dateregion">DateInRegion and Region</a></li>
+            <li><a href="main_concepts.html#default_region">The Default Region</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Get Components</a>
+          <ul>
+            <li><a href="date_components.html#overview">Overview</a></li>
+            <li><a href="date_components.html#era">era</a></li>
+            <li><a href="date_components.html#year">year</a></li>
+            <li><a href="date_components.html#month">month</a></li>
+            <li><a href="date_components.html#day">day</a></li>
+            <li><a href="date_components.html#hour">hour</a></li>
+            <li><a href="date_components.html#nearesthour">nearestHour</a></li>
+            <li><a href="date_components.html#minute">minute</a></li>
+            <li><a href="date_components.html#second">second</a></li>
+            <li><a href="date_components.html#nanosecond">nanosecond</a></li>
+            <li><a href="date_components.html#yearforweekofyear">yearForWeekOfYear</a></li>
+            <li><a href="date_components.html#weekofyear">weekOfYear</a></li>
+            <li><a href="date_components.html#weekdayordinal">weekdayOrdinal</a></li>
+            <li><a href="date_components.html#weekdayname">weekdayName</a></li>
+            <li><a href="date_components.html#monthdays">monthDays</a></li>
+            <li><a href="date_components.html#quarter">quarter</a></li>
+            <li><a href="date_components.html#weekofmonth">weekOfMonth</a></li>
+            <li><a href="date_components.html#monthname">monthName</a></li>
+            <li><a href="date_components.html#shortmonthname">shortMonthName</a></li>
+            <li><a href="date_components.html#leapmonth">leapMonth</a></li>
+            <li><a href="date_components.html#leapyear">leapYear</a></li>
+            <li><a href="date_components.html#julianday">julianDay</a></li>
+            <li><a href="date_components.html#modifiedjulianday">modifiedJulianDay</a></li>
+            <li><a href="date_components.html#previousweekend">previousWeekend</a></li>
+            <li><a href="date_components.html#thisweekend">thisWeekend</a></li>
+            <li><a href="date_components.html#nextweekend">nextWeekend</a></li>
+            <li><a href="date_components.html#istoday">isToday</a></li>
+            <li><a href="date_components.html#isyesterday">isYesterday</a></li>
+            <li><a href="date_components.html#istomorrow">isTomorrow</a></li>
+            <li><a href="date_components.html#isinweekend">isInWeekend</a></li>
+            <li><a href="date_components.html#isinpast">isInPast</a></li>
+            <li><a href="date_components.html#isinfuture">isInFuture</a></li>
+            <li><a href="date_components.html#isinsamedayof">isInSameDayOf</a></li>
+            <li><a href="date_components.html#startofday">startOfDay</a></li>
+            <li><a href="date_components.html#endofday">endOfDay</a></li>
+            <li><a href="date_components.html#nextmonth">nextMonth</a></li>
+            <li><a href="date_components.html#prevmonth">prevMonth</a></li>
+            <li><a href="date_components.html#startof">startOf</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Parse/Create Dates</a>
+          <ul>
+            <li><a href="parse_create_dates.html#overview">Overview</a></li>
+            <li><a href="parse_create_dates.html#fromstring">Parse Date from Custom String/ISO8601/<br/>AltRSS/RSS/Extended</a></li>
+            <li><a href="parse_create_dates.html#fromnow">Create from now</a></li>
+            <li><a href="parse_create_dates.html#fromdateandregion">Create from Date & Region</a></li>
+            <li><a href="parse_create_dates.html#fromdatecomponents">Create from DateComponents</a></li>
+            <li><a href="parse_create_dates.html#fromtimecomponents">Create from Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Manipulate Dates</a>
+          <ul>
+            <li><a href="manipulate_dates.html#math_operators">Overview</a></li>
+            <li><a href="manipulate_dates.html#dateregion">Math Operators</a></li>
+            <li><a href="manipulate_dates.html#compare_dates">Compare Dates</a></li>
+            <li><a href="manipulate_dates.html#start_oftime_unit">Start of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#end_oftime_unit">End of Time Unit</a></li>
+            <li><a href="manipulate_dates.html#dateatunit">Date at Specified Time</a></li>
+            <li><a href="manipulate_dates.html#dateatcomponents">Date at Specified Time Units</a></li>
+            <li><a href="manipulate_dates.html#latest_date">Latest Date</a></li>
+            <li><a href="manipulate_dates.html#earliest_date">Earliest Date</a></li>
+            <li><a href="manipulate_dates.html#compare_g">Compare with Granurality</a></li>
+            <li><a href="manipulate_dates.html#before_g">Is Before with Granurality</a></li>
+            <li><a href="manipulate_dates.html#after_g">Is After with Granurality</a></li>
+            <li><a href="manipulate_dates.html#equal">Is Equal</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Date Formatting</a>
+          <ul>
+            <li><a href="formatters.html#customstring">Date to Custom Format</a></li>
+            <li><a href="formatters.html#iso8601">Date to ISO8601 Format</a></li>
+            <li><a href="formatters.html#rssaltrss">Date to RSS/AltRSS</a></li>
+            <li><a href="formatters.html#dotnet">Date to .NET</a></li>
+            <li><a href="formatters.html#extended">Date to .Extended</a></li>
+            <li><a href="formatters.html#intervaltostring">Time Interval to string</a></li>
+            <li><a href="formatters.html#datetimestyle">Date & Time with Style</a></li>
+            <li><a href="formatters.html#colloquial">Human Readable/Colloquial String</a></li>
+            <li><a href="formatters.html#timecomponents">Time Components</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Foundation Extensions</a>
+          <ul>
+            <li><a href="extensions.html#calendar">Calendar shortcut</a></li>
+            <li><a href="extensions.html#timezone">TimeZone shortcut</a></li>
+            <li><a href="extensions.html#locale">Locale shortcut</a></li>
+            <li><a href="extensions.html#timeinterval">TimeInterval</a></li>
+            <li><a href="extensions.html#datecomponents">DateComponents</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </aside>
+    <!-- END Sidebar -->
+
+
+    <header class="site-header navbar-fullwidth">
+
+      <!-- Top navbar & branding -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          <!-- Toggle buttons and brand -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/tarball/master">Download tar.gz</a></li>
+              <li class=""><a href="https://github.com/malcommac/SwiftDate/zipball/master">Download zip</a></li>
+              <li class=""><a href="https://cocoapods.org/pods/SwiftDate">CocoaPods</a></li>
+              <li class="hero"><a href="https://github.com/malcommac/SwiftDate">Fork us on GitHub</a></li>
+            </ul>
+          </div>
+          <!-- END Top navbar -->
+
+        </div>
+      </nav>
+      <!-- END Top navbar & branding -->
+
+    </header>
+
+
+    <main class="container-fluid">
+      <div class="row">
+
+        <!-- Main content -->
+        <article class="main-content" role="main">
+
+          <header>
+            <h1 id="overview">SwiftDate</h1>
+            <p>We really ❤ Swift and we use it since the beginning.</p>We also think that dates and timezones management should be painless: this is the main reason we have created SwiftDate, proability the best way to deal with time in Swift.</p>
+            <p>It works both on iOS, macOS, watchOS, tvOS and virtually on any Swift compatible platform (yeah Linux too!). Moreover it's free and open source!</p>
+            <p>
+              <img a href="https://github.com/Carthage/Carthage" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat">
+              <img src="https://travis-ci.org/malcommac/SwiftDate.svg" href="https://travis-ci.org/malcommac/SwiftDate">
+              <img src="https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat" href="http://cocoadocs.org/docsets/SwiftDate">
+              <img src="https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat" href="http://cocoadocs.org/docsets/SwiftDate">
+              <img src="https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat" href="http://cocoadocs.org/docsets/SwiftDate">
+              <h3>Current Stable Release</h3>
+              <p>Current stable release is 4.0.0 for Swift 3</p>
+              <p>Last Update: 2016-09-29</p>
+              <a href="https://github.com/malcommac/SwiftDate">
+                <button type="button" class="btn btn-primary"><i class="fa fa-download"></i> Get Latest Version</button></p>
+              </a>
+          <h3>Old Unsupported Versions</h3>
+              <p>If you need of a Swift 2.2 or 2.3 compatible version you can found then on our <a href="https://github.com/malcommac/SwiftDate">GitHub page</a>.</p>
+              <a href="https://github.com/malcommac/SwiftDate/tree/feature/swift_23">
+                <button type="button" class="btn btn-default"><i class="fa fa-download"></i> Swift 2.3 Branch</button></p>
+              </a>
+              <a href="https://github.com/malcommac/SwiftDate">
+                <button type="button" class="btn btn-default"><i class="fa fa-download"></i> Swift 2.2 Branch</button></p>
+              </a>
+          </header>
+
+          <section>
+            <h2 id="main_features">Main Features</h2>
+            <p> Perform calculations with dates:
+              <ul>
+                <li><code>aDate + 2.weeks + 1.hours or (1.years - 2.hours + 16.minutes).fromNow()</code></li>
+                <li>Easy conversions to and from <code>timezone</code>, <code>locale</code> and <code>calendar</code>. Use helper class <code>DateInRegion</code> and perform conversions with components and operations!</li>
+                <li>Compare dates with math operators <code><,>,==,<=,>=</code>. For example you can do <code>aDate1 >= aDate2</code> or <code>aDate1.isIn(anotherDate,.day)</code></li>
+                <li>Easily get time components. E.g. <code>aDateInRegion.day</code> or <code>hour</code>, <code>minutes</code> etc.</li>
+                <li>Easy/optimized way to get and transform a date from and to strings (with relative date supports* like <code>'2 hours, 5 minutes'</code> etc.)</li>
+                <li>Express time interval in other time units; for example <code>120.seconds.in(.minutes) // 2 minutes</code></li>
+                <li>Many shortcuts to get intervals and common dates (<code>isYesterday,isTomorrow,isBefore()</code>...)</li>
+                <li>... many many other shiny things!</li>
+              </ul>
+            </p>
+
+            <h2 id="requirements">Requirements</h2>
+            <p>Actually current official version is 4.0.0 and it's compatible with:
+            <ul>
+              <li>Swift 3.0+</li>
+              <li>iOS 8 or later</li>
+              <li>macOS 10.9 or later</li>
+              <li>watchOS 2.0 or later</li>
+              <li>tvOS 9.0 or later</li>
+              <li>...and virtually any platform which is compatible with Swift 3 and implements the Swift Foundation Library</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="install">Install</h2>
+              <p>SwiftDate supports multiple methods for installing the library in a project.</p>
+
+              <h3 id="cocoapods">Installation with CocoaPods</h3>
+              <p><a href="http://cocoapods.org/">CocoaPods</a> is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using 3rd-party libraries like SwiftDate in your projects.</p>
+              <p>You can install it with the following command:</p>
+              <p><pre>$ gem install cocoapods</pre></p>
+              <pr>CocoaPods 1.1+ is required to build SwiftDate 4.0.0+.</p>
+
+              <h4>Podfile</h4>
+              <p>To integrate SwiftDate into your Xcode project using CocoaPods, specify it in your Podfile:</p>
+              <pre>
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
+pod 'SwiftDate', '~> 4.0'
+end
+</pre>
+            <h3 id="carthage">Installation with Carthage</h3>
+            <p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
+            <p>You can install <code>Carthage</code> with Homebrew using the following command:</p>
+<pre>
+$ brew update
+$ brew install carthage
+</pre>
+            To integrate SwiftDate into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:
+<pre>
+github "malcommac/SwiftDate" ~> 4.0
+</pre>
+
+<h3 id="packagemanager">Installation with Swift Package Manager</h3>
+          <p>Currently not available</p>
+          </section>
+
+          <section>
+            <h2 id="forkus">Fork us on GitHub</h2>
+              <p>SwiftDate is opensource and hosted on GitHub.</p>
+              <p>If you want to contribute there are several ways you can do it:</p>
+              <ul>
+                <li>If you found a bug, and can provide steps to reliably reproduce it, open an issue.</li>
+				        <li>If you have a feature request, open an issue.</li>
+				        <li>If you want to contribute, submit a pull request.</li>
+                <li>You can help us to translate our bundle resource which is used to output human readable date representation</li>
+              </ul>
+          </section>
+
+          <section>
+          <h2 id="authors">Authors & License</h2>
+          <p>SwiftDate was created and currently mantained by <a href="http://www.danielemargutti.com">Daniele Margutti</a>; a main project contributor is <a href="https://github.com/Hout">Jeroen Houtzager</a>.</p>
+          <p>As open source creation any help is welcome too!</p>
+          <p>The code of this library is licensed under <a href="https://github.com/malcommac/SwiftDate/blob/master/LICENSE">MIT License</a>; you can use it in commercial products without any limitation.</p>
+          <p>The only requirement is to add a line in your Credits/About section with the text below:</p>
+<pre>
+Date and Time Management is provided by SwiftDate - http://www.swift-date.com
+Created by Daniele Margutti and licensed under MIT License.
+</pre>
+          </section>
+
+          <section>
+            <h2 id="promote">Your App & SwiftDate</h2>
+            <p>If you want we are interested in making a list of all projects which uses this library. Feel free to open an Issue on GitHub so with the name and links of your project; we'll add it to this site.</p>
+          </section>
+
+
+        </article>
+        <!-- END Main content -->
+
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="container-fluid">
+            <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <p>Copyright &copy; 2016 Daniele Margutti - All right reserved</p>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <ul class="footer-menu">
+                  <li><a href="mailto:hello@danielemargutti.com">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- END Footer -->
+
+      </div>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/theDocs.all.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

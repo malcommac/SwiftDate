@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DateInRegionFormatter Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DateInRegionFormatter" class="dashAnchor"></a>
+    <a title="DateInRegionFormatter Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DateInRegionFormatter Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DateInRegion.html">DateInRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateInRegion/Formatters.html">– Formatters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateInRegionFormatter.html">DateInRegionFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ISO8601DateTimeFormatter.html">ISO8601DateTimeFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ISO8601DateTimeFormatter/Options.html">– Options</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CalendarName.html">CalendarName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateError.html">DateError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateFormat.html">DateFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LocaleName.html">LocaleName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimeZoneName.html">TimeZoneName</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Calendar.html">Calendar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DateComponents.html">DateComponents</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/TimeInterval.html">TimeInterval</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTCS_12DateInRegionGVs10DictionaryOV10Foundation8Calendar9ComponentSi__S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTCS_12DateInRegionV10Foundation14DateComponents_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation14DateComponentsS1__S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation4DateGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation4DateSd_S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation4DateVS0_14DateComponents_S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateop1sFV10Foundation14DateComponentsS1_">-(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTCS_12DateInRegionGVs10DictionaryOV10Foundation8Calendar9ComponentSi__S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTCS_12DateInRegionS0__Sd">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTCS_12DateInRegionV10Foundation14DateComponents_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation14DateComponentsS1__S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateS1__Sd">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateSd_S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateVS0_14DateComponents_S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1lFTCS_12DateInRegionS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2leFTCS_12DateInRegionS0__Sb">&lt;=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2eeFTCS_12DateInRegionS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2eeFTVS_6RegionS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1gFTCS_12DateInRegionS0__Sb">&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2geFTCS_12DateInRegionS0__Sb">&gt;=(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DateTimeInterval.html">DateTimeInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Region.html">Region</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DateInRegionFormatter</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DateInRegionFormatter</span></code></pre>
+
+                </div>
+              </div>
+            <p>The DateFormatter class is used to get a string representation of a time interval between two
+dates or a relative representation of a date</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter17allowedComponentsGVs3SetOV10Foundation8Calendar9Component_"></a>
+                    <a name="//apple_ref/swift/Property/allowedComponents" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter17allowedComponentsGVs3SetOV10Foundation8Calendar9Component_">allowedComponents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tell what kind of time units should be part of the output. Allowed values are a subset of
+<code>Calendar.Component</code> option set.
+By default is <code>[.year, .month, .day, .hour, .minute, .second]</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allowedComponents</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="o">.</span><span class="n">second</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter12zeroBehaviorVS_17DateZeroBehaviour"></a>
+                    <a name="//apple_ref/swift/Property/zeroBehavior" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter12zeroBehaviorVS_17DateZeroBehaviour">zeroBehavior</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>How the formatter threat zero components. Default implementation drop all zero values from
+the output string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">zeroBehavior</span><span class="p">:</span> <span class="kt"><a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">dropAll</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter17maxComponentCountGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/maxComponentCount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter17maxComponentCountGSqSi_">maxComponentCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of units to print from the higher to the lower. Default is unlimited, all values
+could be part of the output. By default no limit is set (<code>nil</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">maxComponentCount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter9unitStyleOCSo23DateComponentsFormatter10UnitsStyle"></a>
+                    <a name="//apple_ref/swift/Property/unitStyle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter9unitStyleOCSo23DateComponentsFormatter10UnitsStyle">unitStyle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Described the style in which each unit will be printed out. Default is <code>.full</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">unitStyle</span><span class="p">:</span> <span class="kt">DateComponentsFormatter</span><span class="o">.</span><span class="kt">UnitsStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">full</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter13unitSeparatorSS"></a>
+                    <a name="//apple_ref/swift/Property/unitSeparator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter13unitSeparatorSS">unitSeparator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This describe the separator string between each component when you print data in non
+colloquial format. Default is <code>,</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">unitSeparator</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">","</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter19useImminentIntervalSb"></a>
+                    <a name="//apple_ref/swift/Property/useImminentInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter19useImminentIntervalSb">useImminentInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For interval less than 5 minutes if this value is true the equivalent of &lsquo;just now&rsquo; is
+printed in the output string. By default is <code>true</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">useImminentInterval</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9SwiftDate21DateInRegionFormatter6localeGSqV10Foundation6Locale_"></a>
+                    <a name="//apple_ref/swift/Property/locale" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9SwiftDate21DateInRegionFormatter6localeGSqV10Foundation6Locale_">locale</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Locale to use when print the date. By default is the same locale set by receiver&rsquo;s <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code>.
+If not set default device locale is used instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">locale</span><span class="p">:</span> <span class="kt">Locale</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9SwiftDate21DateInRegionFormattercFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9SwiftDate21DateInRegionFormattercFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DateInRegionFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9SwiftDate21DateInRegionFormatter14timeComponentsFzT8intervalSd_SS"></a>
+                    <a name="//apple_ref/swift/Method/timeComponents(interval:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9SwiftDate21DateInRegionFormatter14timeComponentsFzT8intervalSd_SS">timeComponents(interval:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>String representation of an absolute interval expressed in seconds.
+For example <q>4 days</q> or <q>33s</q>.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw <code>.MissingRsrcBundle</code> if required localized string are missing from the SwiftDate bundle</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">timeComponents</span><span class="p">(</span><span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">)</span> <span class="k">throws</span>  <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>interval</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>interval in seconds</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>time components string</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9SwiftDate21DateInRegionFormatter14timeComponentsFzT4fromCS_12DateInRegion2toS1__SS"></a>
+                    <a name="//apple_ref/swift/Method/timeComponents(from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9SwiftDate21DateInRegionFormatter14timeComponentsFzT4fromCS_12DateInRegion2toS1__SS">timeComponents(from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>String representation of the interval between two dates printed in terms of time unit components.
+For example <q>3 days</q> or <q>4d, 5h</q> etc.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw <code>.DifferentCalendar</code> if dates are expressed in a different calendar, <code>.MissingRsrcBundle</code> if
+required localized string are missing from the SwiftDate bundle</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">timeComponents</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>from</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>first date</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>to</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>time components string</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9SwiftDate21DateInRegionFormatter10colloquialFzT4fromCS_12DateInRegion2toS1__T10colloquialSS4timeGSqSS__"></a>
+                    <a name="//apple_ref/swift/Method/colloquial(from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9SwiftDate21DateInRegionFormatter10colloquialFzT4fromCS_12DateInRegion2toS1__T10colloquialSS4timeGSqSS__">colloquial(from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Print a colloquial representation of the difference between two dates.
+For example <q>1 year ago</q>, <q>just now</q>, <q>3s</q> etc.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw <code>.DifferentCalendar</code> if dates are expressed in a different calendar, <code>.MissingRsrcBundle</code> if
+required localized string are missing from the SwiftDate bundle</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">colloquial</span><span class="p">(</span><span class="n">from</span> <span class="nv">fDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">tDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">colloquial</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">time</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date a</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date b</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a colloquial string representing the difference between two dates</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-09-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,2962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Date Extension Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Extension/Date" class="dashAnchor"></a>
+    <a title="Date Extension Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Date Extension Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DateInRegion.html">DateInRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateInRegion/Formatters.html">– Formatters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateInRegionFormatter.html">DateInRegionFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ISO8601DateTimeFormatter.html">ISO8601DateTimeFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ISO8601DateTimeFormatter/Options.html">– Options</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CalendarName.html">CalendarName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateError.html">DateError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DateFormat.html">DateFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LocaleName.html">LocaleName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimeZoneName.html">TimeZoneName</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Calendar.html">Calendar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DateComponents.html">DateComponents</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/TimeInterval.html">TimeInterval</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTCS_12DateInRegionGVs10DictionaryOV10Foundation8Calendar9ComponentSi__S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTCS_12DateInRegionV10Foundation14DateComponents_S0_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation14DateComponentsS1__S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation4DateGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation4DateSd_S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1pFTV10Foundation4DateVS0_14DateComponents_S1_">+(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateop1sFV10Foundation14DateComponentsS1_">-(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTCS_12DateInRegionGVs10DictionaryOV10Foundation8Calendar9ComponentSi__S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTCS_12DateInRegionS0__Sd">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTCS_12DateInRegionV10Foundation14DateComponents_S0_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation14DateComponentsS1__S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateS1__Sd">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateSd_S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1sFTV10Foundation4DateVS0_14DateComponents_S1_">-(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1lFTCS_12DateInRegionS0__Sb">&lt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2leFTCS_12DateInRegionS0__Sb">&lt;=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2eeFTCS_12DateInRegionS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2eeFTVS_6RegionS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi1gFTCS_12DateInRegionS0__Sb">&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9SwiftDateoi2geFTCS_12DateInRegionS0__Sb">&gt;=(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DateTimeInterval.html">DateTimeInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Region.html">Region</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Date</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Date</span> <span class="p">:</span> <span class="kt">ReferenceConvertible</span><span class="p">,</span> <span class="kt">Comparable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date7compareFT2toS1_2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_OSC16ComparisonResult"></a>
+                    <a name="//apple_ref/swift/Method/compare(to:in:granularity:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date7compareFT2toS1_2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_OSC16ComparisonResult">compare(to:in:granularity:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a ComparisonResult value that indicates the ordering of two given dates based on
+their components down to a given unit granularity. Both passed <code>Date</code> objects are expressed in
+passed region before doing the comparisor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">compare</span><span class="p">(</span><span class="n">to</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">granularity</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ComparisonResult</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed (if nil, defaultRegion will be used instead)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>granularity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The smallest unit that must, along with all larger units, be equal for the given dates to be considered the same. For possible values, see “”</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>orderedSame</code> if the dates are the same down to the given granularity, otherwise <code>orderedAscending</code> or <code>orderedDescending</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date4isInFT4dateS1_2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_Sb"></a>
+                    <a name="//apple_ref/swift/Method/isIn(date:in:granularity:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date4isInFT4dateS1_2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_Sb">isIn(date:in:granularity:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compares equality of two given dates based on their components down to a given unit
+granularity.
+Both passed <code>Date</code> objects are expressed in passed region before doing the comparisor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isIn</span><span class="p">(</span><span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">granularity</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed (if nil, defaultRegion will be used instead)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>granularity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The smallest unit that must, along with all larger units, be equal for the given dates to be considered the same.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the dates are the same down to the given granularity, otherwise <code>false</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date8isBeforeFT4dateS1_7orEqualSb2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_Sb"></a>
+                    <a name="//apple_ref/swift/Method/isBefore(date:orEqual:in:granularity:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date8isBeforeFT4dateS1_7orEqualSb2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_Sb">isBefore(date:orEqual:in:granularity:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compares whether the receiver is before/before equal <code>date</code> based on their components down to a given
+unit granularity.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isBefore</span><span class="p">(</span><span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">orEqual</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">granularity</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orEqual</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> to also check for equality</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed (if nil, defaultRegion will be used instead)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>granularity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The smallest unit that must, along with all larger units, be less for the given dates.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the unit of the receiver is less than the unit of <code>date</code>, otherwise <code>false</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date7isAfterFT4dateS1_7orEqualSb2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_Sb"></a>
+                    <a name="//apple_ref/swift/Method/isAfter(date:orEqual:in:granularity:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date7isAfterFT4dateS1_7orEqualSb2inGSqVS_6Region_11granularityOVS0_8Calendar9Component_Sb">isAfter(date:orEqual:in:granularity:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compares whether the receiver is after <code>date</code> based on their components down to a given unit
+granularity.
+Both passed <code>Date</code> objects are expressed in passed region before doing the comparisor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isAfter</span><span class="p">(</span><span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">orEqual</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">granularity</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orEqual</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> to also check for equality</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed (if nil, defaultRegion will be used instead)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>granularity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The smallest unit that must, along with all larger units, be greater</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the unit of the receiver is greater than the unit of <code>date</code>, otherwise <code>false</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date16setDefaultRegionFGSqVS_6Region_T_"></a>
+                    <a name="//apple_ref/swift/Method/setDefaultRegion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date16setDefaultRegionFGSqVS_6Region_T_">setDefaultRegion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define a default region to use when you work with components and function of SwiftDate
+and <code>Date</code> objects. Default region is set automatically at runtime to <code>Region.Local()</code> which defines
+a region identified by the device&rsquo;s current <code>TimeZone</code> (not updating), <code>Calendar</code> (not updating)
+and <code>Locale</code> (not updating).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setDefaultRegion</span><span class="p">(</span><span class="n">_</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region to set. If nil is passed default region is set to Region.Local()</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region"></a>
+                    <a name="//apple_ref/swift/Property/defaultRegion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the default region set.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">defaultRegion</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>region set; if not changed is set to <code>Region.Local()</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date3eraSi"></a>
+                    <a name="//apple_ref/swift/Property/era" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date3eraSi">era</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of era units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">era</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date4yearSi"></a>
+                    <a name="//apple_ref/swift/Property/year" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date4yearSi">year</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of year units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">year</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date5monthSi"></a>
+                    <a name="//apple_ref/swift/Property/month" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date5monthSi">month</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of month units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">month</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date3daySi"></a>
+                    <a name="//apple_ref/swift/Property/day" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date3daySi">day</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of day units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">day</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date4hourSi"></a>
+                    <a name="//apple_ref/swift/Property/hour" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date4hourSi">hour</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of hour units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hour</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11nearestHourSi"></a>
+                    <a name="//apple_ref/swift/Property/nearestHour" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11nearestHourSi">nearestHour</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Nearest rounded hour from the date expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">nearestHour</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date6minuteSi"></a>
+                    <a name="//apple_ref/swift/Property/minute" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date6minuteSi">minute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of minute units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">minute</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date6secondSi"></a>
+                    <a name="//apple_ref/swift/Property/second" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date6secondSi">second</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of second units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">second</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date10nanosecondSi"></a>
+                    <a name="//apple_ref/swift/Property/nanosecond" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date10nanosecondSi">nanosecond</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of nanosecond units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">nanosecond</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date17yearForWeekOfYearSi"></a>
+                    <a name="//apple_ref/swift/Property/yearForWeekOfYear" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date17yearForWeekOfYearSi">yearForWeekOfYear</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of week-numbering units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">yearForWeekOfYear</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date10weekOfYearSi"></a>
+                    <a name="//apple_ref/swift/Property/weekOfYear" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date10weekOfYearSi">weekOfYear</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The week date of the year for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">weekOfYear</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date7weekdaySi"></a>
+                    <a name="//apple_ref/swift/Property/weekday" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date7weekdaySi">weekday</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of weekday units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">weekday</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date14weekdayOrdinalSi"></a>
+                    <a name="//apple_ref/swift/Property/weekdayOrdinal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date14weekdayOrdinalSi">weekdayOrdinal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ordinal number of weekday units for the receiver expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">weekdayOrdinal</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11weekdayNameSS"></a>
+                    <a name="//apple_ref/swift/Property/weekdayName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11weekdayNameSS">weekdayName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Week day name of the date expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">weekdayName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date9monthDaysSi"></a>
+                    <a name="//apple_ref/swift/Property/monthDays" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date9monthDaysSi">monthDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of days into current&rsquo;s date month expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">monthDays</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11weekOfMonthSi"></a>
+                    <a name="//apple_ref/swift/Property/weekOfMonth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11weekOfMonthSi">weekOfMonth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>he week number in the month expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">weekOfMonth</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date9monthNameSS"></a>
+                    <a name="//apple_ref/swift/Property/monthName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date9monthNameSS">monthName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Month name of the date expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">monthName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date14shortMonthNameSS"></a>
+                    <a name="//apple_ref/swift/Property/shortMonthName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date14shortMonthNameSS">shortMonthName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Short month name of the date expressed in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">shortMonthName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date9leapMonthSb"></a>
+                    <a name="//apple_ref/swift/Property/leapMonth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date9leapMonthSb">leapMonth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Boolean value that indicates whether the month is a leap month.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">leapMonth</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date8leapYearSb"></a>
+                    <a name="//apple_ref/swift/Property/leapYear" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date8leapYearSb">leapYear</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Boolean value that indicates whether the year is a leap year.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">leapYear</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date9julianDaySd"></a>
+                    <a name="//apple_ref/swift/Property/julianDay" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date9julianDaySd">julianDay</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Julian day is the continuous count of days since the beginning of the Julian Period used primarily by astronomers.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">julianDay</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date17modifiedJulianDaySd"></a>
+                    <a name="//apple_ref/swift/Property/modifiedJulianDay" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date17modifiedJulianDaySd">modifiedJulianDay</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Modified Julian Date (MJD) was introduced by the Smithsonian Astrophysical Observatory
+in 1957 to record the orbit of Sputnik via an IBM 704 (36-bit machine) and using only 18 bits until August 7, 2576.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">modifiedJulianDay</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11thisWeekendGSqT9startDateCS_12DateInRegion7endDateS2___"></a>
+                    <a name="//apple_ref/swift/Property/thisWeekend" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11thisWeekendGSqT9startDateCS_12DateInRegion7endDateS2___">thisWeekend</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns two <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> objects indicating the start and the end of the current weekend.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">thisWeekend</span><span class="p">:</span> <span class="p">(</span><span class="nv">startDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">,</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11nextWeekendGSqT9startDateCS_12DateInRegion7endDateS2___"></a>
+                    <a name="//apple_ref/swift/Property/nextWeekend" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11nextWeekendGSqT9startDateCS_12DateInRegion7endDateS2___">nextWeekend</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns two <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> objects indicating the start and the end
+of the next weekend after the date.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">nextWeekend</span><span class="p">:</span> <span class="p">(</span><span class="nv">startDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">,</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date15previousWeekendGSqT9startDateCS_12DateInRegion7endDateS2___"></a>
+                    <a name="//apple_ref/swift/Property/previousWeekend" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date15previousWeekendGSqT9startDateCS_12DateInRegion7endDateS2___">previousWeekend</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns two <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> objects indicating the start and the end of
+the previous weekend before the date.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">previousWeekend</span><span class="p">:</span> <span class="p">(</span><span class="nv">startDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">,</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date7isTodaySb"></a>
+                    <a name="//apple_ref/swift/Property/isToday" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date7isTodaySb">isToday</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether the given date is in today as boolean.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isToday</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11isYesterdaySb"></a>
+                    <a name="//apple_ref/swift/Property/isYesterday" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11isYesterdaySb">isYesterday</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether the given date is in yesterday.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isYesterday</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date10isTomorrowSb"></a>
+                    <a name="//apple_ref/swift/Property/isTomorrow" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date10isTomorrowSb">isTomorrow</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether the given date is in tomorrow.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isTomorrow</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date11isInWeekendSb"></a>
+                    <a name="//apple_ref/swift/Property/isInWeekend" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date11isInWeekendSb">isInWeekend</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether the given date is in the weekend.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInWeekend</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date8isInPastSb"></a>
+                    <a name="//apple_ref/swift/Property/isInPast" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date8isInPastSb">isInPast</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return true if given date represent a passed date
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInPast</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date10isInFutureSb"></a>
+                    <a name="//apple_ref/swift/Property/isInFuture" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date10isInFutureSb">isInFuture</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return true if given date represent a future date
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInFuture</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date13isInSameDayOfFT4dateS1__Sb"></a>
+                    <a name="//apple_ref/swift/Method/isInSameDayOf(date:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date13isInSameDayOfFT4dateS1__Sb">isInSameDayOf(date:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isInSameDayOf</span><span class="p">(</span><span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a date to compare against</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a boolean indicating whether the receiver is on the same day as the given date in the time zone and calendar of the receiver.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date10startOfDayS1_"></a>
+                    <a name="//apple_ref/swift/Property/startOfDay" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date10startOfDayS1_">startOfDay</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the instance representing the first moment date of the given date expressed in the context of
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startOfDay</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date8endOfDayS1_"></a>
+                    <a name="//apple_ref/swift/Property/endOfDay" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date8endOfDayS1_">endOfDay</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the instance representing the last moment date of the given date expressed in the context of
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">endOfDay</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date9nextMonthS1_"></a>
+                    <a name="//apple_ref/swift/Property/nextMonth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date9nextMonthS1_">nextMonth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return a new instance of the date plus one month
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">nextMonth</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE9SwiftDateV10Foundation4Date9prevMonthS1_"></a>
+                    <a name="//apple_ref/swift/Property/prevMonth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE9SwiftDateV10Foundation4Date9prevMonthS1_">prevMonth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return a new instance of the date minus one month
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">prevMonth</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date7startOfFT9componentOVS0_8Calendar9Component_S1_"></a>
+                    <a name="//apple_ref/swift/Method/startOf(component:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date7startOfFT9componentOVS0_8Calendar9Component_S1_">startOf(component:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Takes a date unit and returns a date at the start of that unit.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startOf</span><span class="p">(</span><span class="nv">component</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>component</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>target component</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code>Date</code> representing that start of that unit</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date5endOfFT9componentOVS0_8Calendar9Component_S1_"></a>
+                    <a name="//apple_ref/swift/Method/endOf(component:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date5endOfFT9componentOVS0_8Calendar9Component_S1_">endOf(component:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Takes a date unit and returns a date at the end of that unit.
+Calculation is made in the context of <code><a href="../Extensions/Date.html#/s:vE9SwiftDateV10Foundation4Date13defaultRegionVS_6Region">defaultRegion</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">endOf</span><span class="p">(</span><span class="nv">component</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>component</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>target component</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code>Date</code> representing that end of that unit</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date6atTimeFzT4hourSi6minuteSi6secondSi_S1_"></a>
+                    <a name="//apple_ref/swift/Method/atTime(hour:minute:second:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date6atTimeFzT4hourSi6minuteSi6secondSi_S1_">atTime(hour:minute:second:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new instance calculated with the given time from self</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw a <code>FailedToCalculate</code> exception of the new date cannot be evaluated.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">atTime</span><span class="p">(</span><span class="nv">hour</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">minute</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">second</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hour</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the hour value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>minute</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the minute value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>second</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the second value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Date</code> object calculated at given time</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date2atFzT4unitOVS0_8Calendar9Component5valueSi_S1_"></a>
+                    <a name="//apple_ref/swift/Method/at(unit:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date2atFzT4unitOVS0_8Calendar9Component5valueSi_S1_">at(unit:value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new instance calculated by setting a specific component of a given date to a given value, while trying to keep lower
+components the same.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw a <code>FailedToCalculate</code> exception of the new date cannot be evaluated.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">at</span><span class="p">(</span><span class="nv">unit</span><span class="p">:</span> <span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>unit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The unit to set with the given value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value to set for the given calendar unit.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Date</code> object calculated at given unit value</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date2atFzT15unitsWithValuesGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_"></a>
+                    <a name="//apple_ref/swift/Method/at(unitsWithValues:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date2atFzT15unitsWithValuesGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_">at(unitsWithValues:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new instance calculated by setting a list of components of a given date to given values (components
+are evaluated serially - in order), while trying to keep lower components the same.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw a <code>FailedToSetComponent</code> exception.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">at</span><span class="p">(</span><span class="n">unitsWithValues</span> <span class="nv">dict</span><span class="p">:</span> <span class="p">[</span><span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dict</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a dictionary with <code>Calendar.Component</code> and it’s value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Date</code> object calculated at given units values</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date13inLocalRegionFT_CS_12DateInRegion"></a>
+                    <a name="//apple_ref/swift/Method/inLocalRegion()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date13inLocalRegionFT_CS_12DateInRegion">inLocalRegion()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the current absolute datetime in local&rsquo;s device region (timezone+calendar+locale)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inLocalRegion</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> instance object which express passed absolute date in the context of the local device’s region</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date11inGMTRegionFT_CS_12DateInRegion"></a>
+                    <a name="//apple_ref/swift/Method/inGMTRegion()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date11inGMTRegionFT_CS_12DateInRegion">inGMTRegion()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the current absolute datetime in UTC/GMT timezone. <code>Calendar</code> and <code>Locale</code> are set automatically to the device&rsquo;s current settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inGMTRegion</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> instance object which express passed absolute date in UTC timezone</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date8inRegionFT6regionGSqVS_6Region__CS_12DateInRegion"></a>
+                    <a name="//apple_ref/swift/Method/inRegion(region:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date8inRegionFT6regionGSqVS_6Region__CS_12DateInRegion">inRegion(region:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return the current absolute datetime in the context of passed <code><a href="../Structs/Region.html">Region</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inRegion</span><span class="p">(</span><span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/DateInRegion.html">DateInRegion</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region you want to use to express <code>self</code> date.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> which represent <code>self</code> in the context of passed <code><a href="../Structs/Region.html">Region</a></code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date3addFzT10componentsVS0_14DateComponents_S1_"></a>
+                    <a name="//apple_ref/swift/Method/add(components:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date3addFzT10componentsVS0_14DateComponents_S1_">add(components:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new Date object which is the sum of passed calendar components in <code>DateComponents</code> to <code>self</code></p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw an exception if new date cannot be evaluated</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">components</span><span class="p">:</span> <span class="kt">DateComponents</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>components</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>components to set</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Date</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date3addFzT10componentsGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_"></a>
+                    <a name="//apple_ref/swift/Method/add(components:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date3addFzT10componentsGVs10DictionaryOVS0_8Calendar9ComponentSi__S1_">add(components:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new Date object which is the sum of passed calendar components in dictionary of <code>Calendar.Component</code> values to <code>self</code></p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw an exception if new date cannot be evaluated</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">components</span><span class="p">:</span> <span class="p">[</span><span class="kt">Calendar</span><span class="o">.</span><span class="kt">Component</span><span class="p">:</span> <span class="kt">Int</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>components</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>components to set</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Date</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date6stringFT6customSS_SS"></a>
+                    <a name="//apple_ref/swift/Method/string(custom:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date6stringFT6customSS_SS">string(custom:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Date</span> <span class="p">:</span> <span class="kt">ReferenceConvertible</span><span class="p">,</span> <span class="kt">Comparable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date7iso8601FT4optsGSqVCS_24ISO8601DateTimeFormatter7Options__SS"></a>
+                    <a name="//apple_ref/swift/Method/iso8601(opts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date7iso8601FT4optsGSqVCS_24ISO8601DateTimeFormatter7Options__SS">iso8601(opts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert a <code>Date</code> to a string using ISO8601 format</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">iso8601</span><span class="p">(</span><span class="nv">opts</span><span class="p">:</span> <span class="kt"><a href="../Classes/ISO8601DateTimeFormatter.html">ISO8601DateTimeFormatter</a></span><span class="o">.</span><span class="kt">Options</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>opts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>options to format ISO8601 output string (if nil <code>.withInternetDateTime</code> will be used instead)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a string representing the date in ISO8601 format according to passed options</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date6stringFT6formatOS_10DateFormat2inGSqVS_6Region__SS"></a>
+                    <a name="//apple_ref/swift/Method/string(format:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date6stringFT6formatOS_10DateFormat2inGSqVS_6Region__SS">string(format:in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert a <code>Date</code> to a string using specified format.
+The date itself is expressed in the context of specified <code><a href="../Structs/Region.html">Region</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="nv">format</span><span class="p">:</span> <span class="kt"><a href="../Enums/DateFormat.html">DateFormat</a></span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>format</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>format of the output</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which the date should be evaluated (if nil <code>defaultRegion</code> will be used instead)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the string representation of the date itself</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date14intervalStringFT6toDateS1_2inGSqVS_6Region_9dateStyleOCSo21DateIntervalFormatter5Style9timeStyleS4__SS"></a>
+                    <a name="//apple_ref/swift/Method/intervalString(toDate:in:dateStyle:timeStyle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date14intervalStringFT6toDateS1_2inGSqVS_6Region_9dateStyleOCSo21DateIntervalFormatter5Style9timeStyleS4__SS">intervalString(toDate:in:dateStyle:timeStyle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the representation of the absolute time interval between <code>self</code> date and a given date</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">intervalString</span><span class="p">(</span><span class="nv">toDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">dateStyle</span><span class="p">:</span> <span class="kt">DateIntervalFormatter</span><span class="o">.</span><span class="kt">Style</span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span> <span class="nv">timeStyle</span><span class="p">:</span> <span class="kt">DateIntervalFormatter</span><span class="o">.</span><span class="kt">Style</span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>toDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dateStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>style of the date (if not specified <code>.medium</code>)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>style of the time (if not specified <code>.medium</code>)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the interval between two dates expressed according to set parameters</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date6stringFT9dateStyleOCSo13DateFormatter5Style9timeStyleS3_2inGSqVS_6Region__SS"></a>
+                    <a name="//apple_ref/swift/Method/string(dateStyle:timeStyle:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date6stringFT9dateStyleOCSo13DateFormatter5Style9timeStyleS3_2inGSqVS_6Region__SS">string(dateStyle:timeStyle:in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert a <code>Date</code> into a string with date &amp; time style specific format style</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="nv">dateStyle</span><span class="p">:</span> <span class="kt">DateFormatter</span><span class="o">.</span><span class="kt">Style</span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span> <span class="nv">timeStyle</span><span class="p">:</span> <span class="kt">DateFormatter</span><span class="o">.</span><span class="kt">Style</span> <span class="o">=</span> <span class="o">.</span><span class="n">medium</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dateStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>style of the date (if not specified <code>.medium</code>)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>style of the time (if not specified <code>.medium</code>)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a string representing date and time in requested format</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date18colloquialSinceNowFzT2inGSqVS_6Region_9unitStyleOCSo23DateComponentsFormatter10UnitsStyle3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__T10colloquialSS4timeGSqSS__"></a>
+                    <a name="//apple_ref/swift/Method/colloquialSinceNow(in:unitStyle:max:zero:separator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date18colloquialSinceNowFzT2inGSqVS_6Region_9unitStyleOCSo23DateComponentsFormatter10UnitsStyle3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__T10colloquialSS4timeGSqSS__">colloquialSinceNow(in:unitStyle:max:zero:separator:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method produces a colloquial representation of time elapsed between this <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> (<code>self</code>) and
+the current date (<code>Date()</code>)</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw an exception is colloquial string cannot be evaluated</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">colloquialSinceNow</span><span class="p">(</span><span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">unitStyle</span><span class="p">:</span> <span class="kt">DateComponentsFormatter</span><span class="o">.</span><span class="kt">UnitsStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">short</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">zero</span><span class="p">:</span> <span class="kt"><a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">separator</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">colloquial</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">time</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>max</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>max number of the time components to write (nil means no limit)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>zero</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the behaviour to use with zero value components</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>separator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>separator string between components (default is ‘,’)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>colloquial string representation</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date10colloquialFzT2toS1_2inGSqVS_6Region_3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__T10colloquialSS4timeGSqSS__"></a>
+                    <a name="//apple_ref/swift/Method/colloquial(to:in:max:zero:separator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date10colloquialFzT2toS1_2inGSqVS_6Region_3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__T10colloquialSS4timeGSqSS__">colloquial(to:in:max:zero:separator:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method produces a colloquial representation of time elapsed between this <code><a href="../Classes/DateInRegion.html">DateInRegion</a></code> (<code>self</code>) and
+another passed date.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw an exception is colloquial string cannot be evaluated</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">colloquial</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">zero</span><span class="p">:</span> <span class="kt"><a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">separator</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">colloquial</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">time</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>to</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>max</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>max number of the time components to write (nil means no limit)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>zero</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the behaviour to use with zero value components</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>separator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>separator string between components (default is ‘,’)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>colloquial string representation of the time elapsed between two dates</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date22timeComponentsSinceNowFzT9unitStyleOCSo23DateComponentsFormatter10UnitsStyle3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/timeComponentsSinceNow(unitStyle:max:zero:separator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date22timeComponentsSinceNowFzT9unitStyleOCSo23DateComponentsFormatter10UnitsStyle3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__SS">timeComponentsSinceNow(unitStyle:max:zero:separator:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method produces a string by printing the interval between self and current Date and output a string where each
+calendar component is printed.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw an exception if time components cannot be evaluated</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">timeComponentsSinceNow</span><span class="p">(</span><span class="nv">unitStyle</span><span class="p">:</span> <span class="kt">DateComponentsFormatter</span><span class="o">.</span><span class="kt">UnitsStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">short</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">zero</span><span class="p">:</span> <span class="kt"><a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">separator</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>unitStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>style of the output string</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>max</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>max number of the time components to write (nil means no limit)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>zero</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the behaviour to use with zero value components</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>separator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>separator string between components (default is ‘,’)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>string with each time component</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE9SwiftDateV10Foundation4Date14timeComponentsFzT2toS1_2inGSqVS_6Region_9unitStyleOCSo23DateComponentsFormatter10UnitsStyle3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__SS"></a>
+                    <a name="//apple_ref/swift/Method/timeComponents(to:in:unitStyle:max:zero:separator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE9SwiftDateV10Foundation4Date14timeComponentsFzT2toS1_2inGSqVS_6Region_9unitStyleOCSo23DateComponentsFormatter10UnitsStyle3maxGSqSi_4zeroGSqVS_17DateZeroBehaviour_9separatorGSqSS__SS">timeComponents(to:in:unitStyle:max:zero:separator:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method produces a string by printing the interval between self and another date and output a string where each
+calendar component is printed.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>throw an exception if time components cannot be evaluated</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">timeComponents</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="k">in</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Structs/Region.html">Region</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">unitStyle</span><span class="p">:</span> <span class="kt">DateComponentsFormatter</span><span class="o">.</span><span class="kt">UnitsStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">short</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">zero</span><span class="p">:</span> <span class="kt"><a href="../Structs/DateZeroBehaviour.html">DateZeroBehaviour</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">separator</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>to</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date to compare</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>region</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>region in which both dates will be expressed in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>unitStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>style of the output string</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>max</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>max number of the time components to write (nil means no limit)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>zero</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the behaviour to use with zero value components</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>separator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>separator string between components (default is ‘,’)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>string with each time component</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-09-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -34,7 +34,7 @@ That's an highlight of the main features you can found in SwiftDate:
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
 * The **latest [full class documentation is available here](http://malcommac.github.io/SwiftDate/docs-latest/)**
 
-Code is documented for XCode, so you can use built in documentation panel to learn more about the library.
+Code is documented for Xcode, so you can use built in documentation panel to learn more about the library.
 
 You can also generate latest documentation using [Jazzy](https://github.com/realm/jazzy); install Jazzy via ```gem install jazzy``` then, from terminal, move to ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder.
 
@@ -61,7 +61,7 @@ SwiftDate supports multiple methods for installing the library in a project.
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.0.1+ is required to build SwiftDate 4+ (along with Swift 3 and XCode 8).
+> CocoaPods 1.0.1+ is required to build SwiftDate 4+ (along with Swift 3 and Xcode 8).
 
 #### Podfile
 

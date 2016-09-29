@@ -1,4 +1,4 @@
-<p align="center" >
+1<p align="center" >
   <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/release/swiftdate-4.0/swiftdate-4-logo.png" width=189px height=191 alt="SwiftDate" title="SwiftDate">
 </p>
 
@@ -45,9 +45,12 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 - If you **have a feature request**, [open an issue](https://github.com/malcommac/SwiftDate/issues/new).
 - If you **want to contribute**, [submit a pull request](https://github.com/malcommac/SwiftDate/compare).
 
-## Installation
+## Help Us!
+Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle).
+Help us with a pull request!
 
 ## Installation
+
 SwiftDate supports multiple methods for installing the library in a project.
 
 ## Installation with CocoaPods
@@ -58,7 +61,7 @@ SwiftDate supports multiple methods for installing the library in a project.
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1.0+ is required to build SwiftDate 4.0.0+ (along with Swift 3).
+> CocoaPods 1.0.1+ is required to build SwiftDate 4+ (along with Swift 3 and XCode 8).
 
 #### Podfile
 
@@ -114,11 +117,11 @@ Check out:
 * [Swift 2.3 Branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 * Swift 2.2 use version 3.0.8 in CocoaPods
 
+
 ## Credits & License
 SwiftDate is owned and maintained by [Daniele Margutti](http://www.danielemargutti.com/) along with main contribution of [Jeroen Houtzager](https://github.com/Hout).
 
 As open source creation any help is welcome!
-We need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle). Help us with a pull request!
 
 The code of this library is licensed under MIT License; you can use it in commercial products without any limitation.
 

@@ -13,14 +13,14 @@ Choose SwifDate for your next project, or migrate over your existing projects—
 ## Main features
 That's an highlight of the main features you can found in SwiftDate:
 
-* Simple math operation with dates! `aDate + 2.weeks + 1.hours or (1.years - 2.hours + 16.minutes).fromNow()`
-* Easy conversions to and from timezone, locale and calendar. Use helper class `DateInRegion` and perform conversions with components and operations!
-* Compare dates with math operators `<,>,==,<=,>=`. For example you can do `aDate1 >= aDate2 or aDate1.isIn(anotherDate,.day)`
-* Easily get time components. E.g. `aDateInRegion.day` or `hour`, `minutes` etc.
-* Easy/optimized way to get and transform a date from and to strings: supports both colloquial (human readable) and fixed formats (ISO8601, AltRSS, RSS, Extended, .NET and custom string as per Unicode standard)
-* Express time interval in other time units; for example `120.seconds.in(.minutes) // 2 minutes`
-* Many shortcuts to get intervals and common dates (`isYesterday,isTomorrow,isBefore()`...)
-* ... many many other shiny things!
+* **Simple math operation with dates!** Example: `aDate + 2.weeks + 1.hours or (1.years - 2.hours + 16.minutes).fromNow()`
+* **Easy conversions to and from timezone, locale and calendar**. Use helper class `DateInRegion` and perform conversions with components and operations!
+* **Compare dates with math operators** `<,>,==,<=,>=`. For example you can do `aDate1 >= aDate2 or aDate1.isIn(anotherDate,.day)`
+* **Easily work with time components**. E.g. `aDateInRegion.day` or `hour`, `minutes` etc. expressed in your favourite timezone!
+* **Easy and optimized way to get and transform a date from and to strings**: supports both colloquial (human readable) and fixed formats (**ISO8601, AltRSS, RSS, Extended, .NET and custom string as per Unicode standard**)
+* **Express time interval in other time units**; for example `120.seconds.in(.minutes) // 2 minutes`
+* **Many shortcuts to get intervals, work with time units, intervals and common date operations** (`isYesterday,isTomorrow,isBefore()`...)
+* ... [many many other shiny things!](http://www.swift-date.com)
 
 ## How to get started
 

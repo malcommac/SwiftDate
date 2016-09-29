@@ -1,0 +1,48 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"prossimo anno";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"nel %d";				// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"anno scorso";			// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d";					// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"prossimo mese";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"tra %d mesi";			// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"mese scorso";			// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"%d mesi fa";			// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"prossima settimana";	// week,future,singular:	"next week"
+"colloquial_f_ww"					=	"tra %ld settimane";	// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"settimana scorsa";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"%d settimane fa";		// week,past,plural:		"in 3 weeks"
+
+"colloquial_f_d"					=	"domani";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd"					=	"tra %d giorni";	// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"ieri";				// day,past,singular:		"yesterday"
+"colloquial_p_dd"					=	"%d giorni fa";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"tra un'ora";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh"					=	"tra %ld ore";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"un'ora fa";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh"					=	"%d ore fa";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"tra un minuto";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM"					=	"tra %ld minuti";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"un minuto fa";		// minute,past,singular:	"one minute ago"
+"colloquial_p_MM"					=	"%d minuti fa";		// minute,past,plural:		"3 minutes ago"
+
+"colloquial_now"					=	"ora";				// less than 5 minutes if .allowsNowOnColloquial is set
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"MMM, dd yyyy";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"MMM, dd yyyy";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"EEE, MMM dd";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"EEE, MMM dd";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"'at' HH:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"'at' HH:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

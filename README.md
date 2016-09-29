@@ -24,12 +24,12 @@ That's an highlight of the main features you can found in SwiftDate:
 
 ## How to get started
 
-* **Check our website [http://www.swift-date.com](http://www.swift-date.com) to learn more about all available functions with a comprehensive list of examples**
+* **Check our website [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
 * Install SwiftDate via CocoaPods, Chartage or Swift Package Manager
 * Have fun!
 
 ## Documentation
-* **On [http://www.swift-date.com](http://www.swift-date.com) to learn more about all available functions with a comprehensive list of examples**
+* **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
 * The **latest [full class documentation is available here](http://malcommac.github.io/SwiftDate/docs-latest/)**
 
 Code is documented for XCode, so you can use built in documentation panel to learn more about the library.

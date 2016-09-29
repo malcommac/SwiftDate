@@ -36,7 +36,7 @@ That's an highlight of the main features you can found in SwiftDate:
 
 Code is documented for XCode, so you can use built in documentation panel to learn more about the library.
 
-You can generate latest documentation using [Jazzy](https://github.com/realm/jazzy); install Jazzy via ```gem install jazzy``` then, from terminal, move to ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder. See the point below for a pre-generated docs link.
+You can also generate latest documentation using [Jazzy](https://github.com/realm/jazzy); install Jazzy via ```gem install jazzy``` then, from terminal, move to ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder.
 
 ## Communication
 - If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/swiftdate). (Tag 'swiftdate')
@@ -115,9 +115,10 @@ Check out:
 * Swift 2.2 use version 3.0.8 in CocoaPods
 
 ## Credits & License
-SwiftDate is owned and maintained by [Daniele Margutti](http://www.danielemargutti.com/) along with main contribution of [https://github.com/Hout](Jeroen Houtzager).
+SwiftDate is owned and maintained by [Daniele Margutti](http://www.danielemargutti.com/) along with main contribution of [Jeroen Houtzager](https://github.com/Hout).
 
-As open source creation any help is welcome too!
+As open source creation any help is welcome!
+We need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle). Help us with a pull request!
 
 The code of this library is licensed under MIT License; you can use it in commercial products without any limitation.
 

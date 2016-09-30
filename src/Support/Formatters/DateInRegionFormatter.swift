@@ -95,13 +95,9 @@ public class DateInRegionFormatter {
 	
 	/// Return the main bundle with resources used to localize time components
 	private lazy var resourceBundle: Bundle? = {
-		var framework = Bundle(identifier: "com.danielemargutti.SwiftDate")
-		if framework == nil { framework = Bundle.main }
-		guard let _ = framework else {
-			return nil
-		}
+		var framework = Bundle(for: DateInRegion.self)
 		let path = NSURL(fileURLWithPath:
-			framework!.resourcePath!).appendingPathComponent("SwiftDate.bundle")
+			framework.resourcePath!).appendingPathComponent("SwiftDate.bundle")
 		let bundle = Bundle(url: path!)
 		guard let _ = bundle else {
 			return nil

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'SwiftDate'
-  spec.version = '4.0.0'
+  spec.version = '4.0.1'
   spec.summary = 'The best way to deal with Dates & Time Zones in Swift'
   spec.homepage = 'https://github.com/malcommac/SwiftDate'
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
@@ -14,4 +14,5 @@ Pod::Spec.new do |spec|
   spec.tvos.deployment_target = '9.0'
   spec.requires_arc = true
   spec.module_name = 'SwiftDate'
+  spec.resource = 'src/Support/SwiftDate.bundle'
 end

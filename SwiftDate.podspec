@@ -15,5 +15,5 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.module_name = 'SwiftDate'
   spec.resource = 'src/Support/SwiftDate.bundle'
-  spec.exclude_files = 'Package.swift'
+  spec.exclude_files = 'src/Package.swift'
 end

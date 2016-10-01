@@ -10,6 +10,8 @@ We also think that dates and timezones management should be painless: this is th
 
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
+★★ Star our GitHub repository to help us! ★★
+
 ## SwiftDate [website is here](http://malcommac.github.io/SwiftDate)
 
 ## Main features

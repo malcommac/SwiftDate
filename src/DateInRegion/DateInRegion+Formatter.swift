@@ -112,7 +112,7 @@ public extension DateInRegion {
 	///
 	/// - returns: colloquial string representation
 	public func colloquialSinceNow() throws -> (colloquial: String, time: String?) {
-		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
+		let now = DateInRegion(absoluteDate: Date(), in: self.region)
 		return try self.colloquial(toDate: now)
 	}
 	
@@ -144,7 +144,7 @@ public extension DateInRegion {
 	///
 	/// - returns: string with each time component
 	public func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
-		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
+		let now = DateInRegion(absoluteDate: Date(), in: self.region)
 		return try self.timeComponents(toDate: now, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
 	}
 	

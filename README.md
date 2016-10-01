@@ -8,7 +8,7 @@ We really ♥ Swift and we think that dates and timezones management should be p
 
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
-★★ Star our GitHub repository to help us! ★★
+<p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
 
 ## SwiftDate [website is here](http://malcommac.github.io/SwiftDate)
 

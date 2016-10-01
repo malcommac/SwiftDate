@@ -34,7 +34,7 @@ That's an highlight of the main features you can found in SwiftDate:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://malcommac.github.io/SwiftDate/docs-latest/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.2/)**
 
 Code is documented for Xcode, so you can use built in documentation panel to learn more about the library.
 

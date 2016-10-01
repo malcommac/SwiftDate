@@ -49,6 +49,14 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle).
 Help us with a pull request!
 
+Currently SwiftDate supports:
+* English
+* Italian
+* German (made by to [hackolein](https://github.com/hackolein), since 4.0.3)
+* Dutch (made by [hout](https://github.com/Hout))
+
+Make a pull request and add your language!
+
 ## Installation
 
 SwiftDate supports multiple methods for installing the library in a project.

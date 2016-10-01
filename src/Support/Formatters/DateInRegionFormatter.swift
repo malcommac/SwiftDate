@@ -176,7 +176,6 @@ public class DateInRegionFormatter {
 							(self.zeroBehavior == .dropMiddle)
 			if willDrop == false {
 				var cmp = DateComponents()
-				print(component)
 				cmp.setValue(abs(value!), for: component)
 				let localizedUnit = DateComponentsFormatter.localizedString(from: cmp, unitsStyle: unitStyle)!
 				output.append(localizedUnit)

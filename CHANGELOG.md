@@ -16,6 +16,7 @@ Changes:
 * [#268](https://github.com/malcommac/SwiftDate/issues/268): Added new german translation to SwiftDate.bundle
 * [#267](https://github.com/malcommac/SwiftDate/issues/267): .absoluteDate is now a public property for DateInRegion
 * [#112](https://github.com/malcommac/SwiftDate/issues/112): Fixed an issue when optimization level is -fast
+* [#272](https://github.com/malcommac/SwiftDate/issues/272): Failed to calculate a colloquial date when diff in seconds = 0. It throw a `.FailedToCalculate` exception.
 
 ### SwiftDate 4.0.2
 Released on: 2016-09-30, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.2)

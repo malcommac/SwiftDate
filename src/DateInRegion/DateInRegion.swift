@@ -39,10 +39,10 @@ import Foundation
 public class DateInRegion: CustomStringConvertible {
 	
 	/// region in which the `DateInRegion` is expressed
-	private(set) var region: Region
+	public fileprivate(set) var region: Region
 	
 	/// Absolute date represented outside the `region`
-	private(set) var absoluteDate: Date
+	public fileprivate(set) var absoluteDate: Date
 	
 	/// This is a reference to use formatters
 	internal var formatters: Formatters

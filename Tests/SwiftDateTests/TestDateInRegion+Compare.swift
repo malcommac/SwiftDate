@@ -8,7 +8,7 @@
 
 import Foundation
 import XCTest
-@testable import SwiftDate_iOS
+@testable import SwiftDate
 
 
 class TestDateInRegion_Compare: XCTestCase {

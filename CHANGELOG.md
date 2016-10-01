@@ -11,11 +11,11 @@ Released on: -, Download
 
 Changes:
 * [#271](https://github.com/malcommac/SwiftDate/issues/271): Added fallback to english translation when required translation is not available for colloquial functions
-* [#269](https://github.com/malcommac/SwiftDate/issues/269): Fixed unnecessary strings printed in console when using .timeComponents() function
-* [#266](https://github.com/malcommac/SwiftDate/issues/266): Removed unnecessary Region.copy() function
-* [#268](https://github.com/malcommac/SwiftDate/issues/268): Added new german translation to SwiftDate.bundle
-* [#267](https://github.com/malcommac/SwiftDate/issues/267): .absoluteDate is now a public property for DateInRegion
-* [#112](https://github.com/malcommac/SwiftDate/issues/112): Fixed an issue when optimization level is -fast
+* [#269](https://github.com/malcommac/SwiftDate/issues/269): Fixed unnecessary strings printed in console when using `.timeComponents()` function
+* [#266](https://github.com/malcommac/SwiftDate/issues/266): Removed unnecessary `Region.copy()` function
+* [#268](https://github.com/malcommac/SwiftDate/issues/268): Added new german translation to `SwiftDate.bundle`
+* [#267](https://github.com/malcommac/SwiftDate/issues/267): `.absoluteDate` is now a public property for `DateInRegion`
+* [#112](https://github.com/malcommac/SwiftDate/issues/112): Fixed an issue when optimization level is `-fast`
 * [#272](https://github.com/malcommac/SwiftDate/issues/272): Failed to calculate a colloquial date when diff in seconds = 0. It throw a `.FailedToCalculate` exception.
 
 ### SwiftDate 4.0.2

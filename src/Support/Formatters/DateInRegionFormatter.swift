@@ -115,9 +115,11 @@ public class DateInRegionFormatter {
 			return self.resourceBundle
 		}
 		
-		let localeID = locale.collatorIdentifier
-		guard let innerLanguagePath = self.resourceBundle?.path(forResource: localeID, ofType: "lproj") else {
-			return nil
+		var localeID = locale.collatorIdentifier
+		guard let innerLanguagePath = self.resourceBundle!.path(forResource: localeID, ofType: "lproj") else {
+			// fallback to english if language was not found
+			let englishPath = self.resourceBundle!.path(forResource: "en", ofType: "lproj")!
+			return Bundle(path: englishPath)
 		}
 		return Bundle(path: innerLanguagePath)
 	}

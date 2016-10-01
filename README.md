@@ -45,6 +45,12 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 - If you **have a feature request**, [open an issue](https://github.com/malcommac/SwiftDate/issues/new).
 - If you **want to contribute**, [submit a pull request](https://github.com/malcommac/SwiftDate/compare).
 
+## Current Release
+
+Last release is: 4.0.3 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3) released on Mon, Oct 3, 2016.
+
+A complete list of changes for each release is available in [CHANGELOG](CHANGELOG.md) file.
+
 ## Help Us!
 Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle).
 Help us with a pull request!

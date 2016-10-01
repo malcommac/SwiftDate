@@ -252,7 +252,7 @@ public class DateInRegionFormatter {
 			}
 		}
 		
-		if cmp.second != 0 { // Seconds difference
+		if cmp.second != 0 || cmp.second == 0 { // Seconds difference
 			let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 			return (colloquial_date,nil)
 		}

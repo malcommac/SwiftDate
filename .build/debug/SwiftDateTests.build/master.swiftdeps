@@ -1,0 +1,8 @@
+version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
+options: "10a0655aa3d24ed3d297be3b3ee9400c"
+build_time: [528664163, 632696000]
+inputs:
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion+Compare.swift": [528663856, 0]
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion+Components.swift": [528663856, 0]
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion+Formatter.swift": [528663950, 0]
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion.swift": [528663856, 0]

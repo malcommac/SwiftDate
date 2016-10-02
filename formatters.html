@@ -376,23 +376,19 @@
               <h3>Declaration</h3>
                 <p>Time components between a date and now</p>
                 <code>
-                  func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String
+                  func timeComponentsSinceNow(options:,shared:) throws -> String
                 </code>
                 </p>
                 <p>Time components between two dates</p>
                 <code>
-                  func timeComponents(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String</br>
+                  func timeComponents(to:options:shared:) throws -> String
                 </code>
               <h3>Exception</h3>
-              <p>Raise an exception <code>.DifferentCalendar</code> if both date are in different calendars.<br/>
               <p>Raise an exception <code>.FailedToCalculate</code> if time interval cannot be evaluated</br>
               <h3>Parameters</h3>
               <ul>
-                <li><code>date</code>: reference date for comparisor</li>
-                <li><code>unitStyle</code>: style of the output string</li>
-                <li><code>max</code>: max number of the time components to write (nil means no limit)</li>
-                <li><code>zero</code>: the behaviour to use with zero value components</li>
-                <li><code>separator</code>: separator string between components (default is ',')</li>
+                <li><code>to</code>: reference date for comparisor</li>
+                <li><code>options</code>: struct <code>ComponentsFormatterOptions</code> which defines a list of options used to print time components</li>
               </ul>
               <h3>Example</h3>
               <script src="https://gist.github.com/malcommac/cc005516310e1fe070da863d0299dcc9.js"></script>

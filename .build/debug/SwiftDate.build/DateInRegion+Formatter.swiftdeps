@@ -1,0 +1,406 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["C9SwiftDate12DateInRegion", ""]
+- ["C9SwiftDate12DateInRegion", "string"]
+- ["C9SwiftDate12DateInRegion", "iso8601"]
+- ["C9SwiftDate12DateInRegion", "string"]
+- ["C9SwiftDate12DateInRegion", "intervalString"]
+- ["C9SwiftDate12DateInRegion", "string"]
+- ["C9SwiftDate12DateInRegion", "colloquialSinceNow"]
+- ["C9SwiftDate12DateInRegion", "colloquial"]
+- ["C9SwiftDate12DateInRegion", "timeComponentsSinceNow"]
+- ["C9SwiftDate12DateInRegion", "timeComponents"]
+provides-dynamic-lookup:
+depends-top-level:
+- "TernaryPrecedence"
+- !private "/"
+- "DateFormat"
+- !private "*"
+- "Int"
+- "DateInRegion"
+- "AssignmentPrecedence"
+- !private "UnicodeScalarType"
+- "DateZeroBehaviour"
+- "ISO8601DateTimeFormatter"
+- !private "StringLiteralType"
+- "DateFormatter"
+- "DateIntervalFormatter"
+- "DateComponentsFormatter"
+- !private "??"
+- !private "Array"
+- "String"
+- !private "Date"
+- !private "DateInRegionFormatter"
+depends-member:
+- !private ["Ps9AnyObject", "Date"]
+- !private ["Ps9AnyObject", "DateInRegion"]
+- !private ["Ps9AnyObject", "DateInRegionFormatter"]
+- ["Ps9AnyObject", "Options"]
+- !private ["Ps9AnyObject", "String"]
+- ["Ps9AnyObject", "Style"]
+- ["Ps9AnyObject", "UnitsStyle"]
+- !private ["Ps9AnyObject", "absoluteDate"]
+- !private ["Ps9AnyObject", "colloquial"]
+- !private ["Ps9AnyObject", "dateFormatter"]
+- !private ["Ps9AnyObject", "dateStyle"]
+- !private ["Ps9AnyObject", "formatters"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "intervalFormatter"]
+- !private ["Ps9AnyObject", "isoFormatter"]
+- !private ["Ps9AnyObject", "locale"]
+- !private ["Ps9AnyObject", "maxComponentCount"]
+- !private ["Ps9AnyObject", "region"]
+- !private ["Ps9AnyObject", "string"]
+- !private ["Ps9AnyObject", "timeComponents"]
+- !private ["Ps9AnyObject", "timeStyle"]
+- !private ["Ps9AnyObject", "unitSeparator"]
+- !private ["Ps9AnyObject", "unitStyle"]
+- !private ["Ps9AnyObject", "zeroBehavior"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- ["Ps7CVarArg", "Style"]
+- ["Ps7CVarArg", "UnitsStyle"]
+- !private ["Ps7CVarArg", "dateStyle"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "string"]
+- !private ["Ps7CVarArg", "timeStyle"]
+- !private ["Ps10Comparable", "Date"]
+- !private ["Ps10Comparable", "DateInRegion"]
+- !private ["Ps10Comparable", "DateInRegionFormatter"]
+- !private ["Ps10Comparable", "String"]
+- !private ["Ps10Comparable", "absoluteDate"]
+- !private ["Ps10Comparable", "colloquial"]
+- !private ["Ps10Comparable", "formatters"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "region"]
+- !private ["Ps10Comparable", "string"]
+- !private ["Ps10Comparable", "timeComponents"]
+- !private ["Ps10Comparable", "timeIntervalSince1970"]
+- ["Ps28CustomDebugStringConvertible", "Style"]
+- ["Ps28CustomDebugStringConvertible", "UnitsStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "dateStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "secondsFromGMT"]
+- !private ["Ps28CustomDebugStringConvertible", "string"]
+- !private ["Ps28CustomDebugStringConvertible", "timeIntervalSince1970"]
+- !private ["Ps28CustomDebugStringConvertible", "timeStyle"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "timeIntervalSince1970"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "secondsFromGMT"]
+- !private ["Ps17CustomReflectable", "timeIntervalSince1970"]
+- !private ["Ps23CustomStringConvertible", "Date"]
+- !private ["Ps23CustomStringConvertible", "DateInRegion"]
+- !private ["Ps23CustomStringConvertible", "DateInRegionFormatter"]
+- !private ["Ps23CustomStringConvertible", "String"]
+- ["Ps23CustomStringConvertible", "Style"]
+- ["Ps23CustomStringConvertible", "UnitsStyle"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "absoluteDate"]
+- !private ["Ps23CustomStringConvertible", "colloquial"]
+- !private ["Ps23CustomStringConvertible", "dateStyle"]
+- !private ["Ps23CustomStringConvertible", "formatters"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "locale"]
+- !private ["Ps23CustomStringConvertible", "region"]
+- !private ["Ps23CustomStringConvertible", "secondsFromGMT"]
+- !private ["Ps23CustomStringConvertible", "string"]
+- !private ["Ps23CustomStringConvertible", "timeComponents"]
+- !private ["Ps23CustomStringConvertible", "timeIntervalSince1970"]
+- !private ["Ps23CustomStringConvertible", "timeStyle"]
+- !private ["Ps23CustomStringConvertible", "timeZone"]
+- ["V10Foundation4Date", "deinit"]
+- !private ["V10Foundation4Date", "init"]
+- !private ["V10Foundation4Date", "timeIntervalSince1970"]
+- ["CSo23DateComponentsFormatter", "UnitsStyle"]
+- ["O9SwiftDate10DateFormat", "custom"]
+- ["O9SwiftDate10DateFormat", "deinit"]
+- ["O9SwiftDate10DateFormat", "dotNET"]
+- ["O9SwiftDate10DateFormat", "extended"]
+- ["O9SwiftDate10DateFormat", "iso8601"]
+- ["O9SwiftDate10DateFormat", "rss"]
+- ["CSo13DateFormatter", "Style"]
+- !private ["CSo13DateFormatter", "dateStyle"]
+- ["CSo13DateFormatter", "deinit"]
+- !private ["CSo13DateFormatter", "string"]
+- !private ["CSo13DateFormatter", "timeStyle"]
+- !private ["C9SwiftDate12DateInRegion", "Date"]
+- ["C9SwiftDate12DateInRegion", "DateComponentsFormatter"]
+- ["C9SwiftDate12DateInRegion", "DateFormat"]
+- ["C9SwiftDate12DateInRegion", "DateFormatter"]
+- ["C9SwiftDate12DateInRegion", "DateInRegion"]
+- !private ["C9SwiftDate12DateInRegion", "DateInRegionFormatter"]
+- ["C9SwiftDate12DateInRegion", "DateIntervalFormatter"]
+- ["C9SwiftDate12DateInRegion", "DateZeroBehaviour"]
+- ["C9SwiftDate12DateInRegion", "ISO8601DateTimeFormatter"]
+- ["C9SwiftDate12DateInRegion", "Int"]
+- ["C9SwiftDate12DateInRegion", "String"]
+- !private ["C9SwiftDate12DateInRegion", "absoluteDate"]
+- ["C9SwiftDate12DateInRegion", "colloquial"]
+- ["C9SwiftDate12DateInRegion", "colloquialSinceNow"]
+- ["C9SwiftDate12DateInRegion", "deinit"]
+- !private ["C9SwiftDate12DateInRegion", "formatters"]
+- !private ["C9SwiftDate12DateInRegion", "init"]
+- ["C9SwiftDate12DateInRegion", "intervalString"]
+- ["C9SwiftDate12DateInRegion", "iso8601"]
+- !private ["C9SwiftDate12DateInRegion", "region"]
+- ["C9SwiftDate12DateInRegion", "string"]
+- ["C9SwiftDate12DateInRegion", "timeComponents"]
+- ["C9SwiftDate12DateInRegion", "timeComponentsSinceNow"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "colloquial"]
+- ["C9SwiftDate21DateInRegionFormatter", "deinit"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "init"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "locale"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "maxComponentCount"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "timeComponents"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "unitSeparator"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "unitStyle"]
+- !private ["C9SwiftDate21DateInRegionFormatter", "zeroBehavior"]
+- ["CSo21DateIntervalFormatter", "Style"]
+- !private ["CSo21DateIntervalFormatter", "dateStyle"]
+- ["CSo21DateIntervalFormatter", "deinit"]
+- !private ["CSo21DateIntervalFormatter", "string"]
+- !private ["CSo21DateIntervalFormatter", "timeStyle"]
+- ["V9SwiftDate17DateZeroBehaviour", "deinit"]
+- !private ["V9SwiftDate17DateZeroBehaviour", "dropAll"]
+- ["Sd", "deinit"]
+- !private ["Ps9Equatable", "Date"]
+- !private ["Ps9Equatable", "DateInRegion"]
+- !private ["Ps9Equatable", "DateInRegionFormatter"]
+- !private ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "String"]
+- ["Ps9Equatable", "Style"]
+- ["Ps9Equatable", "UnitsStyle"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "absoluteDate"]
+- !private ["Ps9Equatable", "colloquial"]
+- !private ["Ps9Equatable", "dateStyle"]
+- !private ["Ps9Equatable", "dropAll"]
+- !private ["Ps9Equatable", "formatters"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "locale"]
+- !private ["Ps9Equatable", "medium"]
+- !private ["Ps9Equatable", "region"]
+- !private ["Ps9Equatable", "secondsFromGMT"]
+- !private ["Ps9Equatable", "short"]
+- !private ["Ps9Equatable", "string"]
+- !private ["Ps9Equatable", "timeComponents"]
+- !private ["Ps9Equatable", "timeIntervalSince1970"]
+- !private ["Ps9Equatable", "timeStyle"]
+- !private ["Ps9Equatable", "timeZone"]
+- !private ["Ps9Equatable", "withInternetDateTime"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "dropAll"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withInternetDateTime"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["CSo9Formatter", "Style"]
+- ["CSo9Formatter", "UnitsStyle"]
+- !private ["CSo9Formatter", "dateStyle"]
+- !private ["CSo9Formatter", "string"]
+- !private ["CSo9Formatter", "timeStyle"]
+- !private ["CC9SwiftDate12DateInRegion10Formatters", "dateFormatter"]
+- !private ["CC9SwiftDate12DateInRegion10Formatters", "intervalFormatter"]
+- !private ["CC9SwiftDate12DateInRegion10Formatters", "isoFormatter"]
+- !private ["Ps8Hashable", "Date"]
+- !private ["Ps8Hashable", "DateInRegion"]
+- !private ["Ps8Hashable", "DateInRegionFormatter"]
+- !private ["Ps8Hashable", "String"]
+- ["Ps8Hashable", "Style"]
+- ["Ps8Hashable", "UnitsStyle"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "absoluteDate"]
+- !private ["Ps8Hashable", "colloquial"]
+- !private ["Ps8Hashable", "dateStyle"]
+- !private ["Ps8Hashable", "formatters"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "locale"]
+- !private ["Ps8Hashable", "medium"]
+- !private ["Ps8Hashable", "region"]
+- !private ["Ps8Hashable", "secondsFromGMT"]
+- !private ["Ps8Hashable", "short"]
+- !private ["Ps8Hashable", "string"]
+- !private ["Ps8Hashable", "timeComponents"]
+- !private ["Ps8Hashable", "timeIntervalSince1970"]
+- !private ["Ps8Hashable", "timeStyle"]
+- !private ["Ps8Hashable", "timeZone"]
+- ["C9SwiftDate24ISO8601DateTimeFormatter", "Options"]
+- ["C9SwiftDate24ISO8601DateTimeFormatter", "deinit"]
+- !private ["C9SwiftDate24ISO8601DateTimeFormatter", "string"]
+- ["Si", "deinit"]
+- ["V10Foundation6Locale", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "Style"]
+- ["PSo8NSCoding", "UnitsStyle"]
+- !private ["PSo8NSCoding", "dateStyle"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "string"]
+- !private ["PSo8NSCoding", "timeStyle"]
+- ["PSo9NSCopying", "Style"]
+- ["PSo9NSCopying", "UnitsStyle"]
+- !private ["PSo9NSCopying", "dateStyle"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "string"]
+- !private ["PSo9NSCopying", "timeStyle"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Style"]
+- ["CSo8NSObject", "UnitsStyle"]
+- !private ["CSo8NSObject", "dateStyle"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "string"]
+- !private ["CSo8NSObject", "timeStyle"]
+- ["PSo16NSObjectProtocol", "Style"]
+- ["PSo16NSObjectProtocol", "UnitsStyle"]
+- !private ["PSo16NSObjectProtocol", "dateStyle"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "string"]
+- !private ["PSo16NSObjectProtocol", "timeStyle"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps9OptionSet", "Element"]
+- !private ["Ps9OptionSet", "dropAll"]
+- !private ["Ps9OptionSet", "withInternetDateTime"]
+- ["Sq", "deinit"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "Element"]
+- ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "deinit"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withInternetDateTime"]
+- !private ["Ps16RawRepresentable", "Element"]
+- !private ["Ps16RawRepresentable", "dropAll"]
+- !private ["Ps16RawRepresentable", "medium"]
+- !private ["Ps16RawRepresentable", "short"]
+- !private ["Ps16RawRepresentable", "withInternetDateTime"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "secondsFromGMT"]
+- !private ["P10Foundation20ReferenceConvertible", "timeIntervalSince1970"]
+- ["V9SwiftDate6Region", "deinit"]
+- !private ["V9SwiftDate6Region", "locale"]
+- !private ["V9SwiftDate6Region", "timeZone"]
+- !private ["Ps10SetAlgebra", "Element"]
+- !private ["Ps10SetAlgebra", "dropAll"]
+- !private ["Ps10SetAlgebra", "withInternetDateTime"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- ["OCSo13DateFormatter5Style", "deinit"]
+- !private ["OCSo13DateFormatter5Style", "medium"]
+- ["OCSo21DateIntervalFormatter5Style", "deinit"]
+- !private ["OCSo21DateIntervalFormatter5Style", "medium"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- ["V10Foundation8TimeZone", "deinit"]
+- !private ["V10Foundation8TimeZone", "secondsFromGMT"]
+- ["OCSo23DateComponentsFormatter10UnitsStyle", "deinit"]
+- !private ["OCSo23DateComponentsFormatter10UnitsStyle", "short"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Date"]
+- !private ["Ps9_Hashable", "DateInRegion"]
+- !private ["Ps9_Hashable", "DateInRegionFormatter"]
+- !private ["Ps9_Hashable", "String"]
+- ["Ps9_Hashable", "Style"]
+- ["Ps9_Hashable", "UnitsStyle"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "absoluteDate"]
+- !private ["Ps9_Hashable", "colloquial"]
+- !private ["Ps9_Hashable", "dateStyle"]
+- !private ["Ps9_Hashable", "formatters"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "locale"]
+- !private ["Ps9_Hashable", "medium"]
+- !private ["Ps9_Hashable", "region"]
+- !private ["Ps9_Hashable", "secondsFromGMT"]
+- !private ["Ps9_Hashable", "short"]
+- !private ["Ps9_Hashable", "string"]
+- !private ["Ps9_Hashable", "timeComponents"]
+- !private ["Ps9_Hashable", "timeIntervalSince1970"]
+- !private ["Ps9_Hashable", "timeStyle"]
+- !private ["Ps9_Hashable", "timeZone"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "secondsFromGMT"]
+- !private ["Ps21_ObjectiveCBridgeable", "timeIntervalSince1970"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "CSo23DateComponentsFormatter"
+- "O9SwiftDate10DateFormat"
+- "CSo13DateFormatter"
+- "C9SwiftDate12DateInRegion"
+- "C9SwiftDate21DateInRegionFormatter"
+- "CSo21DateIntervalFormatter"
+- "V9SwiftDate17DateZeroBehaviour"
+- "Sd"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "CSo9Formatter"
+- !private "CC9SwiftDate12DateInRegion10Formatters"
+- "Ps8Hashable"
+- "C9SwiftDate24ISO8601DateTimeFormatter"
+- "Si"
+- "V10Foundation6Locale"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps9OptionSet"
+- "Sq"
+- "VC9SwiftDate24ISO8601DateTimeFormatter7Options"
+- !private "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- "V9SwiftDate6Region"
+- !private "Ps10SetAlgebra"
+- "SS"
+- "OCSo13DateFormatter5Style"
+- "OCSo21DateIntervalFormatter5Style"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "V10Foundation8TimeZone"
+- "OCSo23DateComponentsFormatter10UnitsStyle"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+interface-hash: "641ad4a62872a1475c2310c23de4851b"

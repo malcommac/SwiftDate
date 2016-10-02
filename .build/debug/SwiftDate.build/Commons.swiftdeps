@@ -1,0 +1,156 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "localThreadSingleton"
+- "DateError"
+- "DateFormat"
+provides-nominal:
+- "O9SwiftDate9DateError"
+- "O9SwiftDate10DateFormat"
+provides-member:
+- ["O9SwiftDate9DateError", ""]
+- ["O9SwiftDate10DateFormat", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "Thread"
+- "localThreadSingleton"
+- "ISO8601DateTimeFormatter"
+- "CastingPrecedence"
+- "AssignmentPrecedence"
+- "Bool"
+- "Calendar"
+- "DateError"
+- "Error"
+- "AnyObject"
+- "Void"
+- "String"
+- "DateFormat"
+depends-member:
+- ["Ps9AnyObject", "Options"]
+- !private ["Ps9AnyObject", "current"]
+- !private ["Ps9AnyObject", "subscript"]
+- !private ["Ps9AnyObject", "threadDictionary"]
+- !private ["Ps7CVarArg", "current"]
+- !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "threadDictionary"]
+- ["V10Foundation8Calendar", "Component"]
+- ["Ps28CustomDebugStringConvertible", "Component"]
+- !private ["Ps28CustomDebugStringConvertible", "current"]
+- ["Ps28CustomDebugStringConvertible", "some"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "threadDictionary"]
+- ["Ps17CustomReflectable", "Component"]
+- ["Ps17CustomReflectable", "some"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- ["Ps23CustomStringConvertible", "Component"]
+- !private ["Ps23CustomStringConvertible", "current"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "threadDictionary"]
+- ["O9SwiftDate9DateError", "Calendar"]
+- ["O9SwiftDate9DateError", "DifferentCalendar"]
+- ["O9SwiftDate9DateError", "FailedToCalculate"]
+- ["O9SwiftDate9DateError", "FailedToParse"]
+- ["O9SwiftDate9DateError", "FailedToSetComponent"]
+- ["O9SwiftDate9DateError", "MissingCalTzOrLoc"]
+- ["O9SwiftDate9DateError", "MissingRsrcBundle"]
+- ["O9SwiftDate9DateError", "_code"]
+- ["O9SwiftDate9DateError", "_domain"]
+- ["O9SwiftDate9DateError", "_getEmbeddedNSError"]
+- ["O9SwiftDate9DateError", "_userInfo"]
+- ["O9SwiftDate9DateError", "deinit"]
+- ["O9SwiftDate10DateFormat", "Bool"]
+- ["O9SwiftDate10DateFormat", "ISO8601DateTimeFormatter"]
+- ["O9SwiftDate10DateFormat", "String"]
+- ["O9SwiftDate10DateFormat", "custom"]
+- ["O9SwiftDate10DateFormat", "dotNET"]
+- ["O9SwiftDate10DateFormat", "extended"]
+- ["O9SwiftDate10DateFormat", "iso8601"]
+- ["O9SwiftDate10DateFormat", "rss"]
+- ["Ps9Equatable", "Component"]
+- !private ["Ps9Equatable", "current"]
+- !private ["Ps9Equatable", "subscript"]
+- !private ["Ps9Equatable", "threadDictionary"]
+- ["Ps5Error", "_code"]
+- ["Ps5Error", "_domain"]
+- ["Ps5Error", "_getEmbeddedNSError"]
+- ["Ps5Error", "_userInfo"]
+- ["Ps5Error", ""]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- ["Ps23ExpressibleByNilLiteral", "some"]
+- ["Ps8Hashable", "Component"]
+- !private ["Ps8Hashable", "current"]
+- !private ["Ps8Hashable", "subscript"]
+- !private ["Ps8Hashable", "threadDictionary"]
+- ["C9SwiftDate24ISO8601DateTimeFormatter", "Options"]
+- ["Si", "deinit"]
+- !private ["PSo8NSCoding", "subscript"]
+- !private ["PSo9NSCopying", "subscript"]
+- !private ["CSo12NSDictionary", "subscript"]
+- !private ["PSo17NSFastEnumeration", "subscript"]
+- !private ["PSo16NSMutableCopying", "subscript"]
+- ["CSo19NSMutableDictionary", "deinit"]
+- !private ["CSo19NSMutableDictionary", "subscript"]
+- !private ["CSo8NSObject", "current"]
+- !private ["CSo8NSObject", "subscript"]
+- !private ["CSo8NSObject", "threadDictionary"]
+- !private ["PSo16NSObjectProtocol", "current"]
+- !private ["PSo16NSObjectProtocol", "subscript"]
+- !private ["PSo16NSObjectProtocol", "threadDictionary"]
+- !private ["PSo14NSSecureCoding", "subscript"]
+- ["Sq", "deinit"]
+- ["Sq", "some"]
+- ["P10Foundation20ReferenceConvertible", "Component"]
+- !private ["Ps8Sequence", "subscript"]
+- ["SS", "deinit"]
+- !private ["CSo6Thread", "current"]
+- ["CSo6Thread", "deinit"]
+- !private ["CSo6Thread", "threadDictionary"]
+- ["Ps9_Hashable", "Component"]
+- !private ["Ps9_Hashable", "current"]
+- !private ["Ps9_Hashable", "subscript"]
+- !private ["Ps9_Hashable", "threadDictionary"]
+- ["P10Foundation14_MutableBoxing", "Component"]
+- ["Ps21_ObjectiveCBridgeable", "Component"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps7CVarArg"
+- "V10Foundation8Calendar"
+- "Ps28CustomDebugStringConvertible"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "O9SwiftDate9DateError"
+- "O9SwiftDate10DateFormat"
+- "Ps9Equatable"
+- "Ps5Error"
+- !private "Ps30ExpressibleByDictionaryLiteral"
+- "Ps23ExpressibleByNilLiteral"
+- "Ps8Hashable"
+- "C9SwiftDate24ISO8601DateTimeFormatter"
+- "Si"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo12NSDictionary"
+- !private "PSo17NSFastEnumeration"
+- !private "PSo16NSMutableCopying"
+- "CSo19NSMutableDictionary"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- "Sq"
+- "P10Foundation20ReferenceConvertible"
+- !private "Ps8Sequence"
+- "SS"
+- "CSo6Thread"
+- "Ps9_Hashable"
+- "P10Foundation14_MutableBoxing"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+interface-hash: "a98eb748709dba2c236076b0e1daed7e"

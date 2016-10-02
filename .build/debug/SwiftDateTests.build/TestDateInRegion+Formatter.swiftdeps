@@ -1,0 +1,800 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TestDateInRegion_Formatter"
+provides-nominal:
+- "C14SwiftDateTests26TestDateInRegion_Formatter"
+provides-member:
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", ""]
+provides-dynamic-lookup:
+- "tearDown"
+- "setUp"
+- "test_toColloquialString"
+- "test_toString"
+- "test_toStringWithStyle"
+- "test_iso8601_formatter"
+depends-top-level:
+- !private "ISO8601DateTimeFormatter"
+- "XCTestCase"
+- !private "BooleanLiteralType"
+- "TestDateInRegion_Formatter"
+- !private "StringLiteralType"
+- !private "Array"
+- !private "-"
+- "LocaleName"
+- "Dictionary"
+- "AssignmentPrecedence"
+- "CalendarName"
+- !private "Date"
+- "TimeZoneName"
+- "DateInRegion"
+- "Region"
+- !private "XCTAssertEqual"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "Stride"]
+- !private ["Ps16AbsoluteValuable", "hours"]
+- !private ["Ps16AbsoluteValuable", "minutes"]
+- ["Ps9AnyObject", "CalendarName"]
+- !private ["Ps9AnyObject", "Date"]
+- ["Ps9AnyObject", "DateInRegion"]
+- ["Ps9AnyObject", "LocaleName"]
+- !private ["Ps9AnyObject", "Options"]
+- ["Ps9AnyObject", "Region"]
+- !private ["Ps9AnyObject", "Stride"]
+- ["Ps9AnyObject", "TimeZoneName"]
+- !private ["Ps9AnyObject", "XCTAssertEqual"]
+- !private ["Ps9AnyObject", "colloquialSinceNow"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "refDate"]
+- ["Ps9AnyObject", "setUp"]
+- !private ["Ps9AnyObject", "string"]
+- ["Ps9AnyObject", "tearDown"]
+- ["Ps9AnyObject", "test_iso8601_formatter"]
+- ["Ps9AnyObject", "test_toColloquialString"]
+- ["Ps9AnyObject", "test_toString"]
+- ["Ps9AnyObject", "test_toStringWithStyle"]
+- !private ["Ps9AnyObject", "timeComponentsSinceNow"]
+- !private ["Ps9AnyObject", "toRegion"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps19BinaryFloatingPoint", "Stride"]
+- !private ["Ps19BinaryFloatingPoint", "hours"]
+- !private ["Ps19BinaryFloatingPoint", "minutes"]
+- !private ["Ps17BitwiseOperations", "Stride"]
+- !private ["Ps17BitwiseOperations", "_DisallowMixedSignArithmetic"]
+- !private ["Ps17BitwiseOperations", "hours"]
+- !private ["Ps17BitwiseOperations", "minutes"]
+- !private ["Ps17BitwiseOperations", "seconds"]
+- ["Sb", "deinit"]
+- !private ["V12CoreGraphics7CGFloat", "Stride"]
+- !private ["V12CoreGraphics7CGFloat", "deinit"]
+- ["Ps7CVarArg", "CalendarName"]
+- !private ["Ps7CVarArg", "Date"]
+- ["Ps7CVarArg", "DateInRegion"]
+- ["Ps7CVarArg", "Key"]
+- ["Ps7CVarArg", "LocaleName"]
+- ["Ps7CVarArg", "Region"]
+- !private ["Ps7CVarArg", "Stride"]
+- ["Ps7CVarArg", "TimeZoneName"]
+- ["Ps7CVarArg", "Value"]
+- !private ["Ps7CVarArg", "XCTAssertEqual"]
+- !private ["Ps7CVarArg", "_DisallowMixedSignArithmetic"]
+- !private ["Ps7CVarArg", "hours"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "minutes"]
+- ["Ps7CVarArg", "refDate"]
+- !private ["Ps7CVarArg", "seconds"]
+- ["Ps7CVarArg", "setUp"]
+- ["Ps7CVarArg", "tearDown"]
+- ["Ps7CVarArg", "test_iso8601_formatter"]
+- ["Ps7CVarArg", "test_toColloquialString"]
+- ["Ps7CVarArg", "test_toString"]
+- ["Ps7CVarArg", "test_toStringWithStyle"]
+- ["Ps7CVarArg", ""]
+- ["O9SwiftDate12CalendarName", "deinit"]
+- ["O9SwiftDate12CalendarName", "gregorian"]
+- ["Ps10Collection", "Key"]
+- ["Ps10Collection", "Value"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["Ps10Comparable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps10Comparable", "colloquialSinceNow"]
+- !private ["Ps10Comparable", "hours"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "minutes"]
+- !private ["Ps10Comparable", "seconds"]
+- !private ["Ps10Comparable", "string"]
+- !private ["Ps10Comparable", "timeComponentsSinceNow"]
+- !private ["Ps10Comparable", "toRegion"]
+- ["OV10Foundation8Calendar9Component", "day"]
+- ["OV10Foundation8Calendar9Component", "deinit"]
+- ["OV10Foundation8Calendar9Component", "hour"]
+- !private ["OV10Foundation8Calendar9Component", "minute"]
+- ["OV10Foundation8Calendar9Component", "month"]
+- ["OV10Foundation8Calendar9Component", "year"]
+- ["Ps28CustomDebugStringConvertible", "CalendarName"]
+- !private ["Ps28CustomDebugStringConvertible", "Date"]
+- ["Ps28CustomDebugStringConvertible", "DateInRegion"]
+- ["Ps28CustomDebugStringConvertible", "Key"]
+- ["Ps28CustomDebugStringConvertible", "LocaleName"]
+- ["Ps28CustomDebugStringConvertible", "Region"]
+- !private ["Ps28CustomDebugStringConvertible", "Stride"]
+- ["Ps28CustomDebugStringConvertible", "TimeZoneName"]
+- ["Ps28CustomDebugStringConvertible", "Value"]
+- !private ["Ps28CustomDebugStringConvertible", "XCTAssertEqual"]
+- !private ["Ps28CustomDebugStringConvertible", "hours"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "minutes"]
+- ["Ps28CustomDebugStringConvertible", "refDate"]
+- ["Ps28CustomDebugStringConvertible", "setUp"]
+- ["Ps28CustomDebugStringConvertible", "tearDown"]
+- ["Ps28CustomDebugStringConvertible", "test_iso8601_formatter"]
+- ["Ps28CustomDebugStringConvertible", "test_toColloquialString"]
+- ["Ps28CustomDebugStringConvertible", "test_toString"]
+- ["Ps28CustomDebugStringConvertible", "test_toStringWithStyle"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hours"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "minutes"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "seconds"]
+- ["Ps17CustomReflectable", "Key"]
+- !private ["Ps17CustomReflectable", "Stride"]
+- ["Ps17CustomReflectable", "Value"]
+- !private ["Ps17CustomReflectable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps17CustomReflectable", "hours"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "minutes"]
+- !private ["Ps17CustomReflectable", "seconds"]
+- ["Ps23CustomStringConvertible", "CalendarName"]
+- !private ["Ps23CustomStringConvertible", "Date"]
+- ["Ps23CustomStringConvertible", "DateInRegion"]
+- ["Ps23CustomStringConvertible", "Key"]
+- ["Ps23CustomStringConvertible", "LocaleName"]
+- ["Ps23CustomStringConvertible", "Region"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
+- ["Ps23CustomStringConvertible", "TimeZoneName"]
+- ["Ps23CustomStringConvertible", "Value"]
+- !private ["Ps23CustomStringConvertible", "XCTAssertEqual"]
+- !private ["Ps23CustomStringConvertible", "_DisallowMixedSignArithmetic"]
+- !private ["Ps23CustomStringConvertible", "colloquialSinceNow"]
+- !private ["Ps23CustomStringConvertible", "hours"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "minutes"]
+- ["Ps23CustomStringConvertible", "refDate"]
+- !private ["Ps23CustomStringConvertible", "seconds"]
+- ["Ps23CustomStringConvertible", "setUp"]
+- !private ["Ps23CustomStringConvertible", "string"]
+- ["Ps23CustomStringConvertible", "tearDown"]
+- ["Ps23CustomStringConvertible", "test_iso8601_formatter"]
+- ["Ps23CustomStringConvertible", "test_toColloquialString"]
+- ["Ps23CustomStringConvertible", "test_toString"]
+- ["Ps23CustomStringConvertible", "test_toStringWithStyle"]
+- !private ["Ps23CustomStringConvertible", "timeComponentsSinceNow"]
+- !private ["Ps23CustomStringConvertible", "toRegion"]
+- ["Ps23CustomStringConvertible", ""]
+- ["V10Foundation4Date", "deinit"]
+- !private ["V10Foundation4Date", "init"]
+- ["V10Foundation14DateComponents", "deinit"]
+- ["O9SwiftDate10DateFormat", "deinit"]
+- !private ["O9SwiftDate10DateFormat", "iso8601"]
+- !private ["O9SwiftDate10DateFormat", "rss"]
+- !private ["C9SwiftDate12DateInRegion", "Stride"]
+- !private ["C9SwiftDate12DateInRegion", "colloquialSinceNow"]
+- ["C9SwiftDate12DateInRegion", "deinit"]
+- ["C9SwiftDate12DateInRegion", "init"]
+- !private ["C9SwiftDate12DateInRegion", "string"]
+- !private ["C9SwiftDate12DateInRegion", "timeComponentsSinceNow"]
+- !private ["C9SwiftDate12DateInRegion", "toRegion"]
+- !private ["VSC7Decimal", "Stride"]
+- !private ["VSC7Decimal", "deinit"]
+- ["Vs10Dictionary", "Key"]
+- ["Vs10Dictionary", "Value"]
+- ["Vs10Dictionary", "deinit"]
+- !private ["V8Dispatch12DispatchTime", "deinit"]
+- !private ["V8Dispatch16DispatchWallTime", "deinit"]
+- !private ["Sd", "Stride"]
+- !private ["Sd", "deinit"]
+- !private ["Sd", "hours"]
+- !private ["Sd", "minutes"]
+- ["Ps9Equatable", "CalendarName"]
+- !private ["Ps9Equatable", "Date"]
+- ["Ps9Equatable", "DateInRegion"]
+- !private ["Ps9Equatable", "Element"]
+- ["Ps9Equatable", "LocaleName"]
+- ["Ps9Equatable", "Region"]
+- !private ["Ps9Equatable", "Stride"]
+- ["Ps9Equatable", "TimeZoneName"]
+- !private ["Ps9Equatable", "XCTAssertEqual"]
+- !private ["Ps9Equatable", "_DisallowMixedSignArithmetic"]
+- ["Ps9Equatable", "americaParamaribo"]
+- !private ["Ps9Equatable", "colloquialSinceNow"]
+- ["Ps9Equatable", "day"]
+- ["Ps9Equatable", "dutch"]
+- !private ["Ps9Equatable", "englishUnitedKingdom"]
+- !private ["Ps9Equatable", "europeLondon"]
+- !private ["Ps9Equatable", "europeRome"]
+- !private ["Ps9Equatable", "full"]
+- ["Ps9Equatable", "gregorian"]
+- ["Ps9Equatable", "hour"]
+- !private ["Ps9Equatable", "hours"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "italian"]
+- !private ["Ps9Equatable", "minute"]
+- !private ["Ps9Equatable", "minutes"]
+- ["Ps9Equatable", "month"]
+- ["Ps9Equatable", "refDate"]
+- !private ["Ps9Equatable", "seconds"]
+- ["Ps9Equatable", "setUp"]
+- !private ["Ps9Equatable", "short"]
+- !private ["Ps9Equatable", "string"]
+- ["Ps9Equatable", "tearDown"]
+- ["Ps9Equatable", "test_iso8601_formatter"]
+- ["Ps9Equatable", "test_toColloquialString"]
+- ["Ps9Equatable", "test_toString"]
+- ["Ps9Equatable", "test_toStringWithStyle"]
+- !private ["Ps9Equatable", "timeComponentsSinceNow"]
+- !private ["Ps9Equatable", "toRegion"]
+- !private ["Ps9Equatable", "withDashSeparatorInDate"]
+- !private ["Ps9Equatable", "withDay"]
+- !private ["Ps9Equatable", "withFullDate"]
+- !private ["Ps9Equatable", "withFullTime"]
+- !private ["Ps9Equatable", "withInternetDateTime"]
+- !private ["Ps9Equatable", "withMonth"]
+- !private ["Ps9Equatable", "withTimeZone"]
+- !private ["Ps9Equatable", "withWeekOfYear"]
+- !private ["Ps9Equatable", "withYear"]
+- ["Ps9Equatable", "year"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withDashSeparatorInDate"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withDay"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withFullDate"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withFullTime"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withInternetDateTime"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withMonth"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withTimeZone"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withWeekOfYear"]
+- !private ["Ps25ExpressibleByArrayLiteral", "withYear"]
+- ["Ps30ExpressibleByDictionaryLiteral", "Key"]
+- ["Ps30ExpressibleByDictionaryLiteral", "Value"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
+- !private ["Ps25ExpressibleByFloatLiteral", "hours"]
+- !private ["Ps25ExpressibleByFloatLiteral", "minutes"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisallowMixedSignArithmetic"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hours"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "minutes"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "seconds"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Sf", "Stride"]
+- !private ["Sf", "deinit"]
+- !private ["Vs7Float80", "Stride"]
+- !private ["Vs7Float80", "deinit"]
+- !private ["Ps13FloatingPoint", "Stride"]
+- !private ["Ps13FloatingPoint", "hours"]
+- !private ["Ps13FloatingPoint", "minutes"]
+- ["Ps8Hashable", "CalendarName"]
+- !private ["Ps8Hashable", "Date"]
+- ["Ps8Hashable", "DateInRegion"]
+- ["Ps8Hashable", "LocaleName"]
+- ["Ps8Hashable", "Region"]
+- !private ["Ps8Hashable", "Stride"]
+- ["Ps8Hashable", "TimeZoneName"]
+- !private ["Ps8Hashable", "XCTAssertEqual"]
+- !private ["Ps8Hashable", "_DisallowMixedSignArithmetic"]
+- ["Ps8Hashable", "americaParamaribo"]
+- !private ["Ps8Hashable", "colloquialSinceNow"]
+- ["Ps8Hashable", "day"]
+- ["Ps8Hashable", "dutch"]
+- !private ["Ps8Hashable", "englishUnitedKingdom"]
+- !private ["Ps8Hashable", "europeLondon"]
+- !private ["Ps8Hashable", "europeRome"]
+- !private ["Ps8Hashable", "full"]
+- ["Ps8Hashable", "gregorian"]
+- ["Ps8Hashable", "hour"]
+- !private ["Ps8Hashable", "hours"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "italian"]
+- !private ["Ps8Hashable", "minute"]
+- !private ["Ps8Hashable", "minutes"]
+- ["Ps8Hashable", "month"]
+- ["Ps8Hashable", "refDate"]
+- !private ["Ps8Hashable", "seconds"]
+- ["Ps8Hashable", "setUp"]
+- !private ["Ps8Hashable", "short"]
+- !private ["Ps8Hashable", "string"]
+- ["Ps8Hashable", "tearDown"]
+- ["Ps8Hashable", "test_iso8601_formatter"]
+- ["Ps8Hashable", "test_toColloquialString"]
+- ["Ps8Hashable", "test_toString"]
+- ["Ps8Hashable", "test_toStringWithStyle"]
+- !private ["Ps8Hashable", "timeComponentsSinceNow"]
+- !private ["Ps8Hashable", "toRegion"]
+- ["Ps8Hashable", "year"]
+- ["Ps8Hashable", ""]
+- !private ["C9SwiftDate24ISO8601DateTimeFormatter", "Options"]
+- ["Ps9Indexable", "Key"]
+- ["Ps9Indexable", "Value"]
+- ["Ps13IndexableBase", "Key"]
+- ["Ps13IndexableBase", "Value"]
+- !private ["Si", "Stride"]
+- ["Si", "deinit"]
+- !private ["Si", "hours"]
+- !private ["Si", "minutes"]
+- !private ["Si", "seconds"]
+- !private ["Vs5Int16", "Stride"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "Stride"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "Stride"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "Stride"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps7Integer", "_DisallowMixedSignArithmetic"]
+- !private ["Ps7Integer", "hours"]
+- !private ["Ps7Integer", "minutes"]
+- !private ["Ps7Integer", "seconds"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps17IntegerArithmetic", "_DisallowMixedSignArithmetic"]
+- !private ["Ps17IntegerArithmetic", "hours"]
+- !private ["Ps17IntegerArithmetic", "minutes"]
+- !private ["Ps17IntegerArithmetic", "seconds"]
+- ["O9SwiftDate10LocaleName", "deinit"]
+- ["O9SwiftDate10LocaleName", "dutch"]
+- !private ["O9SwiftDate10LocaleName", "englishUnitedKingdom"]
+- !private ["O9SwiftDate10LocaleName", "italian"]
+- !private ["Ps25LosslessStringConvertible", "Stride"]
+- !private ["Ps25LosslessStringConvertible", "hours"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "minutes"]
+- !private ["Ps10MirrorPath", "Stride"]
+- !private ["Ps10MirrorPath", "hours"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "minutes"]
+- !private ["Ps10MirrorPath", "seconds"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "CalendarName"]
+- !private ["CSo8NSObject", "Date"]
+- ["CSo8NSObject", "DateInRegion"]
+- !private ["CSo8NSObject", "ISO8601DateTimeFormatter"]
+- ["CSo8NSObject", "LocaleName"]
+- ["CSo8NSObject", "Region"]
+- ["CSo8NSObject", "TimeZoneName"]
+- !private ["CSo8NSObject", "XCTAssertEqual"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "refDate"]
+- ["CSo8NSObject", "setUp"]
+- ["CSo8NSObject", "tearDown"]
+- ["CSo8NSObject", "test_iso8601_formatter"]
+- ["CSo8NSObject", "test_toColloquialString"]
+- ["CSo8NSObject", "test_toString"]
+- ["CSo8NSObject", "test_toStringWithStyle"]
+- ["PSo16NSObjectProtocol", "CalendarName"]
+- !private ["PSo16NSObjectProtocol", "Date"]
+- ["PSo16NSObjectProtocol", "DateInRegion"]
+- ["PSo16NSObjectProtocol", "LocaleName"]
+- ["PSo16NSObjectProtocol", "Region"]
+- ["PSo16NSObjectProtocol", "TimeZoneName"]
+- !private ["PSo16NSObjectProtocol", "XCTAssertEqual"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "refDate"]
+- ["PSo16NSObjectProtocol", "setUp"]
+- ["PSo16NSObjectProtocol", "tearDown"]
+- ["PSo16NSObjectProtocol", "test_iso8601_formatter"]
+- ["PSo16NSObjectProtocol", "test_toColloquialString"]
+- ["PSo16NSObjectProtocol", "test_toString"]
+- ["PSo16NSObjectProtocol", "test_toStringWithStyle"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardWriting", "init"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps9OptionSet", "Element"]
+- !private ["Ps9OptionSet", "withDashSeparatorInDate"]
+- !private ["Ps9OptionSet", "withDay"]
+- !private ["Ps9OptionSet", "withFullDate"]
+- !private ["Ps9OptionSet", "withFullTime"]
+- !private ["Ps9OptionSet", "withInternetDateTime"]
+- !private ["Ps9OptionSet", "withMonth"]
+- !private ["Ps9OptionSet", "withTimeZone"]
+- !private ["Ps9OptionSet", "withWeekOfYear"]
+- !private ["Ps9OptionSet", "withYear"]
+- ["Sq", "deinit"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "Element"]
+- ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "deinit"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withDashSeparatorInDate"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withDay"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withFullDate"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withFullTime"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withInternetDateTime"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withMonth"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withTimeZone"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withWeekOfYear"]
+- !private ["VC9SwiftDate24ISO8601DateTimeFormatter7Options", "withYear"]
+- !private ["Ps16RawRepresentable", "Element"]
+- ["Ps16RawRepresentable", "americaParamaribo"]
+- ["Ps16RawRepresentable", "dutch"]
+- !private ["Ps16RawRepresentable", "englishUnitedKingdom"]
+- !private ["Ps16RawRepresentable", "europeLondon"]
+- !private ["Ps16RawRepresentable", "europeRome"]
+- !private ["Ps16RawRepresentable", "full"]
+- !private ["Ps16RawRepresentable", "italian"]
+- !private ["Ps16RawRepresentable", "short"]
+- !private ["Ps16RawRepresentable", "withDashSeparatorInDate"]
+- !private ["Ps16RawRepresentable", "withDay"]
+- !private ["Ps16RawRepresentable", "withFullDate"]
+- !private ["Ps16RawRepresentable", "withFullTime"]
+- !private ["Ps16RawRepresentable", "withInternetDateTime"]
+- !private ["Ps16RawRepresentable", "withMonth"]
+- !private ["Ps16RawRepresentable", "withTimeZone"]
+- !private ["Ps16RawRepresentable", "withWeekOfYear"]
+- !private ["Ps16RawRepresentable", "withYear"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- ["V9SwiftDate6Region", "deinit"]
+- ["V9SwiftDate6Region", "init"]
+- ["V10ObjectiveC8Selector", "deinit"]
+- ["Ps8Sequence", "Key"]
+- ["Ps8Sequence", "Value"]
+- !private ["Ps10SetAlgebra", "Element"]
+- !private ["Ps10SetAlgebra", "withDashSeparatorInDate"]
+- !private ["Ps10SetAlgebra", "withDay"]
+- !private ["Ps10SetAlgebra", "withFullDate"]
+- !private ["Ps10SetAlgebra", "withFullTime"]
+- !private ["Ps10SetAlgebra", "withInternetDateTime"]
+- !private ["Ps10SetAlgebra", "withMonth"]
+- !private ["Ps10SetAlgebra", "withTimeZone"]
+- !private ["Ps10SetAlgebra", "withWeekOfYear"]
+- !private ["Ps10SetAlgebra", "withYear"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps13SignedInteger", "hours"]
+- !private ["Ps13SignedInteger", "minutes"]
+- !private ["Ps13SignedInteger", "seconds"]
+- !private ["Ps12SignedNumber", "Stride"]
+- !private ["Ps12SignedNumber", "hours"]
+- !private ["Ps12SignedNumber", "minutes"]
+- !private ["Ps12SignedNumber", "seconds"]
+- ["Vs12StaticString", "deinit"]
+- !private ["Vs12StaticString", "init"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["Ps10Strideable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps10Strideable", "hours"]
+- !private ["Ps10Strideable", "minutes"]
+- !private ["Ps10Strideable", "seconds"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- ["OCSo13DateFormatter5Style", "deinit"]
+- !private ["OCSo13DateFormatter5Style", "full"]
+- !private ["OCSo13DateFormatter5Style", "short"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "CalendarName"]
+- !private ["C14SwiftDateTests26TestDateInRegion_Formatter", "Date"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "DateInRegion"]
+- !private ["C14SwiftDateTests26TestDateInRegion_Formatter", "ISO8601DateTimeFormatter"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "LocaleName"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "Region"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "TimeZoneName"]
+- !private ["C14SwiftDateTests26TestDateInRegion_Formatter", "XCTAssertEqual"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "deinit"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "init"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "refDate"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "setUp"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "tearDown"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "test_iso8601_formatter"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "test_toColloquialString"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "test_toString"]
+- ["C14SwiftDateTests26TestDateInRegion_Formatter", "test_toStringWithStyle"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- ["O9SwiftDate12TimeZoneName", "americaParamaribo"]
+- ["O9SwiftDate12TimeZoneName", "deinit"]
+- !private ["O9SwiftDate12TimeZoneName", "europeLondon"]
+- !private ["O9SwiftDate12TimeZoneName", "europeRome"]
+- !private ["Su", "Stride"]
+- !private ["Su", "_DisallowMixedSignArithmetic"]
+- ["Su", "deinit"]
+- !private ["Vs6UInt16", "Stride"]
+- !private ["Vs6UInt16", "_DisallowMixedSignArithmetic"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "Stride"]
+- !private ["Vs6UInt32", "_DisallowMixedSignArithmetic"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "Stride"]
+- !private ["Vs6UInt64", "_DisallowMixedSignArithmetic"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "Stride"]
+- !private ["Vs5UInt8", "_DisallowMixedSignArithmetic"]
+- !private ["Vs5UInt8", "deinit"]
+- !private ["Sp", "Stride"]
+- !private ["Sp", "deinit"]
+- !private ["SP", "Stride"]
+- !private ["SP", "deinit"]
+- !private ["Ps15UnsignedInteger", "Stride"]
+- !private ["Ps15UnsignedInteger", "_DisallowMixedSignArithmetic"]
+- ["CSo6XCTest", "CalendarName"]
+- !private ["CSo6XCTest", "Date"]
+- ["CSo6XCTest", "DateInRegion"]
+- !private ["CSo6XCTest", "ISO8601DateTimeFormatter"]
+- ["CSo6XCTest", "LocaleName"]
+- ["CSo6XCTest", "Region"]
+- ["CSo6XCTest", "TimeZoneName"]
+- !private ["CSo6XCTest", "XCTAssertEqual"]
+- ["CSo6XCTest", "init"]
+- ["CSo6XCTest", "refDate"]
+- ["CSo6XCTest", "setUp"]
+- ["CSo6XCTest", "tearDown"]
+- ["CSo6XCTest", "test_iso8601_formatter"]
+- ["CSo6XCTest", "test_toColloquialString"]
+- ["CSo6XCTest", "test_toString"]
+- ["CSo6XCTest", "test_toStringWithStyle"]
+- ["CSo10XCTestCase", "CalendarName"]
+- !private ["CSo10XCTestCase", "Date"]
+- ["CSo10XCTestCase", "DateInRegion"]
+- !private ["CSo10XCTestCase", "ISO8601DateTimeFormatter"]
+- ["CSo10XCTestCase", "LocaleName"]
+- ["CSo10XCTestCase", "Region"]
+- ["CSo10XCTestCase", "TimeZoneName"]
+- !private ["CSo10XCTestCase", "XCTAssertEqual"]
+- ["CSo10XCTestCase", "deinit"]
+- ["CSo10XCTestCase", "init"]
+- ["CSo10XCTestCase", "refDate"]
+- ["CSo10XCTestCase", "setUp"]
+- ["CSo10XCTestCase", "tearDown"]
+- ["CSo10XCTestCase", "test_iso8601_formatter"]
+- ["CSo10XCTestCase", "test_toColloquialString"]
+- ["CSo10XCTestCase", "test_toString"]
+- ["CSo10XCTestCase", "test_toStringWithStyle"]
+- ["CSo10XCTestCase", ""]
+- !private ["Ps15_CVarArgAligned", "Stride"]
+- !private ["Ps15_CVarArgAligned", "_DisallowMixedSignArithmetic"]
+- !private ["Ps15_CVarArgAligned", "hours"]
+- !private ["Ps15_CVarArgAligned", "minutes"]
+- !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
+- !private ["Ps22_CVarArgPassedAsDouble", "hours"]
+- !private ["Ps22_CVarArgPassedAsDouble", "minutes"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "Stride"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "_DisallowMixedSignArithmetic"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "hours"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "minutes"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisallowMixedSignArithmetic"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hours"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "minutes"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "seconds"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "CalendarName"]
+- !private ["Ps9_Hashable", "Date"]
+- ["Ps9_Hashable", "DateInRegion"]
+- ["Ps9_Hashable", "LocaleName"]
+- ["Ps9_Hashable", "Region"]
+- !private ["Ps9_Hashable", "Stride"]
+- ["Ps9_Hashable", "TimeZoneName"]
+- !private ["Ps9_Hashable", "XCTAssertEqual"]
+- !private ["Ps9_Hashable", "_DisallowMixedSignArithmetic"]
+- ["Ps9_Hashable", "americaParamaribo"]
+- !private ["Ps9_Hashable", "colloquialSinceNow"]
+- ["Ps9_Hashable", "day"]
+- ["Ps9_Hashable", "dutch"]
+- !private ["Ps9_Hashable", "englishUnitedKingdom"]
+- !private ["Ps9_Hashable", "europeLondon"]
+- !private ["Ps9_Hashable", "europeRome"]
+- !private ["Ps9_Hashable", "full"]
+- ["Ps9_Hashable", "gregorian"]
+- ["Ps9_Hashable", "hour"]
+- !private ["Ps9_Hashable", "hours"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "italian"]
+- !private ["Ps9_Hashable", "minute"]
+- !private ["Ps9_Hashable", "minutes"]
+- ["Ps9_Hashable", "month"]
+- ["Ps9_Hashable", "refDate"]
+- !private ["Ps9_Hashable", "seconds"]
+- ["Ps9_Hashable", "setUp"]
+- !private ["Ps9_Hashable", "short"]
+- !private ["Ps9_Hashable", "string"]
+- ["Ps9_Hashable", "tearDown"]
+- ["Ps9_Hashable", "test_iso8601_formatter"]
+- ["Ps9_Hashable", "test_toColloquialString"]
+- ["Ps9_Hashable", "test_toString"]
+- ["Ps9_Hashable", "test_toStringWithStyle"]
+- !private ["Ps9_Hashable", "timeComponentsSinceNow"]
+- !private ["Ps9_Hashable", "toRegion"]
+- ["Ps9_Hashable", "year"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps14_Incrementable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps14_Incrementable", "hours"]
+- !private ["Ps14_Incrementable", "minutes"]
+- !private ["Ps14_Incrementable", "seconds"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps8_Integer", "_DisallowMixedSignArithmetic"]
+- !private ["Ps8_Integer", "hours"]
+- !private ["Ps8_Integer", "minutes"]
+- !private ["Ps8_Integer", "seconds"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "_DisallowMixedSignArithmetic"]
+- !private ["Ps18_IntegerArithmetic", "hours"]
+- !private ["Ps18_IntegerArithmetic", "minutes"]
+- !private ["Ps18_IntegerArithmetic", "seconds"]
+- ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
+- ["Ps21_ObjectiveCBridgeable", "Value"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps21_ObjectiveCBridgeable", "hours"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "minutes"]
+- !private ["Ps21_ObjectiveCBridgeable", "seconds"]
+- !private ["Ps8_Pointer", "Stride"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps14_SignedInteger", "hours"]
+- !private ["Ps14_SignedInteger", "minutes"]
+- !private ["Ps14_SignedInteger", "seconds"]
+- !private ["Ps11_Strideable", "Stride"]
+- !private ["Ps11_Strideable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps11_Strideable", "hours"]
+- !private ["Ps11_Strideable", "minutes"]
+- !private ["Ps11_Strideable", "seconds"]
+- !private ["Ps14_StringElement", "Stride"]
+- !private ["Ps14_StringElement", "_DisallowMixedSignArithmetic"]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "V12CoreGraphics7CGFloat"
+- "Ps7CVarArg"
+- "O9SwiftDate12CalendarName"
+- "Ps10Collection"
+- "Ps10Comparable"
+- "OV10Foundation8Calendar9Component"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "V10Foundation14DateComponents"
+- "O9SwiftDate10DateFormat"
+- "C9SwiftDate12DateInRegion"
+- !private "VSC7Decimal"
+- "Vs10Dictionary"
+- !private "V8Dispatch12DispatchTime"
+- !private "V8Dispatch16DispatchWallTime"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- "Ps30ExpressibleByDictionaryLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Sf"
+- !private "Vs7Float80"
+- !private "Ps13FloatingPoint"
+- "Ps8Hashable"
+- !private "C9SwiftDate24ISO8601DateTimeFormatter"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- "O9SwiftDate10LocaleName"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo19NSPasteboardReading"
+- !private "PSo19NSPasteboardWriting"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps9OptionSet"
+- "Sq"
+- "VC9SwiftDate24ISO8601DateTimeFormatter7Options"
+- "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- "V9SwiftDate6Region"
+- "V10ObjectiveC8Selector"
+- "Ps8Sequence"
+- !private "Ps10SetAlgebra"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- "Vs12StaticString"
+- !private "Ps10Strideable"
+- "SS"
+- "OCSo13DateFormatter5Style"
+- "C14SwiftDateTests26TestDateInRegion_Formatter"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "O9SwiftDate12TimeZoneName"
+- "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- !private "Sp"
+- !private "SP"
+- !private "Ps15UnsignedInteger"
+- "CSo6XCTest"
+- "CSo10XCTestCase"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
+- !private "Ps28_DisallowMixedSignArithmetic"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps8_Pointer"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+- !private "Ps14_StringElement"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XCTest.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIRemote.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIKeyboardKeys.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIElementQuery.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUICoordinate.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIDevice.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIElementTypeQueryProvider.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIElementTypes.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIElementAttributes.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIElement.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIApplication.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestSuiteRun.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestSuite.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestProbe.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestObservation.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestObservationCenter.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestObserver.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestLog.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestExpectation.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestRun.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestCaseRun.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestCase+AsynchronousTesting.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestCase.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestAssertionsImpl.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestAssertions.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCAbstractTest.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestErrors.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestDefines.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTest.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+- "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.swiftmodule"
+interface-hash: "dafd31f63c1f545295a68b5e68520ca8"

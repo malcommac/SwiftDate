@@ -1,0 +1,125 @@
+{
+  "": {
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/master.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/CalendarName.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/CalendarName.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/CalendarName.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/CalendarName~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/CalendarName.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Commons.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Commons.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Commons.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Commons~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Commons.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Date+Compare.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Compare.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Compare.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Compare~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Compare.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Date+Components.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Components.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Components.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Components~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Components.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Date+Formatter.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Formatter.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Formatter.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Formatter~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Formatter.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Date+Math.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Math.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Math.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Math~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Date+Math.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateComponents+Extension.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateComponents+Extension.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateComponents+Extension.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateComponents+Extension~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateComponents+Extension.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateInRegion+Compare.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Compare.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Compare.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Compare~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Compare.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateInRegion+Components.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Components.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Components.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Components~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Components.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateInRegion+Formatter.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Formatter.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Formatter.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Formatter~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Formatter.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateInRegion+Math.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Math.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Math.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Math~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion+Math.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateInRegion.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegion.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateInRegionFormatter.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegionFormatter.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegionFormatter.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegionFormatter~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateInRegionFormatter.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/DateTimeInterval.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateTimeInterval.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateTimeInterval.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateTimeInterval~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/DateTimeInterval.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Extensions.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Extensions.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Extensions.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Extensions.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/ISO8601DateTimeFormatter.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/ISO8601DateTimeFormatter.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/ISO8601DateTimeFormatter.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/ISO8601DateTimeFormatter~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/ISO8601DateTimeFormatter.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/LocaleName.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/LocaleName.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/LocaleName.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/LocaleName~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/LocaleName.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/Region.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Region.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Region.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Region~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/Region.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/TimeInterval+Extensions.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeInterval+Extensions.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeInterval+Extensions.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeInterval+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeInterval+Extensions.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Sources/SwiftDate/TimeZoneName.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeZoneName.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeZoneName.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeZoneName~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDate.build/TimeZoneName.swiftdeps"
+  }
+}

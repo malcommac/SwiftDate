@@ -1,0 +1,29 @@
+{
+  "": {
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/master.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion+Compare.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Compare.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Compare.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Compare~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Compare.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion+Components.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Components.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Components.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Components~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Components.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion+Formatter.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Formatter.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Formatter.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Formatter~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion+Formatter.swiftdeps"
+  },
+  "/Users/danielemm/Repository/Code/Github/SwiftDate/Tests/SwiftDateTests/TestDateInRegion.swift": {
+    "dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion.d",
+    "object": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion.swift.o",
+    "swiftmodule": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion~partial.swiftmodule",
+    "swift-dependencies": "/Users/danielemm/Repository/Code/Github/SwiftDate/.build/debug/SwiftDateTests.build/TestDateInRegion.swiftdeps"
+  }
+}

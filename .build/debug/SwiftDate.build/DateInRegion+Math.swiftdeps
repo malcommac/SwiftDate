@@ -1,0 +1,312 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "+"
+- "-"
+- "+"
+- "-"
+- "-"
+provides-nominal:
+provides-member:
+- ["C9SwiftDate12DateInRegion", ""]
+- ["C9SwiftDate12DateInRegion", "componentsFrom"]
+provides-dynamic-lookup:
+depends-top-level:
+- "+"
+- "TimeInterval"
+- !private "TernaryPrecedence"
+- "Region"
+- !private "*"
+- !private "=="
+- "AssignmentPrecedence"
+- "-"
+- !private "<"
+- !private "&&"
+- !private "Dictionary"
+- "Calendar"
+- !private "!="
+- !private "DateTimeInterval"
+- "DateInRegion"
+- "Int"
+- "DateComponents"
+depends-member:
+- !private ["Ps9AnyObject", "DateComponents"]
+- !private ["Ps9AnyObject", "absoluteDate"]
+- !private ["Ps9AnyObject", "componentsFrom"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "region"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "Key"]
+- !private ["Ps7CVarArg", "Value"]
+- !private ["Ps7CVarArg", "forEach"]
+- !private ["Ps7CVarArg", "subscript"]
+- ["V10Foundation8Calendar", "Component"]
+- !private ["V10Foundation8Calendar", "date"]
+- ["V10Foundation8Calendar", "deinit"]
+- !private ["V10Foundation8Calendar", "locale"]
+- !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "Key"]
+- !private ["Ps10Collection", "SubSequence"]
+- !private ["Ps10Collection", "Value"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "forEach"]
+- !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "DateComponents"]
+- !private ["Ps10Comparable", "absoluteDate"]
+- !private ["Ps10Comparable", "componentsFrom"]
+- !private ["Ps10Comparable", "duration"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "region"]
+- !private ["Ps10Comparable", "timeIntervalSince"]
+- !private ["OV10Foundation8Calendar9Component", "calendar"]
+- !private ["OV10Foundation8Calendar9Component", "deinit"]
+- !private ["OV10Foundation8Calendar9Component", "timeZone"]
+- ["Ps28CustomDebugStringConvertible", "Component"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "Key"]
+- !private ["Ps28CustomDebugStringConvertible", "Value"]
+- !private ["Ps28CustomDebugStringConvertible", "calendar"]
+- !private ["Ps28CustomDebugStringConvertible", "date"]
+- !private ["Ps28CustomDebugStringConvertible", "duration"]
+- !private ["Ps28CustomDebugStringConvertible", "forEach"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "locale"]
+- !private ["Ps28CustomDebugStringConvertible", "setValue"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "timeIntervalSince"]
+- !private ["Ps28CustomDebugStringConvertible", "timeZone"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "timeIntervalSince"]
+- ["Ps17CustomReflectable", "Component"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "Key"]
+- !private ["Ps17CustomReflectable", "Value"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "calendar"]
+- !private ["Ps17CustomReflectable", "date"]
+- !private ["Ps17CustomReflectable", "duration"]
+- !private ["Ps17CustomReflectable", "forEach"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "locale"]
+- !private ["Ps17CustomReflectable", "setValue"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- !private ["Ps17CustomReflectable", "timeIntervalSince"]
+- !private ["Ps17CustomReflectable", "timeZone"]
+- ["Ps23CustomStringConvertible", "Component"]
+- !private ["Ps23CustomStringConvertible", "DateComponents"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "Key"]
+- !private ["Ps23CustomStringConvertible", "Value"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "absoluteDate"]
+- !private ["Ps23CustomStringConvertible", "calendar"]
+- !private ["Ps23CustomStringConvertible", "componentsFrom"]
+- !private ["Ps23CustomStringConvertible", "date"]
+- !private ["Ps23CustomStringConvertible", "duration"]
+- !private ["Ps23CustomStringConvertible", "forEach"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "locale"]
+- !private ["Ps23CustomStringConvertible", "region"]
+- !private ["Ps23CustomStringConvertible", "setValue"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "timeIntervalSince"]
+- !private ["Ps23CustomStringConvertible", "timeZone"]
+- ["V10Foundation4Date", "deinit"]
+- !private ["V10Foundation4Date", "timeIntervalSince"]
+- !private ["V10Foundation14DateComponents", "calendar"]
+- ["V10Foundation14DateComponents", "deinit"]
+- !private ["V10Foundation14DateComponents", "init"]
+- !private ["V10Foundation14DateComponents", "setValue"]
+- !private ["V10Foundation14DateComponents", "timeZone"]
+- ["C9SwiftDate12DateInRegion", "Calendar"]
+- ["C9SwiftDate12DateInRegion", "DateComponents"]
+- ["C9SwiftDate12DateInRegion", "Int"]
+- ["C9SwiftDate12DateInRegion", "Region"]
+- !private ["C9SwiftDate12DateInRegion", "absoluteDate"]
+- ["C9SwiftDate12DateInRegion", "componentsFrom"]
+- ["C9SwiftDate12DateInRegion", "deinit"]
+- !private ["C9SwiftDate12DateInRegion", "init"]
+- !private ["C9SwiftDate12DateInRegion", "region"]
+- ["V9SwiftDate16DateTimeInterval", "deinit"]
+- !private ["V9SwiftDate16DateTimeInterval", "duration"]
+- !private ["V9SwiftDate16DateTimeInterval", "init"]
+- !private ["Vs10Dictionary", "Iterator"]
+- !private ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "Value"]
+- ["Vs10Dictionary", "deinit"]
+- !private ["Vs10Dictionary", "forEach"]
+- !private ["Vs10Dictionary", "subscript"]
+- !private ["Vs18DictionaryIterator", "Element"]
+- ["Sd", "deinit"]
+- ["Ps9Equatable", "Component"]
+- !private ["Ps9Equatable", "DateComponents"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "absoluteDate"]
+- !private ["Ps9Equatable", "calendar"]
+- !private ["Ps9Equatable", "componentsFrom"]
+- !private ["Ps9Equatable", "date"]
+- !private ["Ps9Equatable", "duration"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "locale"]
+- !private ["Ps9Equatable", "region"]
+- !private ["Ps9Equatable", "setValue"]
+- !private ["Ps9Equatable", "timeIntervalSince"]
+- !private ["Ps9Equatable", "timeZone"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Iterator"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "forEach"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- ["Ps8Hashable", "Component"]
+- !private ["Ps8Hashable", "DateComponents"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "absoluteDate"]
+- !private ["Ps8Hashable", "calendar"]
+- !private ["Ps8Hashable", "componentsFrom"]
+- !private ["Ps8Hashable", "date"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "locale"]
+- !private ["Ps8Hashable", "region"]
+- !private ["Ps8Hashable", "setValue"]
+- !private ["Ps8Hashable", "timeIntervalSince"]
+- !private ["Ps8Hashable", "timeZone"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "Key"]
+- !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "Value"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "forEach"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "Key"]
+- !private ["Ps13IndexableBase", "SubSequence"]
+- !private ["Ps13IndexableBase", "Value"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "forEach"]
+- !private ["Ps13IndexableBase", "subscript"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Si", "deinit"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- ["V10Foundation6Locale", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Sq", "deinit"]
+- ["P10Foundation20ReferenceConvertible", "Component"]
+- !private ["P10Foundation20ReferenceConvertible", "calendar"]
+- !private ["P10Foundation20ReferenceConvertible", "date"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "locale"]
+- !private ["P10Foundation20ReferenceConvertible", "setValue"]
+- !private ["P10Foundation20ReferenceConvertible", "timeIntervalSince"]
+- !private ["P10Foundation20ReferenceConvertible", "timeZone"]
+- !private ["V9SwiftDate6Region", "calendar"]
+- ["V9SwiftDate6Region", "deinit"]
+- !private ["V9SwiftDate6Region", "locale"]
+- !private ["V9SwiftDate6Region", "timeZone"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "Key"]
+- !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "Value"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "forEach"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "Iterator"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- ["V10Foundation8TimeZone", "deinit"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "Component"]
+- !private ["Ps9_Hashable", "DateComponents"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "absoluteDate"]
+- !private ["Ps9_Hashable", "calendar"]
+- !private ["Ps9_Hashable", "componentsFrom"]
+- !private ["Ps9_Hashable", "date"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "locale"]
+- !private ["Ps9_Hashable", "region"]
+- !private ["Ps9_Hashable", "setValue"]
+- !private ["Ps9_Hashable", "timeIntervalSince"]
+- !private ["Ps9_Hashable", "timeZone"]
+- ["P10Foundation14_MutableBoxing", "Component"]
+- !private ["P10Foundation14_MutableBoxing", "calendar"]
+- !private ["P10Foundation14_MutableBoxing", "date"]
+- !private ["P10Foundation14_MutableBoxing", "init"]
+- !private ["P10Foundation14_MutableBoxing", "locale"]
+- !private ["P10Foundation14_MutableBoxing", "setValue"]
+- !private ["P10Foundation14_MutableBoxing", "timeZone"]
+- ["Ps21_ObjectiveCBridgeable", "Component"]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Value"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "calendar"]
+- !private ["Ps21_ObjectiveCBridgeable", "date"]
+- !private ["Ps21_ObjectiveCBridgeable", "forEach"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "locale"]
+- !private ["Ps21_ObjectiveCBridgeable", "setValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Ps21_ObjectiveCBridgeable", "timeIntervalSince"]
+- !private ["Ps21_ObjectiveCBridgeable", "timeZone"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- "Sb"
+- !private "Ps7CVarArg"
+- "V10Foundation8Calendar"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- !private "OV10Foundation8Calendar9Component"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "V10Foundation14DateComponents"
+- "C9SwiftDate12DateInRegion"
+- "V9SwiftDate16DateTimeInterval"
+- "Vs10Dictionary"
+- !private "Vs18DictionaryIterator"
+- "Sd"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps30ExpressibleByDictionaryLiteral"
+- "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- !private "Si"
+- !private "Ps16IteratorProtocol"
+- "V10Foundation6Locale"
+- !private "Ps25LosslessStringConvertible"
+- "Sq"
+- "P10Foundation20ReferenceConvertible"
+- "V9SwiftDate6Region"
+- !private "Ps8Sequence"
+- !private "Vs5Slice"
+- "V10Foundation8TimeZone"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps9_Hashable"
+- "P10Foundation14_MutableBoxing"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+interface-hash: "a2088616ad3bc9c4ce744cc94b5985bd"

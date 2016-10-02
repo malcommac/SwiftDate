@@ -86,6 +86,9 @@ public class DateInRegionFormatter {
 	/// printed in the output string. By default is `true`.
 	public var useImminentInterval: Bool = true
 	
+	// If true numbers in timeComponents() function receive a padding if necessary
+	public var zeroPadding: Bool = true
+	
 	/// Locale to use when print the date. By default is the same locale set by receiver's `DateInRegion`.
 	/// If not set default device locale is used instead.
 	public var locale: Locale?

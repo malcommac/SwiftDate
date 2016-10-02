@@ -45,7 +45,7 @@ public class DateInRegion: CustomStringConvertible {
 	public fileprivate(set) var absoluteDate: Date
 	
 	/// This is a reference to use formatters
-	internal var formatters: Formatters
+	public fileprivate(set) var formatters: Formatters
 	
 	public class Formatters {
 		private var timeZone: TimeZone
@@ -60,7 +60,7 @@ public class DateInRegion: CustomStringConvertible {
 		
 		/// `DateIntervalFormatter` reserved instance (nil unless you set `.useSharedFormatters = false`)
 		private var customDateIntervalFormatter: DateIntervalFormatter? = nil
-		
+
 		/// If true this instance of `DateInRegion` will use formatters shared along calling thread.
 		/// If false a new date formatter is created automatically and used only by a single `DateInRegion`
 		/// Usually you don't need to create a single formatter for each DateInRegion because this

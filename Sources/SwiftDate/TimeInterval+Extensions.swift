@@ -70,6 +70,7 @@ public extension TimeInterval {
 	/// - throws: throw an exception if output string cannot be produced
 	///
 	/// - returns: a string representing the time interval
+	@available(*, deprecated: 4.0.3, message: "Use string(options:) instead")
 	public func string(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil, locale: Locale? = nil) throws -> String? {
 		let formatter = DateInRegionFormatter()
 		formatter.locale = locale
@@ -78,6 +79,48 @@ public extension TimeInterval {
 		formatter.zeroBehavior = zero ?? .dropAll
 		formatter.unitSeparator = separator ?? ","
 		return try formatter.timeComponents(interval: self)
+	}
+	
+	/// Represent a time interval in a string
+	///
+	/// - parameter options: to print the string. If not specified a new general options struct is created for you.
+	/// - parameter shared: `true` if you want to use the local thread shared `DateComponentsFormatter` instance.
+	///           if not strictly necessary you should avoid creating a new formatter instance at each call, so using
+	///           the shared instance is a better choice. By default is `true`
+	///
+	/// - throws: throw an exception if output string cannot be produced
+	///
+	/// - returns: a string representing the time interval
+	public func string(options: ComponentsFormatterOptions? = nil, shared: Bool? = true) throws -> String {
+		return try self.formatComponentsIn(interval: self, shared: shared, options: options)
+	}
+
+	/// Private function to create a shared or new instance of the `DateComponentsFormatter` and set it with
+	/// passed options dictionary (if not nil)
+	internal func formatComponentsIn(interval: TimeInterval, shared: Bool? = true, options: ComponentsFormatterOptions? = nil) throws -> String {
+		var formatter: DateComponentsFormatter? = nil
+		let sharedFormatter = shared ?? true
+		if sharedFormatter == true {
+			let name = "SwiftDate_\(NSStringFromClass(DateIntervalFormatter.self))"
+			formatter = localThreadSingleton(key: name, create: { (Void) -> DateComponentsFormatter in
+				return DateComponentsFormatter()
+			})
+		} else {
+			formatter = DateComponentsFormatter()
+		}
+		if options != nil {
+			formatter!.calendar!.locale = options!.locale
+			formatter!.zeroFormattingBehavior = options!.zeroBehavior
+			formatter!.maximumUnitCount = (options!.maxUnitCount == nil ? 0 : options!.maxUnitCount!)
+			formatter!.unitsStyle = options!.style
+			formatter!.includesTimeRemainingPhrase = options!.includeTimeRemaining
+			formatter!.allowedUnits = options!.allowedUnits ?? options!.bestAllowedUnits(forInterval: interval)
+		}
+		
+		guard let output = formatter!.string(from: self) else {
+			throw DateError.FailedToCalculate
+		}
+		return output
 	}
 
 }

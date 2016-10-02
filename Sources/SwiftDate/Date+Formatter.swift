@@ -125,8 +125,24 @@ public extension Date {
 	/// - throws: throw an exception if time components cannot be evaluated
 	///
 	/// - returns: string with each time component
+	@available(*, deprecated: 4.0.3, message: "Use timeComponentsSinceNow(options:shared:) instead")
 	public func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
 		return try self.timeComponents(to: Date(), unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+	}
+	
+	/// This method produces a string by printing the interval between self and current Date and output a string where each
+	/// calendar component is printed.
+	///
+	/// - parameter options: options to format the output. Keep in mind: `.locale` will be overwritten by self's `region.locale`.
+	/// - parameter shared: `true` to use a shared (per thread) instance. Unless specific needs you should not instantiate
+	///                     lots of Date Formatters due to the high cost. SwiftDate share a single formatter in each thread
+	///                     which cover the most commom scenarios.
+	///
+	/// - throws: throw an exception if time components cannot be evaluated
+	///
+	/// - returns: string with each time component
+	public func timeComponentsSinceNow(options: ComponentsFormatterOptions? = nil, shared: Bool? = true) throws -> String {
+		return try self.timeComponents(to: Date(), options: options, shared: shared)
 	}
 	
 	/// This method produces a string by printing the interval between self and another date and output a string where each
@@ -142,11 +158,29 @@ public extension Date {
 	/// - throws: throw an exception if time components cannot be evaluated
 	///
 	/// - returns: string with each time component
+	@available(*, deprecated: 4.0.3, message: "Use timeComponents(to:options:shared:) instead")
 	public func timeComponents(to: Date, in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
 		
 		let srcRegion = region ?? DateDefaultRegion
 		let fromDateInRegion = DateInRegion(absoluteDate: self, in: srcRegion)
 		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
 		return try fromDateInRegion.timeComponents(toDate: toDateInRegion, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+	}
+	
+	/// This method produces a string by printing the interval between self and another date and output a string where each
+	/// calendar component is printed.
+	///
+	///
+	/// - parameter to:	date to compare
+	/// - parameter options: options to format the output. Keep in mind: `.locale` will be overwritten by self's `region.locale`.
+	/// - parameter shared: `true` to use a shared (per thread) instance. Unless specific needs you should not instantiate
+	///                     lots of Date Formatters due to the high cost. SwiftDate share a single formatter in each thread
+	///                     which cover the most commom scenarios.
+	///
+	/// - throws: throw an exception if time components cannot be evaluated
+	///
+	/// - returns: string with each time component
+	public func timeComponents(to: Date, options: ComponentsFormatterOptions? = nil, shared: Bool? = true) throws -> String {
+		return try self.timeIntervalSince(to).string(options: options, shared: shared)
 	}
 }

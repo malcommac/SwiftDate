@@ -350,7 +350,7 @@ extension DateInRegion {
 	/// Return the instance representing the first moment date of the given date expressed in the context of the calendar of the receiver
 	public var startOfDay: DateInRegion {
 		let absoluteDate = self.region.calendar.startOfDay(for: self.absoluteDate)
-		return DateInRegion(absoluteDate: absoluteDate, in: self.region.copy())
+		return DateInRegion(absoluteDate: absoluteDate, in: self.region)
 	}
 	
 	/// Return the instance representing the last moment date of the given date expressed in the context of the calendar of the receiver
@@ -359,21 +359,21 @@ extension DateInRegion {
 		var dCmps = DateComponents()
 		dCmps.day = 1
 		let nextDay = cal.startOfDay(for: cal.date(byAdding: dCmps, to: self.absoluteDate)!)
-		return DateInRegion(absoluteDate: nextDay.addingTimeInterval(-0.001), in: self.region.copy())
+		return DateInRegion(absoluteDate: nextDay.addingTimeInterval(-0.001), in: self.region)
 	}
 	
 	/// Return a new instance of the date plus one month
 	public var nextMonth: DateInRegion {
 		let refDate = self.startOfDay.absoluteDate
 		let nextMonth = self.region.calendar.date(byAdding: .month, value: 1, to: refDate)
-		return DateInRegion(absoluteDate: nextMonth!, in: self.region.copy())
+		return DateInRegion(absoluteDate: nextMonth!, in: self.region)
 	}
 	
 	/// Return a new instance of the date minus one month
 	public var prevMonth: DateInRegion {
 		let refDate = self.startOfDay.absoluteDate
 		let prevMonth = self.region.calendar.date(byAdding: .month, value: -1, to: refDate)
-		return DateInRegion(absoluteDate: prevMonth!, in: self.region.copy())
+		return DateInRegion(absoluteDate: prevMonth!, in: self.region)
 	}
 	
 	
@@ -384,7 +384,7 @@ extension DateInRegion {
 	/// - returns: the date representing that start of that unit
 	public func startOf(component: Calendar.Component) -> DateInRegion {
 		let absoluteTime = self.region.calendar.rangex(of: component, for: self.absoluteDate)!.start
-		return DateInRegion(absoluteDate: absoluteTime, in: self.region.copy())
+		return DateInRegion(absoluteDate: absoluteTime, in: self.region)
 	}
 	
 	
@@ -398,7 +398,7 @@ extension DateInRegion {
 		// second
 		let startOfNextUnit = self.region.calendar.rangex(of: component, for: self.absoluteDate)!.end
 		let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit)
-		return DateInRegion(absoluteDate: endOfThisUnit, in: self.region.copy())
+		return DateInRegion(absoluteDate: endOfThisUnit, in: self.region)
 	}
 	
 	
@@ -436,7 +436,7 @@ extension DateInRegion {
 		guard let newDate = self.region.calendar.date(bySettingHour: hour, minute: minute, second: second, of: self.absoluteDate) else {
 			throw DateError.FailedToCalculate
 		}
-		return DateInRegion(absoluteDate: newDate, in: self.region.copy())
+		return DateInRegion(absoluteDate: newDate, in: self.region)
 	}
 
 	
@@ -453,7 +453,7 @@ extension DateInRegion {
 		guard let newDate = self.region.calendar.date(bySetting: unit, value: value, of: self.absoluteDate) else {
 			throw DateError.FailedToCalculate
 		}
-		return DateInRegion(absoluteDate: newDate, in: self.region.copy())
+		return DateInRegion(absoluteDate: newDate, in: self.region)
 	}
 	
 	
@@ -476,7 +476,7 @@ extension DateInRegion {
 				calculatedDate = newDate
 			}
 		}
-		return DateInRegion(absoluteDate: calculatedDate, in: self.region.copy())
+		return DateInRegion(absoluteDate: calculatedDate, in: self.region)
 	}
 	
 	

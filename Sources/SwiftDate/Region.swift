@@ -77,12 +77,6 @@ public struct Region: CustomStringConvertible {
 		self.init(tz: tz, cal: cal, loc: loc)
 	}
 	
-	public func copy() -> Region {
-		let selfCopy = Region(tz: self.timeZone, cal: self.calendar, loc: self.locale)
-		return selfCopy
-	}
-	
-	
 	/// Generate a new region which uses `GMT` timezone and current's device `Calendar` and `Locale`
 	///
 	/// - returns: a new `Region`

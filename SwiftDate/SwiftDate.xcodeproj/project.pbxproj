@@ -9,99 +9,100 @@
 /* Begin PBXBuildFile section */
 		080BA3571D95AB32008B60B4 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; };
 		080BA3581D95AB39008B60B4 /* SwiftDate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		083DBDEB1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */; };
-		083DBDEC1D8F078300F38B5F /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */; };
-		083DBDEE1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */; };
+		08209C9B1DA041830016B271 /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08209C971DA041830016B271 /* TestDateInRegion.swift */; };
+		08209C9C1DA041830016B271 /* TestDateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08209C981DA041830016B271 /* TestDateInRegion+Compare.swift */; };
+		08209C9D1DA041830016B271 /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08209C991DA041830016B271 /* TestDateInRegion+Components.swift */; };
+		08209C9E1DA041830016B271 /* TestDateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08209C9A1DA041830016B271 /* TestDateInRegion+Formatter.swift */; };
 		0871645C1D95AF0D0007E55D /* SwiftDate-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 080BA3601D95AC87008B60B4 /* SwiftDate-macOS.h */; };
 		0871645D1D95AF100007E55D /* SwiftDate-watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9D81D9298A900F65854 /* SwiftDate-watchOS.h */; };
 		0871645E1D95AF130007E55D /* SwiftDate-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9F81D929F2600F65854 /* SwiftDate-tvOS.h */; };
 		0871645F1D95AF330007E55D /* SwiftDate-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C3010E1D829C8B00B0E02C /* SwiftDate-iOS.h */; };
-		08CB33081D9D89E20064230B /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33031D9D89E20064230B /* DateInRegion.swift */; };
-		08CB33091D9D89E20064230B /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33031D9D89E20064230B /* DateInRegion.swift */; };
-		08CB330A1D9D89E20064230B /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33031D9D89E20064230B /* DateInRegion.swift */; };
-		08CB330B1D9D89E20064230B /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33031D9D89E20064230B /* DateInRegion.swift */; };
-		08CB330C1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33041D9D89E20064230B /* DateInRegion+Compare.swift */; };
-		08CB330D1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33041D9D89E20064230B /* DateInRegion+Compare.swift */; };
-		08CB330E1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33041D9D89E20064230B /* DateInRegion+Compare.swift */; };
-		08CB330F1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33041D9D89E20064230B /* DateInRegion+Compare.swift */; };
-		08CB33101D9D89E20064230B /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33051D9D89E20064230B /* DateInRegion+Components.swift */; };
-		08CB33111D9D89E20064230B /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33051D9D89E20064230B /* DateInRegion+Components.swift */; };
-		08CB33121D9D89E20064230B /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33051D9D89E20064230B /* DateInRegion+Components.swift */; };
-		08CB33131D9D89E20064230B /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33051D9D89E20064230B /* DateInRegion+Components.swift */; };
-		08CB33141D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33061D9D89E20064230B /* DateInRegion+Formatter.swift */; };
-		08CB33151D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33061D9D89E20064230B /* DateInRegion+Formatter.swift */; };
-		08CB33161D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33061D9D89E20064230B /* DateInRegion+Formatter.swift */; };
-		08CB33171D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33061D9D89E20064230B /* DateInRegion+Formatter.swift */; };
-		08CB33181D9D89E20064230B /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33071D9D89E20064230B /* DateInRegion+Math.swift */; };
-		08CB33191D9D89E20064230B /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33071D9D89E20064230B /* DateInRegion+Math.swift */; };
-		08CB331A1D9D89E20064230B /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33071D9D89E20064230B /* DateInRegion+Math.swift */; };
-		08CB331B1D9D89E20064230B /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33071D9D89E20064230B /* DateInRegion+Math.swift */; };
-		08CB33201D9D89F30064230B /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331C1D9D89F30064230B /* Date+Compare.swift */; };
-		08CB33211D9D89F30064230B /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331C1D9D89F30064230B /* Date+Compare.swift */; };
-		08CB33221D9D89F30064230B /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331C1D9D89F30064230B /* Date+Compare.swift */; };
-		08CB33231D9D89F30064230B /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331C1D9D89F30064230B /* Date+Compare.swift */; };
-		08CB33241D9D89F30064230B /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331D1D9D89F30064230B /* Date+Components.swift */; };
-		08CB33251D9D89F30064230B /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331D1D9D89F30064230B /* Date+Components.swift */; };
-		08CB33261D9D89F30064230B /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331D1D9D89F30064230B /* Date+Components.swift */; };
-		08CB33271D9D89F30064230B /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331D1D9D89F30064230B /* Date+Components.swift */; };
-		08CB33281D9D89F30064230B /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331E1D9D89F30064230B /* Date+Formatter.swift */; };
-		08CB33291D9D89F30064230B /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331E1D9D89F30064230B /* Date+Formatter.swift */; };
-		08CB332A1D9D89F30064230B /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331E1D9D89F30064230B /* Date+Formatter.swift */; };
-		08CB332B1D9D89F30064230B /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331E1D9D89F30064230B /* Date+Formatter.swift */; };
-		08CB332C1D9D89F30064230B /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331F1D9D89F30064230B /* Date+Math.swift */; };
-		08CB332D1D9D89F30064230B /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331F1D9D89F30064230B /* Date+Math.swift */; };
-		08CB332E1D9D89F30064230B /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331F1D9D89F30064230B /* Date+Math.swift */; };
-		08CB332F1D9D89F30064230B /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB331F1D9D89F30064230B /* Date+Math.swift */; };
-		08CB33321D9D8A0F0064230B /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33301D9D8A0F0064230B /* Commons.swift */; };
-		08CB33331D9D8A0F0064230B /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33301D9D8A0F0064230B /* Commons.swift */; };
-		08CB33341D9D8A0F0064230B /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33301D9D8A0F0064230B /* Commons.swift */; };
-		08CB33351D9D8A0F0064230B /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33301D9D8A0F0064230B /* Commons.swift */; };
-		08CB33361D9D8A0F0064230B /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CB33311D9D8A0F0064230B /* SwiftDate.bundle */; };
-		08CB33371D9D8A0F0064230B /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CB33311D9D8A0F0064230B /* SwiftDate.bundle */; };
-		08CB33381D9D8A0F0064230B /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CB33311D9D8A0F0064230B /* SwiftDate.bundle */; };
-		08CB33391D9D8A0F0064230B /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08CB33311D9D8A0F0064230B /* SwiftDate.bundle */; };
-		08CB333C1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333A1D9D8A260064230B /* DateInRegionFormatter.swift */; };
-		08CB333D1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333A1D9D8A260064230B /* DateInRegionFormatter.swift */; };
-		08CB333E1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333A1D9D8A260064230B /* DateInRegionFormatter.swift */; };
-		08CB333F1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333A1D9D8A260064230B /* DateInRegionFormatter.swift */; };
-		08CB33401D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333B1D9D8A260064230B /* ISO8601DateTimeFormatter.swift */; };
-		08CB33411D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333B1D9D8A260064230B /* ISO8601DateTimeFormatter.swift */; };
-		08CB33421D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333B1D9D8A260064230B /* ISO8601DateTimeFormatter.swift */; };
-		08CB33431D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB333B1D9D8A260064230B /* ISO8601DateTimeFormatter.swift */; };
-		08CB33461D9D8A430064230B /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33441D9D8A430064230B /* DateTimeInterval.swift */; };
-		08CB33471D9D8A430064230B /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33441D9D8A430064230B /* DateTimeInterval.swift */; };
-		08CB33481D9D8A430064230B /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33441D9D8A430064230B /* DateTimeInterval.swift */; };
-		08CB33491D9D8A430064230B /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33441D9D8A430064230B /* DateTimeInterval.swift */; };
-		08CB334A1D9D8A430064230B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33451D9D8A430064230B /* Region.swift */; };
-		08CB334B1D9D8A430064230B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33451D9D8A430064230B /* Region.swift */; };
-		08CB334C1D9D8A430064230B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33451D9D8A430064230B /* Region.swift */; };
-		08CB334D1D9D8A430064230B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33451D9D8A430064230B /* Region.swift */; };
-		08CB33511D9D8A600064230B /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334E1D9D8A600064230B /* DateComponents+Extension.swift */; };
-		08CB33521D9D8A600064230B /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334E1D9D8A600064230B /* DateComponents+Extension.swift */; };
-		08CB33531D9D8A600064230B /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334E1D9D8A600064230B /* DateComponents+Extension.swift */; };
-		08CB33541D9D8A600064230B /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334E1D9D8A600064230B /* DateComponents+Extension.swift */; };
-		08CB33551D9D8A600064230B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334F1D9D8A600064230B /* Extensions.swift */; };
-		08CB33561D9D8A600064230B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334F1D9D8A600064230B /* Extensions.swift */; };
-		08CB33571D9D8A600064230B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334F1D9D8A600064230B /* Extensions.swift */; };
-		08CB33581D9D8A600064230B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB334F1D9D8A600064230B /* Extensions.swift */; };
-		08CB33591D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33501D9D8A600064230B /* TimeInterval+Extensions.swift */; };
-		08CB335A1D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33501D9D8A600064230B /* TimeInterval+Extensions.swift */; };
-		08CB335B1D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33501D9D8A600064230B /* TimeInterval+Extensions.swift */; };
-		08CB335C1D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB33501D9D8A600064230B /* TimeInterval+Extensions.swift */; };
-		08CB33601D9D8A750064230B /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335D1D9D8A750064230B /* CalendarName.swift */; };
-		08CB33611D9D8A750064230B /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335D1D9D8A750064230B /* CalendarName.swift */; };
-		08CB33621D9D8A750064230B /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335D1D9D8A750064230B /* CalendarName.swift */; };
-		08CB33631D9D8A750064230B /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335D1D9D8A750064230B /* CalendarName.swift */; };
-		08CB33641D9D8A750064230B /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335E1D9D8A750064230B /* LocaleName.swift */; };
-		08CB33651D9D8A750064230B /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335E1D9D8A750064230B /* LocaleName.swift */; };
-		08CB33661D9D8A750064230B /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335E1D9D8A750064230B /* LocaleName.swift */; };
-		08CB33671D9D8A750064230B /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335E1D9D8A750064230B /* LocaleName.swift */; };
-		08CB33681D9D8A750064230B /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335F1D9D8A750064230B /* TimeZoneName.swift */; };
-		08CB33691D9D8A750064230B /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335F1D9D8A750064230B /* TimeZoneName.swift */; };
-		08CB336A1D9D8A750064230B /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335F1D9D8A750064230B /* TimeZoneName.swift */; };
-		08CB336B1D9D8A750064230B /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB335F1D9D8A750064230B /* TimeZoneName.swift */; };
-		2149832B1D8C49E1001E72EC /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2149832A1D8C49E1001E72EC /* TestDateInRegion+Components.swift */; };
-		21C301151D829C8B00B0E02C /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; };
+		08E956001DA040060035D9F7 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; };
+		08E956021DA040170035D9F7 /* SwiftDate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		08EC226A1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */; };
+		08EC226B1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */; };
+		08EC226C1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */; };
+		08EC226D1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */; };
+		08EC226E1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */; };
+		08EC226F1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */; };
+		08EC22701DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */; };
+		08EC22711DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */; };
+		08EC22721DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */; };
+		08EC22731DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */; };
+		08EC22741DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */; };
+		08EC22751DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */; };
+		08EC22761DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22681DA03DE700B6DFC6 /* DateInRegion+Formatter.swift */; };
+		08EC22771DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22681DA03DE700B6DFC6 /* DateInRegion+Formatter.swift */; };
+		08EC22781DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22681DA03DE700B6DFC6 /* DateInRegion+Formatter.swift */; };
+		08EC22791DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22681DA03DE700B6DFC6 /* DateInRegion+Formatter.swift */; };
+		08EC227A1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22691DA03DE700B6DFC6 /* DateInRegion+Math.swift */; };
+		08EC227B1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22691DA03DE700B6DFC6 /* DateInRegion+Math.swift */; };
+		08EC227C1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22691DA03DE700B6DFC6 /* DateInRegion+Math.swift */; };
+		08EC227D1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22691DA03DE700B6DFC6 /* DateInRegion+Math.swift */; };
+		08EC22821DA03DF200B6DFC6 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227E1DA03DF200B6DFC6 /* Date+Compare.swift */; };
+		08EC22831DA03DF200B6DFC6 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227E1DA03DF200B6DFC6 /* Date+Compare.swift */; };
+		08EC22841DA03DF200B6DFC6 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227E1DA03DF200B6DFC6 /* Date+Compare.swift */; };
+		08EC22851DA03DF200B6DFC6 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227E1DA03DF200B6DFC6 /* Date+Compare.swift */; };
+		08EC22861DA03DF200B6DFC6 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227F1DA03DF200B6DFC6 /* Date+Components.swift */; };
+		08EC22871DA03DF200B6DFC6 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227F1DA03DF200B6DFC6 /* Date+Components.swift */; };
+		08EC22881DA03DF200B6DFC6 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227F1DA03DF200B6DFC6 /* Date+Components.swift */; };
+		08EC22891DA03DF200B6DFC6 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC227F1DA03DF200B6DFC6 /* Date+Components.swift */; };
+		08EC228A1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22801DA03DF200B6DFC6 /* Date+Formatter.swift */; };
+		08EC228B1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22801DA03DF200B6DFC6 /* Date+Formatter.swift */; };
+		08EC228C1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22801DA03DF200B6DFC6 /* Date+Formatter.swift */; };
+		08EC228D1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22801DA03DF200B6DFC6 /* Date+Formatter.swift */; };
+		08EC228E1DA03DF200B6DFC6 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22811DA03DF200B6DFC6 /* Date+Math.swift */; };
+		08EC228F1DA03DF200B6DFC6 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22811DA03DF200B6DFC6 /* Date+Math.swift */; };
+		08EC22901DA03DF200B6DFC6 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22811DA03DF200B6DFC6 /* Date+Math.swift */; };
+		08EC22911DA03DF200B6DFC6 /* Date+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22811DA03DF200B6DFC6 /* Date+Math.swift */; };
+		08EC22941DA03E0B00B6DFC6 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22921DA03E0B00B6DFC6 /* Commons.swift */; };
+		08EC22951DA03E0B00B6DFC6 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22921DA03E0B00B6DFC6 /* Commons.swift */; };
+		08EC22961DA03E0B00B6DFC6 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22921DA03E0B00B6DFC6 /* Commons.swift */; };
+		08EC22971DA03E0B00B6DFC6 /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22921DA03E0B00B6DFC6 /* Commons.swift */; };
+		08EC22981DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08EC22931DA03E0B00B6DFC6 /* SwiftDate.bundle */; };
+		08EC22991DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08EC22931DA03E0B00B6DFC6 /* SwiftDate.bundle */; };
+		08EC229A1DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08EC22931DA03E0B00B6DFC6 /* SwiftDate.bundle */; };
+		08EC229B1DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08EC22931DA03E0B00B6DFC6 /* SwiftDate.bundle */; };
+		08EC229E1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */; };
+		08EC229F1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */; };
+		08EC22A01DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */; };
+		08EC22A11DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */; };
+		08EC22A21DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */; };
+		08EC22A31DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */; };
+		08EC22A41DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */; };
+		08EC22A51DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */; };
+		08EC22A81DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A61DA03E4900B6DFC6 /* DateTimeInterval.swift */; };
+		08EC22A91DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A61DA03E4900B6DFC6 /* DateTimeInterval.swift */; };
+		08EC22AA1DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A61DA03E4900B6DFC6 /* DateTimeInterval.swift */; };
+		08EC22AB1DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A61DA03E4900B6DFC6 /* DateTimeInterval.swift */; };
+		08EC22AC1DA03E4900B6DFC6 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A71DA03E4900B6DFC6 /* Region.swift */; };
+		08EC22AD1DA03E4900B6DFC6 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A71DA03E4900B6DFC6 /* Region.swift */; };
+		08EC22AE1DA03E4900B6DFC6 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A71DA03E4900B6DFC6 /* Region.swift */; };
+		08EC22AF1DA03E4900B6DFC6 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22A71DA03E4900B6DFC6 /* Region.swift */; };
+		08EC22B31DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */; };
+		08EC22B41DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */; };
+		08EC22B51DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */; };
+		08EC22B61DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */; };
+		08EC22B71DA03E5C00B6DFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */; };
+		08EC22B81DA03E5C00B6DFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */; };
+		08EC22B91DA03E5C00B6DFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */; };
+		08EC22BA1DA03E5C00B6DFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */; };
+		08EC22BB1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */; };
+		08EC22BC1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */; };
+		08EC22BD1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */; };
+		08EC22BE1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */; };
+		08EC22C21DA03E6600B6DFC6 /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */; };
+		08EC22C31DA03E6600B6DFC6 /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */; };
+		08EC22C41DA03E6600B6DFC6 /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */; };
+		08EC22C51DA03E6600B6DFC6 /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */; };
+		08EC22C61DA03E6600B6DFC6 /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */; };
+		08EC22C71DA03E6600B6DFC6 /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */; };
+		08EC22C81DA03E6600B6DFC6 /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */; };
+		08EC22C91DA03E6600B6DFC6 /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */; };
+		08EC22CA1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
+		08EC22CB1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
+		08EC22CC1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
+		08EC22CD1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
 		21C3012E1D829D7900B0E02C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012D1D829D7900B0E02C /* AppDelegate.swift */; };
 		21C301301D829D7900B0E02C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012F1D829D7900B0E02C /* ViewController.swift */; };
 		21C301331D829D7900B0E02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C301311D829D7900B0E02C /* Main.storyboard */; };
@@ -117,12 +118,12 @@
 			remoteGlobalIDString = 21C3010A1D829C8B00B0E02C;
 			remoteInfo = SwiftDate_iOS;
 		};
-		21C301161D829C8B00B0E02C /* PBXContainerItemProxy */ = {
+		08E955FE1DA040010035D9F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21C301021D829C8B00B0E02C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21C3010A1D829C8B00B0E02C;
-			remoteInfo = SwiftDate;
+			remoteInfo = SwiftDate_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -134,6 +135,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				080BA3581D95AB39008B60B4 /* SwiftDate.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E956011DA0400A0035D9F7 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				08E956021DA040170035D9F7 /* SwiftDate.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,36 +162,36 @@
 		0812F9F61D929F2600F65854 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0812F9F81D929F2600F65854 /* SwiftDate-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDate-tvOS.h"; sourceTree = "<group>"; };
 		0812F9F91D929F2600F65854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Compare.swift"; sourceTree = "<group>"; };
-		083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Formatter.swift"; sourceTree = "<group>"; };
-		08CB33031D9D89E20064230B /* DateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = ../../src/DateInRegion/DateInRegion.swift; sourceTree = "<group>"; };
-		08CB33041D9D89E20064230B /* DateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Compare.swift"; path = "../../src/DateInRegion/DateInRegion+Compare.swift"; sourceTree = "<group>"; };
-		08CB33051D9D89E20064230B /* DateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "../../src/DateInRegion/DateInRegion+Components.swift"; sourceTree = "<group>"; };
-		08CB33061D9D89E20064230B /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "../../src/DateInRegion/DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
-		08CB33071D9D89E20064230B /* DateInRegion+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Math.swift"; path = "../../src/DateInRegion/DateInRegion+Math.swift"; sourceTree = "<group>"; };
-		08CB331C1D9D89F30064230B /* Date+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Compare.swift"; path = "../../src/Date/Date+Compare.swift"; sourceTree = "<group>"; };
-		08CB331D1D9D89F30064230B /* Date+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Components.swift"; path = "../../src/Date/Date+Components.swift"; sourceTree = "<group>"; };
-		08CB331E1D9D89F30064230B /* Date+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Formatter.swift"; path = "../../src/Date/Date+Formatter.swift"; sourceTree = "<group>"; };
-		08CB331F1D9D89F30064230B /* Date+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Math.swift"; path = "../../src/Date/Date+Math.swift"; sourceTree = "<group>"; };
-		08CB33301D9D8A0F0064230B /* Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commons.swift; path = ../../src/Support/Commons.swift; sourceTree = "<group>"; };
-		08CB33311D9D8A0F0064230B /* SwiftDate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftDate.bundle; path = ../../src/Support/SwiftDate.bundle; sourceTree = "<group>"; };
-		08CB333A1D9D8A260064230B /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = ../../src/Support/Formatters/DateInRegionFormatter.swift; sourceTree = "<group>"; };
-		08CB333B1D9D8A260064230B /* ISO8601DateTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601DateTimeFormatter.swift; path = ../../src/Support/Formatters/ISO8601DateTimeFormatter.swift; sourceTree = "<group>"; };
-		08CB33441D9D8A430064230B /* DateTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeInterval.swift; path = ../../src/Support/Additional_Structures/DateTimeInterval.swift; sourceTree = "<group>"; };
-		08CB33451D9D8A430064230B /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = ../../src/Support/Additional_Structures/Region.swift; sourceTree = "<group>"; };
-		08CB334E1D9D8A600064230B /* DateComponents+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateComponents+Extension.swift"; path = "../../src/Support/Foundation_Extensions/DateComponents+Extension.swift"; sourceTree = "<group>"; };
-		08CB334F1D9D8A600064230B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../src/Support/Foundation_Extensions/Extensions.swift; sourceTree = "<group>"; };
-		08CB33501D9D8A600064230B /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Extensions.swift"; path = "../../src/Support/Foundation_Extensions/TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
-		08CB335D1D9D8A750064230B /* CalendarName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarName.swift; path = ../../src/Shortcuts/CalendarName.swift; sourceTree = "<group>"; };
-		08CB335E1D9D8A750064230B /* LocaleName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocaleName.swift; path = ../../src/Shortcuts/LocaleName.swift; sourceTree = "<group>"; };
-		08CB335F1D9D8A750064230B /* TimeZoneName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZoneName.swift; path = ../../src/Shortcuts/TimeZoneName.swift; sourceTree = "<group>"; };
-		2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDateInRegion.swift; sourceTree = "<group>"; };
-		2149832A1D8C49E1001E72EC /* TestDateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Components.swift"; sourceTree = "<group>"; };
+		08209C971DA041830016B271 /* TestDateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDateInRegion.swift; path = ../../Tests/SwiftDateTests/TestDateInRegion.swift; sourceTree = "<group>"; };
+		08209C981DA041830016B271 /* TestDateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TestDateInRegion+Compare.swift"; path = "../../Tests/SwiftDateTests/TestDateInRegion+Compare.swift"; sourceTree = "<group>"; };
+		08209C991DA041830016B271 /* TestDateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TestDateInRegion+Components.swift"; path = "../../Tests/SwiftDateTests/TestDateInRegion+Components.swift"; sourceTree = "<group>"; };
+		08209C9A1DA041830016B271 /* TestDateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TestDateInRegion+Formatter.swift"; path = "../../Tests/SwiftDateTests/TestDateInRegion+Formatter.swift"; sourceTree = "<group>"; };
+		08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = ../../Sources/SwiftDate/DateInRegion.swift; sourceTree = "<group>"; };
+		08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Compare.swift"; path = "../../Sources/SwiftDate/DateInRegion+Compare.swift"; sourceTree = "<group>"; };
+		08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "../../Sources/SwiftDate/DateInRegion+Components.swift"; sourceTree = "<group>"; };
+		08EC22681DA03DE700B6DFC6 /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "../../Sources/SwiftDate/DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
+		08EC22691DA03DE700B6DFC6 /* DateInRegion+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Math.swift"; path = "../../Sources/SwiftDate/DateInRegion+Math.swift"; sourceTree = "<group>"; };
+		08EC227E1DA03DF200B6DFC6 /* Date+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Compare.swift"; path = "../../Sources/SwiftDate/Date+Compare.swift"; sourceTree = "<group>"; };
+		08EC227F1DA03DF200B6DFC6 /* Date+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Components.swift"; path = "../../Sources/SwiftDate/Date+Components.swift"; sourceTree = "<group>"; };
+		08EC22801DA03DF200B6DFC6 /* Date+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Formatter.swift"; path = "../../Sources/SwiftDate/Date+Formatter.swift"; sourceTree = "<group>"; };
+		08EC22811DA03DF200B6DFC6 /* Date+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Math.swift"; path = "../../Sources/SwiftDate/Date+Math.swift"; sourceTree = "<group>"; };
+		08EC22921DA03E0B00B6DFC6 /* Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commons.swift; path = ../../Sources/SwiftDate/Commons.swift; sourceTree = "<group>"; };
+		08EC22931DA03E0B00B6DFC6 /* SwiftDate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftDate.bundle; path = ../../Sources/SwiftDate/SwiftDate.bundle; sourceTree = "<group>"; };
+		08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = ../../Sources/SwiftDate/DateInRegionFormatter.swift; sourceTree = "<group>"; };
+		08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601DateTimeFormatter.swift; path = ../../Sources/SwiftDate/ISO8601DateTimeFormatter.swift; sourceTree = "<group>"; };
+		08EC22A61DA03E4900B6DFC6 /* DateTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeInterval.swift; path = ../../Sources/SwiftDate/DateTimeInterval.swift; sourceTree = "<group>"; };
+		08EC22A71DA03E4900B6DFC6 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = ../../Sources/SwiftDate/Region.swift; sourceTree = "<group>"; };
+		08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateComponents+Extension.swift"; path = "../../Sources/SwiftDate/DateComponents+Extension.swift"; sourceTree = "<group>"; };
+		08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../Sources/SwiftDate/Extensions.swift; sourceTree = "<group>"; };
+		08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+Extensions.swift"; path = "../../Sources/SwiftDate/TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarName.swift; path = ../../Sources/SwiftDate/CalendarName.swift; sourceTree = "<group>"; };
+		08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocaleName.swift; path = ../../Sources/SwiftDate/LocaleName.swift; sourceTree = "<group>"; };
+		08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZoneName.swift; path = ../../Sources/SwiftDate/TimeZoneName.swift; sourceTree = "<group>"; };
+		08EC22EF1DA03F9D00B6DFC6 /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08EC22F31DA03F9D00B6DFC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C3010B1D829C8B00B0E02C /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3010E1D829C8B00B0E02C /* SwiftDate-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftDate-iOS.h"; path = "SwiftDate/SwiftDate-iOS.h"; sourceTree = "<group>"; };
 		21C3010F1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftDate/Info.plist; sourceTree = "<group>"; };
-		21C301141D829C8B00B0E02C /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21C3011B1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C3012B1D829D7900B0E02C /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3012D1D829D7900B0E02C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C3012F1D829D7900B0E02C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -211,18 +223,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08EC22EC1DA03F9D00B6DFC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E956001DA040060035D9F7 /* SwiftDate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C301071D829C8B00B0E02C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		21C301111D829C8B00B0E02C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				21C301151D829C8B00B0E02C /* SwiftDate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,27 +302,27 @@
 		084579811D9542C9003A80A2 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				08CB333A1D9D8A260064230B /* DateInRegionFormatter.swift */,
-				08CB333B1D9D8A260064230B /* ISO8601DateTimeFormatter.swift */,
+				08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */,
+				08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */,
 			);
 			name = Formatters;
 			sourceTree = "<group>";
 		};
-		084579821D9542D2003A80A2 /* Additional Structures */ = {
+		084579821D9542D2003A80A2 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				08CB33441D9D8A430064230B /* DateTimeInterval.swift */,
-				08CB33451D9D8A430064230B /* Region.swift */,
+				08EC22A61DA03E4900B6DFC6 /* DateTimeInterval.swift */,
+				08EC22A71DA03E4900B6DFC6 /* Region.swift */,
 			);
-			name = "Additional Structures";
+			name = Structures;
 			sourceTree = "<group>";
 		};
 		084579831D9542DC003A80A2 /* Foundation Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				08CB334E1D9D8A600064230B /* DateComponents+Extension.swift */,
-				08CB334F1D9D8A600064230B /* Extensions.swift */,
-				08CB33501D9D8A600064230B /* TimeInterval+Extensions.swift */,
+				08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */,
+				08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */,
+				08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */,
 			);
 			name = "Foundation Extensions";
 			sourceTree = "<group>";
@@ -318,20 +330,33 @@
 		084579841D9542E7003A80A2 /* Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
-				08CB335D1D9D8A750064230B /* CalendarName.swift */,
-				08CB335E1D9D8A750064230B /* LocaleName.swift */,
-				08CB335F1D9D8A750064230B /* TimeZoneName.swift */,
+				08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */,
+				08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */,
+				08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */,
 			);
 			name = Shortcuts;
+			sourceTree = "<group>";
+		};
+		08EC22F01DA03F9D00B6DFC6 /* Unit Test Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				08209C971DA041830016B271 /* TestDateInRegion.swift */,
+				08209C981DA041830016B271 /* TestDateInRegion+Compare.swift */,
+				08209C991DA041830016B271 /* TestDateInRegion+Components.swift */,
+				08209C9A1DA041830016B271 /* TestDateInRegion+Formatter.swift */,
+				08EC22F31DA03F9D00B6DFC6 /* Info.plist */,
+			);
+			name = "Unit Test Bundle";
+			path = SwiftDateTests;
 			sourceTree = "<group>";
 		};
 		2128384F1D8358B700DA70EA /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				08CB33301D9D8A0F0064230B /* Commons.swift */,
-				08CB33311D9D8A0F0064230B /* SwiftDate.bundle */,
+				08EC22921DA03E0B00B6DFC6 /* Commons.swift */,
+				08EC22931DA03E0B00B6DFC6 /* SwiftDate.bundle */,
 				084579811D9542C9003A80A2 /* Formatters */,
-				084579821D9542D2003A80A2 /* Additional Structures */,
+				084579821D9542D2003A80A2 /* Structures */,
 				084579831D9542DC003A80A2 /* Foundation Extensions */,
 				084579841D9542E7003A80A2 /* Shortcuts */,
 			);
@@ -341,10 +366,10 @@
 		215D34C41D855BF100ECC8A5 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				08CB331C1D9D89F30064230B /* Date+Compare.swift */,
-				08CB331D1D9D89F30064230B /* Date+Components.swift */,
-				08CB331E1D9D89F30064230B /* Date+Formatter.swift */,
-				08CB331F1D9D89F30064230B /* Date+Math.swift */,
+				08EC227E1DA03DF200B6DFC6 /* Date+Compare.swift */,
+				08EC227F1DA03DF200B6DFC6 /* Date+Components.swift */,
+				08EC22801DA03DF200B6DFC6 /* Date+Formatter.swift */,
+				08EC22811DA03DF200B6DFC6 /* Date+Math.swift */,
 			);
 			name = Date;
 			sourceTree = "<group>";
@@ -352,11 +377,11 @@
 		215D34C51D855BF700ECC8A5 /* DateInRegion */ = {
 			isa = PBXGroup;
 			children = (
-				08CB33031D9D89E20064230B /* DateInRegion.swift */,
-				08CB33041D9D89E20064230B /* DateInRegion+Compare.swift */,
-				08CB33051D9D89E20064230B /* DateInRegion+Components.swift */,
-				08CB33061D9D89E20064230B /* DateInRegion+Formatter.swift */,
-				08CB33071D9D89E20064230B /* DateInRegion+Math.swift */,
+				08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */,
+				08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */,
+				08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */,
+				08EC22681DA03DE700B6DFC6 /* DateInRegion+Formatter.swift */,
+				08EC22691DA03DE700B6DFC6 /* DateInRegion+Math.swift */,
 			);
 			name = DateInRegion;
 			sourceTree = "<group>";
@@ -364,10 +389,10 @@
 		21C301011D829C8B00B0E02C = {
 			isa = PBXGroup;
 			children = (
-				21C3010D1D829C8B00B0E02C /* SwiftDate Core Library */,
-				21C301181D829C8B00B0E02C /* SwiftDate Unit Tests */,
+				21C3010D1D829C8B00B0E02C /* SwiftDate Library */,
+				08EC22F01DA03F9D00B6DFC6 /* Unit Test Bundle */,
+				21C3012C1D829D7900B0E02C /* Sample Demo Application */,
 				0812FA111D929FD300F65854 /* Platforms Builds */,
-				21C3012C1D829D7900B0E02C /* Demo Application */,
 				21C3010C1D829C8B00B0E02C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -376,40 +401,27 @@
 			isa = PBXGroup;
 			children = (
 				21C3010B1D829C8B00B0E02C /* SwiftDate.framework */,
-				21C301141D829C8B00B0E02C /* SwiftDateTests.xctest */,
 				21C3012B1D829D7900B0E02C /* DemoApp.app */,
 				0812F9D61D9298A900F65854 /* SwiftDate.framework */,
 				0812F9F61D929F2600F65854 /* SwiftDate.framework */,
 				080BA35E1D95AC87008B60B4 /* SwiftDate.framework */,
+				08EC22EF1DA03F9D00B6DFC6 /* SwiftDateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21C3010D1D829C8B00B0E02C /* SwiftDate Core Library */ = {
+		21C3010D1D829C8B00B0E02C /* SwiftDate Library */ = {
 			isa = PBXGroup;
 			children = (
 				215D34C51D855BF700ECC8A5 /* DateInRegion */,
 				215D34C41D855BF100ECC8A5 /* Date */,
 				2128384F1D8358B700DA70EA /* Supports */,
 			);
-			name = "SwiftDate Core Library";
+			name = "SwiftDate Library";
 			path = SwiftDate;
 			sourceTree = "<group>";
 		};
-		21C301181D829C8B00B0E02C /* SwiftDate Unit Tests */ = {
-			isa = PBXGroup;
-			children = (
-				2126CA8A1D880A57006BEC94 /* TestDateInRegion.swift */,
-				2149832A1D8C49E1001E72EC /* TestDateInRegion+Components.swift */,
-				083DBDEA1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift */,
-				083DBDED1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift */,
-				21C3011B1D829C8B00B0E02C /* Info.plist */,
-			);
-			name = "SwiftDate Unit Tests";
-			path = SwiftDateTests;
-			sourceTree = "<group>";
-		};
-		21C3012C1D829D7900B0E02C /* Demo Application */ = {
+		21C3012C1D829D7900B0E02C /* Sample Demo Application */ = {
 			isa = PBXGroup;
 			children = (
 				21C3012D1D829D7900B0E02C /* AppDelegate.swift */,
@@ -419,7 +431,7 @@
 				21C301361D829D7900B0E02C /* LaunchScreen.storyboard */,
 				21C301391D829D7900B0E02C /* Info.plist */,
 			);
-			name = "Demo Application";
+			name = "Sample Demo Application";
 			path = dEMO;
 			sourceTree = "<group>";
 		};
@@ -515,6 +527,25 @@
 			productReference = 0812F9F61D929F2600F65854 /* SwiftDate.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		08EC22EE1DA03F9D00B6DFC6 /* SwiftDateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08EC22F41DA03F9D00B6DFC6 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */;
+			buildPhases = (
+				08EC22EB1DA03F9D00B6DFC6 /* Sources */,
+				08EC22EC1DA03F9D00B6DFC6 /* Frameworks */,
+				08EC22ED1DA03F9D00B6DFC6 /* Resources */,
+				08E956011DA0400A0035D9F7 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08E955FF1DA040010035D9F7 /* PBXTargetDependency */,
+			);
+			name = SwiftDateTests;
+			productName = SwiftDateTests;
+			productReference = 08EC22EF1DA03F9D00B6DFC6 /* SwiftDateTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		21C3010A1D829C8B00B0E02C /* SwiftDate_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21C3011F1D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDate_iOS" */;
@@ -532,24 +563,6 @@
 			productName = SwiftDate;
 			productReference = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		21C301131D829C8B00B0E02C /* SwiftDateTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 21C301221D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDateTests" */;
-			buildPhases = (
-				21C301101D829C8B00B0E02C /* Sources */,
-				21C301111D829C8B00B0E02C /* Frameworks */,
-				21C301121D829C8B00B0E02C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				21C301171D829C8B00B0E02C /* PBXTargetDependency */,
-			);
-			name = SwiftDateTests;
-			productName = SwiftDateTests;
-			productReference = 21C301141D829C8B00B0E02C /* SwiftDateTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		21C3012A1D829D7900B0E02C /* DemoApp */ = {
 			isa = PBXNativeTarget;
@@ -593,15 +606,16 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					08EC22EE1DA03F9D00B6DFC6 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = E5DU3FA699;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
 					21C3010A1D829C8B00B0E02C = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = E5DU3FA699;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
-					};
-					21C301131D829C8B00B0E02C = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = E5DU3FA699;
 						ProvisioningStyle = Automatic;
 					};
 					21C3012A1D829D7900B0E02C = {
@@ -628,8 +642,8 @@
 				0812F9D51D9298A900F65854 /* SwiftDate_watchOS */,
 				080BA35D1D95AC87008B60B4 /* SwiftDate_macOS */,
 				0812F9F51D929F2600F65854 /* SwiftDate_tvOS */,
-				21C301131D829C8B00B0E02C /* SwiftDateTests */,
 				21C3012A1D829D7900B0E02C /* DemoApp */,
+				08EC22EE1DA03F9D00B6DFC6 /* SwiftDateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -639,7 +653,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB33381D9D8A0F0064230B /* SwiftDate.bundle in Resources */,
+				08EC229A1DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +661,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB33371D9D8A0F0064230B /* SwiftDate.bundle in Resources */,
+				08EC22991DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,7 +669,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB33391D9D8A0F0064230B /* SwiftDate.bundle in Resources */,
+				08EC229B1DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08EC22ED1DA03F9D00B6DFC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,14 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB33361D9D8A0F0064230B /* SwiftDate.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		21C301121D829C8B00B0E02C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				08EC22981DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,26 +705,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB33121D9D89E20064230B /* DateInRegion+Components.swift in Sources */,
-				08CB33531D9D8A600064230B /* DateComponents+Extension.swift in Sources */,
-				08CB33481D9D8A430064230B /* DateTimeInterval.swift in Sources */,
-				08CB330E1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */,
-				08CB33341D9D8A0F0064230B /* Commons.swift in Sources */,
-				08CB333E1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */,
-				08CB33421D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */,
-				08CB330A1D9D89E20064230B /* DateInRegion.swift in Sources */,
-				08CB33621D9D8A750064230B /* CalendarName.swift in Sources */,
-				08CB336A1D9D8A750064230B /* TimeZoneName.swift in Sources */,
-				08CB33261D9D89F30064230B /* Date+Components.swift in Sources */,
-				08CB332A1D9D89F30064230B /* Date+Formatter.swift in Sources */,
-				08CB332E1D9D89F30064230B /* Date+Math.swift in Sources */,
-				08CB335B1D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */,
-				08CB33571D9D8A600064230B /* Extensions.swift in Sources */,
-				08CB33661D9D8A750064230B /* LocaleName.swift in Sources */,
-				08CB331A1D9D89E20064230B /* DateInRegion+Math.swift in Sources */,
-				08CB334C1D9D8A430064230B /* Region.swift in Sources */,
-				08CB33161D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */,
-				08CB33221D9D89F30064230B /* Date+Compare.swift in Sources */,
+				08EC22A01DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
+				08EC22841DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08EC22AE1DA03E4900B6DFC6 /* Region.swift in Sources */,
+				08EC22AA1DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
+				08EC22701DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
+				08EC22741DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
+				08EC22BD1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */,
+				08EC22B91DA03E5C00B6DFC6 /* Extensions.swift in Sources */,
+				08EC22C41DA03E6600B6DFC6 /* CalendarName.swift in Sources */,
+				08EC22CC1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */,
+				08EC22B51DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */,
+				08EC227C1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */,
+				08EC226C1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */,
+				08EC22881DA03DF200B6DFC6 /* Date+Components.swift in Sources */,
+				08EC22961DA03E0B00B6DFC6 /* Commons.swift in Sources */,
+				08EC22C81DA03E6600B6DFC6 /* LocaleName.swift in Sources */,
+				08EC22A41DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */,
+				08EC22901DA03DF200B6DFC6 /* Date+Math.swift in Sources */,
+				08EC228C1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */,
+				08EC22781DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,26 +732,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB333D1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */,
-				08CB33211D9D89F30064230B /* Date+Compare.swift in Sources */,
-				08CB334B1D9D8A430064230B /* Region.swift in Sources */,
-				08CB33471D9D8A430064230B /* DateTimeInterval.swift in Sources */,
-				08CB330D1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */,
-				08CB33111D9D89E20064230B /* DateInRegion+Components.swift in Sources */,
-				08CB335A1D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */,
-				08CB33561D9D8A600064230B /* Extensions.swift in Sources */,
-				08CB33611D9D8A750064230B /* CalendarName.swift in Sources */,
-				08CB33691D9D8A750064230B /* TimeZoneName.swift in Sources */,
-				08CB33521D9D8A600064230B /* DateComponents+Extension.swift in Sources */,
-				08CB33191D9D89E20064230B /* DateInRegion+Math.swift in Sources */,
-				08CB33091D9D89E20064230B /* DateInRegion.swift in Sources */,
-				08CB33251D9D89F30064230B /* Date+Components.swift in Sources */,
-				08CB33411D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */,
-				08CB33651D9D8A750064230B /* LocaleName.swift in Sources */,
-				08CB33331D9D8A0F0064230B /* Commons.swift in Sources */,
-				08CB332D1D9D89F30064230B /* Date+Math.swift in Sources */,
-				08CB33291D9D89F30064230B /* Date+Formatter.swift in Sources */,
-				08CB33151D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */,
+				08EC229F1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
+				08EC22831DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08EC226F1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
+				08EC22AD1DA03E4900B6DFC6 /* Region.swift in Sources */,
+				08EC22A91DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
+				08EC22731DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
+				08EC227B1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */,
+				08EC22BC1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */,
+				08EC22C31DA03E6600B6DFC6 /* CalendarName.swift in Sources */,
+				08EC22CB1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */,
+				08EC22B81DA03E5C00B6DFC6 /* Extensions.swift in Sources */,
+				08EC22B41DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */,
+				08EC226B1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */,
+				08EC22871DA03DF200B6DFC6 /* Date+Components.swift in Sources */,
+				08EC22A31DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */,
+				08EC22C71DA03E6600B6DFC6 /* LocaleName.swift in Sources */,
+				08EC22951DA03E0B00B6DFC6 /* Commons.swift in Sources */,
+				08EC228F1DA03DF200B6DFC6 /* Date+Math.swift in Sources */,
+				08EC228B1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */,
+				08EC22771DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,26 +759,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB333F1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */,
-				08CB33231D9D89F30064230B /* Date+Compare.swift in Sources */,
-				08CB334D1D9D8A430064230B /* Region.swift in Sources */,
-				08CB33491D9D8A430064230B /* DateTimeInterval.swift in Sources */,
-				08CB330F1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */,
-				08CB33131D9D89E20064230B /* DateInRegion+Components.swift in Sources */,
-				08CB335C1D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */,
-				08CB33581D9D8A600064230B /* Extensions.swift in Sources */,
-				08CB33631D9D8A750064230B /* CalendarName.swift in Sources */,
-				08CB336B1D9D8A750064230B /* TimeZoneName.swift in Sources */,
-				08CB33541D9D8A600064230B /* DateComponents+Extension.swift in Sources */,
-				08CB331B1D9D89E20064230B /* DateInRegion+Math.swift in Sources */,
-				08CB330B1D9D89E20064230B /* DateInRegion.swift in Sources */,
-				08CB33271D9D89F30064230B /* Date+Components.swift in Sources */,
-				08CB33431D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */,
-				08CB33671D9D8A750064230B /* LocaleName.swift in Sources */,
-				08CB33351D9D8A0F0064230B /* Commons.swift in Sources */,
-				08CB332F1D9D89F30064230B /* Date+Math.swift in Sources */,
-				08CB332B1D9D89F30064230B /* Date+Formatter.swift in Sources */,
-				08CB33171D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */,
+				08EC22A11DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
+				08EC22851DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08EC22711DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
+				08EC22AF1DA03E4900B6DFC6 /* Region.swift in Sources */,
+				08EC22AB1DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
+				08EC22751DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
+				08EC227D1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */,
+				08EC22BE1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */,
+				08EC22C51DA03E6600B6DFC6 /* CalendarName.swift in Sources */,
+				08EC22CD1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */,
+				08EC22BA1DA03E5C00B6DFC6 /* Extensions.swift in Sources */,
+				08EC22B61DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */,
+				08EC226D1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */,
+				08EC22891DA03DF200B6DFC6 /* Date+Components.swift in Sources */,
+				08EC22A51DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */,
+				08EC22C91DA03E6600B6DFC6 /* LocaleName.swift in Sources */,
+				08EC22971DA03E0B00B6DFC6 /* Commons.swift in Sources */,
+				08EC22911DA03DF200B6DFC6 /* Date+Math.swift in Sources */,
+				08EC228D1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */,
+				08EC22791DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08EC22EB1DA03F9D00B6DFC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08209C9C1DA041830016B271 /* TestDateInRegion+Compare.swift in Sources */,
+				08209C9B1DA041830016B271 /* TestDateInRegion.swift in Sources */,
+				08209C9E1DA041830016B271 /* TestDateInRegion+Formatter.swift in Sources */,
+				08209C9D1DA041830016B271 /* TestDateInRegion+Components.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,37 +797,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CB333C1D9D8A260064230B /* DateInRegionFormatter.swift in Sources */,
-				08CB334A1D9D8A430064230B /* Region.swift in Sources */,
-				08CB33461D9D8A430064230B /* DateTimeInterval.swift in Sources */,
-				08CB33201D9D89F30064230B /* Date+Compare.swift in Sources */,
-				08CB330C1D9D89E20064230B /* DateInRegion+Compare.swift in Sources */,
-				08CB33101D9D89E20064230B /* DateInRegion+Components.swift in Sources */,
-				08CB33591D9D8A600064230B /* TimeInterval+Extensions.swift in Sources */,
-				08CB33551D9D8A600064230B /* Extensions.swift in Sources */,
-				08CB33601D9D8A750064230B /* CalendarName.swift in Sources */,
-				08CB33681D9D8A750064230B /* TimeZoneName.swift in Sources */,
-				08CB33511D9D8A600064230B /* DateComponents+Extension.swift in Sources */,
-				08CB33181D9D89E20064230B /* DateInRegion+Math.swift in Sources */,
-				08CB33081D9D89E20064230B /* DateInRegion.swift in Sources */,
-				08CB33241D9D89F30064230B /* Date+Components.swift in Sources */,
-				08CB33401D9D8A260064230B /* ISO8601DateTimeFormatter.swift in Sources */,
-				08CB33641D9D8A750064230B /* LocaleName.swift in Sources */,
-				08CB33321D9D8A0F0064230B /* Commons.swift in Sources */,
-				08CB332C1D9D89F30064230B /* Date+Math.swift in Sources */,
-				08CB33281D9D89F30064230B /* Date+Formatter.swift in Sources */,
-				08CB33141D9D89E20064230B /* DateInRegion+Formatter.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		21C301101D829C8B00B0E02C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				083DBDEB1D8EF3EA00F38B5F /* TestDateInRegion+Compare.swift in Sources */,
-				083DBDEC1D8F078300F38B5F /* TestDateInRegion.swift in Sources */,
-				083DBDEE1D8F0DE200F38B5F /* TestDateInRegion+Formatter.swift in Sources */,
-				2149832B1D8C49E1001E72EC /* TestDateInRegion+Components.swift in Sources */,
+				08EC229E1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
+				08EC22821DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08EC226E1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
+				08EC22AC1DA03E4900B6DFC6 /* Region.swift in Sources */,
+				08EC22A81DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
+				08EC22721DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
+				08EC227A1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */,
+				08EC22BB1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */,
+				08EC22C21DA03E6600B6DFC6 /* CalendarName.swift in Sources */,
+				08EC22CA1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */,
+				08EC22B71DA03E5C00B6DFC6 /* Extensions.swift in Sources */,
+				08EC22B31DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */,
+				08EC226A1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */,
+				08EC22861DA03DF200B6DFC6 /* Date+Components.swift in Sources */,
+				08EC22A21DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */,
+				08EC22C61DA03E6600B6DFC6 /* LocaleName.swift in Sources */,
+				08EC22941DA03E0B00B6DFC6 /* Commons.swift in Sources */,
+				08EC228E1DA03DF200B6DFC6 /* Date+Math.swift in Sources */,
+				08EC228A1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */,
+				08EC22761DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,10 +837,10 @@
 			target = 21C3010A1D829C8B00B0E02C /* SwiftDate_iOS */;
 			targetProxy = 080BA3551D95AB2E008B60B4 /* PBXContainerItemProxy */;
 		};
-		21C301171D829C8B00B0E02C /* PBXTargetDependency */ = {
+		08E955FF1DA040010035D9F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21C3010A1D829C8B00B0E02C /* SwiftDate_iOS */;
-			targetProxy = 21C301161D829C8B00B0E02C /* PBXContainerItemProxy */;
+			targetProxy = 08E955FE1DA040010035D9F7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -985,6 +999,33 @@
 			};
 			name = Release;
 		};
+		08EC22F51DA03F9D00B6DFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E5DU3FA699;
+				INFOPLIST_FILE = SwiftDateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		08EC22F61DA03F9D00B6DFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E5DU3FA699;
+				INFOPLIST_FILE = SwiftDateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		21C3011D1D829C8B00B0E02C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1129,32 +1170,6 @@
 			};
 			name = Release;
 		};
-		21C301231D829C8B00B0E02C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = E5DU3FA699;
-				INFOPLIST_FILE = SwiftDateTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDateTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		21C301241D829C8B00B0E02C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = E5DU3FA699;
-				INFOPLIST_FILE = SwiftDateTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.danielemargutti.SwiftDateTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		21C3013B1D829D7900B0E02C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1213,6 +1228,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		08EC22F41DA03F9D00B6DFC6 /* Build configuration list for PBXNativeTarget "SwiftDateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08EC22F51DA03F9D00B6DFC6 /* Debug */,
+				08EC22F61DA03F9D00B6DFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		21C301051D829C8B00B0E02C /* Build configuration list for PBXProject "SwiftDate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1227,15 +1251,6 @@
 			buildConfigurations = (
 				21C301201D829C8B00B0E02C /* Debug */,
 				21C301211D829C8B00B0E02C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		21C301221D829C8B00B0E02C /* Build configuration list for PBXNativeTarget "SwiftDateTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				21C301231D829C8B00B0E02C /* Debug */,
-				21C301241D829C8B00B0E02C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

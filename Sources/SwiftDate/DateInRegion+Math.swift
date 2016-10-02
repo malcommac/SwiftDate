@@ -61,7 +61,7 @@ extension DateInRegion {
 
 public func + (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
 	let nextDate = lhs.region.calendar.date(byAdding: rhs, to: lhs.absoluteDate)
-	return DateInRegion(absoluteDate: nextDate!, in: lhs.region.copy())
+	return DateInRegion(absoluteDate: nextDate!, in: lhs.region)
 }
 
 public func - (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {

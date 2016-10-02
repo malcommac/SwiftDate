@@ -86,6 +86,9 @@ public class DateInRegionFormatter {
 	/// printed in the output string. By default is `true`.
 	public var useImminentInterval: Bool = true
 	
+	// If true numbers in timeComponents() function receive a padding if necessary
+	public var zeroPadding: Bool = true
+	
 	/// Locale to use when print the date. By default is the same locale set by receiver's `DateInRegion`.
 	/// If not set default device locale is used instead.
 	public var locale: Locale?
@@ -116,8 +119,10 @@ public class DateInRegionFormatter {
 		}
 		
 		let localeID = locale.collatorIdentifier
-		guard let innerLanguagePath = self.resourceBundle?.path(forResource: localeID, ofType: "lproj") else {
-			return nil
+		guard let innerLanguagePath = self.resourceBundle!.path(forResource: localeID, ofType: "lproj") else {
+			// fallback to english if language was not found
+			let englishPath = self.resourceBundle!.path(forResource: "en", ofType: "lproj")!
+			return Bundle(path: englishPath)
 		}
 		return Bundle(path: innerLanguagePath)
 	}
@@ -135,7 +140,7 @@ public class DateInRegionFormatter {
 		let UTCRegion = Region(tz: TimeZoneName.gmt, cal: CalendarName.current, loc: LocaleName.current)
 		let date = Date()
 		let fromDate = DateInRegion(absoluteDate: date.addingTimeInterval(-interval), in: UTCRegion)
-		let toDate = DateInRegion(absoluteDate: date, in: UTCRegion.copy())
+		let toDate = DateInRegion(absoluteDate: date, in: UTCRegion)
 		return try self.timeComponents(from: fromDate, to: toDate)
 	}
 	
@@ -176,7 +181,6 @@ public class DateInRegionFormatter {
 							(self.zeroBehavior == .dropMiddle)
 			if willDrop == false {
 				var cmp = DateComponents()
-				print(component)
 				cmp.setValue(abs(value!), for: component)
 				let localizedUnit = DateComponentsFormatter.localizedString(from: cmp, unitsStyle: unitStyle)!
 				output.append(localizedUnit)
@@ -251,7 +255,7 @@ public class DateInRegionFormatter {
 			}
 		}
 		
-		if cmp.second != 0 { // Seconds difference
+		if cmp.second != 0 || cmp.second == 0 { // Seconds difference
 			let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 			return (colloquial_date,nil)
 		}

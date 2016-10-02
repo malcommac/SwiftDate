@@ -116,7 +116,7 @@ public extension TimeInterval {
 			formatter!.includesTimeRemainingPhrase = options!.includeTimeRemaining
 			formatter!.allowedUnits = options!.allowedUnits ?? options!.bestAllowedUnits(forInterval: interval)
 		}
-		
+	
 		guard let output = formatter!.string(from: self) else {
 			throw DateError.FailedToCalculate
 		}

@@ -199,6 +199,7 @@ public extension DateInRegion {
 		let interval = self.absoluteDate.timeIntervalSince(date.absoluteDate)
 		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
 		optionsStruct.locale = self.region.locale
+		optionsStruct.allowedUnits = optionsStruct.allowedUnits ?? optionsStruct.bestAllowedUnits(forInterval: interval)
 		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)
 	}
 }

@@ -129,7 +129,7 @@ public struct ComponentsFormatterOptions {
 		case 3600...(86400-1):
 			return [.day,.minute,.second]
 		default: // FIXME: should we support month here
-			return [.year,.month,.day,.second]
+			return [.year,.month,.weekOfMonth,.day,.hour,.minute,.second]
 		}
 	}
 }

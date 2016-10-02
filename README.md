@@ -4,13 +4,12 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 
-We really ❤ Swift and we use it since the beginning.
-
-We also think that dates and timezones management should be painless: this is the reason we made SwiftDate, probability the best way to manage date and time in Swift.
+We really ♥ Swift and we think that dates and timezones management should be painless: this is the reason we made SwiftDate, probability the best way to manage date and time in Swift.
 
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
-## SwiftDate [website is here](http://malcommac.github.io/SwiftDate)
+<p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
+<p align="center" ><h2><a href="http://malcommac.github.io/SwiftDate">SwiftDate website</a></h2></p>
 
 ## Main features
 That's an highlight of the main features you can found in SwiftDate:
@@ -32,7 +31,7 @@ That's an highlight of the main features you can found in SwiftDate:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://malcommac.github.io/SwiftDate/docs-latest/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.2/)**
 
 Code is documented for Xcode, so you can use built in documentation panel to learn more about the library.
 
@@ -45,9 +44,23 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 - If you **have a feature request**, [open an issue](https://github.com/malcommac/SwiftDate/issues/new).
 - If you **want to contribute**, [submit a pull request](https://github.com/malcommac/SwiftDate/compare).
 
+## Current Release
+
+Last release is: 4.0.3 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3) released on Mon, Oct 3, 2016.
+
+A complete list of changes for each release is available in [CHANGELOG](CHANGELOG.md) file.
+
 ## Help Us!
 Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle).
 Help us with a pull request!
+
+Currently SwiftDate supports:
+* English
+* Italian
+* German (made by to [hackolein](https://github.com/hackolein), since 4.0.3)
+* Dutch (made by [hout](https://github.com/Hout))
+
+Make a pull request and add your language!
 
 ## Installation
 

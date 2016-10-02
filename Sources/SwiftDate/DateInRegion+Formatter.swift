@@ -112,7 +112,7 @@ public extension DateInRegion {
 	///
 	/// - returns: colloquial string representation
 	public func colloquialSinceNow() throws -> (colloquial: String, time: String?) {
-		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
+		let now = DateInRegion(absoluteDate: Date(), in: self.region)
 		return try self.colloquial(toDate: now)
 	}
 	
@@ -131,7 +131,6 @@ public extension DateInRegion {
 		return try formatter.colloquial(from: self, to: date)
 	}
 	
-	
 	/// This method produces a string by printing the interval between self and current Date and output a string where each
 	/// calendar component is printed.
 	///
@@ -143,9 +142,25 @@ public extension DateInRegion {
 	/// - throws: throw an exception if time components cannot be evaluated
 	///
 	/// - returns: string with each time component
+	@available(*, deprecated: 4.0.3, message: "Use timeComponentsSinceNow(options:) instead")
 	public func timeComponentsSinceNow(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
-		let now = DateInRegion(absoluteDate: Date(), in: self.region.copy())
+		let now = DateInRegion(absoluteDate: Date(), in: self.region)
 		return try self.timeComponents(toDate: now, unitStyle: unitStyle, max: max, zero: zero, separator: separator)
+	}
+	
+	// This method produces a string by printing the interval between self and current Date and output a string where each
+	/// calendar component is printed.
+	///
+	/// - parameter options: options to format the output. Keep in mind: `.locale` will be overwritten by self's `region.locale`.
+	///
+	/// - throws: throw an exception if time components cannot be evaluated
+	///
+	/// - returns: string with each time component
+	public func timeComponentsSinceNow(options: ComponentsFormatterOptions? = nil) throws -> String {
+		let interval = self.absoluteDate.timeIntervalSinceNow
+		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
+		optionsStruct.locale = self.region.locale
+		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)
 	}
 	
 	/// This method produces a string by printing the interval between self and another date and output a string where each
@@ -160,6 +175,7 @@ public extension DateInRegion {
 	/// - throws: throw an exception if time components cannot be evaluated
 	///
 	/// - returns: string with each time component
+	@available(*, deprecated: 4.0.3, message: "Use timeComponents(toDate:,options:) instead")
 	public func timeComponents(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
 		let formatter = DateInRegionFormatter()
 		formatter.locale = self.region.locale
@@ -168,5 +184,22 @@ public extension DateInRegion {
 		formatter.zeroBehavior = zero ?? .dropAll
 		formatter.unitSeparator = separator ?? ","
 		return try formatter.timeComponents(from: self, to: date)
+	}
+	
+	/// This method produces a string by printing the interval between self and another date and output a string where each
+	/// calendar component is printed.
+	///
+	/// - parameter toDate:	date to compare
+	/// - parameter options: options to format the output. Keep in mind: `.locale` will be overwritten by self's `region.locale`.
+	///
+	/// - throws: throw an exception if time components cannot be evaluated
+	///
+	/// - returns: string with each time component
+	public func timeComponents(toDate date: DateInRegion, options: ComponentsFormatterOptions? = nil) throws -> String {
+		let interval = self.absoluteDate.timeIntervalSince(date.absoluteDate)
+		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
+		optionsStruct.locale = self.region.locale
+		optionsStruct.allowedUnits = optionsStruct.allowedUnits ?? optionsStruct.bestAllowedUnits(forInterval: interval)
+		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)
 	}
 }

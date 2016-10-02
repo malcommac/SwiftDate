@@ -147,7 +147,7 @@ public extension DateComponents {
 		guard let absDate = dateInRegion.region.calendar.date(byAdding: self, to: dateInRegion.absoluteDate) else {
 			return nil
 		}
-		let newDateInRegion = DateInRegion(absoluteDate: absDate, in: dateInRegion.region.copy())
+		let newDateInRegion = DateInRegion(absoluteDate: absDate, in: dateInRegion.region)
 		return newDateInRegion
 	}
 	
@@ -172,7 +172,7 @@ public extension DateComponents {
 		guard let absDate = date.region.calendar.date(byAdding: -self, to: date.absoluteDate) else {
 			return nil
 		}
-		let newDateInRegion = DateInRegion(absoluteDate: absDate, in: date.region.copy())
+		let newDateInRegion = DateInRegion(absoluteDate: absDate, in: date.region)
 		return newDateInRegion
 	}
 	

@@ -24,7 +24,6 @@
 
 import Foundation
 
-
 /// Provide a mechanism to create and return local-thread object you can share.
 /// 
 /// Basically you assign a key to the object and return the initializated instance in `create`
@@ -80,3 +79,65 @@ public enum DateFormat {
 	case rss(alt: Bool)
 	case dotNET
 }
+
+/// This struct group the options you can choose to output a string which represent
+/// the interval between two dates.
+public struct ComponentsFormatterOptions {
+	/// The default formatting behavior. When using positional units, this behavior drops leading zeroes but pads middle and trailing values with zeros as needed. For example, with hours, minutes, and seconds displayed, the value for one hour and 10 seconds is “1:00:10”. For all other unit styles, this behavior drops all units whose values are 0. For example, when days, hours, minutes, and seconds are allowed, the abbreviated version of one hour and 10 seconds is displayed as “1h 10s”.*
+	public var zeroBehavior: DateComponentsFormatter.ZeroFormattingBehavior = .pad
+	
+	// The maximum number of time units to include in the output string.
+	// By default is nil, which does not cause the elimination of any units.
+	public var maxUnitCount: Int? = nil
+	
+	// Configures the strings to use (if any) for unit names such as days, hours, minutes, and seconds.
+	// By default is `positional`.
+	public var style: DateComponentsFormatter.UnitsStyle = .positional
+	
+	// Setting this property to true results in output strings like “30 minutes remaining”. The default value of this property is false.
+	public var includeTimeRemaining: Bool = false
+	
+	/// The bitmask of calendrical units such as day and month to include in the output string
+	/// Allowed components are: `year,month,weekOfMonth,day,hour,minute,second`.
+	/// By default it's set as nil which means set automatically based upon the interval.
+	public var allowedUnits: NSCalendar.Unit? = nil
+	
+	/// The locale to use to format the string.
+	/// If `ComponentsFormatterOptions` is used from a `TimeInterval` object the default value
+	/// value is set to the current device's locale.
+	/// If `ComponentsFormatterOptions` is used from a `DateInRegion` object the default value
+	/// is set the `DateInRegion`'s locale.
+	public var locale: Locale = LocaleName.current.locale
+	
+	/// Initialize a new ComponentsFormatterOptions struct
+	/// - parameter allowedUnits: allowed units or nil if you want to keep the default value
+	/// - parameter style: units style or nil if you want to keep the default value
+	/// - parameter zero: zero behavior or nil if you want to keep the default value
+	public init(allowedUnits: NSCalendar.Unit? = nil, style: DateComponentsFormatter.UnitsStyle? = nil, zero: DateComponentsFormatter.ZeroFormattingBehavior? = nil) {
+		if allowedUnits != nil { self.allowedUnits = allowedUnits! }
+		if style != nil { self.style = style! }
+		if zero != nil { self.zeroBehavior = zero! }
+	}
+	
+	/// Evaluate the best allowed units to workaround NSException of the DateComponentsFormatter
+	internal func bestAllowedUnits(forInterval interval: TimeInterval) -> NSCalendar.Unit {
+		switch interval {
+		case 0...(SECONDS_IN_MINUTE-1):
+			return [.second]
+		case SECONDS_IN_MINUTE...(SECONDS_IN_HOUR-1):
+			return [.minute,.second]
+		case SECONDS_IN_HOUR...(SECONDS_IN_DAY-1):
+			return [.hour,.minute,.second]
+		case SECONDS_IN_DAY...(SECONDS_IN_WEEK-1):
+			return [.day,.hour,.minute,.second]
+		default:
+			return [.year,.month,.weekOfMonth,.day,.hour,.minute,.second]
+		}
+	}
+}
+
+private let SECONDS_IN_MINUTE: TimeInterval = 60
+private let SECONDS_IN_HOUR: TimeInterval = SECONDS_IN_MINUTE * 60
+private let SECONDS_IN_DAY: TimeInterval = SECONDS_IN_HOUR * 24
+private let SECONDS_IN_WEEK: TimeInterval = SECONDS_IN_DAY * 7
+

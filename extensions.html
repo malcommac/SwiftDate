@@ -233,8 +233,8 @@
                 <p><code>TimeInterval</code> is a typealias used to measure the number of seconds.</p>
                 <p>SwiftDate introduces two extra functions for this type of object:</p>
                 <ul>
-                  <li><code>.in()</code> function: it allows to express a time interval in one or more time components unit</li>
-                  <li><code>.string()</code> function: it allows to express a time interval in a string of components units</li>
+                  <li><code>.in(components: [Calendar.Component], of: CalendarName)</code> function: it allows to express a time interval in one or more time components unit</li>
+                  <li><code>.string(options: ComponentsFormatterOptions)</code> function: it allows to express a time interval in a string of components units</li>
                 </ul>
               <h3>Examples</h3>
             <script src="https://gist.github.com/malcommac/f9d2ca4d93a25bf8bf648cba4df63115.js"></script>

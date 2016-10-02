@@ -7,7 +7,7 @@
 ## CHANGELOG
 
 ### SwiftDate 4.0.3
-Released on: -, Download
+Released on: Monday Oct 3, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3)
 
 Changes:
 * [#271](https://github.com/malcommac/SwiftDate/issues/271): Added fallback to english translation when required translation is not available for colloquial functions

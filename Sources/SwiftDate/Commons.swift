@@ -122,14 +122,22 @@ public struct ComponentsFormatterOptions {
 	/// Evaluate the best allowed units to workaround NSException of the DateComponentsFormatter
 	internal func bestAllowedUnits(forInterval interval: TimeInterval) -> NSCalendar.Unit {
 		switch interval {
-		case 0...(60-1):
+		case 0...(SECONDS_IN_MINUTE-1):
 			return [.second]
-		case 60...(3600-1):
+		case SECONDS_IN_MINUTE...(SECONDS_IN_HOUR-1):
 			return [.minute,.second]
-		case 3600...(86400-1):
-			return [.day,.minute,.second]
-		default: // FIXME: should we support month here
+		case SECONDS_IN_HOUR...(SECONDS_IN_DAY-1):
+			return [.hour,.minute,.second]
+		case SECONDS_IN_DAY...(SECONDS_IN_WEEK-1):
+			return [.day,.hour,.minute,.second]
+		default:
 			return [.year,.month,.weekOfMonth,.day,.hour,.minute,.second]
 		}
 	}
 }
+
+private let SECONDS_IN_MINUTE: TimeInterval = 60
+private let SECONDS_IN_HOUR: TimeInterval = SECONDS_IN_MINUTE * 60
+private let SECONDS_IN_DAY: TimeInterval = SECONDS_IN_HOUR * 24
+private let SECONDS_IN_WEEK: TimeInterval = SECONDS_IN_DAY * 7
+

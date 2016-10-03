@@ -58,7 +58,7 @@ public extension Date {
 	/// - throws: throw an exception if new date cannot be evaluated
 	///
 	/// - returns: a new `Date`
-	public func add(components: DateComponents) throws -> Date {
+	public func add(components: DateComponents) -> Date {
 		let date: DateInRegion = self.inGMTRegion() + components
 		return date.absoluteDate
 	}
@@ -70,7 +70,7 @@ public extension Date {
 	/// - throws: throw an exception if new date cannot be evaluated
 	///
 	/// - returns: a new `Date`
-	public func add(components: [Calendar.Component: Int]) throws -> Date {
+	public func add(components: [Calendar.Component: Int]) -> Date {
 		let date: DateInRegion = self.inGMTRegion() + components
 		return date.absoluteDate
 	}
@@ -84,7 +84,7 @@ public func - (lhs: Date, rhs: DateComponents) -> Date {
 }
 
 public func + (lhs: Date, rhs: DateComponents) -> Date {
-	return try! lhs.add(components: rhs)
+	return lhs.add(components: rhs)
 }
 
 public func + (lhs: Date, rhs: TimeInterval) -> Date {
@@ -96,11 +96,11 @@ public func - (lhs: Date, rhs: TimeInterval) -> Date {
 }
 
 public func + (lhs: Date, rhs: [Calendar.Component : Int]) -> Date {
-	return try! lhs.add(components: DateInRegion.componentsFrom(values: rhs))
+	return lhs.add(components: DateInRegion.componentsFrom(values: rhs))
 }
 
 public func - (lhs: Date, rhs: [Calendar.Component : Int]) -> Date {
-	return try! lhs.add(components: DateInRegion.componentsFrom(values: rhs, multipler: -1))
+	return lhs.add(components: DateInRegion.componentsFrom(values: rhs, multipler: -1))
 }
 
 public func - (lhs: Date, rhs: Date) -> TimeInterval {

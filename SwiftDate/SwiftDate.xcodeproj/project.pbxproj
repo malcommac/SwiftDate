@@ -608,19 +608,16 @@
 					};
 					08EC22EE1DA03F9D00B6DFC6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = E5DU3FA699;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					21C3010A1D829C8B00B0E02C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = E5DU3FA699;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					21C3012A1D829D7900B0E02C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = E5DU3FA699;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1131,7 +1128,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = E5DU3FA699;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1154,7 +1151,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = E5DU3FA699;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

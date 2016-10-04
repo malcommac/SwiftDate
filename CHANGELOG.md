@@ -6,8 +6,13 @@
 
 ## CHANGELOG
 
+### SwiftDate 4.0.4
+Released on: Tue Oct 4, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.4)
+* [#277](https://github.com/malcommac/SwiftDate/issues/277): Remove `throws` from Date.add(components:) in Date+Math.swift 
+* [#276](https://github.com/malcommac/SwiftDate/issues/276): Remove Development team from framework 
+
 ### SwiftDate 4.0.3
-Released on: Monday Oct 3, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3)
+Released on: Mon Oct 3, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3)
 
 Changes:
 * [#271](https://github.com/malcommac/SwiftDate/issues/271): Added fallback to english translation when required translation is not available for colloquial functions

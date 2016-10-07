@@ -128,6 +128,21 @@ public extension DateInRegion {
 	public func colloquial(toDate date: DateInRegion) throws -> (colloquial: String, time: String?) {
 		let formatter = DateInRegionFormatter()
 		formatter.locale = self.region.locale
+        formatter.allowedComponents = [.year, .month, .day, .hour, .minute, .second,
+           .era,
+           .calendar,
+           .nanosecond,
+           .quarter,
+           .second,
+           .timeZone,
+           .weekday,
+           .weekdayOrdinal,
+           .weekOfMonth,
+           .weekOfYear,
+           .year,
+           .yearForWeekOfYear
+        ]
+
 		return try formatter.colloquial(from: self, to: date)
 	}
 	

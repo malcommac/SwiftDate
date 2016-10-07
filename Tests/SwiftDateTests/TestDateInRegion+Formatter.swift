@@ -60,6 +60,8 @@ class TestDateInRegion_Formatter: XCTestCase {
 	
 	public func test_toColloquialString() {
 		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
+        let id = Region(tz: TimeZoneName.asiaBangkok,
+                        cal: CalendarName.gregorian, loc: LocaleName.indonesian)
 	
 		let testDate = try! DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome)
 		let (custom_1,_) = try! testDate.colloquialSinceNow()
@@ -72,9 +74,16 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let oneHourAgo_IT = DateInRegion(absoluteDate: Date(), in: rome) - 1.hours
 		let (custom_4,_) = try! oneHourAgo_IT.colloquialSinceNow()
 		XCTAssertEqual(custom_4, "un'ora fa", "Failed get colloquial representation of an old date")
+        
+        let oneHourAgo_ID = DateInRegion(absoluteDate: Date(), in: id) - 1.hours
+        let (custom_6,_) = try! oneHourAgo_ID.colloquialSinceNow()
+        XCTAssertEqual(custom_6, "1 jam yang lalu", "Failed get colloquial representation of an old date")
 		
-		let another_Date = DateInRegion(absoluteDate: Date(), in: rome) - 2.hours - 5.minutes - 3.seconds
-		let custom_5 = try! another_Date.timeComponentsSinceNow()
+        let another_Date = DateInRegion(absoluteDate: Date()) - 2.hours - 5.minutes - 3.seconds
+        var componentFormatterOptions = ComponentsFormatterOptions()
+        componentFormatterOptions.style = .short
+        componentFormatterOptions.zeroBehavior = .dropAll
+        let custom_5 = try! another_Date.timeComponentsSinceNow(options: componentFormatterOptions)
 		XCTAssertEqual(custom_5, "2 hr,5 min,3 sec", "Failed get colloquial representation of an old date")
 	}
 

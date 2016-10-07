@@ -27,7 +27,7 @@
 "colloquial_f_M"					=	"dalam 1 menit";	// minute,future,singular:	"in one minute"
 "colloquial_f_MM"					=	"dalam %ld menit";	// minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"1 menit yang lalu";	// minute,past,singular:	"one minute ago"
-"colloquial_p_MM"					=	"1 %d menit yang lalu";	// minute,past,plural:		"3 minutes ago"
+"colloquial_p_MM"					=	"%d menit yang lalu";	// minute,past,plural:		"3 minutes ago"
 
 "colloquial_now"					=	"baru saja";			// less than 5 minutes if .allowsNowOnColloquial is set
 
@@ -40,8 +40,8 @@
 "relevanttime_ww"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
 "relevanttime_d"					=	"EEE, MMM dd";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
 "relevanttime_dd"					=	"EEE, MMM dd";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
-"relevanttime_h"					=	"'at' HH:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
-"relevanttime_hh"					=	"'at' HH:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_h"					=	"'di' HH:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"'di' HH:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
 "relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

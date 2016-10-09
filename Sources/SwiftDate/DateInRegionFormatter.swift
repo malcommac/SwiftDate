@@ -227,7 +227,7 @@ public class DateInRegionFormatter {
 		
 		let daysInWeek = fDate.region.calendar.range(of: .day, in: .weekOfMonth, for: fDate.absoluteDate)!.count
 		if cmp.day! >= daysInWeek {
-			let colloquial_time = try self.colloquial_time(forUnit: .weekOfYear, withValue: cmp.weekOfYear!, date: fDate)
+			let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
 			let weeksNo = (abs(cmp.day!) / daysInWeek)
 			let colloquial_date = try self.localized(unit: .weekOfYear, withValue: weeksNo, asFuture: isFuture, args: weeksNo)
 			return (colloquial_date,colloquial_time)

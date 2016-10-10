@@ -31,21 +31,20 @@ internal var DateDefaultRegion: Region = Region.GMT()
 
 public extension Date {
 	
-	
 	/// Define a default region to use when you work with components and function of SwiftDate
 	/// and `Date` objects. Default region is set automatically at runtime to `Region.Local()` which defines
 	/// a region identified by the device's current `TimeZone` (not updating), `Calendar` (not updating)
 	/// and `Locale` (not updating).
 	///
 	/// - parameter region: region to set. If nil is passed default region is set to Region.Local()
-	public func setDefaultRegion(_ region: Region?) {
+	public static func setDefaultRegion(_ region: Region?) {
 		DateDefaultRegion = region ?? Region.Local()
 	}
 	
 	/// Return the default region set.
 	///
 	/// - returns: region set; if not changed is set to `Region.Local()`
-	public var defaultRegion: Region {
+	public static var defaultRegion: Region {
 		return DateDefaultRegion
 	}
 	

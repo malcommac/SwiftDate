@@ -95,9 +95,18 @@ public class ISO8601DateTimeFormatter {
 			return self.formatter.timeZone
 		}
 	}
+    
+    public var locale: Locale? {
+        get {
+            return self.formatter.locale
+        }
+        set {
+            self.formatter.locale = newValue
+        }
+    }
 	
 	/// formatter instance used for date
-	private var formatter: DateFormatter = DateFormatter()
+    private var formatter: DateFormatter = DateFormatter()
 	
 	public init() {
 		self.timeZone = TimeZone(secondsFromGMT: 0)!

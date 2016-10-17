@@ -25,7 +25,7 @@
 import Foundation
 
 /// This is the default region set. It will be set automatically at each startup as the local device's region
-internal var DateDefaultRegion: Region = Region.GMT()
+internal var DateDefaultRegion: Region = Region.Local()
 
 // MARK: - Date Extension to work with date components
 

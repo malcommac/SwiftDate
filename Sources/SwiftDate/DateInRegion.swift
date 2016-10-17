@@ -96,6 +96,7 @@ public class DateInRegion: CustomStringConvertible {
 			}
 			formatter!.formatOptions = options
 			formatter!.timeZone = self.timeZone
+            formatter!.locale = self.locale
 			return formatter!
 		}
 		

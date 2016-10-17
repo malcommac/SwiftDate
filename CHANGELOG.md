@@ -6,6 +6,12 @@
 
 ## CHANGELOG
 
+### SwiftDate 4.0.6
+Released on: Mon Oct 17, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.6)
+* [#303](https://github.com/malcommac/SwiftDate/issues/303) `Date.defaultRegion()` is now set to `Region.Local()` as specified in doc (not `Region.GMT()`)
+* [#302](https://github.com/malcommac/SwiftDate/issues/302) Fixed an issue with colloquial dates and future dates; also fixed an issue when reporting colloquial differences expressed in weeks
+* [#301](https://github.com/malcommac/SwiftDate/issues/301) Add `.locale` property in `ISO8601DateTimeFormatter`
+
 ### SwiftDate 4.0.5
 Released on: Mon Oct 10, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.5)
 * [#284](https://github.com/malcommac/SwiftDate/issues/284) Fixed a crash with .colloquial() function and # weeks evaluation

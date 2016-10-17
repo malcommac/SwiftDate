@@ -92,6 +92,9 @@ public class DateInRegionFormatter {
 	/// Locale to use when print the date. By default is the same locale set by receiver's `DateInRegion`.
 	/// If not set default device locale is used instead.
 	public var locale: Locale?
+	
+	// number of a days in a week
+	let DAYS_IN_WEEK = 7
 
 	public init() {
 	}
@@ -215,33 +218,32 @@ public class DateInRegionFormatter {
 		
 		if cmp.year != 0 {
 			let colloquial_time = try self.colloquial_time(forUnit: .year, withValue: cmp.year!, date: fDate)
-			let colloquial_date = try self.localized(unit: .year, withValue: cmp.year!, asFuture: isFuture, args: fDate.year)
+			let colloquial_date = try self.localized(unit: .year, withValue: cmp.year!, asFuture: isFuture, args: abs(fDate.year))
 			return (colloquial_date,colloquial_time)
 		}
 		
 		if cmp.month != 0 {
 			let colloquial_time = try self.colloquial_time(forUnit: .month, withValue: cmp.month!, date: fDate)
-			let colloquial_date = try self.localized(unit: .month, withValue: cmp.month!, asFuture: isFuture, args: cmp.month!)
+			let colloquial_date = try self.localized(unit: .month, withValue: cmp.month!, asFuture: isFuture, args: abs(cmp.month!))
 			return (colloquial_date,colloquial_time)
 		}
 		
-		let daysInWeek = fDate.region.calendar.range(of: .day, in: .weekOfMonth, for: fDate.absoluteDate)!.count
-		if cmp.day! >= daysInWeek {
+		if abs(cmp.day!) >= DAYS_IN_WEEK {
 			let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
-			let weeksNo = (abs(cmp.day!) / daysInWeek)
+			let weeksNo = (abs(cmp.day!) / DAYS_IN_WEEK)
 			let colloquial_date = try self.localized(unit: .weekOfYear, withValue: weeksNo, asFuture: isFuture, args: weeksNo)
 			return (colloquial_date,colloquial_time)
 		}
 		
 		if cmp.day != 0 {
 			let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
-			let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: cmp.day!)
+			let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: abs(cmp.day!))
 			return (colloquial_date,colloquial_time)
 		}
 		
 		if cmp.hour != 0 {
 			let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
-			let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: cmp.hour!)
+			let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
 			return (colloquial_date,colloquial_time)
 		}
 		
@@ -250,7 +252,7 @@ public class DateInRegionFormatter {
 				let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 				return (colloquial_date,nil)
 			} else {
-				let colloquial_date = try self.localized(unit: .minute, withValue: cmp.minute!, asFuture: isFuture, args: cmp.minute!)
+				let colloquial_date = try self.localized(unit: .minute, withValue: cmp.minute!, asFuture: isFuture, args: abs(cmp.minute!))
 				return (colloquial_date,nil)
 			}
 		}

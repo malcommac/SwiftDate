@@ -31,7 +31,7 @@ That's an highlight of the main features you can found in SwiftDate:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.2/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.6/)**
 
 Code is documented for Xcode, so you can use built in documentation panel to learn more about the library.
 
@@ -46,7 +46,7 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 
 ## Current Release
 
-Last release is: 4.0.3 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.3) released on Mon, Oct 3, 2016.
+Last release is: 4.0.6 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.6) released on Mon, Oct 17, 2016.
 
 A complete list of changes for each release is available in [CHANGELOG](CHANGELOG.md) file.
 
@@ -117,7 +117,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 ## Requirements
 
-Actually current official version is 4.0.0 and it's compatible with:
+Actually current official version is 4.0.7 and it's compatible with:
 
 * Swift 3.0+
 * iOS 8 or later

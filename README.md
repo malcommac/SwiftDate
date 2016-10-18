@@ -55,10 +55,13 @@ Currently we need translations for [SwiftDate.bundle](https://github.com/malcomm
 Help us with a pull request!
 
 Currently SwiftDate supports:
-* English
-* Italian
+* English (since 4.0.0)
+* Italian (since 4.0.0)
 * German (made by to [hackolein](https://github.com/hackolein), since 4.0.3)
-* Dutch (made by [hout](https://github.com/Hout))
+* Dutch (made by [hout](https://github.com/Hout), since 4.0.0)
+* French (made by [pierrolivier](https://github.com/pierrolivier), since 4.0.5)
+* Indonesian (made by [suprie](https://github.com/suprie), since 4.0.5)
+* Chinese (made by [codingrhythm](https://github.com/codingrhythm), since 4.0.5)
 
 Make a pull request and add your language!
 

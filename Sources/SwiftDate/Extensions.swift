@@ -146,3 +146,18 @@ public extension Int {
 	}
 }
 
+
+/// Singular variations of Int extension for DateComponents for readability
+/// - note these properties behave exactly as their plural-named equivalents
+
+public extension Int {
+    public var nanosecond: DateComponents { return nanoseconds }
+    public var second: DateComponents { return seconds }
+    public var minute: DateComponents { return minutes }
+    public var hour: DateComponents { return hours }
+    public var day: DateComponents { return days }
+    public var week: DateComponents { return weeks }
+    public var month: DateComponents { return months }
+    public var year: DateComponents { return years }
+}
+

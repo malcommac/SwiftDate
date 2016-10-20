@@ -61,7 +61,8 @@ Currently SwiftDate supports:
 * Dutch (made by [hout](https://github.com/Hout), since 4.0.0)
 * French (made by [pierrolivier](https://github.com/pierrolivier), since 4.0.5)
 * Indonesian (made by [suprie](https://github.com/suprie), since 4.0.5)
-* Chinese (made by [codingrhythm](https://github.com/codingrhythm), since 4.0.5)
+* Simplified Chinese (made by [codingrhythm](https://github.com/codingrhythm), since 4.0.5)
+* Traditional Chinese (made by [rynecheow](https://github.com/rynecheow), since 4.0.7)
 
 Make a pull request and add your language!
 

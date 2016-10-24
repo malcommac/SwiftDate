@@ -1,0 +1,48 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"                    =   "明年";       // year,future,singular:    "next year"
+"colloquial_f_yy"                   =   "%d";           // year,future,plural:      "on 2016"
+"colloquial_p_y"                    =   "去年";       // year,past,singular:      "last year"
+"colloquial_p_yy"                   =   "%d";               // year,past,plural:        "2015"
+
+"colloquial_f_m"                    =   "下個月";      // month,future,singular:   "next month"
+"colloquial_f_mm"                   =   "%d個月後";        // month,future,plural:     "in 3 months"
+"colloquial_p_m"                    =   "上個月";      // month,past,singular:     "past month"
+"colloquial_p_mm"                   =   "%d個月前";    // month,past,plural:       "3 months ago"
+
+"colloquial_f_w"                    =   "下週";       // week,future,singular:    "next week"
+"colloquial_f_ww"                   =   "%ld週後";        // week,future,plural:      "in 3 weeks"
+"colloquial_p_w"                    =   "上週";       // week,past,singular:      "past week"
+"colloquial_p_ww"                   =   "%d週前";     // week,past,plural:        "in 3 weeks"
+
+"colloquial_f_d"                    =   "明天";           // day,future,singular:     "tomorrow"
+"colloquial_f_dd"                   =   "%d天後";     // day,future,plural:       "in 3 days"
+"colloquial_p_d"                    =   "昨天";       // day,past,singular:       "yesterday"
+"colloquial_p_dd"                   =   "%d天前";     // day,past,plural:         "3 days ago"
+
+"colloquial_f_h"                    =   "1小時後";     // hour,future,singular:    "in one hour"
+"colloquial_f_hh"                   =   "%ld小時後";       // hour,future,plural:      "in 3 hours"
+"colloquial_p_h"                    =   "1小時前";     // hour,past,singular:      "one hour ago"
+"colloquial_p_hh"                   =   "%d小時前";        // hour,past,plural:        "3 hours ago"
+
+"colloquial_f_M"                    =   "1分鐘後"; // minute,future,singular:  "in one minute"
+"colloquial_f_MM"                   =   "%ld分鐘後";   // minute,future,plural:    "in 3 minutes"
+"colloquial_p_M"                    =   "1分鐘前"; // minute,past,singular:    "one minute ago"
+"colloquial_p_MM"                   =   "%d分鐘前";    // minute,past,plural:      "3 minutes ago"
+
+"colloquial_now"                    =   "剛剛";           // less than 5 minutes if .allowsNowOnColloquial is set
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"                    =   "yyyy年MMM";         // for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"                   =   "yyyy年MMM";         // for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"                    =   "yyyy年MMMdd日";      // for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"                   =   "yyyy年MMMdd日";      // for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"                    =   "MMMdd日 EEE";       // for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"                   =   "MMMdd日 EEE";       // for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"                    =   "MMMdd日 EEE";       // for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"                   =   "MMMdd日 EEE";       // for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"                    =   "'在' HH:mm";            // for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"                   =   "'在' HH:mm";            // for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"                    =   "";                         // for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"                   =   "";                         // for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"                    =   "";                         // for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"                   =   "";                         // for colloquial seconds(s) we have not any relevant time to print

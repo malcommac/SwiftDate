@@ -6,6 +6,13 @@
 
 ## CHANGELOG
 
+### SwiftDate 4.0.7
+Released on: Mon Oct 24, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.7)
+* [#306](https://github.com/malcommac/SwiftDate/issues/306) Fixed a date ordering issue with time interval
+* [#308](https://github.com/malcommac/SwiftDate/issues/308) Added singular component for `.year,.month,.day,.hour,.minute,.second` time components
+* [#309](https://github.com/malcommac/SwiftDate/issues/309) Added Traditional Chinese support (thanks to @rynecheow)
+* [#314](https://github.com/malcommac/SwiftDate/issues/314) Restored French translation strings
+
 ### SwiftDate 4.0.6
 Released on: Mon Oct 17, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.6)
 * [#303](https://github.com/malcommac/SwiftDate/issues/303) `Date.defaultRegion()` is now set to `Region.Local()` as specified in doc (not `Region.GMT()`)

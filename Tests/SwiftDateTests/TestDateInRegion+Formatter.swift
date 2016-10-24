@@ -67,15 +67,15 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let (custom_1,_) = try! testDate.colloquialSinceNow()
 		XCTAssertEqual(custom_1, "2001", "Failed get colloquial representation of an old date")
 		
-		let oneHourAgo = DateInRegion() - 1.hours
+		let oneHourAgo = DateInRegion() - 1.hour
 		let (custom_3,_) = try! oneHourAgo.colloquialSinceNow()
 		XCTAssertEqual(custom_3, "one hour ago", "Failed get colloquial representation of an old date")
 		
-		let oneHourAgo_IT = DateInRegion(absoluteDate: Date(), in: rome) - 1.hours
+		let oneHourAgo_IT = DateInRegion(absoluteDate: Date(), in: rome) - 1.hour
 		let (custom_4,_) = try! oneHourAgo_IT.colloquialSinceNow()
 		XCTAssertEqual(custom_4, "un'ora fa", "Failed get colloquial representation of an old date")
         
-        let oneHourAgo_ID = DateInRegion(absoluteDate: Date(), in: id) - 1.hours
+        let oneHourAgo_ID = DateInRegion(absoluteDate: Date(), in: id) - 1.hour
         let (custom_6,_) = try! oneHourAgo_ID.colloquialSinceNow()
         XCTAssertEqual(custom_6, "1 jam yang lalu", "Failed get colloquial representation of an old date")
 		

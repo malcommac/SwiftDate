@@ -59,7 +59,7 @@ public extension Date {
 	///
 	/// - returns: a new `Date`
 	public func add(components: DateComponents) -> Date {
-		let date: DateInRegion = self.inGMTRegion() + components
+		let date: DateInRegion = self.inDateDefaultRegion() + components
 		return date.absoluteDate
 	}
 	
@@ -71,7 +71,7 @@ public extension Date {
 	///
 	/// - returns: a new `Date`
 	public func add(components: [Calendar.Component: Int]) -> Date {
-		let date: DateInRegion = self.inGMTRegion() + components
+		let date: DateInRegion = self.inDateDefaultRegion() + components
 		return date.absoluteDate
 	}
 	

@@ -14,7 +14,7 @@ Choose SwiftDate for your next project, or migrate over your existing projectsâ€
 ## Main features
 That's an highlight of the main features you can found in SwiftDate:
 
-* **Simple math operation with dates!** Example: `aDate + 2.weeks + 1.hours or (1.years - 2.hours + 16.minutes).fromNow()`
+* **Simple math operation with dates!** Example: `aDate + 2.weeks + 1.hour or (1.year - 2.hours + 16.minutes).fromNow()`
 * **Easy conversions to and from timezone, locale and calendar**. Use helper class `DateInRegion` and perform conversions with components and operations!
 * **Compare dates with math operators** `<,>,==,<=,>=`. For example you can do `aDate1 >= aDate2 or aDate1.isIn(anotherDate,.day)`
 * **Easily work with time components**. E.g. `aDateInRegion.day` or `hour`, `minutes` etc. expressed in your favourite timezone!
@@ -46,7 +46,7 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 
 ## Current Release
 
-Last release is: 4.0.6 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.6) released on Mon, Oct 17, 2016.
+Last release is: 4.0.7 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.7) released on Mon, Oct 24, 2016.
 
 A complete list of changes for each release is available in [CHANGELOG](CHANGELOG.md) file.
 
@@ -55,10 +55,14 @@ Currently we need translations for [SwiftDate.bundle](https://github.com/malcomm
 Help us with a pull request!
 
 Currently SwiftDate supports:
-* English
-* Italian
+* English (since 4.0.0)
+* Italian (since 4.0.0)
 * German (made by to [hackolein](https://github.com/hackolein), since 4.0.3)
-* Dutch (made by [hout](https://github.com/Hout))
+* Dutch (made by [hout](https://github.com/Hout), since 4.0.0)
+* French (made by [pierrolivier](https://github.com/pierrolivier), since 4.0.5)
+* Indonesian (made by [suprie](https://github.com/suprie), since 4.0.5)
+* Simplified Chinese (made by [codingrhythm](https://github.com/codingrhythm), since 4.0.5)
+* Traditional Chinese (made by [rynecheow](https://github.com/rynecheow), since 4.0.7)
 
 Make a pull request and add your language!
 

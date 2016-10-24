@@ -46,7 +46,7 @@ You can also generate latest documentation using [Jazzy](https://github.com/real
 
 ## Current Release
 
-Last release is: 4.0.6 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.6) released on Mon, Oct 17, 2016.
+Last release is: 4.0.7 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.7) released on Mon, Oct 24, 2016.
 
 A complete list of changes for each release is available in [CHANGELOG](CHANGELOG.md) file.
 

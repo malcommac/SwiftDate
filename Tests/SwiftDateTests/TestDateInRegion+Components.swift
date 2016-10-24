@@ -198,7 +198,7 @@ class TestDateInRegion_Components: XCTestCase {
 	
 	func test_nextWeekend() {
 		let expectedWeekendStartDate = try! DateInRegion(components: [.year: 2015, .month: 11, .day: 7], fromRegion: amsterdam)
-		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.days).endOf(component: .day)
+		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.day).endOf(component: .day)
 		
 		var daysToTest: [DateInRegion] = []
 		daysToTest.append(try! DateInRegion(components: [.year: 2015, .month: 11, .day: 6], fromRegion: amsterdam))
@@ -219,7 +219,7 @@ class TestDateInRegion_Components: XCTestCase {
 	
 	func test_previousWeekend() {
 		let expectedWeekendStartDate = try! DateInRegion(components: [.year: 2015, .month: 10, .day: 31], fromRegion: amsterdam)
-		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.days).endOf(component: .day)
+		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.day).endOf(component: .day)
 		
 		var daysToTest: [DateInRegion] = []
 		daysToTest.append(try! DateInRegion(components: [.year: 2015, .month: 11, .day: 8], fromRegion: amsterdam))
@@ -250,10 +250,10 @@ class TestDateInRegion_Components: XCTestCase {
 		XCTAssert(date.isTomorrow == false, "Failed to get the correct value of isTomorrow when it's not tomorrow")
 		XCTAssert(date.isYesterday == false, "Failed to get the correct value of isYesterday when it's not yesterday")
 
-		let yesterday = (date - 1.days)
+		let yesterday = (date - 1.day)
 		XCTAssert(yesterday.isYesterday, "Failed to get the correct value of isYesterday when it's yesterday")
 		
-		let tomorrow = (date + 1.days)
+		let tomorrow = (date + 1.day)
 		XCTAssert(tomorrow.isTomorrow, "Failed to get the correct value of isTomorrow when it's tomorrow")
 	}
 	
@@ -309,14 +309,14 @@ class TestDateInRegion_Components: XCTestCase {
 		let nextYearDate = (date + 31.minutes)
 		XCTAssertEqual("2000-01-01T00:01:00+01:00", nextYearDate.iso8601(), "Failed to switch to another year with math operaiton")
 		
-		let date2 = (date - 1.weeks)
+		let date2 = (date - 1.week)
 		XCTAssertEqual("1999-12-24T23:30:00+01:00", date2.iso8601(), "Failed to execute math operation")
 		
 		
-		let date3 = (date - 10.minutes - 1.hours + 61.seconds)
+		let date3 = (date - 10.minutes - 1.hour + 61.seconds)
 		XCTAssertEqual("1999-12-31T22:21:01+01:00", date3.iso8601(), "Failed to execute math operation")
 	
-		let date4 = (date - 1.years + 2.months)
+		let date4 = (date - 1.year + 2.months)
 		XCTAssertEqual("1999-02-28T23:30:00+01:00", date4.iso8601(), "Failed to execute math operation")
 
 		

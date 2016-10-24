@@ -24,9 +24,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 
 	func test_compareGranularity_Year() {
-		let date1 = refDate - 1.years
-		let date2 = refDate - 1.months
-		let date3 = refDate + 1.years
+		let date1 = refDate - 1.year
+		let date2 = refDate - 1.month
+		let date3 = refDate + 1.year
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .year), .orderedDescending, "Failed get compare year granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .year), .orderedSame, "Failed get compare year granularity = orderedSame")
@@ -34,9 +34,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_compareGranularity_Month() {
-		let date1 = refDate - 1.months
-		let date2 = refDate + 1.weeks
-		let date3 = refDate + 1.months
+		let date1 = refDate - 1.month
+		let date2 = refDate + 1.week
+		let date3 = refDate + 1.month
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .month), .orderedDescending, "Failed get compare month granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .month), .orderedSame, "Failed get compare month granularity = orderedSame")
@@ -44,9 +44,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_compareGranularity_Week() {
-		let date1 = refDate - 1.weeks
-		let date2 = refDate + 1.days
-		let date3 = refDate + 1.weeks
+		let date1 = refDate - 1.week
+		let date2 = refDate + 1.day
+		let date3 = refDate + 1.week
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .weekOfYear), .orderedDescending, "Failed get compare weekOfYear granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .weekOfYear), .orderedSame, "Failed get compare weekOfYear granularity = orderedSame")
@@ -54,9 +54,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_compareGranularity_Days() {
-		let date1 = refDate - 1.days
-		let date2 = refDate + 1.hours
-		let date3 = refDate + 1.days
+		let date1 = refDate - 1.day
+		let date2 = refDate + 1.hour
+		let date3 = refDate + 1.day
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .day), .orderedDescending, "Failed get compare day granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .day), .orderedSame, "Failed get compare day granularity = orderedSame")
@@ -64,9 +64,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_compareGranularity_Hour() {
-		let date1 = refDate - 1.hours
-		let date2 = refDate + 1.minutes
-		let date3 = refDate + 1.hours
+		let date1 = refDate - 1.hour
+		let date2 = refDate + 1.minute
+		let date3 = refDate + 1.hour
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .hour), .orderedDescending, "Failed get compare hour granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .hour), .orderedSame, "Failed get compare hour granularity = orderedSame")
@@ -74,9 +74,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_compareGranularity_Minute() {
-		let date1 = refDate - 1.minutes
-		let date2 = refDate + 1.seconds
-		let date3 = refDate + 1.minutes
+		let date1 = refDate - 1.minute
+		let date2 = refDate + 1.second
+		let date3 = refDate + 1.minute
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .minute), .orderedDescending, "Failed get compare minute granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .minute), .orderedSame, "Failed get compare minute granularity = orderedSame")
@@ -84,9 +84,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_compareGranularity_Second() {
-		let date1 = refDate - 1.seconds
+		let date1 = refDate - 1.second
 		let date2 = refDate + 100000.nanoseconds
-		let date3 = refDate + 1.seconds
+		let date3 = refDate + 1.second
 		
 		XCTAssertEqual(refDate.compare(to: date1, granularity: .second), .orderedDescending, "Failed get compare second granularity = orderedDescending")
 		XCTAssertEqual(refDate.compare(to: date2, granularity: .second), .orderedSame, "Failed get compare second granularity = orderedSame")
@@ -96,7 +96,7 @@ class TestDateInRegion_Compare: XCTestCase {
 	func test_isEqualToDate() {
 		XCTAssertTrue(refDate.isEqual(to: refDate) == true, "Failed get compare with same date")
 		
-		let date2 = refDate + 1.seconds
+		let date2 = refDate + 1.second
 		XCTAssertTrue(refDate.isEqual(to: date2) == false, "Failed get compare with future date")
 		
 		let romeRegion = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
@@ -105,9 +105,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Year() {
-		let date1 = refDate - 1.years
-		let date2 = refDate - 1.months
-		let date3 = refDate + 1.years
+		let date1 = refDate - 1.year
+		let date2 = refDate - 1.month
+		let date3 = refDate + 1.year
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .year) == false, "Failed get isIn with year granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .year) == true, "Failed get isIn with year granularity #2")
@@ -115,9 +115,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Month() {
-		let date1 = refDate - 1.months
-		let date2 = refDate + 1.weeks
-		let date3 = refDate + 1.months
+		let date1 = refDate - 1.month
+		let date2 = refDate + 1.week
+		let date3 = refDate + 1.month
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .month) == false, "Failed get isIn with month granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .month) == true, "Failed get isIn with month granularity #2")
@@ -125,9 +125,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Week() {
-		let date1 = refDate - 1.weeks
-		let date2 = refDate + 1.days
-		let date3 = refDate + 1.weeks
+		let date1 = refDate - 1.week
+		let date2 = refDate + 1.day
+		let date3 = refDate + 1.week
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .weekOfYear) == false, "Failed get isIn with weekOfYear granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .weekOfYear) == true, "Failed get isIn with weekOfYear granularity #2")
@@ -135,9 +135,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Day() {
-		let date1 = refDate - 1.days
-		let date2 = refDate + 1.hours
-		let date3 = refDate + 1.days
+		let date1 = refDate - 1.day
+		let date2 = refDate + 1.hour
+		let date3 = refDate + 1.day
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .day) == false, "Failed get isIn with day granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .day) == true, "Failed get isIn with day granularity #2")
@@ -145,9 +145,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Hour() {
-		let date1 = refDate - 1.hours
-		let date2 = refDate + 1.minutes
-		let date3 = refDate + 1.hours
+		let date1 = refDate - 1.hour
+		let date2 = refDate + 1.minute
+		let date3 = refDate + 1.hour
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .hour) == false, "Failed get isIn with hour granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .hour) == true, "Failed get isIn with hour granularity #2")
@@ -155,9 +155,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Minutes() {
-		let date1 = refDate - 1.minutes
-		let date2 = refDate + 1.seconds
-		let date3 = refDate + 1.minutes
+		let date1 = refDate - 1.minute
+		let date2 = refDate + 1.second
+		let date3 = refDate + 1.minute
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .minute) == false, "Failed get isIn with minute granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .minute) == true, "Failed get isIn with minute granularity #2")
@@ -165,9 +165,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isIn_Second() {
-		let date1 = refDate - 1.seconds
+		let date1 = refDate - 1.second
 		let date2 = refDate + 100000.nanoseconds
-		let date3 = refDate + 1.seconds
+		let date3 = refDate + 1.second
 		
 		XCTAssertTrue(refDate.isIn(date: date1, granularity: .second) == false, "Failed get isIn with second granularity #1")
 		XCTAssertTrue(refDate.isIn(date: date2, granularity: .second) == true, "Failed get isIn with second granularity #2")
@@ -175,9 +175,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Year() {
-		let date1 = refDate - 1.years
-		let date2 = refDate - 1.months
-		let date3 = refDate + 1.years
+		let date1 = refDate - 1.year
+		let date2 = refDate - 1.month
+		let date3 = refDate + 1.year
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .year) == false, "Failed get isBefore with year granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .year) == false, "Failed get isBefore with year granularity #2")
@@ -185,9 +185,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Month() {
-		let date1 = refDate - 1.months
-		let date2 = refDate + 1.weeks
-		let date3 = refDate + 1.months
+		let date1 = refDate - 1.month
+		let date2 = refDate + 1.week
+		let date3 = refDate + 1.month
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .month) == false, "Failed get isBefore with month granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .month) == false, "Failed get isBefore with month granularity #2")
@@ -195,9 +195,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Week() {
-		let date1 = refDate - 1.weeks
-		let date2 = refDate + 1.days
-		let date3 = refDate + 1.weeks
+		let date1 = refDate - 1.week
+		let date2 = refDate + 1.day
+		let date3 = refDate + 1.week
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .weekOfYear) == false, "Failed get isBefore with weekOfYear granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .weekOfYear) == false, "Failed get isBefore with weekOfYear granularity #2")
@@ -205,9 +205,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Days() {
-		let date1 = refDate - 1.days
-		let date2 = refDate + 1.hours
-		let date3 = refDate + 1.days
+		let date1 = refDate - 1.day
+		let date2 = refDate + 1.hour
+		let date3 = refDate + 1.day
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .day) == false, "Failed get isBefore with day granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .day) == false, "Failed get isBefore with day granularity #2")
@@ -215,9 +215,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Hour() {
-		let date1 = refDate - 1.hours
-		let date2 = refDate + 1.minutes
-		let date3 = refDate + 1.hours
+		let date1 = refDate - 1.hour
+		let date2 = refDate + 1.minute
+		let date3 = refDate + 1.hour
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .hour) == false, "Failed get isBefore with hour granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .hour) == false, "Failed get isBefore with hour granularity #2")
@@ -225,9 +225,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Minute() {
-		let date1 = refDate - 1.minutes
-		let date2 = refDate + 1.seconds
-		let date3 = refDate + 1.minutes
+		let date1 = refDate - 1.minute
+		let date2 = refDate + 1.second
+		let date3 = refDate + 1.minute
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .minute) == false, "Failed get isBefore with minute granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .minute) == false, "Failed get isBefore with minute granularity #2")
@@ -235,9 +235,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isBefore_Second() {
-		let date1 = refDate - 1.seconds
+		let date1 = refDate - 1.second
 		let date2 = refDate + 100000.nanoseconds
-		let date3 = refDate + 1.seconds
+		let date3 = refDate + 1.second
 		
 		XCTAssertTrue(refDate.isBefore(date: date1, granularity: .second) == false, "Failed get isBefore with second granularity #1")
 		XCTAssertTrue(refDate.isBefore(date: date2, granularity: .second) == false, "Failed get isBefore with second granularity #2")
@@ -245,9 +245,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Year() {
-		let date1 = refDate - 1.years
-		let date2 = refDate - 1.months
-		let date3 = refDate + 1.years
+		let date1 = refDate - 1.year
+		let date2 = refDate - 1.month
+		let date3 = refDate + 1.year
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .year) == true, "Failed get isAfter with year granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .year) == false, "Failed get isAfter with year granularity #2")
@@ -255,9 +255,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Month() {
-		let date1 = refDate - 1.months
-		let date2 = refDate + 1.weeks
-		let date3 = refDate + 1.months
+		let date1 = refDate - 1.month
+		let date2 = refDate + 1.week
+		let date3 = refDate + 1.month
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .month) == true, "Failed get isAfter with month granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .month) == false, "Failed get isAfter with month granularity #2")
@@ -265,9 +265,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Week() {
-		let date1 = refDate - 1.weeks
-		let date2 = refDate + 1.days
-		let date3 = refDate + 1.weeks
+		let date1 = refDate - 1.week
+		let date2 = refDate + 1.day
+		let date3 = refDate + 1.week
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .weekOfYear) == true, "Failed get isAfter with weekOfYear granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .weekOfYear) == false, "Failed get isAfter with weekOfYear granularity #2")
@@ -275,9 +275,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Day() {
-		let date1 = refDate - 1.days
-		let date2 = refDate + 1.hours
-		let date3 = refDate + 1.days
+		let date1 = refDate - 1.day
+		let date2 = refDate + 1.hour
+		let date3 = refDate + 1.day
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .day) == true, "Failed get isAfter with day granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .day) == false, "Failed get isAfter with day granularity #2")
@@ -285,9 +285,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Hour() {
-		let date1 = refDate - 1.hours
-		let date2 = refDate + 1.minutes
-		let date3 = refDate + 1.hours
+		let date1 = refDate - 1.hour
+		let date2 = refDate + 1.minute
+		let date3 = refDate + 1.hour
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .hour) == true, "Failed get isAfter with hour granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .hour) == false, "Failed get isAfter with hour granularity #2")
@@ -295,9 +295,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Minute() {
-		let date1 = refDate - 1.minutes
-		let date2 = refDate + 1.seconds
-		let date3 = refDate + 1.minutes
+		let date1 = refDate - 1.minute
+		let date2 = refDate + 1.second
+		let date3 = refDate + 1.minute
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .minute) == true, "Failed get isAfter with minute granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .minute) == false, "Failed get isAfter with minute granularity #2")
@@ -305,9 +305,9 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 	
 	func test_isAfter_Second() {
-		let date1 = refDate - 1.seconds
+		let date1 = refDate - 1.second
 		let date2 = refDate + 100000.nanoseconds
-		let date3 = refDate + 1.seconds
+		let date3 = refDate + 1.second
 		
 		XCTAssertTrue(refDate.isAfter(date: date1, granularity: .second) == true, "Failed get isAfter with second granularity #1")
 		XCTAssertTrue(refDate.isAfter(date: date2, granularity: .second) == false, "Failed get isAfter with second granularity #2")
@@ -324,24 +324,24 @@ class TestDateInRegion_Compare: XCTestCase {
 		let date3 = DateInRegion().endOf(component: .day)
 		XCTAssertTrue(date3.isToday == true, "Failed get correct result from isToday today just before next midnight")
 		
-		let date4 = (DateInRegion() + 1.days).startOf(component: .day)
+		let date4 = (DateInRegion() + 1.day).startOf(component: .day)
 		XCTAssertTrue(date4.isToday == false, "Failed to return false for isToday with a date set to tomorrow at midnight")
 		
-		let date5 = (DateInRegion() - 1.days).endOf(component: .day)
+		let date5 = (DateInRegion() - 1.day).endOf(component: .day)
 		XCTAssertTrue(date5.isToday == false, "Failed to return false for isToday with a date set just before last midnight")
 		
-		let date6 = DateInRegion() - 1.years
+		let date6 = DateInRegion() - 1.year
 		XCTAssertTrue(date6.isToday == false, "Failed to return false for isToday with a date set to last year's date")
 	}
 	
 	func test_isYesterday() {
-		let date1 = DateInRegion() - 1.days
+		let date1 = DateInRegion() - 1.day
 		XCTAssertTrue(date1.isYesterday == true, "Failed get correct result from isYesterday for current date")
 		
-		let date2 = (DateInRegion() - 1.days).startOf(component: .day)
+		let date2 = (DateInRegion() - 1.day).startOf(component: .day)
 		XCTAssertTrue(date2.isYesterday == true, "Failed get correct result from isYesterday for yesterday at midnight")
 		
-		let date3 = (DateInRegion() - 1.days).endOf(component: .day)
+		let date3 = (DateInRegion() - 1.day).endOf(component: .day)
 		XCTAssertTrue(date3.isYesterday == true, "Failed get correct result from isYesterday yesterday just before next midnight")
 		
 		let date4 = DateInRegion().startOf(component: .day)
@@ -350,18 +350,18 @@ class TestDateInRegion_Compare: XCTestCase {
 		let date5 = (DateInRegion() - 2.days).endOf(component: .day)
 		XCTAssertTrue(date5.isYesterday == false, "Failed to return false for isYesterday with a date set before last midnight")
 		
-		let date6 = DateInRegion() - 1.years
+		let date6 = DateInRegion() - 1.year
 		XCTAssertTrue(date6.isYesterday == false, "Failed to return false for isYesterday with a date set to last year's date")
 	}
 	
 	func test_isTomorrow() {
-		let date1 = DateInRegion() + 1.days
+		let date1 = DateInRegion() + 1.day
 		XCTAssertTrue(date1.isTomorrow == true, "Failed get correct result from isTomorrow for current date")
 		
-		let date2 = (DateInRegion() + 1.days).startOf(component: .day)
+		let date2 = (DateInRegion() + 1.day).startOf(component: .day)
 		XCTAssertTrue(date2.isTomorrow == true, "Failed get correct result from isTomorrow for tomorrow at midnight")
 		
-		let date3 = (DateInRegion() + 1.days).endOf(component: .day)
+		let date3 = (DateInRegion() + 1.day).endOf(component: .day)
 		XCTAssertTrue(date3.isTomorrow == true, "Failed get correct result from isTomorrow tomorrow just before next midnight")
 		
 		let date4 = (DateInRegion() + 2.days).startOf(component: .day)
@@ -370,7 +370,7 @@ class TestDateInRegion_Compare: XCTestCase {
 		let date5 = DateInRegion().endOf(component: .day)
 		XCTAssertTrue(date5.isTomorrow == false, "Failed to return false for isTomorrow with a date set tomorrow before last midnight")
 		
-		let date6 = DateInRegion() - 1.years
+		let date6 = DateInRegion() - 1.year
 		XCTAssertTrue(date6.isTomorrow == false, "Failed to return false for isTomorrow with a date set to last year's date")
 	}
 	

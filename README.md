@@ -26,7 +26,7 @@ That's an highlight of the main features you can found in SwiftDate:
 ## How to get started
 
 * **Check our website [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate) to learn more about all available functions with a comprehensive list of examples**
-* Install SwiftDate via CocoaPods, Chartage or Swift Package Manager
+* Install SwiftDate via CocoaPods, Carthage or Swift Package Manager
 * Have fun!
 
 ## Documentation

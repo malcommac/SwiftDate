@@ -14,8 +14,9 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		print("\(Locale.current.collatorIdentifier)")
-		print("\(Locale.availableIdentifiers)")
+		let str = "2016-11-10T07:58:35.566Z"
+		let format = try! str.date(format: .iso8601(options: .withInternetDateTimeExtended))
+		print(format)
 	}
 
 }

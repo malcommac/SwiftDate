@@ -10,7 +10,7 @@
 "colloquial_p_mm"					=	"před %d měsíci";	// month,past,plural:		"3 months ago"
 
 "colloquial_f_w"					=	"příští týden";		// week,future,singular:	"next week"
-"colloquial_f_ww"					=	"za %ld týdny";		// week,future,plural:		"in 3 weeks"
+"colloquial_f_ww"					=	"za %d týdny";		// week,future,plural:		"in 3 weeks"
 "colloquial_p_w"					=	"minulý týden";		// week,past,singular:		"past week"
 "colloquial_p_ww"					=	"před %d týdny";		// week,past,plural:		"in 3 weeks"
 
@@ -20,12 +20,12 @@
 "colloquial_p_dd"					=	"před %d dny";		// day,past,plural:			"3 days ago"
 
 "colloquial_f_h"					=	"za hodinu";		// hour,future,singular:	"in one hour"
-"colloquial_f_hh"					=	"za %ld hodiny";		// hour,future,plural:		"in 3 hours"
+"colloquial_f_hh"					=	"za %d hodiny";		// hour,future,plural:		"in 3 hours"
 "colloquial_p_h"					=	"před hodinou";		// hour,past,singular:		"one hour ago"
 "colloquial_p_hh"					=	"před %d hodinami";		// hour,past,plural:		"3 hours ago"
 
 "colloquial_f_M"					=	"za minutu";	// minute,future,singular:	"in one minute"
-"colloquial_f_MM"					=	"za %ld minut";	// minute,future,plural:	"in 3 minutes"
+"colloquial_f_MM"					=	"za %d minut";	// minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"před minutou";	// minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"před %d minutami";	// minute,past,plural:		"3 minutes ago"
 

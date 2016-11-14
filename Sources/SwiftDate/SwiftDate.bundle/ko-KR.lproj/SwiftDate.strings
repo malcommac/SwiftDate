@@ -10,7 +10,7 @@
 "colloquial_p_mm"					=	"%d개월 전";	  // month,past,plural:		"3 months ago"
 
 "colloquial_f_w"					=	"다음 주";		  // week,future,singular:	"next week"
-"colloquial_f_ww"					=	"%ld주 후";   // week,future,plural:		"in 3 weeks"
+"colloquial_f_ww"					=	"%d주 후";   // week,future,plural:		"in 3 weeks"
 "colloquial_p_w"					=	"저번주";      // week,past,singular:		"past week"
 "colloquial_p_ww"					=	"%d주 전";    // week,past,plural:		"in 3 weeks"
 
@@ -20,12 +20,12 @@
 "colloquial_p_dd"					=	"%d일 전";		// day,past,plural:			"3 days ago"
 
 "colloquial_f_h"					=	"한 시간 후";  // hour,future,singular:	"in one hour"
-"colloquial_f_hh"					=	"%ld시간 후 "; // hour,future,plural:		"in 3 hours"
+"colloquial_f_hh"					=	"%d시간 후 "; // hour,future,plural:		"in 3 hours"
 "colloquial_p_h"					=	"한 시간 전";	  // hour,past,singular:		"one hour ago"
 "colloquial_p_hh"					=	"%d시간 전";   // hour,past,plural:		"3 hours ago"
 
 "colloquial_f_M"					=	"일분 후";	    // minute,future,singular:	"in one minute"
-"colloquial_f_MM"					=	"%ld분 후";   // minute,future,plural:	"in 3 minutes"
+"colloquial_f_MM"					=	"%d분 후";   // minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"일분 전";     // minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"%d분 전";    // minute,past,plural:		"3 minutes ago"
 

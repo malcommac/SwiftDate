@@ -13,6 +13,9 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		print("\(Locale.current.collatorIdentifier)")
+		print("\(Locale.availableIdentifiers)")
 	}
 
 }

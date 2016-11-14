@@ -1,0 +1,48 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"next year";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"on %d";			// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"last year";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d";				// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"next month";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"in %d months";		// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"past month";		// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"%d months ago";	// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"next week";		// week,future,singular:	"next week"
+"colloquial_f_ww"					=	"in %ld weeks";		// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"past week";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"%d weeks ago";		// week,past,plural:		"in 3 weeks"
+
+"colloquial_f_d"					=	"tomorrow";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd"					=	"in %d days";		// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"yesterday";		// day,past,singular:		"yesterday"
+"colloquial_p_dd"					=	"%d days ago";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"in one hour";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh"					=	"in %ld hours";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"one hour ago";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh"					=	"%d hours ago";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"in one minute";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM"					=	"in %ld minutes";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"one minute ago";	// minute,past,singular:	"one minute ago"
+"colloquial_p_MM"					=	"%d minutes ago";	// minute,past,plural:		"3 minutes ago"
+
+"colloquial_now"					=	"just now";			// less than 5 minutes if .allowsNowOnColloquial is set
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"MMM, dd yyyy";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"MMM, dd yyyy";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"EEE, MMM dd";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"EEE, MMM dd";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"'at' HH:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"'at' HH:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

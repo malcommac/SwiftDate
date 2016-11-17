@@ -4,7 +4,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 
-We really ♥ Swift and we think that dates and timezones management should be painless: this is the reason we made SwiftDate, probability the best way to manage date and time in Swift.
+We really ♥ Swift and we think that dates and timezones management should be painless: this is the reason we made SwiftDate, probably the best way to manage date and time in Swift.
 
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 

@@ -1,0 +1,48 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"내년";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"%d년";			// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"작년";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d년";				// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"다음 달";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"%d개월 후";		// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"저번 달";		// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"%d개월 전";	// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"다음 주";		// week,future,singular:	"next week"
+"colloquial_f_ww"					=	"%ld주 후";		// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"저번 주";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"%d주 전";		// week,past,plural:		"in 3 weeks"
+
+"colloquial_f_d"					=	"내일";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd"					=	"%d일 후";		// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"어제";		// day,past,singular:		"yesterday"
+"colloquial_p_dd"					=	"%d일 전";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"한 시간 후";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh"					=	"%ld시간 후";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"한 시간 전";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh"					=	"%d시간 전";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"일 분 후";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM"					=	"%ld분 후";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"일 분 전";	// minute,past,singular:	"one minute ago"
+"colloquial_p_MM"					=	"%d분 전";	// minute,past,plural:		"3 minutes ago"
+
+"colloquial_now"					=	"방금";			// less than 5 minutes if .allowsNowOnColloquial is set
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"yyyy년 MMM";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"yyyy년 MMM";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"yyyy년 MMM dd일";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"yyyy년 MMM dd일";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"MMM dd일 EEEE";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"MMM dd일 EEEE";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"MMM dd일 EEEE";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"MMM dd일 EEEE";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"a h:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"a h:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

@@ -9,9 +9,10 @@
 ### SwiftDate 4.0.8
 
 #### New Features
-* [#348](https://github.com/malcommac/SwiftDate/issues/348) `DateComponents` can now be merged using `&&` operator. So if you have `A = 1.hours, 3.minutes, 2.seconds` and `B = 1.year, 40.minutes`, using `let C = A && B` you will get a new `DateComponents` instance with: `C = 1.year, 1.hours, 43.minutes, 2.seconds`.
+* [#214](https://github.com/malcommac/SwiftDate/issues/214), Added `.next(day:)` both for `Date` and `DateInRegion` to get the next weekday (ie. "next friday from today") after specified date.
 * [#310](https://github.com/malcommac/SwiftDate/issues/310) Added static func `.dates(between:and:increment:)` both for `Date` and `DateInRegion` which allows to enumerate dates between two interval with given increment in term of `DateComponents`.
 * [#337](https://github.com/malcommac/SwiftDate/issues/337) DateComponents now implements `.in()` func you can use to express an interval (like using `TimeInterval`) in terms of other time units (for example `let x = 120.seconds.in(.minute)` will return 2 minutes).
+* [#348](https://github.com/malcommac/SwiftDate/issues/348) `DateComponents` can now be merged using `&&` operator. So if you have `A = 1.hours, 3.minutes, 2.seconds` and `B = 1.year, 40.minutes`, using `let C = A && B` you will get a new `DateComponents` instance with: `C = 1.year, 1.hours, 43.minutes, 2.seconds`.
 * [#340](https://github.com/malcommac/SwiftDate/issues/340), [#320](https://github.com/malcommac/SwiftDate/issues/320) Added Spanish support (thanks to @Sepho and @adrimarti).
 * [#323](https://github.com/malcommac/SwiftDate/issues/323), Added Korean support (thanks to @KisukPark).
 * [#328](https://github.com/malcommac/SwiftDate/issues/328), Added Slovak support (thanks to @beretis).

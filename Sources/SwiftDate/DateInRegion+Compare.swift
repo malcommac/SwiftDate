@@ -39,7 +39,15 @@ public extension DateInRegion {
 	/// - returns: `orderedSame` if the dates are the same down to the given granularity, otherwise
 	///     `orderedAscending` or `orderedDescending`.
 	public func compare(to date: DateInRegion, granularity: Calendar.Component) -> ComparisonResult {
-		return self.region.calendar.compare(self.absoluteDate, to: date.absoluteDate, toGranularity: granularity)
+		switch granularity {
+		case .nanosecond:
+			// There is a possible rounding error using Calendar to compare two dates below the minute granularity
+			// So we've added this trick and use standard Date compare which return correct results in this case
+			// https://github.com/malcommac/SwiftDate/issues/346
+			return self.absoluteDate.compare(date.absoluteDate)
+		default:
+			return self.region.calendar.compare(self.absoluteDate, to: date.absoluteDate, toGranularity: granularity)
+		}
 	}
 	
 	

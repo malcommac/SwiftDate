@@ -376,6 +376,21 @@ extension DateInRegion {
 		return DateInRegion(absoluteDate: prevMonth!, in: self.region)
 	}
 	
+	/// Return the next weekday after today.
+	/// For example using now.next(.friday) it will return the first Friday after self represented date.
+	///
+	/// - Parameter day: weekday you want to get
+	/// - Returns: the next weekday after sender date
+	public func next(day: WeekDay) -> DateInRegion? {
+		var cal = Calendar(identifier: self.region.calendar.identifier)
+		cal.firstWeekday = 2 // Sunday = 1, Saturday = 7
+		var components = DateComponents()
+		components.weekday = day.rawValue
+		guard let next = cal.nextDate(after: self.absoluteDate, matching: components, matchingPolicy: .nextTimePreservingSmallerComponents) else {
+			return nil
+		}
+		return DateInRegion(absoluteDate: next, in: self.region)
+	}
 	
 	/// Takes a date unit and returns a date at the start of that unit.
 	///

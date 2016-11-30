@@ -170,6 +170,15 @@ public extension Date {
 		return self.inDateDefaultRegion().modifiedJulianDay
 	}
 	
+	/// Return the next weekday after today.
+	/// For example using now.next(.friday) it will return the first Friday after self represented date.
+	///
+	/// - Parameter day: weekday you want to get
+	/// - Returns: the next weekday after sender date
+	public func next(day: WeekDay) -> Date? {
+		return self.inDateDefaultRegion().next(day: day)?.absoluteDate
+	}
+	
 	/// Returns two `DateInRegion` objects indicating the start and the end of the current weekend.
 	/// Calculation is made in the context of `defaultRegion`.
 	public var thisWeekend: (startDate: DateInRegion, endDate: DateInRegion)? {

@@ -66,6 +66,35 @@ public func - (lhs: DateComponents, rhs: DateComponents) -> DateComponents {
 	return lhs.add(components: rhs, multipler: -1)
 }
 
+
+/// Merge two DateComponents values `(ex. a=1.hour,1.day, b=2.hour, the sum is c=3.hours,1.day)`
+///
+/// - Parameters:
+///   - lhs: left date component
+///   - rhs: right date component
+/// - Returns: the sum of valid components of two instances
+
+public func && (lhs: DateComponents, rhs: DateComponents) -> DateComponents {
+	var mergedComponents = DateComponents()
+	let flagSet = DateComponents.allComponents
+	
+	flagSet.forEach { component in
+		
+		func sumComponent(left: Int?, right: Int?) -> Int? {
+			let leftValue = (left != nil && left != Int(NSDateComponentUndefined) ? left : nil)
+			let rightValue = (right != nil && right != Int(NSDateComponentUndefined) ? right : nil)
+			if leftValue == nil && rightValue == nil { return nil }
+			return (leftValue ?? 0) + (rightValue ?? 0)
+		}
+		
+		let sum = sumComponent(left: lhs.value(for: component), right: rhs.value(for: component))
+		if sum != nil {
+			mergedComponents.setValue(sum!, for: component)
+		}
+	}
+	return mergedComponents
+}
+
 public extension DateComponents {
 	
 	
@@ -193,6 +222,21 @@ public extension DateComponents {
 	/// - returns: a new `DateInRegion`
 	public func ago(in region: Region? = nil) -> Date? {
 		return self.ago(from: Date(), in: region)
+	}
+	
+	/// Express a DateComponents instances in another time unit you choose
+	///
+	/// - parameter component: time component
+	/// - parameter calendar:  context calendar to use
+	///
+	/// - returns: the value of interval expressed in selected `Calendar.Component`
+	public func `in`(_ component: Calendar.Component, of calendar: CalendarName? = nil) -> Int? {
+		let cal = calendar ?? CalendarName.current
+		let dateFrom = Date()
+		let dateTo: Date = dateFrom.add(components: self)
+		let components: Set<Calendar.Component> = [component]
+		let value = cal.calendar.dateComponents(components, from: dateFrom, to: dateTo).value(for: component)
+		return value
 	}
 }
 

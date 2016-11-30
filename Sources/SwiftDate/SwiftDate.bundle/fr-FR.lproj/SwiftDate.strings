@@ -10,7 +10,7 @@
 "colloquial_p_mm"					=	"il y a %d mois";			// month,past,plural:		"3 months ago"
 
 "colloquial_f_w"					=	"la semaine prochaine";		// week,future,singular:	"next week"
-"colloquial_f_ww"					=	"dans %ld semaines";		// week,future,plural:		"in 3 weeks"
+"colloquial_f_ww"					=	"dans %d semaines";		// week,future,plural:		"in 3 weeks"
 "colloquial_p_w"					=	"la semaine dernière";		// week,past,singular:		"past week"
 "colloquial_p_ww"					=	"il y a %d semaines";		// week,past,plural:		"in 3 weeks"
 
@@ -20,12 +20,12 @@
 "colloquial_p_dd"					=	"il y a %d jours";			// day,past,plural:			"3 days ago"
 
 "colloquial_f_h"					=	"dans une heure";			// hour,future,singular:	"in one hour"
-"colloquial_f_hh"					=	"dans %ld heures";			// hour,future,plural:		"in 3 hours"
+"colloquial_f_hh"					=	"dans %d heures";			// hour,future,plural:		"in 3 hours"
 "colloquial_p_h"					=	"il y a une heure";			// hour,past,singular:		"one hour ago"
 "colloquial_p_hh"					=	"il y a %d heures";			// hour,past,plural:		"3 hours ago"
 
 "colloquial_f_M"					=	"dans une minute";			// minute,future,singular:	"in one minute"
-"colloquial_f_MM"					=	"dans %ld minutes";			// minute,future,plural:	"in 3 minutes"
+"colloquial_f_MM"					=	"dans %d minutes";			// minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"il y a une minute";		// minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"il y a %d minutes";		// minute,past,plural:		"3 minutes ago"
 

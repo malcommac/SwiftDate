@@ -24,6 +24,26 @@
 
 import Foundation
 
+
+/// This define the weekdays
+///
+/// - sunday: sunday
+/// - monday: monday
+/// - tuesday: tuesday
+/// - wednesday: wednesday
+/// - thursday: thursday
+/// - friday: friday
+/// - saturday: saturday
+public enum WeekDay: Int {
+	case sunday		= 1
+	case monday		= 2
+	case tuesday	= 3
+	case wednesday	= 4
+	case thursday	= 5
+	case friday		= 6
+	case saturday	= 7
+}
+
 /// Provide a mechanism to create and return local-thread object you can share.
 /// 
 /// Basically you assign a key to the object and return the initializated instance in `create`

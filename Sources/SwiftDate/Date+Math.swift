@@ -55,11 +55,9 @@ public extension Date {
 	///
 	/// - parameter components: components to set
 	///
-	/// - throws: throw an exception if new date cannot be evaluated
-	///
 	/// - returns: a new `Date`
 	public func add(components: DateComponents) -> Date {
-		let date: DateInRegion = self.inGMTRegion() + components
+		let date: DateInRegion = self.inDateDefaultRegion() + components
 		return date.absoluteDate
 	}
 	
@@ -67,12 +65,33 @@ public extension Date {
 	///
 	/// - parameter components: components to set
 	///
-	/// - throws: throw an exception if new date cannot be evaluated
-	///
 	/// - returns: a new `Date`
 	public func add(components: [Calendar.Component: Int]) -> Date {
-		let date: DateInRegion = self.inGMTRegion() + components
+		let date: DateInRegion = self.inDateDefaultRegion() + components
 		return date.absoluteDate
+	}
+	
+	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
+	/// `startDate` interval will be the first item of the resulting array. The last item of the array is evaluated automatically.
+	///
+	/// - throws: throw `.DifferentCalendar` if dates are expressed in a different calendar, '.FailedToCalculate'
+	///
+	/// - Parameters:
+	///   - startDate: starting date
+	///   - endDate: ending date
+	///   - components: components to add
+	/// - Returns: an array of DateInRegion objects
+	public static func dates(between startDate: Date, and endDate: Date, increment components: DateComponents) -> [Date] {
+		
+		var dates = [startDate]
+		var currentDate = startDate
+		
+		repeat {
+			currentDate = currentDate.add(components: components)
+			dates.append(currentDate)
+		} while (currentDate <= endDate)
+		
+		return dates
 	}
 	
 }

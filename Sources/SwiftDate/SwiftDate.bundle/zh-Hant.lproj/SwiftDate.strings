@@ -10,7 +10,7 @@
 "colloquial_p_mm"                   =   "%d個月前";    // month,past,plural:       "3 months ago"
 
 "colloquial_f_w"                    =   "下週";       // week,future,singular:    "next week"
-"colloquial_f_ww"                   =   "%ld週後";        // week,future,plural:      "in 3 weeks"
+"colloquial_f_ww"                   =   "%d週後";        // week,future,plural:      "in 3 weeks"
 "colloquial_p_w"                    =   "上週";       // week,past,singular:      "past week"
 "colloquial_p_ww"                   =   "%d週前";     // week,past,plural:        "in 3 weeks"
 
@@ -20,12 +20,12 @@
 "colloquial_p_dd"                   =   "%d天前";     // day,past,plural:         "3 days ago"
 
 "colloquial_f_h"                    =   "1小時後";     // hour,future,singular:    "in one hour"
-"colloquial_f_hh"                   =   "%ld小時後";       // hour,future,plural:      "in 3 hours"
+"colloquial_f_hh"                   =   "%d小時後";       // hour,future,plural:      "in 3 hours"
 "colloquial_p_h"                    =   "1小時前";     // hour,past,singular:      "one hour ago"
 "colloquial_p_hh"                   =   "%d小時前";        // hour,past,plural:        "3 hours ago"
 
 "colloquial_f_M"                    =   "1分鐘後"; // minute,future,singular:  "in one minute"
-"colloquial_f_MM"                   =   "%ld分鐘後";   // minute,future,plural:    "in 3 minutes"
+"colloquial_f_MM"                   =   "%d分鐘後";   // minute,future,plural:    "in 3 minutes"
 "colloquial_p_M"                    =   "1分鐘前"; // minute,past,singular:    "one minute ago"
 "colloquial_p_MM"                   =   "%d分鐘前";    // minute,past,plural:      "3 minutes ago"
 

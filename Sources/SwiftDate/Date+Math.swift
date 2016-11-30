@@ -55,8 +55,6 @@ public extension Date {
 	///
 	/// - parameter components: components to set
 	///
-	/// - throws: throw an exception if new date cannot be evaluated
-	///
 	/// - returns: a new `Date`
 	public func add(components: DateComponents) -> Date {
 		let date: DateInRegion = self.inDateDefaultRegion() + components
@@ -66,8 +64,6 @@ public extension Date {
 	/// Create a new Date object which is the sum of passed calendar components in dictionary of `Calendar.Component` values to `self`
 	///
 	/// - parameter components: components to set
-	///
-	/// - throws: throw an exception if new date cannot be evaluated
 	///
 	/// - returns: a new `Date`
 	public func add(components: [Calendar.Component: Int]) -> Date {

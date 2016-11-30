@@ -55,11 +55,9 @@ public extension Date {
 	///
 	/// - parameter components: components to set
 	///
-	/// - throws: throw an exception if new date cannot be evaluated
-	///
 	/// - returns: a new `Date`
 	public func add(components: DateComponents) -> Date {
-		let date: DateInRegion = self.inGMTRegion() + components
+		let date: DateInRegion = self.inDateDefaultRegion() + components
 		return date.absoluteDate
 	}
 	
@@ -67,11 +65,9 @@ public extension Date {
 	///
 	/// - parameter components: components to set
 	///
-	/// - throws: throw an exception if new date cannot be evaluated
-	///
 	/// - returns: a new `Date`
 	public func add(components: [Calendar.Component: Int]) -> Date {
-		let date: DateInRegion = self.inGMTRegion() + components
+		let date: DateInRegion = self.inDateDefaultRegion() + components
 		return date.absoluteDate
 	}
 	

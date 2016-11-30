@@ -132,6 +132,7 @@
             <li><a href="manipulate_dates.html#before_g">Is Before with Granurality</a></li>
             <li><a href="manipulate_dates.html#after_g">Is After with Granurality</a></li>
             <li><a href="manipulate_dates.html#equal">Is Equal</a></li>
+            <li><a href="manipulate_dates.html#enumerate">Enumerate Dates in Interval</a></li>
           </ul>
         </li>
 
@@ -411,6 +412,23 @@
                 <ul>
                   <li><code>compareDate</code>: a date to compare against</li>
                 </ul>
+
+                <h2 id="enumerate">Enumerate Dates in Interval</h2>
+                <h5>Description</h5>
+                <p>This method enumerates all dates between an interval, from starting date (included) to end date (maybe excluded depending of the increment factor).</p>
+                <h5>Declaration</h5>
+                <code>
+                  public static func dates(between startDate: Date, and endDate: Date, increment components: DateComponents) -> [Date]
+                </code>
+                <h5>Parameters</h5>
+                <ul>
+                  <li><code>startDate</code>: start interval</li>
+                  <li><code>endDate</code>: end interval</li>
+                  <li><code>increment</code>: increment expressed as DateComponents instance</li>
+                </ul>
+                <h5>Example</h5>
+                <script src="https://gist.github.com/malcommac/14ad049a5acaee53c33e145cccc25f82"></script>
+
 
           </header>
         </article>

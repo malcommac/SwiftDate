@@ -51,7 +51,7 @@ Latest release is: 4.0.7 [Download here](https://github.com/malcommac/SwiftDate/
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
 ## Help Us!
-Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/src/Support/SwiftDate.bundle).
+Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/Sources/SwiftDate/SwiftDate.bundle).
 Help us with a pull request!
 
 Currently SwiftDate supports:

@@ -608,6 +608,7 @@
 					};
 					08EC22EE1DA03F9D00B6DFC6 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = E5DU3FA699;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -618,6 +619,7 @@
 					};
 					21C3012A1D829D7900B0E02C = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9MKJC68VMT;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1126,7 +1128,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1171,7 +1174,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = E5DU3FA699;
+				DEVELOPMENT_TEAM = 9MKJC68VMT;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1185,7 +1188,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = E5DU3FA699;
+				DEVELOPMENT_TEAM = 9MKJC68VMT;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

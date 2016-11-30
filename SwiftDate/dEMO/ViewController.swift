@@ -11,9 +11,11 @@ import SwiftDate
 
 class ViewController: UIViewController {
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
-
+    @IBOutlet weak var colloquialTimeLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        colloquialTimeLabel.text = try? Date().addingTimeInterval(-3600 * 24 * 20).colloquialSinceNow(unitStyle: .short).colloquial
+    }
 }
 

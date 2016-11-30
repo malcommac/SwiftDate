@@ -31,7 +31,7 @@ Here's a highlight of the main features you can find in SwiftDate:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.7/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.8/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -46,7 +46,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.7 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.7) released on Mon, Oct 24, 2016.
+Latest release is: 4.0.8 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.8) released on Thu, Dec 1, 2016.
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -63,6 +63,12 @@ Currently SwiftDate supports:
 * Indonesian (made by [suprie](https://github.com/suprie), since 4.0.5)
 * Simplified Chinese (made by [codingrhythm](https://github.com/codingrhythm), since 4.0.5)
 * Traditional Chinese (made by [rynecheow](https://github.com/rynecheow), since 4.0.7)
+* Spanish (made by [adrimarti](https://github.com/adrimarti) and [Sepho](https://github.com/Sepho), since 4.0.8)
+* Czech (made by [rbukovansky](https://github.com/rbukovansky), since 4.0.8)
+* Danish (made by [emilpedersen](https://github.com/emilpedersen), since 4.0.8)
+* Slovak (made by [beretis](https://github.com/beretis), since 4.0.8)
+* Korean (made by [KisukPark](https://github.com/KisukPark), since 4.0.8)
+* Turkish (made by [fatihyildizhan](https://github.com/fatihyildizhan), since 4.0.8)
 
 Make a pull request and add your language!
 
@@ -121,7 +127,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 ## Requirements
 
-The current version (4.0.7) is compatible with:
+The current version (4.0.8) is compatible with:
 
 * Swift 3.0+
 * iOS 8 or later

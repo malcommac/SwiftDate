@@ -194,6 +194,21 @@ public extension DateComponents {
 	public func ago(in region: Region? = nil) -> Date? {
 		return self.ago(from: Date(), in: region)
 	}
+	
+	/// Express a DateComponents instances in another time unit you choose
+	///
+	/// - parameter component: time component
+	/// - parameter calendar:  context calendar to use
+	///
+	/// - returns: the value of interval expressed in selected `Calendar.Component`
+	public func `in`(_ component: Calendar.Component, of calendar: CalendarName? = nil) -> Int? {
+		let cal = calendar ?? CalendarName.current
+		let dateFrom = Date()
+		let dateTo: Date = dateFrom.add(components: self)
+		let components: Set<Calendar.Component> = [component]
+		let value = cal.calendar.dateComponents(components, from: dateFrom, to: dateTo).value(for: component)
+		return value
+	}
 }
 
 // MARK: - DateComponents Private Extension

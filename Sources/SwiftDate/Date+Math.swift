@@ -75,6 +75,29 @@ public extension Date {
 		return date.absoluteDate
 	}
 	
+	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
+	/// `startDate` interval will be the first item of the resulting array. The last item of the array is evaluated automatically.
+	///
+	/// - throws: throw `.DifferentCalendar` if dates are expressed in a different calendar, '.FailedToCalculate'
+	///
+	/// - Parameters:
+	///   - startDate: starting date
+	///   - endDate: ending date
+	///   - components: components to add
+	/// - Returns: an array of DateInRegion objects
+	public static func dates(between startDate: Date, and endDate: Date, increment components: DateComponents) -> [Date] {
+		
+		var dates = [startDate]
+		var currentDate = startDate
+		
+		repeat {
+			currentDate = currentDate.add(components: components)
+			dates.append(currentDate)
+		} while (currentDate <= endDate)
+		
+		return dates
+	}
+	
 }
 
 // MARK: - Sum of Dates and Date & Components

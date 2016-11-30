@@ -62,13 +62,7 @@ public struct DateTimeInterval : Comparable {
 	}
 	
 	/// Initialize a `DateTimeInterval` with the specified start and end date.
-	///
-	/// - precondition: `end >= start`
 	public init(start: Date, end: Date) {
-		if end < start {
-			fatalError("Reverse intervals are not allowed")
-		}
-		
 		self.start = start
 		duration = end.timeIntervalSince(start)
 	}

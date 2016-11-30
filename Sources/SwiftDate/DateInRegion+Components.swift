@@ -242,6 +242,16 @@ extension DateInRegion {
 		return self.julianDay - 2400000.5
 	}
 	
+	/// Get the first day of the week according to the current calendar set
+	public var startWeek: DateInRegion {
+		return self.startOf(component: .weekOfYear)
+	}
+	
+	/// Get the last day of the week according to the current calendar set
+	public var endWeek: DateInRegion {
+		return self.endOf(component: .weekOfYear)
+	}
+	
 	/// Returns two `DateInRegion` objects indicating the start and the end of the current weekend.
 	///
 	/// - Returns: a tuple of two `DateInRegion` objects indicating the start and the end of

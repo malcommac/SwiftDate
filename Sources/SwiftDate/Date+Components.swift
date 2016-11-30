@@ -179,6 +179,16 @@ public extension Date {
 		return self.inDateDefaultRegion().next(day: day)?.absoluteDate
 	}
 	
+	/// Get the first day of the week according to the current calendar set
+	public var startWeek: Date {
+		return self.startOf(component: .weekOfYear)
+	}
+	
+	/// Get the last day of the week according to the current calendar set
+	public var endWeek: Date {
+		return self.endOf(component: .weekOfYear)
+	}
+	
 	/// Returns two `DateInRegion` objects indicating the start and the end of the current weekend.
 	/// Calculation is made in the context of `defaultRegion`.
 	public var thisWeekend: (startDate: DateInRegion, endDate: DateInRegion)? {

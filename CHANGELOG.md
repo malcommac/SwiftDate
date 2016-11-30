@@ -6,6 +6,30 @@
 
 ## CHANGELOG
 
+### SwiftDate 4.0.8
+
+#### New Features
+* [#214](https://github.com/malcommac/SwiftDate/issues/214), Added `.next(day:)` both for `Date` and `DateInRegion` to get the next weekday (ie. "next friday from today") after specified date.
+* [#310](https://github.com/malcommac/SwiftDate/issues/310) Added static func `.dates(between:and:increment:)` both for `Date` and `DateInRegion` which allows to enumerate dates between two interval with given increment in term of `DateComponents`.
+* [#337](https://github.com/malcommac/SwiftDate/issues/337) DateComponents now implements `.in()` func you can use to express an interval (like using `TimeInterval`) in terms of other time units (for example `let x = 120.seconds.in(.minute)` will return 2 minutes).
+* [#348](https://github.com/malcommac/SwiftDate/issues/348) `DateComponents` can now be merged using `&&` operator. So if you have `A = 1.hours, 3.minutes, 2.seconds` and `B = 1.year, 40.minutes`, using `let C = A && B` you will get a new `DateComponents` instance with: `C = 1.year, 1.hours, 43.minutes, 2.seconds`.
+* [#340](https://github.com/malcommac/SwiftDate/issues/340), [#320](https://github.com/malcommac/SwiftDate/issues/320) Added Spanish support (thanks to @Sepho and @adrimarti).
+* [#323](https://github.com/malcommac/SwiftDate/issues/323), Added Korean support (thanks to @KisukPark).
+* [#328](https://github.com/malcommac/SwiftDate/issues/328), Added Slovak support (thanks to @beretis).
+* [#329](https://github.com/malcommac/SwiftDate/issues/329), Added Danish support (thanks to @emilpedersen).
+* [#331](https://github.com/malcommac/SwiftDate/issues/331), Added Czech support (thanks to @rbukovansky).
+* [#187](https://github.com/malcommac/SwiftDate/issues/187), Added `.startWeek` (get the first day of the sender's week) and `.endWeek` (get the last day of the sender's week) both for `Date` and `DateInRegion`
+
+#### Fixes:
+Released on: Thu Dec 1, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.8)
+* [#344](https://github.com/malcommac/SwiftDate/issues/344) `.inDateDefaultRegion()` is also used as standard value for region in `.add()` function of the `Date` object
+* [#339](https://github.com/malcommac/SwiftDate/issues/339) Fixed an issue with reverse interval fatal error when subtracting two dates
+* [#317](https://github.com/malcommac/SwiftDate/issues/317) Fixed an issue with language transations. Now all translations are specified in term of language+region settings (ie. `en-US` and not only `en`). All translation files were updated to reflect this new behaviour.
+* [#346](https://github.com/malcommac/SwiftDate/issues/346) Workaround to fix a rounding problem when comparing two `Date` or `DateInRegion` in terms of `.nanosecond` granularity. Now the comparision result is correct.
+* [#315](https://github.com/malcommac/SwiftDate/issues/315), Fixed an issue with `Date().add(components:)` and daylight saving dates.
+* [#319](https://github.com/malcommac/SwiftDate/issues/319), Added missing translation for german loc (thanks to @jaweinkauff)
+
+
 ### SwiftDate 4.0.7
 Released on: Mon Oct 24, 2016, [Download](https://github.com/malcommac/SwiftDate/releases/tag/4.0.7)
 * [#306](https://github.com/malcommac/SwiftDate/issues/306) Fixed a date ordering issue with time interval

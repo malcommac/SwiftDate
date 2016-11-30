@@ -242,6 +242,16 @@ extension DateInRegion {
 		return self.julianDay - 2400000.5
 	}
 	
+	/// Get the first day of the week according to the current calendar set
+	public var startWeek: DateInRegion {
+		return self.startOf(component: .weekOfYear)
+	}
+	
+	/// Get the last day of the week according to the current calendar set
+	public var endWeek: DateInRegion {
+		return self.endOf(component: .weekOfYear)
+	}
+	
 	/// Returns two `DateInRegion` objects indicating the start and the end of the current weekend.
 	///
 	/// - Returns: a tuple of two `DateInRegion` objects indicating the start and the end of
@@ -376,6 +386,21 @@ extension DateInRegion {
 		return DateInRegion(absoluteDate: prevMonth!, in: self.region)
 	}
 	
+	/// Return the next weekday after today.
+	/// For example using now.next(.friday) it will return the first Friday after self represented date.
+	///
+	/// - Parameter day: weekday you want to get
+	/// - Returns: the next weekday after sender date
+	public func next(day: WeekDay) -> DateInRegion? {
+		var cal = Calendar(identifier: self.region.calendar.identifier)
+		cal.firstWeekday = 2 // Sunday = 1, Saturday = 7
+		var components = DateComponents()
+		components.weekday = day.rawValue
+		guard let next = cal.nextDate(after: self.absoluteDate, matching: components, matchingPolicy: .nextTimePreservingSmallerComponents) else {
+			return nil
+		}
+		return DateInRegion(absoluteDate: next, in: self.region)
+	}
 	
 	/// Takes a date unit and returns a date at the start of that unit.
 	///

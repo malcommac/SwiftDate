@@ -51,6 +51,46 @@ extension DateInRegion {
 		return cmps
 	}
 	
+	
+	/// Create a new DateInRegion by adding specified DateComponents to self
+	///
+	/// - Parameter dateComponents: date components to add
+	/// - Returns: a new instance of DateInRegion expressed in same region
+	/// - Throws: throw `.FailedToCalculate` if new date cannot be evaluated due to wrong components passed
+	public func add(components dateComponents: DateComponents) throws -> DateInRegion {
+		let newDate = self.region.calendar.date(byAdding: dateComponents, to: self.absoluteDate)
+		if newDate == nil { throw DateError.FailedToCalculate }
+		return DateInRegion(absoluteDate: newDate!, in: self.region)
+	}
+	
+	
+	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
+	/// `startDate` interval will be the first item of the resulting array. The last item of the array is evaluated automatically.
+	///
+	/// - throws: throw `.DifferentCalendar` if dates are expressed in a different calendar,
+	///
+	/// - Parameters:
+	///   - startDate: starting date
+	///   - endDate: ending date
+	///   - components: components to add
+	///	  - normalize: normalize both start and end date at the start of the specified component (if nil, normalization is skipped)
+	/// - Returns: an array of DateInRegion objects
+	public static func dates(between startDate: DateInRegion, and endDate: DateInRegion, increment components: DateComponents) throws -> [DateInRegion] {
+		guard startDate.region.calendar == endDate.region.calendar else {
+			throw DateError.DifferentCalendar
+		}
+
+		var dates = [startDate]
+		var currentDate = startDate
+		
+		repeat {
+			currentDate = try currentDate.add(components: components)
+			dates.append(currentDate)
+		} while (currentDate <= endDate)
+		
+		return dates
+	}
+	
 }
 
 // MARK: - DateInRegion Support for math operation

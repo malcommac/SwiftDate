@@ -10,7 +10,7 @@
 "colloquial_p_mm"					=	"%d mesi fa";			// month,past,plural:		"3 months ago"
 
 "colloquial_f_w"					=	"prossima settimana";	// week,future,singular:	"next week"
-"colloquial_f_ww"					=	"tra %ld settimane";	// week,future,plural:		"in 3 weeks"
+"colloquial_f_ww"					=	"tra %d settimane";	// week,future,plural:		"in 3 weeks"
 "colloquial_p_w"					=	"settimana scorsa";		// week,past,singular:		"past week"
 "colloquial_p_ww"					=	"%d settimane fa";		// week,past,plural:		"in 3 weeks"
 
@@ -20,12 +20,12 @@
 "colloquial_p_dd"					=	"%d giorni fa";		// day,past,plural:			"3 days ago"
 
 "colloquial_f_h"					=	"tra un'ora";		// hour,future,singular:	"in one hour"
-"colloquial_f_hh"					=	"tra %ld ore";		// hour,future,plural:		"in 3 hours"
+"colloquial_f_hh"					=	"tra %d ore";		// hour,future,plural:		"in 3 hours"
 "colloquial_p_h"					=	"un'ora fa";		// hour,past,singular:		"one hour ago"
 "colloquial_p_hh"					=	"%d ore fa";		// hour,past,plural:		"3 hours ago"
 
 "colloquial_f_M"					=	"tra un minuto";	// minute,future,singular:	"in one minute"
-"colloquial_f_MM"					=	"tra %ld minuti";	// minute,future,plural:	"in 3 minutes"
+"colloquial_f_MM"					=	"tra %d minuti";	// minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"un minuto fa";		// minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"%d minuti fa";		// minute,past,plural:		"3 minutes ago"
 

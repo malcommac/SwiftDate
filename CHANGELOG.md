@@ -6,6 +6,14 @@
 
 ## CHANGELOG
 
+### SwiftDate 4.0.9
+
+#### New Features
+
+
+#### Fixes
+* [#349](https://github.com/malcommac/SwiftDate/issues/349) Fixed an issue with ISO8601Formatter where we need to manually set the locale to "en_US_POSIX" in order to get correct results (ie. in 12/24h cases).
+
 ### SwiftDate 4.0.8
 
 #### New Features

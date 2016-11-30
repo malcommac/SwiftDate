@@ -46,7 +46,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.8 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.8) released on Thu, Dec 1, 2016.
+Latest release is: 4.0.9 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.9).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -127,7 +127,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 ## Requirements
 
-The current version (4.0.8) is compatible with:
+Current version is compatible with:
 
 * Swift 3.0+
 * iOS 8 or later

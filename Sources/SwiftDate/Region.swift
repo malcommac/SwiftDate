@@ -28,9 +28,9 @@ import Foundation
 
 /// Region encapsulate information about the TimeZone, Calendar and Locale of an absolute time
 public struct Region: CustomStringConvertible {
-	private(set) var timeZone: TimeZone
-	private(set) var calendar: Calendar
-	private(set) var locale: Locale
+	public fileprivate(set) var timeZone: TimeZone
+	public fileprivate(set) var calendar: Calendar
+	public fileprivate(set) var locale: Locale
 	
 	public var description: String {
 		return "Region with timezone: \(self.timeZone), calendar: \(self.calendar), locale: \(self.locale)"

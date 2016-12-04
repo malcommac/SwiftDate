@@ -70,6 +70,8 @@ Currently SwiftDate supports:
 * Korean (made by [KisukPark](https://github.com/KisukPark), since 4.0.8)
 * Turkish (made by [fatihyildizhan](https://github.com/fatihyildizhan), since 4.0.8)
 * Vietnamese (made by [solbadguyky](https://github.com/solbadguyky), since 4.0.9)
+* Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
+
 
 Make a pull request and add your language!
 

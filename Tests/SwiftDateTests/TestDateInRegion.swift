@@ -127,7 +127,7 @@ class DateInRegionTest: XCTestCase {
 			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
 			XCTAssertEqual("2011-09-09T14:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 		} catch let err {
-			XCTAssert(false, "Failed to create a region from RSS format: \(err)")
+			XCTAssert(false, "Failed to create a region from extended format: \(err)")
 		}
 	}
 	
@@ -147,7 +147,7 @@ class DateInRegionTest: XCTestCase {
 			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
 			XCTAssertEqual("2015-01-05T20:10:55Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 		} catch let err {
-			XCTAssert(false, "Failed to create a region from RSS format: \(err)")
+			XCTAssert(false, "Failed to create a region from ISO8601 format: \(err)")
 		}
 	}
 	

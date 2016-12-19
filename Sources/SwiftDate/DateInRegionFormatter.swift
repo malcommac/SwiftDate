@@ -248,7 +248,7 @@ public class DateInRegionFormatter {
 		}
 		
 		if cmp.minute != 0 {
-			if self.useImminentInterval && cmp.minute! < 5 {
+			if self.useImminentInterval && abs(cmp.minute!) < 5 {
 				let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 				return (colloquial_date,nil)
 			} else {

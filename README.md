@@ -23,6 +23,18 @@ Here's a highlight of the main features you can find in SwiftDate:
 * **Many shortcuts to get intervals, work with time units, intervals and common date operations** (`isYesterday,isTomorrow,isBefore()`...)
 * ... [many many other shiny things!](http://malcommac.github.io/SwiftDate)
 
+## You also may like
+-------
+
+Do you like `SwiftDate`? I'm also working on several other opensource libraries.
+
+Take a look here:
+
+* **[SwiftLocation](https://github.com/malcommac/SwiftLocation)** - CoreLocation and Beacon Monitoring on steroid!
+* **[SwiftRichString](https://github.com/malcommac/SwiftRichString)** - Elegant and painless attributed string in Swift
+* **[SwiftScanner](https://github.com/malcommac/SwiftScanner)** - String scanner in pure Swift with full unicode support
+* **[SwiftSimplify](https://github.com/malcommac/SwiftSimplify)** - Tiny high-performance Swift Polyline Simplification Library
+
 ## How to get started
 
 * **Check our website [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate) to learn more about all available functions with a comprehensive list of examples**

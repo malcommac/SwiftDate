@@ -94,41 +94,45 @@ class TestDateInRegion_Formatter: XCTestCase {
 		var options: ISO8601DateTimeFormatter.Options = [.withWeekOfYear,.withMonth,.withDashSeparatorInDate]
 		let string_1 = testDate.string(format: .iso8601(options: options))
 		XCTAssertEqual(string_1, "02-W05", "Failed get ISO8601 #1 representation of the string")
-
+		
 		options = [.withInternetDateTime]
 		let string_2 = testDate.string(format: .iso8601(options: options))
 		XCTAssertEqual(string_2, "2001-02-03T15:30:00+01:00", "Failed get ISO8601 #2 representation of the string")
-
-		options = [.withFullDate]
+		
+		options = [.withInternetDateTimeExtended]
 		let string_3 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_3, "2001-02-03", "Failed get ISO8601 #3 representation of the string")
+		XCTAssertEqual(string_3, "2001-02-03T15:30:00.000+01:00", "Failed get ISO8601 extended #3 representation of the string")
+		
+		options = [.withFullDate]
+		let string_4 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_4, "2001-02-03", "Failed get ISO8601 #4 representation of the string")
 		
 		options = [.withFullDate,.withFullTime]
-		let string_4 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_4, "2001-02-03T15:30:00+01:00", "Failed get ISO8601 #4 representation of the string")
+		let string_5 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_5, "2001-02-03T15:30:00+01:00", "Failed get ISO8601 #5 representation of the string")
 		
 		options = [.withDay,.withMonth]
-		let string_5 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_5, "0203", "Failed get ISO8601 #5 representation of the string")
+		let string_6 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_6, "0203", "Failed get ISO8601 #6 representation of the string")
 		
 		options = [.withWeekOfYear,.withMonth]
-		let string_6 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_6, "02W05", "Failed get ISO8601 #6 representation of the string")
+		let string_7 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_7, "02W05", "Failed get ISO8601 #7 representation of the string")
 		
 		options = [.withYear,.withMonth,.withWeekOfYear]
-		let string_7 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_7, "200102W05", "Failed get ISO8601 #7 representation of the string")
+		let string_8 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_8, "200102W05", "Failed get ISO8601 #8 representation of the string")
 		
 		options = [.withYear,.withMonth,.withDay]
-		let string_8 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_8, "20010203", "Failed get ISO8601 #8 representation of the string")
+		let string_9 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_9, "20010203", "Failed get ISO8601 #9 representation of the string")
 		
 		options = [.withYear,.withMonth,.withDay,.withFullTime]
-		let string_9 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_9, "20010203T15:30:00+01:00", "Failed get ISO8601 #9 representation of the string")
+		let string_10 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_10, "20010203T15:30:00+01:00", "Failed get ISO8601 #10 representation of the string")
 		
 		options = [.withFullDate,.withTimeZone]
-		let string_10 = testDate.string(format: .iso8601(options: options))
-		XCTAssertEqual(string_10, "2001-02-03T+01:00", "Failed get ISO8601 #10 representation of the string")
+		let string_11 = testDate.string(format: .iso8601(options: options))
+		XCTAssertEqual(string_11, "2001-02-03T+01:00", "Failed get ISO8601 #11 representation of the string")
 	}
 }

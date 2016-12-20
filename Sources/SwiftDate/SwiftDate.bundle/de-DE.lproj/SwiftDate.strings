@@ -22,14 +22,14 @@
 "colloquial_f_h"					=	"in einer Stunde";		// hour,future,singular:	"in one hour"
 "colloquial_f_hh"					=	"in %d Stunden";		// hour,future,plural:		"in 3 hours"
 "colloquial_p_h"					=	"vor einer Stunde";		// hour,past,singular:		"one hour ago"
-"colloquial_p_hh"					=	"%d hours ago";		// hour,past,plural:		"3 hours ago"
+"colloquial_p_hh"					=	"vor %d Stunden";		// hour,past,plural:		"3 hours ago"
 
 "colloquial_f_M"					=	"in einer Minute";	// minute,future,singular:	"in one minute"
 "colloquial_f_MM"					=	"in %d Minuten";	// minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"vor einer Minute";	// minute,past,singular:	"one minute ago"
 "colloquial_p_MM"					=	"vor %d Minuten";	// minute,past,plural:		"3 minutes ago"
 
-"colloquial_now"					=	"just now";			// less than 5 minutes if .allowsNowOnColloquial is set
+"colloquial_now"					=	"gerade eben";			// less than 5 minutes if .allowsNowOnColloquial is set
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"

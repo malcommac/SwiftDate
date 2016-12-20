@@ -141,6 +141,7 @@ public class ISO8601DateTimeFormatter {
 	/// - returns: A user-readable string representing the date.
 	class func string(from date: Date, timeZone: TimeZone, formatOptions: ISO8601DateTimeFormatter.Options = []) -> String {
 		let formatter = ISO8601DateTimeFormatter()
+		formatter.locale = LocaleName.englishUnitedStatesComputer.locale // fix for 12/24h
 		formatter.formatOptions = formatOptions
 		return formatter.string(from: date)
 	}

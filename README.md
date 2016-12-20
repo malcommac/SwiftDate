@@ -46,7 +46,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.8 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.8) released on Thu, Dec 1, 2016.
+Latest release is: 4.0.9 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.9).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -69,6 +69,9 @@ Currently SwiftDate supports:
 * Slovak (made by [beretis](https://github.com/beretis), since 4.0.8)
 * Korean (made by [KisukPark](https://github.com/KisukPark), since 4.0.8)
 * Turkish (made by [fatihyildizhan](https://github.com/fatihyildizhan), since 4.0.8)
+* Vietnamese (made by [solbadguyky](https://github.com/solbadguyky), since 4.0.9)
+* Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
+
 
 Make a pull request and add your language!
 
@@ -127,7 +130,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 ## Requirements
 
-The current version (4.0.8) is compatible with:
+Current version is compatible with:
 
 * Swift 3.0+
 * iOS 8 or later

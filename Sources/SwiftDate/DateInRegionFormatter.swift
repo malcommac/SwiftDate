@@ -116,19 +116,28 @@ public class DateInRegionFormatter {
 	/// If no locale is specified it return the default system locale.
 	///
 	/// - returns: bundle where current localization strings are available
-	private func localizedResourceBundle() -> Bundle? {
-		guard let locale = self.locale else {
-			return self.resourceBundle
-		}
-		
-		let localeID = locale.collatorIdentifier
-		guard let innerLanguagePath = self.resourceBundle!.path(forResource: localeID, ofType: "lproj") else {
-			// fallback to english if language was not found
-			let englishPath = self.resourceBundle!.path(forResource: "en-US", ofType: "lproj")!
-			return Bundle(path: englishPath)
-		}
-		return Bundle(path: innerLanguagePath)
-	}
+    private func localizedResourceBundle() -> Bundle? {
+        guard let locale = self.locale else {
+            return self.resourceBundle
+        }
+        
+        let localeID = locale.collatorIdentifier
+        guard let innerLanguagePath = self.resourceBundle!.path(forResource: localeID, ofType: "lproj") else {
+            
+            //fallback to language only
+            if let langageCode = locale.languageCode {
+                //example : get french traduction even though you are live in belgium
+                if let localOnlyPath = self.resourceBundle!.path(forResource: "\(langageCode)-\(langageCode.uppercased())"  , ofType: "lproj") {
+                    return Bundle(path: localOnlyPath)
+                }
+            }
+            // fallback to english if language was not found
+            let englishPath = self.resourceBundle!.path(forResource: "en-US", ofType: "lproj")!
+            return Bundle(path: englishPath)
+        }
+        return Bundle(path: innerLanguagePath)
+    }
+
 	
 	
 	/// String representation of an absolute interval expressed in seconds.

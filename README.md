@@ -24,7 +24,6 @@ Here's a highlight of the main features you can find in SwiftDate:
 * ... [many many other shiny things!](http://malcommac.github.io/SwiftDate)
 
 ## You also may like
--------
 
 Do you like `SwiftDate`? I'm also working on several other opensource libraries.
 

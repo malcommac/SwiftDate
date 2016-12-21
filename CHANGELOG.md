@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.0.10](#410)**
 * Version **[4.0.9](#409)**
 * Version **[4.0.8](#408)**
 * Version **[4.0.7](#407)**
@@ -15,6 +16,18 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+
+<a name="410" />
+
+## SwiftDate 4.0.10
+---
+- **Release Date**: 2012/12/21
+- **Zipped Version**: [Download 4.0.10](https://github.com/malcommac/SwiftDate/releases/tag/4.0.10)
+
+#### Fixes
+- [#364](https://github.com/malcommac/SwiftDate/issues/364) Fixes Japanaese translation
+
 
 <a name="409" />
 

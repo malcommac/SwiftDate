@@ -31,6 +31,14 @@
 
 "colloquial_now"					=	"지금";       // less than 5 minutes if .allowsNowOnColloquial is set
 
+"colloquial_n_0y"					=	"올해";			// this year
+"colloquial_n_0m"					=	"이번 달";		// this month
+"colloquial_n_0w"					=	"이번 주";		// this week
+"colloquial_n_0d"					=	"오늘";			// this day
+"colloquial_n_0h"					=	"지금";			// this hour
+"colloquial_n_0M"					=	"지금";			// this minute
+"colloquial_n_0s"					=	"지금";			// this second
+
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
 "relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"

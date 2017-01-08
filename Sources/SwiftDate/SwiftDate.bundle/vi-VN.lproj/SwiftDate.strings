@@ -31,6 +31,14 @@
 
 "colloquial_now"					=	"mới đây";			// less than 5 minutes if .allowsNowOnColloquial is set
 
+"colloquial_n_0y"					=	"năm nay";			// this year
+"colloquial_n_0m"					=	"tháng này";		// this month
+"colloquial_n_0w"					=	"tuần này";			// this week
+"colloquial_n_0d"					=	"hôm nay";			// this day
+"colloquial_n_0h"					=	"mới đây";			// this hour
+"colloquial_n_0M"					=	"mới đây";			// this minute
+"colloquial_n_0s"					=	"mới đây";			// this second
+
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
 "relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"

@@ -31,6 +31,14 @@
 
 "colloquial_now"					=	"たった今";			// less than 5 minutes if .allowsNowOnColloquial is set
 
+"colloquial_n_0y"					=	"今年r";				// this year
+"colloquial_n_0m"					=	"今月";				// this month
+"colloquial_n_0w"					=	"今週";				// this week
+"colloquial_n_0d"					=	"今日";				// this day
+"colloquial_n_0h"					=	"たった今";			// this hour
+"colloquial_n_0M"					=	"たった今";			// this minute
+"colloquial_n_0s"					=	"たった今";			// this second
+
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
 "relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"

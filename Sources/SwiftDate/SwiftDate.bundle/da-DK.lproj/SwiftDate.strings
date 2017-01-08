@@ -31,6 +31,14 @@
 
 "colloquial_now"					=	"lige nu";			// less than 5 minutes if .allowsNowOnColloquial is set
 
+"colloquial_n_0y"					=	"dette år";			// this year
+"colloquial_n_0m"					=	"denne måned";		// this month
+"colloquial_n_0w"					=	"denne uge";		// this week
+"colloquial_n_0d"					=	"i dag";			// this day
+"colloquial_n_0h"					=	"lige nu";			// this hour
+"colloquial_n_0M"					=	"lige nu";			// this minute
+"colloquial_n_0s"					=	"lige nu";			// this second
+
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
 "relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"

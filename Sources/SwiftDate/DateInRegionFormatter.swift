@@ -66,6 +66,7 @@ public class DateInRegionFormatter {
 	/// By default is `[.year, .month, .day, .hour, .minute, .second]`
 	public var allowedComponents: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
 
+	private var timeOrderedComponents: [Calendar.Component] = [.year, .month, .day, .hour, .minute, .second, .nanosecond]
 	
 	/// How the formatter threat zero components. Default implementation drop all zero values from
 	/// the output string.
@@ -225,13 +226,13 @@ public class DateInRegionFormatter {
 		let cmp = cal.dateComponents(self.allowedComponents, from: fDate.absoluteDate, to: tDate.absoluteDate)
 		let isFuture = (fDate > tDate)
 		
-		if cmp.year != nil && cmp.year != 0 {
+		if cmp.year != nil && (cmp.year != 0 || !hasLowerAllowedComponents(than: .year)) {
 			let colloquial_time = try self.colloquial_time(forUnit: .year, withValue: cmp.year!, date: fDate)
 			let colloquial_date = try self.localized(unit: .year, withValue: cmp.year!, asFuture: isFuture, args: abs(fDate.year))
 			return (colloquial_date,colloquial_time)
 		}
 		
-		if cmp.month != nil && cmp.month != 0 {
+		if cmp.month != nil && (cmp.month != 0 || !hasLowerAllowedComponents(than: .month)) {
 			let colloquial_time = try self.colloquial_time(forUnit: .month, withValue: cmp.month!, date: fDate)
 			let colloquial_date = try self.localized(unit: .month, withValue: cmp.month!, asFuture: isFuture, args: abs(cmp.month!))
 			return (colloquial_date,colloquial_time)
@@ -245,20 +246,22 @@ public class DateInRegionFormatter {
 				return (colloquial_date,colloquial_time)
 			}
 			
-			if cmp.day != 0 {
+			if cmp.day != 0 || !hasLowerAllowedComponents(than: .day) {
+				// case 1: > 0 days difference
+				// case 2: same day difference and no lower time components to print (-> today)
 				let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
 				let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: abs(cmp.day!))
 				return (colloquial_date,colloquial_time)
 			}
 		}
 		
-		if cmp.hour != nil && cmp.hour != 0 {
+		if cmp.hour != nil && (cmp.hour != 0 || !hasLowerAllowedComponents(than: .hour)) {
 			let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
 			let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
 			return (colloquial_date,colloquial_time)
 		}
 		
-		if cmp.minute != nil && cmp.minute != 0 {
+		if cmp.minute != nil && (cmp.minute != 0 || !hasLowerAllowedComponents(than: .minute)) {
 			if self.useImminentInterval && abs(cmp.minute!) < 5 {
 				let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 				return (colloquial_date,nil)
@@ -268,12 +271,35 @@ public class DateInRegionFormatter {
 			}
 		}
 		
-		if  cmp.second != nil && cmp.second != 0 || cmp.second == 0 { // Seconds difference
+		if cmp.second != nil && (cmp.second != 0 || cmp.second == 0) { // Seconds difference
 			let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 			return (colloquial_date,nil)
 		}
 		
 		throw DateError.FailedToCalculate
+	}
+	
+	
+	/// Return `true` if time components lower than given `component` are part of the `allowedComponents`
+	/// of the formatter.
+	///
+	/// - Parameter component: target components
+	/// - Returns: true or false
+	private func hasLowerAllowedComponents(than component: Calendar.Component) -> Bool {
+		guard let fIndex = timeOrderedComponents.index(of: component) else {
+			// this should happend only if calendar component is not part of allowed components
+			// so, in fact, this should not never happends
+			return false
+		}
+		guard (timeOrderedComponents.count - 1) - fIndex > 0 else {
+			return false // no other lower time components to check
+		}
+		for idx in fIndex+1..<timeOrderedComponents.count {
+			if self.allowedComponents.contains(timeOrderedComponents[idx]) == true {
+				return true // there is a lower component to check
+			}
+		}
+		return false
 	}
 	
 	/// Return a localized representation of a value for a particular calendar component
@@ -290,7 +316,7 @@ public class DateInRegionFormatter {
 			throw DateError.MissingRsrcBundle
 		}
 		
-		let unitStr = self.localized(unit: unit, value: value)
+		let unitStr = unit.localizedKey(forValue: value)
 		let id_relative = "relevanttime_\(unitStr)"
 		let relative_localized = NSLocalizedString(id_relative,
 		                                           tableName: "SwiftDate",
@@ -318,9 +344,9 @@ public class DateInRegionFormatter {
 			throw DateError.MissingRsrcBundle
 		}
 
-		let future_key = (asFuture ? "f" : "p")
+		let future_key = (value == 0 ? "n" : (asFuture ? "f" : "p"))
 
-		let unitStr = self.localized(unit: unit, value: value)
+		let unitStr = unit.localizedKey(forValue: value)
 		let identifier = "colloquial_\(future_key)_\(unitStr)"
 		let localized_date = withVaList(args) { (pointer: CVaListPointer) -> String in
 			let localized = NSLocalizedString(identifier, tableName: "SwiftDate", bundle: bundle, value: "", comment: "")
@@ -345,7 +371,9 @@ public class DateInRegionFormatter {
 		localized_str = String(format: localized_str, arguments: arguments)
 		return localized_str
 	}
-	
+}
+
+internal extension Calendar.Component {
 	
 	/// Return the localized identifier of a calendar component
 	///
@@ -354,17 +382,30 @@ public class DateInRegionFormatter {
 	///
 	/// - returns: return the plural or singular form of the time unit used to compose a valid identifier for search a localized
 	///   string in resource bundle
-	private func localized(unit: Calendar.Component, value: Int) -> String {
+	internal func localizedKey(forValue value: Int) -> String {
+		let locKey = self.localizedKey
 		let absValue = abs(value)
-		switch unit {
-		case .year:			return (absValue == 1 ? "y" : "yy")
-		case .month:		return (absValue == 1 ? "m" : "mm")
-		case .weekOfYear:	return (absValue == 1 ? "w" : "ww")
-		case .day:			return (absValue == 1 ? "d" : "dd")
-		case .hour:			return (absValue == 1 ? "h" : "hh")
-		case .minute:		return (absValue == 1 ? "M" : "MM")
-		case .second:		return (absValue == 1 ? "s" : "ss")
-		default:			return ""
+		switch absValue {
+		case 0: // zero difference for this unit
+			return "0\(locKey)"
+		case 1: // one unit of difference
+			return locKey
+		default: // more than 1 unit of difference
+			return "\(locKey)\(locKey)"
+		}
+	}
+	
+	internal var localizedKey: String {
+		switch self {
+		case .year:			return "y"
+		case .month:		return "m"
+		case .weekOfYear:	return "w"
+		case .day:			return "d"
+		case .hour:			return "h"
+		case .minute:		return "M"
+		case .second:		return "s"
+		default:
+			return ""
 		}
 	}
 }

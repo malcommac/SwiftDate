@@ -31,6 +31,14 @@
 
 "colloquial_now"					=	"ahora mismo";			// less than 5 minutes if .allowsNowOnColloquial is set
 
+"colloquial_n_0y"					=	"este año";			// this year
+"colloquial_n_0m"					=	"este mes";			// this month
+"colloquial_n_0w"					=	"esta semana";		// this week
+"colloquial_n_0d"					=	"hoy";				// this day
+"colloquial_n_0h"					=	"now";				// this hour
+"colloquial_n_0M"					=	"now";				// this minute
+"colloquial_n_0s"					=	"now";				// this second
+
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
 "relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"

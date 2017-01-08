@@ -125,9 +125,9 @@ public class DateInRegionFormatter {
         guard let innerLanguagePath = self.resourceBundle!.path(forResource: localeID, ofType: "lproj") else {
             
             //fallback to language only
-            if let langageCode = locale.languageCode {
+            if let languageCode = locale.languageCode {
                 //example : get french traduction even though you are live in belgium
-                if let localOnlyPath = self.resourceBundle!.path(forResource: "\(langageCode)-\(langageCode.uppercased())"  , ofType: "lproj") {
+                if let localOnlyPath = self.resourceBundle!.path(forResource: "\(languageCode)-\(languageCode.uppercased())"  , ofType: "lproj") {
                     return Bundle(path: localOnlyPath)
                 }
             }

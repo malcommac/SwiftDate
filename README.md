@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/master/swiftdate-4-logo.png" width=189px height=191 alt="SwiftDate" title="SwiftDate">
+  <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png" width=210px height=211 alt="SwiftDate" title="SwiftDate">
 </p>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
@@ -57,7 +57,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.9 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.9).
+Latest release is: 4.0.11 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.11).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -82,7 +82,7 @@ Currently SwiftDate supports:
 * Turkish (made by [fatihyildizhan](https://github.com/fatihyildizhan), since 4.0.8)
 * Vietnamese (made by [solbadguyky](https://github.com/solbadguyky), since 4.0.9)
 * Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
-
+* Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
 
 Make a pull request and add your language!
 

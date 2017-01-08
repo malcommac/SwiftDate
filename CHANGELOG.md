@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.0.11](#411)**
 * Version **[4.0.10](#410)**
 * Version **[4.0.9](#409)**
 * Version **[4.0.8](#408)**
@@ -17,17 +18,29 @@
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
 
+<a name="411" />
+
+## SwiftDate 4.0.11
+---
+- **Release Date**: 2017/01/08
+- **Zipped Version**: [Download 4.0.11](https://github.com/malcommac/SwiftDate/releases/tag/4.0.11)
+
+#### Fixes
+- [#370](https://github.com/malcommac/SwiftDate/issues/370) Cannot format colloquial date when a time component value is zero and `allowedComponents` does not contains lower time components (ie. cannot print "today" when set formatter to accept only `allowedComponents = [.day]` and day difference between dates is zero).
+- [#371](https://github.com/malcommac/SwiftDate/issues/371) `DateInRegionFormatter` crashes with any non-default `.allowedComponents`.
+
+#### New Features
+- [#365](https://github.com/malcommac/SwiftDate/issues/365) Brazilian Portuguese support (thanks to @ipedro)
 
 <a name="410" />
 
 ## SwiftDate 4.0.10
 ---
-- **Release Date**: 2012/12/21
+- **Release Date**: 2016/12/21
 - **Zipped Version**: [Download 4.0.10](https://github.com/malcommac/SwiftDate/releases/tag/4.0.10)
 
 #### Fixes
 - [#364](https://github.com/malcommac/SwiftDate/issues/364) Fixes Japanaese translation
-
 
 <a name="409" />
 

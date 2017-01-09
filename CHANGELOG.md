@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.0.12](#412)**
 * Version **[4.0.11](#411)**
 * Version **[4.0.10](#410)**
 * Version **[4.0.9](#409)**
@@ -17,6 +18,19 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="412" />
+
+## SwiftDate 4.0.12
+---
+- **Release Date**: -
+- **Zipped Version**: [Download 4.0.12](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12)
+
+#### Fixes
+- [#372](https://github.com/malcommac/SwiftDate/issues/372) Fix for Local.collatorIdentifier (Returns zh-hans-CN and zh-hant-CN) 
+
+#### New Features
+- 
 
 <a name="411" />
 

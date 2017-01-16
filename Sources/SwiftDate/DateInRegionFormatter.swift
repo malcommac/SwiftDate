@@ -35,22 +35,22 @@ public struct DateZeroBehaviour: OptionSet {
 	}
 	
 	/// None, it does not remove components with zero values
-	static let none = DateZeroBehaviour(rawValue: 1)
+	public static let none = DateZeroBehaviour(rawValue: 1)
 	
 	/// Units whose values are 0 are dropped starting at the beginning of the sequence until the
 	/// first non-zero component
-	static let dropLeading = DateZeroBehaviour(rawValue: 3)
+	public static let dropLeading = DateZeroBehaviour(rawValue: 3)
 
 	/// Units whose values are 0 are dropped from anywhere in the middle of a sequence.
-	static let dropMiddle = DateZeroBehaviour(rawValue: 4)
+	public static let dropMiddle = DateZeroBehaviour(rawValue: 4)
 	
 	/// Units whose value is 0 are dropped starting at the end of the sequence back to the first
 	/// non-zero component
-	static let dropTrailing = DateZeroBehaviour(rawValue: 3)
+	public static let dropTrailing = DateZeroBehaviour(rawValue: 3)
 
 	/// This behavior drops all units whose values are 0. For example, when days, hours,
 	/// minutes, and seconds are allowed, the abbreviated version of one hour is displayed as “1h”.
-	static let dropAll: DateZeroBehaviour = [.dropLeading,.dropMiddle,.dropTrailing]
+	public static let dropAll: DateZeroBehaviour = [.dropLeading,.dropMiddle,.dropTrailing]
 
 }
 

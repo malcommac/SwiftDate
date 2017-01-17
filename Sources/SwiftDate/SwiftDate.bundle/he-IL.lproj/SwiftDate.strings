@@ -1,0 +1,56 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"בשנה הבאה";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"ב %d";			// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"בשנה שעברה";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d";				// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"בחודש הבא";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"בעוד %d חודשים";		// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"בחודש שעבר";		// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"לפני %d חודשים";	// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"בשבוע הבא";		// week,future,singular:	"next week"
+"colloquial_f_ww"					=	"בעוד %d שבועות";		// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"בשבוע שעבר";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"לפני %d שבועות";		// week,past,plural:		"in 3 weeks"
+
+"colloquial_f_d"					=	"מחר";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd"					=	"בעוד %d ימים";		// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"אתמול";		// day,past,singular:		"yesterday"
+"colloquial_p_dd"					=	"לפני %d ימים";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"בעוד שעה";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh"					=	"בעוד %d שעות";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"לפני שעה";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh"					=	"לפני %d שעות";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"בעוד דקה";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM"					=	"בעוד %d דקות";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"לפני דקה";	// minute,past,singular:	"one minute ago"
+"colloquial_p_MM"					=	"לפני %d דקות";	// minute,past,plural:		"3 minutes ago"
+
+"colloquial_now"					=	"עכשיו";			// less than 5 minutes if .allowsNowOnColloquial is set
+
+"colloquial_n_0y"					=	"השנה";		// this year
+"colloquial_n_0m"					=	"החודש";		// this month
+"colloquial_n_0w"					=	"השבוע";		// this week
+"colloquial_n_0d"					=	"היום";			// this day
+"colloquial_n_0h"					=	"עכשיו";				// this hour
+"colloquial_n_0M"					=	"עכשיו";				// this minute
+"colloquial_n_0s"					=	"עכשיו";				// this second
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"MMM, dd yyyy";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"MMM, dd yyyy";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"EEE, MMM dd";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"EEE, MMM dd";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"HH:mm 'ב'";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"HH:mm 'ב'";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

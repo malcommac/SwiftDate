@@ -49,6 +49,14 @@ public class Localization {
 	}
 	
 	
+	/// Initialize a new `Localization` from a given `LocaleName`
+	///
+	/// - Parameter name: name of locale
+	public convenience init(locale name: LocaleName) {
+		self.init(locale: name.locale)
+	}
+	
+	
 	/// Init `Localization` instance with a given `locale` instance
 	///
 	/// - Parameter locale: locale to load; if `nil` current `locale` is used instead.

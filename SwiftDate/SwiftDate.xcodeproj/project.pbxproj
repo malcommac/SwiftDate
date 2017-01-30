@@ -17,6 +17,10 @@
 		0871645D1D95AF100007E55D /* SwiftDate-watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9D81D9298A900F65854 /* SwiftDate-watchOS.h */; };
 		0871645E1D95AF130007E55D /* SwiftDate-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0812F9F81D929F2600F65854 /* SwiftDate-tvOS.h */; };
 		0871645F1D95AF330007E55D /* SwiftDate-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C3010E1D829C8B00B0E02C /* SwiftDate-iOS.h */; };
+		08E253831E3F9EBA00432D2C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E253821E3F9EBA00432D2C /* Localization.swift */; };
+		08E253841E3F9EBA00432D2C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E253821E3F9EBA00432D2C /* Localization.swift */; };
+		08E253851E3F9EBA00432D2C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E253821E3F9EBA00432D2C /* Localization.swift */; };
+		08E253861E3F9EBA00432D2C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E253821E3F9EBA00432D2C /* Localization.swift */; };
 		08E956001DA040060035D9F7 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; };
 		08E956021DA040170035D9F7 /* SwiftDate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 21C3010B1D829C8B00B0E02C /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08EC226A1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */; };
@@ -166,6 +170,7 @@
 		08209C981DA041830016B271 /* TestDateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TestDateInRegion+Compare.swift"; path = "../../Tests/SwiftDateTests/TestDateInRegion+Compare.swift"; sourceTree = "<group>"; };
 		08209C991DA041830016B271 /* TestDateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TestDateInRegion+Components.swift"; path = "../../Tests/SwiftDateTests/TestDateInRegion+Components.swift"; sourceTree = "<group>"; };
 		08209C9A1DA041830016B271 /* TestDateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TestDateInRegion+Formatter.swift"; path = "../../Tests/SwiftDateTests/TestDateInRegion+Formatter.swift"; sourceTree = "<group>"; };
+		08E253821E3F9EBA00432D2C /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = ../../Sources/SwiftDate/Localization.swift; sourceTree = "<group>"; };
 		08EC22651DA03DE700B6DFC6 /* DateInRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = ../../Sources/SwiftDate/DateInRegion.swift; sourceTree = "<group>"; };
 		08EC22661DA03DE700B6DFC6 /* DateInRegion+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Compare.swift"; path = "../../Sources/SwiftDate/DateInRegion+Compare.swift"; sourceTree = "<group>"; };
 		08EC22671DA03DE700B6DFC6 /* DateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "../../Sources/SwiftDate/DateInRegion+Components.swift"; sourceTree = "<group>"; };
@@ -323,6 +328,7 @@
 				08EC22B01DA03E5C00B6DFC6 /* DateComponents+Extension.swift */,
 				08EC22B11DA03E5C00B6DFC6 /* Extensions.swift */,
 				08EC22B21DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift */,
+				08E253821E3F9EBA00432D2C /* Localization.swift */,
 			);
 			name = "Foundation Extensions";
 			sourceTree = "<group>";
@@ -706,6 +712,7 @@
 			files = (
 				08EC22A01DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
 				08EC22841DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08E253851E3F9EBA00432D2C /* Localization.swift in Sources */,
 				08EC22AE1DA03E4900B6DFC6 /* Region.swift in Sources */,
 				08EC22AA1DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
 				08EC22701DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
@@ -733,6 +740,7 @@
 			files = (
 				08EC229F1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
 				08EC22831DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08E253841E3F9EBA00432D2C /* Localization.swift in Sources */,
 				08EC226F1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
 				08EC22AD1DA03E4900B6DFC6 /* Region.swift in Sources */,
 				08EC22A91DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
@@ -760,6 +768,7 @@
 			files = (
 				08EC22A11DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
 				08EC22851DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08E253861E3F9EBA00432D2C /* Localization.swift in Sources */,
 				08EC22711DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
 				08EC22AF1DA03E4900B6DFC6 /* Region.swift in Sources */,
 				08EC22AB1DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
@@ -798,6 +807,7 @@
 			files = (
 				08EC229E1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
 				08EC22821DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
+				08E253831E3F9EBA00432D2C /* Localization.swift in Sources */,
 				08EC226E1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
 				08EC22AC1DA03E4900B6DFC6 /* Region.swift in Sources */,
 				08EC22A81DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,

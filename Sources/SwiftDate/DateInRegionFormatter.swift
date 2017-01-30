@@ -93,56 +93,17 @@ public class DateInRegionFormatter {
 	// If true numbers in timeComponents() function receive a padding if necessary
 	public var zeroPadding: Bool = true
 	
-	/// Locale to use when print the date. By default is the same locale set by receiver's `DateInRegion`.
+	/// Locale to use when print the date.
+	/// By default is the same locale set by receiver's `DateInRegion`.
 	/// If not set default device locale is used instead.
-	public var locale: Locale?
+	/// You can also customize the source by giving a path to a custom `.strings` file (via `Localization(path: <pathtofile>)`)
+	public var localization = Localization(locale: nil)
 	
 	// number of a days in a week
 	let DAYS_IN_WEEK = 7
 
 	public init() {
 	}
-	
-	/// Return the main bundle with resources used to localize time components
-	private lazy var resourceBundle: Bundle? = {
-		var framework = Bundle(for: DateInRegion.self)
-		let path = NSURL(fileURLWithPath:
-			framework.resourcePath!).appendingPathComponent("SwiftDate.bundle")
-		let bundle = Bundle(url: path!)
-		guard let _ = bundle else {
-			return nil
-		}
-		return bundle!
-	}()
-	
-	
-	/// If you have specified a custom `Locale` this function return the localized bundle for this locale
-	/// If no locale is specified it return the default system locale.
-	///
-	/// - returns: bundle where current localization strings are available
-    private func localizedResourceBundle() -> Bundle? {
-        guard let locale = self.locale else {
-            return self.resourceBundle
-        }
-        
-        let localeID = locale.collatorIdentifier
-        guard let innerLanguagePath = self.resourceBundle!.path(forResource: localeID, ofType: "lproj") else {
-            
-            //fallback to language only
-            if let languageCode = locale.languageCode {
-                //example : get french traduction even though you are live in belgium
-                if let localOnlyPath = self.resourceBundle!.path(forResource: "\(languageCode)-\(languageCode.uppercased())"  , ofType: "lproj") {
-                    return Bundle(path: localOnlyPath)
-                }
-            }
-            // fallback to english if language was not found
-            let englishPath = self.resourceBundle!.path(forResource: "en-US", ofType: "lproj")!
-            return Bundle(path: englishPath)
-        }
-        return Bundle(path: innerLanguagePath)
-    }
-
-	
 	
 	/// String representation of an absolute interval expressed in seconds.
 	/// For example "4 days" or "33s".
@@ -316,15 +277,9 @@ public class DateInRegionFormatter {
 	///
 	/// - returns: a localized representation of time interval in term of passed calendar component
 	private func colloquial_time(forUnit unit: Calendar.Component, withValue value: Int, date: DateInRegion) throws -> String? {
-		guard let bundle = self.localizedResourceBundle() else {
-			throw DateError.MissingRsrcBundle
-		}
-		
 		let unitStr = unit.localizedKey(forValue: value)
 		let id_relative = "relevanttime_\(unitStr)"
-		let relative_localized = NSLocalizedString(id_relative,
-		                                           tableName: "SwiftDate",
-		                                           bundle: bundle, value: "", comment: "")
+		let relative_localized = self.localization.get(id_relative, default: "")
 		if (relative_localized as NSString).length == 0 {
 			return nil
 		}
@@ -344,16 +299,12 @@ public class DateInRegionFormatter {
 	///
 	/// - returns: localized colloquial string with passed unit of time
 	private func localized(unit: Calendar.Component, withValue value: Int, asFuture: Bool, args: CVarArg...) throws -> String {
-		guard let bundle = self.localizedResourceBundle() else {
-			throw DateError.MissingRsrcBundle
-		}
-
 		let future_key = (value == 0 ? "n" : (asFuture ? "f" : "p"))
 
 		let unitStr = unit.localizedKey(forValue: value)
 		let identifier = "colloquial_\(future_key)_\(unitStr)"
 		let localized_date = withVaList(args) { (pointer: CVaListPointer) -> String in
-			let localized = NSLocalizedString(identifier, tableName: "SwiftDate", bundle: bundle, value: "", comment: "")
+			let localized = self.localization.get(identifier, default: "")
 			return NSString(format: localized, arguments: pointer) as String
 		}
 		return localized_date
@@ -368,10 +319,7 @@ public class DateInRegionFormatter {
 	///
 	/// - returns: localized string with arguments
 	private func stringLocalized(identifier: String, arguments: CVarArg...) throws -> String {
-		guard let bundle = self.localizedResourceBundle() else {
-			throw DateError.MissingRsrcBundle
-		}
-		var localized_str = NSLocalizedString(identifier, tableName: "SwiftDate", bundle: bundle, comment: "")
+		var localized_str = self.localization.get(identifier, default: "")
 		localized_str = String(format: localized_str, arguments: arguments)
 		return localized_str
 	}

@@ -283,7 +283,11 @@ public class DateInRegionFormatter {
 		if (relative_localized as NSString).length == 0 {
 			return nil
 		}
-		let relevant_time = date.string(format: .custom(relative_localized))
+		let localeDate = DateInRegion(absoluteDate: date.absoluteDate,
+		                              in: Region(tz: date.region.timeZone,
+		                                         cal: date.region.calendar,
+		                                         loc: self.localization.locale ?? date.region.locale))
+		let relevant_time = localeDate.string(format: .custom(relative_localized))
 		return relevant_time
 	}
 	

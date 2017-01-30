@@ -73,7 +73,7 @@ public extension TimeInterval {
 	@available(*, deprecated: 4.0.3, message: "Use string(options:) instead")
 	public func string(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil, locale: Locale? = nil) throws -> String? {
 		let formatter = DateInRegionFormatter()
-		formatter.locale = locale
+		formatter.localization = Localization(locale: locale)
 		formatter.maxComponentCount = max
 		formatter.unitStyle = unitStyle
 		formatter.zeroBehavior = zero ?? .dropAll

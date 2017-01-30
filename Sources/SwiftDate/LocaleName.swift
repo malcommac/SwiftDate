@@ -570,7 +570,7 @@ public enum LocaleName: String {
 	case polishPoland = "pl_PL"
 	case portuguese = "pt"
 	case portugueseAngola = "pt_AO"
-	case portugueseBrazil = "pt"
+	case portugueseBrazil = "pt_BR"
 	case portugueseCapeVerde = "pt_CV"
 	case portugueseGuineaBissau = "pt_GW"
 	case portugueseMacauSarChina = "pt_MO"

@@ -23,14 +23,18 @@
 
 ## SwiftDate 4.0.12
 ---
-- **Release Date**: -
+- **Release Date**: 2017/01/30
 - **Zipped Version**: [Download 4.0.12](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12)
 
 #### Fixes
 - [#372](https://github.com/malcommac/SwiftDate/issues/372) Fix for Local.collatorIdentifier (Returns zh-hans-CN and zh-hant-CN) 
+- [#374](https://github.com/malcommac/SwiftDate/pull/374) `DateZeroBehavior` options are now public outside the library
 
 #### New Features
-- 
+- [#379](https://github.com/malcommac/SwiftDate/pull/379) Added Hebrew translation (thanks to @ilandbt)
+- [#376](https://github.com/malcommac/SwiftDate/pull/376) Added Swedish translation (thanks to @traneHead)
+- [#381](https://github.com/malcommac/SwiftDate/pull/381) Replaced `useImminentInterval` in `DateInRegionFormatter` with a configurable value called `imminentInterval`. With a default value of 5 it fallback to `just now` version. If `nil` fallback is disabled.
+- [#380](https://github.com/malcommac/SwiftDate/pull/380) `DateInRegionFormatter` is now able to load custom localization both from `LocaleName` and custom `.strings` files (just set the `formatter.localization = Localization(path: [PATH_TO_YOUR_STRINGS_FILE]`)
 
 <a name="411" />
 

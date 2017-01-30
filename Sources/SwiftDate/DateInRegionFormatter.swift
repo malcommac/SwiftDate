@@ -83,9 +83,12 @@ public class DateInRegionFormatter {
 	/// colloquial format. Default is `,`.
 	public var unitSeparator: String = ","
 	
-	/// For interval less than 5 minutes if this value is true the equivalent of 'just now' is
-	/// printed in the output string. By default is `true`.
-	public var useImminentInterval: Bool = true
+	/// Imminent interval defines the smaller time interval (expressed in minutes) under which a
+	/// time difference fallback to `just now`.
+	/// Set this variable to `nil` disable automatic fallback.
+	/// Supported values must between `1` and `59`. Other values are ignored.
+	/// By default value is set to 5: if differences between two dates is less than 5 minutes it just fallback to `just now` formatters.
+	public var imminentInterval: Int? = 5
 	
 	// If true numbers in timeComponents() function receive a padding if necessary
 	public var zeroPadding: Bool = true
@@ -262,13 +265,14 @@ public class DateInRegionFormatter {
 		}
 		
 		if cmp.minute != nil && (cmp.minute != 0 || !hasLowerAllowedComponents(than: .minute)) {
-			if self.useImminentInterval && abs(cmp.minute!) < 5 {
+			if let value = self.imminentInterval, (value > 1 && value < 60), (abs(cmp.minute!) < value) {
+				// A valid `imminentInterval` should be set. Valid interval must be between 1 and 60 minutes (not inclueded)
 				let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
 				return (colloquial_date,nil)
-			} else {
-				let colloquial_date = try self.localized(unit: .minute, withValue: cmp.minute!, asFuture: isFuture, args: abs(cmp.minute!))
-				return (colloquial_date,nil)
 			}
+			// otherwise fallback to difference
+			let colloquial_date = try self.localized(unit: .minute, withValue: cmp.minute!, asFuture: isFuture, args: abs(cmp.minute!))
+			return (colloquial_date,nil)
 		}
 		
 		if cmp.second != nil && (cmp.second != 0 || cmp.second == 0) { // Seconds difference

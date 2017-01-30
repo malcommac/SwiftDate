@@ -127,7 +127,7 @@ public extension DateInRegion {
 	/// - returns: colloquial string representation
 	public func colloquial(toDate date: DateInRegion) throws -> (colloquial: String, time: String?) {
 		let formatter = DateInRegionFormatter()
-		formatter.locale = self.region.locale
+		formatter.localization = Localization(locale: self.region.locale)
 		return try formatter.colloquial(from: self, to: date)
 	}
 	
@@ -178,7 +178,7 @@ public extension DateInRegion {
 	@available(*, deprecated: 4.0.3, message: "Use timeComponents(toDate:,options:) instead")
 	public func timeComponents(toDate date: DateInRegion, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> String {
 		let formatter = DateInRegionFormatter()
-		formatter.locale = self.region.locale
+		formatter.localization = Localization(locale: self.region.locale)
 		formatter.maxComponentCount = max
 		formatter.unitStyle = unitStyle
 		formatter.zeroBehavior = zero ?? .dropAll

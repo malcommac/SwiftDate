@@ -82,6 +82,7 @@ public enum DateError: Error {
 	case DifferentCalendar
 	case MissingRsrcBundle
 	case FailedToSetComponent(Calendar.Component)
+	case InvalidLocalizationFile
 }
 
 

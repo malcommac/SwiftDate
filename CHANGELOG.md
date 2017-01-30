@@ -1,11 +1,12 @@
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/master/swiftdate-4-logo.png" width=189px height=191 alt="SwiftDate" title="SwiftDate">
+  <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png" width=189px height=191 alt="SwiftDate" title="SwiftDate">
 </p>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 
 ## CHANGELOG
 
+* Version **[4.0.12](#412)**
 * Version **[4.0.11](#411)**
 * Version **[4.0.10](#410)**
 * Version **[4.0.9](#409)**
@@ -17,6 +18,23 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="412" />
+
+## SwiftDate 4.0.12
+---
+- **Release Date**: 2017/01/30
+- **Zipped Version**: [Download 4.0.12](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12)
+
+#### Fixes
+- [#372](https://github.com/malcommac/SwiftDate/issues/372) Fix for Local.collatorIdentifier (Returns zh-hans-CN and zh-hant-CN) 
+- [#374](https://github.com/malcommac/SwiftDate/pull/374) `DateZeroBehavior` options are now public outside the library
+
+#### New Features
+- [#379](https://github.com/malcommac/SwiftDate/pull/379) Added Hebrew translation (thanks to @ilandbt)
+- [#376](https://github.com/malcommac/SwiftDate/pull/376) Added Swedish translation (thanks to @traneHead)
+- [#381](https://github.com/malcommac/SwiftDate/pull/381) Replaced `useImminentInterval` in `DateInRegionFormatter` with a configurable value called `imminentInterval`. With a default value of 5 it fallback to `just now` version. If `nil` fallback is disabled.
+- [#380](https://github.com/malcommac/SwiftDate/pull/380) `DateInRegionFormatter` is now able to load custom localization both from `LocaleName` and custom `.strings` files (just set the `formatter.localization = Localization(path: [PATH_TO_YOUR_STRINGS_FILE]`)
 
 <a name="411" />
 

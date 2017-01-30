@@ -83,6 +83,8 @@ Currently SwiftDate supports:
 * Vietnamese (made by [solbadguyky](https://github.com/solbadguyky), since 4.0.9)
 * Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
 * Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
+* Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
+* Swedish (made by [@traneHead](https://github.com/traneHead), since 4.0.12)
 
 Make a pull request and add your language!
 

@@ -27,7 +27,7 @@
 - **Zipped Version**: [Download 4.0.12](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12)
 
 #### Fixes
-- [#372](https://github.com/malcommac/SwiftDate/issues/372) Fix for Local.collatorIdentifier (Returns zh-hans-CN and zh-hant-CN) 
+- [#372](https://github.com/malcommac/SwiftDate/issues/372) Fix for `Local.collatorIdentifier` (Returns zh-hans-CN and zh-hant-CN) 
 - [#374](https://github.com/malcommac/SwiftDate/pull/374) `DateZeroBehavior` options are now public outside the library
 
 #### New Features

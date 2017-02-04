@@ -9,7 +9,7 @@ We really ♥ Swift and we think that dates and timezones management should be p
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
 <p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
-<p align="center" ><h2><a href="http://malcommac.github.io/SwiftDate">SwiftDate website</a></h2></p>
+<p align="center" >Created by <a href="http://www.danielemargutti.com">Daniele Margutti</a> (<a href="http://www.twitter.com/danielemargutti">@danielemargutti</a>)</p>
 
 ## Main features
 Here's a highlight of the main features you can find in SwiftDate:

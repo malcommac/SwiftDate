@@ -9,7 +9,7 @@ We really ♥ Swift and we think that dates and timezones management should be p
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
 <p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
-<p align="center" ><h2><a href="http://malcommac.github.io/SwiftDate">SwiftDate website</a></h2></p>
+<p align="center" >Created by <a href="http://www.danielemargutti.com">Daniele Margutti</a> (<a href="http://www.twitter.com/danielemargutti">@danielemargutti</a>)</p>
 
 ## Main features
 Here's a highlight of the main features you can find in SwiftDate:
@@ -29,6 +29,7 @@ Do you like `SwiftDate`? I'm also working on several other opensource libraries.
 
 Take a look here:
 
+* **[Hydra](https://github.com/malcommac/Hydra)** - Promises & Await/Async in Swift - Write better async code in Swift
 * **[SwiftLocation](https://github.com/malcommac/SwiftLocation)** - CoreLocation and Beacon Monitoring on steroid!
 * **[SwiftRichString](https://github.com/malcommac/SwiftRichString)** - Elegant and painless attributed string in Swift
 * **[SwiftScanner](https://github.com/malcommac/SwiftScanner)** - String scanner in pure Swift with full unicode support
@@ -83,6 +84,8 @@ Currently SwiftDate supports:
 * Vietnamese (made by [solbadguyky](https://github.com/solbadguyky), since 4.0.9)
 * Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
 * Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
+* Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
+* Swedish (made by [@traneHead](https://github.com/traneHead), since 4.0.12)
 
 Make a pull request and add your language!
 

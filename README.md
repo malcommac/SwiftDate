@@ -86,6 +86,7 @@ Currently SwiftDate supports:
 * Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
 * Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
 * Swedish (made by [@traneHead](https://github.com/traneHead), since 4.0.12)
+* Arabic (made by [@abdualrhmanIO](https://github.com/abdualrhmanIO), since 4.0.13)
 
 Make a pull request and add your language!
 

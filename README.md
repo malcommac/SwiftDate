@@ -58,7 +58,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.12 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12).
+Latest release is: 4.0.13 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.13).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 

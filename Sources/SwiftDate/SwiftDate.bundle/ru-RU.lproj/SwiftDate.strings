@@ -1,0 +1,69 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"в следующем году";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"в %d году";			// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"в прошлом году";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"в %d году";				// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"в следующем месяце";		// month,future,singular:	"next month"
+"colloquial_f_mm_1"					=	"через %d месяц";		// month,future,plural:		"in 3 months"
+"colloquial_f_mm_234"				=	"через %d месяца";		// month,future,plural:		"in 3 months"
+"colloquial_f_mm"					=	"через %d месяцев";		// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"в прошлом месяце";		// month,past,singular:		"past month"
+"colloquial_p_mm_1"					=	"%d месяц назад";	// month,past,plural:		"3 months ago"
+"colloquial_p_mm_234"				=	"%d месяца назад";	// month,past,plural:		"3 months ago"
+"colloquial_p_mm"					=	"%d месяцев назад";	// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"на следующей неделе";		// week,future,singular:	"next week"
+"colloquial_f_ww_1"					=	"через %d неделю";		// week,future,plural:		"in 3 weeks"
+"colloquial_f_ww_234"				=	"через %d недели";		// week,future,plural:		"in 3 weeks"
+"colloquial_f_ww"					=	"через %d недель";		// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"неделю назад";		// week,past,singular:		"past week"
+"colloquial_p_ww_1"					=	"%d неделю назад";		// week,past,plural:		"in 3 weeks"
+"colloquial_p_ww_234"				=	"%d недели назад";		// week,past,plural:		"in 3 weeks"
+"colloquial_p_ww"					=	"%d недель назад";		// week,past,plural:		"in 3 weeks"
+
+
+"colloquial_f_d"					=	"завтра";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd_1"					=	"через %d день";		// day,future,plural:		"in 3 days"
+"colloquial_f_dd_234"				=	"через %d дня";		// day,future,plural:		"in 3 days"
+"colloquial_f_dd"					=	"через %d дней";		// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"вчера";		// day,past,singular:		"yesterday"
+"colloquial_p_dd_1"					=	"%d день назад";		// day,past,plural:			"3 days ago"
+"colloquial_p_dd_234"				=	"%d дня назад";		// day,past,plural:			"3 days ago"
+"colloquial_p_dd"					=	"%d дней назад";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"через час";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh_1"					=	"через %d час";		// hour,future,plural:		"in 3 hours"
+"colloquial_f_hh_234"				=	"через %d часа";		// hour,future,plural:		"in 3 hours"
+"colloquial_f_hh"					=	"через %d часов";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"один час назад";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh_1"					=	"%d час назад";		// hour,past,plural:		"3 hours ago"
+"colloquial_p_hh_234"				=	"%d часа назад";		// hour,past,plural:		"3 hours ago"
+"colloquial_p_hh"					=	"%d часов назад";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"через одну минуту";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM_1"					=	"через %d минуту";	// minute,future,plural:	"in 3 minutes"
+"colloquial_f_MM_234"				=	"через %d минуты";	// minute,future,plural:	"in 3 minutes"
+"colloquial_f_MM"					=	"через %d минут";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"одну минуту назад";	// minute,past,singular:	"one minute ago"
+"colloquial_p_MM_1"					=	"%d минуту назад";	// minute,past,plural:		"3 minutes ago"
+"colloquial_p_MM_234"				=	"%d минуты назад";	// minute,past,plural:		"3 minutes ago"
+"colloquial_p_MM"					=	"%d минут назад";	// minute,past,plural:		"3 minutes ago"
+
+"colloquial_now"					=	"только что";			// less than 5 minutes if .allowsNowOnColloquial is set
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"MMM, dd yyyy";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"MMM, dd yyyy";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"EEE, MMM dd";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"EEE, MMM dd";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"'в' HH:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"'в' HH:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

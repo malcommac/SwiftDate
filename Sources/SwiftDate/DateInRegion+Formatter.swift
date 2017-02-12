@@ -58,6 +58,8 @@ public extension DateInRegion {
 		switch format {
 		case .custom(let format):
 			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
+		case .strict(let format):
+			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .iso8601(let options):
 			let formatter = self.formatters.isoFormatter(options: options)
 			return formatter.string(from: self.absoluteDate)

@@ -58,7 +58,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.12 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.12).
+Latest release is: 4.0.13 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.13).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -86,6 +86,7 @@ Currently SwiftDate supports:
 * Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
 * Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
 * Swedish (made by [@traneHead](https://github.com/traneHead), since 4.0.12)
+* Arabic (made by [@abdualrhmanIO](https://github.com/abdualrhmanIO), since 4.0.13)
 
 Make a pull request and add your language!
 

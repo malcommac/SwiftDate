@@ -106,7 +106,7 @@ public class DateInRegion: CustomStringConvertible {
 		/// - parameter format: if not nil a new `.dateFormat` is also set
 		///
 		/// - returns: a new instance of the formatter
-		public  func dateFormatter(format: String? = nil) -> DateFormatter {
+		public  func dateFormatter(format: String? = nil, heuristics: Bool = true) -> DateFormatter {
 			var formatter: DateFormatter? = nil
 			if useSharedFormatters == true {
 				let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
@@ -125,6 +125,7 @@ public class DateInRegion: CustomStringConvertible {
 			formatter!.timeZone = self.timeZone
 			formatter!.calendar = self.calendar
 			formatter!.locale = self.locale
+			formatter!.isLenient = heuristics
 			return formatter!
 		}
 		
@@ -233,6 +234,11 @@ public class DateInRegion: CustomStringConvertible {
 		switch format {
 		case .custom(let format):
 			guard let date = self.formatters.dateFormatter(format: format).date(from: string) else {
+				throw DateError.FailedToParse
+			}
+			self.absoluteDate = date
+		case .strict(let format):
+			guard let date = self.formatters.dateFormatter(format: format, heuristics: false).date(from: string) else {
 				throw DateError.FailedToParse
 			}
 			self.absoluteDate = date

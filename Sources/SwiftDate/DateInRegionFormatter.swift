@@ -307,9 +307,9 @@ public class DateInRegionFormatter {
 
 		let unitStr = unit.localizedKey(forValue: value)
 		var identifier = "colloquial_\(future_key)_\(unitStr)"
-        if isRussianSpecifyCase(unit: unit, withValue: value) == true {
-            identifier += russianPluralEnding(value: value)
-        }
+        	if isRussianSpecifyCase(unit: unit, withValue: value) == true {
+            		identifier += russianPluralEnding(value: value)
+        	}
 		let localized_date = withVaList(args) { (pointer: CVaListPointer) -> String in
 			let localized = self.localization.get(identifier, default: "")
 			return NSString(format: localized, arguments: pointer) as String
@@ -338,16 +338,16 @@ public class DateInRegionFormatter {
     ///
     /// - returns: true or false
     private func isRussianSpecifyCase(unit: Calendar.Component, withValue value: Int) -> Bool {
-        if locale?.identifier.hasPrefix("ru") == false {
+        guard locale?.identifier.hasPrefix("ru") == true else {
             return false
         }
         
-        if value <= 1 {
+        guard value > 1 else {
             return false
         }
         
         let availableUnits: [Calendar.Component] = [.minute, .hour, .day, .weekOfYear, .month]
-        if availableUnits.contains(unit) == false {
+        guard availableUnits.contains(unit) == true else {
             return false
         }
         
@@ -360,11 +360,11 @@ public class DateInRegionFormatter {
     ///
     /// - returns: additional string for russian localize key
     private func russianPluralEnding(value: Int) -> String {
-        var reminder = value % 100
+        var remainder = value % 100
         var result: String
-        if reminder <= 10 || reminder >= 20 {
-            reminder = reminder % 10
-            switch reminder {
+        if remainder <= 10 || remainder >= 20 {
+            remainder = remainder % 10
+            switch remainder {
             case 1:
                 return RussianPluralEnding.one.rawValue
             case 2...4:
@@ -377,7 +377,7 @@ public class DateInRegionFormatter {
         return RussianPluralEnding.defaultCase.rawValue
     }
     
-    // In English we create a plural by simply adding the letter 's'. As the Russian language is based on the case system there are different plurals in each case.
+    // In English we create a plural by simply adding the letter 's'. However, the Russian language is based on a case system where there are different plurals in each case.
     // Case system based on digits in a number
     // There is three types of ending:
     //     - for numbers, which ending on '1'

@@ -84,7 +84,7 @@ class TestDateInRegion_Formatter: XCTestCase {
         componentFormatterOptions.style = .short
         componentFormatterOptions.zeroBehavior = .dropAll
         let custom_5 = try! another_Date.timeComponentsSinceNow(options: componentFormatterOptions)
-		XCTAssertEqual(custom_5, "2 hr,5 min,3 sec", "Failed get colloquial representation of an old date")
+		XCTAssertEqual(custom_5, "2 hr, 5 min, 3 sec", "Failed get colloquial representation of an old date")
 	}
 
 	public func test_iso8601_formatter() {

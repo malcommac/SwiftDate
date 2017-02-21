@@ -352,4 +352,33 @@ class TestDateInRegion_Components: XCTestCase {
 		let newDateAgo = components.ago(from: now)
 		XCTAssertTrue(newDateAgo!.timeIntervalSince(now) == -3600,"Failed to get a new date from now minus 3600 seconds")
 	}
+    
+    func test_isMorningAfternoonEveningNight() {
+        
+        let ninePM = try! DateInRegion(string: "1989-06-06 21:00:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)
+        
+        XCTAssert(ninePM.isNight, "Failed to get the 33333333333333333333333333333333correct value of isNight")
+        XCTAssert(ninePM.isMorning == false, "Failed to get the correct value of isMorning when it's not morning")
+        XCTAssert(ninePM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
+        XCTAssert(ninePM.isEvening == false, "Failed to get the correct value of isEvening when it's not evening")
+        
+        let fiveAM = (ninePM + 8.hours)
+        XCTAssert(fiveAM.isMorning, "Failed to get the correct value of isMorning")
+        XCTAssert(fiveAM.isNight == false, "Failed to get the correct value of isNight when it's not night")
+        XCTAssert(fiveAM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
+        XCTAssert(fiveAM.isEvening == false, "Failed to get the correct value of isEvening when it's not evening")
+        
+        let twelvePM = (ninePM + 15.hours)
+        XCTAssert(twelvePM.isAfternoon, "Failed to get the correct value of isAfternoon")
+        XCTAssert(twelvePM.isNight == false, "Failed to get the correct value of isNight when it's not night")
+        XCTAssert(twelvePM.isMorning == false, "Failed to get the correct value of isMorning when it's not morning")
+        XCTAssert(twelvePM.isEvening == false, "Failed to get the correct value of isEvening when it's not evening")
+        
+        let fivePM = (ninePM + 20.hours)
+        XCTAssert(fivePM.isEvening, "Failed to get the correct value of isEvening")
+        XCTAssert(fivePM.isNight == false, "Failed to get the correct value of isNight when it's not night")
+        XCTAssert(fivePM.isMorning == false, "Failed to get the correct value of isMorning when it's not morning")
+        XCTAssert(fivePM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
+
+    }
 }

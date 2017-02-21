@@ -243,7 +243,31 @@ public extension Date {
 	/// Calculation is made in the context of `defaultRegion`.
 	public var isInFuture: Bool {
 		return self.inDateDefaultRegion().isInFuture
-	}
+    }
+    
+    /// Returns whether the given date is in the morning.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isMorning: Bool {
+        return self.inDateDefaultRegion().isMorning
+    }
+    
+    /// Returns whether the given date is in the afternoon.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isAfternoon: Bool {
+        return self.inDateDefaultRegion().isAfternoon
+    }
+    
+    /// Returns whether the given date is in the evening.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isEvening: Bool {
+        return self.inDateDefaultRegion().isEvening
+    }
+    
+    /// Returns whether the given date is in the night.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isNight: Bool {
+        return self.inDateDefaultRegion().isNight
+    }
 	
 	/// Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
 	/// Calculation is made in the context of `defaultRegion`.

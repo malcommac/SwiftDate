@@ -338,7 +338,7 @@ public class DateInRegionFormatter {
     ///
     /// - returns: true or false
     private func isRussianSpecifyCase(unit: Calendar.Component, withValue value: Int) -> Bool {
-        guard locale?.identifier.hasPrefix("ru") == true else {
+        guard localization.locale?.identifier.hasPrefix("ru") == true else {
             return false
         }
         

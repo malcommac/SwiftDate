@@ -29,6 +29,8 @@
 - **Release Date**: -
 - **Zipped Version**: [Download 4.0.14](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14)
 
+- [#404](https://github.com/malcommac/SwiftDate/pull/404) Compatibility with Swift 3.1
+
 
 <a name="413" />
 

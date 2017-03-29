@@ -159,7 +159,7 @@ public extension DateInRegion {
 	///
 	/// - returns: string with each time component
 	public func timeComponentsSinceNow(options: ComponentsFormatterOptions? = nil) throws -> String {
-		let interval = self.absoluteDate.timeIntervalSinceNow
+		let interval = abs(self.absoluteDate.timeIntervalSinceNow)
 		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
 		optionsStruct.locale = self.region.locale
 		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)

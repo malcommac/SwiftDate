@@ -34,6 +34,7 @@ Take a look here:
 * **[SwiftRichString](https://github.com/malcommac/SwiftRichString)** - Elegant and painless attributed string in Swift
 * **[SwiftScanner](https://github.com/malcommac/SwiftScanner)** - String scanner in pure Swift with full unicode support
 * **[SwiftSimplify](https://github.com/malcommac/SwiftSimplify)** - Tiny high-performance Swift Polyline Simplification Library
+* **[SwiftMsgPack](https://github.com/malcommac/SwiftMsgPack)** - MsgPack Encoder/Decoder in Swit
 
 ## How to get started
 
@@ -58,7 +59,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.13 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.13).
+Latest release is: 4.0.14 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 

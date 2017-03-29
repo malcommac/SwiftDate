@@ -119,6 +119,8 @@ target 'TargetName' do
 end
 ```
 
+(use 4.0.13 for Swift 3.0)
+
 Then, run the following command:
 
 ```bash
@@ -148,7 +150,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 Current version is compatible with:
 
-* Swift 3.0+
+* Swift 3.1 (4.0.13 is the latest version compatibile with Swift 3)
 * iOS 8 or later
 * macOS 10.10 or later
 * watchOS 2.0 or later
@@ -157,8 +159,9 @@ Current version is compatible with:
 
 Are you searching for an old (unsupported) SwiftDate version?
 Check out:
+* Swift 3.0: The latest version compatible is 4.0.13
 * [Swift 2.3 Branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
-* Swift 2.2: Use version 3.0.8 in CocoaPods
+* Swift 2.2: The latest version compatible is 3.0.8
 
 
 ## Credits & License

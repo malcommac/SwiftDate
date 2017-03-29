@@ -345,6 +345,38 @@ extension DateInRegion {
 	public var isInFuture: Bool {
 		return self.absoluteDate > Date()
 	}
+    
+    /// Returns whether the given date is in the morning.
+    ///
+    /// - note: This value is interpreted in the context of the calendar of the receiver
+    public var isMorning: Bool {
+        let hour = self.region.calendar.component(.hour, from: self.absoluteDate)
+        return hour >= 5 && hour < 12
+    }
+    
+    /// Returns whether the given date is in the afternoon.
+    ///
+    /// - note: This value is interpreted in the context of the calendar of the receiver
+    public var isAfternoon: Bool {
+        let hour = self.region.calendar.component(.hour, from: self.absoluteDate)
+        return hour >= 12 && hour < 17
+    }
+    
+    /// Returns whether the given date is in the evening.
+    ///
+    /// - note: This value is interpreted in the context of the calendar of the receiver
+    public var isEvening: Bool {
+        let hour = self.region.calendar.component(.hour, from: self.absoluteDate)
+        return hour >= 17 && hour < 21
+    }
+    
+    /// Returns whether the given date is in the night.
+    ///
+    /// - note: This value is interpreted in the context of the calendar of the receiver
+    public var isNight: Bool {
+        let hour = self.region.calendar.component(.hour, from: self.absoluteDate)
+        return hour >= 21 || hour < 5
+    }
 	
 	/// Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
 	///

@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.0.14](#414)**
 * Version **[4.0.13](#413)**
 * Version **[4.0.12](#412)**
 * Version **[4.0.11](#411)**
@@ -20,7 +21,16 @@
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
 
-<a name="412" />
+
+<a name="414" />
+
+## SwiftDate 4.0.14
+---
+- **Release Date**: -
+- **Zipped Version**: [Download 4.0.14](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14)
+
+
+<a name="413" />
 
 ## SwiftDate 4.0.13
 ---
@@ -31,6 +41,7 @@
 - [#384](https://github.com/malcommac/SwiftDate/pull/384) Added Arabic translation (thanks to @abdualrhmanIO)
 - [#356](https://github.com/malcommac/SwiftDate/pull/356) Added a new formatter option called `strict`. Using `strict` instead of `custom` disable heuristics date guessing of the formatter (ie. 1999-02-31 become an invalid date to parse, while with heuristics enabled guessing date 1999-03-03 is returned instead).
 
+<a name="412" />
 
 ## SwiftDate 4.0.12
 ---

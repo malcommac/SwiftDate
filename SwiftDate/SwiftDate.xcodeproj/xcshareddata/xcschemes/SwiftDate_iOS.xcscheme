@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21C301131D829C8B00B0E02C"
+               BlueprintIdentifier = "08EC22EE1DA03F9D00B6DFC6"
                BuildableName = "SwiftDateTests.xctest"
                BlueprintName = "SwiftDateTests"
                ReferencedContainer = "container:SwiftDate.xcodeproj">

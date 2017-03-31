@@ -44,7 +44,7 @@ Take a look here:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.8/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.0/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -59,7 +59,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.0.14 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14).
+Latest release is: 4.1.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.1.0).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -86,8 +86,9 @@ Currently SwiftDate supports:
 * Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
 * Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
 * Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
-* Swedish (made by [@traneHead](https://github.com/traneHead), since 4.0.12)
+* Swedish (made by [@traneHead](https://github.com/traneHead) and [@deville](https://github.com/deville), since 4.0.12, updated in 4.1.0)
 * Arabic (made by [@abdualrhmanIO](https://github.com/abdualrhmanIO), since 4.0.13)
+* Greek (made by [@dimmdesign](https://github.com/dimmdesign), since 4.10)
 
 Make a pull request and add your language!
 

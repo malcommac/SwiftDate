@@ -37,7 +37,7 @@
 - [#223](https://github.com/malcommac/SwiftDate/pull/223) `ISO8601DateTimeFormatter` now recognize the timezone of an ISO string and create a date with the correct value.
 - [#407](https://github.com/malcommac/SwiftDate/pull/407) SwiftDate now can parse ISO8601 strings without specifyng the ISO format; it evaluates the best format automatically. Also the parser faster than the previous built one. Since now `.iso8601` parsing format is used only as formatter (from date to string, viceversa any given value is ignored. You are encouraged to use `.iso8601Auto` instead).
 
-The following ISO8601 variants are supported:
+	The following ISO8601 variants are supported:
 
 ```
 YYYYMMDD
@@ -85,23 +85,6 @@ yy-Www
 //Day only of implied week
 -W-d
 ```
-
-All of the frills of ISO 8601 are supported, except for extended dates (years longer than 4 digits). Specifically, you can use week-based dates (2006-W2 for the second week of 2006), ordinal dates (2006-365 for December 31), decimal minutes (11:30.5 == 11:30:30), and decimal seconds (11:30:10.5). All methods of specifying a time zone are supported.
-
-ISO 8601 leaves quite a bit up to the parties exchanging dates. I hope I've chosen reasonable defaults. For example (note that I'm writing this on 2006-02-24):
-
-• If the month or month and date are missing, 1 is assumed. "2006" == "2006-01-01".
-• If the year or year and month are missing, the current ones are assumed. "--02-01" == "2006-02-01". "---28" == "2006-02-28".
-• In the case of week-based dates, with  the day missing, this implementation returns the first day of that week: 2006-W1 is 2006-01-01, 2006-W2 is 2006-01-08, etc.
-• For any date without a time, midnight on that date is used.
-• ISO 8601 permits the choice of either T0 or T24 for midnight. This implementation uses T0. T24 will get you T0 on the following day.
-• If no time-zone is specified, local time (as returned by [NSTimeZone localTimeZone]) is used.
-
-When a date is parsed that has a year but no century, this implementation adds the current century.
-
-The implementation is tolerant of out-of-range numbers. For example, "2005-13-40T24:62:89" == 1:02 AM on 2006-02-10. Notice that the month (13 > 12), date (40 > 31), hour (24 > 23), minute (62 > 59), and second (89 > 59) are all out-of-range.
-
-As mentioned above, there is a "strict" mode that enforces sanity checks. In particular, the date must be the entire contents of the string, and numbers are range-checked. If you have any suggestions on how to make this mode more strict, contact me.
 
 
 #### Fixes

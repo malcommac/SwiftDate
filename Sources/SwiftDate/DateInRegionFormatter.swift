@@ -189,6 +189,7 @@ public class DateInRegionFormatter {
 		let cal = fDate.region.calendar
 		let cmp = cal.dateComponents(self.allowedComponents, from: fDate.absoluteDate, to: tDate.absoluteDate)
 		let isFuture = (fDate > tDate)
+		let diff_in_seconds = abs(fDate.absoluteDate.timeIntervalSince(tDate.absoluteDate))
 		
 		if cmp.year != nil && (cmp.year != 0 || !hasLowerAllowedComponents(than: .year)) {
 			let colloquial_time = try self.colloquial_time(forUnit: .year, withValue: cmp.year!, date: fDate)
@@ -202,7 +203,12 @@ public class DateInRegionFormatter {
 			return (colloquial_date,colloquial_time)
 		}
 		
-		if cmp.day != nil {
+		// This was introduced in order to take care when two dates are different in days
+		// but the distance is less than 24 hour (ie. 2017/01/01 at 23:00 and 2017/01/02 at 01:00
+		// difference is 2 hours and not 1 day).
+		let diff_in_hours = (diff_in_seconds / 60 / 60)
+		
+		if cmp.day != nil && diff_in_hours >= 24 {
 			if abs(cmp.day!) >= DAYS_IN_WEEK {
 				let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
 				let weeksNo = (abs(cmp.day!) / DAYS_IN_WEEK)

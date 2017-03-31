@@ -102,11 +102,7 @@ public extension DateComponents {
 	/// It's the same of `DateInRegion(components:)` init func but it may return nil (instead of throwing an exception)
 	/// if a valid date cannot be produced.
 	public var dateInRegion: DateInRegion? {
-		do {
-			return try DateInRegion(components: self)
-		} catch {
-			return nil
-		}
+		return DateInRegion(components: self)
 	}
 	
 	

@@ -107,6 +107,8 @@
 		08EC22CB1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
 		08EC22CC1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
 		08EC22CD1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
+		213A2A641E8D2A2E00408313 /* ISO8601Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */; };
+		213A2A661E8D3E2700408313 /* valid_ISO8601_strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 213A2A651E8D3E2700408313 /* valid_ISO8601_strings.txt */; };
 		21C3012E1D829D7900B0E02C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012D1D829D7900B0E02C /* AppDelegate.swift */; };
 		21C301301D829D7900B0E02C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012F1D829D7900B0E02C /* ViewController.swift */; };
 		21C301331D829D7900B0E02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C301311D829D7900B0E02C /* Main.storyboard */; };
@@ -194,6 +196,8 @@
 		08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZoneName.swift; path = ../../Sources/SwiftDate/TimeZoneName.swift; sourceTree = "<group>"; };
 		08EC22EF1DA03F9D00B6DFC6 /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EC22F31DA03F9D00B6DFC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601Parser.swift; path = ../../Sources/SwiftDate/ISO8601Parser.swift; sourceTree = "<group>"; };
+		213A2A651E8D3E2700408313 /* valid_ISO8601_strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = valid_ISO8601_strings.txt; path = ../../Tests/SwiftDateTests/valid_ISO8601_strings.txt; sourceTree = "<group>"; };
 		21C3010B1D829C8B00B0E02C /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3010E1D829C8B00B0E02C /* SwiftDate-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftDate-iOS.h"; path = "SwiftDate/SwiftDate-iOS.h"; sourceTree = "<group>"; };
 		21C3010F1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftDate/Info.plist; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 			children = (
 				08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */,
 				08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */,
+				213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */,
 			);
 			name = Formatters;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				08209C991DA041830016B271 /* TestDateInRegion+Components.swift */,
 				08209C9A1DA041830016B271 /* TestDateInRegion+Formatter.swift */,
 				08EC22F31DA03F9D00B6DFC6 /* Info.plist */,
+				213A2A651E8D3E2700408313 /* valid_ISO8601_strings.txt */,
 			);
 			name = "Unit Test Bundle";
 			path = SwiftDateTests;
@@ -690,6 +696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08EC22981DA03E0B00B6DFC6 /* SwiftDate.bundle in Resources */,
+				213A2A661E8D3E2700408313 /* valid_ISO8601_strings.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08EC229E1DA03E4000B6DFC6 /* DateInRegionFormatter.swift in Sources */,
+				213A2A641E8D2A2E00408313 /* ISO8601Parser.swift in Sources */,
 				08EC22821DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
 				08E253831E3F9EBA00432D2C /* Localization.swift in Sources */,
 				08EC226E1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
@@ -1063,7 +1071,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1117,7 +1125,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

@@ -6,11 +6,12 @@
 
 ## CHANGELOG
 
-* Version **[4.0.14](#414)**
-* Version **[4.0.13](#413)**
-* Version **[4.0.12](#412)**
-* Version **[4.0.11](#411)**
-* Version **[4.0.10](#410)**
+* Version **[4.1.0](#410)**
+* Version **[4.0.14](#4014)**
+* Version **[4.0.13](#4013)**
+* Version **[4.0.12](#4012)**
+* Version **[4.0.11](#4011)**
+* Version **[4.0.10](#4010)**
 * Version **[4.0.9](#409)**
 * Version **[4.0.8](#408)**
 * Version **[4.0.7](#407)**
@@ -22,17 +23,91 @@
 * Version **[4.0.0](#400)**
 
 
-<a name="414" />
+<a name="410" />
+
+## SwiftDate 4.1.0
+---
+- **Release Date**: 2017/03/31
+- **Zipped Version**: [Download 4.1.0](https://github.com/malcommac/SwiftDate/releases/tag/4.1.0)
+
+#### New Features
+- [#402](https://github.com/malcommac/SwiftDate/pull/402) Added Greek localization (thanks to @dimmdesign)
+- [#399](https://github.com/malcommac/SwiftDate/pull/399) `colloquialSinceNow` also allows to set `unitsStyle` params to specify the type of values you want to print.
+- [#400](https://github.com/malcommac/SwiftDate/pull/400) `DateInRegion` has a class func named `date(formats:fromRegion)` which allows parsing a single string with multiple formats (the first one that succeeds returns the instance of the `DateInRegion`). Also available as `String` extension (with the same name).
+- [#223](https://github.com/malcommac/SwiftDate/pull/223) `ISO8601DateTimeFormatter` now recognize the timezone of an ISO string and create a date with the correct value.
+- [#407](https://github.com/malcommac/SwiftDate/pull/407) SwiftDate now can parse ISO8601 strings without specifyng the ISO format; it evaluates the best format automatically. Also the parser faster than the previous built one. Since now `.iso8601` parsing format is used only as formatter (from date to string, viceversa any given value is ignored. You are encouraged to use `.iso8601Auto` instead).
+
+	The following ISO8601 variants are supported:
+
+```
+YYYYMMDD
+YYYY-MM-DD
+YYYY-MM
+YYYY
+YY //century 
+//Implied century: YY is 00-99
+YYMMDD
+YY-MM-DD
+-YYMM
+-YY-MM
+-YY
+//Implied year
+--MMDD
+--MM-DD
+--MM
+//Implied year and month
+---DD
+//Ordinal dates: DDD is the number of the day in the year (1-366)
+YYYYDDD
+YYYY-DDD
+YYDDD
+YY-DDD
+-DDD
+//Week-based dates: ww is the number of the week, and d is the number (1-7) of the day in the week
+yyyyWwwd
+yyyy-Www-d
+yyyyWww
+yyyy-Www
+yyWwwd
+yy-Www-d
+yyWww
+yy-Www
+//Year of the implied decade
+-yWwwd
+-y-Www-d
+-yWww
+-y-Www
+//Week and day of implied year
+-Wwwd
+-Www-d
+//Week only of implied year
+-Www
+//Day only of implied week
+-W-d
+```
+
+
+#### Fixes
+- [#405](https://github.com/malcommac/SwiftDate/pull/405) Fixed some translation issues in Swedish (thanks to @deville)
+- [#368](https://github.com/malcommac/SwiftDate/pull/368) Deprecated `at(unitsWithValues dict: [Calendar.Component : Int])` in `Date` and `DateInRegion` and replaced with functional `at(values: [Calendar.Component : Int], keep: Set<Calendar.Component>)`
+- [#392](https://github.com/malcommac/SwiftDate/pull/392) Fixed an issue with report negative interval when making operation with dates `a` and `b` where `a - b < 0 iff a < b`.
+- [#397](https://github.com/malcommac/SwiftDate/pull/397) Fixed an issue with `colloquial` func which report wrong difference of `1 day` when two dates are distant < 24h but in two different days.
+
+
+
+
+
+<a name="4014" />
 
 ## SwiftDate 4.0.14
 ---
-- **Release Date**: -
+- **Release Date**: 2017/03/29
 - **Zipped Version**: [Download 4.0.14](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14)
 
 - [#404](https://github.com/malcommac/SwiftDate/pull/404) Compatibility with Swift 3.1
 
 
-<a name="413" />
+<a name="4013" />
 
 ## SwiftDate 4.0.13
 ---
@@ -43,7 +118,7 @@
 - [#384](https://github.com/malcommac/SwiftDate/pull/384) Added Arabic translation (thanks to @abdualrhmanIO)
 - [#356](https://github.com/malcommac/SwiftDate/pull/356) Added a new formatter option called `strict`. Using `strict` instead of `custom` disable heuristics date guessing of the formatter (ie. 1999-02-31 become an invalid date to parse, while with heuristics enabled guessing date 1999-03-03 is returned instead).
 
-<a name="412" />
+<a name="4012" />
 
 ## SwiftDate 4.0.12
 ---
@@ -60,7 +135,7 @@
 - [#381](https://github.com/malcommac/SwiftDate/pull/381) Replaced `useImminentInterval` in `DateInRegionFormatter` with a configurable value called `imminentInterval`. With a default value of 5 it fallback to `just now` version. If `nil` fallback is disabled.
 - [#380](https://github.com/malcommac/SwiftDate/pull/380) `DateInRegionFormatter` is now able to load custom localization both from `LocaleName` and custom `.strings` files (just set the `formatter.localization = Localization(path: [PATH_TO_YOUR_STRINGS_FILE]`)
 
-<a name="411" />
+<a name="4011" />
 
 ## SwiftDate 4.0.11
 ---
@@ -74,7 +149,7 @@
 #### New Features
 - [#365](https://github.com/malcommac/SwiftDate/issues/365) Brazilian Portuguese support (thanks to @ipedro)
 
-<a name="410" />
+<a name="4010" />
 
 ## SwiftDate 4.0.10
 ---

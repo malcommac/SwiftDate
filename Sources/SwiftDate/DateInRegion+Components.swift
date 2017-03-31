@@ -514,14 +514,35 @@ extension DateInRegion {
 	}
 	
 	
+	/// Create a new instance of the date by keeping passed calendar components and alter
+	///
+	/// - Parameters:
+	///   - values: values to alter in new instance
+	///   - keep: values to keep from self instance
+	/// - Returns: a new instance of `DateInRegion` with passed altered values
+	public func at(values: [Calendar.Component : Int], keep: Set<Calendar.Component>) -> DateInRegion? {
+		let calendar = self.region.calendar
+		var newComponents = calendar.dateComponents(keep, from: self.absoluteDate)
+	
+		values.forEach { newComponents.setValue($0.value, for: $0.key) }
+		
+		guard let calculatedDate = calendar.date(from: newComponents) else {
+			return nil
+		}
+		return DateInRegion(absoluteDate: calculatedDate, in: self.region)
+
+	}
+	
 	/// Create a new instance calculated by setting a list of components of a given date to given values (components
 	/// are evaluated serially - in order), while trying to keep lower components the same.
 	///
 	/// - parameter dict: a dictionary with `Calendar.Component` and it's value
 	///
-	/// - throws: throw a `FailedToSetComponent` exception.
+	/// - throws: throw a `FailedToCalculate` exception.
 	///
 	/// - returns: a new `DateInRegion` object calculated at given units values
+	@available(*, deprecated: 4.1.0, message: "This method has know issues. Use at(values:keep:) instead")
+	@discardableResult
 	public func at(unitsWithValues dict: [Calendar.Component : Int]) throws -> DateInRegion {
 		var calculatedDate = self.absoluteDate
 		try DateComponents.allComponents.forEach { component in

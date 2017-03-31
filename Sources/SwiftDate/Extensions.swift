@@ -38,6 +38,19 @@ public extension String {
 		return DateInRegion(string: self, format: format, fromRegion: region)
 	}
 	
+	
+	/// Attempt to parse a string with multiple date formats. Parsing operation is executed in order
+	/// and when the first format ends successfully it stops the parsing chain and return the instance
+	/// of `DateInRegion`.
+	///
+	/// - Parameters:
+	///   - formats: formats to use
+	/// - parameter region: region in which you want to describe the date
+	/// - returns: a new DateInRegion representing passed string in given region
+	public func date(formats: [DateFormat], fromRegion region: Region? = nil) -> DateInRegion? {
+		return DateInRegion.date(string: self, formats: formats, fromRegion: region)
+	}
+	
 }
 
 //MARK: - String Extension PRIVATE

@@ -217,7 +217,7 @@ public class DateInRegion: CustomStringConvertible {
 	///   - formats: formats used for parsing. Formats are evaluated in order.
 	/// - parameter region:     region in which the date is expressed. If `nil` local region will used instead (`Region.Local()`). When `.iso8601` or `.iso8601Auto` is used, `region` parameter is ignored (timezone is set automatically by reading the string.
 	/// - returns: a new `DateInRegion` instance expressed in passed region, `nil` if parse fails
-	public class func parse(string: String, formats: [DateFormat], fromRegion region: Region? = nil) -> DateInRegion? {
+	public class func date(string: String, formats: [DateFormat], fromRegion region: Region? = nil) -> DateInRegion? {
 		for format in formats {
 			if let date = DateInRegion(string: string, format: format, fromRegion: region) {
 				return date

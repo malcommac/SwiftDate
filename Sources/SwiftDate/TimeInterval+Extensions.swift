@@ -58,28 +58,6 @@ public extension TimeInterval {
 		let value = cal.calendar.dateComponents(components, from: dateFrom, to: dateTo).value(for: component)
 		return value
 	}
-
-	/// Represent a time interval in a string
-	///
-	/// - parameter unitStyle: unit style of the output
-	/// - parameter max:       max number of components to print
-	/// - parameter zero:      how to threat wuth zero values
-	/// - parameter separator: separator between components
-	/// - parameter locale:    locale to use
-	///
-	/// - throws: throw an exception if output string cannot be produced
-	///
-	/// - returns: a string representing the time interval
-	@available(*, deprecated: 4.0.3, message: "Use string(options:) instead")
-	public func string(unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil, locale: Locale? = nil) throws -> String? {
-		let formatter = DateInRegionFormatter()
-		formatter.localization = Localization(locale: locale)
-		formatter.maxComponentCount = max
-		formatter.unitStyle = unitStyle
-		formatter.zeroBehavior = zero ?? .dropAll
-		formatter.unitSeparator = separator ?? ","
-		return try formatter.timeComponents(interval: self)
-	}
 	
 	/// Represent a time interval in a string
 	///

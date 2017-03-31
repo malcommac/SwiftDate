@@ -14,10 +14,10 @@
 "colloquial_p_w"					=	"förra veckan";      // week,past,singular:		"past week"
 "colloquial_p_ww"					=	"%d veckor sedan";   // week,past,plural:		  "in 3 weeks"
 
-"colloquial_f_d"					=	"tomorrow";          // day,future,singular: "tomorrow"
-"colloquial_f_dd"					=	"in %d days";        // day,future,plural:   "in 3 days"
-"colloquial_p_d"					=	"yesterday";         // day,past,singular:   "yesterday"
-"colloquial_p_dd"					=	"%d days ago";       // day,past,plural:     "3 days ago"
+"colloquial_f_d"					=	"imorgon";           // day,future,singular: "tomorrow"
+"colloquial_f_dd"					=	"om %d dagar";       // day,future,plural:   "in 3 days"
+"colloquial_p_d"					=	"igår";              // day,past,singular:   "yesterday"
+"colloquial_p_dd"					=	"%d dagar sedan";    // day,past,plural:     "3 days ago"
 
 "colloquial_f_h"					=	"om en timme";       // hour,future,singular:	"in one hour"
 "colloquial_f_hh"					=	"om %d timmar";      // hour,future,plural:		"in 3 hours"
@@ -30,6 +30,14 @@
 "colloquial_p_MM"					=	"%d minuter sedan";  // minute,past,plural:		"3 minutes ago"
 
 "colloquial_now"					=	"just nu";           // less than 5 minutes if .allowsNowOnColloquial is set
+
+"colloquial_n_0y"         = "detta året";        // this year
+"colloquial_n_0m"         = "denna månaden";     // this month
+"colloquial_n_0w"         = "denna veckan";      // this week
+"colloquial_n_0d"         = "idag";              // this day
+"colloquial_n_0h"         = "just nu";           // this hour
+"colloquial_n_0M"         = "just nu";           // this minute
+"colloquial_n_0s"         = "just nu";           // this second
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";          // for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"

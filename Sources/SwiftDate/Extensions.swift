@@ -33,11 +33,9 @@ public extension String {
 	/// - parameter format: format of the date string
 	/// - parameter region: region in which you want to describe the date
 	///
-	/// - throws: throw an exception if DateInRegion cannot be created
-	///
 	/// - returns: a new DateInRegion representing passed string in given region
-	public func date(format: DateFormat, fromRegion region: Region? = nil) throws -> DateInRegion {
-		return try DateInRegion(string: self, format: format, fromRegion: region)
+	public func date(format: DateFormat, fromRegion region: Region? = nil) -> DateInRegion? {
+		return DateInRegion(string: self, format: format, fromRegion: region)
 	}
 	
 }

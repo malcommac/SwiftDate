@@ -27,6 +27,7 @@ import Foundation
 /// MARK: - ISO8601DateTimeFormatter
 
 /// This is a re-implementation of the ISO8601DateFormatter which is compatible with iOS lower than version 10.
+
 public class ISO8601DateTimeFormatter {
 	
 	public struct Options: OptionSet {
@@ -81,12 +82,100 @@ public class ISO8601DateTimeFormatter {
 		// The format used for internet date times; it's similar to .withInternetDateTime
 		// but include milliseconds ('yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ').
 		public static let withInternetDateTimeExtended = ISO8601DateTimeFormatter.Options(rawValue: 1 << 11)
+		
+		/// Evaluate formatting string
+		public var formatterString: String {
+			if self.contains(.withInternetDateTimeExtended) {
+				return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+			}
+			
+			if self.contains(.withInternetDateTime) {
+				return "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+			}
+			
+			var format: String = ""
+			if self.contains(.withFullDate) {
+				format += "yyyy-MM-dd"
+			} else {
+				if self.contains(.withYear) {
+					if self.contains(.withWeekOfYear) {
+						format += "YYYY"
+					} else if self.contains(.withMonth) || self.contains(.withDay) {
+						format += "yyyy"
+					} else {
+						// not valid
+					}
+				}
+				if self.contains(.withMonth) {
+					if self.contains(.withYear) || self.contains(.withDay) || self.contains(.withWeekOfYear) {
+						format += "MM"
+					} else {
+						// not valid
+					}
+				}
+				if self.contains(.withWeekOfYear) {
+					if self.contains(.withDay) {
+						format += "'W'ww"
+					} else {
+						if self.contains(.withYear) || self.contains(.withMonth) {
+							if self.contains(.withDashSeparatorInDate) {
+								format += "-'W'ww"
+							} else {
+								format += "'W'ww"
+							}
+						} else {
+							// not valid
+						}
+					}
+				}
+				
+				if self.contains(.withDay) {
+					if self.contains(.withWeekOfYear) {
+						format += "FF"
+					} else if self.contains(.withMonth) {
+						format += "dd"
+					} else if self.contains(.withYear) {
+						if self.contains(.withDashSeparatorInDate) {
+							format += "-DDD"
+						} else {
+							format += "DDD"
+						}
+					} else {
+						// not valid
+					}
+				}
+			}
+			
+			let hasDate = (self.contains(.withFullDate) || self.contains(.withMonth) || self.contains(.withDay) || self.contains(.withWeekOfYear) || self.contains(.withYear))
+			if hasDate && (self.contains(.withFullTime) || self.contains(.withTimeZone)) {
+				if self.contains(.withSpaceBetweenDateAndTime) {
+					format += " "
+				} else {
+					format += "'T'"
+				}
+			}
+			
+			if self.contains(.withFullTime) {
+				format += "HH:mm:ssZZZZZ"
+			} else {
+				if self.contains(.withTime) {
+					format += "HH:mm:ss"
+				}
+				if self.contains(.withTimeZone) {
+					format += "ZZZZZ"
+				}
+			}
+			
+			return format
+		}
 	}
 	
 	/// Options for generating and parsing ISO 8601 date representations.
+	@available(*, deprecated: 4.1.0, message: "This property is not used anymore. Use string(from:options:) to format a date to string or class func date(from:config:) to transform a string to date")
 	public var formatOptions: ISO8601DateTimeFormatter.Options = ISO8601DateTimeFormatter.Options(rawValue: 0)
 	
 	/// The time zone used to create and parse date representations. When unspecified, GMT is used.
+	@available(*, deprecated: 4.1.0, message: "This property is not used anymore. Parsing is done automatically by reading specified timezone. If not specified UTC is used.")
 	public var timeZone: TimeZone? {
 		set {
 			self.formatter.timeZone = newValue ?? TimeZone(secondsFromGMT: 0)
@@ -109,7 +198,7 @@ public class ISO8601DateTimeFormatter {
     private var formatter: DateFormatter = DateFormatter()
 	
 	public init() {
-		self.timeZone = TimeZone(secondsFromGMT: 0)!
+//		self.timeZone = TimeZone(secondsFromGMT: 0)!
 	}
 	
 	/// Creates and returns an ISO 8601 formatted string representation of the specified date.
@@ -117,8 +206,9 @@ public class ISO8601DateTimeFormatter {
 	/// - parameter date: The date to be represented.
 	///
 	/// - returns: A user-readable string representing the date.
+	@available(*, deprecated: 4.1.0, message: "Use string(from:options:) function instead")
 	public func string(from date: Date) -> String {
-		self.formatter.dateFormat = self.formatterString
+		self.formatter.dateFormat = self.formatOptions.formatterString
 		return self.formatter.string(from: date)
 	}
 	
@@ -127,9 +217,37 @@ public class ISO8601DateTimeFormatter {
 	/// - parameter string: The ISO 8601 formatted string representation of a date.
 	///
 	/// - returns: A date object, or nil if no valid date was found.
+	@available(*, deprecated: 4.1.0, message: "Use ISO8601DateTimeFormatter class func date(from:config) instead")
 	public func date(from string: String) -> Date? {
-		self.formatter.dateFormat = self.formatterString
-		return self.formatter.date(from: string)
+		//self.formatter.dateFormat = self.formatOptions.formatterString
+		//return self.formatter.date(from: string)
+		return ISO8601DateTimeFormatter.date(from: string)
+	}
+	
+	
+	/// Creates and return a date object from the specified ISO8601 formatted string representation
+	///
+	/// - Parameters:
+	///   - string: valid ISO8601 string to parse
+	///   - config: configuration to use. `nil` uses default configuration
+	/// - Returns: a valid `Date` object or `nil` if parse fails
+	public class func date(from string: String, config: ISO8601Configuration = ISO8601Configuration()) -> Date? {
+		do {
+			return try ISO8601Parser(string, config: config).parsedDate
+		} catch {
+			return nil
+		}
+	}
+	
+	/// Creates and returns an ISO 8601 formatted string representation of the specified date.
+	///
+	/// - Parameters:
+	///   - date: The date to be represented.
+	///   - options: Formastting style
+	/// - Returns: a string description of the date
+	public func string(from date: Date, options: ISO8601DateTimeFormatter.Options = [.withInternetDateTime]) -> String {
+		self.formatter.dateFormat = options.formatterString
+		return self.formatter.string(from: date)
 	}
 	
 	/// Creates a representation of the specified date with a given time zone and format options.
@@ -139,96 +257,25 @@ public class ISO8601DateTimeFormatter {
 	/// - parameter formatOptions: The options used. For possible values, see ISO8601DateTimeFormatter.Options.
 	///
 	/// - returns: A user-readable string representing the date.
-	class func string(from date: Date, timeZone: TimeZone, formatOptions: ISO8601DateTimeFormatter.Options = []) -> String {
-		let formatter = ISO8601DateTimeFormatter()
-		formatter.locale = LocaleName.englishUnitedStatesComputer.locale // fix for 12/24h
-		formatter.formatOptions = formatOptions
-		return formatter.string(from: date)
+	@available(*, deprecated: 4.1.0, message: "Use ISO8601DateTimeFormatter class func string(from:options:) instead")
+	public class func string(from date: Date, timeZone: TimeZone, formatOptions: ISO8601DateTimeFormatter.Options = []) -> String {
+//		let formatter = ISO8601DateTimeFormatter()
+//		formatter.locale = LocaleName.englishUnitedStatesComputer.locale // fix for 12/24h
+//		formatter.formatOptions = formatOptions
+//		return formatter.string(from: date)
+		return ISO8601DateTimeFormatter.string(from: date, options: formatOptions)
 	}
 	
-	/// Evaluate formatting string
-	public var formatterString: String {
-		if formatOptions.contains(.withInternetDateTimeExtended) {
-			return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-		}
-		
-		if formatOptions.contains(.withInternetDateTime) {
-			return "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-		}
-
-		var format: String = ""
-		if formatOptions.contains(.withFullDate) {
-			format += "yyyy-MM-dd"
-		} else {
-			if formatOptions.contains(.withYear) {
-				if formatOptions.contains(.withWeekOfYear) {
-					format += "YYYY"
-				} else if formatOptions.contains(.withMonth) || formatOptions.contains(.withDay) {
-					format += "yyyy"
-				} else {
-					// not valid
-				}
-			}
-			if formatOptions.contains(.withMonth) {
-				if formatOptions.contains(.withYear) || formatOptions.contains(.withDay) || formatOptions.contains(.withWeekOfYear) {
-					format += "MM"
-				} else {
-					// not valid
-				}
-			}
-			if formatOptions.contains(.withWeekOfYear) {
-				if formatOptions.contains(.withDay) {
-					format += "'W'ww"
-				} else {
-					if formatOptions.contains(.withYear) || formatOptions.contains(.withMonth) {
-						if formatOptions.contains(.withDashSeparatorInDate) {
-							format += "-'W'ww"
-						} else {
-							format += "'W'ww"
-						}
-					} else {
-						// not valid
-					}
-				}
-			}
-			
-			if formatOptions.contains(.withDay) {
-				if formatOptions.contains(.withWeekOfYear) {
-					format += "FF"
-				} else if formatOptions.contains(.withMonth) {
-					format += "dd"
-				} else if formatOptions.contains(.withYear) {
-					if formatOptions.contains(.withDashSeparatorInDate) {
-						format += "-DDD"
-					} else {
-						format += "DDD"
-					}
-				} else {
-					// not valid
-				}
-			}
-		}
-
-		let hasDate = (formatOptions.contains(.withFullDate) || formatOptions.contains(.withMonth) || formatOptions.contains(.withDay) || formatOptions.contains(.withWeekOfYear) || formatOptions.contains(.withYear))
-		if hasDate && (formatOptions.contains(.withFullTime) || formatOptions.contains(.withTimeZone)) {
-			if formatOptions.contains(.withSpaceBetweenDateAndTime) {
-				format += " "
-			} else {
-				format += "'T'"
-			}
-		}
-		
-		if formatOptions.contains(.withFullTime) {
-			format += "HH:mm:ssZZZZZ"
-		} else {
-			if formatOptions.contains(.withTime) {
-				format += "HH:mm:ss"
-			}
-			if formatOptions.contains(.withTimeZone) {
-				format += "ZZZZZ"
-			}
-		}
-		
-		return format
+	
+	/// Creates a representation of the specified date with a given time zone and format options.
+	///
+	/// - Parameters:
+	///   - date: The date to be represented.
+	///   - options: The options used. For possible values, see ISO8601DateTimeFormatter.Options.
+	/// - returns: A user-readable string representing the date.
+	public class func string(from date: Date, options: ISO8601DateTimeFormatter.Options = []) -> String {
+		let formatter = ISO8601DateTimeFormatter()
+		formatter.locale = LocaleName.englishUnitedStatesComputer.locale // fix for 12/24h
+		return formatter.string(from: date, options: options)
 	}
 }

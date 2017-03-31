@@ -135,4 +135,31 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let string_11 = testDate.string(format: .iso8601(options: options))
 		XCTAssertEqual(string_11, "2001-02-03T+01:00", "Failed get ISO8601 #11 representation of the string")
 	}
+	
+	
+	/// This tests evaluate the result of ISO8601Parser which parses valid ISO8601 strings without passing a valid formatter
+	public func test_ISO8601Strings() {
+		let bundle = Bundle(for: ISO8601Parser.self)
+		let path = bundle.path(forResource: "valid_ISO8601_strings", ofType: "txt")!
+		let valid_strings = try! String(contentsOfFile: path).components(separatedBy: "\n")
+
+		valid_strings.forEach { test_line in
+			if test_line.hasPrefix("#") == false && test_line.characters.count > 0 {
+				do {
+					let input_values = test_line.components(separatedBy: " = ")
+					let input_date = input_values.first!
+					let expected_output = input_values.last!
+					
+					let parser = try ISO8601Parser(input_date)
+					let output = parser.parsedDate!.description
+					
+					if expected_output != output {
+						XCTFail("Failed to validate input string '\(test_line)'. It should be '\(expected_output)' but it is '\(output)'")
+					}
+				} catch {
+					XCTFail("Failed to validate input string '\(test_line)'.")
+				}
+			}
+		}
+	}
 }

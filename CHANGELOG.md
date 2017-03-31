@@ -27,7 +27,7 @@
 
 ## SwiftDate 4.1.0
 ---
-- **Release Date**: -
+- **Release Date**: 2017/03/31
 - **Zipped Version**: [Download 4.1.0](https://github.com/malcommac/SwiftDate/releases/tag/4.1.0)
 
 #### New Features
@@ -101,7 +101,7 @@ yy-Www
 
 ## SwiftDate 4.0.14
 ---
-- **Release Date**: -
+- **Release Date**: 2017/03/29
 - **Zipped Version**: [Download 4.0.14](https://github.com/malcommac/SwiftDate/releases/tag/4.0.14)
 
 - [#404](https://github.com/malcommac/SwiftDate/pull/404) Compatibility with Swift 3.1

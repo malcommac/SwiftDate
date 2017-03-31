@@ -93,7 +93,7 @@ public extension Date {
 	/// - returns: colloquial string representation
 	public func colloquialSinceNow(in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
-		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow()
+		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(style: unitStyle)
 	}
 	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and

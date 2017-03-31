@@ -197,9 +197,7 @@ public class ISO8601DateTimeFormatter {
 	/// formatter instance used for date
     private var formatter: DateFormatter = DateFormatter()
 	
-	public init() {
-//		self.timeZone = TimeZone(secondsFromGMT: 0)!
-	}
+	public init() { }
 	
 	/// Creates and returns an ISO 8601 formatted string representation of the specified date.
 	///
@@ -259,10 +257,6 @@ public class ISO8601DateTimeFormatter {
 	/// - returns: A user-readable string representing the date.
 	@available(*, deprecated: 4.1.0, message: "Use ISO8601DateTimeFormatter class func string(from:options:) instead")
 	public class func string(from date: Date, timeZone: TimeZone, formatOptions: ISO8601DateTimeFormatter.Options = []) -> String {
-//		let formatter = ISO8601DateTimeFormatter()
-//		formatter.locale = LocaleName.englishUnitedStatesComputer.locale // fix for 12/24h
-//		formatter.formatOptions = formatOptions
-//		return formatter.string(from: date)
 		return ISO8601DateTimeFormatter.string(from: date, options: formatOptions)
 	}
 	

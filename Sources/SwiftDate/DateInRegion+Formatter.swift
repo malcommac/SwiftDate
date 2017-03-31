@@ -61,8 +61,6 @@ public extension DateInRegion {
 		case .strict(let format):
 			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .iso8601(let options):
-//			let formatter = self.formatters.isoFormatter(options: options)
-//			return formatter.string(from: self.absoluteDate)
 			let formatter = self.formatters.isoFormatter()
 			return formatter.string(from: self.absoluteDate, options: options)
 		case .iso8601Auto:
@@ -111,30 +109,30 @@ public extension DateInRegion {
 		return formatter.string(from: self.absoluteDate)
 	}
 	
-	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
 	/// the current date (`Date()`)
 	///
-	/// - throws: throw an exception is colloquial string cannot be evaluated
-	///
+	/// - parameter style: style of output. If not specified `.full` is used
 	/// - returns: colloquial string representation
-	public func colloquialSinceNow() throws -> (colloquial: String, time: String?) {
+	/// - throws: throw an exception is colloquial string cannot be evaluated
+	public func colloquialSinceNow(style: DateComponentsFormatter.UnitsStyle? = nil) throws -> (colloquial: String, time: String?) {
 		let now = DateInRegion(absoluteDate: Date(), in: self.region)
-		return try self.colloquial(toDate: now)
+		return try self.colloquial(toDate: now, style: style)
 	}
 	
 	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
 	/// another passed date.
 	///
-	/// - parameter date:      date to compare
-	///
-	/// - throws: throw an exception is colloquial string cannot be evaluated
-	///
+	/// - Parameters:
+	/// - parameter date: date to compare
+	/// - parameter style: style of output. If not specified `.full` is used
 	/// - returns: colloquial string representation
-	public func colloquial(toDate date: DateInRegion) throws -> (colloquial: String, time: String?) {
+	/// - throws: throw an exception is colloquial string cannot be evaluated
+	public func colloquial(toDate date: DateInRegion, style: DateComponentsFormatter.UnitsStyle? = nil) throws -> (colloquial: String, time: String?) {
 		let formatter = DateInRegionFormatter()
 		formatter.localization = Localization(locale: self.region.locale)
+		formatter.unitStyle = style ?? .full
 		return try formatter.colloquial(from: self, to: date)
 	}
 	

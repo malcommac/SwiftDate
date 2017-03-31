@@ -75,31 +75,6 @@ public class DateInRegion: CustomStringConvertible {
 			self.locale = region.locale
 		}
 		
-		/// Return an `ISO8601DateTimeFormatter` instance. Returned instance is the one shared along calling thread
-		/// if `.useSharedFormatters = false`; otherwise a reserved instance is created for this `DateInRegion`
-		///
-		/// - parameter options: options to set for formatter
-		///
-		/// - returns: a new instance of the formatter
-//		public func isoFormatter(options: ISO8601DateTimeFormatter.Options) -> ISO8601DateTimeFormatter {
-//			var formatter: ISO8601DateTimeFormatter? = nil
-//			if useSharedFormatters == true {
-//				let name = "SwiftDate_\(NSStringFromClass(ISO8601DateTimeFormatter.self))"
-//				formatter = localThreadSingleton(key: name, create: { (Void) -> ISO8601DateTimeFormatter in
-//					return ISO8601DateTimeFormatter()
-//				})
-//			} else {
-//				if customISO8601Formatter == nil {
-//					customISO8601Formatter = ISO8601DateTimeFormatter()
-//					formatter = customISO8601Formatter
-//				}
-//			}
-//			formatter!.formatOptions = options
-//			formatter!.timeZone = self.timeZone
-//            formatter!.locale = self.locale
-//			return formatter!
-//		}
-		
 		public func isoFormatter() -> ISO8601DateTimeFormatter {
 			var formatter: ISO8601DateTimeFormatter? = nil
 			if useSharedFormatters == true {
@@ -240,7 +215,7 @@ public class DateInRegion: CustomStringConvertible {
 	/// - Parameters:
 	///   - string: string to parse
 	///   - formats: formats used for parsing. Formats are evaluated in order.
-	/// - parameter region:     region in which the date is expressed. If `nil` local region will used instead (`Region.Local()`)
+	/// - parameter region:     region in which the date is expressed. If `nil` local region will used instead (`Region.Local()`). When `.iso8601` or `.iso8601Auto` is used, `region` parameter is ignored (timezone is set automatically by reading the string.
 	/// - returns: a new `DateInRegion` instance expressed in passed region, `nil` if parse fails
 	public class func parse(string: String, formats: [DateFormat], fromRegion region: Region? = nil) -> DateInRegion? {
 		for format in formats {
@@ -256,10 +231,10 @@ public class DateInRegion: CustomStringConvertible {
 	/// - parameter string: string with date to parse
 	/// - parameter format: format in which the date is expressed (see `DateFormat`)
 	/// - parameter region: region in which the date should be expressed (if nil `Region.Local()` will be used instead)
-	///
+	///						When `.iso8601` or `.iso8601Auto` is used, `region` parameter is ignored (timezone is set automatically by reading the string.
 	/// - returns: a new DateInRegion from given string
 	public init?(string: String, format: DateFormat, fromRegion region: Region? = nil) {
-		let srcRegion = region ?? Region.Local()
+		var srcRegion = region ?? Region.Local()
 		self.formatters = Formatters(region: srcRegion)
 		switch format {
 		case .custom(let format):
@@ -273,16 +248,16 @@ public class DateInRegion: CustomStringConvertible {
 			}
 			self.absoluteDate = date
 		case .iso8601(_), .iso8601Auto:
-//			guard let date = self.formatters.isoFormatter(options: options).date(from: string) else {
-//				throw DateError.FailedToParse
-//			}
-//			self.absoluteDate = date
 			do {
 				let configuration = ISO8601Configuration(calendar: srcRegion.calendar)
 				guard let date = try ISO8601Parser(string, config: configuration).parsedDate else {
 					return nil
 				}
 				self.absoluteDate = date
+				if srcRegion != Region.GMT() { // region is ignored
+					print("Region is read from the string when ISO8601 parser is used")
+				}
+				srcRegion = Region.GMT()
 			} catch {
 				return nil
 			}

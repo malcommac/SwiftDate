@@ -102,7 +102,6 @@ public extension Int {
 		return dateComponents
 	}
 
-	
 	/// Create a `DateComponents` with `self` value set as nanoseconds
 	public var nanoseconds: DateComponents {
 		return self.toDateComponents(type: .nanosecond)

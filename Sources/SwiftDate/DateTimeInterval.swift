@@ -64,7 +64,7 @@ public struct DateTimeInterval : Comparable {
 	/// Initialize a `DateTimeInterval` with the specified start and end date.
 	public init(start: Date, end: Date) {
 		self.start = start
-		duration = end.timeIntervalSince(start)
+		duration = start.timeIntervalSince(end)
 	}
 	
 	/// Initialize a `DateTimeInterval` with the specified start date and duration.

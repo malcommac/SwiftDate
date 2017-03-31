@@ -34,6 +34,7 @@
 - [#402](https://github.com/malcommac/SwiftDate/pull/402) Added Greek localization (thanks to @dimmdesign)
 - [#399](https://github.com/malcommac/SwiftDate/pull/399) `colloquialSinceNow` also allows to set `unitsStyle` params to specify the type of values you want to print.
 - [#400](https://github.com/malcommac/SwiftDate/pull/400) `DateInRegion` has a class func named `date(formats:fromRegion)` which allows parsing a single string with multiple formats (the first one that succeeds returns the instance of the `DateInRegion`). Also available as `String` extension (with the same name).
+- [#223](https://github.com/malcommac/SwiftDate/pull/223) `ISO8601DateTimeFormatter` now recognize the timezone of an ISO string and create a date with the correct value.
 - [#407](https://github.com/malcommac/SwiftDate/pull/407) SwiftDate now can parse ISO8601 strings without specifyng the ISO format; it evaluates the best format automatically. Also the parser faster than the previous built one. Since now `.iso8601` parsing format is used only as formatter (from date to string, viceversa any given value is ignored. You are encouraged to use `.iso8601Auto` instead).
 
 The following ISO8601 variants are supported:
@@ -102,8 +103,6 @@ The implementation is tolerant of out-of-range numbers. For example, "2005-13-40
 
 As mentioned above, there is a "strict" mode that enforces sanity checks. In particular, the date must be the entire contents of the string, and numbers are range-checked. If you have any suggestions on how to make this mode more strict, contact me.
 
-
-- [#223](https://github.com/malcommac/SwiftDate/pull/223) `ISO8601DateTimeFormatter` now recognize the timezone of an ISO string and create a date with the correct value.
 
 #### Fixes
 - [#405](https://github.com/malcommac/SwiftDate/pull/405) Fixed some translation issues in Swedish (thanks to @deville)

@@ -38,6 +38,7 @@
 
 The following ISO8601 variants are supported:
 
+```
 YYYYMMDD
 YYYY-MM-DD
 YYYY-MM
@@ -82,7 +83,7 @@ yy-Www
 -Www
 //Day only of implied week
 -W-d
-
+```
 
 All of the frills of ISO 8601 are supported, except for extended dates (years longer than 4 digits). Specifically, you can use week-based dates (2006-W2 for the second week of 2006), ordinal dates (2006-365 for December 31), decimal minutes (11:30.5 == 11:30:30), and decimal seconds (11:30:10.5). All methods of specifying a time zone are supported.
 

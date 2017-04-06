@@ -32,6 +32,7 @@
 
 #### New Features
 - [#408](https://github.com/malcommac/SwiftDate/pull/408) `Date` and `DateInRegion` has now two functions to round a date to certain interval (expressed in `seconds` or `minutes`). `DateInRegion` exposes `roundAt()` which directly modify the date itself; `Date`, as immutable object, exposes the same feature in `roundedAt()` function (which return a new `Date` instances).
+- [#]() Added Daylight Saving Time functions: `.isDST` in `DateInRegion` (it returns true if the date uses daylight saving time);  `.DSTOffset` in `DateInRegion` (it returns the value (in seconds)  of the daylight saving time offset of the represented date),  `. nextDSTTransitionDate` in `DateInRegion` (it returns the next daylight saving time transition after currently represented date when expressed); `nextDSTTransitionDate()` func in `Date` (it returns the next dst transition date when receiver is expressed in a particular timezone); `DSTOffset()` func in `Date` (it returns the offset of daylight saving time when receiver is expressed in a particular timezone); `isDST()` func in `Date` (it returns if receiver date uses daylight saving time when expressed in a particular timezone).
 
 #### Fixes
 - [#](https://github.com/malcommac/SwiftDate/pull/) Several fixes while parsing less common `ISO8601` formats (weeks only w/wo implicit year/month/day).

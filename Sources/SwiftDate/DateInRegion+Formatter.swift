@@ -62,10 +62,10 @@ public extension DateInRegion {
 			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .iso8601(let options):
 			let formatter = self.formatters.isoFormatter()
-			return formatter.string(from: self.absoluteDate, options: options)
+			return formatter.string(from: self.absoluteDate, tz: self.region.timeZone, options: options)
 		case .iso8601Auto:
 			let formatter = self.formatters.isoFormatter()
-			return formatter.string(from: self.absoluteDate, options: [.withInternetDateTime])
+			return formatter.string(from: self.absoluteDate, tz: self.region.timeZone, options: [.withInternetDateTime])
 		case .rss(let isAltRSS):
 			let format = (isAltRSS ? "d MMM yyyy HH:mm:ss ZZZ" : "EEE, d MMM yyyy HH:mm:ss ZZZ")
 			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)

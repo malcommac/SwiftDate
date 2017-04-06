@@ -330,11 +330,9 @@ public extension Date {
 	/// - parameter minute: the minute value
 	/// - parameter second: the second value
 	///
-	/// - throws: throw a `FailedToCalculate` exception of the new date cannot be evaluated.
-	///
 	/// - returns: a new `Date` object calculated at given time
-	public func atTime(hour: Int, minute: Int, second: Int) throws -> Date {
-		return try self.inDateDefaultRegion().atTime(hour: hour, minute: minute, second: second).absoluteDate
+	public func atTime(hour: Int, minute: Int, second: Int) -> Date? {
+		return self.inDateDefaultRegion().atTime(hour: hour, minute: minute, second: second)?.absoluteDate
 	}
 	
 	/// Create a new instance calculated by setting a specific component of a given date to a given value, while trying to keep lower
@@ -343,11 +341,9 @@ public extension Date {
 	/// - parameter unit:  The unit to set with the given value
 	/// - parameter value: The value to set for the given calendar unit.
 	///
-	/// - throws: throw a `FailedToCalculate` exception of the new date cannot be evaluated.
-	///
 	/// - returns: a new `Date` object calculated at given unit value
-	public func at(unit: Calendar.Component, value: Int) throws -> Date {
-		return try self.inDateDefaultRegion().at(unit: unit, value: value).absoluteDate
+	public func at(unit: Calendar.Component, value: Int) -> Date? {
+		return self.inDateDefaultRegion().at(unit: unit, value: value)?.absoluteDate
 	}
 	
 	/// Create a new instance calculated by setting a list of components of a given date to given values (components

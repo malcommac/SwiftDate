@@ -27,7 +27,6 @@ import Foundation
 // MARK: - DateInRegion Private Extension
 
 extension DateInRegion {
-
 	
 	/// Return a `DateComponent` object from a given set of `Calendar.Component` object with associated values and a specific region
 	///
@@ -89,6 +88,28 @@ extension DateInRegion {
 		} while (currentDate <= endDate)
 		
 		return dates
+	}
+	
+	
+	/// Adjust time of the date by rounding to the next `value` interval.
+	/// Interval can be `seconds` or `minutes` and you can specify the type of rounding function to use.
+	///
+	/// - Parameters:
+	///   - value: value to round
+	///   - type: type of rounding
+	public func roundAt(_ value: IntervalType, type: IntervalRoundingType = .ceil) {
+		var roundedInterval: TimeInterval = 0
+		let rounded_abs_date = self.absoluteDate
+		let seconds = value.seconds
+		switch type  {
+		case .round:
+			roundedInterval = (rounded_abs_date.timeIntervalSinceReferenceDate / seconds).rounded() * seconds
+		case .ceil:
+			roundedInterval = ceil(rounded_abs_date.timeIntervalSinceReferenceDate / seconds) * seconds
+		case .floor:
+			roundedInterval = floor(rounded_abs_date.timeIntervalSinceReferenceDate / seconds) * seconds
+		}
+		self.absoluteDate = Date(timeIntervalSinceReferenceDate: roundedInterval)
 	}
 	
 }

@@ -94,6 +94,55 @@ public extension Date {
 		return dates
 	}
 	
+	/// Adjust time of the date by rounding to the next `value` interval.
+	/// Interval can be `seconds` or `minutes` and you can specify the type of rounding function to use.
+	///
+	/// - Parameters:
+	///   - value: value to round
+	///   - type: type of rounding
+	public func roundedAt(_ value: IntervalType, type: IntervalRoundingType = .ceil) -> Date {
+		var roundedInterval: TimeInterval = 0
+		let seconds = value.seconds
+		switch type  {
+		case .round:
+			roundedInterval = (self.timeIntervalSinceReferenceDate / seconds).rounded() * seconds
+		case .ceil:
+			roundedInterval = ceil(self.timeIntervalSinceReferenceDate / seconds) * seconds
+		case .floor:
+			roundedInterval = floor(self.timeIntervalSinceReferenceDate / seconds) * seconds
+		}
+		return Date(timeIntervalSinceReferenceDate: roundedInterval)
+	}
+	
+	/// Returns a boolean value that indicates whether the represented absolute date uses daylight saving time when
+	/// expressed in passed timezone.
+	///
+	/// - Parameter tzName: destination timezone
+	/// - Returns: `true` if date uses DST when represented in given timezone, `false` otherwise
+	public func isDST(in tzName: TimeZoneName) -> Bool {
+		return tzName.timeZone.isDaylightSavingTime(for: self)
+	}
+	
+	/// The current daylight saving time offset of the represented date when expressed in passed timezone.
+	///
+	/// - Parameter tzName: destination timezone
+	/// - Returns: interval of DST expressed in seconds
+	public func DSTOffset(in tzName: TimeZoneName) -> TimeInterval {
+		return tzName.timeZone.daylightSavingTimeOffset(for: self)
+	}
+	
+	/// The date of the next daylight saving time transition after currently represented date when expressed
+	/// in given timezone.
+	///
+	/// - Parameter tzName: destination timezone
+	/// - Returns: next transition date
+	public func nextDSTTransitionDate(in tzName: TimeZoneName) -> Date? {
+		guard let next_date = tzName.timeZone.nextDaylightSavingTimeTransition(after: self) else {
+			return nil
+		}
+		return next_date
+	}
+	
 }
 
 // MARK: - Sum of Dates and Date & Components

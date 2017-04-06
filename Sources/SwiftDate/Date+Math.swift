@@ -136,7 +136,7 @@ public extension Date {
 	///
 	/// - Parameter tzName: destination timezone
 	/// - Returns: next transition date
-	public func nextDST(in tzName: TimeZoneName) -> Date? {
+	public func nextDSTTransitionDate(in tzName: TimeZoneName) -> Date? {
 		guard let next_date = tzName.timeZone.nextDaylightSavingTimeTransition(after: self) else {
 			return nil
 		}

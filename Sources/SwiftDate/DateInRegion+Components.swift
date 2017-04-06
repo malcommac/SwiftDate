@@ -486,12 +486,12 @@ extension DateInRegion {
 	/// - parameter minute: the minute value
 	/// - parameter second: the second value
 	///
-	/// - throws: throw a `FailedToCalculate` exception of the new date cannot be evaluated.
-	///
-	/// - returns: a new `DateInRegion` object calculated at given time
-	public func atTime(hour: Int, minute: Int, second: Int) throws -> DateInRegion {
-		guard let newDate = self.region.calendar.date(bySettingHour: hour, minute: minute, second: second, of: self.absoluteDate) else {
-			throw DateError.FailedToCalculate
+	/// - returns: a new `DateInRegion` object calculated at given time; `nil` if date cannot be evaluated
+	public func atTime(hour: Int, minute: Int, second: Int) -> DateInRegion? {
+		let calendar = self.region.calendar
+		let absoluteDate = self.absoluteDate
+		guard let newDate = calendar.date(bySettingHour: hour, minute: minute, second: second, of: absoluteDate) else {
+			return nil
 		}
 		return DateInRegion(absoluteDate: newDate, in: self.region)
 	}
@@ -503,12 +503,10 @@ extension DateInRegion {
 	/// - parameter unit:  The unit to set with the given value
 	/// - parameter value: The value to set for the given calendar unit.
 	///
-	/// - throws: throw a `FailedToCalculate` exception of the new date cannot be evaluated.
-	///
 	/// - returns: a new `DateInRegion` object calculated at given unit value
-	public func at(unit: Calendar.Component, value: Int) throws -> DateInRegion {
+	public func at(unit: Calendar.Component, value: Int) -> DateInRegion? {
 		guard let newDate = self.region.calendar.date(bySetting: unit, value: value, of: self.absoluteDate) else {
-			throw DateError.FailedToCalculate
+			return nil
 		}
 		return DateInRegion(absoluteDate: newDate, in: self.region)
 	}

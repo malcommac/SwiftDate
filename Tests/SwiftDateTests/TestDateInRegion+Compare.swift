@@ -13,7 +13,7 @@ import XCTest
 
 class TestDateInRegion_Compare: XCTestCase {
 
-	let refDate = try! DateInRegion(components: [.year: 2015, .month: 12, .day: 14, .hour: 13], fromRegion: Region(tz: TimeZoneName.americaParamaribo, cal: CalendarName.gregorian, loc: LocaleName.dutch))
+	let refDate = DateInRegion(components: [.year: 2015, .month: 12, .day: 14, .hour: 13], fromRegion: Region(tz: TimeZoneName.americaParamaribo, cal: CalendarName.gregorian, loc: LocaleName.dutch))!
 	
 	override func setUp() {
 		super.setUp()
@@ -378,34 +378,34 @@ class TestDateInRegion_Compare: XCTestCase {
 		let d_amsterdam = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
 		let d_shanghai = Region(tz: TimeZoneName.asiaShanghai, cal: CalendarName.chinese, loc: LocaleName.chineseChina)
 	
-		let date1 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 31])
+		let date1 = DateInRegion(components: [.year: 1999, .month: 12, .day: 31])!
 		let date2 = date1
 		XCTAssertTrue(date1 == date2, "should return true for equating a different object with the same properties")
 
-		let date3 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 31])
-		let date4 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30])
+		let date3 = DateInRegion(components: [.year: 1999, .month: 12, .day: 31])!
+		let date4 = DateInRegion(components: [.year: 1999, .month: 12, .day: 30])!
 		XCTAssertTrue(((date3 == date4) == false), "should return false for equating objects with different dates")
 		
-		let date5 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 31], fromRegion: d_amsterdam)
-		let date6 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: d_shanghai)
+		let date5 = DateInRegion(components: [.year: 1999, .month: 12, .day: 31], fromRegion: d_amsterdam)!
+		let date6 = DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: d_shanghai)!
 		XCTAssertTrue(((date5 == date6) == false), "should return false for equating objects with different regions")
 	}
 	
 	func test_hashDateInRegion() {
-		let date1 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 31])
+		let date1 = DateInRegion(components: [.year: 1999, .month: 12, .day: 31])!
 		XCTAssertTrue(date1.hashValue == date1.hashValue, "should return an equal hash for the same date reference")
 
-		let date2 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 31])
+		let date2 = DateInRegion(components: [.year: 1999, .month: 12, .day: 31])!
 		XCTAssertTrue(date1.hashValue == date2.hashValue, "should return an equal hash for the same date value")
 
-		let date3 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30])
+		let date3 = DateInRegion(components: [.year: 1999, .month: 12, .day: 30])!
 		XCTAssertTrue(date2.hashValue != date3.hashValue, "hould return an unequal hash for a different date value")
 
 		let netherlands = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
 		let utc = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
 		
-		let date4 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: netherlands)
-		let date5 = try! DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: utc)
+		let date4 = DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: netherlands)!
+		let date5 = DateInRegion(components: [.year: 1999, .month: 12, .day: 30], fromRegion: utc)!
 		XCTAssertTrue(date4.hashValue != date5.hashValue, "should return an unequal hash for a different time zone value")
 
 	}

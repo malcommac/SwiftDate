@@ -24,6 +24,23 @@
 
 import Foundation
 
+public enum IntervalRoundingType {
+	case round
+	case ceil
+	case floor
+}
+
+public enum IntervalType {
+	case seconds(_: Int)
+	case minutes(_: Int)
+	
+	internal var seconds: TimeInterval {
+		switch self {
+		case .seconds(let secs):	return TimeInterval(secs)
+		case .minutes(let mins):	return TimeInterval(mins * 60)
+		}
+	}
+}
 
 /// This define the weekdays
 ///

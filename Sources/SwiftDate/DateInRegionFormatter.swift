@@ -217,11 +217,18 @@ public class DateInRegionFormatter {
 			}
 			
 			if cmp.day != 0 || !hasLowerAllowedComponents(than: .day) {
-				// case 1: > 0 days difference
-				// case 2: same day difference and no lower time components to print (-> today)
-				let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
-				let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: abs(cmp.day!))
-				return (colloquial_date,colloquial_time)
+				if cmp.hour == nil {
+					// case 1: > 0 days difference
+					// case 2: same day difference and no lower time components to print (-> today)
+					let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
+					let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: abs(cmp.day!))
+					return (colloquial_date,colloquial_time)
+				} else {
+					// less than 48 hours ago
+					let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
+					let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
+					return (colloquial_date,colloquial_time)
+				}
 			}
 		}
 		

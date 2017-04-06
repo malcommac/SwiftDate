@@ -35,9 +35,9 @@
 
 #### Fixes
 - [#](https://github.com/malcommac/SwiftDate/pull/) Several fixes while parsing less common `ISO8601` formats (weeks only w/wo implicit year/month/day).
-- [#](https://github.com/malcommac/SwiftDate/pull/) Parsing an `ISO8601` string now results in a `DateInRegion` which contains the correct timezone defined (`Date` instances are now converted automatically to be time-independent)-
+- [#](https://github.com/malcommac/SwiftDate/pull/) Parsing an `ISO8601` string now results in a `DateInRegion` which contains the correct timezone defined (`Date` instances are now converted automatically to be time-independent).
 - [#]() Updated Unit Tests to become compatible with the new APIs changes. All tests now passes.
-- [#409](https://github.com/malcommac/SwiftDate/pull/409) Fixed an issue with colloquial dates
+- [#409](https://github.com/malcommac/SwiftDate/pull/409) Fixed an issue converting a difference between two dates when its more than 24 hours, but less than 48 hours (incorrectly the colloquial values returns 'yesterday')
 - [#]() Single framework target in XCode Project (iOS, macOS, tvOS and watchOS)
 
 <a name="410" />

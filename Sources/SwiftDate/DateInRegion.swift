@@ -42,7 +42,7 @@ public class DateInRegion: CustomStringConvertible {
 	public fileprivate(set) var region: Region
 	
 	/// Absolute date represented outside the `region`
-	public fileprivate(set) var absoluteDate: Date
+	public internal(set) var absoluteDate: Date
 	
 	/// This is a reference to use formatters
 	public fileprivate(set) var formatters: Formatters
@@ -231,7 +231,7 @@ public class DateInRegion: CustomStringConvertible {
 	/// - parameter string: string with date to parse
 	/// - parameter format: format in which the date is expressed (see `DateFormat`)
 	/// - parameter region: region in which the date should be expressed (if nil `Region.Local()` will be used instead)
-	///						When `.iso8601` or `.iso8601Auto` is used, `region` parameter is ignored (timezone is set automatically by reading the string.
+	///						When `.iso8601` or `.iso8601Auto` is used, `region.timezone' is ignored (timezone is set automatically by reading the string; Region `calendar` and `locale` are used)
 	/// - returns: a new DateInRegion from given string
 	public init?(string: String, format: DateFormat, fromRegion region: Region? = nil) {
 		var srcRegion = region ?? Region.Local()
@@ -248,19 +248,11 @@ public class DateInRegion: CustomStringConvertible {
 			}
 			self.absoluteDate = date
 		case .iso8601(_), .iso8601Auto:
-			do {
-				let configuration = ISO8601Configuration(calendar: srcRegion.calendar)
-				guard let date = try ISO8601Parser(string, config: configuration).parsedDate else {
-					return nil
-				}
-				self.absoluteDate = date
-				if srcRegion != Region.GMT() { // region is ignored
-					print("Region is read from the string when ISO8601 parser is used")
-				}
-				srcRegion = Region.GMT()
-			} catch {
-				return nil
-			}
+			let configuration = ISO8601Configuration(calendar: srcRegion.calendar)
+			guard let parser = ISO8601Parser(string, config: configuration), let date = parser.parsedDate, let tz = parser.parsedTimeZone else { return nil }
+			//guard let date = parser.parsedDate, let tz = parser.parsedTimeZone else { return nil }
+			self.absoluteDate = date
+			srcRegion = Region(tz: tz, cal: srcRegion.calendar, loc: srcRegion.locale)
 		case .extended:
 			let format = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
 			guard let date = self.formatters.dateFormatter(format: format).date(from: string) else {

@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.1.1](#411)**
 * Version **[4.1.0](#410)**
 * Version **[4.0.14](#4014)**
 * Version **[4.0.13](#4013)**
@@ -22,6 +23,23 @@
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
 
+<a name="411" />
+
+## SwiftDate 4.1.1
+---
+- **Release Date**: 2017/04/06
+- **Zipped Version**: [Download 4.1.1](https://github.com/malcommac/SwiftDate/releases/tag/4.1.1)
+
+#### New Features
+- [#408](https://github.com/malcommac/SwiftDate/pull/408) `Date` and `DateInRegion` has now two functions to round a date to certain interval (expressed in `seconds` or `minutes`). `DateInRegion` exposes `roundAt()` which directly modify the date itself; `Date`, as immutable object, exposes the same feature in `roundedAt()` function (which return a new `Date` instances).
+- [#]() Added Daylight Saving Time functions: `.isDST` in `DateInRegion` (it returns true if the date uses daylight saving time);  `.DSTOffset` in `DateInRegion` (it returns the value (in seconds)  of the daylight saving time offset of the represented date),  `. nextDSTTransitionDate` in `DateInRegion` (it returns the next daylight saving time transition after currently represented date when expressed); `nextDSTTransitionDate()` func in `Date` (it returns the next dst transition date when receiver is expressed in a particular timezone); `DSTOffset()` func in `Date` (it returns the offset of daylight saving time when receiver is expressed in a particular timezone); `isDST()` func in `Date` (it returns if receiver date uses daylight saving time when expressed in a particular timezone).
+
+#### Fixes
+- [#](https://github.com/malcommac/SwiftDate/pull/) Several fixes while parsing less common `ISO8601` formats (weeks only w/wo implicit year/month/day).
+- [#](https://github.com/malcommac/SwiftDate/pull/) Parsing an `ISO8601` string now results in a `DateInRegion` which contains the correct timezone defined (`Date` instances are now converted automatically to be time-independent).
+- [#]() Updated Unit Tests to become compatible with the new APIs changes. All tests now passes.
+- [#409](https://github.com/malcommac/SwiftDate/pull/409) Fixed an issue converting a difference between two dates when its more than 24 hours, but less than 48 hours (incorrectly the colloquial values returns 'yesterday')
+- [#]() Single framework target in XCode Project (iOS, macOS, tvOS and watchOS)
 
 <a name="410" />
 
@@ -45,25 +63,45 @@ YYYY-MM-DD
 YYYY-MM
 YYYY
 YY //century 
-//Implied century: YY is 00-99
+```
+
+IMPLIED CENTURY: YY is 00-99
+
+```
 YYMMDD
 YY-MM-DD
 -YYMM
 -YY-MM
 -YY
-//Implied year
+```
+
+IMPLIED YEAR
+
+```
 --MMDD
 --MM-DD
 --MM
-//Implied year and month
+```
+
+IMPLIED YEAR AND MONTH
+
+```
 ---DD
-//Ordinal dates: DDD is the number of the day in the year (1-366)
+```
+
+ORDINAL DATES: DDD IS THE NUMBER OF THE DAY IN THE YEAR (1-366)
+
+```
 YYYYDDD
 YYYY-DDD
 YYDDD
 YY-DDD
 -DDD
-//Week-based dates: ww is the number of the week, and d is the number (1-7) of the day in the week
+```
+
+WEEK-BASED DATES: ww IS THE NUMBER OF THE WEEK, AND d IS THE NUMBER (1-7) OF THE DAY IN THE WEEK
+
+```
 yyyyWwwd
 yyyy-Www-d
 yyyyWww
@@ -72,30 +110,41 @@ yyWwwd
 yy-Www-d
 yyWww
 yy-Www
-//Year of the implied decade
+```
+
+YEAR OF THE IMPLIED DECADE
+
+```
 -yWwwd
 -y-Www-d
 -yWww
 -y-Www
-//Week and day of implied year
--Wwwd
--Www-d
-//Week only of implied year
--Www
-//Day only of implied week
--W-d
 ```
 
+WEEK AND DAY OF IMPLIED YEAR
+
+```
+-Wwwd
+-Www-d
+```
+
+WEEK ONLY OF IMPLIED YEAR
+
+```
+-Www
+```
+
+DAY ONLY OF IMPLIED WEEK
+
+```
+-W-d
+```
 
 #### Fixes
 - [#405](https://github.com/malcommac/SwiftDate/pull/405) Fixed some translation issues in Swedish (thanks to @deville)
 - [#368](https://github.com/malcommac/SwiftDate/pull/368) Deprecated `at(unitsWithValues dict: [Calendar.Component : Int])` in `Date` and `DateInRegion` and replaced with functional `at(values: [Calendar.Component : Int], keep: Set<Calendar.Component>)`
 - [#392](https://github.com/malcommac/SwiftDate/pull/392) Fixed an issue with report negative interval when making operation with dates `a` and `b` where `a - b < 0 iff a < b`.
 - [#397](https://github.com/malcommac/SwiftDate/pull/397) Fixed an issue with `colloquial` func which report wrong difference of `1 day` when two dates are distant < 24h but in two different days.
-
-
-
-
 
 <a name="4014" />
 

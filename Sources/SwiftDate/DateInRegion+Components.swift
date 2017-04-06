@@ -581,6 +581,25 @@ extension DateInRegion {
 	public static func earliestDate(_ list: [DateInRegion]) -> DateInRegion {
 		return list.earliestDate
 	}
+	
+	/// Returns a boolean value that indicates whether the represented date uses daylight saving time.
+	public var isDST: Bool {
+		return self.region.timeZone.isDaylightSavingTime(for: self.absoluteDate)
+	}
+	
+	/// The current daylight saving time offset of the represented date.
+	public var DSTOffset: TimeInterval {
+		return self.region.timeZone.daylightSavingTimeOffset(for: self.absoluteDate)
+	}
+	
+	/// The date of the next daylight saving time transition after currently represented date.
+	/// Date is reported in the same timezone of the receiver.
+	public var nextDSTTransitionDate: DateInRegion? {
+		guard let next_transition = self.region.timeZone.nextDaylightSavingTimeTransition(after: self.absoluteDate) else {
+			return nil
+		}
+		return DateInRegion(absoluteDate: next_transition, in: self.region)
+	}
 }
 
 public extension Array where Element: DateInRegion {

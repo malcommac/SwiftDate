@@ -114,6 +114,35 @@ public extension Date {
 		return Date(timeIntervalSinceReferenceDate: roundedInterval)
 	}
 	
+	/// Returns a boolean value that indicates whether the represented absolute date uses daylight saving time when
+	/// expressed in passed timezone.
+	///
+	/// - Parameter tzName: destination timezone
+	/// - Returns: `true` if date uses DST when represented in given timezone, `false` otherwise
+	public func isDST(in tzName: TimeZoneName) -> Bool {
+		return tzName.timeZone.isDaylightSavingTime(for: self)
+	}
+	
+	/// The current daylight saving time offset of the represented date when expressed in passed timezone.
+	///
+	/// - Parameter tzName: destination timezone
+	/// - Returns: interval of DST expressed in seconds
+	public func DSTOffset(in tzName: TimeZoneName) -> TimeInterval {
+		return tzName.timeZone.daylightSavingTimeOffset(for: self)
+	}
+	
+	/// The date of the next daylight saving time transition after currently represented date when expressed
+	/// in given timezone.
+	///
+	/// - Parameter tzName: destination timezone
+	/// - Returns: next transition date
+	public func nextDST(in tzName: TimeZoneName) -> Date? {
+		guard let next_date = tzName.timeZone.nextDaylightSavingTimeTransition(after: self) else {
+			return nil
+		}
+		return next_date
+	}
+	
 }
 
 // MARK: - Sum of Dates and Date & Components

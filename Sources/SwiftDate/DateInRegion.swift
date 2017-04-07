@@ -125,7 +125,7 @@ public class DateInRegion: CustomStringConvertible {
 		/// if `.useSharedFormatters = false`; otherwise a reserved instance is created for this `DateInRegion`
 		///
 		/// - returns: a new instance of the formatter
-		public  func intervalFormatter() -> DateIntervalFormatter {
+		public func intervalFormatter() -> DateIntervalFormatter {
 			var formatter: DateIntervalFormatter? = nil
 			if useSharedFormatters == true {
 				let name = "SwiftDate_\(NSStringFromClass(DateIntervalFormatter.self))"

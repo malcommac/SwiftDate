@@ -63,6 +63,16 @@ extension DateInRegion {
 	}
 	
 	
+	/// Create a new DateInRegion by adding specified TimeInterval to self
+	///
+	/// - Parameter interval: interval to add
+	/// - Returns: a new instance of DateInRegion expressed in same region
+	public func add(interval: TimeInterval) -> DateInRegion {
+		let newDate = self.absoluteDate.addingTimeInterval(interval)
+		return DateInRegion(absoluteDate: newDate, in: self.region)
+	}
+	
+	
 	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
 	/// `startDate` interval will be the first item of the resulting array. The last item of the array is evaluated automatically.
 	///

@@ -44,6 +44,9 @@
 		21C301331D829D7900B0E02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C301311D829D7900B0E02C /* Main.storyboard */; };
 		21C301351D829D7900B0E02C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C301341D829D7900B0E02C /* Assets.xcassets */; };
 		21C301381D829D7900B0E02C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C301361D829D7900B0E02C /* LaunchScreen.storyboard */; };
+		21EB837B1E977E8200AF22DC /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB837A1E977E8200AF22DC /* TimePeriod.swift */; };
+		21EB837D1E97881600AF22DC /* TimeFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB837C1E97881600AF22DC /* TimeFragment.swift */; };
+		21EB83821E97912900AF22DC /* TimePeriod+Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB83811E97912900AF22DC /* TimePeriod+Commons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +137,9 @@
 		21C301341D829D7900B0E02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21C301371D829D7900B0E02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C301391D829D7900B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21EB837A1E977E8200AF22DC /* TimePeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimePeriod.swift; path = ../../Sources/SwiftDate/TimePeriod.swift; sourceTree = "<group>"; };
+		21EB837C1E97881600AF22DC /* TimeFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeFragment.swift; path = ../../Sources/SwiftDate/TimeFragment.swift; sourceTree = "<group>"; };
+		21EB83811E97912900AF22DC /* TimePeriod+Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimePeriod+Commons.swift"; path = "../../Sources/SwiftDate/TimePeriod+Commons.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +334,7 @@
 			children = (
 				215D34C51D855BF700ECC8A5 /* DateInRegion */,
 				215D34C41D855BF100ECC8A5 /* Date */,
+				21EB837E1E97881A00AF22DC /* Periods */,
 				2128384F1D8358B700DA70EA /* Supports */,
 			);
 			path = SwiftDate;
@@ -345,6 +352,16 @@
 			);
 			name = "Sample Demo Application";
 			path = dEMO;
+			sourceTree = "<group>";
+		};
+		21EB837E1E97881A00AF22DC /* Periods */ = {
+			isa = PBXGroup;
+			children = (
+				21EB837C1E97881600AF22DC /* TimeFragment.swift */,
+				21EB837A1E977E8200AF22DC /* TimePeriod.swift */,
+				21EB83811E97912900AF22DC /* TimePeriod+Commons.swift */,
+			);
+			name = Periods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,12 +535,15 @@
 				08EC22A81DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
 				08EC22721DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
 				08EC227A1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */,
+				21EB837B1E977E8200AF22DC /* TimePeriod.swift in Sources */,
+				21EB83821E97912900AF22DC /* TimePeriod+Commons.swift in Sources */,
 				08EC22BB1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */,
 				08EC22C21DA03E6600B6DFC6 /* CalendarName.swift in Sources */,
 				08EC22CA1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */,
 				08EC22B71DA03E5C00B6DFC6 /* Extensions.swift in Sources */,
 				08EC22B31DA03E5C00B6DFC6 /* DateComponents+Extension.swift in Sources */,
 				08EC226A1DA03DE700B6DFC6 /* DateInRegion.swift in Sources */,
+				21EB837D1E97881600AF22DC /* TimeFragment.swift in Sources */,
 				08EC22861DA03DF200B6DFC6 /* Date+Components.swift in Sources */,
 				08EC22A21DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */,
 				08EC22C61DA03E6600B6DFC6 /* LocaleName.swift in Sources */,

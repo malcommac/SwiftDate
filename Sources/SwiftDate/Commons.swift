@@ -182,8 +182,20 @@ public struct ComponentsFormatterOptions {
 	}
 }
 
-private let SECONDS_IN_MINUTE: TimeInterval = 60
-private let SECONDS_IN_HOUR: TimeInterval = SECONDS_IN_MINUTE * 60
-private let SECONDS_IN_DAY: TimeInterval = SECONDS_IN_HOUR * 24
-private let SECONDS_IN_WEEK: TimeInterval = SECONDS_IN_DAY * 7
+internal let SECONDS_IN_MINUTE:	TimeInterval = 60
+internal let SECONDS_IN_HOUR:	TimeInterval = SECONDS_IN_MINUTE * 60
+internal let SECONDS_IN_DAY:	TimeInterval = SECONDS_IN_HOUR * 24
+internal let SECONDS_IN_WEEK:	TimeInterval = SECONDS_IN_DAY * DAYS_IN_WEEK
+internal let SECONDS_IN_YEAR:	TimeInterval = SECONDS_IN_DAY * 365
+
+internal let MINUTES_IN_HOUR:	TimeInterval = 60
+internal let MINUTES_IN_DAYS:	TimeInterval = 24 * 60
+internal let MINUTES_IN_WEEK:	TimeInterval = DAYS_IN_WEEK * 24 * 60
+internal let MINUTES_IN_YEAR:	TimeInterval = 365 * 24 * 60
+
+internal let DAYS_IN_WEEK:		TimeInterval = 7
+
+internal let HOURS_IN_DAY:		TimeInterval = 24
+internal let HOURS_IN_WEEK:		TimeInterval = 24 * DAYS_IN_WEEK
+internal let HOURS_IN_YEAR:		TimeInterval = 365 * 24
 

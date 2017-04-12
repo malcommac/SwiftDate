@@ -157,7 +157,6 @@ class TestDateInRegion_Formatter: XCTestCase {
 		
 		let now = Date()
 		let now_cmp = Region.GMT().calendar.dateComponents([.year,.month,.day], from: now)
-		validate("09:00:00", expected: "2017-04-12T09:00:00Z")
 		validate("060224", expected: "2006-02-24T00:00:00Z")
 		validate("06-W22", expected: "2006-05-28T00:00:00Z")
 		validate("06-W2", expected: "2006-01-08T00:00:00Z")
@@ -238,7 +237,7 @@ class TestDateInRegion_Formatter: XCTestCase {
 		validate("2010-02-18T16:23.4", expected: "2010-02-18T16:23:23Z")
 		validate("2010-02-18T16.23334444", expected: "2010-02-18T16:00:00Z")
 		validate("2009-05-19 1439,55", expected: "2009-05-19T14:39:00Z")
-		
+		validate("09:00:00", expected: now.string(format: .custom("yyyy-MM-dd")) + "T09:00:00Z")
 	}
 	
 }

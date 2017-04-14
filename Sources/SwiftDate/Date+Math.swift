@@ -31,7 +31,15 @@ public extension Date {
 	/// Return the current absolute datetime in local's device region (timezone+calendar+locale)
 	///
 	/// - returns: a new `DateInRegion` instance object which express passed absolute date in the context of the local device's region
+	@available(*, deprecated: 4.1.2, message: "This method is deprecated. use inDefaultRegion instead")
 	public func inLocalRegion() -> DateInRegion {
+		return DateInRegion(absoluteDate: self)
+	}
+	
+	/// Return the current absolute datetime in default's device region (timezone+calendar+locale)
+	///
+	/// - returns: a new `DateInRegion` instance object which express passed absolute date in the context of the current default region
+	public func inDefaultRegion() -> DateInRegion {
 		return DateInRegion(absoluteDate: self)
 	}
 	
@@ -94,7 +102,7 @@ public extension Date {
 		return dates
 	}
 	
-	/// Adjust time of the date by rounding to the next `value` interval.
+	/// Return new date by rounding receiver to the next `value` interval.
 	/// Interval can be `seconds` or `minutes` and you can specify the type of rounding function to use.
 	///
 	/// - Parameters:

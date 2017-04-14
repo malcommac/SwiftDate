@@ -1,0 +1,289 @@
+ # 2. Get Date Components
+ 
+The following properties are available both for `Date` (default region is used) and `DateInRegion` (the region associated with the object is used).
+
+## Year Components
+* `era`
+* `year`
+* `yearForWeekOfYear`
+* `leapYear`
+
+## Month Components
+* `month`
+* `monthDays`
+* `quarter`
+* `monthName`
+* `shortMonthName`
+* `shortMonthName`
+* `leapMonth`
+* `prevMonth`
+* `nextMonth`
+
+## Week Components
+* `weekOfYear`
+* `weekday`
+* `weekdayOrdinal`
+* `weekdayName`
+* `weekdayShortName`
+
+## Day Components
+* `day`
+* `julianDay`
+* `modifiedJulianDate`
+
+## Hour Components
+* `hour`
+* `nearestHour`
+
+## Minute, Seconds and Nanoseconds Components
+* `minute`
+* `second`
+* `nanosecond`
+
+## Daylight Saving Time (DST)
+* `isDST` (for `DateInRegion`)
+* `isDST(in:)` (for `Date`)
+* `DSTOffset` (for `DateInRegion`)
+* `DSTOffset(in:)` (for `Date`)
+
+## Other
+* `components`
+
+## Year Components
+
+### `era` : `Int`
+Return the era of the receiver object.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `year` : `Int`
+Return the number of year of the receiver object.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `yearForWeekOfYear` : `Int`
+Return the ISO 8601 week-numbering year of the receiver.
+
+#### Discussion
+The Gregorian calendar defines a week to have 7 days, and a year to have 356 days, or 366 in a leap year. However, neither 356 or 366 divide evenly into a 7 day week, so it is often the case that the last week of a year ends on a day in the next year, and the first week of a year begins in the preceding year. To reconcile this, ISO 8601 defines a week-numbering year, consisting of either 52 or 53 full weeks (364 or 371 days), such that the first week of a year is designated to be the week containing the first Thursday of the year.
+
+You can use the yearForWeekOfYear property with the weekOfYear and weekday properties to get the date corresponding to a particular weekday of a given week of a year. For example, the 6th day of the 53rd week of the year 2005 (ISO 2005-W53-6) corresponds to Sat 1 January 2005 on the Gregorian calendar.
+
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `leapYear` : `Bool`
+Return `true` if the data represented by receiver is a leap year, `false` otherwise.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+## Month Components
+
+### `month` : `Int`
+Return the number of month units for the receiver. 
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `monthDays` : `Int`
+Return the number of days into the current month of the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `quarter` : `Int`
+Return the number of quarters for the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `monthName` : `String`
+Return the name of the current month for the receiver (ie. `March`). The language used is retrieved from the current region's locale.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `shortMonthName` : `String`
+Return the short name of the current month of the receiver (ie. `Mar`). The language used is retrieved from the current region's locale.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `leapMonth` : `Bool`
+Return `true` if current month of the receiver is leap, `false` otherwise.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `prevMonth` : `DateInRegion` / `Date`
+Return the same date minus one month (as defined by associated calendar of the receiver).
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `nextMonth` : `DateInRegion` / `Date`
+Return the same date plus one month (as defined by associated calendar of the receiver).
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+## Week Components
+
+### `weekOfYear` : `Int`
+Return the ISO 8601 week date of the year for the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `weekday` : `Int`
+Return the number of the weekday unit for the receiver.
+
+#### Discussion
+Weekday units are the numbers 1 through n, where n is the number of days in the week. For example, in the Gregorian calendar, n is 7 and Sunday is represented by 1.
+
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `weekdayOrdinal` : `DateInRegion` / `Date`
+Return the ordinal number of weekday units for the receiver.
+
+#### Discussion
+Weekday ordinal units represent the position of the weekday within the next larger calendar unit , such as the month.
+For example, 2 is the weekday ordinal unit for the second Friday of the month.
+
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `weekdayName` : `String`
+Return the name of the week of the receiver (ie `Monday`). String is localized in the same locale defined by the associated region of the receiver.
+
+#### Discussion
+Weekday ordinal units represent the position of the weekday within the next larger calendar unit , such as the month.
+For example, 2 is the weekday ordinal unit for the second Friday of the month.
+
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `weekdayShortName` : `String`
+Return the short name of the week of the receiver (ie `Mon`). String is localized in the same locale defined by the associated region of the receiver.
+
+#### Discussion
+Weekday ordinal units represent the position of the weekday within the next larger calendar unit , such as the month.
+For example, 2 is the weekday ordinal unit for the second Friday of the month.
+
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+## Day Components
+
+### `day` : `Int`
+Return the day of the month of the current receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `julianDay` : `Double`
+Julian day is the continuous count of days since the beginning of the Julian Period used primarily by astronomers.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+### `modifiedJulianDate` : `Double`
+The Modified Julian Date (MJD) was introduced by the Smithsonian Astrophysical Observatory in 1957 to record the orbit of Sputnik via an IBM 704 (36-bit machine) and using only 18 bits until August 7, 2576.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set. 
+
+## Hour Component
+
+### `hour` : `Int`
+Return the number of hour units for the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `nearestHour` : `Int`
+Return the nearest rounded hour from the date represented by the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+## Minute, Seconds and Nanoseconds Components
+
+### `minute` : `Int`
+The number of minute units for the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `second` : `Int`
+The number of second units for the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `nanosecond` : `Int`
+The number of nanosecond units for the receiver.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+## Other Components
+
+### `timeIntervalSinceDate` : `TimeInterval`
+Return the number of seconds since the reference date at `1 January 2001`.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+## Daylight Saving Time (DST)
+
+### `isDST` : `Bool` (for `DateInRegion`)
+Returns a boolean value that indicates whether the represented date uses daylight saving time.
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.
+
+### `isDST(in:)` : `Bool` (for `Date`)
+Returns a boolean value that indicates whether the represented absolute date uses daylight saving time when expressed in passed timezone..
+
+#### Parameters:
+* `tzName` (`TimeZoneName`) destination timezone
+
+### `DSTOffset` : `Bool`
+The current daylight saving time offset of the represented date.
+
+### `DSTOffset(in:)` (for `Date`)
+The current daylight saving time offset of the represented date when expressed in passed timezone.
+
+#### Parameters:
+* `tzName` (`TimeZoneName`) destination timezone
+
+#### Discussion
+* For `DateInRegion` the value is interpreted in the context of the calendar and locale of associated `Region`.<br>
+* For `Date` the value is interpreted in the context of the Default Region set.

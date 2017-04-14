@@ -146,6 +146,12 @@ extension DateInRegion {
 		return self.formatters.dateFormatter(format: "EEEE").string(from: self.absoluteDate)
 	}
 	
+	/// Weekday short name
+	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
+	public var weekdayShortName: String {
+		return self.formatters.dateFormatter(format: "EE").string(from: self.absoluteDate)
+	}
+	
 	/// Number of days into current's date month expressed in current region calendar and locale
 	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
 	public var monthDays: Int {
@@ -556,7 +562,7 @@ extension DateInRegion {
 	}
 	
 	
-	/// Returns a `DateInRegion` object representing a date that is the earliest from a given range
+	/// Returns a `DateInRegion` object representing a date that is the earliest (old) from a given range
 	/// of dates.
 	/// The dates are compared in absolute time, i.e. time zones, locales and calendars have no
 	/// effect on the comparison.
@@ -565,12 +571,12 @@ extension DateInRegion {
 	///
 	/// - returns: a `DateInRegion` object representing a date that is the earliest from a given
 	///            range of dates.
-	public static func latestDate(_ list: [DateInRegion]) -> DateInRegion {
-		return list.latestDate
+	public static func oldestDate(_ list: [DateInRegion]) -> DateInRegion {
+		return list.oldestDate
 	}
 	
 	
-	/// Returns a DateInRegion object representing a date that is the latest from a given range of
+	/// Returns a DateInRegion object representing a date that is the latest (most recent) from a given range of
 	/// dates. The dates are compared in absolute time, i.e. time zones, locales and calendars have
 	/// no effect on the comparison.
 	///
@@ -578,8 +584,8 @@ extension DateInRegion {
 	///
 	/// - returns: a `DateInRegion` object representing a date that is the latest from a given
 	///     range of dates.
-	public static func earliestDate(_ list: [DateInRegion]) -> DateInRegion {
-		return list.earliestDate
+	public static func recentDate(_ list: [DateInRegion]) -> DateInRegion {
+		return list.recentDate
 	}
 	
 	/// Returns a boolean value that indicates whether the represented date uses daylight saving time.
@@ -605,7 +611,7 @@ extension DateInRegion {
 public extension Array where Element: DateInRegion {
 	
 	/// Get the latest date from a list
-	public var latestDate: DateInRegion {
+	public var recentDate: DateInRegion {
 		var currentMaximum = DateInRegion.distantPast
 		self.forEach { cDate in
 			if currentMaximum < cDate {
@@ -616,7 +622,7 @@ public extension Array where Element: DateInRegion {
 	}
 	
 	/// Get the earliest date from a list
-	public var earliestDate: DateInRegion {
+	public var oldestDate: DateInRegion {
 		var currentMinimum = DateInRegion.distantFuture
 		self.forEach { cDate in
 			if currentMinimum > cDate {
@@ -627,3 +633,4 @@ public extension Array where Element: DateInRegion {
 	}
 	
 }
+

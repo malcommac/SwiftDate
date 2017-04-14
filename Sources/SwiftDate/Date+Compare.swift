@@ -30,7 +30,7 @@ public extension Date {
 	
 	/// Returns a ComparisonResult value that indicates the ordering of two given dates based on
 	/// their components down to a given unit granularity. Both passed `Date` objects are expressed in
-	/// passed region before doing the comparisor.
+	/// passed region before doing the comparison.
 	///
 	/// - parameter date:        date to compare
 	/// - parameter region:      region in which both dates will be expressed (if nil, defaultRegion will be used instead)
@@ -48,7 +48,7 @@ public extension Date {
 	
 	/// Compares equality of two given dates based on their components down to a given unit
 	/// granularity.
-	/// Both passed `Date` objects are expressed in passed region before doing the comparisor.
+	/// Both passed `Date` objects are expressed in passed region before doing the comparison.
 	///
 	/// - parameter date:        date to compare
 	/// - parameter region:      region in which both dates will be expressed (if nil, defaultRegion will be used instead)
@@ -79,7 +79,7 @@ public extension Date {
 	
 	/// Compares whether the receiver is after `date` based on their components down to a given unit
 	/// granularity.
-	/// Both passed `Date` objects are expressed in passed region before doing the comparisor.
+	/// Both passed `Date` objects are expressed in passed region before doing the comparison.
 	///
 	/// - parameter date:        date to compare
 	/// - parameter orEqual:     `true` to also check for equality

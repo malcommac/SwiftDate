@@ -109,6 +109,7 @@ let n_weekday = nowInNY.weekday
 let n_isTodayInWeekend = nowInNY.isInWeekend
 let n_weekOrdinal = nowInNY.weekdayOrdinal
 let n_weekdayName = nowInNY.weekdayName
+let n_weekdayShortName = nowInNY.weekdayShortName
 let n_weekMonth = nowInNY.weekOfMonth
 
 //: Weekend Component
@@ -131,4 +132,44 @@ let n_firstDayOfCurrentMonth = nowInNY.startOf(component: .month)
 // Adjust date to specified time
 let n_adjustedTime = nowInNY.atTime(hour: 08, minute: 00, second: 20)
 
+// COMPARE TWO DATES
 
+let d1 = DateInRegion()
+let d2 = DateInRegion() + 1.day
+let d1_is_earlier = d1 < d2
+
+let now_date = Date()
+let now_date_in_local = now_date.inDefaultRegion()
+
+let region_panama = Region(tz: TimeZoneName.americaPanama, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+let now_in_panama = now_date.inRegion(region: region_panama)
+let day_name = now_in_panama.weekdayName
+
+let region_rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+let region_ny = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.englishUnitedStates)
+//let datein_rome = DateInRegion(absoluteDate: Date(), in: region_rome)
+//let datein_ny = datein_rome.toRegion(region_ny)
+//
+//let p_1 = "2016-01-05 23:30".date(format: .custom("yyyy-MM-dd HH:MM"))
+//let p_2 = "2010-02-18T16.23334444".date(format: .iso8601Auto)
+//
+//let formats: [DateFormat] = [.custom("yyyy-MM-dd HH:MM"),.iso8601Auto]
+//let p = "2010-02-18T16.23334444".date(formats: formats, fromRegion: region_rome)
+//
+//let d = DateInRegion(components: [.year:2010, .month:1, .day:4, .hour:20], fromRegion: region_rome)
+//
+//let cmp = DateComponents()
+//cmp.year = 2010
+//cmp.timeZone = TimeZoneName.europeKiev.timeZone
+//cmp.calendar = CalendarName.gregorian.calendar
+//cmp.day = 3
+//cmp.month = 1
+//cmp.minute = 30
+//let d = DateInRegion(components: cmp)
+
+let x = DateInRegion(absoluteDate: Date() + 35.minute, in: region_rome)
+let s_1 = x.string(format: .custom("yyyy-MM-DD 'at' HH:mm"))
+let s = try! x.colloquialSinceNow()
+
+let x2 = DateInRegion(absoluteDate: Date() - 3.days, in: region_rome)
+let s2 = try! x2.colloquialSinceNow()

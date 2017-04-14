@@ -125,6 +125,12 @@ public extension Date {
 		return self.inDateDefaultRegion().weekdayName
 	}
 	
+	/// Weekday short name
+	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
+	public var weekdayShortName: String {
+		return self.inDateDefaultRegion().weekdayShortName
+	}
+	
 	/// Number of days into current's date month expressed in the context of `defaultRegion`.
 	public var monthDays: Int {
 		return self.inDateDefaultRegion().monthDays
@@ -367,5 +373,43 @@ public extension Date {
 	/// - Returns: a new instance of `DateInRegion` with passed altered values
 	public func at(values: [Calendar.Component : Int], keep: Set<Calendar.Component>) -> Date? {
 		return self.inDateDefaultRegion().at(values: values, keep: keep)?.absoluteDate
+	}
+	
+	/// Returns a `Date` object representing a date that is the earliest (old) from a given range
+	/// of dates.
+	/// The dates are compared in absolute time, i.e. time zones, locales and calendars have no
+	/// effect on the comparison.
+	///
+	/// - parameter list: a list of `Date` to evaluate
+	///
+	/// - returns: a `DateInRegion` object representing a date that is the earliest from a given
+	///            range of dates.
+	public static func oldestDate(_ list: [Date]) -> Date {
+		var currentMinimum = Date.distantFuture
+		list.forEach { cDate in
+			if currentMinimum > cDate {
+				currentMinimum = cDate
+			}
+		}
+		return currentMinimum
+	}
+	
+	
+	/// Returns a Date object representing a date that is the latest from a given range of
+	/// dates. The dates are compared in absolute time, i.e. time zones, locales and calendars have
+	/// no effect on the comparison.
+	///
+	/// - parameter list: a list of `Date` to evaluate
+	///
+	/// - returns: a `DateInRegion` object representing a date that is the latest from a given
+	///     range of dates.
+	public static func recentDate(_ list: [Date]) -> Date {
+		var currentMaximum = Date.distantPast
+		list.forEach { cDate in
+			if currentMaximum < cDate {
+				currentMaximum = cDate
+			}
+		}
+		return currentMaximum
 	}
 }

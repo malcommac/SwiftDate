@@ -1,0 +1,68 @@
+# Welcome
+SwiftDate is the perfect solution to play with Dates, Times and TimeZones in Swift. It'a a lightweight all-in-one solution; you may thing SwiftDate as the `Moment.js` for Swift.
+
+# Absolute Date
+Cocoa and CocoaTouch uses `Date` object as central class to manage date and time in macOS, iOS, tvOS and watchOS. This object encapsulates a moment in time that is internally stored as the number of seconds since `Jan 1, 2011 at 00:00 UTC`. This is what we call Universal Time because it represent the same moment everywhere around the world.
+
+You can see absolute time as the moment that someone in the USA has a telephone conversation with someone in Dubai; both have that conversation at the same moment (the absolute time) but the local time will be different due to time zones, different calendars, alphabets or notation methods.
+
+If you also need to work with time zone, calendar and locales you need to combine `Date` with three other objects: `TimeZone`, `Calendar` and `Locale`. SwiftDate main focus is to provide a set of functions and constructors which allows to manage all of these object easily and without pain.
+
+#  `Date` vs `DateInRegion` & `Region`
+Fundamentally there are two ways to represent a DateTime in SwiftDate: using plain `Date` object to represent an universal time interval, or via `DateInRegion` to represent the same interval in a specified world region (by combining it with particular timezone, locale and calendar attribute).
+All the functions exposed by the library are equally available both for `Date` and `DateInRegion`.
+
+While you may choose to still work with `Date` (or mix and match both), in order to avoid struggling our suggestion is to replace `Date` with `DateInRegion` in your code.
+
+`DateInRegion` combines and represent an absolute `Date` in a particular geographic region defined by a `Region`.
+Each `Region` has three important attributes:
+
+- A **TimeZone**: defines in which geographic region the date is expressed in. Time zone objects represent geopolitical regions. Consequently, these objects have names for these regions. Time zone objects also represent a temporal offset, either plus or minus, from Greenwich Mean Time (GMT) and an abbreviation (such as PST for Pacific Standard Time).
+- A **Calendar**: encapsulate information about systems of reckoning time in which the beginning, length, and divisions of a year are defined. They provide information about the calendar and support for calendrical computations such as determining the range of a given calendrical unit and adding units to a given absolute time.
+- A **Locale**: encapsulate information about linguistic, cultural, and technological conventions and standards. Examples of information encapsulated by a locale include the symbol used for the decimal separator in numbers and the way dates are formatted.
+
+Combining a `Date` in a `Region` you can create a `DateInRegion` instance.
+Let's make an example by representing current date time (`Date()`) in New York.
+
+```swift
+let regionNY = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.englishUnitedStates)
+let nowInNY = DateInRegion(absoluteDate: Date(), in: regionNY)
+```
+
+Since now querying and making operations with `nowInNY` includes everything related to the region itself. You can still get the absolute datetime by using `absoluteDate` property.
+
+# Default Region
+By default all operations exposed by SwiftDate for `Date` instances (and others where optional region parameter is omitted) uses what we call `Default Region`.
+`Default Region` is a special region which is initially set to the currently local region (`Region.Local()`) where:
+- `timezone` is set to the current's device timezone
+- `calendar` is set to the current's device calendar
+- `locale` is set to the current's device locale
+
+You can change the default region using:
+
+```swift
+let dateFormat = "yyyy-MM-dd HH:mm"
+let current_default = Date.defaultRegion
+
+// Print date in current local device region
+print(now.string(format: .custom(dateFormat))) // 2017-04-09 19:32
+// Change the default region
+Date.setDefaultRegion(regionNY)
+// Print it again; now the date will be expressed in another region
+print(now.string(format: .custom(dateFormat))) // 2017-04-09 13:32
+```
+
+Did you noticed? Last printed date is adjusted to the new default region, New York.
+The best place to set your default region is the AppDelegate of your app:
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  // Define a Region in Rome/Italy and set it as default region
+  // Our Region also uses Gregorian Calendar and Italy Locale
+  let romeRegion = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+  Date.setDefaultRegion(romeRegion)
+  // Since now each Date function works with this region instead of UTC		
+  return true
+}
+```
+ 

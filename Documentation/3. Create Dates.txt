@@ -1,0 +1,169 @@
+# 3. CREATE/PARSE DATES & FORMAT DATE AS STRING
+You can create dates in SwiftDate starting from a String, a set of time components or another date by converting it to a different region.  
+All of these functions are equally available both for `Date` a `DateInRegion`.
+
+Parsing a date from string maybe an expensive operation in Cocoa/CocoaTouch: `DateFormatter` is an object very expensive to allocate and you should, where available, reuse it.  
+SwiftDate takes care of this by creating just one `DateFormatter` per single thread.
+
+## FROM STRING TO DATE
+All of these functions attempt to transform a String to a valid `DateInRegion` object. You can still get the absolute `Date` object by using the `.absoluteDate` property.
+
+* Available Date Formats (`DateFormat`)
+* ISO8601 Format Options to print valid ISO8601 strings (`ISO8601DateTimeFormatter.Options`)
+* Parse date from string with format
+* Parse date from string with multiple formats
+* `DateInRegion` init from String
+* `DateInRegion` init from Time Components
+* `DateInRegion` init from `DateComponents`
+
+## FROM DATE TO STRING
+There are several ways to transform a valid date to a `String`; printing a single component (see `2. Date Components`), a colloquial string (ie `2 hours ago` or `in 3 days`) or formatting it using one of the available `DateFormat` options.
+
+* Get a custom formatted string (using `DateFormat`)
+* Get a colloquial formatted string since now
+* Get a colloquial formatted string since a reference date
+
+## FROM STRING TO DATE
+
+## AVAILABLE DATE FORMATS (`DateFormat`)
+This specify the format used to parse a string.
+SwiftDate allows you to parse automatically several common formats.
+These are the formats currently supported:
+
+* `.custom`: a custom format expressed by a string formatted as specified by the Unicode [TR3531](http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns)
+* `.strict`: it's similar to `.custom` but does not apply heuristics to guess at the date which is intended by the string.So, if you pass an invalid date (like `1999-02-31`) formatter fails instead of returning guessing date (in our case `1999-03-03`).
+* `.iso8601`: parse any valid ISO8601 string. It allows to specify the format of the ISO8601 string but it's used only to transform an existing date to a string (from a string to date the parse is done automatically; in this case the behaviour is the same of `iso8601auto`).
+* `.iso8601Auto`: parse any valid ISO8601 string taking care of its format automatically (you should use it only to transform a string to date; from date to string it's equal to `.iso8601(.withInternetDateTime)`).
+* `.extended`: parse extended date format strings ("eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz").
+* `.rss`: parse any valid RSS string
+* `.dotNET`: parse a valid .NET date string
+
+## ISO8601 FORMAT OPTIONS TO PRINT VALID ISO8601 STRINGS (`ISO8601DateTimeFormatter.Options`)
+While parsing of ISO8601 string is done automatically you can decide how to transform your existing `Date`/`DateInRegion` objects to a valid ISO8601 `String`.
+This is done by specifying the format, an options set array which can contain the following values:
+
+* `.withYear`: The date representation includes the year. The format for year is inferred based on the other specified options. If `withWeekOfYear` is specified, `YYYY` is used otherwise, `yyyy` is used.
+* `.withMonth`: The date representation includes the month. The format for month is `MM`.
+* `.withWeekOfYear`: The date representation includes the week of the year. The format for week of year is `ww`, including the W prefix.
+* `.withDay`: The date representation includes the day. The format for day is inferred based on provided options: If `.withMonth` is specified, `dd` is used. If `.withWeekOfYear` is specified, `ee` is used. Otherwise, `DDD` is used.
+* `.withTime`: The date representation includes the time. The format for time is `HH:mm:ss`.
+* `.withTimeZone`: The date representation includes the timezone. The format for timezone is `ZZZZZ`.
+* `.withSpaceBetweenDateAndTime`: The date representation uses a space ( ) instead of `T` between the date and time.
+* `.withDashSeparatorInDate`: The date representation uses the dash separator (`-`) in the date.
+* `.withFullDate`: The date representation uses the colon separator (`:`) in the time.
+* `.withFullTime`: The date representation includes the hour, minute, and second.
+* `.withInternetDateTime`: The format used for internet date times, according to the RFC 3339 standard. Equivalent to specifying `.withFullDate`, `.withFullTime`, `.withDashSeparatorInDate`, `.withColonSeparatorInTime`, and `.withColonSeparatorInTimeZone`.
+* `.withInternetDateTimeExtended`: The format used for internet date times; it's similar to `.withInternetDateTime` but include milliseconds (`yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ`).
+
+
+* Parse date from string with format (`date(format:,fromRegion:) -> DateInRegion?`)
+* Parse date from string with multiple formats (`date(formats:,fromRegion:) -> DateInRegion?`)
+
+## Parse date from string with format
+`date(format:,fromRegion:) -> DateInRegion?`
+
+You can create a new `DateInRegion` from a `String` by using the `date()` functions.
+This function allows you to transform a `String` in a `DateInRegion` by setting a particular `Region`.
+
+#### Parameters
+* `format` (`DateFormat`): the format in which the date is expressed. 
+* `fromRegion` (`Region`): the region in which you want to describe the date. If not specified the region used is the `Region.Local()`.
+
+#### Examples
+```swift
+// Attempt to parse a string using a custom format
+let p_1 = "2016-01-05 23:30".date(format: .custom("yyyy-MM-dd HH:MM"))
+// Attempt to parse a valid ISO8601 string
+let p_2 = "2010-02-18T16.23334444".date(format: .iso8601Auto)
+```
+
+## Parse date from string with multiple formats
+`date(formats:,fromRegion:) -> DateInRegion?`
+
+If your string can be described in different formats you can use `date(formats:fromRegion:)` function which takes an array of `[DateFormat]` used by SwiftDate to perform parsing. The first one which succeeded returns a valid `DateInRegion` object. If none of these works `nil` is returned.
+
+This function attempt to parse receiver `String` by using given formats (parsing is done in order). If none of the them parse correctly the date `nil` is returned.
+
+#### Parameters
+* `formats` (`[DateFormat]`): a list of formats in which the date can be expressed. 
+* `fromRegion` (`Region`): the region in which you want to describe the date. If not specified the region used is the `Region.Local()`.
+
+#### Examples
+```swift
+let formats: [DateFormat] = [.custom("yyyy-MM-dd HH:MM"),.iso8601Auto]
+// Attempt to parse this string using the formats specified above
+let region_rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+let p = "2010-02-18T16.23334444".date(formats: formats, fromRegion: region_rome)
+```
+
+##  `DateInRegion` INIT FROM String
+`init?(string:,format:,fromRegion)`
+
+`DateInRegion` can be initialized directly from a `String`. This method is the same of creating a date from a string (in fact `date()` functions forward call to this method by creating a new instance of `DateInRegion`).
+
+```swift
+let region_rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+let d = DateInRegion(string: "2010-01-05", format: .custom("yyyy-MM-dd"), fromRegion: region_rome)
+```
+
+## `DateInRegion` INIT FROM TIME COMPONENTS
+`init?(components:fromRegion:)`
+
+You can allocate a new date by passing single time components you want to set. Not passed time components are set to 0 or ignored.
+
+```swift
+// Create a new date in Rome by setting the date to Jan 4, 2010 20:00:00 GMT+2
+let region_rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+let d = DateInRegion(components: [.year:2010, .month:1, .day:4, .hour:20], fromRegion: region_rome)
+```
+
+## `DateInRegion` INIT FROM `DateComponents`
+`init?(components:)`
+
+Another way to allocate a new date is to passing a valid instance of `DateComponents`. In this case you must specify a valid `timezone` and `calendar` otherwise init will fails by returning `nil` as output.
+
+```swift
+// This example will create a new DateInRegion with Gregorian Calendar at 2010-01-03 at 00:30:00 in Kiev Timezone offset
+let cmp = DateComponents()
+cmp.year = 2010
+cmp.timeZone = TimeZoneName.europeKiev.timeZone
+cmp.calendar = CalendarName.gregorian.calendar
+cmp.month = 1
+cmp.day = 3
+cmp.minute = 30
+let d = DateInRegion(components: cmp)
+```
+
+## FROM DATE TO STRING
+
+### Get a custom formatted string (using `DateFormat`)
+`date(format:) -> String`
+
+You can format both `Date` and `DateInRegion` to a valid `String` using of the available `DateFormat` formats.
+
+Examples:
+```swift
+let region_rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+let nowInRome = DateInRegion(absoluteDate: Date(), in: region_rome)
+// Print the current date in given custom format in Rome region
+// "2017-04-104 at 15:53"
+let s = nowInRome.string(format: .custom("yyyy-MM-DD 'at' HH:mm")
+```
+
+### Get a colloquial formatted string since now
+`colloquialSinceNow() throws -> String`
+
+This function compare the date between receiver date and the current date and print a colloquial version of the interval.
+The language used to print it is defined by the `locale` of the `Region` in which the `DateInRegion` is expressed (for `Date`, if not specified by the parameter the `Date.defaultRegion` is used).
+
+Examples:
+
+```swift
+// Example 1
+let d = DateInRegion(absoluteDate: Date() + 35.minute, in: region_rome) // a future date (+35 minutes from now)
+let d_str = try! x.colloquialSinceNow() // "tra 35 minuti"
+```
+
+### Get a colloquial formatted string since a reference date
+`colloquial(toDate:style:) -> String`
+

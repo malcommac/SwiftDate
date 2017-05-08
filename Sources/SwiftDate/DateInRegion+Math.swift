@@ -77,16 +77,16 @@ extension DateInRegion {
 			return nil
 		}
 
-		var dates = [startDate]
+		var dates: [DateInRegion] = []
 		var currentDate = startDate
 		
-		repeat {
+		while (currentDate <= endDate) {
+			dates.append(currentDate)
 			guard let c_date = currentDate.add(components: components) else {
 				return nil
 			}
 			currentDate = c_date
-			dates.append(currentDate)
-		} while (currentDate <= endDate)
+		}
 		
 		return dates
 	}

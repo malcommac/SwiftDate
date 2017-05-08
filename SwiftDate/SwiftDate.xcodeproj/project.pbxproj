@@ -44,6 +44,7 @@
 		21C301331D829D7900B0E02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C301311D829D7900B0E02C /* Main.storyboard */; };
 		21C301351D829D7900B0E02C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C301341D829D7900B0E02C /* Assets.xcassets */; };
 		21C301381D829D7900B0E02C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C301361D829D7900B0E02C /* LaunchScreen.storyboard */; };
+		21D1A1581EC0BD3300FD8B62 /* DOTNETDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A1571EC0BD3300FD8B62 /* DOTNETDateTimeFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		21C301341D829D7900B0E02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21C301371D829D7900B0E02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C301391D829D7900B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D1A1571EC0BD3300FD8B62 /* DOTNETDateTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DOTNETDateTimeFormatter.swift; path = ../../Sources/SwiftDate/DOTNETDateTimeFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				08EC229C1DA03E4000B6DFC6 /* DateInRegionFormatter.swift */,
 				08EC229D1DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift */,
 				213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */,
+				21D1A1571EC0BD3300FD8B62 /* DOTNETDateTimeFormatter.swift */,
 			);
 			name = Formatters;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				08EC22AC1DA03E4900B6DFC6 /* Region.swift in Sources */,
 				08EC22A81DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
 				08EC22721DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
+				21D1A1581EC0BD3300FD8B62 /* DOTNETDateTimeFormatter.swift in Sources */,
 				08EC227A1DA03DE700B6DFC6 /* DateInRegion+Math.swift in Sources */,
 				08EC22BB1DA03E5C00B6DFC6 /* TimeInterval+Extensions.swift in Sources */,
 				08EC22C21DA03E6600B6DFC6 /* CalendarName.swift in Sources */,

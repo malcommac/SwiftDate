@@ -91,13 +91,13 @@ public extension Date {
 	/// - Returns: an array of DateInRegion objects
 	public static func dates(between startDate: Date, and endDate: Date, increment components: DateComponents) -> [Date] {
 		
-		var dates = [startDate]
+		var dates: [Date] = []
 		var currentDate = startDate
 		
-		repeat {
-			currentDate = currentDate.add(components: components)
+		while (currentDate <= endDate) {
 			dates.append(currentDate)
-		} while (currentDate <= endDate)
+			currentDate = currentDate.add(components: components)
+		}
 		
 		return dates
 	}

@@ -94,6 +94,57 @@ class TestDateInRegion_Formatter: XCTestCase {
         componentFormatterOptions.zeroBehavior = .dropAll
         let custom_5 = try! another_Date.timeComponentsSinceNow(options: componentFormatterOptions)
 		XCTAssertEqual(custom_5, "2 hr, 5 min, 3 sec", "Failed get colloquial representation of an old date")
+		
+		// 3 Days Ago difference
+		let days_3ago = DateInRegion() - 3.day
+		let days_3ago_colloquial = (try! days_3ago.colloquialSinceNow().colloquial)
+		XCTAssertEqual(days_3ago_colloquial, "3 days ago")
+		
+		// Less than 48 days difference => yesterday
+		let hours_27ago = DateInRegion() - 27.hours
+		let hours_27ago_colloquial = (try! hours_27ago.colloquialSinceNow().colloquial)
+		XCTAssertEqual(hours_27ago_colloquial, "27 hours ago")
+		
+		let hours_49 = DateInRegion() - 49.hours
+		let value_hours_49 = (try! hours_49.colloquialSinceNow().colloquial)
+		XCTAssertEqual(value_hours_49, "2 days ago")
+		
+		// Few hours between two days
+		let few_d1 = DateInRegion(string: "2000-01-02 23:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
+		let few_d2 = DateInRegion(string: "2000-01-03 01:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
+		let few_colloquial = try! few_d1.colloquial(toDate: few_d2)
+		XCTAssertEqual(few_colloquial.colloquial, "2 hours ago")
+		
+		let to = Date()
+		let from = Date(timeIntervalSince1970: to.timeIntervalSince1970 - 47 * 60 * 60)
+		
+		// 47 hours ago
+		let fromDate = DateInRegion(absoluteDate: from, in: nil)
+		let toDate = DateInRegion(absoluteDate: to, in: fromDate.region)
+		let formatter = DateInRegionFormatter()
+		formatter.localization = Localization(locale: fromDate.region.locale)
+		formatter.imminentInterval = 1
+		let result = try! formatter.colloquial(from: fromDate, to: toDate).colloquial
+		XCTAssertEqual(result, "47 hours ago")
+
+		// 4 Days Ago
+		let days_4ago_d1 = DateInRegion(string: "2000-04-20 00:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
+		let days_4ago_d2 = DateInRegion(string: "2000-04-24 00:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
+		let days_4ago_d1_colloquial = try! days_4ago_d1.colloquial(toDate: days_4ago_d2).colloquial
+		XCTAssertEqual(days_4ago_d1_colloquial, "4 days ago")
+	}
+	
+	public func test_dotNet() {
+		let dotnet_dates = ["/Date(641858400000+0200)/","/Date(-31536000000+0200)/","/Date(-1330563600000+0100)/"]
+
+		dotnet_dates.forEach { dotnet_date in
+			guard let parsed_date = dotnet_date.date(format: .dotNET) else {
+				XCTFail("Cannot parse dotnet string: \(dotnet_date)")
+				return
+			}
+			let output_str = DOTNETDateTimeFormatter.string(parsed_date)
+			XCTAssertEqual(dotnet_date, output_str)
+		}
 	}
 
 	public func test_iso8601_formatter() {

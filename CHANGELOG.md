@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.1.2](#412)**
 * Version **[4.1.1](#411)**
 * Version **[4.1.0](#410)**
 * Version **[4.0.14](#4014)**
@@ -22,6 +23,22 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="412" />
+
+## SwiftDate 4.1.2
+---
+- **Release Date**: 2017-05-09
+- **Zipped Version**: [Download 4.1.2](https://github.com/malcommac/SwiftDate/releases/tag/4.1.2)
+
+#### New Features
+- [#423](https://github.com/malcommac/SwiftDate/pull/423) Added `firstWeekday` to `Region` struct. This allows you to easily change the first day of a week on given Region's `Calendar` object. By default the value is set `sunday`.
+
+#### Fixes
+- [#425](https://github.com/malcommac/SwiftDate/pull/425) Fixed an issue with `.dates(between:and)` which sometimes may report as final date of the output array date greater than specified end date. 
+- [#417](https://github.com/malcommac/SwiftDate/pull/417) Fixed an issue with `colloquial` functions which return wrong results when differences can be expressed in days. 
+- [#419](https://github.com/malcommac/SwiftDate/pull/419) Fixed an issue with `colloquial` functions which return wrong results when differences can be expressed in days. 
+- [#427](https://github.com/malcommac/SwiftDate/pull/427) Fixed an issue with .NET date parser (it now accounts timezone correctly and parser did not fail with < 1970 dates)
 
 <a name="411" />
 

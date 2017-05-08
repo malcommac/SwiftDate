@@ -73,10 +73,7 @@ public extension DateInRegion {
 			let format = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
 			return self.formatters.dateFormatter(format: format).string(from: self.absoluteDate)
 		case .dotNET:
-			let milliseconds = (self.absoluteDate.timeIntervalSince1970 * 1000.0)
-			let tzOffsets = (self.region.timeZone.secondsFromGMT(for: self.absoluteDate) / 3600)
-			let formattedStr = String(format: "/Date(%.0f%+03d00)/", milliseconds,tzOffsets)
-			return formattedStr
+			return DOTNETDateTimeFormatter.string(self)
 		}
 	}
 	

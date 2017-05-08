@@ -250,7 +250,6 @@ public class DateInRegion: CustomStringConvertible {
 		case .iso8601(_), .iso8601Auto:
 			let configuration = ISO8601Configuration(calendar: srcRegion.calendar)
 			guard let parser = ISO8601Parser(string, config: configuration), let date = parser.parsedDate, let tz = parser.parsedTimeZone else { return nil }
-			//guard let date = parser.parsedDate, let tz = parser.parsedTimeZone else { return nil }
 			self.absoluteDate = date
 			srcRegion = Region(tz: tz, cal: srcRegion.calendar, loc: srcRegion.locale)
 		case .extended:
@@ -266,10 +265,11 @@ public class DateInRegion: CustomStringConvertible {
 			}
 			self.absoluteDate = date
 		case .dotNET:
-			guard let secsSince1970 = string.dotNETParseSeconds() else {
+			guard let parsed_date = DOTNETDateTimeFormatter.date(string, calendar: srcRegion.calendar) else {
 				return nil
 			}
-			self.absoluteDate = Date(timeIntervalSince1970: secsSince1970)
+			self.absoluteDate = parsed_date.date
+			srcRegion = Region(tz: parsed_date.tz, cal: srcRegion.calendar, loc: srcRegion.locale)
 		}
 		self.region = srcRegion
 	}

@@ -170,4 +170,11 @@ class DateInRegionTest: XCTestCase {
 		print(dstDateString)
 		XCTAssertEqual("2016-09-14T01:00:00-04:00", dstDateString, "Failed to convert a date from a region to another")
 	}
+	
+	func testDateFirstDayOfWeek() {
+		var region = Region(tz: TimeZoneName.europeParis, cal: CalendarName.gregorian, loc: LocaleName.frenchFrance)
+		region.firstWeekday = .monday
+		let new_date = DateInRegion(absoluteDate: Date(), in: region)
+		XCTAssertEqual("lundi", new_date.startWeek.weekdayName, "Failed to set the firstWeekday for a Region")
+	}
 }

@@ -28,7 +28,7 @@
 
 ## SwiftDate 4.1.2
 ---
-- **Release Date**: -
+- **Release Date**: 2017-05-09
 - **Zipped Version**: [Download 4.1.2](https://github.com/malcommac/SwiftDate/releases/tag/4.1.2)
 
 #### New Features

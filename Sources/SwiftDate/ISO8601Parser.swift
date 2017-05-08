@@ -279,18 +279,25 @@ public class ISO8601Parser {
 			date.day = now_cmps.day!
 		} else {
 			moveUntil(is: "-")
+			let is_time_only = (string.contains("T") == false && string.contains(":") && !string.contains("-"))
 			
-			var (num_digits,segment) = try read_int()
-			switch num_digits {
-			case 0:		try parse_digits_0(num_digits, &segment)
-			case 8:		try parse_digits_8(num_digits, &segment)
-			case 6:		try parse_digits_6(num_digits, &segment)
-			case 4:		try parse_digits_4(num_digits, &segment)
-			case 1:		try parse_digits_1(num_digits, &segment)
-			case 2:		try parse_digits_2(num_digits, &segment)
-			case 7:		try parse_digits_7(num_digits, &segment) //YYYY DDD (ordinal date)
-			case 3:		try parse_digits_3(num_digits, &segment) //--DDD (ordinal date, implicit year)
-			default:	throw ISO8601ParserError.invalid
+			if is_time_only == false {
+				var (num_digits,segment) = try read_int()
+				switch num_digits {
+				case 0:		try parse_digits_0(num_digits, &segment)
+				case 8:		try parse_digits_8(num_digits, &segment)
+				case 6:		try parse_digits_6(num_digits, &segment)
+				case 4:		try parse_digits_4(num_digits, &segment)
+				case 1:		try parse_digits_1(num_digits, &segment)
+				case 2:		try parse_digits_2(num_digits, &segment)
+				case 7:		try parse_digits_7(num_digits, &segment) //YYYY DDD (ordinal date)
+				case 3:		try parse_digits_3(num_digits, &segment) //--DDD (ordinal date, implicit year)
+				default:	throw ISO8601ParserError.invalid
+				}
+			} else {
+				date.year = now_cmps.year!
+				date.month_or_week = now_cmps.month!
+				date.day = now_cmps.day!
 			}
 		}
 		

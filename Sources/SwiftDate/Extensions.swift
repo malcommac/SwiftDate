@@ -57,30 +57,6 @@ public extension String {
 
 internal extension String {
 	
-	/// Return the number of seconds in a .NET date format
-	///
-	/// - returns: number of seconds represented by the string
-	internal func dotNETParseSeconds() -> TimeInterval? {
-		let pattern = "\\/Date\\((-?\\d+)((?:[\\+\\-]\\d+)?)\\)\\/"
-		do {
-			let dotNetExpression = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
-			guard let match = dotNetExpression.firstMatch(in: self, options: .reportCompletion, range: NSMakeRange(0, self.characters.count)) else {
-				return nil
-			}
-			let msRange = match.rangeAt(1)
-			if msRange.location == NSNotFound { return nil }
-			guard let range = self.range(from: msRange) else {
-				return nil
-			}
-			let value = self.substring(with: range)
-			let valueInSeconds = (TimeInterval(value)! / 1000.0)
-			return valueInSeconds
-		} catch {
-			return nil
-		}
-	}
-	
-	
 	/// Substring with NSRange
 	///
 	/// - parameter nsRange: range

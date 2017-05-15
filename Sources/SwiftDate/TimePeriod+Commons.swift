@@ -24,6 +24,54 @@
 
 import Foundation
 
+/// Sorting function for time period groups
+///
+/// - byStartDate: sort by startDate of the period
+/// - custom->Bool: custom sort function
+public enum TimePeriodGroupSort {
+	public typealias SortFunction = ((_: TimePeriod, _: TimePeriod) -> Bool)
+	
+	case byStartDate
+	case custom(_: SortFunction)
+	
+	public var sortFunction: SortFunction {
+		switch self {
+		case .custom(let custom_sort_func):
+			return custom_sort_func
+		case .byStartDate:
+			let sort_bydate: SortFunction = { a,b in
+				if a.startDate == nil && b.startDate == nil {
+					return false
+				}
+				else if a.startDate == nil {
+					return true
+				}
+				else if b.startDate == nil {
+					return false
+				}
+				return b.startDate! < a.startDate!
+			}
+			return sort_bydate
+		}
+	}
+}
+
+// MARK: - Extension of DateInRegion
+
+public extension DateInRegion {
+	
+	
+	/// Return the fragment between self and another date
+	///
+	/// - Parameter date: date to compare at
+	/// - Returns: fragment
+	public func fragment(with date: DateInRegion) -> TimeFragment {
+		let cmps = self.region.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date.absoluteDate)
+		return TimeFragment(components: cmps)
+	}
+	
+}
+
 
 /// Sum a `TimeFragment` to `DateInRegion`
 ///

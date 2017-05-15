@@ -38,6 +38,9 @@
 		08EC22C21DA03E6600B6DFC6 /* CalendarName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22BF1DA03E6600B6DFC6 /* CalendarName.swift */; };
 		08EC22C61DA03E6600B6DFC6 /* LocaleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C01DA03E6600B6DFC6 /* LocaleName.swift */; };
 		08EC22CA1DA03E6600B6DFC6 /* TimeZoneName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */; };
+		211F06D91EC1D3750049B5F4 /* TimePeriodCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F06D81EC1D3750049B5F4 /* TimePeriodCollection.swift */; };
+		211F06DB1EC1F1CB0049B5F4 /* TimePeriodGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F06DA1EC1F1CB0049B5F4 /* TimePeriodGroup.swift */; };
+		211F06DD1EC1FB080049B5F4 /* TimePeriodChained.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F06DC1EC1FB080049B5F4 /* TimePeriodChained.swift */; };
 		213A2A641E8D2A2E00408313 /* ISO8601Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */; };
 		21C3012E1D829D7900B0E02C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012D1D829D7900B0E02C /* AppDelegate.swift */; };
 		21C301301D829D7900B0E02C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3012F1D829D7900B0E02C /* ViewController.swift */; };
@@ -126,7 +129,11 @@
 		08EC22C11DA03E6600B6DFC6 /* TimeZoneName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZoneName.swift; path = ../../Sources/SwiftDate/TimeZoneName.swift; sourceTree = "<group>"; };
 		08EC22EF1DA03F9D00B6DFC6 /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EC22F31DA03F9D00B6DFC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		211F06D81EC1D3750049B5F4 /* TimePeriodCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimePeriodCollection.swift; path = ../../Sources/SwiftDate/TimePeriodCollection.swift; sourceTree = "<group>"; };
+		211F06DA1EC1F1CB0049B5F4 /* TimePeriodGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimePeriodGroup.swift; path = ../../Sources/SwiftDate/TimePeriodGroup.swift; sourceTree = "<group>"; };
+		211F06DC1EC1FB080049B5F4 /* TimePeriodChained.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimePeriodChained.swift; path = ../../Sources/SwiftDate/TimePeriodChained.swift; sourceTree = "<group>"; };
 		213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601Parser.swift; path = ../../Sources/SwiftDate/ISO8601Parser.swift; sourceTree = "<group>"; };
+		217658241EC20F2200029633 /* TimePeriods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = TimePeriods.playground; path = ../Playgrounds/TimePeriods.playground; sourceTree = "<group>"; };
 		21C3010B1D829C8B00B0E02C /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3010E1D829C8B00B0E02C /* SwiftDate-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftDate-iOS.h"; path = "SwiftDate/SwiftDate-iOS.h"; sourceTree = "<group>"; };
 		21C3010F1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftDate/Info.plist; sourceTree = "<group>"; };
@@ -311,6 +318,7 @@
 		21C301011D829C8B00B0E02C = {
 			isa = PBXGroup;
 			children = (
+				217658241EC20F2200029633 /* TimePeriods.playground */,
 				21C3010D1D829C8B00B0E02C /* SwiftDate */,
 				08EC22F01DA03F9D00B6DFC6 /* Unit Test Bundle */,
 				21C3012C1D829D7900B0E02C /* Sample Demo Application */,
@@ -359,6 +367,9 @@
 			children = (
 				21EB837C1E97881600AF22DC /* TimeFragment.swift */,
 				21EB837A1E977E8200AF22DC /* TimePeriod.swift */,
+				211F06DA1EC1F1CB0049B5F4 /* TimePeriodGroup.swift */,
+				211F06D81EC1D3750049B5F4 /* TimePeriodCollection.swift */,
+				211F06DC1EC1FB080049B5F4 /* TimePeriodChained.swift */,
 				21EB83811E97912900AF22DC /* TimePeriod+Commons.swift */,
 			);
 			name = Periods;
@@ -531,6 +542,7 @@
 				08EC22821DA03DF200B6DFC6 /* Date+Compare.swift in Sources */,
 				08E253831E3F9EBA00432D2C /* Localization.swift in Sources */,
 				08EC226E1DA03DE700B6DFC6 /* DateInRegion+Compare.swift in Sources */,
+				211F06D91EC1D3750049B5F4 /* TimePeriodCollection.swift in Sources */,
 				08EC22AC1DA03E4900B6DFC6 /* Region.swift in Sources */,
 				08EC22A81DA03E4900B6DFC6 /* DateTimeInterval.swift in Sources */,
 				08EC22721DA03DE700B6DFC6 /* DateInRegion+Components.swift in Sources */,
@@ -547,7 +559,9 @@
 				08EC22861DA03DF200B6DFC6 /* Date+Components.swift in Sources */,
 				08EC22A21DA03E4000B6DFC6 /* ISO8601DateTimeFormatter.swift in Sources */,
 				08EC22C61DA03E6600B6DFC6 /* LocaleName.swift in Sources */,
+				211F06DB1EC1F1CB0049B5F4 /* TimePeriodGroup.swift in Sources */,
 				08EC22941DA03E0B00B6DFC6 /* Commons.swift in Sources */,
+				211F06DD1EC1FB080049B5F4 /* TimePeriodChained.swift in Sources */,
 				08EC228E1DA03DF200B6DFC6 /* Date+Math.swift in Sources */,
 				08EC228A1DA03DF200B6DFC6 /* Date+Formatter.swift in Sources */,
 				08EC22761DA03DE700B6DFC6 /* DateInRegion+Formatter.swift in Sources */,

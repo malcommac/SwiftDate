@@ -24,7 +24,7 @@
 
 import Foundation
 
-public class TimePeriod : Equatable {
+public class TimePeriod : Equatable, Comparable, CustomStringConvertible {
 	
 	/// Period initial date
 	internal(set) var startDate: DateInRegion? = nil
@@ -33,6 +33,11 @@ public class TimePeriod : Equatable {
 	internal(set) var endDate: DateInRegion? = nil
 	
 	public init() { }
+	
+	/// Description of the period
+	public var description: String {
+		return "TimePeriod from \(String(describing: self.startDate)) to \(String(describing: self.endDate))"
+	}
 	
 	/// Initialize a new period with a closed time interval.
 	///
@@ -97,6 +102,15 @@ public class TimePeriod : Equatable {
 	public init(fragment: TimeFragment) {
 		self.startDate = DateInRegion()
 		self.endDate = self.startDate! + fragment
+	}
+	
+	/// In place shift the time period by a specified interval (both start and end)
+	///
+	/// - Parameter timeInterval: interval of the shift in seconds
+	public func shift(byInterval timeInterval: TimeInterval) {
+		self.startDate?.addInterval(timeInterval)
+		self.startDate?.addInterval(timeInterval)
+		self.endDate?.addInterval(timeInterval)
 	}
 	
 	
@@ -280,17 +294,6 @@ public class TimePeriod : Equatable {
 		return .unknown
 	}
 	
-	
-	///  If the given `TimePeriod`'s `startDate` is before `self.startDate` and
-	///  if the given 'TimePeriod`'s end is after `self.endDate`.
-	///
-	/// - Parameter period: period to compare against
-	/// - Returns: `true` if `self` is inside of the given `TimePeriod`
-	public func isInside(_ period: TimePeriod) -> Bool {
-		return period.startDate! <= self.startDate! && period.endDate! >= self.endDate!
-	}
-	
-	
 	/// If the given `DateInRegion` is after `self.startDate` and before `self.endDate`.
 	///
 	/// - Parameter date: The time period to compare to self
@@ -305,6 +308,135 @@ public class TimePeriod : Equatable {
 			return s.absoluteDate <= date.absoluteDate && e.absoluteDate >= date.absoluteDate
 		}
 	}
+	
+	/// Return if the given `TimePeriod`'s beginning is before `self.startDate` and if the given 'TimePeriod`'s end is after `self.endDate`.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: `true` if `self` is inside of the given `TimePeriod`, `false` otherwise (even if periods are not closed)
+	public func isInside(period: TimePeriod) -> Bool {
+		guard	let s_start = self.startDate, let s_end = self.endDate,
+			let p_start = period.startDate, let p_end = period.endDate else {
+				return false
+		}
+		return p_start <= s_start && p_end >= s_end
+	}
+	
+	
+	/// Return if the given `TimePeriod`'s beginning is after `self.startDate` and if the given 'TimePeriod`'s after is after `self.endDate`.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: `true` if the given `TimePeriod` is inside of `self`, `false` otherwise
+	public func contains(period: TimePeriod) -> Bool {
+		guard	let s_start = self.startDate, let s_end = self.endDate,
+			let p_start = period.startDate, let p_end = period.endDate else {
+				return false
+		}
+		return s_start <= p_start && s_end >= p_end
+	}
+	
+	
+	/// Return if `self` and the given `TimePeriod` share any sub-`TimePeriod`.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: `true` if there is a period of time that is shared by both `TimePeriod`s, `false` otherwise
+	public func overlaps(period: TimePeriod) -> Bool {
+		guard	let s_start = self.startDate, let s_end = self.endDate,
+			let p_start = period.startDate, let p_end = period.endDate else {
+				return false
+		}
+		
+		if p_start < s_start && p_end >= s_start { // outside -> inside
+			return true
+		}
+		else if p_start >= s_start && p_end <= s_end { // enclosing
+			return true
+		}
+		else if p_start < s_end && p_end > s_end { // inside -> out
+			return true
+		}
+		return false
+	}
+	
+	
+	/// Return if `self` and the given `TimePeriod` overlap or the period's edges touch.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: `true` if there is a period of time or moment that is shared by both `TimePeriod`s
+	public func intersect(period: TimePeriod) -> Bool {
+		guard let relation_with_period = self.relation(to: period) else {
+			return false
+		}
+		return (relation_with_period != .after && relation_with_period != .before)
+	}
+	
+	
+	/// Return if `self` and the given `TimePeriod` have no overlap or touching edges.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: `true` if there is a period of time between self and the given `TimePeriod` not contained by either period, `false` otherwise
+	public func hasGap(period: TimePeriod) -> Bool {
+		return self < period || self > period
+	}
+	
+	/// Return `true` if period has a start date
+	public var hasStartDate: Bool {
+		return (self.startDate != nil)
+	}
+	
+	/// Return `true` if period has an end date
+	public var hasEndDate: Bool {
+		return (self.endDate != nil)
+	}
+	
+	/// The period of time between `self` and the given `TimePeriod` not contained by either.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: The gap between the periods. Zero if there is no gap. `nil` if not evaluatable (periods are not closed)
+	public func gap(between period: TimePeriod) -> TimeInterval? {
+		guard	let s_start = self.startDate, let s_end = self.endDate,
+			let p_start = period.startDate, let p_end = period.endDate else {
+				return nil
+		}
+		
+		if s_end < p_start {
+			return abs(s_end.absoluteDate.timeIntervalSince(p_start.absoluteDate))
+		}
+		else if p_end < s_start {
+			return abs(p_end.absoluteDate.timeIntervalSince(s_start.absoluteDate))
+		}
+		return 0
+	}
+	
+	
+	/// The period of time between `self` and the given `TimePeriod` not contained by either as a `TimeFragment`.
+	///
+	/// - Parameter period: The time period to compare to `self`
+	/// - Returns: The gap between the periods, zero if there is no gap
+	public func gap(between period: TimePeriod) -> TimeFragment? {
+		guard let s_end = self.endDate, let p_start = period.startDate else {
+			return nil
+		}
+		return s_end.fragment(with: p_start)
+	}
+	
+	/// Return if the given `DateInRegion` is after `self.startDate` and before `self.endDate`.
+	///
+	/// - Parameters:
+	///   - date: The time period to compare to `self`
+	///   - type: Whether the edge of the date is included in the calculation
+	/// - Returns: `true` if the given `TimePeriod` is inside of `self`
+	public func contains(_ date: DateInRegion, type: TimePeriodType) -> Bool {
+		guard let start = self.startDate, let end = self.endDate else {
+			return false
+		}
+		switch type {
+		case .opened:
+			return start < date && end > date
+		case .closed:
+			return start <= date && end >= date
+		}
+	}
+
 	
 	//MARK: - Properties
 	
@@ -333,14 +465,14 @@ public class TimePeriod : Equatable {
 	/// Return `Int.max` if beginning or end are `nil`
 	public var years: Int? {
 		guard let s = self.startDate, let e = self.endDate else { return Int.max }
-		return (e - s).in(.year)
+		return abs(e - s).in(.year)
 	}
 	
 	/// The duration of the period in weeks (where a week is 7 days long)
 	/// Return `Int.max` if beginning or end are `nil`
 	public var weeks: Int? {
 		guard let s = self.startDate, let e = self.endDate else { return Int.max }
-		guard let days = (e - s).in(.day) else { return nil }
+		guard let days = abs(e - s).in(.day) else { return nil }
 		return days / Int(DAYS_IN_WEEK)
 	}
 	
@@ -348,28 +480,28 @@ public class TimePeriod : Equatable {
 	/// Return `Int.max` if beginning or end are `nil`
 	public var days: Int? {
 		guard let s = self.startDate, let e = self.endDate else { return Int.max }
-		return (e - s).in(.day)
+		return abs(e - s).in(.day)
 	}
 	
 	/// The duration of the period in hours
 	/// Return `Int.max` if beginning or end are `nil`
 	public var hours: Int? {
 		guard let s = self.startDate, let e = self.endDate else { return Int.max }
-		return (e - s).in(.hour)
+		return abs(e - s).in(.hour)
 	}
 	
 	/// The duration of the period in minutes
 	/// Return `Int.max` if beginning or end are `nil`
 	public var minutes: Int? {
 		guard let s = self.startDate, let e = self.endDate else { return Int.max }
-		return (e - s).in(.minute)
+		return abs(e - s).in(.minute)
 	}
 	
 	/// The duration of the period in seconds
 	/// Return `Int.max` if beginning or end are `nil`
 	public var seconds: Int? {
 		guard let s = self.startDate, let e = self.endDate else { return Int.max }
-		return (e - s).in(.second)
+		return abs(e - s).in(.second)
 	}
 	
 	//MARK: - Operation with TimePeriods, TimeFragment and TimeInterval
@@ -393,6 +525,13 @@ public class TimePeriod : Equatable {
 	public static func -(lhs: TimePeriod, rhs: TimeFragment) -> TimePeriod {
 		return try! lhs.shortened(byFragment: rhs, at: .start)
 	}
+
+	public static func <(lhs: TimePeriod, rhs: TimePeriod) -> Bool {
+		return lhs.relation(to: rhs) == .before
+	}
 	
+	public static func >(lhs: TimePeriod, rhs: TimePeriod) -> Bool {
+		return lhs.relation(to: rhs) == .after
+	}
 
 }

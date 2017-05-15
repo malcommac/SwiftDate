@@ -286,7 +286,7 @@ public class DateInRegion: CustomStringConvertible {
 	/// Modify absolute date value of the `DateInRegion` instance by adding a fixed value of seconds
 	///
 	/// - parameter interval: seconds to add
-	public func add(interval: TimeInterval) {
+	public func addInterval(_ interval: TimeInterval) {
 		self.absoluteDate.addTimeInterval(interval)
 	}
 	

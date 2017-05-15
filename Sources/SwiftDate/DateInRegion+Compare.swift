@@ -114,6 +114,22 @@ public extension DateInRegion {
 		// We have made it! They are equal!
 		return true
 	}
+	
+	/// Return the earlier of two dates, between self and a given date.
+	///
+	/// - Parameter date: the date to compare to self
+	/// - Returns: the date that is earlier
+	public func earlierDate(_ date: DateInRegion) -> DateInRegion {
+		return (self.absoluteDate.timeIntervalSince1970 <= date.absoluteDate.timeIntervalSince1970 ? self : date)
+	}
+	
+	/// Return the later of two dates, between self and a given date.
+	///
+	/// - Parameter date: The date to compare to self
+	/// - Returns: The date that is later
+	public func laterDate(_ date: DateInRegion) -> DateInRegion {
+		return (self.absoluteDate.timeIntervalSince1970 >= date.absoluteDate.timeIntervalSince1970 ? self : date)
+	}
 }
 
 

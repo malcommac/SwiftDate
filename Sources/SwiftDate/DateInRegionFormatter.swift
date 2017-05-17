@@ -319,7 +319,10 @@ public class DateInRegionFormatter {
 		let future_key = (value == 0 ? "n" : (asFuture ? "f" : "p"))
 
 		let unitStr = unit.localizedKey(forValue: value)
-		let identifier = "colloquial_\(future_key)_\(unitStr)"
+		var identifier = "colloquial_\(future_key)_\(unitStr)"
+        	if isRussianSpecifyCase(unit: unit, withValue: value) == true {
+            		identifier += russianPluralEnding(value: value)
+        	}
 		let localized_date = withVaList(args) { (pointer: CVaListPointer) -> String in
 			let localized = self.localization.get(identifier, default: "")
 			return NSString(format: localized, arguments: pointer) as String
@@ -340,6 +343,65 @@ public class DateInRegionFormatter {
 		localized_str = String(format: localized_str, arguments: arguments)
 		return localized_str
 	}
+    
+    /// Return true if date for russian locale, number are plural and localized strings has right translate for this unit
+    ///
+    /// - parameter unit:     unit of calendar component
+    /// - parameter value:    the value associated with the unit
+    ///
+    /// - returns: true or false
+    private func isRussianSpecifyCase(unit: Calendar.Component, withValue value: Int) -> Bool {
+        guard localization.locale?.identifier.hasPrefix("ru") == true else {
+            return false
+        }
+        
+        guard value > 1 else {
+            return false
+        }
+        
+        let availableUnits: [Calendar.Component] = [.minute, .hour, .day, .weekOfYear, .month]
+        guard availableUnits.contains(unit) == true else {
+            return false
+        }
+        
+        return true
+    }
+    
+    /// Calculate right ending type (RussianPluralEnding) of plural using russian language's rules
+    ///
+    /// - parameter value:    the value associated with the unit
+    ///
+    /// - returns: additional string for russian localize key
+    private func russianPluralEnding(value: Int) -> String {
+        var remainder = value % 100
+        var result: String
+        if remainder <= 10 || remainder >= 20 {
+            remainder = remainder % 10
+            switch remainder {
+            case 1:
+                return RussianPluralEnding.one.rawValue
+            case 2...4:
+                return RussianPluralEnding.fromTwoToFour.rawValue
+            default:
+                break;
+            }
+        }
+        
+        return RussianPluralEnding.defaultCase.rawValue
+    }
+    
+    // In English we create a plural by simply adding the letter 's'. However, the Russian language is based on a case system where there are different plurals in each case.
+    // Case system based on digits in a number
+    // There is three types of ending:
+    //     - for numbers, which ending on '1'
+    //     - for numbers, which ending on '2', '3', '4'
+    //     (there is also exception: previous two rules not includes numbers, which ending on digits pair from '10' to '20')
+    //     - for all other numbers (including which ending from '10' to '20')
+    private enum RussianPluralEnding: String {
+        case one = "_1"
+        case fromTwoToFour = "_234"
+        case defaultCase = ""
+    }
 }
 
 internal extension Calendar.Component {

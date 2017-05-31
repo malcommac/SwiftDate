@@ -125,7 +125,7 @@
 		08EC22EF1DA03F9D00B6DFC6 /* SwiftDateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EC22F31DA03F9D00B6DFC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		213A2A631E8D2A2E00408313 /* ISO8601Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601Parser.swift; path = ../../Sources/SwiftDate/ISO8601Parser.swift; sourceTree = "<group>"; };
-		213AFB301E9A1BAD00539DFD /* SwiftDate Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "SwiftDate Playground.playground"; path = "/Users/danielemargutti/Repository/Code/Github/SwiftDate/SwiftDate Playground.playground"; sourceTree = "<absolute>"; };
+		213AFB301E9A1BAD00539DFD /* SwiftDate Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "SwiftDate Playground.playground"; path = "../SwiftDate Playground.playground"; sourceTree = "<group>"; };
 		21C3010B1D829C8B00B0E02C /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C3010E1D829C8B00B0E02C /* SwiftDate-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftDate-iOS.h"; path = "SwiftDate/SwiftDate-iOS.h"; sourceTree = "<group>"; };
 		21C3010F1D829C8B00B0E02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftDate/Info.plist; sourceTree = "<group>"; };

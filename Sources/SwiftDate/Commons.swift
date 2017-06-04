@@ -74,7 +74,7 @@ public enum WeekDay: Int {
 ///						want to save.
 ///
 /// - returns: the instance you have created into the current thread
-internal func localThreadSingleton<T: AnyObject>(key: String, create: (Void) -> T) -> T {
+internal func localThreadSingleton<T: AnyObject>(key: String, create: () -> T) -> T {
 	if let cachedObj = Thread.current.threadDictionary[key] as? T {
 		return cachedObj
 	} else {

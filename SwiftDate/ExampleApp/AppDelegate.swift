@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Demo Application
+//  ExampleApp
 //
-//  Created by Daniele Margutti on 09/09/16.
-//  Copyright © 2016 Daniele Margutti. All rights reserved.
+//  Created by daniele on 10/06/2017.
+//  Copyright © 2017 Daniele Margutti. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		
 		return true
 	}
 

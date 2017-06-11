@@ -189,76 +189,53 @@ public class DateInRegionFormatter {
 		let cal = fDate.region.calendar
 		let cmp = cal.dateComponents(self.allowedComponents, from: fDate.absoluteDate, to: tDate.absoluteDate)
 		let isFuture = (fDate > tDate)
-		let diff_in_seconds = abs(fDate.absoluteDate.timeIntervalSince(tDate.absoluteDate))
-		
-		if cmp.year != nil && (cmp.year != 0 || !hasLowerAllowedComponents(than: .year)) {
-			let colloquial_time = try self.colloquial_time(forUnit: .year, withValue: cmp.year!, date: fDate)
-			let colloquial_date = try self.localized(unit: .year, withValue: cmp.year!, asFuture: isFuture, args: abs(fDate.year))
-			return (colloquial_date,colloquial_time)
-		}
-		
-		if cmp.month != nil && (cmp.month != 0 || !hasLowerAllowedComponents(than: .month)) {
-			let colloquial_time = try self.colloquial_time(forUnit: .month, withValue: cmp.month!, date: fDate)
-			let colloquial_date = try self.localized(unit: .month, withValue: cmp.month!, asFuture: isFuture, args: abs(cmp.month!))
-			return (colloquial_date,colloquial_time)
-		}
+        if cmp.year != nil && (cmp.year != 0 || !hasLowerAllowedComponents(than: .year)) {
+            let colloquial_time = try self.colloquial_time(forUnit: .year, withValue: cmp.year!, date: fDate)
+            let colloquial_date = try self.localized(unit: .year, withValue: cmp.year!, asFuture: isFuture, args: abs(fDate.year))
+            return (colloquial_date,colloquial_time)
+        }
 
-		// This represent the difference, expressed in hours, between our two dates
-		let diff_in_hours: Int = Int((diff_in_seconds / 60 / 60))
-		let diff_days: Int! = abs(cmp.day ?? 0)
-		
-		if diff_in_hours < 24 && diff_days == 0 {
-			// Difference between dates is less than 24 hours
-			// We want to print hour differences in this case
-			let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
-			let colloquial_date = try self.localized(unit: .hour, withValue: diff_in_hours, asFuture: isFuture, args: abs(diff_in_hours))
-			return (colloquial_date,colloquial_time)
-			
-		} else if (diff_days > 0 || !hasLowerAllowedComponents(than: .day)) {
-			// Difference is more than 1 days
-			if diff_in_hours > 48 {
-				if diff_days >= DAYS_IN_WEEK {
-					// More than 7 days, we want to print weeks unit
-					let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
-					let weeksNo = (abs(cmp.day!) / DAYS_IN_WEEK)
-					let colloquial_date = try self.localized(unit: .weekOfYear, withValue: weeksNo, asFuture: isFuture, args: weeksNo)
-					return (colloquial_date,colloquial_time)
-				} else {
-					// Between 2 days and 6 days, we want to print days
-					let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
-					let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: abs(cmp.day!))
-					return (colloquial_date,colloquial_time)
-				}
-			} else {
-				// Less than a day, dates may live in two days but the difference maybe few hours
-				// For example 05/01 23:00 <-> 06/01 01:30 -> differences is 2:30 hours and not one day.
-				let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
-				let colloquial_date = try self.localized(unit: .hour, withValue: diff_in_hours, asFuture: isFuture, args: abs(diff_in_hours))
-				return (colloquial_date,colloquial_time)
-			}
-		}
-	
-		if cmp.hour != nil && (cmp.hour != 0 || !hasLowerAllowedComponents(than: .hour)) {
-			let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
-			let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
-			return (colloquial_date,colloquial_time)
-		}
-		
-		if cmp.minute != nil && (cmp.minute != 0 || !hasLowerAllowedComponents(than: .minute)) {
-			if let value = self.imminentInterval, (value > 1 && value < 60), (abs(cmp.minute!) < value) {
-				// A valid `imminentInterval` should be set. Valid interval must be between 1 and 60 minutes (not inclueded)
-				let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
-				return (colloquial_date,nil)
-			}
-			// otherwise fallback to difference
-			let colloquial_date = try self.localized(unit: .minute, withValue: cmp.minute!, asFuture: isFuture, args: abs(cmp.minute!))
-			return (colloquial_date,nil)
-		}
-		
-		if cmp.second != nil && (cmp.second != 0 || cmp.second == 0) { // Seconds difference
-			let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
-			return (colloquial_date,nil)
-		}
+        if cmp.month != nil && (cmp.month != 0 || !hasLowerAllowedComponents(than: .month)) {
+            let colloquial_time = try self.colloquial_time(forUnit: .month, withValue: cmp.month!, date: fDate)
+            let colloquial_date = try self.localized(unit: .month, withValue: cmp.month!, asFuture: isFuture, args: abs(cmp.month!))
+            return (colloquial_date,colloquial_time)
+        }
+
+        if cmp.day != nil && (cmp.day != 0 || !hasLowerAllowedComponents(than: .day)) {
+            // Week ago
+            if cmp.day! >= DAYS_IN_WEEK {
+                let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
+                let weeksNo = (abs(cmp.day!) / DAYS_IN_WEEK)
+                let colloquial_date = try self.localized(unit: .weekOfYear, withValue: weeksNo, asFuture: isFuture, args: weeksNo)
+                return (colloquial_date,colloquial_time)
+            }
+            // Day ago
+            let colloquial_time = try self.colloquial_time(forUnit: .day, withValue: cmp.day!, date: fDate)
+            let colloquial_date = try self.localized(unit: .day, withValue: cmp.day!, asFuture: isFuture, args: abs(cmp.day!))
+            return (colloquial_date,colloquial_time)
+        }
+
+        if cmp.hour != nil && (cmp.hour != 0 || !hasLowerAllowedComponents(than: .hour)) {
+            let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
+            let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
+            return (colloquial_date,colloquial_time)
+        }
+
+        if cmp.minute != nil && (cmp.minute != 0 || !hasLowerAllowedComponents(than: .minute)) {
+            if let value = self.imminentInterval, (value > 1 && value < 60), (abs(cmp.minute!) < value) {
+                // A valid `imminentInterval` should be set. Valid interval must be between 1 and 60 minutes (not inclueded)
+                let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
+                return (colloquial_date,nil)
+            }
+            // otherwise fallback to difference
+            let colloquial_date = try self.localized(unit: .minute, withValue: cmp.minute!, asFuture: isFuture, args: abs(cmp.minute!))
+            return (colloquial_date,nil)
+        }
+
+        if cmp.second != nil && (cmp.second != 0 || cmp.second == 0) { // Seconds difference
+            let colloquial_date = try self.stringLocalized(identifier: "colloquial_now", arguments: [])
+            return (colloquial_date,nil)
+        }
 		
 		throw DateError.FailedToCalculate
 	}

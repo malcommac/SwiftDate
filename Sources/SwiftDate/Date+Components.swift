@@ -125,6 +125,12 @@ public extension Date {
 		return self.inDateDefaultRegion().weekdayName
 	}
 	
+	/// Weekday short name
+	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used
+	public var weekdayShortName: String {
+		return self.inDateDefaultRegion().weekdayShortName
+	}
+	
 	/// Number of days into current's date month expressed in the context of `defaultRegion`.
 	public var monthDays: Int {
 		return self.inDateDefaultRegion().monthDays
@@ -243,7 +249,31 @@ public extension Date {
 	/// Calculation is made in the context of `defaultRegion`.
 	public var isInFuture: Bool {
 		return self.inDateDefaultRegion().isInFuture
-	}
+    }
+    
+    /// Returns whether the given date is in the morning.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isMorning: Bool {
+        return self.inDateDefaultRegion().isMorning
+    }
+    
+    /// Returns whether the given date is in the afternoon.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isAfternoon: Bool {
+        return self.inDateDefaultRegion().isAfternoon
+    }
+    
+    /// Returns whether the given date is in the evening.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isEvening: Bool {
+        return self.inDateDefaultRegion().isEvening
+    }
+    
+    /// Returns whether the given date is in the night.
+    /// Calculation is made in the context of `defaultRegion`.
+    public var isNight: Bool {
+        return self.inDateDefaultRegion().isNight
+    }
 	
 	/// Returns whether the given date is on the same day as the receiver in the time zone and calendar of the receiver.
 	/// Calculation is made in the context of `defaultRegion`.
@@ -306,11 +336,9 @@ public extension Date {
 	/// - parameter minute: the minute value
 	/// - parameter second: the second value
 	///
-	/// - throws: throw a `FailedToCalculate` exception of the new date cannot be evaluated.
-	///
 	/// - returns: a new `Date` object calculated at given time
-	public func atTime(hour: Int, minute: Int, second: Int) throws -> Date {
-		return try self.inDateDefaultRegion().atTime(hour: hour, minute: minute, second: second).absoluteDate
+	public func atTime(hour: Int, minute: Int, second: Int) -> Date? {
+		return self.inDateDefaultRegion().atTime(hour: hour, minute: minute, second: second)?.absoluteDate
 	}
 	
 	/// Create a new instance calculated by setting a specific component of a given date to a given value, while trying to keep lower
@@ -319,11 +347,9 @@ public extension Date {
 	/// - parameter unit:  The unit to set with the given value
 	/// - parameter value: The value to set for the given calendar unit.
 	///
-	/// - throws: throw a `FailedToCalculate` exception of the new date cannot be evaluated.
-	///
 	/// - returns: a new `Date` object calculated at given unit value
-	public func at(unit: Calendar.Component, value: Int) throws -> Date {
-		return try self.inDateDefaultRegion().at(unit: unit, value: value).absoluteDate
+	public func at(unit: Calendar.Component, value: Int) -> Date? {
+		return self.inDateDefaultRegion().at(unit: unit, value: value)?.absoluteDate
 	}
 	
 	/// Create a new instance calculated by setting a list of components of a given date to given values (components
@@ -331,10 +357,59 @@ public extension Date {
 	///
 	/// - parameter dict: a dictionary with `Calendar.Component` and it's value
 	///
-	/// - throws: throw a `FailedToSetComponent` exception.
+	/// - throws: throw a `FailedToCalculate` exception.
 	///
 	/// - returns: a new `Date` object calculated at given units values
+	@available(*, deprecated: 4.1.0, message: "This method has know issues. Use at(values:keep:) instead")
 	public func at(unitsWithValues dict: [Calendar.Component : Int]) throws -> Date {
 		return try self.inDateDefaultRegion().at(unitsWithValues: dict).absoluteDate
+	}
+	
+	/// Create a new instance of the date by keeping passed calendar components and alter
+	///
+	/// - Parameters:
+	///   - values: values to alter in new instance
+	///   - keep: values to keep from self instance
+	/// - Returns: a new instance of `DateInRegion` with passed altered values
+	public func at(values: [Calendar.Component : Int], keep: Set<Calendar.Component>) -> Date? {
+		return self.inDateDefaultRegion().at(values: values, keep: keep)?.absoluteDate
+	}
+	
+	/// Returns a `Date` object representing a date that is the earliest (old) from a given range
+	/// of dates.
+	/// The dates are compared in absolute time, i.e. time zones, locales and calendars have no
+	/// effect on the comparison.
+	///
+	/// - parameter list: a list of `Date` to evaluate
+	///
+	/// - returns: a `DateInRegion` object representing a date that is the earliest from a given
+	///            range of dates.
+	public static func oldestDate(_ list: [Date]) -> Date {
+		var currentMinimum = Date.distantFuture
+		list.forEach { cDate in
+			if currentMinimum > cDate {
+				currentMinimum = cDate
+			}
+		}
+		return currentMinimum
+	}
+	
+	
+	/// Returns a Date object representing a date that is the latest from a given range of
+	/// dates. The dates are compared in absolute time, i.e. time zones, locales and calendars have
+	/// no effect on the comparison.
+	///
+	/// - parameter list: a list of `Date` to evaluate
+	///
+	/// - returns: a `DateInRegion` object representing a date that is the latest from a given
+	///     range of dates.
+	public static func recentDate(_ list: [Date]) -> Date {
+		var currentMaximum = Date.distantPast
+		list.forEach { cDate in
+			if currentMaximum < cDate {
+				currentMaximum = cDate
+			}
+		}
+		return currentMaximum
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "080BA35D1D95AC87008B60B4"
+               BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
                BuildableName = "SwiftDate.framework"
-               BlueprintName = "SwiftDate_macOS"
+               BlueprintName = "SwiftDate"
                ReferencedContainer = "container:SwiftDate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0812F98E1D9296AD00F65854"
-               BuildableName = "SwiftDate-macOSTests.xctest"
-               BlueprintName = "SwiftDate-macOSTests"
+               BlueprintIdentifier = "08EC22EE1DA03F9D00B6DFC6"
+               BuildableName = "SwiftDateTests.xctest"
+               BlueprintName = "SwiftDateTests"
                ReferencedContainer = "container:SwiftDate.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "080BA35D1D95AC87008B60B4"
+            BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
             BuildableName = "SwiftDate.framework"
-            BlueprintName = "SwiftDate_macOS"
+            BlueprintName = "SwiftDate"
             ReferencedContainer = "container:SwiftDate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "080BA35D1D95AC87008B60B4"
+            BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
             BuildableName = "SwiftDate.framework"
-            BlueprintName = "SwiftDate_macOS"
+            BlueprintName = "SwiftDate"
             ReferencedContainer = "container:SwiftDate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "080BA35D1D95AC87008B60B4"
+            BlueprintIdentifier = "21C3010A1D829C8B00B0E02C"
             BuildableName = "SwiftDate.framework"
-            BlueprintName = "SwiftDate_macOS"
+            BlueprintName = "SwiftDate"
             ReferencedContainer = "container:SwiftDate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

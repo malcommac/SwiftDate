@@ -42,153 +42,139 @@ class DateInRegionTest: XCTestCase {
 		components.hour = 10
 		components.timeZone = TimeZoneName.europeRome.timeZone
 		components.calendar = CalendarName.current.calendar
-		do {
-			// Created DateInRegion instance should report +1 date due to light saving time in Feb
-			let regionInRome = try DateInRegion(components: components)
-			let dateInRomeAsString = regionInRome.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2016-02-04T10:00:00+01:00", dateInRomeAsString, "Failed to generate a valid date in a region from a component dictionary")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from components dictionary: \(err)")
+		
+		// Created DateInRegion instance should report +1 date due to light saving time in Feb
+		guard let regionInRome = DateInRegion(components: components) else {
+			XCTAssert(false, "Failed to create DateInRegion from components")
+			return
 		}
+		let dateInRomeAsString = regionInRome.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2016-02-04T10:00:00+01:00", dateInRomeAsString, "Failed to generate a valid date in a region from a component dictionary")
 	}
 	
 	func testDateInRegionInit_ComponentsDict() {
-		do {
-			let regionRome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
-			let cmpDict: [Calendar.Component : Int] = [.year: 2016, .month: 9, .day: 14, .hour: 7]
-			let regionInRome = try DateInRegion(components: cmpDict, fromRegion: regionRome)
-			let dateInRomeAsString = regionInRome.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2016-09-14T07:00:00+02:00", dateInRomeAsString, "Failed to generate a valid date in a region")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from components: \(err)")
+		let regionRome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
+		let cmpDict: [Calendar.Component : Int] = [.year: 2016, .month: 9, .day: 14, .hour: 7]
+		guard let regionInRome =  DateInRegion(components: cmpDict, fromRegion: regionRome) else {
+			XCTAssert(false, "Failed to create DateInRegion from components")
+			return
 		}
+		let dateInRomeAsString = regionInRome.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2016-09-14T07:00:00+02:00", dateInRomeAsString, "Failed to generate a valid date in a region")
 	}
 	
 	func testDateInRegionInit_StringCustom() {
 		let customString = "090911"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .custom("ddMMyy"), fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2011-09-09T00:00:00Z", dateUTCAsString, "Failed to generate a valid date from custom string format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from custom string format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .custom("ddMMyy"), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from custom string format")
+			return
 		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2011-09-09T00:00:00Z", dateUTCAsString, "Failed to generate a valid date from custom string format")
 	}
 	
 	func testDateInRegionInit_AltRSSWithZ() {
 		let customString = "09 Sep 2011 15:26:08 Z"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2011-09-09T15:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from Alt RSS format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from Alt RSS format")
+			return
 		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2011-09-09T15:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 	}
 	
 	func testDateInRegionInit_AltRSSWithTimezone() {
 		let customString = "09 Sep 2011 15:26:08 -0400"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2011-09-09T19:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from Alt RSS format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from Alt RSS format")
+			return
 		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2011-09-09T19:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 	}
 
 	
 	func testDateInRegionInit_FromRSSWithZ() {
 		let customString = "Fri, 09 Sep 2011 15:26:08 Z"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2011-09-09T15:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from RSS format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from RSS format")
+			return
 		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2011-09-09T15:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 	}
 	
 	func testDateInRegionInit_FromRSSWithTimezone() {
 		let customString = "Fri, 09 Sep 2011 15:26:08 +0200"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2011-09-09T13:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from RSS format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from RSS format")
+			return
 		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2011-09-09T13:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 	}
 	
 	func testDateInRegionInit_FromExtended() {
 		let customString = "Fri 09-Sep-2011 AD 15:26:08.123 +0100"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .extended, fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2011-09-09T14:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from extended format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .extended, fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from extended format")
+			return
 		}
-	}
-	
-	func testDateInRegionInit_ISO8601Fail() {
-		let customString = "2015-01-05T22:10:abc"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .iso8601(options: .withFullTime), fromRegion: Region.GMT())
-			XCTAssertNil(dateInUTC, "Parser should fail here")
-		} catch {
-		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2011-09-09T14:26:08Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
 	}
 	
 	func testDateInRegion_ISO8601_NoZ() {
 		let customString = "2015-01-05T22:10:55+0200"
-		do {
-			let dateInUTC = try DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTime), fromRegion: Region.GMT())
-			let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
-			XCTAssertEqual("2015-01-05T20:10:55Z", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
-		} catch let err {
-			XCTAssert(false, "Failed to create a region from ISO8601 format: \(err)")
+		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTime), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from ISO8601 format")
+			return
 		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTime))
+		XCTAssertEqual("2015-01-05T22:10:55+02:00", dateUTCAsString, "Failed to generate a valid date from Alt RSS format")
     }
     
     func testDateInRegion_ISO8601InternetDateTimesExtendedWithZ() {
         let customString = "2016-09-05T04:38:04.746Z"
-        do {
-            let dateInUTC = try DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMT())
-            let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTimeExtended))
-            XCTAssertEqual("2016-09-05T04:38:04.746Z", dateUTCAsString, "Failed to generate a valid date from ISO8601 internet date times extended format")
-        } catch let err {
-            XCTAssert(false, "Failed to create a region from ISO8601 internet date times extended format: \(err)")
-        }
+		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from ISO8601 internet date times extended format")
+			return
+		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTimeExtended))
+		XCTAssertEqual("2016-09-05T04:38:04.000Z", dateUTCAsString, "Failed to generate a valid date from ISO8601 internet date times extended format")
     }
     
     func testDateInRegion_ISO8601InternetDateTimesExtendedWithTimezone() {
         let customString = "2016-09-05T04:38:04.746+0200"
-        do {
-            let dateInUTC = try DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMT())
-            let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTimeExtended))
-            XCTAssertEqual("2016-09-05T02:38:04.746Z", dateUTCAsString, "Failed to generate a valid date from ISO8601 internet date times extended format")
-        } catch let err {
-            XCTAssert(false, "Failed to create a region from ISO8601 internet date times extended format: \(err)")
-        }
+		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMT()) else {
+			XCTAssert(false, "Failed to create a region from ISO8601 internet date times extended format")
+			return
+		}
+		let dateUTCAsString = dateInUTC.string(format: .iso8601(options: .withInternetDateTimeExtended))
+		XCTAssertEqual("2016-09-05T04:38:04.000+02:00", dateUTCAsString, "Failed to generate a valid date from ISO8601 internet date times extended format")
     }
     
     func testDateInRegion_ConversionToRegion() {
-        do {
-			let sourceRegion_Rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
-			let destRegion_NY = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.current)
-			
-			let cmpDict: [Calendar.Component : Int] = [.year: 2016, .month: 9, .day: 14, .hour: 7]
-			
-			let srcDateInRegion = try DateInRegion(components: cmpDict, fromRegion: sourceRegion_Rome)
-			let dstDateInRegion = srcDateInRegion.toRegion(destRegion_NY)
+		let sourceRegion_Rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
+		let destRegion_NY = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.current)
 		
-			let dstDateString = dstDateInRegion.string(format: .iso8601(options: .withInternetDateTime))
-			print(dstDateString)
-			XCTAssertEqual("2016-09-14T01:00:00-04:00", dstDateString, "Failed to convert a date from a region to another")
-		} catch let err {
-			XCTAssert(false, "Failed to convert a date from a region to another: \(err)")
+		let cmpDict: [Calendar.Component : Int] = [.year: 2016, .month: 9, .day: 14, .hour: 7]
+		
+		guard let srcDateInRegion = DateInRegion(components: cmpDict, fromRegion: sourceRegion_Rome) else {
+			XCTAssert(false, "Failed to convert a date from a region to another")
+			return
 		}
-
+		let dstDateInRegion = srcDateInRegion.toRegion(destRegion_NY)
+		
+		let dstDateString = dstDateInRegion.string(format: .iso8601(options: .withInternetDateTime))
+		print(dstDateString)
+		XCTAssertEqual("2016-09-14T01:00:00-04:00", dstDateString, "Failed to convert a date from a region to another")
+	}
+	
+	func testDateFirstDayOfWeek() {
+		var region = Region(tz: TimeZoneName.europeParis, cal: CalendarName.gregorian, loc: LocaleName.frenchFrance)
+		region.firstWeekday = .monday
+		let new_date = DateInRegion(absoluteDate: Date(), in: region)
+		XCTAssertEqual("lundi", new_date.startWeek.weekdayName, "Failed to set the firstWeekday for a Region")
 	}
 }

@@ -98,6 +98,17 @@ public struct Region: CustomStringConvertible {
 		let loc = (auto ? Locale.autoupdatingCurrent : Locale.current)
 		return Region(tz: tz, cal: cal, loc: loc)
 	}
+		
+	/// Identify the first weekday of the calendar.
+	/// By default is `sunday`.
+	public var firstWeekday: WeekDay {
+		set {
+			self.calendar.firstWeekday = newValue.rawValue
+		}
+		get {
+			return WeekDay(rawValue: self.calendar.firstWeekday)!
+		}
+	}
 
 }
 

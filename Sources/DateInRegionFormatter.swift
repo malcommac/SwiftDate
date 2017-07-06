@@ -191,7 +191,8 @@ public class DateInRegionFormatter {
 		let isFuture = (fDate > tDate)
         if cmp.year != nil && (cmp.year != 0 || !hasLowerAllowedComponents(than: .year)) {
             let colloquial_time = try self.colloquial_time(forUnit: .year, withValue: cmp.year!, date: fDate)
-            let colloquial_date = try self.localized(unit: .year, withValue: cmp.year!, asFuture: isFuture, args: abs(fDate.year))
+			let value = (cmp.year == 1 ? cmp.year! : fDate.year)
+            let colloquial_date = try self.localized(unit: .year, withValue: value, asFuture: isFuture, args: abs(value))
             return (colloquial_date,colloquial_time)
         }
 
@@ -200,7 +201,7 @@ public class DateInRegionFormatter {
             let colloquial_date = try self.localized(unit: .month, withValue: cmp.month!, asFuture: isFuture, args: abs(cmp.month!))
             return (colloquial_date,colloquial_time)
         }
-
+		
         if cmp.day != nil && (cmp.day != 0 || !hasLowerAllowedComponents(than: .day)) {
             // Week ago
             if cmp.day! >= DAYS_IN_WEEK {
@@ -216,9 +217,9 @@ public class DateInRegionFormatter {
         }
 
         if cmp.hour != nil && (cmp.hour != 0 || !hasLowerAllowedComponents(than: .hour)) {
-            let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
-            let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
-            return (colloquial_date,colloquial_time)
+			let colloquial_time = try self.colloquial_time(forUnit: .hour, withValue: cmp.hour!, date: fDate)
+			let colloquial_date = try self.localized(unit: .hour, withValue: cmp.hour!, asFuture: isFuture, args: abs(cmp.hour!))
+			return (colloquial_date,colloquial_time)
         }
 
         if cmp.minute != nil && (cmp.minute != 0 || !hasLowerAllowedComponents(than: .minute)) {

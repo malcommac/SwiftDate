@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.1.6](#416)**
 * Version **[4.1.2](#412)**
 * Version **[4.1.1](#411)**
 * Version **[4.1.0](#410)**
@@ -23,6 +24,19 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="416" />
+
+## SwiftDate 4.1.6
+---
+- **Release Date**: 2017-07-06
+- **Zipped Version**: [Download 4.1.6](https://github.com/malcommac/SwiftDate/releases/tag/4.1.6)
+
+#### New Features
+- [#446](https://github.com/malcommac/SwiftDate/pull/446) Added Hungarian support (thanks to @iKiKi)
+
+#### Fixes
+- [#445](https://github.com/malcommac/SwiftDate/pull/445) Fixed an issue which causes wrong results while using algebra operations with time components.
 
 <a name="412" />
 

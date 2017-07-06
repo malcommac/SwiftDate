@@ -1,18 +1,19 @@
-Pod::Spec.new do |spec|
-  spec.name = 'SwiftDate'
-  spec.version = '4.1.2'
-  spec.summary = 'The best way to deal with Dates & Time Zones in Swift'
-  spec.homepage = 'https://github.com/malcommac/SwiftDate'
-  spec.license = { :type => 'MIT', :file => 'LICENSE' }
-  spec.author = { 'Daniele Margutti' => 'me@danielemargutti.com' }
-  spec.social_media_url = 'http://twitter.com/danielemargutti'
-  spec.source = { :git => 'https://github.com/malcommac/SwiftDate.git', :tag => "#{spec.version}" }
-  spec.source_files = 'Sources/**/*.swift'
-  spec.ios.deployment_target = '8.0'
-  spec.watchos.deployment_target = '2.0'
-  spec.osx.deployment_target = '10.10'
-  spec.tvos.deployment_target = '9.0'
-  spec.requires_arc = true
-  spec.module_name = 'SwiftDate'
-  spec.resource = 'Sources/SwiftDate/SwiftDate.bundle'
+Pod::Spec.new do |s|
+  s.name         = "SwiftDate"
+  s.version      = "4.1.6"
+  s.summary      = "The best way to deal with Dates & Time Zones in Swift"
+  s.homepage     = "https://github.com/malcommac/SwiftDate"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.author             = { "Daniele Margutti" => "me@danielemargutti.com" }
+  s.social_media_url   = "http://twitter.com/danielemargutti"
+  s.ios.deployment_target = "8.0"
+  s.osx.deployment_target = "10.10"
+  s.watchos.deployment_target = "2.0"
+  s.tvos.deployment_target = "9.0"
+  s.source       = { :git => "https://github.com/malcommac/SwiftDate.git", :tag => s.version.to_s }
+  s.source_files  = "Sources/**/*.swift"
+  s.frameworks  = "Foundation"
+  s.requires_arc = true
+  s.module_name = 'SwiftDate'
+  s.resource = 'Sources/SwiftDate/SwiftDate.bundle'
 end

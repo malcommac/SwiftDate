@@ -45,6 +45,19 @@ class TestDateInRegion_Components: XCTestCase {
 		}
 	}
 	
+	func testComponentsSum() {
+		let date = Date()
+		let timeInterval_1 = date - (date - (1.hour + 1.minute))
+		XCTAssertEqual(timeInterval_1, 3660, "Failed sum date components")
+
+		let timeInterval_2 = date - (date - (61.minute))
+		XCTAssertEqual(timeInterval_2, 3660, "Failed sum date components")
+
+		let timeInterval_3 = date - (date - (1.hour && 1.minute))
+		XCTAssertEqual(timeInterval_3, 3660, "Failed sum date components")
+		
+	}
+	
 	func testDifferentRegionComponents_YWD() {
 		let c: [Calendar.Component : Int] = [.era: 1, .yearForWeekOfYear: 2, .weekOfYear: 3, .weekday: 4]
 		let date = DateInRegion(components: c, fromRegion: nil)!

@@ -30,7 +30,7 @@
 
 ## SwiftDate 4.1.7
 ---
-- **Release Date**: -
+- **Release Date**: 2017-07-16
 - **Zipped Version**: [Download 4.1.7](https://github.com/malcommac/SwiftDate/releases/tag/4.1.7)
 
 #### New Features

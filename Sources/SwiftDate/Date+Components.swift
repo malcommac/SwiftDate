@@ -334,6 +334,28 @@ public extension Date {
 		return self.inDefaultRegion().prevMonth(at: time).absoluteDate
 	}
 	
+	/// Return the date by subtracting one week from the current date
+	/// Calculation is made in the context of `defaultRegion`.
+	///
+	/// - Parameter time:	when `.auto` evaluated date is calculated by adding one week to the current date.
+	///						If you pass `.start` result date is the first day of the previous week (at 00:00:00).
+	///						If you pass `.end` result date is the last day of the previous week (at 23:59:59).
+	/// - Returns: the new date at the previous week
+	public func prevWeek(at time: TimeReference) -> Date {
+		return self.inDefaultRegion().prevWeek(at: time).absoluteDate
+	}
+	
+	/// Return the date by adding one week from the current date
+	/// Calculation is made in the context of `defaultRegion`.
+	///
+	/// - Parameter time:	when `.auto` evaluated date is calculated by adding one week to the current date.
+	///						If you pass `.start` result date is the first day of the next week (at 00:00:00).
+	///						If you pass `.end` result date is the last day of the next week (at 23:59:59).
+	/// - Returns: the new date at the next week
+	public func nextWeek(at time: TimeReference) -> Date {
+		return self.inDefaultRegion().nextWeek(at: time).absoluteDate
+	}
+	
 	/// Takes a date unit and returns a date at the start of that unit.
 	/// Calculation is made in the context of `defaultRegion`.
 	///

@@ -39,6 +39,7 @@
 #### Fixes
 - [#449](https://github.com/malcommac/SwiftDate/pull/445) Deprecated `nextMonth` and `prevMonth` of both `Date` and `DateInRegion`. You can use the func with the same name.
 - [#455](https://github.com/malcommac/SwiftDate/pull/455) ISO8601 Parser now correctly handles milliseconds value from an ISO8601 date string.
+- [#450](https://github.com/malcommac/SwiftDate/pull/450) Fixes for translation fallback when no locale region is available (ie. fallback to `ar` when no `ar-SA` is available; final fallback still on `en`).
 
 
 <a name="416" />

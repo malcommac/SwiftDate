@@ -35,9 +35,9 @@
 "colloquial_n_0m"					=	"este mes";			// this month
 "colloquial_n_0w"					=	"esta semana";		// this week
 "colloquial_n_0d"					=	"hoy";				// this day
-"colloquial_n_0h"					=	"now";				// this hour
-"colloquial_n_0M"					=	"now";				// this minute
-"colloquial_n_0s"					=	"now";				// this second
+"colloquial_n_0h"					=	"ahora mismo";				// this hour
+"colloquial_n_0M"					=	"ahora mismo";				// this minute
+"colloquial_n_0s"					=	"ahora mismo";				// this second
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"

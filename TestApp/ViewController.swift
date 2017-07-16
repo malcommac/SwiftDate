@@ -18,9 +18,9 @@ class ViewController: UIViewController {
 
 		let gmt = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
 		let startDate = DateInRegion(string: "2017-07-16 16:00:00 +0000", format: .iso8601Auto, fromRegion: gmt)!
-		var nextWeek = startDate.prevWeek(at: .start)
+		var nextWeek = startDate.prevMonth(at: .start)
 		for _ in 0..<10 {
-			nextWeek = nextWeek.nextWeek(at: .end)
+			nextWeek = nextWeek.nextMonth(at: .start)
 			print(nextWeek.string(format: .iso8601Auto))
 		}
 

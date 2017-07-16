@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.1.7](#417)**
 * Version **[4.1.6](#416)**
 * Version **[4.1.2](#412)**
 * Version **[4.1.1](#411)**
@@ -24,6 +25,21 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="417" />
+
+## SwiftDate 4.1.7
+---
+- **Release Date**: -
+- **Zipped Version**: [Download 4.1.7](https://github.com/malcommac/SwiftDate/releases/tag/4.1.7)
+
+#### New Features
+- [#449](https://github.com/malcommac/SwiftDate/pull/449) Added `nextMonth()`, `prevMonth()`, `nextWeek()` and `prevWeek()`. All of these functions accepts a `TimeReference` params which allows to specify how the date should be returned (at the `start` or `end` of time component, or leave calculation unaltered).
+
+#### Fixes
+- [#449](https://github.com/malcommac/SwiftDate/pull/445) Deprecated `nextMonth` and `prevMonth` of both `Date` and `DateInRegion`. You can use the func with the same name.
+
+
 
 <a name="416" />
 

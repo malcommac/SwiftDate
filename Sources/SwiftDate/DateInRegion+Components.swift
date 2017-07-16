@@ -411,6 +411,7 @@ extension DateInRegion {
 	}
 	
 	/// Return a new instance of the date plus one month
+	@available(*, deprecated: 4.1.7, message: "Use nextMonth() function instead")
 	public var nextMonth: DateInRegion {
 		let refDate = self.startOfDay.absoluteDate
 		let nextMonth = self.region.calendar.date(byAdding: .month, value: 1, to: refDate)
@@ -418,10 +419,47 @@ extension DateInRegion {
 	}
 	
 	/// Return a new instance of the date minus one month
+	@available(*, deprecated: 4.1.7, message: "Use prevMonth() function instead")
 	public var prevMonth: DateInRegion {
 		let refDate = self.startOfDay.absoluteDate
 		let prevMonth = self.region.calendar.date(byAdding: .month, value: -1, to: refDate)
 		return DateInRegion(absoluteDate: prevMonth!, in: self.region)
+	}
+	
+	/// Return the date by adding one month to the current date
+	///
+	/// - Parameter time:	when `.auto` evaluated date is calculated by adding one month to the current date.
+	///						If you pass `.start` result date is the first day of the next month (at 00:00:00).
+	///						If you pass `.end` result date is the last day of the next month (at 23:59:59).
+	/// - Returns: the new date at the next month
+	public func nextMonth(at time: TimeReference = .auto) -> DateInRegion {
+		return dateByAddingMonth(value: 1, at: time)
+	}
+	
+	/// Return the date by subtracting one month from the current date
+	///
+	/// - Parameter time:	when `.auto` evaluated date is calculated by subtracting one month to the current date.
+	///						If you pass `.start` result date is the first day of the previous month (at 00:00:00).
+	///						If you pass `.end` result date is the last day of the previous month (at 23:59:59).
+	/// - Returns: the new date at the next month
+	public func prevMonth(at time: TimeReference = .auto) -> DateInRegion {
+		return dateByAddingMonth(value: -1, at: time)
+	}
+	
+	/// Internal function used to calculate the next/prev month of a data
+	///
+	/// - Parameters:
+	///   - value: increment value for month component
+	///   - referenced: how the final date should be calculated (see `nextMonth()` or `prevMonth()` funcs for details)
+	/// - Returns: the new date
+	private func dateByAddingMonth(value: Int, at time: TimeReference) -> DateInRegion {
+		var date = self.region.calendar.date(byAdding: .month, value: value, to: self.absoluteDate)!
+		switch time {
+		case .start:	date = date.startOf(component: .month).startOfDay
+		case .end:		date = date.endOf(component: .month).endOfDay
+		case .auto:		break // unaltered, result of adding/subtracting `value` from date
+		}
+		return DateInRegion(absoluteDate: date, in: self.region)
 	}
 	
 	/// Return the next weekday after today.

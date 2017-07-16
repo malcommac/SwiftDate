@@ -474,13 +474,15 @@ extension DateInRegion {
 	///   - reference: how the final date should be calculated (see `nextMonth()` or `prevMonth()` funcs for details)
 	/// - Returns: the new date
 	private func dateByAdding(value: Int, to component: Calendar.Component, at reference: TimeReference) -> DateInRegion {
-		var date = self.region.calendar.date(byAdding: component, value: value, to: self.absoluteDate)!
+		let newAbsoluteDate = self.region.calendar.date(byAdding: component, value: value, to: self.absoluteDate)!
+		var newDate = DateInRegion(absoluteDate: newAbsoluteDate, in: self.region)
+		
 		switch reference {
-		case .start:	date = date.startOf(component: .month).startOfDay
-		case .end:		date = date.endOf(component: .month).endOfDay
+		case .start:	newDate = newDate.startOf(component: component).startOfDay
+		case .end:		newDate = newDate.endOf(component: component).endOfDay
 		case .auto:		break // unaltered, result of adding/subtracting `value` from date
 		}
-		return DateInRegion(absoluteDate: date, in: self.region)
+		return newDate
 	}
 	
 	/// Return the next weekday after today.

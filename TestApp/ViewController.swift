@@ -15,13 +15,15 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		Date.setDefaultRegion(Region.GMT())
-		let endMonth = Date().endOf(component: .month) // 2017-07-31 21:59:59 +0000
-		var currentStartMonth = endMonth.prevMonth(at: .start)
+
+		let gmt = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
+		let startDate = DateInRegion(string: "2017-07-16 16:00:00 +0000", format: .iso8601Auto, fromRegion: gmt)!
+		var nextWeek = startDate.prevWeek(at: .start)
 		for _ in 0..<10 {
-			currentStartMonth = currentStartMonth.nextMonth(at: .start)
-			print(currentStartMonth)
+			nextWeek = nextWeek.nextWeek(at: .end)
+			print(nextWeek.string(format: .iso8601Auto))
 		}
+
 
 		
 		/*var currentEndMonth = endMonth.prevMonth.endOf(component: .month)

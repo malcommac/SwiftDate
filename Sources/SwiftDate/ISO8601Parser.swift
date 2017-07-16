@@ -145,6 +145,9 @@ public class ISO8601Parser {
 		/// Parsed seconds value
 		var seconds:		TimeInterval = 0.0
 		
+		/// Parsed nanoseconds value
+		var nanoseconds:	TimeInterval = 0.0
+		
 		/// Parsed weekday number (1=monday, 7=sunday)
 		/// If `nil` source string has not specs about weekday.
 		var weekday:		Int? = nil
@@ -346,12 +349,17 @@ public class ISO8601Parser {
 							date.seconds = date.seconds * 60
 						} else if current() == time_sep {
 							next()
-							date.seconds = try read_double().value
+						//	date.seconds = try read_double().value
+							let value = try modf(read_double().value)
+							date.nanoseconds = TimeInterval(round(value.1 * 1000) * 1000000)
+							date.seconds = TimeInterval(value.0)
 						}
 					} else {
 						// fractional minutes
 						next()
-						date.seconds = try read_double().value
+						let value = try modf(read_double().value)
+						date.nanoseconds = TimeInterval(round(value.1 * 1000) * 1000000)
+						date.seconds = TimeInterval(value.0)
 					}
 				}
 			}
@@ -400,6 +408,7 @@ public class ISO8601Parser {
 		self.date_components!.hour = date.hour
 		self.date_components!.minute = Int(date.minute)
 		self.date_components!.second = Int(date.seconds)
+		self.date_components!.nanosecond = Int(date.nanoseconds)
 		
 		switch date.type {
 		case .monthAndDate:

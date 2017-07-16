@@ -24,6 +24,23 @@
 
 import Foundation
 
+/// Time interval reference
+///
+/// - start: start of the specified component
+/// - end: end of the specified component
+/// - auto: value is the result of the operation
+public enum TimeReference {
+	case start
+	case end
+	case auto
+}
+
+
+/// Rounding mode of the interval
+///
+/// - round: round
+/// - ceil: ceil
+/// - floor: floor
 public enum IntervalRoundingType {
 	case round
 	case ceil

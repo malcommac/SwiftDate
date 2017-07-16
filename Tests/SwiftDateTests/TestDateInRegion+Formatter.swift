@@ -23,6 +23,18 @@ class TestDateInRegion_Formatter: XCTestCase {
 		super.tearDown()
 	}
 	
+	public func test_iso8601_milliseconds() {
+		// Test milliseconds support of the ISO8601 parser
+		let string = "2017-07-16T03:54:37.800Z"
+		let date = DateInRegion(
+			string: string,
+			format: .iso8601(options: .withInternetDateTimeExtended),
+			fromRegion: Region.GMT()
+		)
+		let str = date!.string(format: .iso8601(options: .withInternetDateTimeExtended))
+		XCTAssertEqual(str, "2017-07-16T03:54:37.800Z", "Failed to keep correct milliseconds information from ISO8601 datetime")
+	}
+	
 	public func test_toString() {
 		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
 		guard let testDate = DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome) else {

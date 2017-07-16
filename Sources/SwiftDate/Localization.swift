@@ -64,13 +64,18 @@ public class Localization {
 		self.locale = locale ?? Locale.current
 		
 		let resourceBundle = Localization.resourceBundle()!
-		let localeID = self.locale!.collatorIdentifier
+		let localeID = self.locale!.collatorIdentifier?.replacingOccurrences(of: "_", with: "-")
 		guard let innerLanguagePath = resourceBundle.path(forResource: localeID, ofType: "lproj") else {
 			
 			//fallback to language only
 			if let languageCode = self.locale!.languageCode {
 				//example : get french traduction even though you are live in belgium
 				if let localOnlyPath = resourceBundle.path(forResource: "\(languageCode)-\(languageCode.uppercased())"  , ofType: "lproj") {
+					self.bundle = Bundle(path: localOnlyPath)
+					return
+				}
+				// Sigle locale (ie. 'ar')
+				if let localOnlyPath = resourceBundle.path(forResource: "\(languageCode)"  , ofType: "lproj") {
 					self.bundle = Bundle(path: localOnlyPath)
 					return
 				}

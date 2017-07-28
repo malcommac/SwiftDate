@@ -27,7 +27,7 @@
 "colloquial_f_M"					=	"za jednu minútu";	// minute,future,singular:	"in one minute"
 "colloquial_f_MM"					=	"za %d minúty";	// minute,future,plural:	"in 3 minutes"
 "colloquial_p_M"					=	"pred minútou";	// minute,past,singular:	"one minute ago"
-"colloquial_p_MM"					=	"pred %d minítami";	// minute,past,plural:		"3 minutes ago"
+"colloquial_p_MM"					=	"pred %d minútami";	// minute,past,plural:		"3 minutes ago"
 
 "colloquial_now"					=	"práve teraz";			// less than 5 minutes if .allowsNowOnColloquial is set
 

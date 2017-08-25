@@ -1,0 +1,56 @@
+// COLLOQUIAL STRINGD
+"colloquial_f_y"					=	"gələn il";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"%d";			// year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"keçən il";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d";				// year,past,plural:		"2015"
+
+"colloquial_f_m"					=	"gələn ay";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"%d ay sonra";		// month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"keçən ay";		// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"%d ay əvvəl";	// month,past,plural:		"3 months ago"
+
+"colloquial_f_w"					=	"gələn həftə";		// week,future,singular:	"next week"
+"colloquial_f_ww"					=	"%d həftə sonra";		// week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"keçən həftə";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"%d həftə əvvəl";		// week,past,plural:		"in 3 weeks"
+
+"colloquial_f_d"					=	"sabah";			// day,future,singular:		"tomorrow"
+"colloquial_f_dd"					=	"%d gün sonra";		// day,future,plural:		"in 3 days"
+"colloquial_p_d"					=	"dünən";		// day,past,singular:		"yesterday"
+"colloquial_p_dd"					=	"%d gün əvvəl";		// day,past,plural:			"3 days ago"
+
+"colloquial_f_h"					=	"bir saat sonra";		// hour,future,singular:	"in one hour"
+"colloquial_f_hh"					=	"%d saat sonra";		// hour,future,plural:		"in 3 hours"
+"colloquial_p_h"					=	"bir saat əvvəl";		// hour,past,singular:		"one hour ago"
+"colloquial_p_hh"					=	"%d saat əvvəl";		// hour,past,plural:		"3 hours ago"
+
+"colloquial_f_M"					=	"bir dəqiqə sonra";	// minute,future,singular:	"in one minute"
+"colloquial_f_MM"					=	"%d dəqiqə sonra";	// minute,future,plural:	"in 3 minutes"
+"colloquial_p_M"					=	"bir dəqiqə əvvəl";	// minute,past,singular:	"one minute ago"
+"colloquial_p_MM"					=	"%d dəqiqə əvvəl";	// minute,past,plural:		"3 minutes ago"
+
+"colloquial_now"					=	"indi";			// less than 5 minutes if .allowsNowOnColloquial is set
+
+"colloquial_n_0y"					=	"bu il";		// this year
+"colloquial_n_0m"					=	"bu ay";		// this month
+"colloquial_n_0w"					=	"bu həftə";		// this week
+"colloquial_n_0d"					=	"bu gün";			// this day
+"colloquial_n_0h"					=	"bu saat";				// this hour
+"colloquial_n_0M"					=	"bu dəqiqə";				// this minute
+"colloquial_n_0s"					=	"bu saniyə";				// this second
+
+// RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
+"relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Feb 2016)"
+"relevanttime_yy"					=	"MMM yyyy";			// for colloquial years (>1) adds a time string like this:"(Feb 2016)"
+"relevanttime_m"					=	"MMM, dd yyyy";		// for colloquial month (=+-1) adds a time string like this:"(Feb 17, 2016)"
+"relevanttime_mm"					=	"MMM, dd yyyy";		// for colloquial months (>1) adds a time string like this: "(Feb 17, 2016)"
+"relevanttime_w"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_ww"					=	"EEE, MMM dd";		// for colloquial months (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_d"					=	"EEE, MMM dd";		// for colloquial day (=+-1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_dd"					=	"EEE, MMM dd";		// for colloquial days (>1) adds a time string like this: "(Wed Feb 17)"
+"relevanttime_h"					=	"'at' HH:mm";			// for colloquial day (=+-1) adds a time string like this: "(At 13:20)"
+"relevanttime_hh"					=	"'at' HH:mm";			// for colloquial days (>1) adds a time string like this: "(At 13:20)"
+"relevanttime_M"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
+"relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+"relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print

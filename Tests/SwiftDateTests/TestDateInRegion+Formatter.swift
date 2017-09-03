@@ -314,4 +314,9 @@ class TestDateInRegion_Formatter: XCTestCase {
 		validate("09:00:00", expected: now.string(format: .custom("yyyy-MM-dd")) + "T09:00:00Z")
 	}
 	
+	func test_fallbackFromColloquialToTimeComponents() {
+		let date = DateInRegion() - 1.hour
+		let abbreviated_string = try! date.colloquialSinceNow(style: .abbreviated)
+		XCTAssertEqual(abbreviated_string.colloquial, "1h", "Failed get colloquial string in abbreviated form")
+	}
 }

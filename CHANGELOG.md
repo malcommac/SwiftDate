@@ -6,7 +6,7 @@
 
 ## CHANGELOG
 
-* Version **[4.1.7](#418)**
+* Version **[4.1.9](#419)**
 * Version **[4.1.7](#417)**
 * Version **[4.1.6](#416)**
 * Version **[4.1.2](#412)**
@@ -27,18 +27,20 @@
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
 
-<a name="418" />
+<a name="419" />
 
-## SwiftDate 4.1.8
+## SwiftDate 4.1.9
 ---
 - **Release Date**: 2017-09-03
 - **Zipped Version**: [Download 4.1.8](https://github.com/malcommac/SwiftDate/releases/tag/4.1.8)
 
-- [#470](https://github.com/malcommac/SwiftDate/pull/470) Added Azerbaijani Latin localization (by [@Elshad](https://github.com/Elshad))
-- [#468](https://github.com/malcommac/SwiftDate/pull/468) Fixed an issue with negative value in `DateTimeInterval`
-- [#464](https://github.com/malcommac/SwiftDate/pull/464) Fixed unit tests for ISO dates
-- [#461](https://github.com/malcommac/SwiftDate/pull/461) Fixed wrong localization keys in Slovak language
-
+- [#472](https://github.com/malcommac/SwiftDate/pull/472) `CalendarName` now supports `RawRepresentable` protocol
+- [#459](https://github.com/malcommac/SwiftDate/pull/459) Fixed an issue with translation of Dutch locale
+- [#463](https://github.com/malcommac/SwiftDate/pull/463) `colloquial...()` functions now fallback to `timeComponents...` functions when `style` is set to an abbreviated form (ie to return `1h`)
+- [#464](https://github.com/malcommac/SwiftDate/pull/464) Fixed unit tests for ISO8501
+- [#461](https://github.com/malcommac/SwiftDate/pull/461) Fixed translation for Slovak locale
+- [#470](https://github.com/malcommac/SwiftDate/pull/470) Added Azerbaijani Latin locale (thanks to [@elshad](https://github.com/Elshad))
+- [#468](https://github.com/malcommac/SwiftDate/pull/468) Fixed an issue with negative intervals in `DateTimeInterval` (regression from previous release)
 
 <a name="417" />
 

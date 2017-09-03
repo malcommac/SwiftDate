@@ -47,15 +47,17 @@ class TestDateInRegion_Components: XCTestCase {
 	
 	func testComponentsSum() {
 		let date = Date()
-		let timeInterval_1 = date - (date - (1.hour + 1.minute))
+		let date_1 = (date - (1.hour + 1.minute))
+		let timeInterval_1 = date_1 - date
 		XCTAssertEqual(timeInterval_1, 3660, "Failed sum date components")
-
-		let timeInterval_2 = date - (date - (61.minute))
-		XCTAssertEqual(timeInterval_2, 3660, "Failed sum date components")
-
-		let timeInterval_3 = date - (date - (1.hour && 1.minute))
-		XCTAssertEqual(timeInterval_3, 3660, "Failed sum date components")
 		
+		let date_2 = (date - (61.minute))
+		let timeInterval_2 = date_2 - date
+		XCTAssertEqual(timeInterval_2, 3660, "Failed sum date components")
+		
+		let date_3 = (date - (1.hour && 1.minute))
+		let timeInterval_3 = date_3 - date
+		XCTAssertEqual(timeInterval_3, 3660, "Failed sum date components")
 	}
 	
 	func testDifferentRegionComponents_YWD() {
@@ -420,8 +422,10 @@ class TestDateInRegion_Components: XCTestCase {
 		let diffInMinutes = abs((date2 - date1).in(.minute)!)
 		XCTAssertEqual(diffInMinutes, 10, "Failed to get diff in minutes between two dates")
 
-		let diffInBoth = (date1 - date2).in([.second, .minute])
-		XCTAssertTrue(diffInBoth[.minute] == 10 && diffInBoth[.second] == 5, "Failed to get diff in several components between two dates")
+		let diffInBoth = (date2 - date1).in([.second, .minute])
+		let diff_min = diffInBoth[.minute]
+		let diff_sec = diffInBoth[.second]
+		XCTAssertTrue(diff_min == 10 && diff_sec == 5, "Failed to get diff in several components between two dates")
 		
 		let diffInSecondsRev = abs((date1 - date2).in(.second)!)
 		XCTAssertEqual(diffInSecondsRev, 605, "Failed to get diff in seconds between two dates (reversed)")

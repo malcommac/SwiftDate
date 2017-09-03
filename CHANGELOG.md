@@ -6,6 +6,8 @@
 
 ## CHANGELOG
 
+* Version **[4.1.7](#417)**
+* Version **[4.1.6](#416)**
 * Version **[4.1.2](#412)**
 * Version **[4.1.1](#411)**
 * Version **[4.1.0](#410)**
@@ -23,6 +25,35 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="417" />
+
+## SwiftDate 4.1.7
+---
+- **Release Date**: 2017-07-16
+- **Zipped Version**: [Download 4.1.7](https://github.com/malcommac/SwiftDate/releases/tag/4.1.7)
+
+#### New Features
+- [#449](https://github.com/malcommac/SwiftDate/pull/449) Added `nextMonth()`, `prevMonth()`, `nextWeek()` and `prevWeek()`. All of these functions accepts a `TimeReference` params which allows to specify how the date should be returned (at the `start` or `end` of time component, or leave calculation unaltered).
+
+#### Fixes
+- [#449](https://github.com/malcommac/SwiftDate/pull/445) Deprecated `nextMonth` and `prevMonth` of both `Date` and `DateInRegion`. You can use the func with the same name.
+- [#455](https://github.com/malcommac/SwiftDate/pull/455) ISO8601 Parser now correctly handles milliseconds value from an ISO8601 date string.
+- [#450](https://github.com/malcommac/SwiftDate/pull/450) Fixes for translation fallback when no locale region is available (ie. fallback to `ar` when no `ar-SA` is available; final fallback still on `en`).
+
+
+<a name="416" />
+
+## SwiftDate 4.1.6
+---
+- **Release Date**: 2017-07-06
+- **Zipped Version**: [Download 4.1.6](https://github.com/malcommac/SwiftDate/releases/tag/4.1.6)
+
+#### New Features
+- [#446](https://github.com/malcommac/SwiftDate/pull/446) Added Hungarian support (thanks to @iKiKi)
+
+#### Fixes
+- [#445](https://github.com/malcommac/SwiftDate/pull/445) Fixed an issue which causes wrong results while using algebra operations with time components.
 
 <a name="412" />
 
@@ -49,14 +80,14 @@
 
 #### New Features
 - [#408](https://github.com/malcommac/SwiftDate/pull/408) `Date` and `DateInRegion` has now two functions to round a date to certain interval (expressed in `seconds` or `minutes`). `DateInRegion` exposes `roundAt()` which directly modify the date itself; `Date`, as immutable object, exposes the same feature in `roundedAt()` function (which return a new `Date` instances).
-- [#]() Added Daylight Saving Time functions: `.isDST` in `DateInRegion` (it returns true if the date uses daylight saving time);  `.DSTOffset` in `DateInRegion` (it returns the value (in seconds)  of the daylight saving time offset of the represented date),  `. nextDSTTransitionDate` in `DateInRegion` (it returns the next daylight saving time transition after currently represented date when expressed); `nextDSTTransitionDate()` func in `Date` (it returns the next dst transition date when receiver is expressed in a particular timezone); `DSTOffset()` func in `Date` (it returns the offset of daylight saving time when receiver is expressed in a particular timezone); `isDST()` func in `Date` (it returns if receiver date uses daylight saving time when expressed in a particular timezone).
+- [#414](https://github.com/malcommac/SwiftDate/pull/414) Added Daylight Saving Time functions: `.isDST` in `DateInRegion` (it returns true if the date uses daylight saving time);  `.DSTOffset` in `DateInRegion` (it returns the value (in seconds)  of the daylight saving time offset of the represented date),  `. nextDSTTransitionDate` in `DateInRegion` (it returns the next daylight saving time transition after currently represented date when expressed); `nextDSTTransitionDate()` func in `Date` (it returns the next dst transition date when receiver is expressed in a particular timezone); `DSTOffset()` func in `Date` (it returns the offset of daylight saving time when receiver is expressed in a particular timezone); `isDST()` func in `Date` (it returns if receiver date uses daylight saving time when expressed in a particular timezone).
 
 #### Fixes
-- [#](https://github.com/malcommac/SwiftDate/pull/) Several fixes while parsing less common `ISO8601` formats (weeks only w/wo implicit year/month/day).
-- [#](https://github.com/malcommac/SwiftDate/pull/) Parsing an `ISO8601` string now results in a `DateInRegion` which contains the correct timezone defined (`Date` instances are now converted automatically to be time-independent).
-- [#]() Updated Unit Tests to become compatible with the new APIs changes. All tests now passes.
+- [#410](https://github.com/malcommac/SwiftDate/pull/410) Several fixes while parsing less common `ISO8601` formats (weeks only w/wo implicit year/month/day).
+- [#411](https://github.com/malcommac/SwiftDate/pull/411) Parsing an `ISO8601` string now results in a `DateInRegion` which contains the correct timezone defined (`Date` instances are now converted automatically to be time-independent).
+- [#412](https://github.com/malcommac/SwiftDate/pull/412) Updated Unit Tests to become compatible with the new APIs changes. All tests now passes.
 - [#409](https://github.com/malcommac/SwiftDate/pull/409) Fixed an issue converting a difference between two dates when its more than 24 hours, but less than 48 hours (incorrectly the colloquial values returns 'yesterday')
-- [#]() Single framework target in XCode Project (iOS, macOS, tvOS and watchOS)
+- [#413](https://github.com/malcommac/SwiftDate/pull/413) Single framework target in XCode Project (iOS, macOS, tvOS and watchOS)
 
 <a name="410" />
 

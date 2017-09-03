@@ -7,7 +7,7 @@
 We really ♥ Swift and we think that dates and timezones management should be painless: this is the reason we made SwiftDate, probably the best way to manage date and time in Swift.
 
 Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
-4.1.
+
 <p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
 <p align="center" >Created by <a href="http://www.danielemargutti.com">Daniele Margutti</a> (<a href="http://www.twitter.com/danielemargutti">@danielemargutti</a>)</p>
 
@@ -44,7 +44,7 @@ Take a look here:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.1/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.7/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -59,7 +59,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-Latest release is: 4.1.1 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.1.1).
+Latest release is: 4.1.7 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.1.7).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -88,7 +88,8 @@ Currently SwiftDate supports:
 * Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
 * Swedish (made by [@traneHead](https://github.com/traneHead) and [@deville](https://github.com/deville), since 4.0.12, updated in 4.1.0)
 * Arabic (made by [@abdualrhmanIO](https://github.com/abdualrhmanIO), since 4.0.13)
-* Greek (made by [@dimmdesign](https://github.com/dimmdesign), since 4.10)
+* Greek (made by [@dimitris-c](https://github.com/dimitris-c), since 4.10)
+* Hungarian (made by [@iKiKi](https://github.com/iKiKi), since 4.16)
 
 Make a pull request and add your language!
 

@@ -125,6 +125,13 @@ public extension DateComponents {
 			if left != nil && right != nil && left != Int(NSDateComponentUndefined) && right != Int(NSDateComponentUndefined) {
 				let value = left! + (right! * multipler)
 				newCmps.setValue(value, for: component)
+			} else {
+				if left != nil && left != Int(NSDateComponentUndefined) {
+					newCmps.setValue(left!, for: component)
+				}
+				if right != nil && right != Int(NSDateComponentUndefined) {
+					newCmps.setValue(right!, for: component)
+				}
 			}
 		}
 		return newCmps

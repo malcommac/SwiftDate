@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  ExampleApp
+//  TestApp
 //
-//  Created by daniele on 10/06/2017.
-//  Copyright © 2017 Daniele Margutti. All rights reserved.
+//  Created by dan on 06/07/2017.
+//  Copyright © 2017 SwiftDate. All rights reserved.
 //
 
 import UIKit

@@ -23,6 +23,18 @@ class TestDateInRegion_Formatter: XCTestCase {
 		super.tearDown()
 	}
 	
+	public func test_iso8601_milliseconds() {
+		// Test milliseconds support of the ISO8601 parser
+		let string = "2017-07-16T03:54:37.800Z"
+		let date = DateInRegion(
+			string: string,
+			format: .iso8601(options: .withInternetDateTimeExtended),
+			fromRegion: Region.GMT()
+		)
+		let str = date!.string(format: .iso8601(options: .withInternetDateTimeExtended))
+		XCTAssertEqual(str, "2017-07-16T03:54:37.800Z", "Failed to keep correct milliseconds information from ISO8601 datetime")
+	}
+	
 	public func test_toString() {
 		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
 		guard let testDate = DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome) else {
@@ -76,6 +88,10 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let (custom_1,_) = try! testDate.colloquialSinceNow()
 		XCTAssertEqual(custom_1, "2001", "Failed get colloquial representation of an old date")
 		
+		let mins12Ago = DateInRegion() - 12.minutes
+		let (custom_2,_) = try! mins12Ago.colloquialSinceNow()
+		XCTAssertEqual(custom_2, "12 minutes ago", "Failed get colloquial representation of an old date")
+		
 		let oneHourAgo = DateInRegion() - 1.hour
 		let (custom_3,_) = try! oneHourAgo.colloquialSinceNow()
 		XCTAssertEqual(custom_3, "one hour ago", "Failed get colloquial representation of an old date")
@@ -95,19 +111,26 @@ class TestDateInRegion_Formatter: XCTestCase {
         let custom_5 = try! another_Date.timeComponentsSinceNow(options: componentFormatterOptions)
 		XCTAssertEqual(custom_5, "2 hr, 5 min, 3 sec", "Failed get colloquial representation of an old date")
 		
+		let (custom_7,_) = try! (DateInRegion() - 1.year).colloquialSinceNow()
+		XCTAssertEqual(custom_7, "last year", "Failed get colloquial representation of an old date")
+		
 		// 3 Days Ago difference
 		let days_3ago = DateInRegion() - 3.day
 		let days_3ago_colloquial = (try! days_3ago.colloquialSinceNow().colloquial)
 		XCTAssertEqual(days_3ago_colloquial, "3 days ago")
 		
 		// Less than 48 days difference => yesterday
-		let hours_27ago = DateInRegion() - 27.hours
-		let hours_27ago_colloquial = (try! hours_27ago.colloquialSinceNow().colloquial)
-		XCTAssertEqual(hours_27ago_colloquial, "27 hours ago")
+
+		let ref_date = DateInRegion(string: "2000-01-02 18:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
 		
-		let hours_49 = DateInRegion() - 49.hours
-		let value_hours_49 = (try! hours_49.colloquialSinceNow().colloquial)
-		XCTAssertEqual(value_hours_49, "2 days ago")
+		let hours_27ago = ref_date - 27.hours
+		let hours_27ago_colloquial = (try! hours_27ago.colloquial(toDate: ref_date).colloquial)
+		XCTAssertEqual(hours_27ago_colloquial, "yesterday")
+	
+		
+		let hours_49 = ref_date - 49.hours
+		let hours_49ago_colloquial = (try! hours_49.colloquial(toDate: ref_date).colloquial)
+		XCTAssertEqual(hours_49ago_colloquial, "2 days ago")
 		
 		// Few hours between two days
 		let few_d1 = DateInRegion(string: "2000-01-02 23:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
@@ -125,7 +148,7 @@ class TestDateInRegion_Formatter: XCTestCase {
 		formatter.localization = Localization(locale: fromDate.region.locale)
 		formatter.imminentInterval = 1
 		let result = try! formatter.colloquial(from: fromDate, to: toDate).colloquial
-		XCTAssertEqual(result, "47 hours ago")
+		XCTAssertEqual(result, "yesterday")
 
 		// 4 Days Ago
 		let days_4ago_d1 = DateInRegion(string: "2000-04-20 00:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!

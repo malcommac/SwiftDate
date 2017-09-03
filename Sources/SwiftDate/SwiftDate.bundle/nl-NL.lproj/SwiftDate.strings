@@ -1,6 +1,6 @@
 // COLLOQUIAL STRINGD
 "colloquial_f_y"					=	"volgend jaar";		// year,future,singular: 	"next year"
-"colloquial_f_yy"					=	"over %d jaar";		// year,future,plural:		"on 2016"
+"colloquial_f_yy"					=	"in %d jaar";		// year,future,plural:		"on 2016"
 "colloquial_p_y"					=	"vorig jaar";		// year,past,singular:		"last year"
 "colloquial_p_yy"					=	"%d jaar geleden";	// year,past,plural:		"2015"
 

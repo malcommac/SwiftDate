@@ -409,4 +409,12 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssertTrue(date4.hashValue != date5.hashValue, "should return an unequal hash for a different time zone value")
 
 	}
+	
+	func test_dateIntervalOperation() {
+		let date_1 = DateInRegion(string: "2012-04-05 12:00:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
+		let date_2 = DateInRegion(string: "2012-04-05 12:05:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
+		
+		XCTAssert((date_2 - date_1) == 300, "Failed to compare dates and get correct interval")
+		XCTAssert((date_1 - date_2) == -300, "Failed to compare dates and get correct interval")
+	}
 }

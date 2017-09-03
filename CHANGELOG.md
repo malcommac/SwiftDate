@@ -32,7 +32,7 @@
 ## SwiftDate 4.1.9
 ---
 - **Release Date**: 2017-09-03
-- **Zipped Version**: [Download 4.1.8](https://github.com/malcommac/SwiftDate/releases/tag/4.1.8)
+- **Zipped Version**: [Download 4.1.9](https://github.com/malcommac/SwiftDate/releases/tag/4.1.9)
 
 - [#472](https://github.com/malcommac/SwiftDate/pull/472) `CalendarName` now supports `RawRepresentable` protocol
 - [#459](https://github.com/malcommac/SwiftDate/pull/459) Fixed an issue with translation of Dutch locale

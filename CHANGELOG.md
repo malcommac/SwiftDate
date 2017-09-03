@@ -6,7 +6,7 @@
 
 ## CHANGELOG
 
-* Version **[4.1.9](#419)**
+* Version **[4.1.10](#4110)**
 * Version **[4.1.7](#417)**
 * Version **[4.1.6](#416)**
 * Version **[4.1.2](#412)**
@@ -27,12 +27,12 @@
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
 
-<a name="419" />
+<a name="4110" />
 
-## SwiftDate 4.1.9
+## SwiftDate 4.1.10
 ---
 - **Release Date**: 2017-09-03
-- **Zipped Version**: [Download 4.1.8](https://github.com/malcommac/SwiftDate/releases/tag/4.1.8)
+- **Zipped Version**: [Download 4.1.10](https://github.com/malcommac/SwiftDate/releases/tag/4.1.10)
 
 - [#472](https://github.com/malcommac/SwiftDate/pull/472) `CalendarName` now supports `RawRepresentable` protocol
 - [#459](https://github.com/malcommac/SwiftDate/pull/459) Fixed an issue with translation of Dutch locale

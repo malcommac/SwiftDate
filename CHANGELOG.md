@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.1.7](#418)**
 * Version **[4.1.7](#417)**
 * Version **[4.1.6](#416)**
 * Version **[4.1.2](#412)**
@@ -25,6 +26,19 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="418" />
+
+## SwiftDate 4.1.8
+---
+- **Release Date**: 2017-09-03
+- **Zipped Version**: [Download 4.1.8](https://github.com/malcommac/SwiftDate/releases/tag/4.1.8)
+
+- [#470](https://github.com/malcommac/SwiftDate/pull/470) Added Azerbaijani Latin localization (by [@Elshad](https://github.com/Elshad))
+- [#468](https://github.com/malcommac/SwiftDate/pull/468) Fixed an issue with negative value in `DateTimeInterval`
+- [#464](https://github.com/malcommac/SwiftDate/pull/464) Fixed unit tests for ISO dates
+- [#461](https://github.com/malcommac/SwiftDate/pull/461) Fixed wrong localization keys in Slovak language
+
 
 <a name="417" />
 

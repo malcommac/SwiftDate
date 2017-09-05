@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.1.11](#4111)**
 * Version **[4.1.10](#4110)**
 * Version **[4.1.7](#417)**
 * Version **[4.1.6](#416)**
@@ -26,6 +27,16 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="4111" />
+
+## SwiftDate 4.1.11
+---
+- **Release Date**: 2017-09-05
+- **Zipped Version**: [Download 4.1.11](https://github.com/malcommac/SwiftDate/releases/tag/4.1.11)
+
+- [#479](https://github.com/malcommac/SwiftDate/pull/479) Disabled LLVM instrumentation flag to allow AppStore submitting (more info [https://forums.developer.apple.com/thread/81893](https://forums.developer.apple.com/thread/81893))
+
 
 <a name="4110" />
 

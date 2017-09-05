@@ -44,7 +44,7 @@ Take a look here:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.9/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.11/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -59,7 +59,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release (Swift 3.x and Swift 4.x)
 
-- **Swift 3.x**: Latest is 4.1.9 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.1.9).
+- **Swift 3.x**: Latest is 4.1.11 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.1.11).
 - **Swift 4.x**: swift-4 branch [Download here](https://github.com/malcommac/SwiftDate/tree/swift-4).
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
@@ -154,7 +154,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 Current version is compatible with:
 
-* Swift 3.1 (4.0.13 is the latest version compatibile with Swift 3)
+* Swift 3.1 (4.1.11 is the latest version compatibile with Swift 3, see swift-4 branch for a Swift 4 compatible release)
 * iOS 8 or later
 * macOS 10.10 or later
 * watchOS 2.0 or later
@@ -163,7 +163,8 @@ Current version is compatible with:
 
 Are you searching for an old (unsupported) SwiftDate version?
 Check out:
-* Swift 3.0: The latest version compatible is 4.0.13
+* Swift 4.x: See [swift-4 branch](https://github.com/malcommac/SwiftDate/tree/swift-4)
+* Swift 3.x: The latest version compatible is 4.1.11
 * [Swift 2.3 Branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 * Swift 2.2: The latest version compatible is 3.0.8
 

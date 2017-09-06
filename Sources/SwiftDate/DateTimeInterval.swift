@@ -27,32 +27,42 @@
 
 import Foundation
 
-/// DateTimeInterval represents a closed date interval in the form of [startDate, endDate].  It is possible for the start and end dates to be the same with a duration of 0.  DateTimeInterval does not support reverse intervals i.e. intervals where the duration is less than 0 and the end date occurs earlier in time than the start date.
+/// DateTimeInterval represents a closed date interval in the form of [startDate, endDate].
+/// It is possible for the start and end dates to be the same with a duration of 0.
+/// Negative intervals, where end date occurs earlier in time than the start date, are supported but comparisor and
+/// intersections functions will adjust them to the right order.
+
 public struct DateTimeInterval : Comparable {
 	/// The start date.
 	public var start: Date
 	
 	/// The end date.
-	///
-	/// - precondition: `end >= start`
 	public var end: Date {
 		get {
 			return start.addingTimeInterval(duration)
 		}
 		set {
-			precondition(newValue >= start, "Reverse intervals are not allowed")
 			duration = newValue.timeIntervalSinceReferenceDate - start.timeIntervalSinceReferenceDate
 		}
 	}
 	
-	/// The duration.
-	///
-	/// - precondition: `duration >= 0`
-	public var duration: TimeInterval {
-		willSet {
-			precondition(newValue >= 0, "Negative durations are not allowed")
-		}
+	/// Absolute start. If duration is < 0 the oldest date is returned as start date.
+	internal var absStart: Date {
+		get { return (duration > 0 ? start : end) }
 	}
+	
+	/// Absolute start. If duration is < 0 the newest date is returned as end date.
+	internal var absEnd: Date {
+		get { return (duration > 0 ? end : start) }
+	}
+	
+	/// Return absolute duration regardeless the order of the dates
+	internal var absDuration: TimeInterval {
+		get { return abs(duration) }
+	}
+	
+	/// The duration of the interval
+	public var duration: TimeInterval
 	
 	/// Initializes a `DateTimeInterval` with start and end dates set to the current date and the duration set to `0`.
 	public init() {
@@ -64,57 +74,60 @@ public struct DateTimeInterval : Comparable {
 	/// Initialize a `DateTimeInterval` with the specified start and end date.
 	public init(start: Date, end: Date) {
 		self.start = start
-		precondition(end >= start, "Reverse intervals are not allowed")
 		duration = end.timeIntervalSince(start)
 	}
 	
 	/// Initialize a `DateTimeInterval` with the specified start date and duration.
-	///
-	/// - precondition: `duration >= 0`
 	public init(start: Date, duration: TimeInterval) {
-		precondition(duration >= 0, "Negative durations are not allowed")
 		self.start = start
 		self.duration = duration
 	}
 	
-	/**
-	Compare two DateTimeInterval.
-	
-	This method prioritizes ordering by start date. If the start dates are equal, then it will order by duration.
-	e.g. Given intervals a and b
-	```
-	a.   |-----|
-	b.      |-----|
-	```
-	
-	`a.compare(b)` would return `.OrderedAscending` because a's start date is earlier in time than b's start date.
-	
-	In the event that the start dates are equal, the compare method will attempt to order by duration.
-	e.g. Given intervals c and d
-	```
-	c.  |-----|
-	d.  |---|
-	```
-	`c.compare(d)` would result in `.OrderedDescending` because c is longer than d.
-	
-	If both the start dates and the durations are equal, then the intervals are considered equal and `.OrderedSame` is returned as the result.
-	*/
+	/// Compare two DateTimeInterval
+	/// Note: if duration is less than zero (end date occurs earlier in time than the start date) are adjusted automatically.
+	///
+	/// This method prioritizes ordering by start date. If the start dates are equal, then it will order by duration.
+	/// e.g. Given intervals a and b
+	/// ```
+	/// a.   |-----|
+	/// b.      |-----|
+	/// ```
+	///
+	/// `a.compare(b)` would return `.OrderedAscending` because a's start date is earlier in time than b's start date.
+	///
+	/// In the event that the start dates are equal, the compare method will attempt to order by duration.
+	/// e.g. Given intervals c and d
+	/// ```
+	/// c.  |-----|
+	/// d.  |---|
+	/// ```
+	/// `c.compare(d)` would result in `.OrderedDescending` because c is longer than d.
+	///
+	/// If both the start dates and the durations are equal, then the intervals are considered equal and `.OrderedSame` is returned as the result.
+	///
+	/// - Parameter dateInterval: date interval to compare
+	/// - Returns: ComparisonResult
 	public func compare(_ dateInterval: DateTimeInterval) -> ComparisonResult {
-		let result = start.compare(dateInterval.start)
+		let result = absStart.compare(dateInterval.absStart)
 		if result == .orderedSame {
-			if self.duration < dateInterval.duration { return .orderedAscending }
-			if self.duration > dateInterval.duration { return .orderedDescending }
+			if self.absDuration < dateInterval.absDuration { return .orderedAscending }
+			if self.absDuration > dateInterval.absDuration { return .orderedDescending }
 			return .orderedSame
 		}
 		return result
 	}
 	
 	/// Returns `true` if `self` intersects the `dateInterval`.
-	public func intersects(_ dateInterval: DateTimeInterval) -> Bool {
-		return contains(dateInterval.start) || contains(dateInterval.end) || dateInterval.contains(start) || dateInterval.contains(end)
+	/// Note: if duration is less than zero (end date occurs earlier in time than the start date) are adjusted automatically.
+	///
+	/// - Parameter dateInterval: date interval to intersect
+	/// - Returns: `true` if self intersects input date, `false` otherwise
+	public func intersects(_ other: DateTimeInterval) -> Bool {
+		return contains(other.absStart) || contains(other.absEnd) || other.contains(absStart) || other.contains(absEnd)
 	}
 	
 	/// Returns a DateTimeInterval that represents the interval where the given date interval and the current instance intersect.
+	/// Note: if duration is less than zero (end date occurs earlier in time than the start date) are adjusted automatically.
 	///
 	/// In the event that there is no intersection, the method returns nil.
 	public func intersection(with dateInterval: DateTimeInterval) -> DateTimeInterval? {
@@ -126,45 +139,65 @@ public struct DateTimeInterval : Comparable {
 			return self
 		}
 		
-		let timeIntervalForSelfStart = start.timeIntervalSinceReferenceDate
-		let timeIntervalForSelfEnd = end.timeIntervalSinceReferenceDate
-		let timeIntervalForGivenStart = dateInterval.start.timeIntervalSinceReferenceDate
-		let timeIntervalForGivenEnd = dateInterval.end.timeIntervalSinceReferenceDate
+		let timeIntervalForSelfStart = absStart.timeIntervalSinceReferenceDate
+		let timeIntervalForSelfEnd = absEnd.timeIntervalSinceReferenceDate
+		let timeIntervalForGivenStart = dateInterval.absStart.timeIntervalSinceReferenceDate
+		let timeIntervalForGivenEnd = dateInterval.absEnd.timeIntervalSinceReferenceDate
 		
 		let resultStartDate : Date
 		if timeIntervalForGivenStart >= timeIntervalForSelfStart {
-			resultStartDate = dateInterval.start
+			resultStartDate = dateInterval.absStart
 		} else {
 			// self starts after given
-			resultStartDate = start
+			resultStartDate = absStart
 		}
 		
 		let resultEndDate : Date
 		if timeIntervalForGivenEnd >= timeIntervalForSelfEnd {
-			resultEndDate = end
+			resultEndDate = absEnd
 		} else {
 			// given ends before self
-			resultEndDate = dateInterval.end
+			resultEndDate = dateInterval.absEnd
 		}
 		
 		return DateTimeInterval(start: resultStartDate, end: resultEndDate)
 	}
 	
 	/// Returns `true` if `self` contains `date`.
+	/// Note: if duration is less than zero (end date occurs earlier in time than the start date) are adjusted automatically.
+	///
+	/// - Parameter date: date check
+	/// - Returns: Boolean
 	public func contains(_ date: Date) -> Bool {
 		let timeIntervalForGivenDate = date.timeIntervalSinceReferenceDate
-		let timeIntervalForSelfStart = start.timeIntervalSinceReferenceDate
-		let timeIntervalforSelfEnd = end.timeIntervalSinceReferenceDate
+		let timeIntervalForSelfStart = absStart.timeIntervalSinceReferenceDate
+		let timeIntervalforSelfEnd = absEnd.timeIntervalSinceReferenceDate
 		if (timeIntervalForGivenDate >= timeIntervalForSelfStart) && (timeIntervalForGivenDate <= timeIntervalforSelfEnd) {
 			return true
 		}
 		return false
 	}
 	
+	
+	/// Compare if two date intervals are equal.
+	/// Note: Inverted date intervals with same duration are different.
+	///
+	/// - Parameters:
+	///   - lhs: left operand
+	///   - rhs: right operand
+	/// - Returns: Boolean
 	public static func ==(lhs: DateTimeInterval, rhs: DateTimeInterval) -> Bool {
 		return lhs.start == rhs.start && lhs.duration == rhs.duration
 	}
 	
+	
+	/// Compare if duration of the left operand is is smaller than duration of the right operand.
+	/// Note: if duration is less than zero (end date occurs earlier in time than the start date) are adjusted automatically.
+	///
+	/// - Parameters:
+	///   - lhs: left operand
+	///   - rhs: right operand
+	/// - Returns: Boolean
 	public static func <(lhs: DateTimeInterval, rhs: DateTimeInterval) -> Bool {
 		return lhs.compare(rhs) == .orderedAscending
 	}

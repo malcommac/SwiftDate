@@ -44,7 +44,7 @@ Take a look here:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.9/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.11/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -57,10 +57,11 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 - If you **have a feature request**, [open an issue](https://github.com/malcommac/SwiftDate/issues/new).
 - If you **want to contribute**, [submit a pull request](https://github.com/malcommac/SwiftDate/compare).
 
-## Current Release (Swift 3.x and Swift 4.x)
+## Current Release
 
-- **Swift 3.x**: Latest is 4.1.9 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.1.9).
-- **Swift 4.x**: swift-4 branch [Download here](https://github.com/malcommac/SwiftDate/tree/swift-4).
+- **Swift 4.x**: >= 4.4.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0).
+- **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
+- **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 
 A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
 
@@ -111,6 +112,10 @@ $ gem install cocoapods
 
 #### Podfile
 
+- **Swift 4.x**: >= 4.4.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0).
+- **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
+- **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
+
 To integrate SwiftDate into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
@@ -119,11 +124,10 @@ platform :ios, '8.0'
 
 target 'TargetName' do
   use_frameworks!
-  pod 'SwiftDate', '~> 4.0'
+  pod 'SwiftDate', '~> <VERSION>'
 end
 ```
 
-(use 4.0.13 for Swift 3.0)
 
 Then, run the following command:
 
@@ -145,7 +149,7 @@ $ brew install carthage
 To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "malcommac/SwiftDate" ~> 4.0
+github "malcommac/SwiftDate" ~> <VERSION>
 ```
 
 Run `carthage` to build the framework and drag the built `SwiftDate.framework` into your Xcode project.
@@ -154,7 +158,7 @@ Run `carthage` to build the framework and drag the built `SwiftDate.framework` i
 
 Current version is compatible with:
 
-* Swift 3.1 (4.0.13 is the latest version compatibile with Swift 3)
+* Swift 4 or later
 * iOS 8 or later
 * macOS 10.10 or later
 * watchOS 2.0 or later
@@ -163,9 +167,10 @@ Current version is compatible with:
 
 Are you searching for an old (unsupported) SwiftDate version?
 Check out:
-* Swift 3.0: The latest version compatible is 4.0.13
-* [Swift 2.3 Branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
-* Swift 2.2: The latest version compatible is 3.0.8
+- **Swift 4.x**: >= 4.4.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0).
+- **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
+- **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
+- **Swift 2.2**: Latest compatible version is 3.0.8
 
 
 ## Credits & License

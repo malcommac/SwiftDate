@@ -49,15 +49,15 @@ class TestDateInRegion_Components: XCTestCase {
 		let date = Date()
 		let date_1 = (date - (1.hour + 1.minute))
 		let timeInterval_1 = date_1 - date
-		XCTAssertEqual(timeInterval_1, 3660, "Failed sum date components")
+		XCTAssertEqual(timeInterval_1, -3660, "Failed sum date components")
 		
 		let date_2 = (date - (61.minute))
 		let timeInterval_2 = date_2 - date
-		XCTAssertEqual(timeInterval_2, 3660, "Failed sum date components")
+		XCTAssertEqual(timeInterval_2, -3660, "Failed sum date components")
 		
 		let date_3 = (date - (1.hour && 1.minute))
 		let timeInterval_3 = date_3 - date
-		XCTAssertEqual(timeInterval_3, 3660, "Failed sum date components")
+		XCTAssertEqual(timeInterval_3, -3660, "Failed sum date components")
 	}
 	
 	func testDifferentRegionComponents_YWD() {

@@ -180,5 +180,5 @@ public func - (lhs: Date, rhs: [Calendar.Component : Int]) -> Date {
 }
 
 public func - (lhs: Date, rhs: Date) -> TimeInterval {
-	return DateTimeInterval(start: lhs, end: rhs).duration
+	return DateTimeInterval(start: rhs, end: lhs).duration
 }

@@ -38,6 +38,7 @@
 - **Zipped Version for Swift 4**: [Download 4.4.0](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0)
 
 - [#480](https://github.com/malcommac/SwiftDate/pull/480) Fix for '-' operator both in `Date` and `DateInRegion` classes where the result is correctly reported.
+- [#476](https://github.com/malcommac/SwiftDate/pull/476) Added Russian translation thanks to [roor](https://github.com/roor)
 
 <a name="4111" />
 

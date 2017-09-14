@@ -413,8 +413,77 @@ class TestDateInRegion_Compare: XCTestCase {
 	func test_dateIntervalOperation() {
 		let date_1 = DateInRegion(string: "2012-04-05 12:00:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
 		let date_2 = DateInRegion(string: "2012-04-05 12:05:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
-		
+				
 		XCTAssert((date_2 - date_1) == 300, "Failed to compare dates and get correct interval")
 		XCTAssert((date_1 - date_2) == -300, "Failed to compare dates and get correct interval")
 	}
+	
+	func test_DateTimeInterval() {
+		// #TEST 1:
+		// Difference between dates where left operand is older than right operand. Result must be positive.
+		let date_a = Date()
+		let date_b = date_a + 1.hour
+		XCTAssert((date_a - date_b) == -3600, "Failed to make difference between dates")
+		XCTAssert((date_b - date_a) == 3600, "Failed to make difference between dates")
+
+		// #TEST 2:
+		// Create explicitly a negative interval (where end date occurs earlier in time than the start date)
+		// and check the correctness of properties
+		let interval = DateTimeInterval(start: date_b, end: date_a)
+		XCTAssert(interval.duration == -3600, "Failed to get correct time interval in negative interval")
+		XCTAssert(interval.start == date_b, "Failed to get start date")
+		// Check end date: this derivate variable (start & duration)
+		XCTAssert(interval.end == date_a, "Failed to derivate correct end date from start date and negative duration")
+
+		// #TEST 3:
+		// We want to see if a date is inside a given interval
+		let gmt = Region.GMT()
+		let format: DateFormat = .custom("yyyy-MM-dd HH:mm:ss")
+		// Create interval A
+		let interval_a_start = DateInRegion(string: "2012-04-05 12:00:00", format: format, fromRegion: gmt)!.absoluteDate
+		let interval_a_end = DateInRegion(string: "2012-04-05 18:00:00", format: format, fromRegion: gmt)!.absoluteDate
+		let interval_a = DateTimeInterval(start: interval_a_start, end: interval_a_end)
+		
+		let example_date_1 = DateInRegion(string: "2012-04-05 17:59:00", format: format, fromRegion: gmt)!.absoluteDate
+		let example_date_2 = DateInRegion(string: "2012-04-05 11:59:59", format: format, fromRegion: gmt)!.absoluteDate
+		XCTAssert(interval_a.contains(example_date_1) == true, "#1 Failed to check if a date is contained in an interval")
+		XCTAssert(interval_a.contains(example_date_2) == false, "#2 Failed to check if a date is contained in an interval")
+
+		// #TEST 4:
+		// The same test but creating a negative interval
+		// It must produce the same results
+		let interval_a1 = DateTimeInterval(start: interval_a_end, end: interval_a_start)
+		XCTAssert(interval_a1.contains(example_date_1) == true, "#3 Failed to check if a date is contained in an interval")
+		XCTAssert(interval_a1.contains(example_date_2) == false, "#4 Failed to check if a date is contained in an interval")
+
+		// #TEST 5:
+		// Intersection between two intervals
+		let interval_b_start = DateInRegion(string: "2012-04-05 10:00:00", format: format, fromRegion: gmt)!.absoluteDate
+		let interval_b_end = DateInRegion(string: "2012-04-05 15:00:00", format: format, fromRegion: gmt)!.absoluteDate
+		let interval_b = DateTimeInterval(start: interval_b_start, end: interval_b_end)
+		// Does intersects? We expect yes
+		let intersect_a_b = interval_a.intersects(interval_b)
+		XCTAssert(intersect_a_b == true, "Failed to check if two interval intersects")
+		// How?
+		let intersection = interval_a.intersection(with: interval_b)
+		XCTAssert(intersection!.start == interval_a_start, "Failed to check intersection: start date")
+		XCTAssert(intersection!.end == interval_b_end, "Failed to check intersection: end date")
+
+		// #TEST 6:
+		// Intersection with two intervals where the second is in reverse order
+		let interval_a2 = DateTimeInterval(start: interval_a_start, end: interval_a_end)
+		let interval_b2 = DateTimeInterval(start: interval_b_end, end: interval_b_start)
+		let intersection_2 = interval_b2.intersection(with: interval_a2)
+		XCTAssert(intersection_2!.start == interval_a_start, "Failed to check intersection: start date")
+		XCTAssert(intersection_2!.end == interval_b_end, "Failed to check intersection: end date")
+		
+		// #TEST 7:
+		// Compare two intervals
+		let compare_1 = interval_a.compare(interval_b)
+		XCTAssert(compare_1 == .orderedDescending, "#1 Failed to compare two intervals")
+		
+		let compare_2 = interval_a2.compare(interval_b2)
+		XCTAssert(compare_2 == .orderedDescending, "#2 Failed to compare two intervals")
+	}
+	
 }

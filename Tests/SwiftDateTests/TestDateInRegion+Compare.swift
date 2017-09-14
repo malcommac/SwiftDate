@@ -413,7 +413,7 @@ class TestDateInRegion_Compare: XCTestCase {
 	func test_dateIntervalOperation() {
 		let date_1 = DateInRegion(string: "2012-04-05 12:00:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
 		let date_2 = DateInRegion(string: "2012-04-05 12:05:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
-		
+				
 		XCTAssert((date_2 - date_1) == 300, "Failed to compare dates and get correct interval")
 		XCTAssert((date_1 - date_2) == -300, "Failed to compare dates and get correct interval")
 	}
@@ -423,8 +423,8 @@ class TestDateInRegion_Compare: XCTestCase {
 		// Difference between dates where left operand is older than right operand. Result must be positive.
 		let date_a = Date()
 		let date_b = date_a + 1.hour
-		XCTAssert((date_a - date_b) == 3600, "Failed to make difference between dates")
-		XCTAssert((date_b - date_a) == -3600, "Failed to make difference between dates")
+		XCTAssert((date_a - date_b) == -3600, "Failed to make difference between dates")
+		XCTAssert((date_b - date_a) == 3600, "Failed to make difference between dates")
 
 		// #TEST 2:
 		// Create explicitly a negative interval (where end date occurs earlier in time than the start date)
@@ -462,7 +462,8 @@ class TestDateInRegion_Compare: XCTestCase {
 		let interval_b_end = DateInRegion(string: "2012-04-05 15:00:00", format: format, fromRegion: gmt)!.absoluteDate
 		let interval_b = DateTimeInterval(start: interval_b_start, end: interval_b_end)
 		// Does intersects? We expect yes
-		XCTAssert(interval_a.intersects(interval_b) == false, "Failed to check if two interval intersects")
+		let intersect_a_b = interval_a.intersects(interval_b)
+		XCTAssert(intersect_a_b == true, "Failed to check if two interval intersects")
 		// How?
 		let intersection = interval_a.intersection(with: interval_b)
 		XCTAssert(intersection!.start == interval_a_start, "Failed to check intersection: start date")

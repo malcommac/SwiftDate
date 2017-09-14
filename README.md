@@ -44,7 +44,7 @@ Take a look here:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.1.11/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.4.0/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -59,7 +59,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-- **Swift 4.x**: >= 4.4.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0).
+- **Swift 4.x**: >= 4.4.0 - Latest is 4.4.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0).
 - **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
 - **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 

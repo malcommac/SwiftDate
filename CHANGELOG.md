@@ -6,6 +6,8 @@
 
 ## CHANGELOG
 
+* Version **[4.4.1](#4410)** (for Swift 4)
+* Version **[4.3.0](#4300_4400)** (for Swift 3) and **[4.4.0](#4300_4400)**
 * Version **[4.1.11](#4111)**
 * Version **[4.1.10](#4110)**
 * Version **[4.1.7](#417)**
@@ -27,6 +29,26 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="4410" />
+
+## SwiftDate 4.4.1 (for Swift 4)
+---
+- **Release Date**: 2017-09-14
+- **Zipped Version**: [Download 4.4.1](https://github.com/malcommac/SwiftDate/releases/tag/4.4.1)
+
+- [#483](https://github.com/malcommac/SwiftDate/pull/483) Fix for `NSRange` error under XCode9 and 4.4.0 release
+
+<a name="4300_4400" />
+
+## SwiftDate 4.3.0 (for Swift 3) and 4.4.0 (for Swift 4)
+---
+- **Release Date**: 2017-09-14
+- **Zipped Version for Swift 3**: [Download 4.3.0](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
+- **Zipped Version for Swift 4**: [Download 4.4.0](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0)
+
+- [#480](https://github.com/malcommac/SwiftDate/pull/480) Fix for '-' operator both in `Date` and `DateInRegion` classes where the result is correctly reported.
+- [#476](https://github.com/malcommac/SwiftDate/pull/476) Added Russian translation thanks to [roor](https://github.com/roor)
 
 <a name="4111" />
 

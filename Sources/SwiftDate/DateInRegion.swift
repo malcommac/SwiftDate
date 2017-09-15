@@ -79,7 +79,7 @@ public class DateInRegion: CustomStringConvertible {
 			var formatter: ISO8601DateTimeFormatter? = nil
 			if useSharedFormatters == true {
 				let name = "SwiftDate_\(NSStringFromClass(ISO8601DateTimeFormatter.self))"
-				formatter = localThreadSingleton(key: name, create: { (Void) -> ISO8601DateTimeFormatter in
+				formatter = localThreadSingleton(key: name, create: { () -> ISO8601DateTimeFormatter in
 					return ISO8601DateTimeFormatter()
 				})
 			} else {
@@ -102,7 +102,7 @@ public class DateInRegion: CustomStringConvertible {
 			var formatter: DateFormatter? = nil
 			if useSharedFormatters == true {
 				let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
-				formatter = localThreadSingleton(key: name, create: { (Void) -> DateFormatter in
+				formatter = localThreadSingleton(key: name, create: { () -> DateFormatter in
 					return DateFormatter()
 				})
 			} else {
@@ -129,7 +129,7 @@ public class DateInRegion: CustomStringConvertible {
 			var formatter: DateIntervalFormatter? = nil
 			if useSharedFormatters == true {
 				let name = "SwiftDate_\(NSStringFromClass(DateIntervalFormatter.self))"
-				formatter = localThreadSingleton(key: name, create: { (Void) -> DateIntervalFormatter in
+				formatter = localThreadSingleton(key: name, create: { () -> DateIntervalFormatter in
 					return DateIntervalFormatter()
 				})
 			} else {

@@ -80,7 +80,7 @@ public extension TimeInterval {
 		let sharedFormatter = shared ?? true
 		if sharedFormatter == true {
 			let name = "SwiftDate_\(NSStringFromClass(DateIntervalFormatter.self))"
-			formatter = localThreadSingleton(key: name, create: { (Void) -> DateComponentsFormatter in
+			formatter = localThreadSingleton(key: name, create: { () -> DateComponentsFormatter in
 				return DateComponentsFormatter()
 			})
 		} else {

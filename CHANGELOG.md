@@ -37,7 +37,7 @@
 - **Release Date**: 2017-09-14
 - **Zipped Version**: [Download 4.4.1](https://github.com/malcommac/SwiftDate/releases/tag/4.4.1)
 
-- [#480](https://github.com/malcommac/SwiftDate/pull/483) Fix for `NSRange` error under XCode9 and 4.4.0 release
+- [#483](https://github.com/malcommac/SwiftDate/pull/483) Fix for `NSRange` error under XCode9 and 4.4.0 release
 
 <a name="4300_4400" />
 

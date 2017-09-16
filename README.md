@@ -11,6 +11,10 @@ Choose SwiftDate for your next project, or migrate over your existing projects�
 <p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
 <p align="center" >Created by <a href="http://www.danielemargutti.com">Daniele Margutti</a> (<a href="http://www.twitter.com/danielemargutti">@danielemargutti</a>)</p>
 
+## Swift 3 and Swift 4 Compatibility
+- **Swift 4.x**: >= 4.4.0 - Latest is 4.4.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.4.0).
+- **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0). If you are using CocoaPods be sure to fix the release (`pod 'SwiftDate', '~> 4.3.0'`)
+
 ## Main features
 Here's a highlight of the main features you can find in SwiftDate:
 

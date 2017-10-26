@@ -223,11 +223,11 @@ public class ISO8601Parser {
 	/// - Throws: throw an `ISO8601Error` if parsing operation fails
 	public init?(_ src: String, config: ISO8601Configuration = ISO8601Configuration()) {
 		let src_trimmed = src.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-		guard src_trimmed.characters.count > 0 else {
+		guard src_trimmed.count > 0 else {
 			return nil
 		}
 		self.string = src_trimmed.unicodeScalars
-		self.length = src_trimmed.characters.count
+		self.length = src_trimmed.count
 		self.cIdx = string.startIndex
 		self.eIdx = string.endIndex
 		self.cfg = config

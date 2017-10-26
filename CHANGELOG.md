@@ -6,8 +6,9 @@
 
 ## CHANGELOG
 
-* Version **[4.4.1](#4410)** (for Swift 4)
-* Version **[4.3.0](#4300_4400)** (for Swift 3) and **[4.4.0](#4300_4400)**
+* Version **[4.4.2](#4420)** (Swift 4)
+* Version **[4.4.1](#4410)** (Swift 4)
+* Version **[4.3.0](#4300_4400)** (latest for Swift 3) and **[4.4.0](#4300_4400)**
 * Version **[4.1.11](#4111)**
 * Version **[4.1.10](#4110)**
 * Version **[4.1.7](#417)**
@@ -29,6 +30,20 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="4420" />
+
+## SwiftDate 4.4.2 (for Swift 4)
+---
+- **Release Date**: 2017-11-26
+- **Zipped Version**: [Download 4.4.2](https://github.com/malcommac/SwiftDate/releases/tag/4.4.2)
+
+- [#495](https://github.com/malcommac/SwiftDate/pull/495) Added Persian language
+- [#489](https://github.com/malcommac/SwiftDate/pull/489) Disabled LLV Code Coverage scheme
+- [#494](https://github.com/malcommac/SwiftDate/pull/494) Removed `String.characters` warning from Swift 3.x
+- [#487](https://github.com/malcommac/SwiftDate/pull/487) Fixed a regression with `rangeAt` instead of `range(at)` from Swift 3.x)
+
+
 
 <a name="4410" />
 

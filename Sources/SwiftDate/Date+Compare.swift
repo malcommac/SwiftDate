@@ -92,5 +92,21 @@ public extension Date {
 		let result = self.compare(to: date, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending)
 	}
+    
+    
+    /// Compares whether a date is between two dates based on their components down to a given unit
+    /// granularity.
+    /// Both passed `Date` objects are expressed in passed region before doing the comparison.
+    ///
+    /// - parameter date:        first date as lower bound
+    /// - parameter date2:       second date as upper bound
+    /// - parameter orEqual:     `true` to also check for equality on date and date2
+    /// - parameter region:      region in which both dates will be expressed (if nil, defaultRegion will be used instead)
+    /// - parameter granularity: The smallest unit that must, along with all larger units, be greater
+    ///
+    /// - returns: `true` if the unit is in the middle of two dates, otherwise `false`
+    public func isBetween(date: Date, and date2: Date, orEqual: Bool = false, in region: Region? = nil, granularity: Calendar.Component = .nanosecond) -> Bool{
+        return self.isAfter(date: date, orEqual: orEqual, in: region, granularity: granularity) && self.isBefore(date: date2, orEqual: orEqual, in: region, granularity: granularity)
+    }
 	
 }

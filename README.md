@@ -103,6 +103,7 @@ Currently SwiftDate supports:
 * Azerbaijani Latin (made by [@Elshad](https://github.com/Elshad), since 4.19)
 * Russian (made by [roor](https://github.com/roor), since 4.3.0)
 * Persian (made by [Seyed Mojtaba Hosseini Zeidabadi](https://github.com/MojtabaHS), since 4.4.2)
+* Malay/Malaysia Latin (made by [Mohd Hafiz](https://github.com/xmhafiz), since 4.5.0)
 
 
 Make a pull request and add your language!

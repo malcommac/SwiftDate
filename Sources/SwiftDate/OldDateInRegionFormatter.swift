@@ -54,12 +54,12 @@ public struct DateZeroBehaviour: OptionSet {
 
 }
 
-//MARK: - DateInRegionFormatter
+//MARK: - ColloquialDateFormatter
 
-/// The DateFormatter class is used to get a string representation of a time interval between two
+/// The ColloquialDateFormatter class is used to get a string representation of a time interval between two
 /// dates or a relative representation of a date
 
-public class DateInRegionFormatter {
+public class OldDateInRegionFormatter {
 	
 	/// Tell what kind of time units should be part of the output. Allowed values are a subset of
 	/// `Calendar.Component` option set.
@@ -101,7 +101,7 @@ public class DateInRegionFormatter {
 	
 	// number of a days in a week
 	let DAYS_IN_WEEK = 7
-
+	
 	public init() {
 	}
 	
@@ -171,6 +171,7 @@ public class DateInRegionFormatter {
 		}
 		return (intervalIsNegative ? "-" : "") + output.joined(separator: self.unitSeparator)
 	}
+	
 	
 	/// Print a colloquial representation of the difference between two dates.
 	/// For example "1 year ago", "just now", "3s" etc.
@@ -323,42 +324,5 @@ public class DateInRegionFormatter {
 		var localized_str = self.localization.get(identifier, default: "")
 		localized_str = String(format: localized_str, arguments: arguments)
 		return localized_str
-	}
-}
-
-internal extension Calendar.Component {
-	
-	/// Return the localized identifier of a calendar component
-	///
-	/// - parameter unit:  unit
-	/// - parameter value: value
-	///
-	/// - returns: return the plural or singular form of the time unit used to compose a valid identifier for search a localized
-	///   string in resource bundle
-	internal func localizedKey(forValue value: Int) -> String {
-		let locKey = self.localizedKey
-		let absValue = abs(value)
-		switch absValue {
-		case 0: // zero difference for this unit
-			return "0\(locKey)"
-		case 1: // one unit of difference
-			return locKey
-		default: // more than 1 unit of difference
-			return "\(locKey)\(locKey)"
-		}
-	}
-	
-	internal var localizedKey: String {
-		switch self {
-		case .year:			return "y"
-		case .month:		return "m"
-		case .weekOfYear:	return "w"
-		case .day:			return "d"
-		case .hour:			return "h"
-		case .minute:		return "M"
-		case .second:		return "s"
-		default:
-			return ""
-		}
 	}
 }

@@ -124,4 +124,10 @@ public class Localization {
 		return bundle!
 	}
 	
+	internal func localizedString(identifier: String, arguments: CVarArg...) -> String? {
+		var localized_str = self.get(identifier, default: "")
+		localized_str = String(format: localized_str, arguments: arguments)
+		return localized_str
+	}
+	
 }

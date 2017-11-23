@@ -112,11 +112,21 @@ public extension DateInRegion {
 	/// - parameter style: style of output. If not specified `.full` is used
 	/// - returns: colloquial string representation
 	/// - throws: throw an exception is colloquial string cannot be evaluated
+	@available(*, deprecated: 4.5.0, message: "Deprecated. Use colloquialSinceNow(options:) instead")
 	public func colloquialSinceNow(style: DateComponentsFormatter.UnitsStyle? = nil) throws -> (colloquial: String, time: String?) {
 		let now = DateInRegion(absoluteDate: Date(), in: self.region)
 		return try self.colloquial(toDate: now, style: style)
 	}
 	
+	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` and
+	/// the current date (`Date()`).
+	///
+	/// - Parameter options: formatting options, `nil` to use default options
+	/// - Returns: String, `nil` if formatting fails
+	public func colloquialSinceNow(options: ColloquialDateFormatter.Options? = nil) -> String? {
+		let now = DateInRegion(absoluteDate: Date(), in: self.region)
+		return self.colloquial(toDate: now, options: options)
+	}
 	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
 	/// another passed date.
@@ -126,8 +136,9 @@ public extension DateInRegion {
 	/// - parameter style: style of output. If not specified `.full` is used
 	/// - returns: colloquial string representation
 	/// - throws: throw an exception is colloquial string cannot be evaluated
+	@available(*, deprecated: 4.5.0, message: "Deprecated. Use colloquial(toDate:options:) instead")
 	public func colloquial(toDate date: DateInRegion, style: DateComponentsFormatter.UnitsStyle? = nil) throws -> (colloquial: String, time: String?) {
-		let formatter = DateInRegionFormatter()
+		let formatter = OldDateInRegionFormatter()
 		formatter.localization = Localization(locale: self.region.locale)
 		formatter.unitStyle = style ?? .full
 		if style == nil || style == .full || style == .spellOut {
@@ -137,22 +148,15 @@ public extension DateInRegion {
 		}
 	}
 	
-	
-	// This method produces a string by printing the interval between self and current Date and output a string where each
-	/// calendar component is printed.
+	/// This method produces a colloquial representation of time elapsed between `self` and another reference date.
 	///
-	/// - parameter options: options to format the output. Keep in mind: `.locale` will be overwritten by self's `region.locale`.
-	///
-	/// - throws: throw an exception if time components cannot be evaluated
-	///
-	/// - returns: string with each time component
-	public func timeComponentsSinceNow(options: ComponentsFormatterOptions? = nil) throws -> String {
-		let interval = abs(self.absoluteDate.timeIntervalSinceNow)
-		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
-		optionsStruct.locale = self.region.locale
-		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)
+	/// - Parameters:
+	///   - date: reference date
+	///   - options: formatting options, `nil` to use default options
+	/// - Returns: String, `nil` if formatting fails
+	public func colloquial(toDate date: DateInRegion, options: ColloquialDateFormatter.Options? = nil) -> String? {
+		return ColloquialDateFormatter.colloquial(from: self, to: date, options: options)
 	}
-	
 	
 	/// This method produces a string by printing the interval between self and another date and output a string where each
 	/// calendar component is printed.
@@ -168,6 +172,21 @@ public extension DateInRegion {
 		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
 		optionsStruct.locale = self.region.locale
 		optionsStruct.allowedUnits = optionsStruct.allowedUnits ?? optionsStruct.bestAllowedUnits(forInterval: interval)
+		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)
+	}
+	
+	// This method produces a string by printing the interval between self and current Date and output a string where each
+	/// calendar component is printed.
+	///
+	/// - parameter options: options to format the output. Keep in mind: `.locale` will be overwritten by self's `region.locale`.
+	///
+	/// - throws: throw an exception if time components cannot be evaluated
+	///
+	/// - returns: string with each time component
+	public func timeComponentsSinceNow(options: ComponentsFormatterOptions? = nil) throws -> String {
+		let interval = abs(self.absoluteDate.timeIntervalSinceNow)
+		var optionsStruct = (options == nil ? ComponentsFormatterOptions() : options!)
+		optionsStruct.locale = self.region.locale
 		return try interval.string(options: optionsStruct, shared: self.formatters.useSharedFormatters)
 	}
 }

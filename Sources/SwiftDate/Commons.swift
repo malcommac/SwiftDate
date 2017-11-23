@@ -24,6 +24,44 @@
 
 import Foundation
 
+internal extension Calendar.Component {
+	
+	/// Return the localized identifier of a calendar component
+	///
+	/// - parameter unit:  unit
+	/// - parameter value: value
+	///
+	/// - returns: return the plural or singular form of the time unit used to compose a valid identifier for search a localized
+	///   string in resource bundle
+	internal func localizedKey(forValue value: Int) -> String {
+		let locKey = self.localizedKey
+		let absValue = abs(value)
+		switch absValue {
+		case 0: // zero difference for this unit
+			return "0\(locKey)"
+		case 1: // one unit of difference
+			return locKey
+		default: // more than 1 unit of difference
+			return "\(locKey)\(locKey)"
+		}
+	}
+	
+	internal var localizedKey: String {
+		switch self {
+		case .year:			return "y"
+		case .month:		return "m"
+		case .weekOfYear:	return "w"
+		case .day:			return "d"
+		case .hour:			return "h"
+		case .minute:		return "M"
+		case .second:		return "s"
+		default:
+			return ""
+		}
+	}
+}
+
+
 /// Time interval reference
 ///
 /// - start: start of the specified component

@@ -91,9 +91,21 @@ public extension Date {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation
+	@available(*, deprecated: 4.5.0, message: "Deprecated. Use `colloquialSinceNow(in:options:)` instead.")
 	public func colloquialSinceNow(in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
 		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(style: unitStyle)
+	}
+	
+	/// This method produces a colloquial representation of time elapsed between `self` and the current date.
+	///
+	/// - Parameters:
+	///   - region: region in which both dates will be expressed in
+	///   - options: formatting options
+	/// - Returns: String, `nil` if formatter faild
+	public func colloquialSinceNow(in region: Region? = nil, options: ColloquialDateFormatter.Options? = nil) -> String? {
+		let srcRegion = region ?? DateDefaultRegion
+		return DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(options: options)
 	}
 	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
@@ -108,10 +120,24 @@ public extension Date {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation of the time elapsed between two dates
+	@available(*, deprecated: 4.5.0, message: "Deprecated. Use `colloquial(to:in:options:)` instead")
 	public func colloquial(to: Date, in region: Region? = nil, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
 		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
 		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion)
+	}
+	
+	/// This method produces a colloquial representation of time elapsed between self and another reference date.
+	///
+	/// - Parameters:
+	///   - to: reference date
+	///   - region: region in which both dates will be expressed in
+	///   - options: formatting options
+	/// - Returns: String, nil if formatter fails
+	public func colloquial(to: Date, in region: Region? = nil, options: ColloquialDateFormatter.Options? = nil) -> String? {
+		let srcRegion = region ?? DateDefaultRegion
+		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
+		return DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion, options: options)
 	}
 	
 	/// This method produces a string by printing the interval between self and current Date and output a string where each

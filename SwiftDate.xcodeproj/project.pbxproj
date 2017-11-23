@@ -119,10 +119,10 @@
 		376525811F074FB0006F919E /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376525761F074FAB006F919E /* TestDateInRegion+Components.swift */; };
 		376525821F074FB0006F919E /* TestDateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376525741F074FAB006F919E /* TestDateInRegion+Formatter.swift */; };
 		52D6D9871BEFF229002C0205 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* SwiftDate.framework */; };
-		643D15C01FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* OldDateInRegionFormatter.swift */; };
-		643D15C11FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* OldDateInRegionFormatter.swift */; };
-		643D15C21FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* OldDateInRegionFormatter.swift */; };
-		643D15C31FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* OldDateInRegionFormatter.swift */; };
+		643D15C01FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		643D15C11FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		643D15C21FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		643D15C31FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
 		646E53EF1FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
 		646E53F01FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
 		646E53F11FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
@@ -215,7 +215,7 @@
 		52D6D9E21BEFFF6E002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		643D15BF1FC370430097A3BB /* OldDateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OldDateInRegionFormatter.swift; path = SwiftDate/OldDateInRegionFormatter.swift; sourceTree = "<group>"; };
+		643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = SwiftDate/DateInRegionFormatter.swift; sourceTree = "<group>"; };
 		646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColloquialDateFormatter.swift; path = SwiftDate/ColloquialDateFormatter.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* SwiftDate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDate.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* SwiftDateTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDateTests.plist; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 				375F8FFA1F0ECD1C00ECC0FD /* TimeInterval+Extensions.swift */,
 				375F8FFB1F0ECD1C00ECC0FD /* TimeZoneName.swift */,
 				646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */,
-				643D15BF1FC370430097A3BB /* OldDateInRegionFormatter.swift */,
+				643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */,
 				375F8FF91F0ECD1C00ECC0FD /* SwiftDate.bundle */,
 			);
 			path = Sources;
@@ -729,7 +729,7 @@
 				375F900C1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90341F0ECD1C00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90001F0ECD1C00ECC0FD /* Commons.swift in Sources */,
-				643D15C01FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */,
+				643D15C01FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFC1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F90481F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90541F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
@@ -771,7 +771,7 @@
 				375F900E1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90361F0ECD1D00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90021F0ECD1C00ECC0FD /* Commons.swift in Sources */,
-				643D15C21FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */,
+				643D15C21FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFE1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F904A1F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90561F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
@@ -802,7 +802,7 @@
 				375F900F1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90371F0ECD1D00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90031F0ECD1C00ECC0FD /* Commons.swift in Sources */,
-				643D15C31FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */,
+				643D15C31FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFF1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F904B1F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90571F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
@@ -833,7 +833,7 @@
 				375F900D1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90351F0ECD1C00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90011F0ECD1C00ECC0FD /* Commons.swift in Sources */,
-				643D15C11FC370430097A3BB /* OldDateInRegionFormatter.swift in Sources */,
+				643D15C11FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFD1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F90491F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90551F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,

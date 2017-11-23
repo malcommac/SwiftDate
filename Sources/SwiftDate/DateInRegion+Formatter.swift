@@ -138,7 +138,7 @@ public extension DateInRegion {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	@available(*, deprecated: 4.5.0, message: "Deprecated. Use colloquial(toDate:options:) instead")
 	public func colloquial(toDate date: DateInRegion, style: DateComponentsFormatter.UnitsStyle? = nil) throws -> (colloquial: String, time: String?) {
-		let formatter = OldDateInRegionFormatter()
+		let formatter = DateInRegionFormatter()
 		formatter.localization = Localization(locale: self.region.locale)
 		formatter.unitStyle = style ?? .full
 		if style == nil || style == .full || style == .spellOut {

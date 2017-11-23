@@ -39,7 +39,7 @@
 - **Release Date**: -
 - **Zipped Version**: [Download 4.5.0](https://github.com/malcommac/SwiftDate/releases/tag/4.5.0)
 
-- [#495](https://github.com/malcommac/SwiftDate/pull/495) Added Thai language (thanks to [Thanakrit Weekhamchai](https://github.com/dumbest)
+- [#495](https://github.com/malcommac/SwiftDate/pull/495) Added Thai language (thanks to [Thanakrit Weekhamchai](https://github.com/dumbest))
 - [#492](https://github.com/malcommac/SwiftDate/pull/492) Introduced a new `ColloquialDateFormatter`  class
 - [#503](https://github.com/malcommac/SwiftDate/pull/503) Added `isBetween` to check if a date is inside a given dates range with passed granularity.
 

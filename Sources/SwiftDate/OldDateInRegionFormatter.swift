@@ -57,9 +57,10 @@ public struct DateZeroBehaviour: OptionSet {
 //MARK: - ColloquialDateFormatter
 
 /// The ColloquialDateFormatter class is used to get a string representation of a time interval between two
-/// dates or a relative representation of a date
+/// dates or a relative representation of a date.
+/// NOTE: This class was deprecated.
 
-public class OldDateInRegionFormatter {
+public class DateInRegionFormatter {
 	
 	/// Tell what kind of time units should be part of the output. Allowed values are a subset of
 	/// `Calendar.Component` option set.
@@ -113,6 +114,7 @@ public class OldDateInRegionFormatter {
 	/// - throws: throw `.MissingRsrcBundle` if required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: time components string
+	@available(*, deprecated: 4.5.0, message: "This class was deprecated")
 	public func timeComponents(interval: TimeInterval) throws  -> String {
 		let UTCRegion = Region(tz: TimeZoneName.gmt, cal: CalendarName.current, loc: LocaleName.current)
 		let date = Date()
@@ -132,6 +134,7 @@ public class OldDateInRegionFormatter {
 	///   required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: time components string
+	@available(*, deprecated: 4.5.0, message: "This class was deprecated")
 	public func timeComponents(from: DateInRegion, to: DateInRegion) throws -> String {
 		guard from.region.calendar == to.region.calendar else {
 			throw DateError.DifferentCalendar
@@ -183,6 +186,7 @@ public class OldDateInRegionFormatter {
 	///   required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: a colloquial string representing the difference between two dates
+	@available(*, deprecated: 4.5.0, message: "This class was deprecated")
 	public func colloquial(from fDate: DateInRegion, to tDate: DateInRegion) throws -> (colloquial: String, time: String?) {
 		guard fDate.region.calendar == tDate.region.calendar else {
 			throw DateError.DifferentCalendar

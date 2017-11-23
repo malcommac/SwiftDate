@@ -46,7 +46,7 @@ public class ColloquialDateFormatter {
 		/// Define the minimum amount of time used to fallback a colloquial string to an absolute version of the data;
 		/// for example if you set it to `2.months` when date diff is longer than 2 months you will get an absolute value
 		/// (ie. `dd/MM` instead of `in 3 months`).
-		/// By default this value is set to `nil` so fallback never occours.
+		/// By default this value is set to `nil` so fallback never occurs.
 		/// The following table defines the absolute representation of date diff for each unit (in locale's format):
 		/// * `seconds`: not applicable
 		/// * `minute`: not applicable
@@ -55,12 +55,6 @@ public class ColloquialDateFormatter {
 		/// * `month`: `MM/yyyy'
 		/// * `year`: 'yyyy`
 		public var distantRange: DateComponents? = nil
-		
-		/// Define the locale used to print both colloquial and time components strings.
-		/// By default is the same locale set by receiver's `DateInRegion`.
-		/// If not set default device locale is used instead.
-		/// You can also customize the source by giving a path to a custom `.strings` file
-		/// (via `Localization(path: <pathtofile>)`)
 		
 		/// Define the locale used to produce colloquial string representation.
 		/// If not set (`nil`) locale is taken from the `Region`'s `locale` of the first date but if you prefer

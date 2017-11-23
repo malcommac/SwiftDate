@@ -13,7 +13,14 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.		
+		// Do any additional setup after loading the view, typically from a nib.
+		
+		let d1 = DateInRegion()
+		let d2 = d1 + 5.minutes
+		var opts = ColloquialDateFormatter.Options()
+		opts.imminentRange = nil
+		let colloquial = d2.colloquial(toDate: d1, options: opts)
+		print("colloquial = \(colloquial)")
 	}
 
 	override func didReceiveMemoryWarning() {

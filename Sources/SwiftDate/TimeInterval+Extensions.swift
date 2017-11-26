@@ -15,7 +15,7 @@ public extension TimeInterval {
 	
 	/// Express given time interval in other time units.
 	/// If a reference date (`fromDate`) is not specified conversion is aware of day light saving times and other possible nasty things
-	/// (only `day`,`hour`,`minute`,`second` are supported as components).
+	/// (only `.day,.hour,.minute,.second` are supported as components).
 	/// If a reference date is specified conversion is made using the interval from passed reference date and include calendar/date
 	/// specific events.
 	///
@@ -31,13 +31,13 @@ public extension TimeInterval {
 			let days = Int( (components.contains(.day) ? self / (60 * 60 * 24) : 0) )
 			let hours = Int((components.contains(.hour) ? ((self / (60 * 60)) - (Double(days) * 24)) : 0))
 			let minutes = Int( (components.contains(.minute) ? ((self / 60) - (Double(days) * 24 * 60) - (Double(hours) * 60)) : 0))
-			let seconds = Int( (components.contains(.second) ? Int(self.truncatingRemainder(dividingBy: 60)) : 0))
+			let seconds = Int( (components.contains(.second) ? (self - (Double(days) * 24 * 60) - (Double(hours) * 60 * 60) - Double(minutes) * 60) : 0))
 			
 			var components: [Calendar.Component : Int] = [:]
-			if (days > 0) 		{ components[.day] = Int(days) }
-			if (hours > 0) 		{ components[.hour] = Int(hours) }
-			if (minutes > 0)	{ components[.minute] = Int(minutes) }
-			if (seconds > 0)	{ components[.second] = Int(seconds) }
+			if (days != 0) 		{ components[.day] = Int(days) }
+			if (hours != 0) 	{ components[.hour] = Int(hours) }
+			if (minutes != 0)	{ components[.minute] = Int(minutes) }
+			if (seconds != 0)	{ components[.second] = Int(seconds) }
 			return components
 		}
 		

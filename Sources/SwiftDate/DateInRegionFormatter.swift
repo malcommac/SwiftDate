@@ -1,26 +1,11 @@
+// SwiftDate
+// Manage Date/Time & Timezone in Swift
 //
-//	SwiftDate, Full featured Swift date library for parsing, validating, manipulating, and formatting dates and timezones.
-//	Created by:				Daniele Margutti
-//	Main contributors:		Jeroen Houtzager
+// Created by: Daniele Margutti
+// Email: <hello@danielemargutti.com>
+// Web: <http://www.danielemargutti.com>
 //
-//
-//	Permission is hereby granted, free of charge, to any person obtaining a copy
-//	of this software and associated documentation files (the "Software"), to deal
-//	in the Software without restriction, including without limitation the rights
-//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//	copies of the Software, and to permit persons to whom the Software is
-//	furnished to do so, subject to the following conditions:
-//
-//	The above copyright notice and this permission notice shall be included in
-//	all copies or substantial portions of the Software.
-//
-//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//	THE SOFTWARE.
+// Licensed under MIT License.
 
 import Foundation
 
@@ -54,10 +39,11 @@ public struct DateZeroBehaviour: OptionSet {
 
 }
 
-//MARK: - DateInRegionFormatter
+//MARK: - ColloquialDateFormatter
 
-/// The DateFormatter class is used to get a string representation of a time interval between two
-/// dates or a relative representation of a date
+/// The ColloquialDateFormatter class is used to get a string representation of a time interval between two
+/// dates or a relative representation of a date.
+/// NOTE: This class was deprecated.
 
 public class DateInRegionFormatter {
 	
@@ -101,7 +87,7 @@ public class DateInRegionFormatter {
 	
 	// number of a days in a week
 	let DAYS_IN_WEEK = 7
-
+	
 	public init() {
 	}
 	
@@ -113,6 +99,7 @@ public class DateInRegionFormatter {
 	/// - throws: throw `.MissingRsrcBundle` if required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: time components string
+	@available(*, deprecated: 4.5.0, message: "This class was deprecated")
 	public func timeComponents(interval: TimeInterval) throws  -> String {
 		let UTCRegion = Region(tz: TimeZoneName.gmt, cal: CalendarName.current, loc: LocaleName.current)
 		let date = Date()
@@ -132,6 +119,7 @@ public class DateInRegionFormatter {
 	///   required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: time components string
+	@available(*, deprecated: 4.5.0, message: "This class was deprecated")
 	public func timeComponents(from: DateInRegion, to: DateInRegion) throws -> String {
 		guard from.region.calendar == to.region.calendar else {
 			throw DateError.DifferentCalendar
@@ -172,6 +160,7 @@ public class DateInRegionFormatter {
 		return (intervalIsNegative ? "-" : "") + output.joined(separator: self.unitSeparator)
 	}
 	
+	
 	/// Print a colloquial representation of the difference between two dates.
 	/// For example "1 year ago", "just now", "3s" etc.
 	///
@@ -182,6 +171,7 @@ public class DateInRegionFormatter {
 	///   required localized string are missing from the SwiftDate bundle
 	///
 	/// - returns: a colloquial string representing the difference between two dates
+	@available(*, deprecated: 4.5.0, message: "This class was deprecated")
 	public func colloquial(from fDate: DateInRegion, to tDate: DateInRegion) throws -> (colloquial: String, time: String?) {
 		guard fDate.region.calendar == tDate.region.calendar else {
 			throw DateError.DifferentCalendar
@@ -323,42 +313,5 @@ public class DateInRegionFormatter {
 		var localized_str = self.localization.get(identifier, default: "")
 		localized_str = String(format: localized_str, arguments: arguments)
 		return localized_str
-	}
-}
-
-internal extension Calendar.Component {
-	
-	/// Return the localized identifier of a calendar component
-	///
-	/// - parameter unit:  unit
-	/// - parameter value: value
-	///
-	/// - returns: return the plural or singular form of the time unit used to compose a valid identifier for search a localized
-	///   string in resource bundle
-	internal func localizedKey(forValue value: Int) -> String {
-		let locKey = self.localizedKey
-		let absValue = abs(value)
-		switch absValue {
-		case 0: // zero difference for this unit
-			return "0\(locKey)"
-		case 1: // one unit of difference
-			return locKey
-		default: // more than 1 unit of difference
-			return "\(locKey)\(locKey)"
-		}
-	}
-	
-	internal var localizedKey: String {
-		switch self {
-		case .year:			return "y"
-		case .month:		return "m"
-		case .weekOfYear:	return "w"
-		case .day:			return "d"
-		case .hour:			return "h"
-		case .minute:		return "M"
-		case .second:		return "s"
-		default:
-			return ""
-		}
 	}
 }

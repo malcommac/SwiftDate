@@ -15,7 +15,12 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
+		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
+
+		let date1 = DateInRegion(string: "1999-12-31 23:30:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
+		let date2 = DateInRegion(string: "1999-12-31 23:40:05", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
 		
+
 	}
 
 	override func didReceiveMemoryWarning() {

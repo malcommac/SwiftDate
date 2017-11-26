@@ -1,26 +1,11 @@
+// SwiftDate
+// Manage Date/Time & Timezone in Swift
 //
-//	SwiftDate, Full featured Swift date library for parsing, validating, manipulating, and formatting dates and timezones.
-//	Created by:				Daniele Margutti
-//	Main contributors:		Jeroen Houtzager
+// Created by: Daniele Margutti
+// Email: <hello@danielemargutti.com>
+// Web: <http://www.danielemargutti.com>
 //
-//
-//	Permission is hereby granted, free of charge, to any person obtaining a copy
-//	of this software and associated documentation files (the "Software"), to deal
-//	in the Software without restriction, including without limitation the rights
-//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//	copies of the Software, and to permit persons to whom the Software is
-//	furnished to do so, subject to the following conditions:
-//
-//	The above copyright notice and this permission notice shall be included in
-//	all copies or substantial portions of the Software.
-//
-//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//	THE SOFTWARE.
+// Licensed under MIT License.
 
 import Foundation
 
@@ -91,9 +76,21 @@ public extension Date {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation
+	@available(*, deprecated: 4.5.0, message: "Deprecated. Use `colloquialSinceNow(in:options:)` instead.")
 	public func colloquialSinceNow(in region: Region? = nil, unitStyle: DateComponentsFormatter.UnitsStyle = .short, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
 		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(style: unitStyle)
+	}
+	
+	/// This method produces a colloquial representation of time elapsed between `self` and the current date.
+	///
+	/// - Parameters:
+	///   - region: region in which both dates will be expressed in
+	///   - options: formatting options
+	/// - Returns: String, `nil` if formatter faild
+	public func colloquialSinceNow(in region: Region? = nil, options: ColloquialDateFormatter.Options? = nil) -> String? {
+		let srcRegion = region ?? DateDefaultRegion
+		return DateInRegion(absoluteDate: self, in: srcRegion).colloquialSinceNow(options: options)
 	}
 	
 	/// This method produces a colloquial representation of time elapsed between this `DateInRegion` (`self`) and
@@ -108,10 +105,24 @@ public extension Date {
 	/// - throws: throw an exception is colloquial string cannot be evaluated
 	///
 	/// - returns: colloquial string representation of the time elapsed between two dates
+	@available(*, deprecated: 4.5.0, message: "Deprecated. Use `colloquial(to:in:options:)` instead")
 	public func colloquial(to: Date, in region: Region? = nil, max: Int? = nil, zero: DateZeroBehaviour? = nil, separator: String? = nil) throws -> (colloquial: String, time: String?) {
 		let srcRegion = region ?? DateDefaultRegion
 		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
 		return try DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion)
+	}
+	
+	/// This method produces a colloquial representation of time elapsed between self and another reference date.
+	///
+	/// - Parameters:
+	///   - to: reference date
+	///   - region: region in which both dates will be expressed in
+	///   - options: formatting options
+	/// - Returns: String, nil if formatter fails
+	public func colloquial(to: Date, in region: Region? = nil, options: ColloquialDateFormatter.Options? = nil) -> String? {
+		let srcRegion = region ?? DateDefaultRegion
+		let toDateInRegion = DateInRegion(absoluteDate: to, in: srcRegion)
+		return DateInRegion(absoluteDate: self, in: srcRegion).colloquial(toDate: toDateInRegion, options: options)
 	}
 	
 	/// This method produces a string by printing the interval between self and current Date and output a string where each

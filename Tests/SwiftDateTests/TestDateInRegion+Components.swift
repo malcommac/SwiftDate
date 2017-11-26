@@ -471,4 +471,23 @@ class TestDateInRegion_Components: XCTestCase {
         XCTAssert(fivePM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
 
     }
+	
+	func test_inFunctionWithAbsoluteInterval() {
+		Date.setDefaultRegion(Region(tz: TimeZoneName.gmt,
+									 cal: CalendarName.gregorian,
+									 loc: LocaleName.englishEurope))
+		
+		let startDate = Date(timeIntervalSince1970: 1511222400.0) // 21 Nov 2017
+		let endDate = startDate.add(components: [.day: 30])
+		var currentDate = startDate.add(components: [.day: 1])
+		while currentDate.isBefore(date: endDate, granularity: .day) {
+			let swiftDateDiff = (currentDate - startDate).in(.day)!
+			let seconds = currentDate.timeIntervalSince1970 - startDate.timeIntervalSince1970
+			let customDateDiff = Int(seconds / 60 / 60 / 24)
+			if swiftDateDiff != customDateDiff {
+				XCTFail("Diff with \(currentDate) should be \(customDateDiff) days, instead of \(swiftDateDiff).")
+			}
+			currentDate = currentDate.add(components: [.day: 1])
+		}
+	}
 }

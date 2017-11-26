@@ -1,26 +1,11 @@
+// SwiftDate
+// Manage Date/Time & Timezone in Swift
 //
-//	SwiftDate, Full featured Swift date library for parsing, validating, manipulating, and formatting dates and timezones.
-//	Created by:				Daniele Margutti
-//	Main contributors:		Jeroen Houtzager
+// Created by: Daniele Margutti
+// Email: <hello@danielemargutti.com>
+// Web: <http://www.danielemargutti.com>
 //
-//
-//	Permission is hereby granted, free of charge, to any person obtaining a copy
-//	of this software and associated documentation files (the "Software"), to deal
-//	in the Software without restriction, including without limitation the rights
-//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//	copies of the Software, and to permit persons to whom the Software is
-//	furnished to do so, subject to the following conditions:
-//
-//	The above copyright notice and this permission notice shall be included in
-//	all copies or substantial portions of the Software.
-//
-//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//	THE SOFTWARE.
+// Licensed under MIT License.
 
 import Foundation
 
@@ -28,35 +13,49 @@ import Foundation
 
 public extension TimeInterval {
 	
-	/// Express a time interval (expressed in seconds) in one or more time units you choose.
-	/// For example you can express "3605" seconds in ".hours = 2, .minutes = 5".
+	/// Express given time interval in other time units.
+	/// If a reference date (`fromDate`) is not specified conversion is aware of day light saving times and other possible nasty things
+	/// (only `.day,.hour,.minute,.second` are supported as components).
+	/// If a reference date is specified conversion is made using the interval from passed reference date and include calendar/date
+	/// specific events.
 	///
-	/// - parameter components: components in which you want to express the time interval
-	/// - parameter calendar:   context calendar to use
 	///
-	/// - returns: a `[Calendar.Component: Int]` which contains the unit in which you want to express the time interval
-	public func `in`(_ components: [Calendar.Component], of calendar: CalendarName? = nil) -> [Calendar.Component : Int] {
-		let cal = calendar ?? CalendarName.current
-		let dateTo = Date()
-		let dateFrom: Date = dateTo.addingTimeInterval(-self)
-		let cmps = cal.calendar.dateComponents(componentsToSet(components), from: dateFrom, to: dateTo)
+	/// - Parameters:
+	///   - components: components to extract
+	///   - date: reference date; `nil` uses absolute conversion, valida date to set the interval from a specific date.
+	///   - calendar: context calendar; `nil` uses `Date.DefaultRegion.calendar` instead
+	/// - Returns: components
+	public func `in`(_ components: [Calendar.Component], fromDate date: Date? = nil, of calendar: Calendar? = nil) -> [Calendar.Component : Int] {
+		guard let refDate = date else {
+			// Absolute conversion, not taking care of specific starting date
+			let days = Int( (components.contains(.day) ? self / (60 * 60 * 24) : 0) )
+			let hours = Int((components.contains(.hour) ? ((self / (60 * 60)) - (Double(days) * 24)) : 0))
+			let minutes = Int( (components.contains(.minute) ? ((self / 60) - (Double(days) * 24 * 60) - (Double(hours) * 60)) : 0))
+			let seconds = Int( (components.contains(.second) ? (self - (Double(days) * 24 * 60) - (Double(hours) * 60 * 60) - Double(minutes) * 60) : 0))
+			
+			var components: [Calendar.Component : Int] = [:]
+			if (days != 0) 		{ components[.day] = Int(days) }
+			if (hours != 0) 	{ components[.hour] = Int(hours) }
+			if (minutes != 0)	{ components[.minute] = Int(minutes) }
+			if (seconds != 0)	{ components[.second] = Int(seconds) }
+			return components
+		}
+		
+		let cal = calendar ?? Date.defaultRegion.calendar
+		let dateFrom: Date = refDate
+		let dateTo: Date = dateFrom.addingTimeInterval(self)
+		let cmps = cal.dateComponents(componentsToSet(components), from: dateFrom, to: dateTo)
 		return cmps.toComponentsDict()
 	}
-	
 	
 	/// Express a time interval (expressed in seconds) in another time unit you choose
 	///
 	/// - parameter component: time unit in which you want to express the calendar component
-	/// - parameter calendar:  context calendar to use
+	/// - parameter calendar:  context calendar to use. `nil` uses `Date.DefaultRegion.calendar` instead
 	///
 	/// - returns: the value of interval expressed in selected `Calendar.Component`
-	public func `in`(_ component: Calendar.Component, of calendar: CalendarName? = nil) -> Int? {
-		let cal = calendar ?? CalendarName.current
-		let dateTo = Date()
-		let dateFrom: Date = dateTo.addingTimeInterval(-self)
-		let components: Set<Calendar.Component> = [component]
-		let value = cal.calendar.dateComponents(components, from: dateFrom, to: dateTo).value(for: component)
-		return value
+	public func `in`(_ component: Calendar.Component, fromDate date: Date? = nil, of calendar: Calendar? = nil) -> Int? {
+		return self.in([component], fromDate: date, of: calendar)[component]
 	}
 	
 	/// Represent a time interval in a string
@@ -100,6 +99,7 @@ public extension TimeInterval {
 		}
 		return output
 	}
+	
 
 }
 

@@ -62,10 +62,6 @@
 		375F90291F0ECD1C00ECC0FD /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FEF1F0ECD1C00ECC0FD /* DateInRegion+Math.swift */; };
 		375F902A1F0ECD1C00ECC0FD /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FEF1F0ECD1C00ECC0FD /* DateInRegion+Math.swift */; };
 		375F902B1F0ECD1C00ECC0FD /* DateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FEF1F0ECD1C00ECC0FD /* DateInRegion+Math.swift */; };
-		375F902C1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF01F0ECD1C00ECC0FD /* DateInRegionFormatter.swift */; };
-		375F902D1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF01F0ECD1C00ECC0FD /* DateInRegionFormatter.swift */; };
-		375F902E1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF01F0ECD1C00ECC0FD /* DateInRegionFormatter.swift */; };
-		375F902F1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF01F0ECD1C00ECC0FD /* DateInRegionFormatter.swift */; };
 		375F90301F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF11F0ECD1C00ECC0FD /* DateTimeInterval.swift */; };
 		375F90311F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF11F0ECD1C00ECC0FD /* DateTimeInterval.swift */; };
 		375F90321F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F8FF11F0ECD1C00ECC0FD /* DateTimeInterval.swift */; };
@@ -123,6 +119,14 @@
 		376525811F074FB0006F919E /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376525761F074FAB006F919E /* TestDateInRegion+Components.swift */; };
 		376525821F074FB0006F919E /* TestDateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376525741F074FAB006F919E /* TestDateInRegion+Formatter.swift */; };
 		52D6D9871BEFF229002C0205 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* SwiftDate.framework */; };
+		643D15C01FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		643D15C11FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		643D15C21FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		643D15C31FC370430097A3BB /* DateInRegionFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */; };
+		646E53EF1FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
+		646E53F01FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
+		646E53F11FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
+		646E53F21FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
 		DD7502881C68FEDE006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */; };
 		DD7502921C690C7A006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */; };
 /* End PBXBuildFile section */
@@ -191,7 +195,6 @@
 		375F8FED1F0ECD1C00ECC0FD /* DateInRegion+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "SwiftDate/DateInRegion+Components.swift"; sourceTree = "<group>"; };
 		375F8FEE1F0ECD1C00ECC0FD /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "SwiftDate/DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
 		375F8FEF1F0ECD1C00ECC0FD /* DateInRegion+Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Math.swift"; path = "SwiftDate/DateInRegion+Math.swift"; sourceTree = "<group>"; };
-		375F8FF01F0ECD1C00ECC0FD /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = SwiftDate/DateInRegionFormatter.swift; sourceTree = "<group>"; };
 		375F8FF11F0ECD1C00ECC0FD /* DateTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeInterval.swift; path = SwiftDate/DateTimeInterval.swift; sourceTree = "<group>"; };
 		375F8FF21F0ECD1C00ECC0FD /* DOTNETDateTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DOTNETDateTimeFormatter.swift; path = SwiftDate/DOTNETDateTimeFormatter.swift; sourceTree = "<group>"; };
 		375F8FF31F0ECD1C00ECC0FD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = SwiftDate/Extensions.swift; sourceTree = "<group>"; };
@@ -212,6 +215,9 @@
 		52D6D9E21BEFFF6E002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64094C311FC6F05E00DDCC47 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = SwiftDate/DateInRegionFormatter.swift; sourceTree = "<group>"; };
+		646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColloquialDateFormatter.swift; path = SwiftDate/ColloquialDateFormatter.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* SwiftDate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDate.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* SwiftDateTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDateTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* SwiftDate-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDate-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +304,7 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				64094C311FC6F05E00DDCC47 /* Playground.playground */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -333,6 +340,7 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				375F8FEB1F0ECD1C00ECC0FD /* DateInRegion.swift */,
 				375F8FE41F0ECD1C00ECC0FD /* CalendarName.swift */,
 				375F8FE51F0ECD1C00ECC0FD /* Commons.swift */,
 				375F8FE61F0ECD1C00ECC0FD /* Date+Compare.swift */,
@@ -340,12 +348,10 @@
 				375F8FE81F0ECD1C00ECC0FD /* Date+Formatter.swift */,
 				375F8FE91F0ECD1C00ECC0FD /* Date+Math.swift */,
 				375F8FEA1F0ECD1C00ECC0FD /* DateComponents+Extension.swift */,
-				375F8FEB1F0ECD1C00ECC0FD /* DateInRegion.swift */,
 				375F8FEC1F0ECD1C00ECC0FD /* DateInRegion+Compare.swift */,
 				375F8FED1F0ECD1C00ECC0FD /* DateInRegion+Components.swift */,
 				375F8FEE1F0ECD1C00ECC0FD /* DateInRegion+Formatter.swift */,
 				375F8FEF1F0ECD1C00ECC0FD /* DateInRegion+Math.swift */,
-				375F8FF01F0ECD1C00ECC0FD /* DateInRegionFormatter.swift */,
 				375F8FF11F0ECD1C00ECC0FD /* DateTimeInterval.swift */,
 				375F8FF21F0ECD1C00ECC0FD /* DOTNETDateTimeFormatter.swift */,
 				375F8FF31F0ECD1C00ECC0FD /* Extensions.swift */,
@@ -356,6 +362,8 @@
 				375F8FF81F0ECD1C00ECC0FD /* Region.swift */,
 				375F8FFA1F0ECD1C00ECC0FD /* TimeInterval+Extensions.swift */,
 				375F8FFB1F0ECD1C00ECC0FD /* TimeZoneName.swift */,
+				646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */,
+				643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */,
 				375F8FF91F0ECD1C00ECC0FD /* SwiftDate.bundle */,
 			);
 			path = Sources;
@@ -580,6 +588,7 @@
 				TargetAttributes = {
 					375F8FCC1F0EC70C00ECC0FD = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = E5DU3FA699;
 						ProvisioningStyle = Automatic;
 					};
 					52D6D97B1BEFF229002C0205 = {
@@ -722,11 +731,11 @@
 				375F900C1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90341F0ECD1C00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90001F0ECD1C00ECC0FD /* Commons.swift in Sources */,
+				643D15C01FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFC1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F90481F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90541F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
 				375F90041F0ECD1C00ECC0FD /* Date+Compare.swift in Sources */,
-				375F902C1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */,
 				375F901C1F0ECD1C00ECC0FD /* DateInRegion+Compare.swift in Sources */,
 				375F90081F0ECD1C00ECC0FD /* Date+Components.swift in Sources */,
 				375F90201F0ECD1C00ECC0FD /* DateInRegion+Components.swift in Sources */,
@@ -735,6 +744,7 @@
 				375F90581F0ECD1D00ECC0FD /* TimeZoneName.swift in Sources */,
 				375F90401F0ECD1D00ECC0FD /* ISO8601Parser.swift in Sources */,
 				375F90441F0ECD1D00ECC0FD /* LocaleName.swift in Sources */,
+				646E53EF1FB6335600939895 /* ColloquialDateFormatter.swift in Sources */,
 				375F903C1F0ECD1D00ECC0FD /* ISO8601DateTimeFormatter.swift in Sources */,
 				375F90301F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */,
 				375F904C1F0ECD1D00ECC0FD /* Region.swift in Sources */,
@@ -763,11 +773,11 @@
 				375F900E1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90361F0ECD1D00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90021F0ECD1C00ECC0FD /* Commons.swift in Sources */,
+				643D15C21FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFE1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F904A1F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90561F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
 				375F90061F0ECD1C00ECC0FD /* Date+Compare.swift in Sources */,
-				375F902E1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */,
 				375F901E1F0ECD1C00ECC0FD /* DateInRegion+Compare.swift in Sources */,
 				375F900A1F0ECD1C00ECC0FD /* Date+Components.swift in Sources */,
 				375F90221F0ECD1C00ECC0FD /* DateInRegion+Components.swift in Sources */,
@@ -776,6 +786,7 @@
 				375F905A1F0ECD1D00ECC0FD /* TimeZoneName.swift in Sources */,
 				375F90421F0ECD1D00ECC0FD /* ISO8601Parser.swift in Sources */,
 				375F90461F0ECD1D00ECC0FD /* LocaleName.swift in Sources */,
+				646E53F11FB6335600939895 /* ColloquialDateFormatter.swift in Sources */,
 				375F903E1F0ECD1D00ECC0FD /* ISO8601DateTimeFormatter.swift in Sources */,
 				375F90321F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */,
 				375F904E1F0ECD1D00ECC0FD /* Region.swift in Sources */,
@@ -793,11 +804,11 @@
 				375F900F1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90371F0ECD1D00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90031F0ECD1C00ECC0FD /* Commons.swift in Sources */,
+				643D15C31FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFF1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F904B1F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90571F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
 				375F90071F0ECD1C00ECC0FD /* Date+Compare.swift in Sources */,
-				375F902F1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */,
 				375F901F1F0ECD1C00ECC0FD /* DateInRegion+Compare.swift in Sources */,
 				375F900B1F0ECD1C00ECC0FD /* Date+Components.swift in Sources */,
 				375F90231F0ECD1C00ECC0FD /* DateInRegion+Components.swift in Sources */,
@@ -806,6 +817,7 @@
 				375F905B1F0ECD1D00ECC0FD /* TimeZoneName.swift in Sources */,
 				375F90431F0ECD1D00ECC0FD /* ISO8601Parser.swift in Sources */,
 				375F90471F0ECD1D00ECC0FD /* LocaleName.swift in Sources */,
+				646E53F21FB6335600939895 /* ColloquialDateFormatter.swift in Sources */,
 				375F903F1F0ECD1D00ECC0FD /* ISO8601DateTimeFormatter.swift in Sources */,
 				375F90331F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */,
 				375F904F1F0ECD1D00ECC0FD /* Region.swift in Sources */,
@@ -823,11 +835,11 @@
 				375F900D1F0ECD1C00ECC0FD /* Date+Formatter.swift in Sources */,
 				375F90351F0ECD1C00ECC0FD /* DOTNETDateTimeFormatter.swift in Sources */,
 				375F90011F0ECD1C00ECC0FD /* Commons.swift in Sources */,
+				643D15C11FC370430097A3BB /* DateInRegionFormatter.swift in Sources */,
 				375F8FFD1F0ECD1C00ECC0FD /* CalendarName.swift in Sources */,
 				375F90491F0ECD1D00ECC0FD /* Localization.swift in Sources */,
 				375F90551F0ECD1D00ECC0FD /* TimeInterval+Extensions.swift in Sources */,
 				375F90051F0ECD1C00ECC0FD /* Date+Compare.swift in Sources */,
-				375F902D1F0ECD1C00ECC0FD /* DateInRegionFormatter.swift in Sources */,
 				375F901D1F0ECD1C00ECC0FD /* DateInRegion+Compare.swift in Sources */,
 				375F90091F0ECD1C00ECC0FD /* Date+Components.swift in Sources */,
 				375F90211F0ECD1C00ECC0FD /* DateInRegion+Components.swift in Sources */,
@@ -836,6 +848,7 @@
 				375F90591F0ECD1D00ECC0FD /* TimeZoneName.swift in Sources */,
 				375F90411F0ECD1D00ECC0FD /* ISO8601Parser.swift in Sources */,
 				375F90451F0ECD1D00ECC0FD /* LocaleName.swift in Sources */,
+				646E53F01FB6335600939895 /* ColloquialDateFormatter.swift in Sources */,
 				375F903D1F0ECD1D00ECC0FD /* ISO8601DateTimeFormatter.swift in Sources */,
 				375F90311F0ECD1C00ECC0FD /* DateTimeInterval.swift in Sources */,
 				375F904D1F0ECD1D00ECC0FD /* Region.swift in Sources */,
@@ -919,6 +932,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = E5DU3FA699;
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -937,6 +951,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = E5DU3FA699;
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -975,7 +990,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1033,7 +1048,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

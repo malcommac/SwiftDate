@@ -1,18 +1,18 @@
 // COLLOQUIAL STRINGD
-"colloquial_f_y"					=	"prossimo anno";		// year,future,singular: 	"next year"
+"colloquial_f_y"					=	"il prossimo anno";		// year,future,singular: 	"next year"
 "colloquial_f_yy"					=	"nel %d";				// year,future,plural:		"on 2016"
-"colloquial_p_y"					=	"anno scorso";			// year,past,singular:		"last year"
+"colloquial_p_y"					=	"l' anno scorso";		// year,past,singular:		"last year"
 "colloquial_p_yy"					=	"%d";					// year,past,plural:		"2015"
 
-"colloquial_f_m"					=	"prossimo mese";		// month,future,singular:	"next month"
+"colloquial_f_m"					=	"il prossimo mese";		// month,future,singular:	"next month"
 "colloquial_f_mm"					=	"tra %d mesi";			// month,future,plural:		"in 3 months"
-"colloquial_p_m"					=	"mese scorso";			// month,past,singular:		"past month"
+"colloquial_p_m"					=	"il mese scorso";	    // month,past,singular:		"past month"
 "colloquial_p_mm"					=	"%d mesi fa";			// month,past,plural:		"3 months ago"
 
-"colloquial_f_w"					=	"prossima settimana";	// week,future,singular:	"next week"
-"colloquial_f_ww"					=	"tra %d settimane";	// week,future,plural:		"in 3 weeks"
-"colloquial_p_w"					=	"settimana scorsa";		// week,past,singular:		"past week"
-"colloquial_p_ww"					=	"%d settimane fa";		// week,past,plural:		"in 3 weeks"
+"colloquial_f_w"					=	"la prossima settimana";    // week,future,singular:	"next week"
+"colloquial_f_ww"					=	"tra %d settimane";	        // week,future,plural:		"in 3 weeks"
+"colloquial_p_w"					=	"la settimana scorsa";		// week,past,singular:		"past week"
+"colloquial_p_ww"					=	"%d settimane fa";		    // week,past,plural:		"in 3 weeks"
 
 "colloquial_f_d"					=	"domani";			// day,future,singular:		"tomorrow"
 "colloquial_f_dd"					=	"tra %d giorni";	// day,future,plural:		"in 3 days"
@@ -55,3 +55,9 @@
 "relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
 "relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+
+// Distant ranges for time unit
+"distant_h" 						= "HH:mm";
+"distant_d" 						= "dd/MM";
+"distant_m" 						= "MM/yyyy";
+"distant_y" 						= "yyyy";

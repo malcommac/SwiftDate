@@ -215,6 +215,7 @@
 		52D6D9E21BEFFF6E002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64094C311FC6F05E00DDCC47 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		643D15BF1FC370430097A3BB /* DateInRegionFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateInRegionFormatter.swift; path = SwiftDate/DateInRegionFormatter.swift; sourceTree = "<group>"; };
 		646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColloquialDateFormatter.swift; path = SwiftDate/ColloquialDateFormatter.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* SwiftDate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDate.plist; sourceTree = "<group>"; };
@@ -303,6 +304,7 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				64094C311FC6F05E00DDCC47 /* Playground.playground */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -338,6 +340,7 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				375F8FEB1F0ECD1C00ECC0FD /* DateInRegion.swift */,
 				375F8FE41F0ECD1C00ECC0FD /* CalendarName.swift */,
 				375F8FE51F0ECD1C00ECC0FD /* Commons.swift */,
 				375F8FE61F0ECD1C00ECC0FD /* Date+Compare.swift */,
@@ -345,7 +348,6 @@
 				375F8FE81F0ECD1C00ECC0FD /* Date+Formatter.swift */,
 				375F8FE91F0ECD1C00ECC0FD /* Date+Math.swift */,
 				375F8FEA1F0ECD1C00ECC0FD /* DateComponents+Extension.swift */,
-				375F8FEB1F0ECD1C00ECC0FD /* DateInRegion.swift */,
 				375F8FEC1F0ECD1C00ECC0FD /* DateInRegion+Compare.swift */,
 				375F8FED1F0ECD1C00ECC0FD /* DateInRegion+Components.swift */,
 				375F8FEE1F0ECD1C00ECC0FD /* DateInRegion+Formatter.swift */,

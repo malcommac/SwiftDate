@@ -1,3 +1,11 @@
+// SwiftDate
+// Manage Date/Time & Timezone in Swift
+//
+// Created by: Daniele Margutti
+// Email: <hello@danielemargutti.com>
+// Web: <http://www.danielemargutti.com>
+//
+// Licensed under MIT License.
 
 import Foundation
 

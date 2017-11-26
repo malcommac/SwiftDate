@@ -1,26 +1,11 @@
+// SwiftDate
+// Manage Date/Time & Timezone in Swift
 //
-//	SwiftDate, Full featured Swift date library for parsing, validating, manipulating, and formatting dates and timezones.
-//	Created by:				Daniele Margutti
-//	Main contributors:		Jeroen Houtzager
+// Created by: Daniele Margutti
+// Email: <hello@danielemargutti.com>
+// Web: <http://www.danielemargutti.com>
 //
-//
-//	Permission is hereby granted, free of charge, to any person obtaining a copy
-//	of this software and associated documentation files (the "Software"), to deal
-//	in the Software without restriction, including without limitation the rights
-//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//	copies of the Software, and to permit persons to whom the Software is
-//	furnished to do so, subject to the following conditions:
-//
-//	The above copyright notice and this permission notice shall be included in
-//	all copies or substantial portions of the Software.
-//
-//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//	THE SOFTWARE.
+// Licensed under MIT License.
 
 import Foundation
 
@@ -151,6 +136,32 @@ public extension Date {
 		return next_date
 	}
 	
+	/// Return the difference between two dates expressed using passed time components.
+	///
+	/// - Parameters:
+	///   - components: time units to get
+	///   - refDate: reference date
+	///   - calendar: calendar to use, `nil` to user `Date.defaultRegion.calendar`
+	/// - Returns: components dictionary
+	public func components(_ components: [Calendar.Component], to refDate: Date, calendar: Calendar? = nil) -> [Calendar.Component : Int] {
+		let cal = calendar ?? Date.defaultRegion.calendar
+		let cmps = cal.dateComponents(componentsToSet(components), from: self, to: refDate)
+		return cmps.toComponentsDict()
+	}
+	
+	
+	/// Return the difference between two dates expressed in passed time unit.
+	/// This operation take care of the calendar in which dates are expressed (must be equal) differently
+	/// from the TimeInterval `in` function.
+	///
+	/// - Parameters:
+	///   - component: component to get
+	///   - refDate: reference date
+	///   - calendar: calendar to use, `nil` to user `Date.defaultRegion.calendar`
+	/// - Returns: difference expressed in given component
+	public func component(_ component: Calendar.Component, to refDate: Date, calendar: Calendar? = nil) -> Int? {
+		return self.components([component], to: refDate)[component]
+	}
 }
 
 // MARK: - Sum of Dates and Date & Components

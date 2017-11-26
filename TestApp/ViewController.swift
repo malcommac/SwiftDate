@@ -15,12 +15,29 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		let d1 = DateInRegion()
-		let d2 = d1 + 5.minutes
-		var opts = ColloquialDateFormatter.Options()
-		opts.imminentRange = nil
-		let colloquial = d2.colloquial(toDate: d1, options: opts)
-		print("colloquial = \(colloquial)")
+		Date.setDefaultRegion(Region(tz: TimeZoneName.gmt,
+									 cal: CalendarName.gregorian,
+									 loc: LocaleName.englishEurope))
+		
+	/*	let startDate = Date(timeIntervalSince1970: 1511222400.0) // 21 Nov 2017
+		let endDate = startDate.add(components: [.day: 30])
+		var currentDate = startDate.add(components: [.day: 1])
+		while currentDate.isBefore(date: endDate, granularity: .day) {
+			let swiftDateDiff = (currentDate - startDate).in(.day)!
+			let seconds = currentDate.timeIntervalSince1970 - startDate.timeIntervalSince1970
+			let customDateDiff = Int(seconds / 60 / 60 / 24)
+			if swiftDateDiff != customDateDiff {
+				print("Diff with \(currentDate) should be \(customDateDiff) days, instead of \(swiftDateDiff).")
+			}
+			currentDate = currentDate.add(components: [.day: 1])
+		}
+		
+	*/
+		
+		var t: TimeInterval = (60 * 60 * 24 * 90)
+		t += (60 * 60)
+		let x = t.in([.day,.hour])
+		print(x)
 	}
 
 	override func didReceiveMemoryWarning() {

@@ -54,3 +54,9 @@
 "relevanttime_MM"					=	"";					// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_s"					=	"";					// for colloquial seconds(s) we have not any relevant time to print
 "relevanttime_ss"					=	"";					// for colloquial seconds(s) we have not any relevant time to print
+
+// Distant ranges for time unit
+"distant_h" 						= "HH:mm";
+"distant_d" 						= "MM/dd";
+"distant_m" 						= "MM/yyyy";
+"distant_y" 						= "yyyy";

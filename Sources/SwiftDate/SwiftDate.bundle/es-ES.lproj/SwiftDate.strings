@@ -1,22 +1,22 @@
 // COLLOQUIAL STRINGD
-"colloquial_f_y"					=	"próximo año";		// year,future,singular: 	"next year"
-"colloquial_f_yy"					=	"en %d";			// year,future,plural:		"on 2016"
-"colloquial_p_y"					=	"año pasado";		// year,past,singular:		"last year"
-"colloquial_p_yy"					=	"%d";				// year,past,plural:		"2015"
+"colloquial_f_y"					=	"el año que viene";		// year,future,singular: 	"next year"
+"colloquial_f_yy"					=	"en %d";			    // year,future,plural:		"on 2016"
+"colloquial_p_y"					=	"el año pasado";		// year,past,singular:		"last year"
+"colloquial_p_yy"					=	"%d";				    // year,past,plural:		"2015"
 
-"colloquial_f_m"					=	"próximo mes";		// month,future,singular:	"next month"
-"colloquial_f_mm"					=	"en %d meses";		// month,future,plural:		"in 3 months"
-"colloquial_p_m"					=	"mes pasado";		// month,past,singular:		"past month"
-"colloquial_p_mm"					=	"hace %d meses";	// month,past,plural:		"3 months ago"
+"colloquial_f_m"					=	"el mes que viene";		// month,future,singular:	"next month"
+"colloquial_f_mm"					=	"en %d meses";		    // month,future,plural:		"in 3 months"
+"colloquial_p_m"					=	"el mes pasado";		// month,past,singular:		"past month"
+"colloquial_p_mm"					=	"hace %d meses";	    // month,past,plural:		"3 months ago"
 
-"colloquial_f_w"					=	"próxima semana";		// week,future,singular:	"next week"
+"colloquial_f_w"					=	"la semana que viene";	// week,future,singular:	"next week"
 "colloquial_f_ww"					=	"en %ld semanas";		// week,future,plural:		"in 3 weeks"
-"colloquial_p_w"					=	"semana pasada";		// week,past,singular:		"past week"
+"colloquial_p_w"					=	"la semana pasada";		// week,past,singular:		"past week"
 "colloquial_p_ww"					=	"hace %d semanas";		// week,past,plural:		"in 3 weeks"
 
 "colloquial_f_d"					=	"mañana";			// day,future,singular:		"tomorrow"
 "colloquial_f_dd"					=	"en %d días";		// day,future,plural:		"in 3 days"
-"colloquial_p_d"					=	"ayer";		// day,past,singular:		"yesterday"
+"colloquial_p_d"					=	"ayer";		        // day,past,singular:		"yesterday"
 "colloquial_p_dd"					=	"hace %d días";		// day,past,plural:			"3 days ago"
 
 "colloquial_f_h"					=	"en una hora";		// hour,future,singular:	"in one hour"
@@ -54,3 +54,9 @@
 "relevanttime_MM"					=	"";							// for colloquial minute(s) we have not any relevant time to print
 "relevanttime_s"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
 "relevanttime_ss"					=	"";							// for colloquial seconds(s) we have not any relevant time to print
+
+// Distant ranges for time unit
+"distant_h" 						= "HH:mm";
+"distant_d" 						= "MM/dd";
+"distant_m" 						= "MM/yyyy";
+"distant_y" 						= "yyyy";

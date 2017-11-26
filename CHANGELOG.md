@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.5.0](#4500)** (Swift 4)
 * Version **[4.4.2](#4420)** (Swift 4)
 * Version **[4.4.1](#4410)** (Swift 4)
 * Version **[4.3.0](#4300_4400)** (latest for Swift 3) and **[4.4.0](#4300_4400)**
@@ -30,6 +31,18 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="4500" />
+
+## SwiftDate 4.5.0 (for Swift 4)
+---
+- **Release Date**: 2017-11-26
+- **Zipped Version**: [Download 4.5.0](https://github.com/malcommac/SwiftDate/releases/tag/4.5.0)
+
+- [#495](https://github.com/malcommac/SwiftDate/pull/495) Added Thai language (thanks to [Thanakrit Weekhamchai](https://github.com/dumbest))
+- [#492](https://github.com/malcommac/SwiftDate/pull/492) Introduced a new `ColloquialDateFormatter`  class
+- [#503](https://github.com/malcommac/SwiftDate/pull/503) Added `isBetween` to check if a date is inside a given dates range with passed granularity.
+- [#505](https://github.com/malcommac/SwiftDate/pull/505) Exposed reference date for `in()` function of `TimeInterval`. If specified conversion of the interval is aware of daylight saving time and calendar's specific dates; when not specified absolute conversion still available (only for `.day,.hour,.minute,.second` components).
 
 <a name="4420" />
 

@@ -76,86 +76,6 @@ class TestDateInRegion_Formatter: XCTestCase {
 		XCTAssertEqual(custom_2, "03/02/2001, 14:30", "Failed get string representation as custom #2")
 	}
 	
-	public func test_toColloquialString() {
-		let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italian)
-        let id = Region(tz: TimeZoneName.asiaBangkok,
-                        cal: CalendarName.gregorian, loc: LocaleName.indonesian)
-	
-		guard let testDate = DateInRegion(components: [.year: 2001, .month: 2, .day: 3, .hour: 15, .minute: 30], fromRegion: rome) else {
-			XCTFail("Failed to create date from components")
-			return
-		}
-		let (custom_1,_) = try! testDate.colloquialSinceNow()
-		XCTAssertEqual(custom_1, "2001", "Failed get colloquial representation of an old date")
-		
-		let mins12Ago = DateInRegion() - 12.minutes
-		let (custom_2,_) = try! mins12Ago.colloquialSinceNow()
-		XCTAssertEqual(custom_2, "12 minutes ago", "Failed get colloquial representation of an old date")
-		
-		let oneHourAgo = DateInRegion() - 1.hour
-		let (custom_3,_) = try! oneHourAgo.colloquialSinceNow()
-		XCTAssertEqual(custom_3, "one hour ago", "Failed get colloquial representation of an old date")
-		
-		let oneHourAgo_IT = DateInRegion(absoluteDate: Date(), in: rome) - 1.hour
-		let (custom_4,_) = try! oneHourAgo_IT.colloquialSinceNow()
-		XCTAssertEqual(custom_4, "un'ora fa", "Failed get colloquial representation of an old date")
-        
-        let oneHourAgo_ID = DateInRegion(absoluteDate: Date(), in: id) - 1.hour
-        let (custom_6,_) = try! oneHourAgo_ID.colloquialSinceNow()
-        XCTAssertEqual(custom_6, "1 jam yang lalu", "Failed get colloquial representation of an old date")
-		
-        let another_Date = DateInRegion(absoluteDate: Date()) - 2.hours - 5.minutes - 3.seconds
-        var componentFormatterOptions = ComponentsFormatterOptions()
-        componentFormatterOptions.style = .short
-        componentFormatterOptions.zeroBehavior = .dropAll
-        let custom_5 = try! another_Date.timeComponentsSinceNow(options: componentFormatterOptions)
-		XCTAssertEqual(custom_5, "2 hr, 5 min, 3 sec", "Failed get colloquial representation of an old date")
-		
-		let (custom_7,_) = try! (DateInRegion() - 1.year).colloquialSinceNow()
-		XCTAssertEqual(custom_7, "last year", "Failed get colloquial representation of an old date")
-		
-		// 3 Days Ago difference
-		let days_3ago = DateInRegion() - 3.day
-		let days_3ago_colloquial = (try! days_3ago.colloquialSinceNow().colloquial)
-		XCTAssertEqual(days_3ago_colloquial, "3 days ago")
-		
-		// Less than 48 days difference => yesterday
-
-		let ref_date = DateInRegion(string: "2000-01-02 18:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
-		
-		let hours_27ago = ref_date - 27.hours
-		let hours_27ago_colloquial = (try! hours_27ago.colloquial(toDate: ref_date).colloquial)
-		XCTAssertEqual(hours_27ago_colloquial, "yesterday")
-	
-		
-		let hours_49 = ref_date - 49.hours
-		let hours_49ago_colloquial = (try! hours_49.colloquial(toDate: ref_date).colloquial)
-		XCTAssertEqual(hours_49ago_colloquial, "2 days ago")
-		
-		// Few hours between two days
-		let few_d1 = DateInRegion(string: "2000-01-02 23:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
-		let few_d2 = DateInRegion(string: "2000-01-03 01:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
-		let few_colloquial = try! few_d1.colloquial(toDate: few_d2)
-		XCTAssertEqual(few_colloquial.colloquial, "2 hours ago")
-		
-		let to = Date()
-		let from = Date(timeIntervalSince1970: to.timeIntervalSince1970 - 47 * 60 * 60)
-		
-		// 47 hours ago
-		let fromDate = DateInRegion(absoluteDate: from, in: nil)
-		let toDate = DateInRegion(absoluteDate: to, in: fromDate.region)
-		let formatter = DateInRegionFormatter()
-		formatter.localization = Localization(locale: fromDate.region.locale)
-		formatter.imminentInterval = 1
-		let result = try! formatter.colloquial(from: fromDate, to: toDate).colloquial
-		XCTAssertEqual(result, "yesterday")
-
-		// 4 Days Ago
-		let days_4ago_d1 = DateInRegion(string: "2000-04-20 00:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
-		let days_4ago_d2 = DateInRegion(string: "2000-04-24 00:00:00", format: .custom("yyyy-MM-dd HH:mm:SS"))!
-		let days_4ago_d1_colloquial = try! days_4ago_d1.colloquial(toDate: days_4ago_d2).colloquial
-		XCTAssertEqual(days_4ago_d1_colloquial, "4 days ago")
-	}
 	
 	public func test_dotNet() {
 		let dotnet_dates = ["/Date(641858400000+0200)/","/Date(-31536000000+0200)/","/Date(-1330563600000+0100)/"]
@@ -319,4 +239,71 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let abbreviated_string = try! date.colloquialSinceNow(style: .abbreviated)
 		XCTAssertEqual(abbreviated_string.colloquial, "1h", "Failed get colloquial string in abbreviated form")
 	}
+	
+	func _executeDateTest(dateA: String, dateB: String, options: ColloquialDateFormatter.Options, expected: String) {
+		let dFormat = DateFormat.custom("dd-MM-yyyy HH:mm:ss")
+		let date_a = DateInRegion(string: dateA, format: dFormat, fromRegion: Region.GMT())!
+		let date_b = DateInRegion(string: dateB, format: dFormat, fromRegion: Region.GMT())!
+		let colloquial = date_a.colloquial(toDate: date_b, options: options)
+		print("colloquial= '\(colloquial!)', expected= '\(expected)'")
+		XCTAssert(colloquial == expected, "Failed to get colloquial for dates: \(dateA) - \(dateB). Got '\(colloquial ?? "<nil>")', expected '\(expected)'")
+	}
+	
+    func test_colloquial() {
+		var options = ColloquialDateFormatter.Options()
+		options.locale = Localization(locale: LocaleName.english)
+		options.imminentRange = 7.minutes // < 7 minutes is imminent
+        
+        func testDates(dateA: DateInRegion, dateB: DateInRegion, expected: String) {
+			let colloquial = dateA.colloquial(toDate: dateB, options: options)
+            XCTAssert(colloquial == expected, "Failed to get colloquial for dates: \(dateA) - \(dateB). Got '\(colloquial ?? "<nil>")', expected '\(expected)'")
+        }
+		
+        _executeDateTest(dateA: "02-02-2017 22:00:00", dateB: "02-02-2017 22:54:00", options: options, expected: "54 minutes ago")
+        _executeDateTest(dateA: "02-02-2017 22:00:00", dateB: "02-03-2017 01:00:00", options: options, expected: "3 weeks ago")
+		
+		options.imminentRange = nil
+		_executeDateTest(dateA: "02-02-2017 22:00:05", dateB: "02-02-2017 22:04:45", options: options, expected: "4 minutes ago")
+		
+		options.imminentRange = 7.minutes
+      	_executeDateTest(dateA: "02-02-2017 22:00:00", dateB: "02-02-2017 22:00:15", options: options, expected: "just now")
+       	_executeDateTest(dateA: "02-02-2017 22:00:00", dateB: "02-02-2017 22:06:59", options: options, expected: "just now")
+      	_executeDateTest(dateA: "02-02-2017 22:00:00", dateB: "02-02-2017 22:07:02", options: options, expected: "7 minutes ago")
+       	_executeDateTest(dateA: "01-11-2017 00:00:00", dateB: "26-11-2017 00:00:00", options: options, expected: "3 weeks ago")
+       	_executeDateTest(dateA: "01-11-2017 00:00:00", dateB: "26-11-2019 00:00:00", options: options, expected: "2017")
+       	_executeDateTest(dateA: "01-11-2017 00:00:00", dateB: "01-11-2017 00:00:00", options: options, expected: "just now")
+		_executeDateTest(dateA: "01-11-2017 00:00:00", dateB: "01-11-2017 00:00:00", options: options, expected: "just now")
+		_executeDateTest(dateA: "01-01-2017 23:00:00", dateB: "02-01-2017 01:00:00", options: options, expected: "yesterday")
+		_executeDateTest(dateA: "02-01-2017 02:00:00", dateB: "01-01-2017 23:59:00", options: options, expected: "tomorrow")
+		_executeDateTest(dateA: "02-01-2017 20:00:00", dateB: "02-01-2017 23:59:00", options: options, expected: "3 hours ago")
+		
+		let now_date = DateInRegion()
+		testDates(dateA: (now_date - 47.hours), dateB: now_date, expected: "yesterday")
+		
+        // Disable weeks components and get the days instead of weeks
+        options.allowedComponents = [.day]
+		_executeDateTest(dateA: "01-11-2017 00:00:00", dateB: "26-11-2017 00:00:00", options: options, expected: "25 days ago")
+		
+		// Disable hour components and get the minutes instead of hours
+		options.allowedComponents = [.minute]
+        _executeDateTest(dateA: "01-11-2017 00:20:00", dateB: "01-11-2017 01:20:00", options: options, expected: "60 minutes ago")
+
+	}
+	
+	func test_colloquial_2() {
+		var opts = ColloquialDateFormatter.Options()
+		opts.distantRange = 2.hour
+		
+		_executeDateTest(dateA: "01-01-2017 20:00:00", dateB: "01-01-2017 21:00:00", options: opts, expected: "one hour ago")
+		_executeDateTest(dateA: "01-01-2017 20:00:00", dateB: "01-01-2017 22:05:00", options: opts, expected: "22:05")
+
+		opts.distantRange = 2.days
+		_executeDateTest(dateA: "02-01-2017 20:00:00", dateB: "01-01-2017 22:05:00", options: opts, expected: "tomorrow")
+		_executeDateTest(dateA: "03-01-2017 00:00:00", dateB: "01-01-2017 00:00:00", options: opts, expected: "01/01")
+
+		opts.distantRange = 20.days
+		_executeDateTest(dateA: "01-01-2017 00:00:00", dateB: "19-01-2017 00:00:00", options: opts, expected: "2 weeks ago")
+		_executeDateTest(dateA: "01-01-2017 00:00:00", dateB: "22-01-2017 00:00:00", options: opts, expected: "01/22")
+	}
+	
 }

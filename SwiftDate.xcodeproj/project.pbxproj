@@ -129,6 +129,7 @@
 		646E53F21FB6335600939895 /* ColloquialDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646E53EE1FB6335600939895 /* ColloquialDateFormatter.swift */; };
 		DD7502881C68FEDE006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */; };
 		DD7502921C690C7A006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */; };
+		DF9D6F1C1FCC7F290096DB41 /* SwiftDate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 375F8FF91F0ECD1C00ECC0FD /* SwiftDate.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -654,6 +655,7 @@
 				375F8FDA1F0EC70C00ECC0FD /* LaunchScreen.storyboard in Resources */,
 				375F8FD71F0EC70C00ECC0FD /* Assets.xcassets in Resources */,
 				375F8FD51F0EC70C00ECC0FD /* Main.storyboard in Resources */,
+				DF9D6F1C1FCC7F290096DB41 /* SwiftDate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

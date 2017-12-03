@@ -14,24 +14,23 @@ import Foundation
 public extension TimeInterval {
 	
 	/// Express given time interval in other time units.
-	/// If a reference date (`fromDate`) is not specified conversion is aware of day light saving times and other possible nasty things
-	/// (only `.day,.hour,.minute,.second` are supported as components).
-	/// If a reference date is specified conversion is made using the interval from passed reference date and include calendar/date
-	/// specific events.
+	/// Evaluation must use two reference dates to evaluate specific calendar components (like days, months or weeks).
+	/// If not specified the end date range is set to now, while starting date is set to (now-interval).
+	/// NOTE: calendar specific components (like months) may return altered results if you don't specify a date range.
 	///
 	///
 	/// - Parameters:
 	///   - components: components to extract
-	///   - date: reference date; `nil` uses absolute conversion, valida date to set the interval from a specific date.
+	///   - date: reference end date; `nil` uses absolute conversion.
 	///   - calendar: context calendar; `nil` uses `Date.DefaultRegion.calendar` instead
 	/// - Returns: components
-	public func `in`(_ components: [Calendar.Component], fromDate date: Date? = nil, of calendar: Calendar? = nil) -> [Calendar.Component : Int] {
+	public func `in`(_ components: [Calendar.Component], toDate date: Date? = nil, of calendar: Calendar? = nil) -> [Calendar.Component : Int] {
 		if date == nil && components.contains(where: { [.day,.month,.weekOfYear,.weekOfMonth,.year].contains($0) }) {
 			debugPrint("[SwiftDate] Using .in() to extract calendar specific components without a reference date may return wrong values.")
 		}
 		let cal = calendar ?? Date.defaultRegion.calendar
-		let dateFrom: Date = date ?? Date()
-		let dateTo: Date = dateFrom.addingTimeInterval(self)
+		let dateTo = date ?? Date()
+		let dateFrom: Date = dateTo.addingTimeInterval(-self)
 		let cmps = cal.dateComponents(componentsToSet(components), from: dateFrom, to: dateTo)
 		return cmps.toComponentsDict()
 	}
@@ -43,7 +42,7 @@ public extension TimeInterval {
 	///
 	/// - returns: the value of interval expressed in selected `Calendar.Component`
 	public func `in`(_ component: Calendar.Component, fromDate date: Date? = nil, of calendar: Calendar? = nil) -> Int? {
-		return self.in([component], fromDate: date, of: calendar)[component]
+		return self.in([component], toDate: date, of: calendar)[component]
 	}
 	
 	/// Represent a time interval in a string

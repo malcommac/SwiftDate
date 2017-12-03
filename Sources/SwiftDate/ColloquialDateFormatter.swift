@@ -111,7 +111,7 @@ public class ColloquialDateFormatter {
         }
 		// Check if both objects are represented in the same calendar
 		guard fDate.region.calendar == tDate.region.calendar else {
-			debugPrint("Dates must use the same calendar")
+			debugPrint("[SwiftDate] Dates must use the same calendar")
 			return nil
 		}
 		

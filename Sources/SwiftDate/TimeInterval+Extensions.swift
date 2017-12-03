@@ -26,23 +26,11 @@ public extension TimeInterval {
 	///   - calendar: context calendar; `nil` uses `Date.DefaultRegion.calendar` instead
 	/// - Returns: components
 	public func `in`(_ components: [Calendar.Component], fromDate date: Date? = nil, of calendar: Calendar? = nil) -> [Calendar.Component : Int] {
-		guard let refDate = date else {
-			// Absolute conversion, not taking care of specific starting date
-			let days = Int( (components.contains(.day) ? self / (60 * 60 * 24) : 0) )
-			let hours = Int((components.contains(.hour) ? ((self / (60 * 60)) - (Double(days) * 24)) : 0))
-			let minutes = Int( (components.contains(.minute) ? ((self / 60) - (Double(days) * 24 * 60) - (Double(hours) * 60)) : 0))
-			let seconds = Int( (components.contains(.second) ? (self - (Double(days) * 24 * 60) - (Double(hours) * 60 * 60) - Double(minutes) * 60) : 0))
-			
-			var components: [Calendar.Component : Int] = [:]
-			if (days != 0) 		{ components[.day] = Int(days) }
-			if (hours != 0) 	{ components[.hour] = Int(hours) }
-			if (minutes != 0)	{ components[.minute] = Int(minutes) }
-			if (seconds != 0)	{ components[.second] = Int(seconds) }
-			return components
+		if date == nil && components.contains(where: { [.day,.month,.weekOfYear,.weekOfMonth,.year].contains($0) }) {
+			debugPrint("[SwiftDate] Using .in() to extract calendar specific components without a reference date may return wrong values.")
 		}
-		
 		let cal = calendar ?? Date.defaultRegion.calendar
-		let dateFrom: Date = refDate
+		let dateFrom: Date = date ?? Date()
 		let dateTo: Date = dateFrom.addingTimeInterval(self)
 		let cmps = cal.dateComponents(componentsToSet(components), from: dateFrom, to: dateTo)
 		return cmps.toComponentsDict()

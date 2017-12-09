@@ -6,6 +6,7 @@
 
 ## CHANGELOG
 
+* Version **[4.5.1](#4510)** (Swift 4)
 * Version **[4.5.0](#4500)** (Swift 4)
 * Version **[4.4.2](#4420)** (Swift 4)
 * Version **[4.4.1](#4410)** (Swift 4)
@@ -31,6 +32,17 @@
 * Version **[4.0.3](#403)**
 * Version **[4.0.2](#402)**
 * Version **[4.0.0](#400)**
+
+<a name="4510" />
+
+## SwiftDate 4.5.1 (for Swift 4)
+---
+- **Release Date**: 2017-12-09
+- **Zipped Version**: [Download 4.5.1](https://github.com/malcommac/SwiftDate/releases/tag/4.5.1)
+
+- [#509](https://github.com/malcommac/SwiftDate/pull/509) Added Polish language (thanks to [Grzegorz Krukowski](https://github.com/grzegorzkrukowski))
+- [#511](https://github.com/malcommac/SwiftDate/pull/512) TimeInterval's `in()` function now alert when extracting calendar specific components without setting a reference date.
+- [#512](https://github.com/malcommac/SwiftDate/pull/512) Fixed `imminentRange` behaviour for colloquial formatter
 
 <a name="4500" />
 

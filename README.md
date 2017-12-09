@@ -12,7 +12,7 @@ Choose SwiftDate for your next project, or migrate over your existing projectsâ€
 <p align="center" >Created by <a href="http://www.danielemargutti.com">Daniele Margutti</a> (<a href="http://www.twitter.com/danielemargutti">@danielemargutti</a>)</p>
 
 ## Swift 3 and Swift 4 Compatibility
-- **Swift 4.x**: >= 4.4.0 - Latest is 4.5.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.0) (`pod 'SwiftDate'`)
+- **Swift 4.x**: >= 4.4.0 - Latest is 4.5.1 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.1) (`pod 'SwiftDate'`)
 - **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0). If you are using CocoaPods be sure to fix the release (`pod 'SwiftDate', '~> 4.3.0'`)
 
 ## Main features
@@ -52,7 +52,7 @@ Take a look below:
 
 ## Documentation
 * **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
-* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.5.0/)**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.5.1/)**
 
 Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
 
@@ -67,7 +67,7 @@ You can also generate the latest documentation using [Jazzy](https://github.com/
 
 ## Current Release
 
-- **Swift 4.x**: >= 4.4.0 - Latest is 4.5.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.0).
+- **Swift 4.x**: >= 4.4.0 - Latest is 4.5.1 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.1).
 - **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
 - **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 
@@ -104,6 +104,7 @@ Currently SwiftDate supports:
 * Russian (made by [roor](https://github.com/roor), since 4.3.0)
 * Persian (made by [Seyed Mojtaba Hosseini Zeidabadi](https://github.com/MojtabaHS), since 4.4.2)
 * Malay/Malaysia Latin (made by [Mohd Hafiz](https://github.com/xmhafiz), since 4.5.0)
+* Polish (made by [Grzegorz Krukowski](https://github.com/grzegorzkrukowski), since 4.5.1)
 
 
 Make a pull request and add your language!
@@ -124,7 +125,7 @@ $ gem install cocoapods
 
 #### Podfile
 
-- **Swift 4.x**: >= 4.5.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.0).
+- **Swift 4.x**: >= 4.5.1 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.1).
 - **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
 - **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 
@@ -179,7 +180,7 @@ Current version is compatible with:
 
 Are you searching for an old (unsupported) SwiftDate version?
 Check out:
-- **Swift 4.x**: >= 4.5.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.0).
+- **Swift 4.x**: >= 4.5.1 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.5.1).
 - **Swift 3.x**: Latest compatible version is 4.3.0 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.3.0)
 - **Swift 2.3**: Latest compatible version is 3.0.9 on [swift_23 branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
 - **Swift 2.2**: Latest compatible version is 3.0.8

@@ -78,8 +78,8 @@ public class ColloquialDateFormatter {
 		func isImminentValue(for component: Calendar.Component, value: Int) -> Bool {
 			guard let imminent = options.imminentRange?.in(.second) else { return false } // imminent range is not set
 			switch component { // imminent range is valid for minute and hour units, otherwise it return false
-			case .minute:   return (TimeInterval(value * 60) < TimeInterval(imminent))
-			case .hour:     return (TimeInterval(value * 60 * 60) < TimeInterval(imminent))
+			case .minute:   return (TimeInterval(abs(value) * 60) < TimeInterval(imminent))
+			case .hour:     return (TimeInterval(abs(value) * 60 * 60) < TimeInterval(imminent))
 			default:        return false
 			}
 		}
@@ -111,7 +111,7 @@ public class ColloquialDateFormatter {
         }
 		// Check if both objects are represented in the same calendar
 		guard fDate.region.calendar == tDate.region.calendar else {
-			debugPrint("Dates must use the same calendar")
+			debugPrint("[SwiftDate] Dates must use the same calendar")
 			return nil
 		}
 		

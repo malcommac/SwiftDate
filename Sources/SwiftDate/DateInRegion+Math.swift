@@ -108,7 +108,7 @@ extension DateInRegion {
 	// #NEW
 	public func components(_ components: [Calendar.Component], to refDate: DateInRegion) -> [Calendar.Component : Int] {
 		guard self.region.calendar == refDate.region.calendar else {
-			debugPrint("Date must have the same calendar")
+			debugPrint("[SwiftDate] Date must have the same calendar")
 			return [:]
 		}
 		let cmps = self.region.calendar.dateComponents(componentsToSet(components), from: self.absoluteDate, to: refDate.absoluteDate)

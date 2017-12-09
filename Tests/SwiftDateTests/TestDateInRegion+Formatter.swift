@@ -306,4 +306,13 @@ class TestDateInRegion_Formatter: XCTestCase {
 		_executeDateTest(dateA: "01-01-2017 00:00:00", dateB: "22-01-2017 00:00:00", options: opts, expected: "01/22")
 	}
 	
+	func test_colloquial_3() {
+		let date1 = DateInRegion(string: "2017-11-27 12:02:30", format: .custom("yyy-MM-dd HH:mm:ss"))!
+		let date2 = DateInRegion(string: "2017-11-27 15:00:00", format: .custom("yyy-MM-dd HH:mm:ss"))!
+		var opts = ColloquialDateFormatter.Options()
+		opts.imminentRange = 1.minute
+		let colloquial = date2.colloquial(toDate: date1, options: opts)
+		XCTAssert(colloquial == "in 2 hours", "Failed to get colloquial dates between two dates")
+	}
+	
 }

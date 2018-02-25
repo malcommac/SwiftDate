@@ -65,7 +65,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_StringCustom() {
 		let customString = "090911"
-		guard let dateInUTC = DateInRegion(string: customString, format: .custom("ddMMyy"), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .custom("ddMMyy"), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from custom string format")
 			return
 		}
@@ -75,7 +75,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_AltRSSWithZ() {
 		let customString = "09 Sep 2011 15:26:08 Z"
-		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from Alt RSS format")
 			return
 		}
@@ -85,7 +85,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_AltRSSWithTimezone() {
 		let customString = "09 Sep 2011 15:26:08 -0400"
-		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: true), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from Alt RSS format")
 			return
 		}
@@ -96,7 +96,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_FromRSSWithZ() {
 		let customString = "Fri, 09 Sep 2011 15:26:08 Z"
-		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from RSS format")
 			return
 		}
@@ -106,7 +106,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_FromRSSWithTimezone() {
 		let customString = "Fri, 09 Sep 2011 15:26:08 +0200"
-		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .rss(alt: false), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from RSS format")
 			return
 		}
@@ -116,7 +116,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegionInit_FromExtended() {
 		let customString = "Fri 09-Sep-2011 AD 15:26:08.123 +0100"
-		guard let dateInUTC = DateInRegion(string: customString, format: .extended, fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .extended, fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from extended format")
 			return
 		}
@@ -126,7 +126,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegion_ISO8601_NoZ() {
 		let customString = "2015-01-05T22:10:55+0200"
-		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTime), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTime), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from ISO8601 format")
 			return
 		}
@@ -136,7 +136,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegion_ISO8601InternetDateTimesExtendedWithZ() {
 		let customString = "2016-09-05T04:38:04.746Z"
-		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from ISO8601 internet date times extended format")
 			return
 		}
@@ -146,7 +146,7 @@ class DateInRegionTest: XCTestCase {
 	
 	func testDateInRegion_ISO8601InternetDateTimesExtendedWithTimezone() {
 		let customString = "2016-09-05T04:38:04.746+0200"
-		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMT()) else {
+		guard let dateInUTC = DateInRegion(string: customString, format: .iso8601(options: .withInternetDateTimeExtended), fromRegion: Region.GMTForTests()) else {
 			XCTAssert(false, "Failed to create a region from ISO8601 internet date times extended format")
 			return
 		}

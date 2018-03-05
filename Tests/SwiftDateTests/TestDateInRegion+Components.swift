@@ -15,6 +15,7 @@ import XCTest
 class TestDateInRegion_Components: XCTestCase {
 	
 	let newYork = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.englishUnitedStates)
+	let shanghai = Region(tz: TimeZoneName.asiaShanghai, cal: CalendarName.chinese, loc: LocaleName.chineseSimplified)
 	let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
 	let amsterdam = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
 	let utc = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
@@ -203,6 +204,10 @@ class TestDateInRegion_Components: XCTestCase {
 		
 		let localDate4 = DateInRegion(components: [.year: 2020, .month: 2, .day: 1], fromRegion: rome)!
 		XCTAssert(localDate4.leapYear == true,"Failed to get the correct value of the leapYear for a non leapYear year")
+
+		// 2018-02-08 in gregorian
+		let localDate5 = DateInRegion(components: [.era: 78, .year: 34, .month: 12, .day: 23], fromRegion: shanghai)!
+		XCTAssert(localDate5.leapYear == true,"Failed to get the correct value of the leapYear for a leapYear year")
 	}
 	
 	func test_julianDay() {

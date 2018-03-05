@@ -204,6 +204,10 @@ extension DateInRegion {
 			newComponents.day = 10
 			let testDate = newComponents.dateInRegion!
 			return testDate.leapMonth
+		} else if calendar.identifier == Calendar.Identifier.chinese {
+			/// There are 12 or 13 months in each year and 29 or 30 days in each month.
+			/// A 13-month year is a leap year, which meaning more than 376 days is a leap year.
+			return ((self.endOf(component: .year) - self.startOf(component: .year)).in(.day) ?? 0) > 375
 		}
 		// For other calendars:
 		return calendar.dateComponents([.day,.month,.year], from: self.absoluteDate).isLeapMonth!

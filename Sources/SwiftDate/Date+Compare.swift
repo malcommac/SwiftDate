@@ -57,7 +57,7 @@ public extension Date {
 	///
 	/// - returns: `true` if the dates are the same down to the given granularity, otherwise `false`
 	public func isIn(date: Date, in region: Region? = nil, granularity: Calendar.Component) -> Bool {
-		return (self.compare(to: date, granularity: granularity) == .orderedSame)
+		return (self.compare(to: date, in: region, granularity: granularity) == .orderedSame)
 	}
 	
 	

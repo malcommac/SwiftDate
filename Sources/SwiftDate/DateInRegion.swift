@@ -8,7 +8,7 @@
 // Licensed under MIT License.
 import Foundation
 
-public class DateInRegion: CustomStringConvertible {
+public class DateInRegion: CustomStringConvertible, Codable {
 	
 	/// region in which the `DateInRegion` is expressed
 	
@@ -246,6 +246,25 @@ public class DateInRegion: CustomStringConvertible {
 			srcRegion = Region(tz: parsed_date.tz, cal: srcRegion.calendar, loc: srcRegion.locale)
 		}
 		self.region = srcRegion
+	}
+	
+	// MARK: Codable integration
+	enum CodingKeys: String, CodingKey {
+		case date, gmtOffset
+	}
+
+	public required init(from decoder: Decoder) throws {
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		absoluteDate = try values.decode(Date.self, forKey: .date)
+		let offset = try values.decode(Int.self, forKey: .gmtOffset)
+		region = Region(tz: TimeZone(secondsFromGMT: offset)!, cal: Calendar.current, loc: Locale.current)
+		formatters = Formatters(region: region)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(absoluteDate, forKey: .date)
+		try container.encode(region.timeZone.secondsFromGMT(), forKey: .gmtOffset)
 	}
 	
 	/// Convert a `DateInRegion` instance to a new specified `Region`

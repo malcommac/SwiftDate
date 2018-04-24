@@ -32,8 +32,8 @@
 "colloquial_now"                    =   "剛剛";           // less than 5 minutes if .allowsNowOnColloquial is set
 
 "colloquial_n_0y"					=	"今年";			// this year
-"colloquial_n_0m"					=	"这个月";			// this month
-"colloquial_n_0w"					=	"本星期";			// this week
+"colloquial_n_0m"					=	"本月";			// this month
+"colloquial_n_0w"					=	"本週";			// this week
 "colloquial_n_0d"					=	"今天";			// this day
 "colloquial_n_0h"					=	"剛剛";			// this hour
 "colloquial_n_0M"					=	"剛剛";			// this minute

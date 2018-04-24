@@ -30,15 +30,15 @@
 "colloquial_p_M"					=	"um minuto atrás";	// minute,past,singular:	"um minuto atrás"
 "colloquial_p_MM"					=	"%d minutos atrás";	// minute,past,plural:		"3 minutos atrás"
 
-"colloquial_now"					=	"agora pouco";		// less than 5 minutes if .allowsNowOnColloquial is set
+"colloquial_now"					=	"agora";		// less than 5 minutes if .allowsNowOnColloquial is set
 
 "colloquial_n_0y"					=	"este ano";			// this year
 "colloquial_n_0m"					=	"este mês";			// this month
 "colloquial_n_0w"					=	"esta semana";		// this week
 "colloquial_n_0d"					=	"hoje";				// this day
-"colloquial_n_0h"					=	"agora pouco";		// this hour
-"colloquial_n_0M"					=	"agora pouco";		// this minute
-"colloquial_n_0s"					=	"agora pouco";		// this second
+"colloquial_n_0h"					=	"agora há pouco";		// this hour
+"colloquial_n_0M"					=	"agora há pouco";		// this minute
+"colloquial_n_0s"					=	"agora há pouco";		// this second
 
 // RELEVANT TIME TO PRINT ALONG COLLOQUIAL STRING WHEN .includeRelevantTime = true
 "relevanttime_y"					=	"MMM yyyy";			// for colloquial year (=+-1) adds a time string like this:"(Fev 2016)"

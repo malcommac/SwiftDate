@@ -1,0 +1,204 @@
+//
+//  DateComponents+Extras.swift
+//  SwiftDate
+//
+//  Created by Daniele Margutti on 07/06/2018.
+//  Copyright © 2018 SwiftDate. All rights reserved.
+//
+
+import Foundation
+
+// MARK: - Date Components Extensions
+
+public extension Calendar.Component {
+	
+	/// Return a description of the calendar component in seconds.
+	/// Note: `era`,`weekday`,`weekdayOrdinal`, `weekOfYear`, `yearForWeekOfYear`, `calendar`, `timezone` return `nil`.
+	public var timeInterval: Double? {
+		switch self {
+		case .era: 			return nil
+		case .year: 		return (Calendar.Component.day.timeInterval! * 365.0)
+		case .month: 		return (Calendar.Component.minute.timeInterval! * 43800)
+		case .day: 			return 86400
+		case .hour: 		return 3600
+		case .minute: 		return 60
+		case .second: 		return 1
+		case .quarter: 		return (Calendar.Component.day.timeInterval! * 91.25)
+		case .weekOfMonth: 	return (Calendar.Component.day.timeInterval! * 7)
+		case .nanosecond: 	return 1e-9
+		default: 			return nil
+		}
+	}
+	
+}
+
+public extension DateComponents {
+	
+	/// Shortcut for 'all calendar components'.
+	static var allComponentsSet: Set<Calendar.Component> {
+		return [.era, .year, .month, .day, .hour, .minute,
+				.second, .weekday, .weekdayOrdinal, .quarter,
+				.weekOfMonth, .weekOfYear, .yearForWeekOfYear,
+				.nanosecond, .calendar, .timeZone]
+	}
+	
+	internal static let allComponents: [Calendar.Component] =  [.nanosecond, .second, .minute, .hour,
+																.day, .month, .year, .yearForWeekOfYear,
+																.weekOfYear, .weekday, .quarter, .weekdayOrdinal,
+																.weekOfMonth]
+	
+	
+	/// This function return the absolute amount of seconds described by the components of the receiver.
+	/// Note: 	evaluated value maybe not strictly exact because it ignore the context (calendar/date) of
+	/// 		the date components. In details:
+	/// 		- The following keys are ignored: `era`,`weekday`,`weekdayOrdinal`,
+	///				`weekOfYear`, `yearForWeekOfYear`, `calendar`, `timezone
+	///
+	/// Some other values dependant from dates are fixed. This is a complete table:
+	///			- `year` is 365.0 `days`
+	///			- `month` is 30.4167 `days` (or 43800 minutes)
+	///			- `quarter` is 91.25 `days`
+	///			- `weekOfMonth` is 7 `days`
+	///			- `day` is 86400 `seconds`
+	///			- `hour` is 3600 `seconds`
+	///			- `minute` is 60 `seconds`
+	///			- `nanosecond` is 1e-9 `seconds`
+	public var timeInterval: TimeInterval {
+		var totalAmount: TimeInterval = 0
+		DateComponents.allComponents.forEach {
+			if let multipler = $0.timeInterval, let value = self.value(for: $0), value != Int(NSDateComponentUndefined) {
+				totalAmount += (TimeInterval(value) * multipler)
+			}
+		}
+		return totalAmount
+	}
+	
+	/// - returns: the date that will occur once the receiver's components pass after the provide date.
+	public func from(_ date: DateRepresentable) -> Date? {
+		return date.calendar.date(byAdding: self, to: date.date)
+	}
+
+	/// Create a new date from the current date by subtracting the components
+	/// specified into the receiver. It uses `defaultRegion`'s calendar to perform operations.
+	var ago: Date? {
+		return SwiftDate.defaultRegion.calendar.date(byAdding: -self, to: Date())
+	}
+	
+	/// Create a new date from the current date by adding the components
+	/// specified into the receiver. It uses `defaultRegion`'s calendar to perform operations.
+	var later: Date? {
+		return SwiftDate.defaultRegion.calendar.date(byAdding: self, to: Date())
+	}
+	
+	/// Transform a `DateComponents` instance to a dictionary where key is the `Calendar.Component` and value is the
+	/// value associated.
+	///
+	/// - returns: a new `[Calendar.Component : Int]` dict representing source `DateComponents` instance
+	internal func toDict() -> [Calendar.Component : Int] {
+		var list: [Calendar.Component : Int] = [:]
+		DateComponents.allComponents.forEach { component in
+			let value = self.value(for: component)
+			if value != nil && value != Int(NSDateComponentUndefined) {
+				list[component] = value!
+			}
+		}
+		return list
+	}
+	
+	/// Alter date components specified into passed dictionary.
+	///
+	/// - Parameter components: components dictionary with their values.
+	internal mutating func alterComponents(_ components: [Calendar.Component : Int?]) {
+		components.forEach {
+			if let v = $0.value {
+				self.setValue(v, for: $0.key)
+			}
+		}
+	}
+	
+	/// Adds two NSDateComponents and returns their combined individual components.
+	public static func +(lhs: DateComponents, rhs: DateComponents) -> DateComponents {
+		return combine(lhs, rhs: rhs, transform: +)
+	}
+	
+	/// Subtracts two NSDateComponents and returns the relative difference between them.
+	public static func -(lhs: DateComponents, rhs: DateComponents) -> DateComponents {
+		return lhs + (-rhs)
+	}
+	
+	/// Applies the `transform` to the two `T` provided, defaulting either of them if it's
+	/// `nil`
+	internal static func bimap<T>(_ a: T?, _ b: T?, default: T, _ transform: (T, T) -> T) -> T? {
+		if a == nil && b == nil { return nil }
+		return transform(a ?? `default`, b ?? `default`)
+	}
+	
+	/// - returns: a new `NSDateComponents` that represents the negative of all values within the
+	/// components that are not `NSDateComponentUndefined`.
+	public static prefix func -(rhs: DateComponents) -> DateComponents {
+		var components = DateComponents()
+		components.era = rhs.era.map(-)
+		components.year = rhs.year.map(-)
+		components.month = rhs.month.map(-)
+		components.day = rhs.day.map(-)
+		components.hour = rhs.hour.map(-)
+		components.minute = rhs.minute.map(-)
+		components.second = rhs.second.map(-)
+		components.nanosecond = rhs.nanosecond.map(-)
+		components.weekday = rhs.weekday.map(-)
+		components.weekdayOrdinal = rhs.weekdayOrdinal.map(-)
+		components.quarter = rhs.quarter.map(-)
+		components.weekOfMonth = rhs.weekOfMonth.map(-)
+		components.weekOfYear = rhs.weekOfYear.map(-)
+		components.yearForWeekOfYear = rhs.yearForWeekOfYear.map(-)
+		return components
+	}
+	
+	/// Combines two date components using the provided `transform` on all
+	/// values within the components that are not `NSDateComponentUndefined`.
+	private static func combine(_ lhs: DateComponents, rhs: DateComponents, transform: (Int, Int) -> Int) -> DateComponents {
+		var components = DateComponents()
+		components.era = bimap(lhs.era, rhs.era, default: 0, transform)
+		components.year = bimap(lhs.year, rhs.year, default: 0, transform)
+		components.month = bimap(lhs.month, rhs.month, default: 0, transform)
+		components.day = bimap(lhs.day, rhs.day, default: 0, transform)
+		components.hour = bimap(lhs.hour, rhs.hour, default: 0, transform)
+		components.minute = bimap(lhs.minute, rhs.minute, default: 0, transform)
+		components.second = bimap(lhs.second, rhs.second, default: 0, transform)
+		components.nanosecond = bimap(lhs.nanosecond, rhs.nanosecond, default: 0, transform)
+		components.weekday = bimap(lhs.weekday, rhs.weekday, default: 0, transform)
+		components.weekdayOrdinal = bimap(lhs.weekdayOrdinal, rhs.weekdayOrdinal, default: 0, transform)
+		components.quarter = bimap(lhs.quarter, rhs.quarter, default: 0, transform)
+		components.weekOfMonth = bimap(lhs.weekOfMonth, rhs.weekOfMonth, default: 0, transform)
+		components.weekOfYear = bimap(lhs.weekOfYear, rhs.weekOfYear, default: 0, transform)
+		components.yearForWeekOfYear = bimap(lhs.yearForWeekOfYear, rhs.yearForWeekOfYear, default: 0, transform)
+		return components
+	}
+
+	/// Subscription support for `DateComponents` instances.
+	/// ie. `cmps[.day] = 5`
+	///
+	/// Note: This does not take into account any built-in errors, `Int.max` returned instead of `nil`.
+	///
+	/// - Parameter component: component to get
+	public subscript(component: Calendar.Component) -> Int? {
+		switch component {
+		case .era: 					return era
+		case .year: 				return year
+		case .month: 				return month
+		case .day: 					return day
+		case .hour: 				return hour
+		case .minute: 				return minute
+		case .second: 				return second
+		case .weekday: 				return weekday
+		case .weekdayOrdinal: 		return weekdayOrdinal
+		case .quarter: 				return quarter
+		case .weekOfMonth: 			return weekOfMonth
+		case .weekOfYear:	 		return weekOfYear
+		case .yearForWeekOfYear: 	return yearForWeekOfYear
+		case .nanosecond: 			return nanosecond
+		default: 					return nil // `calendar` and `timezone` are ignored in this context
+		}
+	}
+	
+}

@@ -1,0 +1,83 @@
+disabled_rules: # rule identifiers to exclude from running
+  - line_length
+  - function_body_length
+  - cyclomatic_complexity
+  - multiple_closures_with_trailing_closure
+  - xctfail_message
+  - vertical_parameter_alignment
+
+  # Swift 3 rules that do not make sense for Swift 2.3
+  - implicit_getter
+
+identifier_name:
+  min_length:
+    warning: 1
+    error: 1
+  max_length:
+    warning: 60
+    error: 80
+
+type_name:
+  max_length:
+    warning: 60
+    error: 100
+
+type_body_length:
+  warning: 400
+  error: 500
+
+file_length:
+  warning: 700
+  error: 800
+
+excluded:
+  - Unit Tests/GeneratedCode
+  - Pods
+
+function_parameter_count:
+  warning: 7
+  error: 10
+
+large_tuple:
+  warning: 3
+
+opt_in_rules: # some rules are only opt-in
+  - closure_end_indentation
+  - closure_spacing
+  - syntactic_sugar
+  - redundant_nil_coalescing
+  - number_separator
+  - sorted_imports
+  - overridden_super_call
+  - object_literal
+  - explicit_init
+  - first_where
+  - operator_usage_whitespace
+
+
+number_separator:
+  minimum_length: 7
+
+custom_rules:
+  double_space: # from https://github.com/IBM-Swift/Package-Builder
+    include: "*.swift"
+    name: "Double space"
+    regex: '([a-z,A-Z] \s+)'
+    message: "Double space between keywords"
+    match_kinds: keyword
+    severity: warning
+  comments_space: # from https://github.com/brandenr/swiftlintconfig
+    name: "Space After Comment"
+    regex: '(^ *//\w+)'
+    message: "There should be a space after //"
+    severity: warning
+  empty_line_after_guard: # from https://github.com/brandenr/swiftlintconfig
+    name: "Empty Line After Guard"
+    regex: '(^ *guard[ a-zA-Z0-9=?.\(\),><!]*\{[ a-zA-Z0-9=?.\(\),><!]*\}\n *(?!(?:return|guard))\S+)'
+    message: "There should be an empty line after a guard"
+    severity: warning
+  unnecessary_type: # from https://github.com/brandenr/swiftlintconfig
+    name: "Unnecessary Type"
+    regex: '[ a-zA-Z0-9]*(?:let|var) [ a-zA-Z0-9]*: ([a-zA-Z0-9]*)[ ]*= \1'
+    message: "Type Definition Not Needed"
+    severity: warning

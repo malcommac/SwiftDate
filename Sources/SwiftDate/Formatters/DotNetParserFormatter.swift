@@ -12,7 +12,7 @@ public class DOTNETParser: StringToDateTransformable {
 	
 	internal static let pattern = "\\/Date\\((-?\\d+)((?:[\\+\\-]\\d+)?)\\)\\/"
 	
-	public func parse(_ string: String) -> (seconds: TimeInterval, tz: TimeZone)? {
+	public static func parse(_ string: String) -> (seconds: TimeInterval, tz: TimeZone)? {
 		do {
 			let parser = try NSRegularExpression(pattern: DOTNETParser.pattern, options: .caseInsensitive)
 			guard let match = parser.firstMatch(in: string, options: .reportCompletion, range: NSRange(location: 0, length: string.count)) else {
@@ -44,8 +44,8 @@ public class DOTNETParser: StringToDateTransformable {
 		}
 	}
 	
-	public func toDate(_ string: String, region: Region) -> DateInRegion? {
-		guard let result = self.parse(string) else { return nil }
+	public static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion? {
+		guard let result = DOTNETParser.parse(string) else { return nil }
 		let adaptedRegion = Region(calendar: region.calendar, timezone: result.tz, locale: region.locale)
 		return  DateInRegion(seconds: result.seconds, region: adaptedRegion)
 	}
@@ -54,9 +54,7 @@ public class DOTNETParser: StringToDateTransformable {
 
 public class DOTNETFormatter: DateToStringTrasformable {
 	
-	public init() { }
-	
-	public func toString(_ date: DateRepresentable) -> String {
+	public static func format(_ date: DateRepresentable, options: Any?) -> String {
 		let milliseconds = (date.date.timeIntervalSince1970 * 1000.0)
 		let tzOffsets = (date.region.timezone.secondsFromGMT(for: date.date) / 3600)
 		let formattedStr = String(format: "/Date(%.0f%+03d00)/", milliseconds,tzOffsets)

@@ -30,6 +30,41 @@ public extension Calendar.Component {
 		}
 	}
 	
+	/// Return the localized identifier of a calendar component
+	///
+	/// - parameter unit:  unit
+	/// - parameter value: value
+	///
+	/// - returns: return the plural or singular form of the time unit used to compose a valid identifier for search a localized
+	///   string in resource bundle
+	internal func localizedKey(forValue value: Int) -> String {
+		let locKey = self.localizedKey
+		let absValue = abs(value)
+		switch absValue {
+		case 0: // zero difference for this unit
+			return "0\(locKey)"
+		case 1: // one unit of difference
+			return locKey
+		default: // more than 1 unit of difference
+			return "\(locKey)\(locKey)"
+		}
+	}
+	
+	
+	internal var localizedKey: String {
+		switch self {
+		case .year:			return "y"
+		case .month:		return "m"
+		case .weekOfYear:	return "w"
+		case .day:			return "d"
+		case .hour:			return "h"
+		case .minute:		return "M"
+		case .second:		return "s"
+		default:
+			return ""
+		}
+	}
+	
 }
 
 public extension DateComponents {
@@ -199,6 +234,21 @@ public extension DateComponents {
 		case .nanosecond: 			return nanosecond
 		default: 					return nil // `calendar` and `timezone` are ignored in this context
 		}
+	}
+	
+	/// Express a DateComponents instances in another time unit you choose
+	///
+	/// - parameter component: time component
+	/// - parameter calendar:  context calendar to use
+	///
+	/// - returns: the value of interval expressed in selected `Calendar.Component`
+	public func `in`(_ component: Calendar.Component, of calendar: CalendarConvertible? = nil) -> Int? {
+		let cal = (calendar?.toCalendar() ?? SwiftDate.defaultRegion.calendar)
+		let dateFrom = Date()
+		let dateTo = (dateFrom + self)
+		let components: Set<Calendar.Component> = [component]
+		let value = cal.dateComponents(components, from: dateFrom, to: dateTo).value(for: component)
+		return value
 	}
 	
 }

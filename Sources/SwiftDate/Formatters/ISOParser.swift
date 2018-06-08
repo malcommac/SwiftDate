@@ -57,6 +57,7 @@ internal extension UnicodeScalar {
 /// I've made a Swift porting and fixed some issues when parsing several ISO8601 date variants.
 public class ISOParser: StringToDateTransformable {
 	
+	
 	/// Internal structure
 	internal enum Weekday: Int {
 		case monday			= 0
@@ -197,7 +198,7 @@ public class ISOParser: StringToDateTransformable {
 	///   - config: configuration used for parsing
 	/// - Throws: throw an `ISO8601Error` if parsing operation fails
 	
-	public init?(string src: String, options: ISOParser.Options = ISOParser.Options()) {
+	public init?(_ src: String, options: ISOParser.Options? = nil) {
 		let src_trimmed = src.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 		guard src_trimmed.count > 0 else {
 			return nil
@@ -206,8 +207,8 @@ public class ISOParser: StringToDateTransformable {
 		self.length = src_trimmed.count
 		self.cIdx = string.startIndex
 		self.eIdx = string.endIndex
-		self.options = options
-		self.now_cmps = options.calendar.dateComponents([.year,.month,.day], from: Date())
+		self.options = (options ?? ISOParser.Options())
+		self.now_cmps = self.options.calendar.dateComponents([.year,.month,.day], from: Date())
 		
 		var idx = self.cIdx
 		while idx < self.eIdx {
@@ -897,9 +898,24 @@ public class ISOParser: StringToDateTransformable {
 		return count
 	}
 	
-	public func toDate(_ string: String, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
-		guard let date = self.parsedDate, let timezone = self.parsedTimeZone else { return nil }
-		let parsedRegion = Region(calendar: region.calendar, timezone: timezone, locale: region.locale)
+	/// Return a date parsed from a valid ISO8601 string
+	///
+	/// - Parameter string: source string
+	/// - Returns: a valid `Date` object or `nil` if date cannot be parsed
+	public static func date(from string: String) -> ISOParsedDate? {
+		guard let parser = ISOParser(string) else {
+			return nil
+		}
+		return (parser.parsedDate,parser.parsedTimeZone)
+	}
+	
+	public static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion? {
+		let formatOptions = options as? ISOParser.Options
+		guard 	let parser = ISOParser(string, options: formatOptions),
+				let date = parser.parsedDate, let tz = parser.parsedTimeZone else {
+			return nil
+		}
+		let parsedRegion = Region(calendar: region.calendar, timezone: tz, locale: region.locale)
 		return DateInRegion(date, region: parsedRegion)
 	}
 	

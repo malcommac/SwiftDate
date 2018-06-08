@@ -10,7 +10,6 @@ import Foundation
 
 public class ISOFormatter: DateToStringTrasformable {
 	
-	
 	public struct Options: OptionSet {
 		public let rawValue: Int
 		
@@ -150,17 +149,13 @@ public class ISOFormatter: DateToStringTrasformable {
 		}
 	}
 	
-	public var options: ISOFormatter.Options
-	
-	public init(options: ISOFormatter.Options = [.withInternetDateTime]) {
-		self.options = options
-	}
-	
-	public func toString(_ date: DateRepresentable) -> String {
-		let formatter = date.formatter(format: self.options.dateFormat) {
+	public static func format(_ date: DateRepresentable, options: Any?) -> String {
+		let formatOptions = ((options as? ISOFormatter.Options) ?? ISOFormatter.Options([.withInternetDateTime]))
+		let formatter = date.formatter(format: formatOptions.dateFormat) {
 			$0.locale = Locales.englishUnitedStatesComputer.toLocale() // fix for 12/24h
 			$0.timeZone = date.region.timezone
 		}
 		return formatter.string(from: date.date)
 	}
+	
 }

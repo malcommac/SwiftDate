@@ -182,6 +182,20 @@ class TestDateInRegion_Components: XCTestCase {
 		let localDate = DateInRegion(components: [.year: 2020, .month: 02], fromRegion: rome)!
 		XCTAssert(localDate.monthDays == 29,"Failed to get the correct value of the monthDays for a leap year")
 	}
+    
+    func test_ordinalDay() {
+        let localDate = DateInRegion(components: [.year: 2002, .month: 3, .day: 1, .hour: 5, .minute: 30], fromRegion: newYork)!
+        XCTAssert(localDate.ordinalDay == "1st", "Failed to get the correct value of the ordinalDay for a date")
+        
+        let localDate2 = DateInRegion(components: [.year: 2002, .month: 3, .day: 2, .hour: 5, .minute: 30], fromRegion: newYork)!
+        XCTAssert(localDate2.ordinalDay == "2nd", "Failed to get the correct value of the ordinalDay for a date")
+        
+        let localDate3 = DateInRegion(components: [.year: 2002, .month: 3, .day: 3, .hour: 5, .minute: 30], fromRegion: newYork)!
+        XCTAssert(localDate3.ordinalDay == "3rd", "Failed to get the correct value of the ordinalDay for a date")
+        
+        let localDate4 = DateInRegion(components: [.year: 2002, .month: 3, .day: 4, .hour: 5, .minute: 30], fromRegion: newYork)!
+        XCTAssert(localDate4.ordinalDay == "4th", "Failed to get the correct value of the ordinalDay for a date")
+    }
 	
 	func test_nearestHour() {
 		let localDate = DateInRegion(components: [.year: 2020, .month: 02, .day: 14, .hour: 13, .minute: 15], fromRegion: rome)!

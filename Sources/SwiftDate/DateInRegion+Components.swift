@@ -60,6 +60,15 @@ extension DateInRegion {
 	public var day: Int {
 		return self.value(forComponent: .day)
 	}
+    
+    /// The number of day in ordinal style format for the receiver in current locale.
+    /// For example, in the en_US locale, the number 3 is represented as 3rd;
+    /// in the fr_FR locale, the number 3 is represented as 3e.
+    /// - note: This value is interpreted in the context of the locale with which it is used
+    public var ordinalDay: String {
+        let day = self.value(forComponent: .day)
+        return self.formatters.ordinalNumberFormatter().string(from: day as NSNumber) ?? "\(day)"
+    }
 	
 	/// The number of hour units for the receiver.
 	/// - note: This value is interpreted in the context of the calendar and timezone with which it is used

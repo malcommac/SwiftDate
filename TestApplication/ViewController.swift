@@ -46,11 +46,10 @@ class ViewController: UIViewController {
 //		print("absoluteDate iso8601 string = \(absoluteDate_iso8601_string)\n")
 
 
-		let d = "1983-06-01T09:30:00+02:00".date()!
-		let d1 = "2018-06-07T09:00:00+02:00".date()!
+		//let d = "1983-06-01T09:30:00+02:00".toDate()!
+		let d1 = "2018-06-10T19:50:00+02:00".toDate()!
 		
-		let min = DateInRegion.oldestIn(list: [d,d1])
-		let max = DateInRegion.newestIn(list: [d,d1])
+		let coll = d1.toString(.relative)
 		print("")
 //		print(d?.string("yyyy")
 //		print(d)

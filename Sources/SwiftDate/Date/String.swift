@@ -10,18 +10,23 @@ import Foundation
 
 public protocol DateParsable {
 	
-	func date(from style: StringToDateStyles, region: Region) -> DateInRegion?
-	func date(region: Region) -> DateInRegion?
+	func toDate(_ format: String, region: Region) -> DateInRegion?
+	func toDate(from style: StringToDateStyles, region: Region) -> DateInRegion?
+	func toDate(region: Region) -> DateInRegion?
 	
 }
 
 extension String: DateParsable {
 	
-	public func date(from style: StringToDateStyles, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+	public func toDate(_ format: String, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+		return DateInRegion.init(self, format: format, region: region)
+	}
+	
+	public func toDate(from style: StringToDateStyles, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
 		return style.toDate(self, region: region)
 	}
 	
-	public func date(region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+	public func toDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
 		return DateInRegion.init(self, format: nil, region: region)
 	}
 	

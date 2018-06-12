@@ -110,7 +110,7 @@ public struct ColloquialFormatter: DateToStringTrasformable {
 										  region: Region(calendar: date.region.calendar,
 													 timezone: date.region.timezone,
 													 locale: options.locale))
-			let relevant_time = localeDate.string(format)
+			let relevant_time = localeDate.toString(format: format)
 			return relevant_time
 		}
 		

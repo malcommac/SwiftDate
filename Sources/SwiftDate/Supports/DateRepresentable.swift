@@ -206,13 +206,13 @@ public protocol DateRepresentable {
 	///
 	/// - Parameter style: formatter style
 	/// - Returns: string representation of the date
-	func string(as style: DateToStringStyles) -> String
+	func toString(_ style: DateToStringStyles) -> String
 	
 	/// Convert date to a string using custom date format.
 	///
 	/// - Parameter format: format of the string representation
 	/// - Returns: string representation of the date
-	func string(_ format: String) -> String
+	func toString(format: String) -> String
 	
 }
 
@@ -378,11 +378,11 @@ public extension DateRepresentable {
 		return DateFormatter.sharedFormatter(forRegion: self.region)
 	}
 	
-	public func string(as style: DateToStringStyles) -> String {
+	public func toString(_ style: DateToStringStyles) -> String {
 		return style.toString(self)
 	}
 	
-	public func string(_ format: String) -> String {
+	public func toString(format: String) -> String {
 		return DateToStringStyles.custom(format).toString(self)
 	}
 	

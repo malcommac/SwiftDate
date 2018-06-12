@@ -42,9 +42,10 @@ public enum DateToStringStyles {
 	case time(_: DateFormatter.Style)
 	case dateTime(_: DateFormatter.Style)
 	case custom(_: String)
-//	case colloquial
-//	case colloquialCuston(_: ColloquialFormatter.Options)
+	case colloquial
+	case colloquialCuston(_: ColloquialFormatter.Options)
 	case standard
+	case relative
 	
 	public func toString(_ date: DateRepresentable) -> String {
 		switch self {
@@ -57,6 +58,7 @@ public enum DateToStringStyles {
 		case .httpHeader:				return date.formatterForRegion(format: DateFormats.httpHeader).string(from: date.date)
 		case .custom(let format):		return date.formatterForRegion(format: format).string(from: date.date)
 		case .standard:					return date.formatterForRegion(format: DateFormats.standard).string(from: date.date)
+		case .relative:					return RelativeFormatter.format(date, options: nil)
 		case .date(let style):
 			return date.formatterForRegion(format: nil, configuration: {
 				$0.dateStyle = style
@@ -72,10 +74,10 @@ public enum DateToStringStyles {
 				$0.dateStyle = style
 				$0.timeStyle = style
 			}).string(from: date.date)
-		/*case .colloquial:
-			return ColloquialFormatter().toString(date)
+		case .colloquial:
+			return ColloquialFormatter.format(date, options: nil)
 		case .colloquialCuston(let options):
-			return ColloquialFormatter(options: options).toString(date)*/
+			return ColloquialFormatter.format(date, options: options)
 		}
 	}
 	

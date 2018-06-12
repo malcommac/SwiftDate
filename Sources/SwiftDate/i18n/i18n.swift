@@ -31,14 +31,21 @@ public extension LocalizableFileProtocol {
 }
 
 public enum i18nLangs: String {
-	case en_US = "en-US"
+	case en_US = "en_US"
 }
 
 internal extension Locale {
 	
-	var i18nCode: i18nLangs? {
-		guard let code = self.languageCode else { return nil }
-		return i18nLangs(rawValue: code)
+	var i18nCode: i18nLangs {
+		guard let languageCode = self.languageCode else { return .en_US }
+		let identifier = "\(languageCode)-\(languageCode.uppercased())"
+		guard let lang = i18nLangs(rawValue: identifier) else {
+			guard let alt_lang = i18nLangs(rawValue: languageCode) else {
+				return .en_US
+			}
+			return alt_lang
+		}
+		return lang
 	}
 	
 }
@@ -52,7 +59,9 @@ public class i18n {
 	
 	public var locale: Locale = Locale.current
 	
-	private init() { }
+	private init() {
+		initBuiltInLanguages()
+	}
 	
 	public func initBuiltInLanguages() {
 		self.langMap = [
@@ -62,7 +71,7 @@ public class i18n {
 	
 
 	public func localize(_ key: String, lang: i18nLangs? = nil, arguments: CVarArg...) -> String? {
-		let language = (lang ?? self.locale.i18nCode!)
+		let language = (lang ?? self.locale.i18nCode)
 		guard let table = self.table(forLang: language) else {
 			debugPrint("No table found for \(String(describing: lang))")
 			return nil

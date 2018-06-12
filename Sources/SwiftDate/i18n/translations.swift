@@ -16,7 +16,6 @@ public class lang_en: LocalizableFileProtocol {
 	
 	public var data: LocalizableJSON {
 		return [
-			// COLLOQUIAL STRINGD
 			"colloquial_f_y" 	:	"next year",		// year,future,singular: 	"next year"
 			"colloquial_f_yy"	:	"on %d",			// year,future,plural:		"on 2016"
 			"colloquial_p_y"	:	"last year",		// year,past,singular:		"last year"

@@ -111,6 +111,41 @@
 		64886E3720D1C40700A72D94 /* lang_dz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3420D1C40700A72D94 /* lang_dz.swift */; };
 		64886E3820D1C40700A72D94 /* lang_dz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3420D1C40700A72D94 /* lang_dz.swift */; };
 		64886E3920D1C40700A72D94 /* lang_dz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3420D1C40700A72D94 /* lang_dz.swift */; };
+		64886E3B20D1C50C00A72D94 /* lang_ee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3A20D1C50C00A72D94 /* lang_ee.swift */; };
+		64886E3C20D1C50C00A72D94 /* lang_ee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3A20D1C50C00A72D94 /* lang_ee.swift */; };
+		64886E3D20D1C50C00A72D94 /* lang_ee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3A20D1C50C00A72D94 /* lang_ee.swift */; };
+		64886E3E20D1C50C00A72D94 /* lang_ee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3A20D1C50C00A72D94 /* lang_ee.swift */; };
+		64886E3F20D1C50C00A72D94 /* lang_ee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E3A20D1C50C00A72D94 /* lang_ee.swift */; };
+		64886E4120D1C58700A72D94 /* lang_el.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4020D1C58700A72D94 /* lang_el.swift */; };
+		64886E4220D1C58700A72D94 /* lang_el.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4020D1C58700A72D94 /* lang_el.swift */; };
+		64886E4320D1C58700A72D94 /* lang_el.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4020D1C58700A72D94 /* lang_el.swift */; };
+		64886E4420D1C58700A72D94 /* lang_el.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4020D1C58700A72D94 /* lang_el.swift */; };
+		64886E4520D1C58700A72D94 /* lang_el.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4020D1C58700A72D94 /* lang_el.swift */; };
+		64886E4720D1C61C00A72D94 /* lang_es.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4620D1C61C00A72D94 /* lang_es.swift */; };
+		64886E4820D1C61C00A72D94 /* lang_es.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4620D1C61C00A72D94 /* lang_es.swift */; };
+		64886E4920D1C61C00A72D94 /* lang_es.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4620D1C61C00A72D94 /* lang_es.swift */; };
+		64886E4A20D1C61C00A72D94 /* lang_es.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4620D1C61C00A72D94 /* lang_es.swift */; };
+		64886E4B20D1C61C00A72D94 /* lang_es.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4620D1C61C00A72D94 /* lang_es.swift */; };
+		64886E4D20D1C6D600A72D94 /* lang_es_AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */; };
+		64886E4E20D1C6D600A72D94 /* lang_es_AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */; };
+		64886E4F20D1C6D600A72D94 /* lang_es_AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */; };
+		64886E5020D1C6D600A72D94 /* lang_es_AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */; };
+		64886E5120D1C6D600A72D94 /* lang_es_AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */; };
+		64886E5320D1C77A00A72D94 /* lang_es_MX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5220D1C77A00A72D94 /* lang_es_MX.swift */; };
+		64886E5420D1C77A00A72D94 /* lang_es_MX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5220D1C77A00A72D94 /* lang_es_MX.swift */; };
+		64886E5520D1C77A00A72D94 /* lang_es_MX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5220D1C77A00A72D94 /* lang_es_MX.swift */; };
+		64886E5620D1C77A00A72D94 /* lang_es_MX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5220D1C77A00A72D94 /* lang_es_MX.swift */; };
+		64886E5720D1C77A00A72D94 /* lang_es_MX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5220D1C77A00A72D94 /* lang_es_MX.swift */; };
+		64886E5920D1C80800A72D94 /* lang_es_PY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5820D1C80800A72D94 /* lang_es_PY.swift */; };
+		64886E5A20D1C80800A72D94 /* lang_es_PY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5820D1C80800A72D94 /* lang_es_PY.swift */; };
+		64886E5B20D1C80800A72D94 /* lang_es_PY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5820D1C80800A72D94 /* lang_es_PY.swift */; };
+		64886E5C20D1C80800A72D94 /* lang_es_PY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5820D1C80800A72D94 /* lang_es_PY.swift */; };
+		64886E5D20D1C80800A72D94 /* lang_es_PY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5820D1C80800A72D94 /* lang_es_PY.swift */; };
+		64886E5F20D1C8EA00A72D94 /* lang_es_US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */; };
+		64886E6020D1C8EA00A72D94 /* lang_es_US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */; };
+		64886E6120D1C8EA00A72D94 /* lang_es_US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */; };
+		64886E6220D1C8EA00A72D94 /* lang_es_US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */; };
+		64886E6320D1C8EA00A72D94 /* lang_es_US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */; };
 		649D473B20C81A2A00513A67 /* DateRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D473A20C81A2A00513A67 /* DateRepresentable.swift */; };
 		649D473C20C81A2A00513A67 /* DateRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D473A20C81A2A00513A67 /* DateRepresentable.swift */; };
 		649D473D20C81A2A00513A67 /* DateRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D473A20C81A2A00513A67 /* DateRepresentable.swift */; };
@@ -327,6 +362,13 @@
 		64886E2820D1C24100A72D94 /* lang_de.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lang_de.swift; sourceTree = "<group>"; };
 		64886E2E20D1C33D00A72D94 /* lang_dsb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lang_dsb.swift; sourceTree = "<group>"; };
 		64886E3420D1C40700A72D94 /* lang_dz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lang_dz.swift; sourceTree = "<group>"; };
+		64886E3A20D1C50C00A72D94 /* lang_ee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lang_ee.swift; sourceTree = "<group>"; };
+		64886E4020D1C58700A72D94 /* lang_el.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lang_el.swift; sourceTree = "<group>"; };
+		64886E4620D1C61C00A72D94 /* lang_es.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lang_es.swift; sourceTree = "<group>"; };
+		64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_es_AR.swift; sourceTree = "<group>"; };
+		64886E5220D1C77A00A72D94 /* lang_es_MX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_es_MX.swift; sourceTree = "<group>"; };
+		64886E5820D1C80800A72D94 /* lang_es_PY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_es_PY.swift; sourceTree = "<group>"; };
+		64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_es_US.swift; sourceTree = "<group>"; };
 		649D473A20C81A2A00513A67 /* DateRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRepresentable.swift; sourceTree = "<group>"; };
 		649D474020C81A4200513A67 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		649D474720C8241C00513A67 /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
@@ -576,6 +618,13 @@
 				64886E2820D1C24100A72D94 /* lang_de.swift */,
 				64886E2E20D1C33D00A72D94 /* lang_dsb.swift */,
 				64886E3420D1C40700A72D94 /* lang_dz.swift */,
+				64886E3A20D1C50C00A72D94 /* lang_ee.swift */,
+				64886E4020D1C58700A72D94 /* lang_el.swift */,
+				64886E4620D1C61C00A72D94 /* lang_es.swift */,
+				64886E4C20D1C6D600A72D94 /* lang_es_AR.swift */,
+				64886E5220D1C77A00A72D94 /* lang_es_MX.swift */,
+				64886E5820D1C80800A72D94 /* lang_es_PY.swift */,
+				64886E5E20D1C8EA00A72D94 /* lang_es_US.swift */,
 				64B38AF520D1696400C330DD /* lang_it.swift */,
 			);
 			path = languages;
@@ -957,6 +1006,7 @@
 				649D47E120CAAB7400513A67 /* RelativeFormatter.swift in Sources */,
 				649D474120C81A4200513A67 /* Date.swift in Sources */,
 				649D476D20C85C7100513A67 /* ISOParser.swift in Sources */,
+				64886E4720D1C61C00A72D94 /* lang_es.swift in Sources */,
 				6434DD7C20C803EF007626EF /* SwiftDate.swift in Sources */,
 				64886E0B20D1BB8900A72D94 /* lang_bsCyrl.swift in Sources */,
 				64886E3520D1C40700A72D94 /* lang_dz.swift in Sources */,
@@ -964,10 +1014,12 @@
 				64B38B1420D1785A00C330DD /* lang_as.swift in Sources */,
 				649D47AA20C91C0B00513A67 /* Date+Compare.swift in Sources */,
 				64886E0520D1BA6C00A72D94 /* lang_bs.swift in Sources */,
+				64886E4120D1C58700A72D94 /* lang_el.swift in Sources */,
 				64B38B0820D16E9100C330DD /* lang_ar.swift in Sources */,
 				64886DF920D1AA3100A72D94 /* lang_bn.swift in Sources */,
 				6434DD7220C80126007626EF /* Calendars.swift in Sources */,
 				649D478520C8861200513A67 /* DateInRegion+Components.swift in Sources */,
+				64886E5320D1C77A00A72D94 /* lang_es_MX.swift in Sources */,
 				649D477920C877C300513A67 /* DateInRegion+Create.swift in Sources */,
 				64886E1D20D1C08000A72D94 /* lang_cy.swift in Sources */,
 				649D477F20C880DC00513A67 /* Date+Create.swift in Sources */,
@@ -975,6 +1027,7 @@
 				649D474E20C827C400513A67 /* AssociatedValues.swift in Sources */,
 				64B38AFC20D16BD200C330DD /* lang_af.swift in Sources */,
 				649D476120C8529500513A67 /* Protocols.swift in Sources */,
+				64886E5920D1C80800A72D94 /* lang_es_PY.swift in Sources */,
 				64886E1720D1BDB100A72D94 /* lang_cs.swift in Sources */,
 				649D474820C8241C00513A67 /* Commons.swift in Sources */,
 				6434DD7720C80263007626EF /* Locales.swift in Sources */,
@@ -987,13 +1040,16 @@
 				649D47B620C9586500513A67 /* DateInRegion+Math.swift in Sources */,
 				649D479220C913E200513A67 /* Date+Components.swift in Sources */,
 				649D47EE20CAB96D00513A67 /* RelativeFormatter+Style.swift in Sources */,
+				64886E3B20D1C50C00A72D94 /* lang_ee.swift in Sources */,
 				64B38B0220D16D1600C330DD /* lang_am.swift in Sources */,
 				64886E2F20D1C33D00A72D94 /* lang_dsb.swift in Sources */,
 				6434DD6720C7FC6A007626EF /* Region.swift in Sources */,
+				64886E5F20D1C8EA00A72D94 /* lang_es_US.swift in Sources */,
 				649D47A420C91BEA00513A67 /* DateInRegion+Compare.swift in Sources */,
 				64886DED20D1A18A00A72D94 /* lang_be.swift in Sources */,
 				649D47C220C964E000513A67 /* Int+DateComponents.swift in Sources */,
 				649D47B020C9276400513A67 /* DateComponents+Extras.swift in Sources */,
+				64886E4D20D1C6D600A72D94 /* lang_es_AR.swift in Sources */,
 				649D476720C85ACD00513A67 /* String.swift in Sources */,
 				64B38B0E20D1763300C330DD /* lang_ar_AE.swift in Sources */,
 				64886DF320D1A8FE00A72D94 /* lang_bg.swift in Sources */,
@@ -1022,6 +1078,7 @@
 				649D47E320CAAB7400513A67 /* RelativeFormatter.swift in Sources */,
 				649D474320C81A4200513A67 /* Date.swift in Sources */,
 				649D476F20C85C7100513A67 /* ISOParser.swift in Sources */,
+				64886E4920D1C61C00A72D94 /* lang_es.swift in Sources */,
 				6434DD7E20C803EF007626EF /* SwiftDate.swift in Sources */,
 				64886E0D20D1BB8900A72D94 /* lang_bsCyrl.swift in Sources */,
 				64886E3720D1C40700A72D94 /* lang_dz.swift in Sources */,
@@ -1029,10 +1086,12 @@
 				64B38B1620D1785D00C330DD /* lang_as.swift in Sources */,
 				649D47AC20C91C0B00513A67 /* Date+Compare.swift in Sources */,
 				64886E0720D1BA6C00A72D94 /* lang_bs.swift in Sources */,
+				64886E4320D1C58700A72D94 /* lang_el.swift in Sources */,
 				64B38B0A20D16E9100C330DD /* lang_ar.swift in Sources */,
 				64886DFB20D1AA3100A72D94 /* lang_bn.swift in Sources */,
 				6434DD7420C80126007626EF /* Calendars.swift in Sources */,
 				649D478720C8861200513A67 /* DateInRegion+Components.swift in Sources */,
+				64886E5520D1C77A00A72D94 /* lang_es_MX.swift in Sources */,
 				649D477B20C877C300513A67 /* DateInRegion+Create.swift in Sources */,
 				64886E1F20D1C08000A72D94 /* lang_cy.swift in Sources */,
 				649D478120C880DC00513A67 /* Date+Create.swift in Sources */,
@@ -1040,6 +1099,7 @@
 				649D475020C827C400513A67 /* AssociatedValues.swift in Sources */,
 				64B38AFE20D16BD200C330DD /* lang_af.swift in Sources */,
 				649D476320C8529500513A67 /* Protocols.swift in Sources */,
+				64886E5B20D1C80800A72D94 /* lang_es_PY.swift in Sources */,
 				64886E1920D1BDB100A72D94 /* lang_cs.swift in Sources */,
 				649D474A20C8241C00513A67 /* Commons.swift in Sources */,
 				6434DD7920C80263007626EF /* Locales.swift in Sources */,
@@ -1052,13 +1112,16 @@
 				649D47B820C9586500513A67 /* DateInRegion+Math.swift in Sources */,
 				649D479420C913E200513A67 /* Date+Components.swift in Sources */,
 				649D47F020CAB96D00513A67 /* RelativeFormatter+Style.swift in Sources */,
+				64886E3D20D1C50C00A72D94 /* lang_ee.swift in Sources */,
 				64B38B0420D16D1600C330DD /* lang_am.swift in Sources */,
 				64886E3120D1C33D00A72D94 /* lang_dsb.swift in Sources */,
 				6434DD6920C7FC6A007626EF /* Region.swift in Sources */,
+				64886E6120D1C8EA00A72D94 /* lang_es_US.swift in Sources */,
 				649D47A620C91BEA00513A67 /* DateInRegion+Compare.swift in Sources */,
 				64886DEF20D1A18A00A72D94 /* lang_be.swift in Sources */,
 				649D47C420C964E000513A67 /* Int+DateComponents.swift in Sources */,
 				649D47B220C9276400513A67 /* DateComponents+Extras.swift in Sources */,
+				64886E4F20D1C6D600A72D94 /* lang_es_AR.swift in Sources */,
 				649D476920C85ACD00513A67 /* String.swift in Sources */,
 				64B38B1020D1763300C330DD /* lang_ar_AE.swift in Sources */,
 				64886DF520D1A8FE00A72D94 /* lang_bg.swift in Sources */,
@@ -1078,6 +1141,7 @@
 				649D47E420CAAB7400513A67 /* RelativeFormatter.swift in Sources */,
 				649D474420C81A4200513A67 /* Date.swift in Sources */,
 				649D477020C85C7100513A67 /* ISOParser.swift in Sources */,
+				64886E4A20D1C61C00A72D94 /* lang_es.swift in Sources */,
 				6434DD7F20C803EF007626EF /* SwiftDate.swift in Sources */,
 				64886E0E20D1BB8900A72D94 /* lang_bsCyrl.swift in Sources */,
 				64886E3820D1C40700A72D94 /* lang_dz.swift in Sources */,
@@ -1085,10 +1149,12 @@
 				64B38B1720D1785D00C330DD /* lang_as.swift in Sources */,
 				649D47AD20C91C0B00513A67 /* Date+Compare.swift in Sources */,
 				64886E0820D1BA6C00A72D94 /* lang_bs.swift in Sources */,
+				64886E4420D1C58700A72D94 /* lang_el.swift in Sources */,
 				64B38B0B20D16E9100C330DD /* lang_ar.swift in Sources */,
 				64886DFC20D1AA3100A72D94 /* lang_bn.swift in Sources */,
 				6434DD7520C80126007626EF /* Calendars.swift in Sources */,
 				649D478820C8861200513A67 /* DateInRegion+Components.swift in Sources */,
+				64886E5620D1C77A00A72D94 /* lang_es_MX.swift in Sources */,
 				649D477C20C877C300513A67 /* DateInRegion+Create.swift in Sources */,
 				64886E2020D1C08000A72D94 /* lang_cy.swift in Sources */,
 				649D478220C880DC00513A67 /* Date+Create.swift in Sources */,
@@ -1096,6 +1162,7 @@
 				649D475120C827C400513A67 /* AssociatedValues.swift in Sources */,
 				64B38AFF20D16BD200C330DD /* lang_af.swift in Sources */,
 				649D476420C8529500513A67 /* Protocols.swift in Sources */,
+				64886E5C20D1C80800A72D94 /* lang_es_PY.swift in Sources */,
 				64886E1A20D1BDB100A72D94 /* lang_cs.swift in Sources */,
 				649D474B20C8241C00513A67 /* Commons.swift in Sources */,
 				6434DD7A20C80263007626EF /* Locales.swift in Sources */,
@@ -1108,13 +1175,16 @@
 				649D47B920C9586500513A67 /* DateInRegion+Math.swift in Sources */,
 				649D479520C913E200513A67 /* Date+Components.swift in Sources */,
 				649D47F120CAB96D00513A67 /* RelativeFormatter+Style.swift in Sources */,
+				64886E3E20D1C50C00A72D94 /* lang_ee.swift in Sources */,
 				64B38B0520D16D1600C330DD /* lang_am.swift in Sources */,
 				64886E3220D1C33D00A72D94 /* lang_dsb.swift in Sources */,
 				6434DD6A20C7FC6A007626EF /* Region.swift in Sources */,
+				64886E6220D1C8EA00A72D94 /* lang_es_US.swift in Sources */,
 				649D47A720C91BEA00513A67 /* DateInRegion+Compare.swift in Sources */,
 				64886DF020D1A18A00A72D94 /* lang_be.swift in Sources */,
 				649D47C520C964E000513A67 /* Int+DateComponents.swift in Sources */,
 				649D47B320C9276400513A67 /* DateComponents+Extras.swift in Sources */,
+				64886E5020D1C6D600A72D94 /* lang_es_AR.swift in Sources */,
 				649D476A20C85ACD00513A67 /* String.swift in Sources */,
 				64B38B1120D1763300C330DD /* lang_ar_AE.swift in Sources */,
 				64886DF620D1A8FE00A72D94 /* lang_bg.swift in Sources */,
@@ -1134,6 +1204,7 @@
 				649D47E220CAAB7400513A67 /* RelativeFormatter.swift in Sources */,
 				649D474220C81A4200513A67 /* Date.swift in Sources */,
 				649D476E20C85C7100513A67 /* ISOParser.swift in Sources */,
+				64886E4820D1C61C00A72D94 /* lang_es.swift in Sources */,
 				6434DD7D20C803EF007626EF /* SwiftDate.swift in Sources */,
 				64886E0C20D1BB8900A72D94 /* lang_bsCyrl.swift in Sources */,
 				64886E3620D1C40700A72D94 /* lang_dz.swift in Sources */,
@@ -1141,10 +1212,12 @@
 				64B38B1520D1785D00C330DD /* lang_as.swift in Sources */,
 				649D47AB20C91C0B00513A67 /* Date+Compare.swift in Sources */,
 				64886E0620D1BA6C00A72D94 /* lang_bs.swift in Sources */,
+				64886E4220D1C58700A72D94 /* lang_el.swift in Sources */,
 				64B38B0920D16E9100C330DD /* lang_ar.swift in Sources */,
 				64886DFA20D1AA3100A72D94 /* lang_bn.swift in Sources */,
 				6434DD7320C80126007626EF /* Calendars.swift in Sources */,
 				649D478620C8861200513A67 /* DateInRegion+Components.swift in Sources */,
+				64886E5420D1C77A00A72D94 /* lang_es_MX.swift in Sources */,
 				649D477A20C877C300513A67 /* DateInRegion+Create.swift in Sources */,
 				64886E1E20D1C08000A72D94 /* lang_cy.swift in Sources */,
 				649D478020C880DC00513A67 /* Date+Create.swift in Sources */,
@@ -1152,6 +1225,7 @@
 				649D474F20C827C400513A67 /* AssociatedValues.swift in Sources */,
 				64B38AFD20D16BD200C330DD /* lang_af.swift in Sources */,
 				649D476220C8529500513A67 /* Protocols.swift in Sources */,
+				64886E5A20D1C80800A72D94 /* lang_es_PY.swift in Sources */,
 				64886E1820D1BDB100A72D94 /* lang_cs.swift in Sources */,
 				649D474920C8241C00513A67 /* Commons.swift in Sources */,
 				6434DD7820C80263007626EF /* Locales.swift in Sources */,
@@ -1164,13 +1238,16 @@
 				649D47B720C9586500513A67 /* DateInRegion+Math.swift in Sources */,
 				649D479320C913E200513A67 /* Date+Components.swift in Sources */,
 				649D47EF20CAB96D00513A67 /* RelativeFormatter+Style.swift in Sources */,
+				64886E3C20D1C50C00A72D94 /* lang_ee.swift in Sources */,
 				64B38B0320D16D1600C330DD /* lang_am.swift in Sources */,
 				64886E3020D1C33D00A72D94 /* lang_dsb.swift in Sources */,
 				6434DD6820C7FC6A007626EF /* Region.swift in Sources */,
+				64886E6020D1C8EA00A72D94 /* lang_es_US.swift in Sources */,
 				649D47A520C91BEA00513A67 /* DateInRegion+Compare.swift in Sources */,
 				64886DEE20D1A18A00A72D94 /* lang_be.swift in Sources */,
 				649D47C320C964E000513A67 /* Int+DateComponents.swift in Sources */,
 				649D47B120C9276400513A67 /* DateComponents+Extras.swift in Sources */,
+				64886E4E20D1C6D600A72D94 /* lang_es_AR.swift in Sources */,
 				649D476820C85ACD00513A67 /* String.swift in Sources */,
 				64B38B0F20D1763300C330DD /* lang_ar_AE.swift in Sources */,
 				64886DF420D1A8FE00A72D94 /* lang_bg.swift in Sources */,
@@ -1196,16 +1273,19 @@
 				64886E0320D1AB6700A72D94 /* lang_br.swift in Sources */,
 				64B38B1820D1785E00C330DD /* lang_as.swift in Sources */,
 				64886E3320D1C33D00A72D94 /* lang_dsb.swift in Sources */,
+				64886E3F20D1C50C00A72D94 /* lang_ee.swift in Sources */,
 				64B38AFA20D1696400C330DD /* lang_it.swift in Sources */,
 				64B38AF420D148F100C330DD /* lang_en.swift in Sources */,
 				6434DD9F20C809C2007626EF /* TimeZones.swift in Sources */,
 				64B38B0620D16D1600C330DD /* lang_am.swift in Sources */,
+				64886E5720D1C77A00A72D94 /* lang_es_MX.swift in Sources */,
 				6434DDA520C809C2007626EF /* Region.swift in Sources */,
 				649D474C20C8241C00513A67 /* Commons.swift in Sources */,
 				649D47BA20C9586500513A67 /* DateInRegion+Math.swift in Sources */,
 				64886E1520D1BCD900A72D94 /* lang_ca.swift in Sources */,
 				649D478F20C886BD00513A67 /* DateSpan.swift in Sources */,
 				649D479620C913E200513A67 /* Date+Components.swift in Sources */,
+				64886E6320D1C8EA00A72D94 /* lang_es_US.swift in Sources */,
 				649D477D20C877C300513A67 /* DateInRegion+Create.swift in Sources */,
 				649D47B420C9276400513A67 /* DateComponents+Extras.swift in Sources */,
 				64886E2D20D1C24100A72D94 /* lang_de.swift in Sources */,
@@ -1228,11 +1308,15 @@
 				649D47A820C91BEA00513A67 /* DateInRegion+Compare.swift in Sources */,
 				649D474520C81A4200513A67 /* Date.swift in Sources */,
 				649D473F20C81A2A00513A67 /* DateRepresentable.swift in Sources */,
+				64886E5D20D1C80800A72D94 /* lang_es_PY.swift in Sources */,
 				649D478320C880DC00513A67 /* Date+Create.swift in Sources */,
+				64886E4B20D1C61C00A72D94 /* lang_es.swift in Sources */,
 				6434DD8F20C809B3007626EF /* AppDelegate.swift in Sources */,
 				649D476B20C85ACD00513A67 /* String.swift in Sources */,
+				64886E5120D1C6D600A72D94 /* lang_es_AR.swift in Sources */,
 				64B38B1E20D179A200C330DD /* lang_az.swift in Sources */,
 				64886E2120D1C08000A72D94 /* lang_cy.swift in Sources */,
+				64886E4520D1C58700A72D94 /* lang_el.swift in Sources */,
 				649D478920C8861200513A67 /* DateInRegion+Components.swift in Sources */,
 				649D47F220CAB96D00513A67 /* RelativeFormatter+Style.swift in Sources */,
 				6434DD9E20C809C2007626EF /* SwiftDate.swift in Sources */,

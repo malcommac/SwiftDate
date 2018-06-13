@@ -36,7 +36,9 @@ public class RelativeFormatter: DateToStringTrasformable {
 		lang_cs.identifier : lang_cs.self,
 		lang_cy.identifier : lang_cy.self,
 		lang_da.identifier : lang_da.self,
-		lang_de.identifier : lang_de.self
+		lang_de.identifier : lang_de.self,
+		lang_dsb.identifier : lang_dsb.self,
+		lang_dz.identifier : lang_dz.self
 	]
 	
 	private init() {}

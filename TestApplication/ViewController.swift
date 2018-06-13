@@ -52,7 +52,7 @@ class ViewController: UIViewController {
 		let d2 = "2018-06-20T20:00:00+02:00".toDate()!
 
 		let x = Locales.czech.toLocale().collatorIdentifier
-		let coll = RelativeFormatter.format(date: d1, to: d2, style: RelativeFormatter.defaultStyle(), locale: Locales.arabicUnitedArabEmirates.toLocale())
+		let coll = RelativeFormatter.format(date: d1, to: d2, style: RelativeFormatter.defaultStyle(), locale: Locales.dzongkha.toLocale())
 		
 //		let coll = d1.toString(.relativeCustom(r))
 		print("\(coll)")

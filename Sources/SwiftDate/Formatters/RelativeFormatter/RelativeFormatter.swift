@@ -45,7 +45,10 @@ public class RelativeFormatter: DateToStringTrasformable {
 		lang_esAR.identifier : lang_esAR.self,
 		lang_esMX.identifier : lang_esMX.self,
 		lang_esPY.identifier : lang_esPY.self,
-		lang_esUS.identifier : lang_esUS.self
+		lang_esUS.identifier : lang_esUS.self,
+		lang_et.identifier : lang_et.self,
+		lang_eu.identifier : lang_eu.self,
+		lang_fa.identifier : lang_fa.self
 	]
 	
 	private init() {}

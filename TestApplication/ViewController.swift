@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 
-		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, timezone: TimeZones.europeRome, locale: Locales.italian)
+		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, timezone: TimeZones.europeRome, locale: Locales.english)
 		
 		//let newDate = DateInRegion("2001-01-01 06:30:00")
 		//let newDateInUTC = newDate?.express(in: Region.defaultGMT())
@@ -47,10 +47,15 @@ class ViewController: UIViewController {
 
 
 		//let d = "1983-06-01T09:30:00+02:00".toDate()!
-		let d1 = "2018-06-10T19:50:00+02:00".toDate()!
+		//let d1 = "2018-06-10T19:50:00+02:00".toDate()!
+		let d1 = "2018-06-13T12:00:00+02:00".toDate()!
+		let d2 = "2018-06-20T20:00:00+02:00".toDate()!
+
+		let x = Locales.czech.toLocale().collatorIdentifier
+		let coll = RelativeFormatter.format(date: d1, to: d2, style: RelativeFormatter.defaultStyle(), locale: Locales.arabicUnitedArabEmirates.toLocale())
 		
-		let coll = d1.toString(.relative)
-		print("")
+//		let coll = d1.toString(.relativeCustom(r))
+		print("\(coll)")
 //		print(d?.string("yyyy")
 //		print(d)
 	}

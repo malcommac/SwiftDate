@@ -12,7 +12,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 
 	/// Absolute date represented. This date is not associated with any timezone or calendar
 	/// but represent the absolute number of seconds since Jan 1, 2001 at 00:00:00 UTC.
-	public let date: Date
+	public internal(set) var date: Date
 
 	/// Associated region which define where the date is represented into the world.
 	public let region: Region

@@ -63,5 +63,16 @@ extension DateInRegion {
 		}
 		return cmps
 	}
-		
+	
+	/// Adds a time interval to this date.
+	/// WARNING:
+	/// This only adjusts an absolute value. If you wish to add calendrical concepts like hours,
+	/// days, months then you must use a Calendar.
+	/// That will take into account complexities like daylight saving time,
+	/// months with different numbers of days, and more.
+	///
+	/// - Parameter timeInterval: The value to add, in seconds.
+	public mutating func addTimeInterval(_ timeInterval: TimeInterval) {
+		self.date.addTimeInterval(timeInterval)
+	}
 }

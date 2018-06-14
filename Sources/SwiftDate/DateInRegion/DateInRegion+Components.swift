@@ -150,5 +150,15 @@ public extension DateInRegion {
 			return 0
 		}
 	}
+	
+	/// The interval between the receiver and the another parameter.
+	/// If the receiver is earlier than anotherDate, the return value is negative.
+	/// If anotherDate is nil, the results are undefined.
+	///
+	/// - Parameter date: The date with which to compare the receiver.
+	/// - Returns: time interval between two dates
+	func timeIntervalSince(_ date: DateInRegion) -> TimeInterval {
+		return self.date.timeIntervalSince(date.date)
+	}
 
 }

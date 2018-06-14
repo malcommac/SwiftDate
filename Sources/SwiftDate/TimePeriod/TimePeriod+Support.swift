@@ -29,3 +29,9 @@ public enum IntervalType {
 	case open
 	case closed
 }
+
+public enum TimePeriodAnchor {
+	case beginning
+	case center
+	case end
+}

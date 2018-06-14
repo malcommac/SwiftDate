@@ -19,11 +19,11 @@ open class TimePeriodGroup: Sequence, Equatable {
 	
 	/// The earliest beginning date of a `TimePeriod` in the group.
 	/// `nil` if any `TimePeriod` in group has a nil beginning date (indefinite).
-	public internal(set) var start: Date?
+	public internal(set) var start: DateInRegion?
 	
 	/// The latest end date of a `TimePeriod` in the group.
 	/// `nil` if any `TimePeriod` in group has a nil end date (indefinite).
-	public internal(set) var end: Date?
+	public internal(set) var end: DateInRegion?
 	
 	/// The total amount of time between the earliest and latest dates stored in the periods array.
 	/// `nil` if any beginning or end date in any contained period is `nil`.

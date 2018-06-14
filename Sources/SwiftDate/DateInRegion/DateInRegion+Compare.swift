@@ -279,4 +279,22 @@ public extension DateInRegion {
 				self.isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
 	}
 	
+	// MARK: - Date Earlier/Later
+
+	/// Return the earlier of two dates, between self and a given date.
+	///
+	/// - Parameter date: The date to compare to self
+	/// - Returns: The date that is earlier
+	public func earlierDate(_ date: DateInRegion) -> DateInRegion {
+		return (self.date.timeIntervalSince1970 <= date.date.timeIntervalSince1970) ? self : date
+	}
+	
+	/// Return the later of two dates, between self and a given date.
+	///
+	/// - Parameter date: The date to compare to self
+	/// - Returns: The date that is later
+	public func laterDate(_ date: DateInRegion) -> DateInRegion {
+		return (self.date.timeIntervalSince1970 >= date.date.timeIntervalSince1970) ? self : date
+	}
+	
 }

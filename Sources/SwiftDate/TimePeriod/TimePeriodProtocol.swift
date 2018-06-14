@@ -20,20 +20,36 @@ public protocol TimePeriodProtocol {
 
 public extension TimePeriodProtocol {
 	
+	/// Return `true` if time period has both start and end dates
 	public var hasFiniteRange: Bool {
 		guard let _ = self.start, let _ = self.end else { return false }
 		return true
 	}
 	
+	/// Check if receiver is equal to given period (both start/end groups are equals)
+	///
+	/// - Parameter period: period to compare against to.
+	/// - Returns: true if are equals
 	public func equals(_ period: TimePeriodProtocol) -> Bool {
 		return (self.start == period.start && self.end == period.end)
 	}
 	
+	/// If the given `TimePeriod`'s beginning is before `self.beginning` and
+	/// if the given 'TimePeriod`'s end is after `self.end`.
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: True if self is inside of the given `TimePeriod`
 	public func isInside(_ period: TimePeriodProtocol) -> Bool {
 		guard self.hasFiniteRange, period.hasFiniteRange else { return false }
 		return (period.start! <= self.start! && period.end! >= self.end!)
 	}
 	
+	/// If the given Date is after `self.beginning` and before `self.end`.
+	///
+	/// - Parameters:
+	///   - date: The time period to compare to self
+	///   - interval: Whether the edge of the date is included in the calculation
+	/// - Returns: True if the given `TimePeriod` is inside of self
 	public func contains(date: DateInRegion, interval: IntervalType = .closed) -> Bool {
 		guard self.hasFiniteRange else { return false }
 		switch interval {
@@ -42,6 +58,11 @@ public extension TimePeriodProtocol {
 		}
 	}
 	
+	/// If the given `TimePeriod`'s beginning is after `self.beginning` and
+	/// if the given 'TimePeriod`'s after is after `self.end`.
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: True if the given `TimePeriod` is inside of self
 	public func contains(_ period: TimePeriodProtocol) -> Bool {
 		guard self.hasFiniteRange, period.hasFiniteRange else { return false }
 		if period.start! < self.start! && period.end! > self.start! {
@@ -56,23 +77,60 @@ public extension TimePeriodProtocol {
 		return false
 	}
 	
+	/// If self and the given `TimePeriod` share any sub-`TimePeriod`.
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: True if there is a period of time that is shared by both `TimePeriod`s
+	public func overlaps(with period: TimePeriodProtocol) -> Bool {
+		if (period.start! < self.start! && period.end! > self.start!) {
+			return true // Outside -> Inside
+		}
+		else if (period.start! >= self.start! && period.end! <= self.end!) {
+			return true // Enclosing
+		}
+		else if (period.start! < self.end! && period.end! > self.end!) {
+			return true // Inside -> Out
+		}
+		return false
+	}
+	
+	/// If self and the given `TimePeriod` overlap or the period's edges touch.
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: True if there is a period of time or moment that is shared by both `TimePeriod`s
 	public func intersects(with period: TimePeriodProtocol) -> Bool {
 		let relation = self.relation(to: period)
 		return (relation != .after && relation != .before)
 	}
 	
+	/// If self is before the given `TimePeriod` chronologically. (A gap must exist between the two).
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: True if self is after the given `TimePeriod`
 	public func isBefore(_ period: TimePeriodProtocol) -> Bool {
 		return (self.relation(to: period) == .before)
 	}
 	
+	/// If self is after the given `TimePeriod` chronologically. (A gap must exist between the two).
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: True if self is after the given `TimePeriod`
 	public func isAfter(_ period: TimePeriodProtocol) -> Bool {
 		return (self.relation(to: period) == .after)
 	}
 	
+	/// The period of time between self and the given `TimePeriod` not contained by either.
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: The gap between the periods. Zero if there is no gap.
 	public func hasGap(between period: TimePeriodProtocol) -> Bool {
 		return (self.isBefore(period) || self.isAfter(period))
 	}
 	
+	/// The period of time between self and the given `TimePeriod` not contained by either.
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: The gap between the periods. Zero if there is no gap.
 	public func gap(between period: TimePeriodProtocol) -> TimeInterval {
 		guard self.hasFiniteRange, period.hasFiniteRange else { return TimeInterval.greatestFiniteMagnitude }
 		if self.end! < period.start! {
@@ -84,11 +142,19 @@ public extension TimePeriodProtocol {
 		return 0
 	}
 	
+	/// In place, shift the `TimePeriod` by a `TimeInterval`
+	///
+	/// - Parameter timeInterval: The time interval to shift the period by
 	public mutating func shift(by timeInterval: TimeInterval) {
 		self.start?.addTimeInterval(timeInterval)
 		self.end?.addTimeInterval(timeInterval)
 	}
 	
+	/// In place, lengthen the `TimePeriod`, anchored at the beginning, end or center
+	///
+	/// - Parameters:
+	///   - timeInterval: The time interval to lengthen the period by
+	///   - anchor: The anchor point from which to make the change
 	public mutating func lengthen(by timeInterval: TimeInterval, at anchor: TimePeriodAnchor) {
 		switch anchor {
 		case .beginning:
@@ -101,6 +167,11 @@ public extension TimePeriodProtocol {
 		}
 	}
 	
+	/// In place, shorten the `TimePeriod`, anchored at the beginning, end or center
+	///
+	/// - Parameters:
+	///   - timeInterval: The time interval to shorten the period by
+	///   - anchor: The anchor point from which to make the change
 	public mutating func shorten(by timeInterval: TimeInterval, at anchor: TimePeriodAnchor) {
 		switch anchor {
 		case .beginning:
@@ -113,6 +184,14 @@ public extension TimePeriodProtocol {
 		}
 	}
 	
+	/// The relationship of the self `TimePeriod` to the given `TimePeriod`.
+	/// Relations are stored in Enums.swift. Formal defnitions available in the provided
+	/// links:
+	/// [GitHub](https://github.com/MatthewYork/DateTools#relationships),
+	/// [CodeProject](http://www.codeproject.com/Articles/168662/Time-Period-Library-for-NET)
+	///
+	/// - Parameter period: The time period to compare to self
+	/// - Returns: The relationship between self and the given time period
 	public func relation(to period: TimePeriodProtocol) -> TimePeriodRelation {
 		//Make sure that all start and end points exist for comparison
 		guard self.hasFiniteRange, period.hasFiniteRange else { return .none }

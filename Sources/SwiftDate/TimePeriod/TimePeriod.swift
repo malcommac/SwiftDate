@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// Time periods are represented by the TimePeriodProtocol protocol.
+/// Required variables and method impleementations are bound below.
+/// An inheritable implementation of the TimePeriodProtocol is available through the TimePeriod class.
 open class TimePeriod: TimePeriodProtocol {
 	
 	/// The start date for a TimePeriod representing the starting boundary of the time period

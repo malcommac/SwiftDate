@@ -200,20 +200,68 @@ public protocol DateRepresentable {
 	/// - Returns: converted date
 	func convert(to region: Region) -> DateInRegion
 	
-	// MARK: - Formatting
+	// MARK: - To String Formatting
 	
 	/// Convert date to a string using passed pre-defined style.
 	///
-	/// - Parameter style: formatter style
+	/// - Parameter style: formatter style, `nil` to use `standard` style
 	/// - Returns: string representation of the date
-	func toString(_ style: DateToStringStyles) -> String
+	func toString(_ style: DateToStringStyles?) -> String
 	
 	/// Convert date to a string using custom date format.
 	///
-	/// - Parameter format: format of the string representation
+	/// - Parameters:
+	/// 	- format: format of the string representation
+	///		- locale: locale to fix a custom locale, `nil` to use associated region's locale
 	/// - Returns: string representation of the date
-	func toString(format: String) -> String
+	func toFormat(_ format: String, locale: LocaleConvertible?) -> String
+
+	/// Convert a date to a string representation relative to another reference date (or current
+	/// if not passed).
+	///
+	/// - Parameters:
+	///   - since: reference date, if `nil` current is used.
+	///   - style: style to use to format relative date.
+	///	  - locale: force locale print, `nil` to use the date own region's locale
+	/// - Returns: string representation of the date.
+	func toRelative(since: DateInRegion?, style: RelativeFormatter.Style?, locale: LocaleConvertible?) -> String
 	
+	/// Return ISO8601 representation of the date
+	///
+	/// - Parameter options: optional options, if nil extended iso format is used
+	func toISO(_ options: ISOFormatter.Options?) -> String
+	
+	/// Return DOTNET compatible representation of the date.
+	///
+	/// - Returns: string representation of the date
+	func toDotNET() -> String
+	
+	/// Return RSS compatible representation of the date
+	///
+	/// - Parameter alt: `true` to return altRSS version, `false` to return the standard RSS representation
+	/// - Returns: string representation of the date
+	func toRSS(alt: Bool) -> String
+	
+	// MARK: - Extract Components
+	
+	/// Extract time components for elapsed interval between the receiver date
+	/// and a reference date.
+	///
+	/// - Parameters:
+	///   - units: units to extract.
+	///   - refDate: reference date
+	/// - Returns: extracted time units
+	func toUnits(_ units: Set<Calendar.Component>, to refDate: DateRepresentable) -> [Calendar.Component : Int]
+	
+	
+	/// Extract time unit component from given date.
+	///
+	/// - Parameters:
+	///   - unit: time component to extract
+	///   - refDate: reference date
+	/// - Returns: extracted time unit value
+	func toUnit(_ unit: Calendar.Component, to refDate: DateRepresentable) -> Int?
+
 }
 
 public extension DateRepresentable {
@@ -378,12 +426,39 @@ public extension DateRepresentable {
 		return DateFormatter.sharedFormatter(forRegion: self.region)
 	}
 	
-	public func toString(_ style: DateToStringStyles) -> String {
+	public func toString(_ style: DateToStringStyles? = nil) -> String {
+		guard let style = style else {
+			return DateToStringStyles.standard.toString(self)
+		}
 		return style.toString(self)
 	}
 	
-	public func toString(format: String) -> String {
-		return DateToStringStyles.custom(format).toString(self)
+	public func toFormat(_ format: String, locale: LocaleConvertible? = nil) -> String {
+		guard let fixedLocale = locale else {
+			return DateToStringStyles.custom(format).toString(self)
+		}
+		let fixedRegion = Region(calendar: self.region.calendar, timezone: self.region.timezone, locale: fixedLocale)
+		let fixedDate = DateInRegion(self.date.date, region: fixedRegion)
+		return DateToStringStyles.custom(format).toString(fixedDate)
+	}
+	
+	public func toRelative(since: DateInRegion? = nil, style: RelativeFormatter.Style? = nil, locale: LocaleConvertible? = nil) -> String {
+		return RelativeFormatter.format(date: self, to: since, style: style, locale: nil)
+	}
+	
+	func toISO(_ options: ISOFormatter.Options? = nil) -> String {
+		return DateToStringStyles.isoCustom( (options ?? ISOFormatter.Options([.withInternetDateTime])) ).toString(self)
+	}
+	
+	public func toDotNET() -> String {
+		return DOTNETFormatter.format(self, options: nil)
+	}
+	
+	public func toRSS(alt: Bool) -> String {
+		switch alt {
+		case true: 		return DateToStringStyles.altRSS.toString(self)
+		case false: 	return DateToStringStyles.rss.toString(self)
+		}
 	}
 	
 	// MARK: - Conversion
@@ -392,5 +467,18 @@ public extension DateRepresentable {
 		return DateInRegion(self.date, region: region)
 	}
 
+	// MARK: - Extrac Time Components
+	
+	public func toUnits(_ units: Set<Calendar.Component>, to refDate: DateRepresentable) -> [Calendar.Component : Int] {
+		let cal = self.region.calendar
+		let components = cal.dateComponents(units, from: self.date, to: refDate.date)
+		return components.toDict()
+	}
+	
+	public func toUnit(_ unit: Calendar.Component, to refDate: DateRepresentable) -> Int? {
+		let cal = self.region.calendar
+		let components = cal.dateComponents([unit], from: self.date, to: refDate.date)
+		return components.value(for: unit)
+	}
 	
 }

@@ -266,7 +266,7 @@ public extension RelativeFormatter {
 					let nextYear = (Date(timeIntervalSince1970: now) + 1.years).dateAtStartOf(.year)
 					return (nextYear.timeIntervalSince1970 - now)
 				}), formatter: { date in // "Apr 11, 2017"
-					return date.toString(format: "MMM dd, yyyy")
+					return date.toFormat("MMM dd, yyyy")
 				})
 			])
 		}

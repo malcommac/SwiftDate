@@ -267,6 +267,19 @@ public extension DateInRegion {
 			return self.dateByAdding(-7, .weekOfYear).dateAtStartOf(.weekOfYear).dateAtStartOf(.day)
 		case .nextWeek:
 			return self.dateByAdding(7, .weekOfYear).dateAtStartOf(.weekOfYear).dateAtStartOf(.day)
+		case .nextYear:
+			return self.dateByAdding(1, .year).dateAtStartOf(.year)
+		case .prevYear:
+			return self.dateByAdding(-1, .year).dateAtStartOf(.year)
 		}
 	}
+	
+	/// Create a new instance of the date in the same region with time shifted by given time interval.
+	///
+	/// - Parameter interval: time interval to shift; maybe negative.
+	/// - Returns: new instance of the `DateInRegion`
+	public func addingTimeInterval(_ interval: TimeInterval) -> DateInRegion {
+		return DateInRegion(self.date.addingTimeInterval(interval), region: self.region)
+	}
+	
 }

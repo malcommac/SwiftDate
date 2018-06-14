@@ -282,4 +282,6 @@ public enum DateRelatedType {
 	case nextMonth
 	case prevWeek
 	case nextWeek
+	case nextYear
+	case prevYear
 }

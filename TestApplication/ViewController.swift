@@ -50,14 +50,11 @@ class ViewController: UIViewController {
 		//let d1 = "2018-06-10T19:50:00+02:00".toDate()!
 		let d1 = "2018-06-13T12:00:00+02:00".toDate()!
 		let d2 = "2018-06-20T20:00:00+02:00".toDate()!
-
-		let x = Locales.czech.toLocale().collatorIdentifier
-		let coll = RelativeFormatter.format(date: d1, to: d2, style: RelativeFormatter.defaultStyle(), locale: Locales.dzongkha.toLocale())
 		
-//		let coll = d1.toString(.relativeCustom(r))
-		print("\(coll)")
-//		print(d?.string("yyyy")
-//		print(d)
+		
+		let x = d1.toFormat("dd MMMM yyyy", locale: Locales.italian)
+		let str = TimeInterval(3600).toUnits([.hour,.minute])
+		print(str)
 	}
 
 	override func didReceiveMemoryWarning() {

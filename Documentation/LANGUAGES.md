@@ -1,0 +1,124 @@
+Currently supported languages for relative formatter are (in long form):
+
+ - Northern Sami
+ - Persian
+ - Turkmen
+ - Faroese
+ - Friulian
+ - Hebrew
+ - Polish
+ - Romanian
+ - Chinese (Simplified, Singapore)
+ - Bangla
+ - Indonesian
+ - Northern Sami (Finland)
+ - Slovak
+ - Uyghur
+ - Urdu (India)
+ - Danish
+ - Walser
+ - Lao
+ - Norwegian Nynorsk
+ - Sinhala
+ - Portuguese
+ - Mazanderani
+ - Kalaallisut
+ - Spanish (Argentina)
+ - Bulgarian
+ - Lower Sorbian
+ - Scottish Gaelic
+ - Telugu
+ - Punjabi
+ - Pashto
+ - Nepali
+ - Albanian
+ - Estonian
+ - Welsh
+ - Konkani
+ - Colognian
+ - Lakota
+ - Malay
+ - Chinese (Simplified, Macau China)
+ - Bosnian
+ - Swahili
+ - Sakha
+ - Filipino
+ - Icelandic
+ - Finnish
+ - Tigrinya
+ - Ngomba
+ - English
+ - Slovenian
+ - Ewe
+ - Spanish
+ - Serbian (Latin)
+ - Khmer
+ - Japanese
+ - Turkish
+ - Sindhi
+ - Kannada
+ - Kazakh
+ - Arabic (United Arab Emirates)
+ - Uzbek
+ - Western Frisian
+ - Cantonese (Simplified)
+ - German
+ - Korean
+ - Lithuanian
+ - Tongan
+ - Kyrgyz
+ - French (Canada)
+ - Odia
+ - Belarusian
+ - Mongolian
+ - Tamil
+ - Bosnian (Cyrillic)
+ - Basque
+ - Chinese (Simplified, Hong Kong China)
+ - Chinese (Traditional, Hong Kong China)
+ - Gujarati
+ - Galician
+ - Ukrainian
+ - Greek
+ - Spanish (United States)
+ - Spanish (Mexico)
+ - Malayalam
+ - Vietnamese
+ - Maltese
+ - Chinese (Traditional)
+ - Italian
+ - Croatian
+ - Assamese
+ - Latvian
+ - Chinese
+ - Urdu
+ - Catalan
+ - Czech
+ - Spanish (Paraguay)
+ - Norwegian Bokmål
+ - Burmese
+ - Uzbek (Cyrillic)
+ - Amharic
+ - Afrikaans
+ - Hungarian
+ - Breton
+ - Kabuverdianu
+ - Luxembourgish
+ - Russian
+ - Cantonese (Traditional)
+ - Marathi
+ - Irish
+ - Swedish
+ - Thai
+ - Armenian
+ - Zulu
+ - Georgian
+ - Macedonian
+ - Dzongkha
+ - Dutch
+ - Yiddish
+ - Hindi
+ - Arabic
+ - French
+ - Upper Sorbian
+

@@ -71,8 +71,8 @@ public extension Date {
 	///   - orEqual: `true` to also check for equality on date and date2
 	///   - granularity: smallest unit that must, along with all larger units, be greater
 	/// - Returns: Boolean
-	public func isBetween(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
-		return self.inDefaultRegion().isBetween(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
+	public func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
+		return self.inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
 	}
 	
 }

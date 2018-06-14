@@ -274,7 +274,7 @@ public extension DateInRegion {
 	///   - orEqual: `true` to also check for equality on date and date2
 	///   - granularity: smallest unit that must, along with all larger units, be greater
 	/// - Returns: Boolean
-	public func isBetween(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
+	public func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
 		return 	self.isAfterDate(startDate, orEqual: orEqual, granularity: granularity) &&
 				self.isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
 	}

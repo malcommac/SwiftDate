@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Date {
-	
+
 	/// Return the oldest date in given list.
 	///
 	/// - Parameter list: list of dates
@@ -21,7 +21,7 @@ public extension Date {
 			return $0 < $1
 		})
 	}
-	
+
 	/// Return the oldest date in given list.
 	///
 	/// - Parameter list: list of dates
@@ -33,7 +33,7 @@ public extension Date {
 			return $0 < $1
 		})
 	}
-	
+
 	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
 	/// `startDate` interval will be the first item of the resulting array.
 	/// The last item of the array is evaluated automatically and maybe not equal to `endDate`.
@@ -46,14 +46,14 @@ public extension Date {
 	public static func enumerateDates(from startDate: Date, to endDate: Date, increment: DateComponents) -> [Date] {
 		var dates: [Date] = []
 		var currentDate = startDate
-		
-		while (currentDate <= endDate) {
+
+		while currentDate <= endDate {
 			dates.append(currentDate)
 			currentDate = (currentDate + increment)
 		}
 		return dates
 	}
-	
+
 	/// Round a given date time to the passed style (off|up|down).
 	///
 	/// - Parameter style: rounding mode.
@@ -61,7 +61,7 @@ public extension Date {
 	public func dateRoundedAt(at style: RoundDateMode) -> Date {
 		return self.inDefaultRegion().dateRoundedAt(style).date
 	}
-	
+
 	/// Returns a new DateInRegion that is initialized at the start of a specified unit of time.
 	///
 	/// - Parameter unit: time unit value.
@@ -69,7 +69,7 @@ public extension Date {
 	public func dateAtStartOf(_ unit: Calendar.Component) -> Date {
 		return self.inDefaultRegion().dateAtStartOf(unit).date
 	}
-	
+
 	/// Returns a new Moment that is initialized at the end of a specified unit of time.
 	///
 	/// - parameter unit: A TimeUnit value.
@@ -78,7 +78,7 @@ public extension Date {
 	public func dateAtEndOf(_ unit: Calendar.Component) -> Date {
 		return self.inDefaultRegion().dateAtEndOf(unit).date
 	}
-	
+
 	/// Create a new date by altering specified components of the receiver.
 	///
 	/// - Parameter components: components to alter with their new values.
@@ -86,7 +86,7 @@ public extension Date {
 	public func dateBySet(_ components: [Calendar.Component: Int]) -> Date? {
 		return DateInRegion(self, region: SwiftDate.defaultRegion).dateBySet(components)?.date
 	}
-	
+
 	/// Create a new date by altering specified time components.
 	///
 	/// - Parameters:
@@ -95,9 +95,9 @@ public extension Date {
 	///   - secs: sec to set (`nil` to leave it unaltered)
 	/// - Returns: new altered `DateInRegion` instance
 	public func dateBySet(hour: Int?, min: Int?, secs: Int?) -> Date? {
-		return DateInRegion(self, region: SwiftDate.defaultRegion).dateBySet([.hour : hour, .minute: min, .second: secs])?.date
+		return DateInRegion(self, region: SwiftDate.defaultRegion).dateBySet([.hour: hour, .minute: min, .second: secs])?.date
 	}
-	
+
 	/// Creates a new instance by truncating the components
 	///
 	/// - Parameter components: components to truncate.
@@ -105,7 +105,7 @@ public extension Date {
 	public func dateTruncated(_ components: [Calendar.Component]) -> Date? {
 		return DateInRegion(self, region: SwiftDate.defaultRegion).dateTruncated(at: components)?.date
 	}
-	
+
 	/// Creates a new instance by truncating the components starting from given components down the granurality.
 	///
 	/// - Parameter component: The component to be truncated from.
@@ -113,7 +113,7 @@ public extension Date {
 	public func dateTruncated(from component: Calendar.Component) -> Date? {
 		return DateInRegion(self, region: SwiftDate.defaultRegion).dateTruncated(from: component)?.date
 	}
-	
+
 	/// Offset a date by n calendar components.
 	/// Note: This operation can be functionally chained.
 	///
@@ -124,8 +124,7 @@ public extension Date {
 	public func dateByAdding(_ count: Int, _ component: Calendar.Component) -> DateInRegion {
 		return DateInRegion(self, region: SwiftDate.defaultRegion).dateByAdding(count, component)
 	}
-	
-	
+
 	/// Return related date starting from the receiver attributes.
 	///
 	/// - Parameter type: related date to obtain.
@@ -133,4 +132,13 @@ public extension Date {
 	public func dateAt(_ type: DateRelatedType) -> Date {
 		return self.inDefaultRegion().dateAt(type).date
 	}
+
+	/// Create a new date at now and extract the related date using passed rule type.
+	///
+	/// - Parameter type: related date to obtain.
+	/// - Returns: instance of the related date.
+	public static func nowAt(_ type: DateRelatedType) -> Date {
+		return Date().dateAt(type)
+	}
+
 }

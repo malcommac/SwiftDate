@@ -15,7 +15,7 @@ import Foundation
 open class TimePeriodCollection: TimePeriodGroup {
 
 	// MARK: - Collection Manipulation
-	
+
 	/// Append a TimePeriodProtocol to the periods array and check if the Collection's start and end should change.
 	///
 	/// - Parameter period: TimePeriodProtocol to add to the collection
@@ -23,7 +23,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 		periods.append(period)
 		updateExtremes(period: period)
 	}
-	
+
 	/// Append a TimePeriodProtocol array to the periods array and check if the Collection's
 	/// start and end should change.
 	///
@@ -34,7 +34,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 			updateExtremes(period: period)
 		}
 	}
-	
+
 	/// Append a TimePeriodGroup's periods array to the periods array of self and check if the Collection's
 	/// start and end should change.
 	///
@@ -55,7 +55,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 		periods.insert(newElement, at: index)
 		updateExtremes(period: newElement)
 	}
-	
+
 	/// Remove from period array at the given index.
 	///
 	/// - Parameter at: The index in the collection to remove
@@ -63,36 +63,35 @@ open class TimePeriodCollection: TimePeriodGroup {
 		periods.remove(at: at)
 		updateExtremes()
 	}
-	
+
 	/// Remove all periods from period array.
 	public func removeAll() {
 		periods.removeAll()
 		updateExtremes()
 	}
-	
-	
+
 	// MARK: - Sorting
-	
+
 	/// Sort periods array in place by start
 	public func sortByStart() {
 		self.sort { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
 			if period1.start == nil && period2.start == nil {
 				return false
-			} else if (period1.start == nil) {
+			} else if period1.start == nil {
 				return true
-			} else if (period2.start == nil) {
+			} else if period2.start == nil {
 				return false
 			} else {
 				return period2.start! < period1.start!
 			}
 		}
 	}
-	
+
 	/// Sort periods array in place
 	public func sort(by areInIncreasingOrder: (TimePeriodProtocol, TimePeriodProtocol) -> Bool) {
 		self.periods.sort(by: areInIncreasingOrder)
 	}
-	
+
 	/// Return collection with sorted periods array by start
 	///
 	/// - Returns: Collection with sorted periods
@@ -100,9 +99,9 @@ open class TimePeriodCollection: TimePeriodGroup {
 		let array = self.periods.sorted { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
 			if period1.start == nil && period2.start == nil {
 				return false
-			} else if (period1.start == nil) {
+			} else if period1.start == nil {
 				return true
-			} else if (period2.start == nil) {
+			} else if period2.start == nil {
 				return false
 			} else {
 				return period2.start! < period1.start!
@@ -112,7 +111,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 		collection.append(array)
 		return collection
 	}
-	
+
 	/// Return collection with sorted periods array
 	///
 	/// - Returns: Collection with sorted periods
@@ -121,9 +120,9 @@ open class TimePeriodCollection: TimePeriodGroup {
 		collection.append(self.periods.sorted(by: areInIncreasingOrder))
 		return collection
 	}
-	
+
 	// MARK: - Collection Relationship
-	
+
 	/// Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s
 	/// whose start and end dates fall completely inside the interval of the given `TimePeriod`.
 	///
@@ -134,7 +133,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 		collection.periods = self.periods.filter({ $0.isInside(period) })
 		return collection
 	}
-	
+
 	/**
 	*  Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s containing
 	*  the given date.
@@ -148,7 +147,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 		collection.periods = self.periods.filter({ $0.contains(date: date, interval: .closed) })
 		return collection
 	}
-	
+
 	/// Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s
 	/// containing either the start date or the end date--or both--of the given `TimePeriod`.
 	///
@@ -159,9 +158,9 @@ open class TimePeriodCollection: TimePeriodGroup {
 		collection.periods = self.periods.filter({ $0.intersects(with: period) })
 		return collection
 	}
-	
+
 	// MARK: - Map
-	
+
 	public func map(_ transform: (TimePeriodProtocol) throws -> TimePeriodProtocol) rethrows -> TimePeriodCollection {
 		var mappedArray = [TimePeriodProtocol]()
 		mappedArray = try periods.map(transform)
@@ -172,16 +171,9 @@ open class TimePeriodCollection: TimePeriodGroup {
 		}
 		return mappedCollection
 	}
-	
-	// MARK: - Operator Overloads
-	
-	/// Operator overload for comparing `TimePeriodCollection`s to each other
-	public static func == (left: TimePeriodCollection, right: TimePeriodCollection) -> Bool {
-		return left == right
-	}
-	
-	//MARK: - Helpers
-	
+
+	// MARK: - Helpers
+
 	internal func updateExtremes(period: TimePeriodProtocol) {
 		//Check incoming period against previous start and end date
 		if self.count == 1 {
@@ -191,9 +183,9 @@ open class TimePeriodCollection: TimePeriodGroup {
 			self.start = nilOrEarlier(date1: self.start, date2: period.start)
 			self.end = nilOrLater(date1: self.end, date2: period.end)
 		}
-		
+
 	}
-	
+
 	internal func updateExtremes() {
 		if periods.count == 0 {
 			self.start = nil
@@ -207,7 +199,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 			}
 		}
 	}
-	
+
 	internal func nilOrEarlier(date1: DateInRegion?, date2: DateInRegion?) -> DateInRegion? {
 		if date1 == nil || date2 == nil {
 			return nil
@@ -215,7 +207,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 			return date1!.earlierDate(date2!)
 		}
 	}
-	
+
 	internal func nilOrLater(date1: DateInRegion?, date2: DateInRegion?) -> DateInRegion? {
 		if date1 == nil || date2 == nil {
 			return nil

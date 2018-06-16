@@ -1,45 +1,44 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_lv: RelativeFormatterLang {
-	
+
 	/// Latvian
 	public static let identifier: String = "lv"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		let mod10 = Int(value) % 10
 		let mod100 = Int(value) % 100
-		
-		if (value == 0) {
+
+		if value == 0 {
 			return .zero
 		}
-		
-		if (value == 1) {
+
+		if value == 1 {
 			return .one
 		}
-		
-		switch (mod10) {
+
+		switch mod10 {
 		case 1:
-			if (mod100 != 11) {
+			if mod100 != 11 {
 				return .one
 			}
-			break
+			return .other
 		default:
-			break
+			return .many
 		}
-		
-		return .many
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -101,7 +100,7 @@ public class lang_lv: RelativeFormatterLang {
 	"now": "tagad"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -169,7 +168,7 @@ public class lang_lv: RelativeFormatterLang {
 	"now": "tagad"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

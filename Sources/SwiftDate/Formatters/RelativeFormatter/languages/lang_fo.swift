@@ -1,27 +1,28 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_fo: RelativeFormatterLang {
-	
+
 	/// Faroese
 	public static let identifier: String = "fo"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		return (value == 1 ? .one : .other)
 /*
 module.exports=function(n)[return 1==n?"one":"other"]
 */
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -77,7 +78,7 @@ module.exports=function(n)[return 1==n?"one":"other"]
 	"now": "nú"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -133,7 +134,7 @@ module.exports=function(n)[return 1==n?"one":"other"]
 	"now": "nú"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

@@ -13,7 +13,7 @@ internal enum AssociatedKeys: String {
 }
 
 extension Date: DateRepresentable {
-	
+
 	/// Just return itself to be compliant with `DateRepresentable` protocol.
 	public var date: Date { return self }
 
@@ -39,7 +39,7 @@ extension Date: DateRepresentable {
 	public var dateComponents: DateComponents {
 		return self.region.calendar.dateComponents([.era, .year, .month, .day, .hour, .minute, .second, .nanosecond, .weekday], from: self)
 	}
-	
+
 	/// Initialize a new date object from string expressed in given region.
 	///
 	/// - Parameters:
@@ -48,14 +48,14 @@ extension Date: DateRepresentable {
 	///				Pass it if you can in order to optimize the parse task).
 	///   - region: region in which the date is expressed. `nil` uses the `SwiftDate.defaultRegion`.
 	public init?(_ string: String, format: String? = nil, region: Region = SwiftDate.defaultRegion) {
-		guard let dateInRegion = DateInRegion.init(string, format: format, region: region) else { return nil }
+		guard let dateInRegion = DateInRegion(string, format: format, region: region) else { return nil }
 		self = dateInRegion.date
 	}
-	
+
 	/// Initialize a new date from the number of seconds passed since Unix Epoch.
 	///
 	/// - Parameter interval: seconds
-	public init(seconds interval: TimeInterval, region: Region = Region.defaultGMT()) {
+	public init(seconds interval: TimeInterval, region: Region = Region.UTC) {
 		self = DateInRegion(seconds: interval, region: region).date
 	}
 
@@ -67,7 +67,7 @@ extension Date: DateRepresentable {
 	public init(milliseconds interval: Int, region: Region) {
 		self = DateInRegion(milliseconds: interval, region: region).date
 	}
-	
+
 	/// Initialize a new date with the opportunity to configure single date components via builder pattern.
 	/// Date is therfore expressed in passed region (`DateComponents`'s `timezone`,`calendar` and `locale` are ignored
 	/// and overwritten by the region if not `nil`).
@@ -75,7 +75,7 @@ extension Date: DateRepresentable {
 	/// - Parameters:
 	///   - configuration: configuration callback
 	///   - region: region in which the date is expressed. Ignore to use `SwiftDate.defaultRegion`, `nil` to use `DateComponents` data.
-	public init?(components configuration: ((inout DateComponents) -> (Void)), region: Region? = SwiftDate.defaultRegion) {
+	public init?(components configuration: ((inout DateComponents) -> Void), region: Region? = SwiftDate.defaultRegion) {
 		guard let date = DateInRegion(components: configuration, region: region)?.date else { return nil }
 		self = date
 	}
@@ -101,18 +101,18 @@ extension Date: DateRepresentable {
 		components.minute = minute
 		components.second = second
 		components.nanosecond = nanosecond
-		components.timeZone = region.timezone
+		components.timeZone = region.zone
 		components.calendar = region.calendar
 		self = region.calendar.date(from: components)!
 	}
-	
+
 	/// Express given absolute date in the context of the default region.
 	///
 	/// - Returns: `DateInRegion`
 	public func inDefaultRegion() -> DateInRegion {
 		return DateInRegion(self, region: SwiftDate.defaultRegion)
 	}
-	
+
 	/// Express given absolute date in the context of passed region.
 	///
 	/// - Parameter region: destination region.
@@ -120,19 +120,19 @@ extension Date: DateRepresentable {
 	public func `in`(region: Region) -> DateInRegion {
 		return DateInRegion(self, region: region)
 	}
-	
+
 	/// Return a date in the distant future.
 	///
 	/// - Returns: Date instance.
 	public static func past() -> Date {
 		return Date.distantPast
 	}
-	
+
 	/// Return a date in the distant past.
 	///
 	/// - Returns: Date instance.
 	public static func future() -> Date {
 		return Date.distantFuture
 	}
-}
 
+}

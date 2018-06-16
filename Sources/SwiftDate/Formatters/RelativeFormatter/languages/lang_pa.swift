@@ -1,27 +1,29 @@
 import Foundation
 
+// swiftlint:disable type_name// swiftlint:disable type_name
 public class lang_pa: RelativeFormatterLang {
-	
+
 	/// Punjabi
 	public static let identifier: String = "pa"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		switch value {
-			case 0,1: return .one
-			default: return .other
+			// swiftlint:disable switch_case_alignment
+			case 0, 1:	return .one
+			default:	return .other
 		}
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -113,7 +115,7 @@ public class lang_pa: RelativeFormatterLang {
 	"now": "ਹੁਣ"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -199,7 +201,7 @@ public class lang_pa: RelativeFormatterLang {
 	"now": "ਹੁਣ"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

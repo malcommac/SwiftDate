@@ -8,13 +8,14 @@
 
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_cy: RelativeFormatterLang {
-	
+
 	/// Locales.welsh
 	public static let identifier: String = "cy"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		switch value {
 		case 0:	return .zero
@@ -25,15 +26,15 @@ public class lang_cy: RelativeFormatterLang {
 		default: return .other
 		}
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 			"year": [
@@ -141,7 +142,7 @@ public class lang_cy: RelativeFormatterLang {
 			"now": "nawr"
 		]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 			"year": [
@@ -228,7 +229,7 @@ public class lang_cy: RelativeFormatterLang {
 			"now": "nawr"
 		]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 			"year": [

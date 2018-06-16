@@ -9,7 +9,7 @@
 import Foundation
 
 public extension DateFormatter {
-	
+
 	/// Return the local thread shared formatter initialized with the configuration of the region passed.
 	///
 	/// - Parameters:
@@ -20,14 +20,14 @@ public extension DateFormatter {
 		let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
 		let formatter: DateFormatter = threadSharedObject(key: name, create: { return DateFormatter() })
 		if let region = region {
-			formatter.timeZone = region.timezone
+			formatter.timeZone = region.zone
 			formatter.calendar = region.calendar
 			formatter.locale = region.locale
 		}
 		formatter.dateFormat = (format ?? DateFormats.iso8601)
 		return formatter
 	}
-	
+
 }
 
 /// This function create (if necessary) and return a thread singleton instance of the
@@ -68,7 +68,7 @@ public enum SymbolFormatStyle {
 
 /// Encapsulate the logic to use date format strings
 public struct DateFormats {
-	
+
 	/// This is the built-in list of all supported formats for auto-parsing of a string to a date.
 	internal static let builtInAutoFormat: [String] =  [
 		DateFormats.iso8601,
@@ -93,35 +93,38 @@ public struct DateFormats {
 		"HH:mm",
 		"HH"
 	]
-	
+
 	/// This is the ordered list of all formats SwiftDate can use in order to attempt parsing a passaed
 	/// date expressed as string. Evaluation is made in order; you can add or remove new formats as you wish.
 	/// In order to reset the list call `resetAutoFormats()` function.
 	public static var autoFormats: [String] = DateFormats.builtInAutoFormat
-	
+
 	/// Default ISO8601 format string
 	public static let iso8601: String = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-	
+
 	/// Extended format
 	public static let extended: String = "eee dd-MMM-yyyy GG HH:mm:ss.SSS zzz"
-	
+
 	/// The Alternative RSS formatted date "d MMM yyyy HH:mm:ss ZZZ" i.e. "09 Sep 2011 15:26:08 +0200"
 	public static let altRSS: String = "d MMM yyyy HH:mm:ss ZZZ"
-	
+
 	/// The RSS formatted date "EEE, d MMM yyyy HH:mm:ss ZZZ" i.e. "Fri, 09 Sep 2011 15:26:08 +0200"
 	public static let rss: String = "EEE, d MMM yyyy HH:mm:ss ZZZ"
-	
+
 	/// The http header formatted date "EEE, dd MM yyyy HH:mm:ss ZZZ" i.e. "Tue, 15 Nov 1994 12:45:26 GMT"
 	public static let httpHeader: String = "EEE, dd MM yyyy HH:mm:ss ZZZ"
 
 	/// A generic standard format date i.e. "EEE MMM dd HH:mm:ss Z yyyy"
 	public static let standard: String = "EEE MMM dd HH:mm:ss Z yyyy"
 
+	/// SQL date format
+	public static let sql: String = "yyyy-MM-dd'T'HH:mm:ss.SSSX"
+
 	/// Reset the list of auto formats to the initial settings.
 	public static func resetAutoFormats() {
 		self.autoFormats = DateFormats.builtInAutoFormat
 	}
-	
+
 	/// Parse a new string optionally passing the format in which is encoded. If no format is passed
 	/// an attempt is made by cycling all the formats set in `autoFormats` property.
 	///
@@ -133,7 +136,7 @@ public struct DateFormats {
 	public static func parse(string: String, suggestedFormat: String?, region: Region) -> Date? {
 		let formatter = DateFormatter.sharedFormatter(forRegion: region)
 		let formats = (suggestedFormat != nil ? [suggestedFormat!] : DateFormats.autoFormats)
-		
+
 		var parsedDate: Date? = nil
 		for format in formats {
 			formatter.dateFormat = format
@@ -146,19 +149,19 @@ public struct DateFormats {
 	}
 }
 
-//MARK: - Calendar Extension
+// MARK: - Calendar Extension
 
 // The code below is part of the Swift.org code. It is included as rangeOfUnit is a very useful
 // function for the startOf and endOf functions.
 // As always we would prefer using Foundation code rather than inventing code ourselves.
 extension Calendar {
-	
+
 	typealias CFType = CFCalendar
-	
+
 	private var _cfObject: CFType {
 		return unsafeBitCast(self as NSCalendar, to: CFCalendar.self)
 	}
-	
+
 	/// Revised API for avoiding usage of AutoreleasingUnsafeMutablePointer.
 	/// The current exposed API in Foundation on Darwin platforms is:
 	/// `public func rangeOfUnit(unit: NSCalendarUnit, startDate datep:
@@ -194,11 +197,12 @@ extension Calendar {
 		}
 		return nil
 	}
-	
+
 }
 
 public extension Calendar.Component {
-	
+
+	// swiftlint:disable identifier_name
 	internal var _cfValue: CFCalendarUnit? {
 		guard let value = self.cfCalendarUnit else { return nil }
 		#if os(macOS) || os(iOS)
@@ -207,13 +211,13 @@ public extension Calendar.Component {
 		return CFCalendarUnit(value)
 		#endif
 	}
-	
+
 	internal static func toSet(_ src: [Calendar.Component]) -> Set<Calendar.Component> {
 		var l: Set<Calendar.Component> = []
 		src.forEach { l.insert($0) }
 		return l
 	}
-	
+
 	internal var cfCalendarUnit: UInt? {
 		switch self {
 		case .day:				return CFCalendarUnit.day.rawValue
@@ -236,12 +240,12 @@ public extension Calendar.Component {
 
 /// This define the weekdays for some functions.
 public enum WeekDay: Int {
-	case sunday		= 1
-	case monday		= 2
+	case sunday = 1
+	case monday = 2
 	case tuesday	= 3
 	case wednesday	= 4
 	case thursday	= 5
-	case friday		= 6
+	case friday = 6
 	case saturday	= 7
 }
 

@@ -32,7 +32,6 @@ public func > (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 	return lhs.date.compare(rhs.date) == .orderedDescending
 }
 
-
 // The type of comparison to do against today's date or with the suplied date.
 ///
 /// - isToday: hecks if date today.
@@ -62,32 +61,32 @@ public func > (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 /// - isAfternoon: Return true if date is in the afternoon (>=12 - <17)
 /// - isEvening: Return true if date is in the morning (>=17 - <21)
 /// - isNight: Return true if date is in the morning (>=21 - <5)
-public enum DateComparisonType {
-	
+public enum DateComparisonType { // swiftlint:disable identifier_name
+
 	// Days
 	case isToday
 	case isTomorrow
 	case isYesterday
-	case isSameDay(_: DateRepresentable)
-	
+	case isSameDay(_ : DateRepresentable)
+
 	// Weeks
 	case isThisWeek
 	case isNextWeek
 	case isLastWeek
 	case isSameWeek(_: DateRepresentable)
-	
+
 	// Months
 	case isThisMonth
 	case isNextMonth
 	case isLastMonth
 	case isSameMonth(_: DateRepresentable)
-	
+
 	// Years
 	case isThisYear
 	case isNextYear
 	case isLastYear
 	case isSameYear(_: DateRepresentable)
-	
+
 	// Relative Time
 	case isInTheFuture
 	case isInThePast
@@ -95,20 +94,19 @@ public enum DateComparisonType {
 	case isLater(than: DateRepresentable)
 	case isWeekday
 	case isWeekend
-	
+
 	// Day time
 	case isMorning
 	case isAfternoon
 	case isEvening
 	case isNight
-	
+
 	// TZ
 	case isInDST
 }
 
-
 public extension DateInRegion {
-	
+
 	/// Decides whether a DATE is "close by" another one passed in parameter,
 	/// where "Being close" is measured using a precision argument
 	/// which is initialized a 300 seconds, or 5 minutes.
@@ -120,7 +118,7 @@ public extension DateInRegion {
 	public func compareCloseTo(_ refDate: DateInRegion, precision: TimeInterval = 300) -> Bool {
 		return (abs(self.date.timeIntervalSince(refDate.date)) < precision)
 	}
-	
+
 	/// Compare the date with the rule specified in the `compareType` parameter.
 	///
 	/// - Parameter compareType: comparison type.
@@ -129,36 +127,36 @@ public extension DateInRegion {
 		switch compareType {
 		case .isToday:
 			return self.compare(.isSameDay(self.region.nowInThisRegion()))
-			
+
 		case .isTomorrow:
 			let tomorrow = DateInRegion(region: self.region).dateByAdding(1, .day)
 			return self.compare(.isSameDay(tomorrow))
-			
+
 		case .isYesterday:
 			let yesterday = DateInRegion(region: self.region).dateByAdding(-1, .day)
 			return self.compare(.isSameDay(yesterday))
-			
+
 		case .isSameDay(let refDate):
 			return self.calendar.isDate(self.date, inSameDayAs: refDate.date)
-			
+
 		case .isThisWeek:
 			return self.compare(.isSameWeek(self.region.nowInThisRegion()))
-			
+
 		case .isNextWeek:
 			let nextWeek = self.region.nowInThisRegion().dateByAdding(1, .weekOfYear)
 			return self.compare(.isSameWeek(nextWeek))
-			
+
 		case .isLastWeek:
 			let lastWeek = self.region.nowInThisRegion().dateByAdding(-1, .weekOfYear)
 			return self.compare(.isSameWeek(lastWeek))
-			
+
 		case .isSameWeek(let refDate):
 			guard self.weekOfYear == refDate.weekOfYear else {
 				return false
 			}
 			// Ensure time interval is under 1 week
 			return (abs(self.date.timeIntervalSince(refDate.date)) < 1.weeks.timeInterval)
-			
+
 		case .isThisMonth:
 			return self.compare(.isSameMonth(self.region.nowInThisRegion()))
 
@@ -207,11 +205,11 @@ public extension DateInRegion {
 			return (self.weekday == range.lowerBound || self.weekday == range.upperBound - range.lowerBound)
 
 		case .isInDST:
-			return self.region.timezone.isDaylightSavingTime(for: self.date)
+			return self.region.zone.isDaylightSavingTime(for: self.date)
 
 		case .isMorning:
 			return (self.hour >= 5 && self.hour < 12)
-			
+
 		case .isAfternoon:
 			return (self.hour >= 12 && self.hour < 17)
 
@@ -223,7 +221,7 @@ public extension DateInRegion {
 
 		}
 	}
-	
+
 	/// Returns a ComparisonResult value that indicates the ordering of two given dates based on
 	/// their components down to a given unit granularity.
 	///
@@ -241,7 +239,7 @@ public extension DateInRegion {
 			return self.region.calendar.compare(self.date, to: refDate.date, toGranularity: granularity)
 		}
 	}
-	
+
 	/// Compares whether the receiver is before/before equal `date` based on their components down to a given unit granularity.
 	///
 	/// - Parameters:
@@ -253,7 +251,7 @@ public extension DateInRegion {
 		let result = self.compare(toDate: date, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedAscending) : result == .orderedAscending)
 	}
-	
+
 	/// Compares whether the receiver is after `date` based on their components down to a given unit granularity.
 	///
 	/// - Parameters:
@@ -265,7 +263,7 @@ public extension DateInRegion {
 		let result = self.compare(toDate: refDate, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending)
 	}
-	
+
 	/// Return `true` if receiver data is contained in the range specified by two dates.
 	///
 	/// - Parameters:
@@ -275,10 +273,9 @@ public extension DateInRegion {
 	///   - granularity: smallest unit that must, along with all larger units, be greater
 	/// - Returns: Boolean
 	public func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
-		return 	self.isAfterDate(startDate, orEqual: orEqual, granularity: granularity) &&
-				self.isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
+		return self.isAfterDate(startDate, orEqual: orEqual, granularity: granularity) && self.isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
 	}
-	
+
 	// MARK: - Date Earlier/Later
 
 	/// Return the earlier of two dates, between self and a given date.
@@ -288,7 +285,7 @@ public extension DateInRegion {
 	public func earlierDate(_ date: DateInRegion) -> DateInRegion {
 		return (self.date.timeIntervalSince1970 <= date.date.timeIntervalSince1970) ? self : date
 	}
-	
+
 	/// Return the later of two dates, between self and a given date.
 	///
 	/// - Parameter date: The date to compare to self
@@ -296,5 +293,5 @@ public extension DateInRegion {
 	public func laterDate(_ date: DateInRegion) -> DateInRegion {
 		return (self.date.timeIntervalSince1970 >= date.date.timeIntervalSince1970) ? self : date
 	}
-	
+
 }

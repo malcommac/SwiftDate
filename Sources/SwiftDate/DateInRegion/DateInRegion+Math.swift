@@ -27,13 +27,13 @@ public func - (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
 
 // MARK: - Math Operation DateInRegion - Calendar.Component
 
-public func + (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegion {
+public func + (lhs: DateInRegion, rhs: [Calendar.Component: Int]) -> DateInRegion {
 	let cmps = DateInRegion.componentsFrom(values: rhs)
 	return lhs + cmps
 }
 
-public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegion {
-	var invertedCmps: [Calendar.Component : Int] = [:]
+public func - (lhs: DateInRegion, rhs: [Calendar.Component: Int]) -> DateInRegion {
+	var invertedCmps: [Calendar.Component: Int] = [:]
 	rhs.forEach { invertedCmps[$0.key] = -$0.value }
 	return lhs + invertedCmps
 }
@@ -41,7 +41,7 @@ public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegi
 // MARK: - Internal DateInRegion Extension
 
 extension DateInRegion {
-	
+
 	/// Return a `DateComponent` object from a given set of `Calendar.Component` object with associated values and a specific region
 	///
 	/// - parameter values:    calendar components to set (with their values)
@@ -49,12 +49,12 @@ extension DateInRegion {
 	/// - parameter region:    optional region to set
 	///
 	/// - returns: a `DateComponents` object
-	internal static func componentsFrom(values: [Calendar.Component : Int], multipler: Int? = nil, setRegion region: Region? = nil) -> DateComponents {
+	internal static func componentsFrom(values: [Calendar.Component: Int], multipler: Int? = nil, setRegion region: Region? = nil) -> DateComponents {
 		var cmps = DateComponents()
 		if region != nil {
 			cmps.calendar = region!.calendar
 			cmps.calendar!.locale = region!.locale
-			cmps.timeZone = region!.timezone
+			cmps.timeZone = region!.zone
 		}
 		values.forEach { pair in
 			if pair.key != .timeZone && pair.key != .calendar {
@@ -63,7 +63,7 @@ extension DateInRegion {
 		}
 		return cmps
 	}
-	
+
 	/// Adds a time interval to this date.
 	/// WARNING:
 	/// This only adjusts an absolute value. If you wish to add calendrical concepts like hours,

@@ -1,12 +1,13 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_se: RelativeFormatterLang {
-	
+
 	/// Northern Sami
 	public static let identifier: String = "se"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		switch value {
 		case 1: return .one
@@ -14,15 +15,15 @@ public class lang_se: RelativeFormatterLang {
 		default: return .other
 		}
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -115,7 +116,7 @@ public class lang_se: RelativeFormatterLang {
 	"now": "now"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -208,7 +209,7 @@ public class lang_se: RelativeFormatterLang {
 	"now": "now"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

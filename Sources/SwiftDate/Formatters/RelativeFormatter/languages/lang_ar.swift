@@ -8,13 +8,14 @@
 
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_ar: RelativeFormatterLang {
-	
+
 	/// Locales.arabic
 	public static let identifier: String = "ar"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		switch value {
 		case 0: return .zero
@@ -22,9 +23,9 @@ public class lang_ar: RelativeFormatterLang {
 		case 2: return .two
 		default:
 			let mod100 = Int(value) % 100
-			if (mod100 >= 3 && mod100 <= 10) {
+			if mod100 >= 3 && mod100 <= 10 {
 				return .few
-			} else if (mod100 >= 11) {
+			} else if mod100 >= 11 {
 				return .many
 			} else {
 				return .other
@@ -32,15 +33,14 @@ public class lang_ar: RelativeFormatterLang {
 		}
 	}
 
-	
-	public var flavours: [String : Any] {
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 			"year": [
@@ -182,7 +182,7 @@ public class lang_ar: RelativeFormatterLang {
 			"now": "الآن"
 		]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 			"year": [
@@ -324,7 +324,7 @@ public class lang_ar: RelativeFormatterLang {
 			"now": "الآن"
 		]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 			"year": [

@@ -6,29 +6,29 @@
 //  Copyright © 2018 SwiftDate. All rights reserved.
 //
 
-
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_br: RelativeFormatterLang {
-	
+
 	/// Locales.breton
 	public static let identifier: String = "br"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		let n = Int(value)
-		return n % 10 == 1 && n % 100 != 11 && n % 100 != 71 && n % 100 != 91 ? .zero : n % 10 == 2 && n % 100 != 12 && n % 100 != 72 && n % 100 != 92 ? .one : (n % 10 == 3 || n % 10 == 4 || n % 10 == 9) && n % 100 != 13 && n % 100 != 14 && n % 100 != 19 && n % 100 != 73 && n % 100 != 74 && n % 100 != 79 && n % 100 != 93 && n % 100 != 94 && n % 100 != 99 ? .two : n % 1000000 == 0 && n != 0 ? .many : .other
+		return n % 10 == 1 && n % 100 != 11 && n % 100 != 71 && n % 100 != 91 ? .zero : n % 10 == 2 && n % 100 != 12 && n % 100 != 72 && n % 100 != 92 ? .one : (n % 10 == 3 || n % 10 == 4 || n % 10 == 9) && n % 100 != 13 && n % 100 != 14 && n % 100 != 19 && n % 100 != 73 && n % 100 != 74 && n % 100 != 79 && n % 100 != 93 && n % 100 != 94 && n % 100 != 99 ? .two : n % 1_000_000 == 0 && n != 0 ? .many : .other
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 			"year": [
@@ -98,7 +98,7 @@ public class lang_br: RelativeFormatterLang {
 			"now": "brem."
 		]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 			"year": [
@@ -160,7 +160,7 @@ public class lang_br: RelativeFormatterLang {
 			"now": "brem."
 		]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 			"year": [

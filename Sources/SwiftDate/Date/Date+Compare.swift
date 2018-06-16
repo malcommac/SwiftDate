@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Date {
-	
+
 	/// Decides whether a Date is "close by" another one passed in parameter,
 	/// where "Being close" is measured using a precision argument
 	/// which is initialized a 300 seconds, or 5 minutes.
@@ -21,8 +21,7 @@ public extension Date {
 	public func compareCloseTo(_ refDate: Date, precision: TimeInterval = 300) -> Bool {
 		return (abs(self.timeIntervalSince(refDate)) < precision)
 	}
-	
-	
+
 	/// Compare the date with the rule specified in the `compareType` parameter.
 	///
 	/// - Parameter compareType: comparison type.
@@ -30,7 +29,7 @@ public extension Date {
 	public func compare(_ compareType: DateComparisonType) -> Bool {
 		return self.inDefaultRegion().compare(compareType)
 	}
-	
+
 	/// Returns a ComparisonResult value that indicates the ordering of two given dates based on
 	/// their components down to a given unit granularity.
 	///
@@ -40,7 +39,7 @@ public extension Date {
 	func compare(toDate refDate: Date, granularity: Calendar.Component) -> ComparisonResult {
 		return self.inDefaultRegion().compare(toDate: refDate.inDefaultRegion(), granularity: granularity)
 	}
-	
+
 	/// Compares whether the receiver is before/before equal `date` based on their components down to a given unit granularity.
 	///
 	/// - Parameters:
@@ -51,7 +50,7 @@ public extension Date {
 	public func isBeforeDate(_ refDate: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
 		return self.inDefaultRegion().isBeforeDate(refDate.inDefaultRegion(), granularity: granularity)
 	}
-	
+
 	/// Compares whether the receiver is after `date` based on their components down to a given unit granularity.
 	///
 	/// - Parameters:
@@ -62,7 +61,7 @@ public extension Date {
 	public func isAfterDate(_ refDate: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
 		return self.inDefaultRegion().isAfterDate(refDate.inDefaultRegion(), granularity: granularity)
 	}
-	
+
 	/// Return true if receiver data is contained in the range specified by two dates.
 	///
 	/// - Parameters:
@@ -74,7 +73,7 @@ public extension Date {
 	public func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
 		return self.inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
 	}
-	
+
 	// MARK: - Date Earlier/Later
 
 	/// Return the earlier of two dates, between self and a given date.
@@ -84,7 +83,7 @@ public extension Date {
 	public func earlierDate(_ date: Date) -> Date {
 		return (self.timeIntervalSince1970 <= date.timeIntervalSince1970) ? self : date
 	}
-	
+
 	/// Return the later of two dates, between self and a given date.
 	///
 	/// - Parameter date: The date to compare to self
@@ -92,5 +91,5 @@ public extension Date {
 	public func laterDate(_ date: Date) -> Date {
 		return (self.timeIntervalSince1970 >= date.timeIntervalSince1970) ? self : date
 	}
-	
+
 }

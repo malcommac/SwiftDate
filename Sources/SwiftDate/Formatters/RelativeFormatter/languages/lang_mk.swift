@@ -1,24 +1,25 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_mk: RelativeFormatterLang {
-	
+
 	/// Macedonian
 	public static let identifier: String = "mk"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		return (value == 1 ? .one : .other)
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -98,7 +99,7 @@ public class lang_mk: RelativeFormatterLang {
 	"now": "сега"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -178,7 +179,7 @@ public class lang_mk: RelativeFormatterLang {
 	"now": "сега"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

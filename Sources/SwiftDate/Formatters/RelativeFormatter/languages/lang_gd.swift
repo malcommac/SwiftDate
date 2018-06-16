@@ -1,30 +1,31 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_gd: RelativeFormatterLang {
-	
+
 	/// Scottish Gaelic
 	public static let identifier: String = "gd"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		switch Int(value) {
-		case 1,11: return .one
-		case 2,12: return .two
+		case 1, 11: return .one
+		case 2, 12: return .two
 		case 3...10: return .few
 		case 13...19: return .few
 		default: return .other
 		}
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -140,7 +141,7 @@ public class lang_gd: RelativeFormatterLang {
 	"now": "an-dràsta"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -212,7 +213,7 @@ public class lang_gd: RelativeFormatterLang {
 	"now": "an-dràsta"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

@@ -1,22 +1,23 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_zhHansMO: RelativeFormatterLang {
-	
+
 	/// Chinese (Simplified, Macau [China])
 	public static let identifier: String = "zh_Hans_MO"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		return .other
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long
+			RelativeFormatter.Flavour.long.rawValue: self._long
 		]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Date Components Extensions
 
 public extension Calendar.Component {
-	
+
 	/// Return a description of the calendar component in seconds.
 	/// Note: 	Values for `era`,`weekday`,`weekdayOrdinal`, `yearForWeekOfYear`, `calendar`, `timezone` are `nil`.
 	/// 		For `weekOfYear` it return the same value of `weekOfMonth`.
@@ -30,7 +30,7 @@ public extension Calendar.Component {
 		default: 						return nil
 		}
 	}
-	
+
 	/// Return the localized identifier of a calendar component
 	///
 	/// - parameter unit:  unit
@@ -50,8 +50,7 @@ public extension Calendar.Component {
 			return "\(locKey)\(locKey)"
 		}
 	}
-	
-	
+
 	internal var localizedKey: String {
 		switch self {
 		case .year:			return "y"
@@ -65,11 +64,11 @@ public extension Calendar.Component {
 			return ""
 		}
 	}
-	
+
 }
 
 public extension DateComponents {
-	
+
 	/// Shortcut for 'all calendar components'.
 	static var allComponentsSet: Set<Calendar.Component> {
 		return [.era, .year, .month, .day, .hour, .minute,
@@ -77,13 +76,12 @@ public extension DateComponents {
 				.weekOfMonth, .weekOfYear, .yearForWeekOfYear,
 				.nanosecond, .calendar, .timeZone]
 	}
-	
+
 	internal static let allComponents: [Calendar.Component] =  [.nanosecond, .second, .minute, .hour,
 																.day, .month, .year, .yearForWeekOfYear,
 																.weekOfYear, .weekday, .quarter, .weekdayOrdinal,
 																.weekOfMonth]
-	
-	
+
 	/// This function return the absolute amount of seconds described by the components of the receiver.
 	/// Note: 	evaluated value maybe not strictly exact because it ignore the context (calendar/date) of
 	/// 		the date components. In details:
@@ -108,30 +106,30 @@ public extension DateComponents {
 		}
 		return totalAmount
 	}
-	
+
+	/// Return the current date plus the receive's interval
+	/// The default calendar used is the `SwiftDate.defaultRegion`'s calendar.
+	var fromNow: Date {
+		return SwiftDate.defaultRegion.calendar.date(byAdding: (self as DateComponents) as DateComponents, to: Date() as Date)!
+	}
+
+	/// Returns the current date minus the receiver's interval
+	/// The default calendar used is the `SwiftDate.defaultRegion`'s calendar.
+	var ago: Date {
+		return SwiftDate.defaultRegion.calendar.date(byAdding: -self as DateComponents, to: Date())!
+	}
+
 	/// - returns: the date that will occur once the receiver's components pass after the provide date.
 	public func from(_ date: DateRepresentable) -> Date? {
 		return date.calendar.date(byAdding: self, to: date.date)
 	}
 
-	/// Create a new date from the current date by subtracting the components
-	/// specified into the receiver. It uses `defaultRegion`'s calendar to perform operations.
-	var ago: Date? {
-		return SwiftDate.defaultRegion.calendar.date(byAdding: -self, to: Date())
-	}
-	
-	/// Create a new date from the current date by adding the components
-	/// specified into the receiver. It uses `defaultRegion`'s calendar to perform operations.
-	var later: Date? {
-		return SwiftDate.defaultRegion.calendar.date(byAdding: self, to: Date())
-	}
-	
 	/// Transform a `DateComponents` instance to a dictionary where key is the `Calendar.Component` and value is the
 	/// value associated.
 	///
 	/// - returns: a new `[Calendar.Component : Int]` dict representing source `DateComponents` instance
-	internal func toDict() -> [Calendar.Component : Int] {
-		var list: [Calendar.Component : Int] = [:]
+	internal func toDict() -> [Calendar.Component: Int] {
+		var list: [Calendar.Component: Int] = [:]
 		DateComponents.allComponents.forEach { component in
 			let value = self.value(for: component)
 			if value != nil && value != Int(NSDateComponentUndefined) {
@@ -140,38 +138,38 @@ public extension DateComponents {
 		}
 		return list
 	}
-	
+
 	/// Alter date components specified into passed dictionary.
 	///
 	/// - Parameter components: components dictionary with their values.
-	internal mutating func alterComponents(_ components: [Calendar.Component : Int?]) {
+	internal mutating func alterComponents(_ components: [Calendar.Component: Int?]) {
 		components.forEach {
 			if let v = $0.value {
 				self.setValue(v, for: $0.key)
 			}
 		}
 	}
-	
+
 	/// Adds two NSDateComponents and returns their combined individual components.
-	public static func +(lhs: DateComponents, rhs: DateComponents) -> DateComponents {
+	public static func + (lhs: DateComponents, rhs: DateComponents) -> DateComponents {
 		return combine(lhs, rhs: rhs, transform: +)
 	}
-	
+
 	/// Subtracts two NSDateComponents and returns the relative difference between them.
-	public static func -(lhs: DateComponents, rhs: DateComponents) -> DateComponents {
+	public static func - (lhs: DateComponents, rhs: DateComponents) -> DateComponents {
 		return lhs + (-rhs)
 	}
-	
+
 	/// Applies the `transform` to the two `T` provided, defaulting either of them if it's
 	/// `nil`
 	internal static func bimap<T>(_ a: T?, _ b: T?, default: T, _ transform: (T, T) -> T) -> T? {
 		if a == nil && b == nil { return nil }
 		return transform(a ?? `default`, b ?? `default`)
 	}
-	
+
 	/// - returns: a new `NSDateComponents` that represents the negative of all values within the
 	/// components that are not `NSDateComponentUndefined`.
-	public static prefix func -(rhs: DateComponents) -> DateComponents {
+	public static prefix func - (rhs: DateComponents) -> DateComponents {
 		var components = DateComponents()
 		components.era = rhs.era.map(-)
 		components.year = rhs.year.map(-)
@@ -189,7 +187,7 @@ public extension DateComponents {
 		components.yearForWeekOfYear = rhs.yearForWeekOfYear.map(-)
 		return components
 	}
-	
+
 	/// Combines two date components using the provided `transform` on all
 	/// values within the components that are not `NSDateComponentUndefined`.
 	private static func combine(_ lhs: DateComponents, rhs: DateComponents, transform: (Int, Int) -> Int) -> DateComponents {
@@ -236,7 +234,7 @@ public extension DateComponents {
 		default: 					return nil // `calendar` and `timezone` are ignored in this context
 		}
 	}
-	
+
 	/// Express a DateComponents instances in another time unit you choose
 	///
 	/// - parameter component: time component
@@ -251,5 +249,5 @@ public extension DateComponents {
 		let value = cal.dateComponents(components, from: dateFrom, to: dateTo).value(for: component)
 		return value
 	}
-	
+
 }

@@ -15,7 +15,7 @@ public struct SwiftDate {
 	/// The default region is used to manipulate and work with plain `Date` object and
 	/// wherever a region parameter is optional. By default region is the to the current's
 	/// device timezone, calendar and locale.
-	public static var defaultRegion = Region.defaultCurrent()
+	public static var defaultRegion = Region.current
 
 	/// This is the ordered list of all formats SwiftDate can use in order to attempt parsing a passaed
 	/// date expressed as string. Evaluation is made in order; you can add or remove new formats as you wish.
@@ -24,7 +24,7 @@ public struct SwiftDate {
 		set { DateFormats.autoFormats = newValue }
 		get { return DateFormats.autoFormats }
 	}
-	
+
 	/// Reset the list of all built-in auto formats patterns.
 	public static func resetAutoFormats() {
 		DateFormats.resetAutoFormats()

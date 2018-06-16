@@ -10,14 +10,18 @@ disabled_rules: # rule identifiers to exclude from running
   - implicit_getter
 
 identifier_name:
+  allowed_symbols: "_"
   min_length:
     warning: 1
     error: 1
   max_length:
     warning: 60
     error: 80
+  excluded:
+    - id
 
 type_name:
+  allowed_symbols: "_"
   max_length:
     warning: 60
     error: 100

@@ -1,45 +1,43 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_pl: RelativeFormatterLang {
-	
+
 	/// Polish
 	public static let identifier: String = "pl"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		let mod10 = Int(value) % 10
 		let mod100 = Int(value) % 100
-		
-		if (value == 1) {
+
+		if value == 1 {
 			return .one
 		}
-		
+
 		switch mod10 {
 		case 2...4:
-			switch (mod100) {
+			switch mod100 {
 			case 12...14:
 				break
 			default:
 				return .few
 			}
-			
-			break
 		default:
-			break
+			return .many
 		}
-		
 		return .many
 	}
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -121,7 +119,7 @@ public class lang_pl: RelativeFormatterLang {
 	"now": "teraz"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -203,7 +201,7 @@ public class lang_pl: RelativeFormatterLang {
 	"now": "teraz"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

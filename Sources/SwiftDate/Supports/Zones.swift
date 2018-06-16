@@ -8,18 +8,18 @@
 
 import Foundation
 
-public protocol TimeZoneConvertible {
-	func toTimeZone() -> TimeZone
+public protocol ZoneConvertible {
+	func toTimezone() -> TimeZone
 }
 
-extension TimeZone: TimeZoneConvertible {
-	public func toTimeZone() -> TimeZone {
+extension TimeZone: ZoneConvertible {
+	public func toTimezone() -> TimeZone {
 		return self
 	}
 }
 
 // swiftlint:disable type_body_length
-public enum TimeZones: String, TimeZoneConvertible {
+public enum Zones: String, ZoneConvertible {
 	case current = "Current"
 	case autoUpdating = "CurrentAutoUpdating"
 	case africaAbidjan = "Africa/Abidjan"
@@ -450,7 +450,7 @@ public enum TimeZones: String, TimeZoneConvertible {
 	case pacificWake = "Pacific/Wake"
 	case pacificWallis = "Pacific/Wallis"
 
-	public func toTimeZone() -> TimeZone {
+	public func toTimezone() -> TimeZone {
 		switch self {
 		case .current:			return TimeZone.current
 		case .autoUpdating:		return TimeZone.autoupdatingCurrent

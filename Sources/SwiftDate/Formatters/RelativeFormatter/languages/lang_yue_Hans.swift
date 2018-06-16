@@ -1,25 +1,25 @@
 import Foundation
 
+// swiftlint:disable type_name
 public class lang_yueHans: RelativeFormatterLang {
-	
+
 	/// Cantonese (Simplified)
 	public static let identifier: String = "yue_Hans"
-	
+
 	public required init() {}
-	
+
 	public func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm? {
 		return .other
 	}
-	
-	
-	public var flavours: [String : Any] {
+
+	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue 	: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue 	: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue 	: self._short,
+			RelativeFormatter.Flavour.long.rawValue: self._long,
+			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
+			RelativeFormatter.Flavour.short.rawValue: self._short
 		]
 	}
-	
+
 	private var _short: [String: Any] {
 		return [
 	"year": [
@@ -75,7 +75,7 @@ public class lang_yueHans: RelativeFormatterLang {
 	"now": "宜家"
 ]
 	}
-	
+
 	private var _narrow: [String: Any] {
 		return [
 	"year": [
@@ -131,7 +131,7 @@ public class lang_yueHans: RelativeFormatterLang {
 	"now": "宜家"
 ]
 	}
-	
+
 	private var _long: [String: Any] {
 		return [
 	"year": [

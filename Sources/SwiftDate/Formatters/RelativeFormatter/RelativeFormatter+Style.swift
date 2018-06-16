@@ -12,23 +12,23 @@ import Foundation
 /// In order to be fully compatible with Linux environment we need to
 /// handle directly with .swift files instead of plain text files.
 public protocol RelativeFormatterLang {
-	
+
 	/// Table with the data of the language.
 	/// Data is structured in:
 	/// { flavour: { unit : { data } } }
 	var flavours: [String: Any] { get }
-	
+
 	/// Identifier of the language.
 	/// Must be the languageIdentifier of the `Locale` instance.
 	static var identifier: String { get }
-	
+
 	/// This is the rule to return singular or plural forms
 	/// based upon the CDLC specs. Must return the appropriate
 	/// value (other, few, none...)
 	///
 	/// - Parameter value: quantity to evaluate
 	func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm?
-	
+
 	/// Init
 	init()
 }
@@ -36,33 +36,32 @@ public protocol RelativeFormatterLang {
 // MARK: - Style
 
 public extension RelativeFormatter {
-	
+
 	public enum PluralForm: String {
 		case zero, one, two, few, many, other
 	}
 
-	
 	/// Style for formatter
 	public struct Style {
-		
+
 		/// Flavours supported by the style, specified in order.
 		/// The first available flavour for specified locale is used.
 		/// If no flavour is available `.long` is used instead (this flavour
 		/// MUST be part of every lang structure).
 		public var flavours: [Flavour]
-		
+
 		/// Gradation specify how the unit are evaluated in order to get the
 		/// best one to represent a given amount of time interval.
 		/// By default `convenient()` is used.
 		public var gradation: Gradation = .convenient()
-		
+
 		/// Allowed time units the style can use. Some styles may not include
 		/// some time units (ie. `.quarter`) because they are not useful for
 		/// a given representation.
 		/// If not specified all the following units are set:
 		/// `.now, .minute, .hour, .day, .week, .month, .year`
 		public var allowedUnits: [Unit]?
-		
+
 		/// Create a new style.
 		///
 		/// - Parameters:
@@ -75,14 +74,14 @@ public extension RelativeFormatter {
 			self.allowedUnits = (units ?? [.now, .minute, .hour, .day, .week, .month, .year])
 		}
 	}
-	
+
 	/// Return the default style for relative formatter.
 	///
 	/// - Returns: style instance.
 	public static func defaultStyle() -> Style {
-		return Style(flavours: [.longConvenient,.long], gradation: .convenient())
+		return Style(flavours: [.longConvenient, .long], gradation: .convenient())
 	}
-	
+
 	/// Return the time-only style for relative formatter.
 	///
 	/// - Returns: style instance.
@@ -95,14 +94,13 @@ public extension RelativeFormatter {
 	public static func twitterStyle() -> Style {
 		return Style(flavours: [.tiny, .shortTime, .narrow, .shortTime], gradation: .twitter())
 	}
-	
-	
+
 }
 
 // MARK: - Flavour
 
 public extension RelativeFormatter {
-	
+
 	/// Supported flavours
 	public enum Flavour: String {
 		case long 				= "long"
@@ -115,40 +113,44 @@ public extension RelativeFormatter {
 		case tiny 				= "tiny"
 		case quantify 			= "quantify"
 	}
-	
+
 }
 
 // MARK: - Gradation
 
 public extension RelativeFormatter {
-	
+
 	/// Gradation is used to define a set of rules used to get the best
 	/// representation of a given elapsed time interval (ie. the best
 	/// representation for 300 seconds is in minutes, 5 minutes specifically).
 	/// Rules are executed in order by the parser and the best one (< elapsed interval)
 	/// is returned to be used by the formatter.
 	public struct Gradation {
-		
+
 		/// A single Gradation rule specification
+		// swiftlint:disable nesting
 		public struct Rule {
-			
+
+			// swiftlint:disable nesting
 			public enum ThresholdType {
+				// swiftlint:disable identifier_name
 				case value(_: Double?)
+				// swiftlint:disable identifier_name
 				case function(_: ((TimeInterval) -> (Double?)))
-				
+
 				func evaluateForTimeInterval(_ elapsed: TimeInterval) -> Double? {
 					switch self {
 					case .value(let value): 		return value
 					case .function(let function): 	return function(elapsed)
 					}
 				}
-				
+
 			}
-			
+
 			/// The time unit to which the rule refers.
 			/// It's used to evaluate the factor.
 			public var unit: Unit
-			
+
 			/// Threhsold value of the unit. When a difference between two dates
 			/// is less than the threshold the unit before this is the best
 			/// candidate to represent the time interval.
@@ -156,16 +158,16 @@ public extension RelativeFormatter {
 
 			/// Granuality threshold of the unit
 			public var granularity: Double?
-			
+
 			/// Relation with a previous threshold
 			public var thresholdPrevious: [Unit: Double]?
-			
+
 			/// You can specify a custom formatter for a rule which return the
 			/// string representation of a data with your own pattern.
+			// swiftlint:disable nesting
 			public typealias CustomFormatter = ((DateRepresentable) -> (String))
 			public var customFormatter: CustomFormatter?
-		
-			
+
 			/// Create a new rule.
 			///
 			/// - Parameters:
@@ -182,15 +184,15 @@ public extension RelativeFormatter {
 				self.thresholdPrevious = prev
 				self.customFormatter = formatter
 			}
-			
+
 		}
-		
+
 		/// Gradation rules
 		var rules: [Rule]
-		
+
 		/// Number of gradation rules
 		var count: Int { return self.rules.count }
-		
+
 		/// Subscript by unit.
 		/// Return the first rule for given unit.
 		///
@@ -198,7 +200,7 @@ public extension RelativeFormatter {
 		public subscript(_ unit: Unit) -> Rule? {
 			return self.rules.first(where: { $0.unit == unit })
 		}
-		
+
 		/// Subscript by index.
 		/// Return the rule at given index, `nil` if index is invalid.
 		///
@@ -207,14 +209,14 @@ public extension RelativeFormatter {
 			guard index < self.rules.count, index >= 0 else { return nil }
 			return self.rules[index]
 		}
-		
+
 		/// Create a new gradition with a given set of ordered rules.
 		///
 		/// - Parameter rules: ordered rules.
 		public init(_ rules: [Rule]) {
 			self.rules = rules
 		}
-		
+
 		/// Create a new gradation by removing the units from receiver which are not part of the given array.
 		///
 		/// - Parameter units: units to keep.
@@ -222,30 +224,30 @@ public extension RelativeFormatter {
 		public func filtered(byUnits units: [Unit]) -> Gradation {
 			return Gradation(self.rules.filter { units.contains($0.unit) })
 		}
-		
+
 		/// Canonical gradation rules
 		public static func canonical() -> Gradation {
 			return Gradation([
-				Rule(.now,threshold: .value(0)),
-				Rule(.second,threshold: .value(0.5)),
-				Rule(.minute,threshold: .value(59.5)),
-				Rule(.hour,threshold: .value(59.5 * 60.0)),
-				Rule(.day,threshold: .value(23.5 * 60 * 60)),
-				Rule(.week,threshold: .value(6.5 * Unit.day.factor)),
-				Rule(.month,threshold: .value(3.5 * 7 * Unit.day.factor)),
-				Rule(.year,threshold: .value(1.5 * Unit.month.factor))
+				Rule(.now, threshold: .value(0)),
+				Rule(.second, threshold: .value(0.5)),
+				Rule(.minute, threshold: .value(59.5)),
+				Rule(.hour, threshold: .value(59.5 * 60.0)),
+				Rule(.day, threshold: .value(23.5 * 60 * 60)),
+				Rule(.week, threshold: .value(6.5 * Unit.day.factor)),
+				Rule(.month, threshold: .value(3.5 * 7 * Unit.day.factor)),
+				Rule(.year, threshold: .value(1.5 * Unit.month.factor))
 				])
 		}
-		
+
 		/// Convenient gradation rules
 		public static func convenient() -> Gradation {
 			let list = Gradation([
-				Rule(.now,threshold: .value(0)),
-				Rule(.second,threshold: .value(1), prev: [.now : 1]),
-				Rule(.minute,threshold: .value(45)),
+				Rule(.now, threshold: .value(0)),
+				Rule(.second, threshold: .value(1), prev: [.now: 1]),
+				Rule(.minute, threshold: .value(45)),
 				Rule(.minute, threshold: .value(2.5 * 60), granularity: 5),
 				Rule(.halfHour, threshold: .value(22.5 * 60), granularity: 5),
-				Rule(.hour, threshold: .value(42.5 * 60), prev: [.minute : 52.5 * 60]),
+				Rule(.hour, threshold: .value(42.5 * 60), prev: [.minute: 52.5 * 60]),
 				Rule(.day, threshold: .value((20.5 / 24) * Unit.day.factor)),
 				Rule(.week, threshold: .value(5.5 * Unit.day.factor)),
 				Rule(.month, threshold: .value(3.5 * 7 * Unit.day.factor)),
@@ -253,7 +255,7 @@ public extension RelativeFormatter {
 				])
 			return list
 		}
-		
+
 		/// Twitter gradation rules
 		public static func twitter() -> Gradation {
 			return Gradation([
@@ -270,15 +272,15 @@ public extension RelativeFormatter {
 				})
 			])
 		}
-		
+
 	}
-	
+
 }
 
 // MARK: - Unit
 
 public extension RelativeFormatter {
-	
+
 	/// Units for relative formatter
 	public enum Unit: String {
 		case now 		= "now"
@@ -292,7 +294,7 @@ public extension RelativeFormatter {
 		case year 		= "year"
 		case quarter 	= "quarter"
 		case other 		= ""
-		
+
 		/// Factor of conversion of the unit to seconds
 		public var factor: Double {
 			switch self {
@@ -308,18 +310,16 @@ public extension RelativeFormatter {
 			case .other:		return 0
 			}
 		}
-		
-		
+
 	}
-	
-	
+
 }
 
 internal extension Double {
-	
+
 	/// Return -1 if number is negative, 1 if positive
 	var sign: Int {
 		return (self < 0 ? -1 : 1)
 	}
-	
+
 }

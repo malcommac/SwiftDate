@@ -32,9 +32,6 @@
 		6434DD7D20C803EF007626EF /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD7B20C803EF007626EF /* SwiftDate.swift */; };
 		6434DD7E20C803EF007626EF /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD7B20C803EF007626EF /* SwiftDate.swift */; };
 		6434DD7F20C803EF007626EF /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD7B20C803EF007626EF /* SwiftDate.swift */; };
-		6434DD8520C80630007626EF /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD8020C80616007626EF /* TestDateInRegion.swift */; };
-		6434DD8620C80630007626EF /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD8020C80616007626EF /* TestDateInRegion.swift */; };
-		6434DD8720C80630007626EF /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD8020C80616007626EF /* TestDateInRegion.swift */; };
 		6434DD8F20C809B3007626EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD8E20C809B3007626EF /* AppDelegate.swift */; };
 		6434DD9120C809B3007626EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD9020C809B3007626EF /* ViewController.swift */; };
 		6434DD9420C809B3007626EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6434DD9220C809B3007626EF /* Main.storyboard */; };
@@ -806,9 +803,9 @@
 		64B5E26820D30E620067EDC1 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */; };
 		64B5E26920D30E620067EDC1 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */; };
 		64B5E26A20D30E620067EDC1 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */; };
-		8933C78E1EB5B82C000D00A4 /* TestInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* TestInterval.swift */; };
-		8933C78F1EB5B82C000D00A4 /* TestInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* TestInterval.swift */; };
-		8933C7901EB5B82D000D00A4 /* TestInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* TestInterval.swift */; };
+		64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
+		64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
+		64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		DD7502881C68FEDE006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */; };
 		DD7502921C690C7A006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */; };
 /* End PBXBuildFile section */
@@ -851,7 +848,6 @@
 		6434DD7120C80126007626EF /* Calendars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendars.swift; sourceTree = "<group>"; };
 		6434DD7620C80263007626EF /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
 		6434DD7B20C803EF007626EF /* SwiftDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDate.swift; sourceTree = "<group>"; };
-		6434DD8020C80616007626EF /* TestDateInRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDateInRegion.swift; sourceTree = "<group>"; };
 		6434DD8C20C809B2007626EF /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6434DD8E20C809B3007626EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6434DD9020C809B3007626EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1012,7 +1008,7 @@
 		64B5E25820D3090A0067EDC1 /* TimePeriodGroupSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodGroupSequence.swift; sourceTree = "<group>"; };
 		64B5E25F20D30AE40067EDC1 /* TimePeriodCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodCollection.swift; sourceTree = "<group>"; };
 		64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodChain.swift; sourceTree = "<group>"; };
-		8933C7891EB5B82A000D00A4 /* TestInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInterval.swift; sourceTree = "<group>"; };
+		64EF3E0220D5518D002793C6 /* TestRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRegion.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* SwiftDate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDate.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* SwiftDateTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDateTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* SwiftDate-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDate-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1379,8 +1375,7 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				8933C7891EB5B82A000D00A4 /* TestInterval.swift */,
-				6434DD8020C80616007626EF /* TestDateInRegion.swift */,
+				64EF3E0220D5518D002793C6 /* TestRegion.swift */,
 			);
 			name = Tests;
 			path = Tests/SwiftDateTests;
@@ -1899,8 +1894,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6434DD8520C80630007626EF /* TestDateInRegion.swift in Sources */,
-				8933C7901EB5B82D000D00A4 /* TestInterval.swift in Sources */,
+				64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2570,8 +2564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6434DD8620C80630007626EF /* TestDateInRegion.swift in Sources */,
-				8933C78F1EB5B82C000D00A4 /* TestInterval.swift in Sources */,
+				64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2579,8 +2572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6434DD8720C80630007626EF /* TestDateInRegion.swift in Sources */,
-				8933C78E1EB5B82C000D00A4 /* TestInterval.swift in Sources */,
+				64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

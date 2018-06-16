@@ -52,7 +52,7 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	/// For any `nil` parameter the correspondent `SwiftDate.defaultRegion` is used instead.
 	///
 	/// - Parameter fromDateComponents: date components
-	internal init(fromDateComponents components: DateComponents) {
+	public init(fromDateComponents components: DateComponents) {
 		let tz = (components.timeZone ?? Zones.current.toTimezone())
 		let cal = (components.calendar ?? Calendars.gregorian.toCalendar())
 		let loc = (cal.locale ?? Locales.current.toLocale())
@@ -85,7 +85,7 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	/// - Returns: region
 	public static func currentIn(locale: LocaleConvertible? = nil, calendar: CalendarConvertible? = nil) -> Region {
 		return Region(calendar: (calendar ?? SwiftDate.defaultRegion.calendar),
-					  zone: Zones.current,
+					  zone: SwiftDate.defaultRegion.zone,
 					  locale: (locale ?? SwiftDate.defaultRegion.locale))
 	}
 

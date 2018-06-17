@@ -22,6 +22,22 @@ public extension DateInRegion {
 		})
 	}
 
+	/// Sort date by oldest, with the oldest date on top.
+	///
+	/// - Parameter list: list to sort
+	/// - Returns: sorted array
+	public static func sortedByOldest(list: [DateInRegion]) -> [DateInRegion] {
+		return list.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
+	}
+
+	/// Sort date by newest, with the newest date on top.
+	///
+	/// - Parameter list: list to sort
+	/// - Returns: sorted array
+	public static func sortedByNewest(list: [DateInRegion]) -> [DateInRegion] {
+		return list.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+	}
+
 	/// Return the oldest date in given list (timezone is ignored, comparison uses absolute date).
 	///
 	/// - Parameter list: list of dates

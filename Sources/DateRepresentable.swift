@@ -28,6 +28,9 @@ public protocol DateRepresentable {
 	/// Day unit of the receiver.
 	var day: Int { get }
 
+	/// Day of year unit of the receiver
+	var dayOfYear: Int { get }
+
 	/// Hour unit of the receiver.
 	var hour: Int { get }
 
@@ -45,6 +48,13 @@ public protocol DateRepresentable {
 
 	/// Nanosecond unit of the receiver.
 	var nanosecond: Int { get }
+
+	/// Milliseconds in day of the receiver
+	/// This field behaves exactly like a composite of all time-related fields, not including the zone fields.
+	/// As such, it also reflects discontinuities of those fields on DST transition days.
+	/// On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward.
+	/// This reflects the fact that is must be combined with the offset field to obtain a unique local time value.
+	var msInDay: Int { get }
 
 	/// Weekday unit of the receiver.
 	/// The weekday units are the numbers 1-N (where for the Gregorian calendar N=7 and 1 is Sunday).
@@ -306,6 +316,10 @@ public extension DateRepresentable {
 		return self.dateComponents.day!
 	}
 
+	public var dayOfYear: Int {
+		return self.calendar.ordinality(of: .day, in: .year, for: self.date)!
+	}
+
 	public var hour: Int {
 		return self.dateComponents.hour!
 	}
@@ -329,6 +343,10 @@ public extension DateRepresentable {
 
 	public var nanosecond: Int {
 		return self.dateComponents.nanosecond!
+	}
+
+	public var msInDay: Int {
+		return (self.calendar.ordinality(of: .second, in: .day, for: self.date)! * 1000)
 	}
 
 	public var weekday: Int {

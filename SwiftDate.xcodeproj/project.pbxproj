@@ -806,6 +806,9 @@
 		64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
+		64EF3E0720D56038002793C6 /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0620D56038002793C6 /* TestDateInRegion.swift */; };
+		64EF3E0820D5622D002793C6 /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0620D56038002793C6 /* TestDateInRegion.swift */; };
+		64EF3E0920D5622D002793C6 /* TestDateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0620D56038002793C6 /* TestDateInRegion.swift */; };
 		DD7502881C68FEDE006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* SwiftDate.framework */; };
 		DD7502921C690C7A006590AF /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* SwiftDate.framework */; };
 /* End PBXBuildFile section */
@@ -1009,6 +1012,7 @@
 		64B5E25F20D30AE40067EDC1 /* TimePeriodCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodCollection.swift; sourceTree = "<group>"; };
 		64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodChain.swift; sourceTree = "<group>"; };
 		64EF3E0220D5518D002793C6 /* TestRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRegion.swift; sourceTree = "<group>"; };
+		64EF3E0620D56038002793C6 /* TestDateInRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDateInRegion.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* SwiftDate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDate.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* SwiftDateTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftDateTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* SwiftDate-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDate-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1376,6 +1380,7 @@
 			isa = PBXGroup;
 			children = (
 				64EF3E0220D5518D002793C6 /* TestRegion.swift */,
+				64EF3E0620D56038002793C6 /* TestDateInRegion.swift */,
 			);
 			name = Tests;
 			path = Tests/SwiftDateTests;
@@ -1894,6 +1899,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EF3E0720D56038002793C6 /* TestDateInRegion.swift in Sources */,
 				64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2564,6 +2570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EF3E0820D5622D002793C6 /* TestDateInRegion.swift in Sources */,
 				64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2572,6 +2579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EF3E0920D5622D002793C6 /* TestDateInRegion.swift in Sources */,
 				64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -55,6 +55,12 @@ extension Date: DateRepresentable {
 	/// Initialize a new date from the number of seconds passed since Unix Epoch.
 	///
 	/// - Parameter interval: seconds
+
+	/// Initialize a new date from the number of seconds passed since Unix Epoch.
+	///
+	/// - Parameters:
+	///   - interval: seconds from Unix epoch time.
+	///   - region: region in which the date, `nil` uses the default region at UTC timezone
 	public init(seconds interval: TimeInterval, region: Region = Region.UTC) {
 		self = DateInRegion(seconds: interval, region: region).date
 	}
@@ -63,8 +69,8 @@ extension Date: DateRepresentable {
 	///
 	/// - Parameters:
 	///   - interval: seconds since the Unix Epoch timestamp.
-	///   - region: region in which the date must be expressed.
-	public init(milliseconds interval: Int, region: Region) {
+	///   - region: region in which the date must be expressed, `nil` uses the default region at UTC timezone
+	public init(milliseconds interval: Int, region: Region = Region.UTC) {
 		self = DateInRegion(milliseconds: interval, region: region).date
 	}
 

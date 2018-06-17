@@ -19,7 +19,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 
 	/// Allows to generate an unique hash vaalue for an instance of `DateInRegion`
 	public var hashValue: Int {
-		return (self.date.hashValue ^ region.hashValue)
+		return combineHashes([self.date.hashValue, self.region.hashValue])
 	}
 
 	/// Formatter used to transform this object in a string. By default is `nil` because SwiftDate
@@ -70,7 +70,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 	///
 	/// - Parameters:
 	///   - interval: seconds since Unix Epoch.
-	///   - region: the region in which the date must be expressed.
+	///   - region: the region in which the date must be expressed, `nil` uses the default region at UTC timezone
 	public init(seconds interval: TimeInterval, region: Region = Region.UTC) {
 		self.date = Date(timeIntervalSince1970: interval)
 		self.region = region
@@ -80,8 +80,8 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 	///
 	/// - Parameters:
 	///   - interval: seconds since the Unix Epoch timestamp.
-	///   - region: region in which the date must be expressed.
-	public init(milliseconds interval: Int, region: Region) {
+	///   - region: region in which the date must be expressed, `nil` uses the default region at UTC timezone
+	public init(milliseconds interval: Int, region: Region = Region.UTC) {
 		self.date = Date(timeIntervalSince1970: TimeInterval(interval / 1000))
 		self.region = region
 	}
@@ -121,7 +121,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 	}
 
 	/// Initialize a new date with given components.
-	public init(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int = 0, nanosecond: Int = 0, region: Region = SwiftDate.defaultRegion) {
+	public init(year: Int, month: Int, day: Int, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0, region: Region = SwiftDate.defaultRegion) {
 		var components = DateComponents()
 		components.year = year
 		components.month = month

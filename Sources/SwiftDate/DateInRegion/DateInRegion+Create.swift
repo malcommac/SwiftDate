@@ -10,6 +10,57 @@ import Foundation
 
 public extension DateInRegion {
 
+	/// Generate a sequence of random dates in the future
+	///
+	/// - Parameters:
+	///   - count: number of random dates to generate.
+	///   - days: max days range
+	///   - region: region, `nil` to use default region
+	/// - Returns: sequence of dates
+	public static func randomDatesInFuture(count: Int, days: Int, region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
+		return DateInRegion.randomDates(count: count, days: days, future: true, region: region)
+	}
+
+	/// Generate a sequence of random dates in the past
+	///
+	/// - Parameters:
+	///   - count: number of random dates to generate.
+	///   - days: max days range
+	///   - region: region, `nil` to use default region
+	/// - Returns: sequence of dates
+	public static func randomDatesInPast(count: Int, days: Int, region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
+		return DateInRegion.randomDates(count: count, days: days, future: false, region: region)
+	}
+
+	/// Generate a sequence of random dates in the past or in the future.
+	///
+	/// - Parameters:
+	///   - count: number of random dates to generate.
+	///   - days: max days range
+	///   - future: true to make date in the future, false to make it in past
+	///   - region: region, `nil` to use default region
+	/// - Returns: sequence of dates
+	internal static func randomDates(count: Int, days: Int, future: Bool = false, region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
+		var randomDates: [DateInRegion] = []
+		var offsetComponents = DateComponents()
+		let today = Date(timeIntervalSinceNow: 0)
+
+		for _ in 0..<count {
+			let day = arc4random_uniform(UInt32(days)) + 1
+			let hour = arc4random_uniform(23)
+			let minute = arc4random_uniform(59)
+
+			offsetComponents.day = (future ? Int(day - 1) :  -Int(day - 1))
+			offsetComponents.hour = Int(hour)
+			offsetComponents.minute = Int(minute)
+
+			if let randomDate = region.calendar.date(byAdding: offsetComponents, to: today, wrappingComponents: true) {
+				randomDates.append(DateInRegion(randomDate, region: region))
+			}
+		}
+		return randomDates
+	}
+
 	/// Return the oldest date in given list (timezone is ignored, comparison uses absolute date).
 	///
 	/// - Parameter list: list of dates

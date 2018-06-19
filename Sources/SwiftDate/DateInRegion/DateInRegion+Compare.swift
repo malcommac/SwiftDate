@@ -116,7 +116,7 @@ public extension DateInRegion {
 	///   - precision: The precision of the comparison (default is 5 minutes, or 300 seconds).
 	/// - Returns: A boolean; true if close by, false otherwise.
 	public func compareCloseTo(_ refDate: DateInRegion, precision: TimeInterval = 300) -> Bool {
-		return (abs(self.date.timeIntervalSince(refDate.date)) < precision)
+		return (abs(self.date.timeIntervalSince(refDate.date)) <= precision)
 	}
 
 	/// Compare the date with the rule specified in the `compareType` parameter.

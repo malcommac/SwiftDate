@@ -69,6 +69,7 @@ public extension DateInRegion {
 	}
 
 	/// Return elapsed time expressed in given components since the current receiver and a reference date.
+	/// Time is evaluated with the fixed measumerent of each unity.
 	///
 	/// - Parameters:
 	///   - refDate: reference date (`nil` to use current date in the same region of the receiver)
@@ -78,44 +79,44 @@ public extension DateInRegion {
 		let refDate = (toDate ?? self.region.nowInThisRegion())
 		switch component {
 		case .year:
-			let end = self.calendar.ordinality(of: .year, in: .era, for: self.date)
-			let start = self.calendar.ordinality(of: .year, in: .era, for: date.date)
+			let end = self.calendar.ordinality(of: .year, in: .era, for: refDate.date)
+			let start = self.calendar.ordinality(of: .year, in: .era, for: self.date)
 			return Int64(end! - start!)
 
 		case .month:
-			let end = self.calendar.ordinality(of: .month, in: .era, for: self.date)
-			let start = self.calendar.ordinality(of: .month, in: .era, for: date.date)
+			let end = self.calendar.ordinality(of: .month, in: .era, for: refDate.date)
+			let start = self.calendar.ordinality(of: .month, in: .era, for: self.date)
 			return Int64(end! - start!)
 
 		case .day:
-			let end = self.calendar.ordinality(of: .day, in: .era, for: self.date)
-			let start = self.calendar.ordinality(of: .day, in: .era, for: date.date)
+			let end = self.calendar.ordinality(of: .day, in: .era, for: refDate.date)
+			let start = self.calendar.ordinality(of: .day, in: .era, for: self.date)
 			return Int64(end! - start!)
 
 		case .hour:
-			let interval = self.date.timeIntervalSince(refDate.date)
+			let interval = refDate.date.timeIntervalSince(self.date)
 			return Int64(interval / 1.hours.timeInterval)
 
 		case .minute:
-			let interval = self.date.timeIntervalSince(refDate.date)
+			let interval = refDate.date.timeIntervalSince(self.date)
 			return Int64(interval / 1.minutes.timeInterval)
 
 		case .second:
-			return Int64(self.date.timeIntervalSince(refDate.date))
+			return Int64(refDate.date.timeIntervalSince(self.date))
 
 		case .weekday:
-			let end = self.calendar.ordinality(of: .weekday, in: .era, for: self.date)
-			let start = self.calendar.ordinality(of: .weekday, in: .era, for: date.date)
+			let end = self.calendar.ordinality(of: .weekday, in: .era, for: refDate.date)
+			let start = self.calendar.ordinality(of: .weekday, in: .era, for: self.date)
 			return Int64(end! - start!)
 
 		case .weekdayOrdinal:
-			let end = self.calendar.ordinality(of: .weekdayOrdinal, in: .era, for: self.date)
-			let start = self.calendar.ordinality(of: .weekdayOrdinal, in: .era, for: date.date)
+			let end = self.calendar.ordinality(of: .weekdayOrdinal, in: .era, for: refDate.date)
+			let start = self.calendar.ordinality(of: .weekdayOrdinal, in: .era, for: self.date)
 			return Int64(end! - start!)
 
 		case .weekOfYear:
-			let end = self.calendar.ordinality(of: .weekOfYear, in: .era, for: self.date)
-			let start = self.calendar.ordinality(of: .weekOfYear, in: .era, for: date.date)
+			let end = self.calendar.ordinality(of: .weekOfYear, in: .era, for: refDate.date)
+			let start = self.calendar.ordinality(of: .weekOfYear, in: .era, for: self.date)
 			return Int64(end! - start!)
 
 		default:

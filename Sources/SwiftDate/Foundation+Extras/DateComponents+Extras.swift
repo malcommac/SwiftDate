@@ -107,6 +107,16 @@ public extension DateComponents {
 		return totalAmount
 	}
 
+	/// Create a new `DateComponents` instance with builder pattern.
+	///
+	/// - Parameter builder: callback for builder
+	/// - Returns: new instance
+	public static func create(_ builder: ((inout DateComponents) -> Void)) -> DateComponents {
+		var components = DateComponents()
+		builder(&components)
+		return components
+	}
+
 	/// Return the current date plus the receive's interval
 	/// The default calendar used is the `SwiftDate.defaultRegion`'s calendar.
 	var fromNow: Date {
@@ -122,6 +132,16 @@ public extension DateComponents {
 	/// - returns: the date that will occur once the receiver's components pass after the provide date.
 	public func from(_ date: DateRepresentable) -> Date? {
 		return date.calendar.date(byAdding: self, to: date.date)
+	}
+
+	/// Return `true` if all interval components are zeroes
+	public var isZero: Bool {
+		for component in DateComponents.allComponents {
+			if let value = self.value(for: component), value != 0 {
+				return false
+			}
+		}
+		return true
 	}
 
 	/// Transform a `DateComponents` instance to a dictionary where key is the `Calendar.Component` and value is the

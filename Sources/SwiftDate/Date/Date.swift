@@ -37,7 +37,7 @@ extension Date: DateRepresentable {
 
 	/// Extract the date components.
 	public var dateComponents: DateComponents {
-		return self.region.calendar.dateComponents([.era, .year, .month, .day, .hour, .minute, .second, .nanosecond, .weekday], from: self)
+		return self.region.calendar.dateComponents(DateComponents.allComponentsSet, from: self)
 	}
 
 	/// Initialize a new date object from string expressed in given region.

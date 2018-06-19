@@ -14,13 +14,108 @@ class TestDateInRegion_Create: XCTestCase {
 	func testDateInRegion_EnumareDates() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 
-		let fromDate = DateInRegion("2015-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
-		let toDate = DateInRegion("2015-01-02 03:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		// TEST DATE #1
+		// +1 days
+		let fromDate1 = DateInRegion("2015-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		let toDate1 = DateInRegion("2015-01-02 03:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
 
-		var incrementByHour = DateComponents()
-		incrementByHour.hour = 1
-		let enumeratedDates = DateInRegion.enumerateDates(from: fromDate, to: toDate, increment: incrementByHour)
-		print("")
+		let increment1 = DateComponents.create {
+			$0.hour = 1
+		}
+		let enumeratedDates1 = DateInRegion.enumerateDates(from: fromDate1, to: toDate1, increment: increment1)
+		let expectedDates1 = [
+			"2015-01-01 00:00:00",
+			"2015-01-01 01:00:00",
+			"2015-01-01 02:00:00",
+			"2015-01-01 03:00:00",
+			"2015-01-01 04:00:00",
+			"2015-01-01 05:00:00",
+			"2015-01-01 06:00:00",
+			"2015-01-01 07:00:00",
+			"2015-01-01 08:00:00",
+			"2015-01-01 09:00:00",
+			"2015-01-01 10:00:00",
+			"2015-01-01 11:00:00",
+			"2015-01-01 12:00:00",
+			"2015-01-01 13:00:00",
+			"2015-01-01 14:00:00",
+			"2015-01-01 15:00:00",
+			"2015-01-01 16:00:00",
+			"2015-01-01 17:00:00",
+			"2015-01-01 18:00:00",
+			"2015-01-01 19:00:00",
+			"2015-01-01 20:00:00",
+			"2015-01-01 21:00:00",
+			"2015-01-01 22:00:00",
+			"2015-01-01 23:00:00",
+			"2015-01-02 00:00:00",
+			"2015-01-02 01:00:00",
+			"2015-01-02 02:00:00",
+			"2015-01-02 03:00:00"]
+		XCTExpectedFormattedDates(enumeratedDates1, expected: expectedDates1)
+
+		// TEST DATE #2
+		// +1 hour, +30 minutes, +10 seconds
+		let increment2 = DateComponents.create {
+			$0.hour = 1
+			$0.minute = 30
+			$0.second = 10
+		}
+		let fromDate2 = DateInRegion("2015-01-01 10:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		let toDate2 = DateInRegion("2015-01-02 03:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		let enumeratedDates2 = DateInRegion.enumerateDates(from: fromDate2, to: toDate2, increment: increment2)
+		let expectedDates2 = [
+			"2015-01-01 10:00:00",
+			"2015-01-01 11:30:10",
+			"2015-01-01 13:00:20",
+			"2015-01-01 14:30:30",
+			"2015-01-01 16:00:40",
+			"2015-01-01 17:30:50",
+			"2015-01-01 19:01:00",
+			"2015-01-01 20:31:10",
+			"2015-01-01 22:01:20",
+			"2015-01-01 23:31:30",
+			"2015-01-02 01:01:40",
+			"2015-01-02 02:31:50"
+		]
+		XCTExpectedFormattedDates(enumeratedDates2, expected: expectedDates2)
+
+		// TEST DATE #3
+		// +1 month
+		let increment3 = DateComponents.create {
+			$0.month = 1
+		}
+		let fromDate3 = DateInRegion("2015-01-01 01:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		let toDate3 = DateInRegion("2016-02-05 02:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		let enumeratedDates3 = DateInRegion.enumerateDates(from: fromDate3, to: toDate3, increment: increment3)
+		let expectedDates3 = [
+			"2015-01-01 01:00:00",
+			"2015-02-01 01:00:00",
+			"2015-03-01 01:00:00",
+			"2015-04-01 01:00:00",
+			"2015-05-01 01:00:00",
+			"2015-06-01 01:00:00",
+			"2015-07-01 01:00:00",
+			"2015-08-01 01:00:00",
+			"2015-09-01 01:00:00",
+			"2015-10-01 01:00:00",
+			"2015-11-01 01:00:00",
+			"2015-12-01 01:00:00",
+			"2016-01-01 01:00:00",
+			"2016-02-01 01:00:00"
+		]
+		XCTExpectedFormattedDates(enumeratedDates3, expected: expectedDates3)
+	}
+
+	func XCTExpectedFormattedDates(_ list: [DateInRegion], expected expectedDates: [String]) {
+		list.enumerated().forEach {
+			let formatted = $0.element.toFormat("yyyy-MM-dd HH:mm:ss")
+			let expected = expectedDates[$0.offset]
+			guard expected == formatted else {
+				XCTFail("Failed to enumerate dates. Got '\(formatted)' expected '\(expected)")
+				return
+			}
+		}
 	}
 
 	func testDateInRegion_oldestAndNewestAndSortsIn() {

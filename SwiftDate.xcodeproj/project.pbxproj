@@ -43,6 +43,15 @@
 		6434DDA120C809C2007626EF /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD7620C80263007626EF /* Locales.swift */; };
 		6434DDA420C809C2007626EF /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD6020C7FAF6007626EF /* DateInRegion.swift */; };
 		6434DDA520C809C2007626EF /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD6620C7FC6A007626EF /* Region.swift */; };
+		6439231E20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439231D20D90CB10098EC03 /* TestDateInRegion+Components.swift */; };
+		6439231F20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439231D20D90CB10098EC03 /* TestDateInRegion+Components.swift */; };
+		6439232020D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439231D20D90CB10098EC03 /* TestDateInRegion+Components.swift */; };
+		6439232220D912670098EC03 /* TestDateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439232120D912670098EC03 /* TestDateInRegion+Math.swift */; };
+		6439232320D912670098EC03 /* TestDateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439232120D912670098EC03 /* TestDateInRegion+Math.swift */; };
+		6439232420D912670098EC03 /* TestDateInRegion+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439232120D912670098EC03 /* TestDateInRegion+Math.swift */; };
+		6439232620D91D170098EC03 /* TestFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439232520D91D170098EC03 /* TestFormatters.swift */; };
+		6439232720D91D170098EC03 /* TestFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439232520D91D170098EC03 /* TestFormatters.swift */; };
+		6439232820D91D170098EC03 /* TestFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439232520D91D170098EC03 /* TestFormatters.swift */; };
 		6470DA9520D2720400BC2E74 /* lang_ca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470DA1920D271F900BC2E74 /* lang_ca.swift */; };
 		6470DA9620D2720400BC2E74 /* lang_ca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470DA1920D271F900BC2E74 /* lang_ca.swift */; };
 		6470DA9720D2720400BC2E74 /* lang_ca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470DA1920D271F900BC2E74 /* lang_ca.swift */; };
@@ -864,6 +873,9 @@
 		6434DD9520C809B4007626EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6434DD9820C809B4007626EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6434DD9A20C809B4007626EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6439231D20D90CB10098EC03 /* TestDateInRegion+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Components.swift"; sourceTree = "<group>"; };
+		6439232120D912670098EC03 /* TestDateInRegion+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Math.swift"; sourceTree = "<group>"; };
+		6439232520D91D170098EC03 /* TestFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFormatters.swift; sourceTree = "<group>"; };
 		6470DA1920D271F900BC2E74 /* lang_ca.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_ca.swift; sourceTree = "<group>"; };
 		6470DA1A20D271F900BC2E74 /* lang_kl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_kl.swift; sourceTree = "<group>"; };
 		6470DA1B20D271F900BC2E74 /* lang_nb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lang_nb.swift; sourceTree = "<group>"; };
@@ -1391,6 +1403,9 @@
 				64EF3E0620D56038002793C6 /* TestDateInRegion.swift */,
 				64EF3E0A20D65329002793C6 /* TestDateInRegion+Create.swift */,
 				64EF3E0E20D65478002793C6 /* TestDateInRegion+Compare.swift */,
+				6439231D20D90CB10098EC03 /* TestDateInRegion+Components.swift */,
+				6439232120D912670098EC03 /* TestDateInRegion+Math.swift */,
+				6439232520D91D170098EC03 /* TestFormatters.swift */,
 			);
 			name = Tests;
 			path = Tests/SwiftDateTests;
@@ -1909,9 +1924,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6439232220D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
 				64EF3E0F20D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
+				6439232620D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0B20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
 				64EF3E0720D56038002793C6 /* TestDateInRegion.swift in Sources */,
+				6439231E20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2582,9 +2600,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6439232320D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
 				64EF3E1020D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
+				6439232720D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0C20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
 				64EF3E0820D5622D002793C6 /* TestDateInRegion.swift in Sources */,
+				6439231F20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2593,9 +2614,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6439232420D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
 				64EF3E1120D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
+				6439232820D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0D20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
 				64EF3E0920D5622D002793C6 /* TestDateInRegion.swift in Sources */,
+				6439232020D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

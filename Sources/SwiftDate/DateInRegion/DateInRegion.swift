@@ -29,7 +29,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 
 	/// Extract date components by taking care of the region in which the date is expressed.
 	public var dateComponents: DateComponents {
-		return self.region.calendar.dateComponents([.era, .year, .month, .day, .hour, .minute, .second, .nanosecond, .weekday], from: self.date)
+		return self.region.calendar.dateComponents(DateComponents.allComponentsSet, from: self.date)
 	}
 
 	/// Description of the date

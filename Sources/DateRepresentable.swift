@@ -40,9 +40,6 @@ public protocol DateRepresentable {
 	/// Minute unit of the receiver.
 	var minute: Int { get }
 
-	/// Return the nearesdt minute of the receiver.
-	var nearestMinute: Int { get }
-
 	/// Second unit of the receiver.
 	var second: Int { get }
 
@@ -325,16 +322,12 @@ public extension DateRepresentable {
 	}
 
 	public var nearestHour: Int {
-		return Int(self.date.addingTimeInterval(30.minutes.timeInterval).hour)
+		let newDate = (self.date + (self.date.minute >= 30 ? 60 - self.date.minute : -self.date.minute).minutes)
+		return newDate.in(region: self.region).hour
 	}
 
 	public var minute: Int {
 		return self.dateComponents.minute!
-	}
-
-	public var nearestMinute: Int {
-	return 0
-		//	return (self.offset(.second, 30)).minute
 	}
 
 	public var second: Int {
@@ -396,10 +389,10 @@ public extension DateRepresentable {
 
 	func quarterName(_ style: SymbolFormatStyle) -> String {
 		let formatter = self.formatter(format: nil)
-		let idx = (self.quarter - 1)
+		let idx = self.quarter
 		switch style {
-		case .default:								return formatter.quarterSymbols[idx]
-		case .defaultStandalone:					return formatter.standaloneQuarterSymbols[idx]
+		case .default:									return formatter.quarterSymbols[idx]
+		case .defaultStandalone:						return formatter.standaloneQuarterSymbols[idx]
 		case .short, .veryShort:						return formatter.shortQuarterSymbols[idx]
 		case .standaloneShort, .standaloneVeryShort:	return formatter.shortStandaloneQuarterSymbols[idx]
 		}

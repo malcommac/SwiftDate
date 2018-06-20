@@ -13,379 +13,424 @@ class TestFormatters: XCTestCase {
 
 	public func datesList() -> [String: [String: String]] {
 		return [
-			"2018-06-14T12:58:48+02:00": [
+			"2017-07-22T18:27:02+02:00": [
 
-				"dotnet": "/Date(1528973928878+0200)/",
-				"rss": "Thu, 14 Jun 2018 12:58:48 +0200",
-				"rss_alt": "14 Jun 2018 12:58:48 +0200",
-				"sql": "2018-06-14T12:58:48.878+02",
-				"iso": "2018-06-14T12:58:48+02:00"
+				"dotnet": "/Date(1500740822000+0200)/",
+				"rss": "Sat, 22 Jul 2017 18:27:02 +0200",
+				"rss_alt": "22 Jul 2017 18:27:02 +0200",
+				"sql": "2017-07-22T18:27:02.000+02",
+				"iso": "2017-07-22T18:27:02+02:00"
 			],
-			"2018-06-04T05:43:48+02:00": [
+			"2017-02-03T06:30:12+01:00": [
 
-				"dotnet": "/Date(1528083828878+0200)/",
-				"rss": "Mon, 4 Jun 2018 05:43:48 +0200",
-				"rss_alt": "4 Jun 2018 05:43:48 +0200",
-				"sql": "2018-06-04T05:43:48.878+02",
-				"iso": "2018-06-04T05:43:48+02:00"
+				"dotnet": "/Date(1486099812000+0100)/",
+				"rss": "Fri, 3 Feb 2017 06:30:12 +0100",
+				"rss_alt": "3 Feb 2017 06:30:12 +0100",
+				"sql": "2017-02-03T06:30:12.000+01",
+				"iso": "2017-02-03T06:30:12+01:00"
 			],
-			"2018-06-17T11:53:48+02:00": [
+			"2016-03-31T10:57:44+02:00": [
 
-				"dotnet": "/Date(1529229228878+0200)/",
-				"rss": "Sun, 17 Jun 2018 11:53:48 +0200",
-				"rss_alt": "17 Jun 2018 11:53:48 +0200",
-				"sql": "2018-06-17T11:53:48.878+02",
-				"iso": "2018-06-17T11:53:48+02:00"
+				"dotnet": "/Date(1459414664000+0200)/",
+				"rss": "Thu, 31 Mar 2016 10:57:44 +0200",
+				"rss_alt": "31 Mar 2016 10:57:44 +0200",
+				"sql": "2016-03-31T10:57:44.000+02",
+				"iso": "2016-03-31T10:57:44+02:00"
 			],
-			"2018-06-19T11:53:48+02:00": [
+			"2016-07-23T17:05:31+02:00": [
 
-				"dotnet": "/Date(1529402028878+0200)/",
-				"rss": "Tue, 19 Jun 2018 11:53:48 +0200",
-				"rss_alt": "19 Jun 2018 11:53:48 +0200",
-				"sql": "2018-06-19T11:53:48.878+02",
-				"iso": "2018-06-19T11:53:48+02:00"
+				"dotnet": "/Date(1469286331000+0200)/",
+				"rss": "Sat, 23 Jul 2016 17:05:31 +0200",
+				"rss_alt": "23 Jul 2016 17:05:31 +0200",
+				"sql": "2016-07-23T17:05:31.000+02",
+				"iso": "2016-07-23T17:05:31+02:00"
 			],
-			"2018-06-17T19:27:48+02:00": [
+			"2017-05-15T11:26:36+02:00": [
 
-				"dotnet": "/Date(1529256468878+0200)/",
-				"rss": "Sun, 17 Jun 2018 19:27:48 +0200",
-				"rss_alt": "17 Jun 2018 19:27:48 +0200",
-				"sql": "2018-06-17T19:27:48.878+02",
-				"iso": "2018-06-17T19:27:48+02:00"
+				"dotnet": "/Date(1494840396000+0200)/",
+				"rss": "Mon, 15 May 2017 11:26:36 +0200",
+				"rss_alt": "15 May 2017 11:26:36 +0200",
+				"sql": "2017-05-15T11:26:36.000+02",
+				"iso": "2017-05-15T11:26:36+02:00"
 			],
-			"2018-06-02T10:23:48+02:00": [
+			"2018-03-27T20:50:37+02:00": [
 
-				"dotnet": "/Date(1527927828878+0200)/",
-				"rss": "Sat, 2 Jun 2018 10:23:48 +0200",
-				"rss_alt": "2 Jun 2018 10:23:48 +0200",
-				"sql": "2018-06-02T10:23:48.878+02",
-				"iso": "2018-06-02T10:23:48+02:00"
+				"dotnet": "/Date(1522176637000+0200)/",
+				"rss": "Tue, 27 Mar 2018 20:50:37 +0200",
+				"rss_alt": "27 Mar 2018 20:50:37 +0200",
+				"sql": "2018-03-27T20:50:37.000+02",
+				"iso": "2018-03-27T20:50:37+02:00"
 			],
-			"2018-06-08T21:29:48+02:00": [
+			"2018-02-16T14:52:52+01:00": [
 
-				"dotnet": "/Date(1528486188878+0200)/",
-				"rss": "Fri, 8 Jun 2018 21:29:48 +0200",
-				"rss_alt": "8 Jun 2018 21:29:48 +0200",
-				"sql": "2018-06-08T21:29:48.878+02",
-				"iso": "2018-06-08T21:29:48+02:00"
+				"dotnet": "/Date(1518789172000+0100)/",
+				"rss": "Fri, 16 Feb 2018 14:52:52 +0100",
+				"rss_alt": "16 Feb 2018 14:52:52 +0100",
+				"sql": "2018-02-16T14:52:52.000+01",
+				"iso": "2018-02-16T14:52:52+01:00"
 			],
-			"2018-06-22T21:37:48+02:00": [
+			"2016-01-10T16:55:35+01:00": [
 
-				"dotnet": "/Date(1529696268878+0200)/",
-				"rss": "Fri, 22 Jun 2018 21:37:48 +0200",
-				"rss_alt": "22 Jun 2018 21:37:48 +0200",
-				"sql": "2018-06-22T21:37:48.878+02",
-				"iso": "2018-06-22T21:37:48+02:00"
+				"dotnet": "/Date(1452441335000+0100)/",
+				"rss": "Sun, 10 Jan 2016 16:55:35 +0100",
+				"rss_alt": "10 Jan 2016 16:55:35 +0100",
+				"sql": "2016-01-10T16:55:35.000+01",
+				"iso": "2016-01-10T16:55:35+01:00"
 			],
-			"2018-06-02T22:18:48+02:00": [
+			"2017-05-02T23:53:44+02:00": [
 
-				"dotnet": "/Date(1527970728878+0200)/",
-				"rss": "Sat, 2 Jun 2018 22:18:48 +0200",
-				"rss_alt": "2 Jun 2018 22:18:48 +0200",
-				"sql": "2018-06-02T22:18:48.878+02",
-				"iso": "2018-06-02T22:18:48+02:00"
+				"dotnet": "/Date(1493762024000+0200)/",
+				"rss": "Tue, 2 May 2017 23:53:44 +0200",
+				"rss_alt": "2 May 2017 23:53:44 +0200",
+				"sql": "2017-05-02T23:53:44.000+02",
+				"iso": "2017-05-02T23:53:44+02:00"
 			],
-			"2018-06-28T03:57:48+02:00": [
+			"2017-05-13T20:05:38+02:00": [
 
-				"dotnet": "/Date(1530151068878+0200)/",
-				"rss": "Thu, 28 Jun 2018 03:57:48 +0200",
-				"rss_alt": "28 Jun 2018 03:57:48 +0200",
-				"sql": "2018-06-28T03:57:48.878+02",
-				"iso": "2018-06-28T03:57:48+02:00"
+				"dotnet": "/Date(1494698738000+0200)/",
+				"rss": "Sat, 13 May 2017 20:05:38 +0200",
+				"rss_alt": "13 May 2017 20:05:38 +0200",
+				"sql": "2017-05-13T20:05:38.000+02",
+				"iso": "2017-05-13T20:05:38+02:00"
 			],
-			"2018-06-30T21:09:48+02:00": [
+			"2017-10-04T17:25:36+02:00": [
 
-				"dotnet": "/Date(1530385788878+0200)/",
-				"rss": "Sat, 30 Jun 2018 21:09:48 +0200",
-				"rss_alt": "30 Jun 2018 21:09:48 +0200",
-				"sql": "2018-06-30T21:09:48.878+02",
-				"iso": "2018-06-30T21:09:48+02:00"
+				"dotnet": "/Date(1507130736000+0200)/",
+				"rss": "Wed, 4 Oct 2017 17:25:36 +0200",
+				"rss_alt": "4 Oct 2017 17:25:36 +0200",
+				"sql": "2017-10-04T17:25:36.000+02",
+				"iso": "2017-10-04T17:25:36+02:00"
 			],
-			"2018-06-19T04:13:48+02:00": [
+			"2016-04-14T11:58:58+02:00": [
 
-				"dotnet": "/Date(1529374428878+0200)/",
-				"rss": "Tue, 19 Jun 2018 04:13:48 +0200",
-				"rss_alt": "19 Jun 2018 04:13:48 +0200",
-				"sql": "2018-06-19T04:13:48.878+02",
-				"iso": "2018-06-19T04:13:48+02:00"
+				"dotnet": "/Date(1460627938000+0200)/",
+				"rss": "Thu, 14 Apr 2016 11:58:58 +0200",
+				"rss_alt": "14 Apr 2016 11:58:58 +0200",
+				"sql": "2016-04-14T11:58:58.000+02",
+				"iso": "2016-04-14T11:58:58+02:00"
 			],
-			"2018-06-05T18:26:48+02:00": [
+			"2016-10-03T13:15:37+02:00": [
 
-				"dotnet": "/Date(1528216008878+0200)/",
-				"rss": "Tue, 5 Jun 2018 18:26:48 +0200",
-				"rss_alt": "5 Jun 2018 18:26:48 +0200",
-				"sql": "2018-06-05T18:26:48.878+02",
-				"iso": "2018-06-05T18:26:48+02:00"
+				"dotnet": "/Date(1475493337000+0200)/",
+				"rss": "Mon, 3 Oct 2016 13:15:37 +0200",
+				"rss_alt": "3 Oct 2016 13:15:37 +0200",
+				"sql": "2016-10-03T13:15:37.000+02",
+				"iso": "2016-10-03T13:15:37+02:00"
 			],
-			"2018-06-13T04:56:48+02:00": [
+			"2015-08-23T16:28:34+02:00": [
 
-				"dotnet": "/Date(1528858608878+0200)/",
-				"rss": "Wed, 13 Jun 2018 04:56:48 +0200",
-				"rss_alt": "13 Jun 2018 04:56:48 +0200",
-				"sql": "2018-06-13T04:56:48.878+02",
-				"iso": "2018-06-13T04:56:48+02:00"
+				"dotnet": "/Date(1440340114000+0200)/",
+				"rss": "Sun, 23 Aug 2015 16:28:34 +0200",
+				"rss_alt": "23 Aug 2015 16:28:34 +0200",
+				"sql": "2015-08-23T16:28:34.000+02",
+				"iso": "2015-08-23T16:28:34+02:00"
 			],
-			"2018-06-13T06:57:48+02:00": [
+			"2016-09-04T19:52:29+02:00": [
 
-				"dotnet": "/Date(1528865868878+0200)/",
-				"rss": "Wed, 13 Jun 2018 06:57:48 +0200",
-				"rss_alt": "13 Jun 2018 06:57:48 +0200",
-				"sql": "2018-06-13T06:57:48.878+02",
-				"iso": "2018-06-13T06:57:48+02:00"
+				"dotnet": "/Date(1473011549000+0200)/",
+				"rss": "Sun, 4 Sep 2016 19:52:29 +0200",
+				"rss_alt": "4 Sep 2016 19:52:29 +0200",
+				"sql": "2016-09-04T19:52:29.000+02",
+				"iso": "2016-09-04T19:52:29+02:00"
 			],
-			"2018-06-14T00:09:48+02:00": [
+			"2016-05-09T14:09:55+02:00": [
 
-				"dotnet": "/Date(1528927788878+0200)/",
-				"rss": "Thu, 14 Jun 2018 00:09:48 +0200",
-				"rss_alt": "14 Jun 2018 00:09:48 +0200",
-				"sql": "2018-06-14T00:09:48.878+02",
-				"iso": "2018-06-14T00:09:48+02:00"
+				"dotnet": "/Date(1462795795000+0200)/",
+				"rss": "Mon, 9 May 2016 14:09:55 +0200",
+				"rss_alt": "9 May 2016 14:09:55 +0200",
+				"sql": "2016-05-09T14:09:55.000+02",
+				"iso": "2016-05-09T14:09:55+02:00"
 			],
-			"2018-06-26T09:13:48+02:00": [
+			"2016-05-11T02:58:47+02:00": [
 
-				"dotnet": "/Date(1529997228878+0200)/",
-				"rss": "Tue, 26 Jun 2018 09:13:48 +0200",
-				"rss_alt": "26 Jun 2018 09:13:48 +0200",
-				"sql": "2018-06-26T09:13:48.878+02",
-				"iso": "2018-06-26T09:13:48+02:00"
+				"dotnet": "/Date(1462928327000+0200)/",
+				"rss": "Wed, 11 May 2016 02:58:47 +0200",
+				"rss_alt": "11 May 2016 02:58:47 +0200",
+				"sql": "2016-05-11T02:58:47.000+02",
+				"iso": "2016-05-11T02:58:47+02:00"
 			],
-			"2018-06-30T14:44:48+02:00": [
+			"2017-04-08T01:49:29+02:00": [
 
-				"dotnet": "/Date(1530362688878+0200)/",
-				"rss": "Sat, 30 Jun 2018 14:44:48 +0200",
-				"rss_alt": "30 Jun 2018 14:44:48 +0200",
-				"sql": "2018-06-30T14:44:48.878+02",
-				"iso": "2018-06-30T14:44:48+02:00"
+				"dotnet": "/Date(1491608969000+0200)/",
+				"rss": "Sat, 8 Apr 2017 01:49:29 +0200",
+				"rss_alt": "8 Apr 2017 01:49:29 +0200",
+				"sql": "2017-04-08T01:49:29.000+02",
+				"iso": "2017-04-08T01:49:29+02:00"
 			],
-			"2018-06-13T13:55:48+02:00": [
+			"2017-03-14T04:06:47+01:00": [
 
-				"dotnet": "/Date(1528890948878+0200)/",
-				"rss": "Wed, 13 Jun 2018 13:55:48 +0200",
-				"rss_alt": "13 Jun 2018 13:55:48 +0200",
-				"sql": "2018-06-13T13:55:48.878+02",
-				"iso": "2018-06-13T13:55:48+02:00"
+				"dotnet": "/Date(1489460807000+0100)/",
+				"rss": "Tue, 14 Mar 2017 04:06:47 +0100",
+				"rss_alt": "14 Mar 2017 04:06:47 +0100",
+				"sql": "2017-03-14T04:06:47.000+01",
+				"iso": "2017-03-14T04:06:47+01:00"
 			],
-			"2018-06-07T06:48:48+02:00": [
+			"2016-05-31T14:31:50+02:00": [
 
-				"dotnet": "/Date(1528346928878+0200)/",
-				"rss": "Thu, 7 Jun 2018 06:48:48 +0200",
-				"rss_alt": "7 Jun 2018 06:48:48 +0200",
-				"sql": "2018-06-07T06:48:48.878+02",
-				"iso": "2018-06-07T06:48:48+02:00"
+				"dotnet": "/Date(1464697910000+0200)/",
+				"rss": "Tue, 31 May 2016 14:31:50 +0200",
+				"rss_alt": "31 May 2016 14:31:50 +0200",
+				"sql": "2016-05-31T14:31:50.000+02",
+				"iso": "2016-05-31T14:31:50+02:00"
 			],
-			"2018-06-21T16:41:48+02:00": [
+			"2015-09-22T08:28:16+02:00": [
 
-				"dotnet": "/Date(1529592108878+0200)/",
-				"rss": "Thu, 21 Jun 2018 16:41:48 +0200",
-				"rss_alt": "21 Jun 2018 16:41:48 +0200",
-				"sql": "2018-06-21T16:41:48.878+02",
-				"iso": "2018-06-21T16:41:48+02:00"
+				"dotnet": "/Date(1442903296000+0200)/",
+				"rss": "Tue, 22 Sep 2015 08:28:16 +0200",
+				"rss_alt": "22 Sep 2015 08:28:16 +0200",
+				"sql": "2015-09-22T08:28:16.000+02",
+				"iso": "2015-09-22T08:28:16+02:00"
 			],
-			"2018-06-15T08:52:48+02:00": [
+			"2016-08-11T06:53:56+02:00": [
 
-				"dotnet": "/Date(1529045568878+0200)/",
-				"rss": "Fri, 15 Jun 2018 08:52:48 +0200",
-				"rss_alt": "15 Jun 2018 08:52:48 +0200",
-				"sql": "2018-06-15T08:52:48.878+02",
-				"iso": "2018-06-15T08:52:48+02:00"
+				"dotnet": "/Date(1470891236000+0200)/",
+				"rss": "Thu, 11 Aug 2016 06:53:56 +0200",
+				"rss_alt": "11 Aug 2016 06:53:56 +0200",
+				"sql": "2016-08-11T06:53:56.000+02",
+				"iso": "2016-08-11T06:53:56+02:00"
 			],
-			"2018-06-30T06:37:48+02:00": [
+			"2018-03-27T19:49:32+02:00": [
 
-				"dotnet": "/Date(1530333468878+0200)/",
-				"rss": "Sat, 30 Jun 2018 06:37:48 +0200",
-				"rss_alt": "30 Jun 2018 06:37:48 +0200",
-				"sql": "2018-06-30T06:37:48.878+02",
-				"iso": "2018-06-30T06:37:48+02:00"
+				"dotnet": "/Date(1522172972000+0200)/",
+				"rss": "Tue, 27 Mar 2018 19:49:32 +0200",
+				"rss_alt": "27 Mar 2018 19:49:32 +0200",
+				"sql": "2018-03-27T19:49:32.000+02",
+				"iso": "2018-03-27T19:49:32+02:00"
 			],
-			"2018-06-29T21:35:48+02:00": [
+			"2017-03-04T21:04:51+01:00": [
 
-				"dotnet": "/Date(1530300948878+0200)/",
-				"rss": "Fri, 29 Jun 2018 21:35:48 +0200",
-				"rss_alt": "29 Jun 2018 21:35:48 +0200",
-				"sql": "2018-06-29T21:35:48.878+02",
-				"iso": "2018-06-29T21:35:48+02:00"
+				"dotnet": "/Date(1488657891000+0100)/",
+				"rss": "Sat, 4 Mar 2017 21:04:51 +0100",
+				"rss_alt": "4 Mar 2017 21:04:51 +0100",
+				"sql": "2017-03-04T21:04:51.000+01",
+				"iso": "2017-03-04T21:04:51+01:00"
 			],
-			"2018-06-19T02:07:48+02:00": [
+			"2016-09-19T10:22:17+02:00": [
 
-				"dotnet": "/Date(1529366868878+0200)/",
-				"rss": "Tue, 19 Jun 2018 02:07:48 +0200",
-				"rss_alt": "19 Jun 2018 02:07:48 +0200",
-				"sql": "2018-06-19T02:07:48.878+02",
-				"iso": "2018-06-19T02:07:48+02:00"
+				"dotnet": "/Date(1474273337000+0200)/",
+				"rss": "Mon, 19 Sep 2016 10:22:17 +0200",
+				"rss_alt": "19 Sep 2016 10:22:17 +0200",
+				"sql": "2016-09-19T10:22:17.000+02",
+				"iso": "2016-09-19T10:22:17+02:00"
 			],
-			"2018-06-18T23:12:48+02:00": [
+			"2016-01-09T08:24:32+01:00": [
 
-				"dotnet": "/Date(1529356368878+0200)/",
-				"rss": "Mon, 18 Jun 2018 23:12:48 +0200",
-				"rss_alt": "18 Jun 2018 23:12:48 +0200",
-				"sql": "2018-06-18T23:12:48.878+02",
-				"iso": "2018-06-18T23:12:48+02:00"
+				"dotnet": "/Date(1452324272000+0100)/",
+				"rss": "Sat, 9 Jan 2016 08:24:32 +0100",
+				"rss_alt": "9 Jan 2016 08:24:32 +0100",
+				"sql": "2016-01-09T08:24:32.000+01",
+				"iso": "2016-01-09T08:24:32+01:00"
 			],
-			"2018-06-26T23:56:48+02:00": [
+			"2018-05-16T02:33:15+02:00": [
 
-				"dotnet": "/Date(1530050208878+0200)/",
-				"rss": "Tue, 26 Jun 2018 23:56:48 +0200",
-				"rss_alt": "26 Jun 2018 23:56:48 +0200",
-				"sql": "2018-06-26T23:56:48.878+02",
-				"iso": "2018-06-26T23:56:48+02:00"
+				"dotnet": "/Date(1526430795000+0200)/",
+				"rss": "Wed, 16 May 2018 02:33:15 +0200",
+				"rss_alt": "16 May 2018 02:33:15 +0200",
+				"sql": "2018-05-16T02:33:15.000+02",
+				"iso": "2018-05-16T02:33:15+02:00"
 			],
-			"2018-06-22T07:57:48+02:00": [
+			"2016-11-09T14:42:29+01:00": [
 
-				"dotnet": "/Date(1529647068878+0200)/",
-				"rss": "Fri, 22 Jun 2018 07:57:48 +0200",
-				"rss_alt": "22 Jun 2018 07:57:48 +0200",
-				"sql": "2018-06-22T07:57:48.878+02",
-				"iso": "2018-06-22T07:57:48+02:00"
+				"dotnet": "/Date(1478698949000+0100)/",
+				"rss": "Wed, 9 Nov 2016 14:42:29 +0100",
+				"rss_alt": "9 Nov 2016 14:42:29 +0100",
+				"sql": "2016-11-09T14:42:29.000+01",
+				"iso": "2016-11-09T14:42:29+01:00"
 			],
-			"2018-06-04T05:23:48+02:00": [
+			"2017-09-18T05:07:13+02:00": [
 
-				"dotnet": "/Date(1528082628878+0200)/",
-				"rss": "Mon, 4 Jun 2018 05:23:48 +0200",
-				"rss_alt": "4 Jun 2018 05:23:48 +0200",
-				"sql": "2018-06-04T05:23:48.878+02",
-				"iso": "2018-06-04T05:23:48+02:00"
+				"dotnet": "/Date(1505704033000+0200)/",
+				"rss": "Mon, 18 Sep 2017 05:07:13 +0200",
+				"rss_alt": "18 Sep 2017 05:07:13 +0200",
+				"sql": "2017-09-18T05:07:13.000+02",
+				"iso": "2017-09-18T05:07:13+02:00"
 			],
-			"2018-06-25T19:19:48+02:00": [
+			"2016-11-08T19:03:38+01:00": [
 
-				"dotnet": "/Date(1529947188878+0200)/",
-				"rss": "Mon, 25 Jun 2018 19:19:48 +0200",
-				"rss_alt": "25 Jun 2018 19:19:48 +0200",
-				"sql": "2018-06-25T19:19:48.878+02",
-				"iso": "2018-06-25T19:19:48+02:00"
+				"dotnet": "/Date(1478628218000+0100)/",
+				"rss": "Tue, 8 Nov 2016 19:03:38 +0100",
+				"rss_alt": "8 Nov 2016 19:03:38 +0100",
+				"sql": "2016-11-08T19:03:38.000+01",
+				"iso": "2016-11-08T19:03:38+01:00"
 			],
-			"2018-06-02T04:40:48+02:00": [
+			"2017-08-25T04:33:32+02:00": [
 
-				"dotnet": "/Date(1527907248878+0200)/",
-				"rss": "Sat, 2 Jun 2018 04:40:48 +0200",
-				"rss_alt": "2 Jun 2018 04:40:48 +0200",
-				"sql": "2018-06-02T04:40:48.878+02",
-				"iso": "2018-06-02T04:40:48+02:00"
+				"dotnet": "/Date(1503628412000+0200)/",
+				"rss": "Fri, 25 Aug 2017 04:33:32 +0200",
+				"rss_alt": "25 Aug 2017 04:33:32 +0200",
+				"sql": "2017-08-25T04:33:32.000+02",
+				"iso": "2017-08-25T04:33:32+02:00"
 			],
-			"2018-06-27T19:39:48+02:00": [
+			"2016-06-07T15:10:47+02:00": [
 
-				"dotnet": "/Date(1530121188878+0200)/",
-				"rss": "Wed, 27 Jun 2018 19:39:48 +0200",
-				"rss_alt": "27 Jun 2018 19:39:48 +0200",
-				"sql": "2018-06-27T19:39:48.878+02",
-				"iso": "2018-06-27T19:39:48+02:00"
+				"dotnet": "/Date(1465305047000+0200)/",
+				"rss": "Tue, 7 Jun 2016 15:10:47 +0200",
+				"rss_alt": "7 Jun 2016 15:10:47 +0200",
+				"sql": "2016-06-07T15:10:47.000+02",
+				"iso": "2016-06-07T15:10:47+02:00"
 			],
-			"2018-06-02T04:58:48+02:00": [
+			"2016-12-02T14:54:10+01:00": [
 
-				"dotnet": "/Date(1527908328878+0200)/",
-				"rss": "Sat, 2 Jun 2018 04:58:48 +0200",
-				"rss_alt": "2 Jun 2018 04:58:48 +0200",
-				"sql": "2018-06-02T04:58:48.878+02",
-				"iso": "2018-06-02T04:58:48+02:00"
+				"dotnet": "/Date(1480686850000+0100)/",
+				"rss": "Fri, 2 Dec 2016 14:54:10 +0100",
+				"rss_alt": "2 Dec 2016 14:54:10 +0100",
+				"sql": "2016-12-02T14:54:10.000+01",
+				"iso": "2016-12-02T14:54:10+01:00"
 			],
-			"2018-06-30T10:08:48+02:00": [
+			"2016-02-11T11:48:21+01:00": [
 
-				"dotnet": "/Date(1530346128878+0200)/",
-				"rss": "Sat, 30 Jun 2018 10:08:48 +0200",
-				"rss_alt": "30 Jun 2018 10:08:48 +0200",
-				"sql": "2018-06-30T10:08:48.878+02",
-				"iso": "2018-06-30T10:08:48+02:00"
+				"dotnet": "/Date(1455187701000+0100)/",
+				"rss": "Thu, 11 Feb 2016 11:48:21 +0100",
+				"rss_alt": "11 Feb 2016 11:48:21 +0100",
+				"sql": "2016-02-11T11:48:21.000+01",
+				"iso": "2016-02-11T11:48:21+01:00"
 			],
-			"2018-06-15T15:11:48+02:00": [
+			"2018-01-23T17:44:12+01:00": [
 
-				"dotnet": "/Date(1529068308878+0200)/",
-				"rss": "Fri, 15 Jun 2018 15:11:48 +0200",
-				"rss_alt": "15 Jun 2018 15:11:48 +0200",
-				"sql": "2018-06-15T15:11:48.878+02",
-				"iso": "2018-06-15T15:11:48+02:00"
+				"dotnet": "/Date(1516725852000+0100)/",
+				"rss": "Tue, 23 Jan 2018 17:44:12 +0100",
+				"rss_alt": "23 Jan 2018 17:44:12 +0100",
+				"sql": "2018-01-23T17:44:12.000+01",
+				"iso": "2018-01-23T17:44:12+01:00"
 			],
-			"2018-06-18T23:01:48+02:00": [
+			"2016-05-09T22:11:28+02:00": [
 
-				"dotnet": "/Date(1529355708878+0200)/",
-				"rss": "Mon, 18 Jun 2018 23:01:48 +0200",
-				"rss_alt": "18 Jun 2018 23:01:48 +0200",
-				"sql": "2018-06-18T23:01:48.878+02",
-				"iso": "2018-06-18T23:01:48+02:00"
+				"dotnet": "/Date(1462824688000+0200)/",
+				"rss": "Mon, 9 May 2016 22:11:28 +0200",
+				"rss_alt": "9 May 2016 22:11:28 +0200",
+				"sql": "2016-05-09T22:11:28.000+02",
+				"iso": "2016-05-09T22:11:28+02:00"
 			],
-			"2018-06-28T18:27:48+02:00": [
+			"2015-06-27T04:15:55+02:00": [
 
-				"dotnet": "/Date(1530203268878+0200)/",
-				"rss": "Thu, 28 Jun 2018 18:27:48 +0200",
-				"rss_alt": "28 Jun 2018 18:27:48 +0200",
-				"sql": "2018-06-28T18:27:48.878+02",
-				"iso": "2018-06-28T18:27:48+02:00"
+				"dotnet": "/Date(1435371355000+0200)/",
+				"rss": "Sat, 27 Jun 2015 04:15:55 +0200",
+				"rss_alt": "27 Jun 2015 04:15:55 +0200",
+				"sql": "2015-06-27T04:15:55.000+02",
+				"iso": "2015-06-27T04:15:55+02:00"
 			],
-			"2018-06-16T18:54:48+02:00": [
+			"2017-08-05T16:04:03+02:00": [
 
-				"dotnet": "/Date(1529168088878+0200)/",
-				"rss": "Sat, 16 Jun 2018 18:54:48 +0200",
-				"rss_alt": "16 Jun 2018 18:54:48 +0200",
-				"sql": "2018-06-16T18:54:48.878+02",
-				"iso": "2018-06-16T18:54:48+02:00"
+				"dotnet": "/Date(1501941843000+0200)/",
+				"rss": "Sat, 5 Aug 2017 16:04:03 +0200",
+				"rss_alt": "5 Aug 2017 16:04:03 +0200",
+				"sql": "2017-08-05T16:04:03.000+02",
+				"iso": "2017-08-05T16:04:03+02:00"
 			],
-			"2018-06-27T07:20:48+02:00": [
+			"2015-11-19T22:20:40+01:00": [
 
-				"dotnet": "/Date(1530076848878+0200)/",
-				"rss": "Wed, 27 Jun 2018 07:20:48 +0200",
-				"rss_alt": "27 Jun 2018 07:20:48 +0200",
-				"sql": "2018-06-27T07:20:48.878+02",
-				"iso": "2018-06-27T07:20:48+02:00"
+				"dotnet": "/Date(1447968040000+0100)/",
+				"rss": "Thu, 19 Nov 2015 22:20:40 +0100",
+				"rss_alt": "19 Nov 2015 22:20:40 +0100",
+				"sql": "2015-11-19T22:20:40.000+01",
+				"iso": "2015-11-19T22:20:40+01:00"
 			],
-			"2018-06-15T21:58:48+02:00": [
+			"2017-06-20T14:49:19+02:00": [
 
-				"dotnet": "/Date(1529092728878+0200)/",
-				"rss": "Fri, 15 Jun 2018 21:58:48 +0200",
-				"rss_alt": "15 Jun 2018 21:58:48 +0200",
-				"sql": "2018-06-15T21:58:48.878+02",
-				"iso": "2018-06-15T21:58:48+02:00"
+				"dotnet": "/Date(1497962959000+0200)/",
+				"rss": "Tue, 20 Jun 2017 14:49:19 +0200",
+				"rss_alt": "20 Jun 2017 14:49:19 +0200",
+				"sql": "2017-06-20T14:49:19.000+02",
+				"iso": "2017-06-20T14:49:19+02:00"
 			]
 		]
 	}
 
-	/*public func testFormatters() {
+	/*public func testGenerateSomeRandomDates() {
 		var total = ""
-		let randomDates = DateInRegion.randomDatesInPast(count: 40, days: 2000)
+		let upperBound = DateInRegion()
+		let lowerBound = (upperBound - 3.years)
+		let randomDates = DateInRegion.randomDates(count: 40, between: lowerBound, and: upperBound)
 		randomDates.forEach {
+			let adjustedDateNoMS = $0.toISO().toISODate()!
 			total += "\"\($0.toISO())\" : [\n\t"
-			total += "\n\t" + "\"dotnet\": \"\($0.toDotNET())\","
-			total += "\n\t" + "\"rss\": \"\($0.toRSS(alt: false))\","
-			total += "\n\t" + "\"rss_alt\": \"\($0.toRSS(alt: true))\","
-			total += "\n\t" + "\"sql\": \"\($0.toSQL())\","
-			total += "\n\t" + "\"iso\": \"\($0.toISO())\""
+			total += "\n\t" + "\"dotnet\": \"\(adjustedDateNoMS.toDotNET())\","
+			total += "\n\t" + "\"rss\": \"\(adjustedDateNoMS.toRSS(alt: false))\","
+			total += "\n\t" + "\"rss_alt\": \"\(adjustedDateNoMS.toRSS(alt: true))\","
+			total += "\n\t" + "\"sql\": \"\(adjustedDateNoMS.toSQL())\","
+			total += "\n\t" + "\"iso\": \"\(adjustedDateNoMS.toISO())\""
 			total += "\n],\n"
 		}
 		print("\(total)")
 	}*/
 
-	public func testFormatters() {
-		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+	public func testDotNETFormatter() {
+		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.english)
 		self.datesList().forEach {
-			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["dotnet"]!, type: "dotnet")
-			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["rss"]!, type: "rss")
-			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["rss_alt"]!, type: "rss_alt")
-			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["sql"]!, type: "sql")
-			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["iso"]!, type: "iso")
+			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["dotnet"]!, type: "dotnet", region: SwiftDate.defaultRegion)
 		}
 	}
 
-	func XCTTestFormatterParser(dateStr: String, expected: String, type: String) {
+	public func testRSSFormatter() {
+		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.english)
+		self.datesList().forEach {
+			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["rss"]!, type: "rss", region: SwiftDate.defaultRegion)
+		}
+	}
+
+	public func testRSSAltFormatter() {
+		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.english)
+		self.datesList().forEach {
+			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["rss_alt"]!, type: "rss_alt", region: SwiftDate.defaultRegion)
+		}
+	}
+
+	public func testSQLFormatter() {
+		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.english)
+		self.datesList().forEach {
+			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["sql"]!, type: "sql", region: SwiftDate.defaultRegion)
+		}
+	}
+
+	public func testISOFormatter() {
+		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.english)
+		self.datesList().forEach {
+			XCTTestFormatterParser(dateStr: $0.key, expected: $0.value["iso"]!, type: "iso", region: SwiftDate.defaultRegion)
+		}
+	}
+
+	func XCTTestFormatterParser(dateStr: String, expected: String, type: String, region: Region = SwiftDate.defaultRegion) {
 		guard let srcDate = dateStr.toDate("yyyy-MM-dd'T'HH:mm:ssZZZZZ", region: SwiftDate.defaultRegion) else {
 			XCTFail("Failed to correctly parse date: '\(dateStr)'")
 			return
 		}
 
-		var dateAsStr: String!
-		switch type {
-		case "dotnet":
-			dateAsStr = srcDate.toDotNET()
-		case "rss":
-			dateAsStr = srcDate.toRSS(alt: false)
-		case "rss_alt":
-			dateAsStr = srcDate.toRSS(alt: true)
-		case "sql":
-			dateAsStr = srcDate.toSQL()
-		case "iso":
-			dateAsStr = srcDate.toISO()
-		default:
-			fatalError("Unsupported test type: \(type)")
+		let dateAsStr: String = dateToString(date: srcDate, format: type)
+		XCTAssert( (dateAsStr == expected),
+				   "Failed to convert date '\(srcDate.description)' to \(type) format. Expected '\(expected)', got '\(dateAsStr)'")
+
+		guard let decodedSrcDate = stringToDate(string: dateAsStr, format: type, region: region) else {
+			XCTFail("Failed to convert date string to date of type \(type): \(dateAsStr)")
+			return
 		}
-		XCTAssert( (dateAsStr == expected), "Failed to convert date '\(srcDate.description)' to \(type) format. Expected '\(expected)', got '\(dateAsStr!)'")
-		let decodedSrcDate = dateAsStr.toDotNETDate()
-		XCTAssert( (srcDate == decodedSrcDate), "Failed to convert dot net date to valid Date")
+		XCTAssert( (srcDate == decodedSrcDate),
+				   "Failed to validate formatter. Got '\(decodedSrcDate)' expecting '\(srcDate)'")
+	}
+
+	func dateToString(date srcDate: DateInRegion, format: String) -> String {
+		switch format {
+		case "dotnet":	return srcDate.toDotNET()
+		case "rss":		return srcDate.toRSS(alt: false)
+		case "rss_alt":	return srcDate.toRSS(alt: true)
+		case "sql":		return srcDate.toSQL()
+		case "iso":		return srcDate.toISO()
+		default:
+			XCTFail("Unsupported type: \(format)")
+			return ""
+		}
+	}
+
+	func stringToDate(string: String, format: String, region: Region) -> DateInRegion? {
+		switch format {
+		case "dotnet":	return string.toDotNETDate(region: region)
+		case "rss":		return string.toRSSDate(alt: false, region: region)
+		case "rss_alt":	return string.toRSSDate(alt: true, region: region)
+		case "sql":		return string.toSQLDate(region: region)
+		case "iso":		return string.toISODate(nil, region: region)
+		default:
+			XCTFail("Unsupported type: \(format)")
+			return nil
+		}
 	}
 
 }

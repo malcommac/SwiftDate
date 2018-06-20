@@ -10,55 +10,60 @@ import Foundation
 
 public extension DateInRegion {
 
-	/// Generate a sequence of random dates in the future
+	// MARK: - Random Date Generator
+
+	/// Generate a sequence of dates between a range.
 	///
 	/// - Parameters:
-	///   - count: number of random dates to generate.
-	///   - days: max days range
-	///   - region: region, `nil` to use default region
-	/// - Returns: sequence of dates
-	public static func randomDatesInFuture(count: Int, days: Int, region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
-		return DateInRegion.randomDates(count: count, days: days, future: true, region: region)
-	}
-
-	/// Generate a sequence of random dates in the past
-	///
-	/// - Parameters:
-	///   - count: number of random dates to generate.
-	///   - days: max days range
-	///   - region: region, `nil` to use default region
-	/// - Returns: sequence of dates
-	public static func randomDatesInPast(count: Int, days: Int, region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
-		return DateInRegion.randomDates(count: count, days: days, future: false, region: region)
-	}
-
-	/// Generate a sequence of random dates in the past or in the future.
-	///
-	/// - Parameters:
-	///   - count: number of random dates to generate.
-	///   - days: max days range
-	///   - future: true to make date in the future, false to make it in past
-	///   - region: region, `nil` to use default region
-	/// - Returns: sequence of dates
-	internal static func randomDates(count: Int, days: Int, future: Bool = false, region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
-		var randomDates: [DateInRegion] = []
-		var offsetComponents = DateComponents()
-		let today = Date(timeIntervalSinceNow: 0)
-
+	///   - count: number of dates to generate.
+	///   - initial: lower date bound.
+	///   - final: upper date bound.
+	///   - region: region of the dates.
+	/// - Returns: array of dates
+	public static func randomDates(count: Int, between initial: DateInRegion, and final: DateInRegion,
+								   region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
+		var list: [DateInRegion] = []
 		for _ in 0..<count {
-			let day = arc4random_uniform(UInt32(days)) + 1
-			let hour = arc4random_uniform(23)
-			let minute = arc4random_uniform(59)
-
-			offsetComponents.day = (future ? Int(day - 1) :  -Int(day - 1))
-			offsetComponents.hour = Int(hour)
-			offsetComponents.minute = Int(minute)
-
-			if let randomDate = region.calendar.date(byAdding: offsetComponents, to: today, wrappingComponents: true) {
-				randomDates.append(DateInRegion(randomDate, region: region))
-			}
+			list.append(DateInRegion.randomDate(between: initial, and: final, region: region))
 		}
-		return randomDates
+		return list
+	}
+
+	/// Return a date between now and a specified amount days ealier.
+	///
+	/// - Parameters:
+	///   - days: days range
+	///   - region: destination region, `nil` to use the default region
+	/// - Returns: random date
+	public static func randomDate(withinDaysBeforeToday days: Int,
+								  region: Region = SwiftDate.defaultRegion) -> DateInRegion {
+		let today = DateInRegion(region: region)
+		let earliest = DateInRegion(today.date.addingTimeInterval(TimeInterval(-days * 24 * 60 * 60)), region: region)
+		return DateInRegion.randomDate(between: earliest, and: today)
+	}
+
+	/// Generate a random date in given region.
+	///
+	/// - Parameter region: destination region, `nil` to use the default region
+	/// - Returns: random date
+	public static func randomDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion {
+		let randomTime = TimeInterval(arc4random_uniform(UInt32.max))
+		let absoluteDate = Date(timeIntervalSince1970: randomTime)
+		return DateInRegion(absoluteDate, region: region)
+	}
+
+	/// Generate a random date between two intervals.
+	///
+	/// - Parameters:
+	///   - initial: lower bound date
+	///   - final: upper bound date
+	///   - region: destination region, `nil` to use the default region
+	/// - Returns: random Date
+	public static func randomDate(between initial: DateInRegion, and final: DateInRegion,
+								  region: Region = SwiftDate.defaultRegion) -> DateInRegion {
+		let interval = final.timeIntervalSince(initial)
+		let randomInterval = TimeInterval(arc4random_uniform(UInt32(interval)))
+		return initial.addingTimeInterval(randomInterval)
 	}
 
 	/// Return the oldest date in given list (timezone is ignored, comparison uses absolute date).

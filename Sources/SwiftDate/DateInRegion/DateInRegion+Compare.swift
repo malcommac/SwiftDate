@@ -234,7 +234,7 @@ public extension DateInRegion {
 			// There is a possible rounding error using Calendar to compare two dates below the minute granularity
 			// So we've added this trick and use standard Date compare which return correct results in this case
 			// https://github.com/malcommac/SwiftDate/issues/346
-			return self.date.compare(date.date)
+			return self.date.compare(refDate.date)
 		default:
 			return self.region.calendar.compare(self.date, to: refDate.date, toGranularity: granularity)
 		}
@@ -269,10 +269,10 @@ public extension DateInRegion {
 	/// - Parameters:
 	///   - startDate: range upper bound date
 	///   - endDate: range lower bound date
-	///   - orEqual: `true` to also check for equality on date and date2
+	///   - orEqual: `true` to also check for equality on date and date2, default is `true`
 	///   - granularity: smallest unit that must, along with all larger units, be greater
 	/// - Returns: Boolean
-	public func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
+	public func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = true, granularity: Calendar.Component = .nanosecond) -> Bool {
 		return self.isAfterDate(startDate, orEqual: orEqual, granularity: granularity) && self.isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
 	}
 

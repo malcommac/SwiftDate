@@ -11,6 +11,20 @@ import XCTest
 
 class TestDateInRegion_Create: XCTestCase {
 
+	func testDateInRegion_RandomDates() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let upperLimit = DateInRegion("2015-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		let lowerLimit = DateInRegion("2010-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+
+		let randomDates = DateInRegion.randomDates(count: 50, between: lowerLimit, and: upperLimit, region: regionRome)
+		randomDates.forEach {
+			guard $0.isInRange(date: lowerLimit, and: upperLimit) else {
+				XCTFail("Random date '\($0.description)' is not in given range")
+				return
+			}
+		}
+	}
+
 	func testDateInRegion_EnumareDates() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 

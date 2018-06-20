@@ -84,6 +84,58 @@ class TestDateInRegion_Components: XCTestCase {
 	}
 
 	func testDateInRegion_julianDayAndModifiedJulianDay() {
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		struct ExpectedJulian {
+			var dateISO: String
+			var julianDay: Double
+			var modifiedJulianDay: Double
+		}
+
+		let dates = [
+			ExpectedJulian(dateISO: "2017-12-22T00:06:18+01:00", julianDay: 2_458_109.462_708_333_5, modifiedJulianDay: 58108.962_708_333_51),
+			ExpectedJulian(dateISO: "2018-06-02T02:14:45+02:00", julianDay: 2_458_271.510_243_055_4, modifiedJulianDay: 58271.010_243_055_41),
+			ExpectedJulian(dateISO: "2018-04-04T13:31:12+02:00", julianDay: 2_458_212.98, modifiedJulianDay: 58212.479_999_999_98),
+			ExpectedJulian(dateISO: "2018-03-18T10:11:10+01:00", julianDay: 2_458_195.882_754_629_5, modifiedJulianDay: 58195.382_754_629_48),
+			ExpectedJulian(dateISO: "2018-03-10T18:03:22+01:00", julianDay: 2_458_188.210_671_296_3, modifiedJulianDay: 58187.710_671_296_34),
+			ExpectedJulian(dateISO: "2017-07-14T06:33:47+02:00", julianDay: 2_457_948.690_127_315, modifiedJulianDay: 57948.190_127_315),
+			ExpectedJulian(dateISO: "2018-02-14T16:51:14+01:00", julianDay: 2_458_164.160_578_703_5, modifiedJulianDay: 58163.660_578_703_51),
+			ExpectedJulian(dateISO: "2017-08-15T17:41:44+02:00", julianDay: 2_457_981.153_981_481_7, modifiedJulianDay: 57980.653_981_481_68),
+			ExpectedJulian(dateISO: "2018-03-04T09:54:54+01:00", julianDay: 2_458_181.871_458_333, modifiedJulianDay: 58181.371_458_332_986),
+			ExpectedJulian(dateISO: "2017-09-23T08:18:15+02:00", julianDay: 2_458_019.762_673_611, modifiedJulianDay: 58019.262_673_610_82),
+			ExpectedJulian(dateISO: "2017-12-10T10:29:42+01:00", julianDay: 2_458_097.895625, modifiedJulianDay: 58097.395_624_999_89),
+			ExpectedJulian(dateISO: "2017-11-11T02:49:41+01:00", julianDay: 2_458_068.576_168_981_4, modifiedJulianDay: 58068.076_168_981_38),
+			ExpectedJulian(dateISO: "2017-07-06T04:05:39+02:00", julianDay: 2_457_940.587_256_944_7, modifiedJulianDay: 57940.087_256_944_74),
+			ExpectedJulian(dateISO: "2017-12-02T00:23:52+01:00", julianDay: 2_458_089.474_907_407_5, modifiedJulianDay: 58088.974_907_407_54),
+			ExpectedJulian(dateISO: "2017-11-14T17:59:46+01:00", julianDay: 2_458_072.208_171_296_4, modifiedJulianDay: 58071.708_171_296_4),
+			ExpectedJulian(dateISO: "2018-03-02T10:53:52+01:00", julianDay: 2_458_179.912_407_407_5, modifiedJulianDay: 58179.412_407_407_54),
+			ExpectedJulian(dateISO: "2018-04-14T23:46:35+02:00", julianDay: 2_458_223.407_349_537, modifiedJulianDay: 58222.907_349_537_13),
+			ExpectedJulian(dateISO: "2018-04-28T07:25:22+02:00", julianDay: 2_458_236.725_949_074, modifiedJulianDay: 58236.225_949_074_14),
+			ExpectedJulian(dateISO: "2018-01-06T14:36:53+01:00", julianDay: 2_458_125.067_280_092_3, modifiedJulianDay: 58124.567_280_092_28),
+			ExpectedJulian(dateISO: "2017-09-24T19:58:19+02:00", julianDay: 2_458_021.248_831_019, modifiedJulianDay: 58020.748_831_018_806),
+			ExpectedJulian(dateISO: "2017-12-17T21:12:31+01:00", julianDay: 2_458_105.342_025_463, modifiedJulianDay: 58104.842_025_463_004),
+			ExpectedJulian(dateISO: "2018-05-04T02:28:42+02:00", julianDay: 2_458_242.519_930_555_5, modifiedJulianDay: 58242.019_930_555_485),
+			ExpectedJulian(dateISO: "2018-01-21T18:41:34+01:00", julianDay: 2_458_140.237_199_074, modifiedJulianDay: 58139.737_199_074_12),
+			ExpectedJulian(dateISO: "2018-04-05T02:36:54+02:00", julianDay: 2_458_213.525625, modifiedJulianDay: 58213.025_624_999_78),
+			ExpectedJulian(dateISO: "2018-02-07T13:35:16+01:00", julianDay: 2_458_157.024_490_741, modifiedJulianDay: 58156.524_490_741_08),
+			ExpectedJulian(dateISO: "2017-11-30T00:58:20+01:00", julianDay: 2_458_087.498_842_592_4, modifiedJulianDay: 58086.998_842_592_35),
+			ExpectedJulian(dateISO: "2018-04-10T07:10:34+02:00", julianDay: 2_458_218.715_671_296, modifiedJulianDay: 58218.215_671_296_23),
+			ExpectedJulian(dateISO: "2017-08-11T09:36:56+02:00", julianDay: 2_457_976.817_314_815, modifiedJulianDay: 57976.317_314_814_776),
+			ExpectedJulian(dateISO: "2018-04-28T12:30:18+02:00", julianDay: 2_458_236.937_708_333, modifiedJulianDay: 58236.437_708_333_135),
+			ExpectedJulian(dateISO: "2017-09-17T11:59:29+02:00", julianDay: 2_458_013.916_307_870_3, modifiedJulianDay: 58013.416_307_870_3)
+		]
+
+		dates.forEach {
+			let date = $0.dateISO.toISODate()!
+			guard date.julianDay == $0.julianDay else {
+				XCTFail("Failed to evaluate julianDay of '\($0.dateISO)'. Got '\(date.julianDay)', expected '\($0.julianDay)'")
+				return
+			}
+			guard date.modifiedJulianDay == $0.modifiedJulianDay else {
+				XCTFail("Failed to evaluate modifiedJulianDay of '\($0.dateISO)'. Got '\(date.modifiedJulianDay)', expected '\($0.modifiedJulianDay)'")
+				return
+			}
+		}
 
 	}
 

@@ -34,7 +34,7 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( ((DateInRegion() - 2.days).compare(.isToday) == false), "Failed to evaluate isToday == false")
 
 		// isTomorrow
-		XCTAssert( (DateInRegion() + 1.days + 5.hours).compare(.isTomorrow), "Failed to evaluate isTomorrow")
+		XCTAssert( (DateInRegion() + 1.days + 5.minutes).compare(.isTomorrow), "Failed to evaluate isTomorrow")
 		XCTAssert( (DateInRegion().dateAt(.endOfDay).compare(.isTomorrow) == false), "Failed to evaluate isTomorrow")
 
 		// isYesterday

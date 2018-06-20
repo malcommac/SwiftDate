@@ -11,7 +11,7 @@ import XCTest
 
 class TestDateInRegion_Create: XCTestCase {
 
-	func testDateInRegion_RandomDates() {
+	func testDateInRegion_RandomDatesInRange() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 		let upperLimit = DateInRegion("2015-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
 		let lowerLimit = DateInRegion("2010-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
@@ -20,6 +20,17 @@ class TestDateInRegion_Create: XCTestCase {
 		randomDates.forEach {
 			guard $0.isInRange(date: lowerLimit, and: upperLimit) else {
 				XCTFail("Random date '\($0.description)' is not in given range")
+				return
+			}
+		}
+	}
+
+	func testDateInRegion_RandomDatesBackToDays() {
+		for _ in 0..<50 {
+			let daysBack = Int(arc4random_uniform(365) + 1)
+			let randomDate = DateInRegion.randomDate(withinDaysBeforeToday: daysBack)
+			guard randomDate.getInterval(toDate: DateInRegion(), component: .day) <= daysBack else {
+				XCTFail("Failed to generate a random back date back to max \(daysBack) days")
 				return
 			}
 		}

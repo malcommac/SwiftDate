@@ -818,9 +818,6 @@
 		64BAB12820E6411100FEED79 /* TestSwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12720E6411100FEED79 /* TestSwiftDate.swift */; };
 		64BAB12920E6411100FEED79 /* TestSwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12720E6411100FEED79 /* TestSwiftDate.swift */; };
 		64BAB12A20E6411100FEED79 /* TestSwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12720E6411100FEED79 /* TestSwiftDate.swift */; };
-		64BAB12E20E645F600FEED79 /* TestDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */; };
-		64BAB12F20E645F600FEED79 /* TestDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */; };
-		64BAB13020E645F600FEED79 /* TestDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */; };
 		64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
@@ -1040,7 +1037,6 @@
 		64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodChain.swift; sourceTree = "<group>"; };
 		64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Langs.swift"; sourceTree = "<group>"; };
 		64BAB12720E6411100FEED79 /* TestSwiftDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftDate.swift; sourceTree = "<group>"; };
-		64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDate+Compare.swift"; sourceTree = "<group>"; };
 		64EF3E0220D5518D002793C6 /* TestRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRegion.swift; sourceTree = "<group>"; };
 		64EF3E0620D56038002793C6 /* TestDateInRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDateInRegion.swift; sourceTree = "<group>"; };
 		64EF3E0A20D65329002793C6 /* TestDateInRegion+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Create.swift"; sourceTree = "<group>"; };
@@ -1420,7 +1416,6 @@
 				64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */,
 				6439232520D91D170098EC03 /* TestFormatters.swift */,
 				64BAB12720E6411100FEED79 /* TestSwiftDate.swift */,
-				64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */,
 			);
 			name = Tests;
 			path = Tests/SwiftDateTests;
@@ -1944,7 +1939,6 @@
 				64EF3E0F20D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232620D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0B20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
-				64BAB12E20E645F600FEED79 /* TestDate+Compare.swift in Sources */,
 				64EF3E0720D56038002793C6 /* TestDateInRegion.swift in Sources */,
 				6439231E20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */,
@@ -2623,7 +2617,6 @@
 				64EF3E1020D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232720D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0C20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
-				64BAB12F20E645F600FEED79 /* TestDate+Compare.swift in Sources */,
 				64EF3E0820D5622D002793C6 /* TestDateInRegion.swift in Sources */,
 				6439231F20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */,
@@ -2640,7 +2633,6 @@
 				64EF3E1120D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232820D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0D20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
-				64BAB13020E645F600FEED79 /* TestDate+Compare.swift in Sources */,
 				64EF3E0920D5622D002793C6 /* TestDateInRegion.swift in Sources */,
 				6439232020D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */,

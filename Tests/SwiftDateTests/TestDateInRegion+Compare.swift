@@ -258,4 +258,22 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( (date1.laterDate(date3) == date3), "Failed to get .laterDate()")
 	}
 
+	func testDateInRegion_compareMath() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let regionNY = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.english)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		let date1 = DateInRegion("2018-01-01 00:10:00", format: dateFormat, region: regionRome)!
+		let date2 = DateInRegion("2017-12-31 23:00:00", format: dateFormat, region: regionRome)!
+		let date3 = DateInRegion("2018-01-01 00:20:00", format: dateFormat, region: regionNY)!
+
+		XCTAssert( (date1 >= date2), "Failed to math compare two dates")
+		XCTAssert( (date1 > date2), "Failed to math compare two dates")
+		XCTAssert( (date3 > date1), "Failed to math compare two dates")
+		XCTAssert( (date3 == date3), "Failed to math compare two dates")
+		XCTAssert( (date3 >= date3), "Failed to math compare two dates")
+		XCTAssert( (date3 <= date3), "Failed to math compare two dates")
+		XCTAssert( (date1 <= date3), "Failed to math compare two dates")
+	}
+
 }

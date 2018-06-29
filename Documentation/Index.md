@@ -1,4 +1,4 @@
-![](swiftdate.png)
+![](./SwiftDate.png)
 
 ## Documentation
 

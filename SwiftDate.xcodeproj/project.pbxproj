@@ -812,6 +812,15 @@
 		64B5E26820D30E620067EDC1 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */; };
 		64B5E26920D30E620067EDC1 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */; };
 		64B5E26A20D30E620067EDC1 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */; };
+		64BAB12420E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */; };
+		64BAB12520E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */; };
+		64BAB12620E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */; };
+		64BAB12820E6411100FEED79 /* TestSwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12720E6411100FEED79 /* TestSwiftDate.swift */; };
+		64BAB12920E6411100FEED79 /* TestSwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12720E6411100FEED79 /* TestSwiftDate.swift */; };
+		64BAB12A20E6411100FEED79 /* TestSwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12720E6411100FEED79 /* TestSwiftDate.swift */; };
+		64BAB12E20E645F600FEED79 /* TestDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */; };
+		64BAB12F20E645F600FEED79 /* TestDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */; };
+		64BAB13020E645F600FEED79 /* TestDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */; };
 		64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
 		64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF3E0220D5518D002793C6 /* TestRegion.swift */; };
@@ -1029,6 +1038,9 @@
 		64B5E25820D3090A0067EDC1 /* TimePeriodGroupSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodGroupSequence.swift; sourceTree = "<group>"; };
 		64B5E25F20D30AE40067EDC1 /* TimePeriodCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodCollection.swift; sourceTree = "<group>"; };
 		64B5E26520D30E620067EDC1 /* TimePeriodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodChain.swift; sourceTree = "<group>"; };
+		64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Langs.swift"; sourceTree = "<group>"; };
+		64BAB12720E6411100FEED79 /* TestSwiftDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftDate.swift; sourceTree = "<group>"; };
+		64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDate+Compare.swift"; sourceTree = "<group>"; };
 		64EF3E0220D5518D002793C6 /* TestRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRegion.swift; sourceTree = "<group>"; };
 		64EF3E0620D56038002793C6 /* TestDateInRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDateInRegion.swift; sourceTree = "<group>"; };
 		64EF3E0A20D65329002793C6 /* TestDateInRegion+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestDateInRegion+Create.swift"; sourceTree = "<group>"; };
@@ -1405,7 +1417,10 @@
 				64EF3E0E20D65478002793C6 /* TestDateInRegion+Compare.swift */,
 				6439231D20D90CB10098EC03 /* TestDateInRegion+Components.swift */,
 				6439232120D912670098EC03 /* TestDateInRegion+Math.swift */,
+				64BAB12320E63A3A00FEED79 /* TestDateInRegion+Langs.swift */,
 				6439232520D91D170098EC03 /* TestFormatters.swift */,
+				64BAB12720E6411100FEED79 /* TestSwiftDate.swift */,
+				64BAB12D20E645F600FEED79 /* TestDate+Compare.swift */,
 			);
 			name = Tests;
 			path = Tests/SwiftDateTests;
@@ -1924,13 +1939,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BAB12420E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */,
 				6439232220D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
 				64EF3E0F20D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232620D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0B20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
+				64BAB12E20E645F600FEED79 /* TestDate+Compare.swift in Sources */,
 				64EF3E0720D56038002793C6 /* TestDateInRegion.swift in Sources */,
 				6439231E20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0320D5518D002793C6 /* TestRegion.swift in Sources */,
+				64BAB12820E6411100FEED79 /* TestSwiftDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2600,13 +2618,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BAB12520E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */,
 				6439232320D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
 				64EF3E1020D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232720D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0C20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
+				64BAB12F20E645F600FEED79 /* TestDate+Compare.swift in Sources */,
 				64EF3E0820D5622D002793C6 /* TestDateInRegion.swift in Sources */,
 				6439231F20D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0420D551E4002793C6 /* TestRegion.swift in Sources */,
+				64BAB12920E6411100FEED79 /* TestSwiftDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2614,13 +2635,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BAB12620E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */,
 				6439232420D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
 				64EF3E1120D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232820D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0D20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
+				64BAB13020E645F600FEED79 /* TestDate+Compare.swift in Sources */,
 				64EF3E0920D5622D002793C6 /* TestDateInRegion.swift in Sources */,
 				6439232020D90CB10098EC03 /* TestDateInRegion+Components.swift in Sources */,
 				64EF3E0520D551E5002793C6 /* TestRegion.swift in Sources */,
+				64BAB12A20E6411100FEED79 /* TestSwiftDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

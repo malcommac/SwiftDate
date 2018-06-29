@@ -153,13 +153,37 @@ public extension DateInRegion {
 	}
 
 	/// Create a new date by altering specified components of the receiver.
+	/// Note: `calendar` and `timezone` are ignored.
+	/// Note: some components may alter the date cyclically (like setting both `.year` and `.yearForWeekOfYear`) and
+	/// may results in a wrong evaluated date.
 	///
 	/// - Parameter components: components to alter with their new values.
 	/// - Returns: new altered `DateInRegion` instance
 	public func dateBySet(_ components: [Calendar.Component: Int?]) -> DateInRegion? {
-		var newDateComponents = self.dateComponents
-		newDateComponents.alterComponents(components)
-		guard let newDate = self.calendar.date(from: newDateComponents) else { return nil }
+		var dateComponents = DateComponents()
+		dateComponents.year = (components[.year] ?? self.year)
+		dateComponents.month = (components[.month] ?? self.month)
+		dateComponents.day = (components[.day] ?? self.day)
+		dateComponents.hour = (components[.hour] ?? self.hour)
+		dateComponents.minute = (components[.minute] ?? self.minute)
+		dateComponents.second = (components[.second] ?? self.second)
+		dateComponents.nanosecond = (components[.nanosecond] ?? self.nanosecond)
+
+		// Some components may interfer with others, so we'll set it them only if explicitly set.
+		if let weekday = components[.weekday] {
+			dateComponents.weekday = weekday
+		}
+		if let weekOfYear = components[.weekOfYear] {
+			dateComponents.weekOfYear = weekOfYear
+		}
+		if let weekdayOrdinal = components[.weekdayOrdinal] {
+			dateComponents.weekdayOrdinal = weekdayOrdinal
+		}
+		if let yearForWeekOfYear = components[.yearForWeekOfYear] {
+			dateComponents.yearForWeekOfYear = yearForWeekOfYear
+		}
+
+		guard let newDate = self.calendar.date(from: dateComponents) else { return nil }
 		return DateInRegion(newDate, region: self.region)
 	}
 
@@ -171,7 +195,11 @@ public extension DateInRegion {
 	///   - secs: sec to set (`nil` to leave it unaltered)
 	/// - Returns: new altered `DateInRegion` instance
 	public func dateBySet(hour: Int?, min: Int?, secs: Int?) -> DateInRegion? {
-		return self.dateBySet([.hour: hour, .minute: min, .second: secs])
+		guard let date = self.calendar.date(bySettingHour: (hour ?? self.hour),
+											minute: (min ?? self.minute),
+											second: (secs ?? self.second),
+											of: self.date) else { return nil }
+		return DateInRegion(date, region: self.region)
 	}
 
 	/// Creates a new instance by truncating the components

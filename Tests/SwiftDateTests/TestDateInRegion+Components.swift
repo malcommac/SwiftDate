@@ -36,8 +36,8 @@ class TestDateInRegion_Components: XCTestCase {
 			$0.eraNameShort = "a.C."
 			$0.weekdayOrdinal = 1
 			$0.nearestHour = 23
-			$0.firstDayOfWeek = 4
-			$0.lastDayOfWeek = 10
+			$0.firstDayOfWeek = 5
+			$0.lastDayOfWeek = 11
 			$0.yearForWeekOfYear = 2018
 			$0.quarter = 0
 		})
@@ -84,8 +84,8 @@ class TestDateInRegion_Components: XCTestCase {
 	}
 
 	func testDateInRegion_julianDayAndModifiedJulianDay() {
-		let dateFormat = "yyyy-MM-dd HH:mm:ss"
 
+		// swiftlint:disable nesting
 		struct ExpectedJulian {
 			var dateISO: String
 			var julianDay: Double

@@ -9,9 +9,89 @@
 import SwiftDate
 import XCTest
 
+public func randomNumber<T: SignedInteger>(inRange range: ClosedRange<T> = 1...6) -> T {
+	let length = Int64(range.upperBound - range.lowerBound + 1)
+	let value = Int64(arc4random()) % length + Int64(range.lowerBound)
+	return T(value)
+}
+
 class TestDateInRegion_Create: XCTestCase {
 
+	func testDateInRegion_DateBySetTime() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let date1 = DateInRegion("2010-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+		guard let date1a = date1.dateBySet(hour: 20, min: 13, secs: 15) else {
+			XCTFail("Failed to alter date's time")
+			return
+		}
+		XCTAssert( (date1a.hour == 20 && date1a.minute == 13 && date1a.second == 15 ), "Failed to alter date's time")
+
+		// altering only one component
+		guard let date2a = date1.dateBySet(hour: 20, min: nil, secs: nil) else {
+			XCTFail("Failed to alter date's time")
+			return
+		}
+		XCTAssert( (date2a.hour == 20 && date2a.minute == 00 && date2a.second == 00 ), "Failed to alter date's time")
+
+	}
+
+	func testDateInRegion_DateBySet() {
+		// swiftlint:disable nesting
+		struct ExpectDateBySet {
+			var components: [Calendar.Component: Int?] = [:]
+
+			init() {
+				let allCmps: [Calendar.Component] = [.second, .minute, .hour, .day, .month, .year]
+				for i in 0..<allCmps.count {
+					let componentToAlter = allCmps[i]
+					let range: ClosedRange<Int>?
+					switch componentToAlter {
+					case .second, .minute:	range = 0...50
+					case .hour:				range = 0...20
+					case .day:				range = 1...28
+					case .month:			range = 1...12
+					case .year:				range = 2000...2050
+					default:				range = nil
+					}
+					if let range = range {
+						let value = randomNumber(inRange: range)
+						self.components[componentToAlter] = value
+					}
+				}
+			}
+
+			func verify(date: DateInRegion) {
+				self.components.keys.forEach {
+					if let value = date.dateComponents.value(for: $0), let expected = self.components[$0] as? Int {
+						if value != expected {
+							XCTFail("Failed to set value of component \($0). Got \(value), expected \(expected)")
+							return
+						}
+					}
+				}
+
+			}
+		}
+
+		for _ in 0..<50 {
+			let randomDate = "2041-05-18T18:00:25Z".toISODate()! //DateInRegion.randomDate(region: regionRome)
+			let alterComponents = ExpectDateBySet()
+			if let alteredDate = randomDate.dateBySet(alterComponents.components) {
+				alterComponents.verify(date: alteredDate)
+			}
+		}
+	}
+
 	func testDateInRegion_RandomDatesInRange() {
+		// Random dates
+		let regionNorw = Region(calendar: Calendars.gregorian, zone: Zones.europeOslo, locale: Locales.norwegianBokmlSvalbardJanMayen)
+		let randomDateAny = DateInRegion.randomDate(region: regionNorw)
+		guard randomDateAny.region == regionNorw else {
+			XCTFail("Failed to generate a random date in region")
+			return
+		}
+
+		// Random dates in range
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 		let upperLimit = DateInRegion("2015-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
 		let lowerLimit = DateInRegion("2010-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!

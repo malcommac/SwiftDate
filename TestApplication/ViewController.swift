@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, timezone: Zones.europeRome, locale: Locales.english)
+
 	}
 
 	override func didReceiveMemoryWarning() {

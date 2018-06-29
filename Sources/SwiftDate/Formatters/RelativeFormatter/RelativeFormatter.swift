@@ -142,8 +142,9 @@ public class RelativeFormatter: DateToStringTrasformable {
 		lang_zu.identifier: lang_zu.self
 	]
 
-	public static var allLanguagesIDs: [String] {
-		return Array(RelativeFormatter.shared.languagesMap.keys)
+	/// Return all languages supported by the library for relative date formatting
+	public static var allLanguages: [RelativeFormatterLang.Type] {
+		return Array(RelativeFormatter.shared.languagesMap.values)
 	}
 
 	private init() {}

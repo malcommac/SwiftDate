@@ -61,7 +61,7 @@ public func > (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 /// - isAfternoon: Return true if date is in the afternoon (>=12 - <17)
 /// - isEvening: Return true if date is in the morning (>=17 - <21)
 /// - isNight: Return true if date is in the morning (>=21 - <5)
-public enum DateComparisonType { // swiftlint:disable identifier_name
+public enum DateComparisonType {
 
 	// Days
 	case isToday

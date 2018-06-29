@@ -25,6 +25,20 @@ This is what we call **Universal Time because it represent the same moment every
 
 You can see absolute time as the moment that someone in the USA has a telephone conversation with someone in Dubai; both have that conversation at the same moment (the absolute time) but the local time will be different due to time zones, different calendars, alphabets or notation methods.
 */
+
+//let t: TimeInterval = (2.hours.timeInterval) + (34.minutes.timeInterval) + (5.seconds.timeInterval)
+//let x = t.toString {
+//	$0.maximumUnitCount = 4
+//	$0.allowedUnits = [.day, .hour, .minute]
+//	$0.collapsesLargestUnit = true
+//	$0.unitsStyle = .abbreviated
+//}
+
+let now2 = Date() - 3.minutes
+let x = now2.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+let y = (now2 - 40.minutes).toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian)
+let y2 = (now2 - 40.minutes).toRelative(style: RelativeFormatter.timeStyle(), locale: Locales.english)
+
 let now = Date()
 print("\(now.timeIntervalSinceReferenceDate) seconds elapsed since Jan 1, 2001 @ 00:00 UTC")
 /*:

@@ -15,27 +15,27 @@ public extension TimeInterval {
 		/// Fractional units may be used when a value cannot be exactly represented using the available units.
 		/// For example, if minutes are not allowed, the value “1h 30m” could be formatted as “1.5h”.
 		/// The default value of this property is false.
-		var allowsFractionalUnits: Bool = false
+		public var allowsFractionalUnits: Bool = false
 
 		/// Specify the units that can be used in the output.
 		/// By default `[.year, .month, .weekOfMonth, .day, .hour, .minute, .second]` are used.
-		var allowedUnits: NSCalendar.Unit = [.year, .month, .weekOfMonth, .day, .hour, .minute, .second]
+		public var allowedUnits: NSCalendar.Unit = [.year, .month, .weekOfMonth, .day, .hour, .minute, .second]
 
 		/// A Boolean value indicating whether to collapse the largest unit into smaller units when a certain threshold is met.
 		/// By default is `false`.
-		var collapsesLargestUnit: Bool = false
+		public var collapsesLargestUnit: Bool = false
 
 		/// The maximum number of time units to include in the output string.
 		/// The default value of this property is 0, which does not cause the elimination of any units.
-		var maximumUnitCount: Int = 0
+		public var maximumUnitCount: Int = 0
 
 		/// The formatting style for units whose value is 0.
 		/// By default is `.default`
-		var zeroFormattingBehavior: DateComponentsFormatter.ZeroFormattingBehavior = .default
+		public var zeroFormattingBehavior: DateComponentsFormatter.ZeroFormattingBehavior = .default
 
 		/// The preferred style for units.
 		/// By default is `.abbreviated`.
-		var unitsStyle: DateComponentsFormatter.UnitsStyle = .abbreviated
+		public var unitsStyle: DateComponentsFormatter.UnitsStyle = .abbreviated
 
 		public func apply(toFormatter formatter: DateComponentsFormatter) {
 			formatter.allowsFractionalUnits = self.allowsFractionalUnits

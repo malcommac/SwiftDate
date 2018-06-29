@@ -457,7 +457,7 @@ public extension DateRepresentable {
 	}
 
 	public func toRelative(since: DateInRegion? = nil, style: RelativeFormatter.Style? = nil, locale: LocaleConvertible? = nil) -> String {
-		return RelativeFormatter.format(date: self, to: since, style: style, locale: nil)
+		return RelativeFormatter.format(date: self, to: since, style: style, locale: locale?.toLocale())
 	}
 
 	func toISO(_ options: ISOFormatter.Options? = nil) -> String {

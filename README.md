@@ -7,8 +7,9 @@ SwiftDate is the definitive toolchain to manipulate and display dates and time z
 ## Topics
 
 - [Compatibility & Installation](#installation)
-- [Complete Documentation](#documentation)
-- [Moving from SwiftDate 4.x or older](#upgrading)
+- [Complete Documentation](/Documentation/Index.md)
+- [Moving from SwiftDate 4.x or older](/Documentation/Upgrading.md)
+- [Author & License](#author)
 
 ## 10 Good Reasons to choose SwiftDate
 
@@ -256,10 +257,68 @@ Dates are important, but the real world is a little less discrete than that. Lif
 
 ## Compatibility & Installation
 
-<a name="documentation"/>
+SwiftDate 5.x is compatible with Swift 4.x+ and the following platforms:
 
-## Complete Documentation
+- iOS 9+
+- macOS 10.10+
+- watchOS 2.0+
+- tvOS 10.0+
+- any Linux platform which supports Swift 4+
 
-<a name="upgrading"/>
+### Install via CocoaPods
 
-## Moving from SwiftDate 4.x or older
+[CocoaPods](http://cocoapods.org) is a dependency manager which automates and simplifies the process of using 3rd-party libraries like SwiftDate in your projects. You can install it with the following command:
+
+```bash
+$ sudo gem install cocoapods
+```
+
+> CocoaPods 1.3+ is required to build SwiftDate.
+
+#### Install via Podfile
+
+To integrate FlowKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+target 'TargetName' do
+use_frameworks!
+pod 'SwiftDate'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+<a name="carthage" />
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "malcommac/SwiftDate"
+```
+
+Run `carthage` to build the framework and drag the built `FlowKit.framework` into your Xcode project.
+
+<a name="author"/>
+
+## Author & License
+
+SwiftDate was created and maintained by Daniele Margutti.
+

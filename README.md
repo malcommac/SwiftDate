@@ -2,12 +2,32 @@
 <img src="Documentation/SwiftDate.png" width=597px alt="SwiftDate" title="SwiftDate">
 </p>
 
-
 SwiftDate is the definitive toolchain to manipulate and display dates and time zones on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
 
-<p align="center">
-<h2>10 Good Reasons to use SwiftDate</h2>
-</p>
+## Topics
+
+- [Compatibility & Installation](#installation)
+- [Complete Documentation](#documentation)
+- [Moving from SwiftDate 4.x or older](#upgrading)
+
+## 10 Good Reasons to choose SwiftDate
+
+From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
+
+Let me show to you the main features of the library:
+
+- [Date Parsing](#1)
+- [Date Manipulation](#2)
+- [Date Comparsion](#3)
+- [Date Creation with Region (Timezone, Calendar & Locale)](#4)
+- [Derivated Dates](#5)
+- [Components Extraction](#6)
+- [Switch between timezones/locale and calendars](#7)
+- [Date Formatting](#8)
+- [Relative Date Formatting (fully customizable!)](#9)
+- [Time Periods](#10)
+
+<a name="1"/>
 
 ### 1. Date Parsing
 SwiftDate can recognize all the major datetime formats  automatically (ISO8601, RSS, Alt RSS, .NET, SQL, HTTP...) and you can also provide your own formats.
@@ -25,6 +45,8 @@ let _ = "19 Nov 2015 22:20:40 +0100".toRSS(alt: true)
 
 ```
 
+<a name="2"/>
+
 ### 2. Date Manipulation
 Date can be manipulated by adding or removing time components using a natural language; time unit extraction is also easy and includes the support for timezone, calendar and locales!
 
@@ -39,6 +61,7 @@ let _ = date1 + date2
 // extract single time unit components from date manipulation
 let over1Year = (date3 - date2).year > 1
 ```
+<a name="3"/>
 
 ### 3. Date Comparison
 SwiftDate include an extensive set of comparison functions; you can compare two dates by granularity, check if a date is an particular day, range and pratically any other comparison you ever need.
@@ -75,6 +98,8 @@ let _ = DateInRegion.oldestIn(list: datesArray)
 let _ = DateInRegion.sortedByNewest(list: datesArray)
 ```
 
+<a name="4"/>
+
 ### 4. Date Creation with Region (Timezone, Calendar & Locale)
 You can create new dates from a string, time intervals or using date components. SwiftDate offers a wide set of functions to create and derivate your dates even with random generation!
 
@@ -103,6 +128,7 @@ let _ = DateInRegion.randomDate(region: rome)
 let _ = DateInRegion.randomDate(withinDaysBeforeToday: 5)
 let _ = DateInRegion.randomDates(count: 50, between: lowerLimitDate, and: upperLimitDate, region: rome)
 ```
+<a name="5"/>
 
 ### 5. Derivated Dates
 Date can be also generated starting from other dates; SwiftDate includes an extensive set of functions to generate.
@@ -129,6 +155,8 @@ let increment2 = DateComponents.create {
 let dates = DateInRegion.enumerateDates(from: fromDate2, to: toDate2, increment: increment2)
 ```
 
+<a name="6"/>
+
 ### 6. Components Extraction
 You can extract components directly from dates and it includes the right value expressed in date's region (the right timezone and set locale!).
 
@@ -150,6 +178,8 @@ let _ = date.weekdayNameShort // 'Lun' as locale is the to IT
 // .monthName, .weekday, .nearestHour, .firstDayOfWeek. .quarter and so on...
 ```
 
+<a name="7"/>
+
 ### 7. Switch between timezones/locale and calendars
 You can easily convert any date to another region (aka another calendar, locale or timezone) easily!
 New date contains all values expressed into the destination reason
@@ -166,6 +196,8 @@ print(dateInRome.toString()) // "dom gen 01 06:00:00 +0100 2017\n"
 let dateInIndia = dateInNY?.convertTo(timezone: Zones.indianChristmas, locale: Locales.nepaliIndia)
 print("\(dateInIndia!.toString())") // "आइत जनवरी ०१ १२:००:०० +0700 २०१७\n"
 ```
+
+<a name="8"/>
 
 ### 8. Date Formatting
 Date formatting is easy, you can specify your own format, locale or use any of the provided ones.
@@ -194,6 +226,8 @@ let _ = interval.toString {
 } // "2h 34m"
 ```
 
+<a name="9"/>
+
 ### 9. Relative Date Formatting (fully customizable!)
 Relative formatting is all new in SwiftDate; it supports 120+ languages with two different styles (`.default, .twitter`), 9 flavours (`.long, .longTime, .longConvenient, .short, .shortTime, .shortConvenient, .narrow, .tiny, .quantify`) and all of them are customizable as you need.
 The extensible format allows you to provide your own translations and rules to override the default behaviour.
@@ -208,9 +242,24 @@ let _ = (now2 - 5.hours).toRelative(style: RelativeFormatter.defaultStyle(), loc
 let y = (now2 - 40.minutes).toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian) // "45 minuti fa"
 ```
 
-### 10. Period Support
+<a name="10"/>
+
+### 10. Time Periods
 SwiftDate integrates the great Matthew York's [DateTools](https://github.com/MatthewYork/DateTools) module in order to support Time Periods.
 
 Dates are important, but the real world is a little less discrete than that. Life is made up of spans of time, like an afternoon appointment or a weeklong vacation. In DateTools, time periods are represented by the TimePeriod class and come with a suite of initializaiton, manipulation, and comparison methods to make working with them a breeze.
 
- 
+```swift
+
+```
+<a name="installation"/>
+
+## Compatibility & Installation
+
+<a name="documentation"/>
+
+## Complete Documentation
+
+<a name="upgrading"/>
+
+## Moving from SwiftDate 4.x or older

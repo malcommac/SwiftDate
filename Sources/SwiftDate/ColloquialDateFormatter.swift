@@ -170,10 +170,10 @@ public class ColloquialDateFormatter {
                     return imminentString()
                 }
                 // standard hours difference
-                if(cmps.minute != 0) {
+                if(abs(cmps.minute ?? 0) > 30) {
                     hours = abs(hours)+1
                 }
-                return colloquialString(for: .hour, value: hours, future: isFuture, args: hours)
+                return colloquialString(for: .hour, value: hours, future: isFuture, args: abs(hours))
             }
         }
         

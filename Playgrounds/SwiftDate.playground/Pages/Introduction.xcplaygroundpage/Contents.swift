@@ -88,5 +88,51 @@ The following example create two regions with different attributes:
 */
 let regionNY = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.englishUnitedStates)
 let regionTokyo = Region(calendar: Calendars.gregorian, zone: Zones.asiaTokyo, locale: Locales.japanese)
+/*:
+### Creating a DateInRegion
+Now you are ready to create a new `DateInRegion`. There are many different ways to create a new date: parsing a string, setting time components, derivating it from another date or from a given time intervals.
 
-### Cr
+Each initialization method require a region parameter which defines the region in which the date is expressed (default values may vary based upon the init and are listed below).
+
+#### Parsing a String
+The most common case is to parse a string and transform it to a date. As you know `DateFormatter` is an expensive object to create and if you need to parse multiple strings you should avoid creating a new instance in your loop.
+Don't worry: using SwiftDate the library helps you by reusing its own parser, shared along the caller thread.
+
+`DateInRegion`'s `init(_:format:region)` can be used to initialize a new date from a string (various shortcut are available under the `toXXX` prefix of `String` extensions.
+
+This object takes three parameters:
+
+- the `string` to parse (`String`)
+- the format of the string (`String`): this represent the format in which the string is expressed. It's a unicode format ([See the table of fields](UnicodeTable.md)). If you skip this parameter SwiftDate attempts to parse the date using one of the built-in formats defined in `SwiftDate.autoFormats` array. If you know the format of the date you should explicitly set it in order to get better performances.
+-  the `region` in which the date is expressed (`Region`). By default is set to `SwiftDate.defaultRegion`.
+*/
+let date1 = DateInRegion("2016-01-05", format: "yyyy-MM-dd", region: regionNY)
+let date2 = DateInRegion("2015-09-24T13:20:55", region: regionNY)
+/*:
+#### Init from Components
+You can create a `DateInRegion` also by setting the date components.
+The following method create a date from `DateComponents` instance passed via builder pattern:
+*/
+let date3 = DateInRegion(components: {
+	$0.year = 2018
+	$0.month = 2
+	$0.day = 1
+	$0.hour = 23
+}, region: regionNY)
+/*:
+You can also instance it by passing single (optional) components:
+*/
+let date4 = DateInRegion(year: 2015, month: 2, day: 4, hour: 20, minute: 00, second: 00, region: regionNY)
+/*:
+#### Init from TimeInterval
+As plain `Date` you can create a new `DateInRegion` just passing an absolute time interval which represent the seconds/milliseconds from Unix epoch.
+The following method create a date 1 year after the Unix Epoch (1971-01-01T00:00:00Z):
+*/
+let date5 = DateInRegion(seconds: 1.years.timeInterval, region: regionNY)
+let date6 = DateInRegion(milliseconds: 5000, region: regionNY)
+/*:
+#### Init from plain Date
+Finally you can init a new `DateInRegion` directly specifyng an absolute `Date` and a destination region:
+*/
+let absoluteDate: Date = (Date() - 2.months).dateAt(.startOfDay)
+let date7 = DateInRegion(absoluteDate, region: regionNY)

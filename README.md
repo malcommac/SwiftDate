@@ -26,7 +26,8 @@ Let me show to you the main features of the library:
 - [Switch between timezones/locale and calendars](#7)
 - [Date Formatting](#8)
 - [Relative Date Formatting (fully customizable!)](#9)
-- [Time Periods](#10)
+- [Codable Support](#10)
+- [Time Periods](#11)
 
 <a name="1"/>
 
@@ -260,10 +261,26 @@ let _ = (Date() - 6.minutes).toRelative(style: RelativeFormatter.twitterStyle(),
 let _ = (now2 - 5.hours).toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.english) // "5 hours ago"
 let y = (now2 - 40.minutes).toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian) // "45 minuti fa"
 ```
-
 <a name="10"/>
 
-### 10. Time Periods
+### 10. Codable Support
+Both `DateInRegion` and `Region` fully support the new Swift's `Codable` protocol. This mean you can safely encode/decode them:
+
+```swift
+// Encoding/Decoding a Region
+let region = Region(calendar: Calendars.gregorian, zone: Zones.europeOslo, locale: Locales.english)
+let encodedJSON = try JSONEncoder().encode(region)
+let decodedRegion = try JSONDecoder().decode(Region.self, from: encodedJSON)
+
+// Encoding/Decoding a DateInRegion
+let date = DateInRegion("2015-09-24T13:20:55", region: region)
+let encodedDate = try JSONEncoder().encode(date)
+let decodedDate = try JSONDecoder().decode(DateInRegion.self, from: encodedDate)
+```
+
+<a name="11"/>
+
+### 11. Time Periods
 SwiftDate integrates the great Matthew York's [DateTools](https://github.com/MatthewYork/DateTools) module in order to support Time Periods.
 
 Dates are important, but the real world is a little less discrete than that. Life is made up of spans of time, like an afternoon appointment or a weeklong vacation. In DateTools, time periods are represented by the TimePeriod class and come with a suite of initializaiton, manipulation, and comparison methods to make working with them a breeze.

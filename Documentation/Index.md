@@ -11,7 +11,12 @@ The following documentation explore all the major features of the library. If yo
 
 ### Table Of Contents
 
-- [Introduction](#Introduction)
-	- What's represent a (NS)Date?
-	- Introducing Region and DateInRegion
-	- The Default Region
+- [How Date works in Cocoa](Introduction.md#how_date_works)
+- [Region and DateInRegion](Introduction.md#region_dateinregion)
+- [The Default Region](Introduction.md#default_region)
+- [Creating a Region](Introduction.md#creating_region)
+- [Creating a DateInRegion](Introduction.md#creating_dateinregion)
+	- [Init from String](Introduction.md#initfromstring)
+	- [Init from Components](Introduction.md#initfromcomponents)
+	- [Init from TimeInterval](Introduction.md#initfromtimeinterval)
+	- [Init from plain Date](Introduction.md#initfromplaindate)

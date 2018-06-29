@@ -63,9 +63,9 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	///
 	/// - Returns: Region
 	public static var UTC: Region {
-		return Region(calendar: SwiftDate.defaultRegion.calendar,
-					  zone: Zones.gmt,
-					  locale: SwiftDate.defaultRegion.locale)
+		return Region(calendar: Calendar.autoupdatingCurrent,
+					  zone: Zones.gmt.toTimezone(),
+					  locale: Locale.autoupdatingCurrent)
 	}
 
 	/// Return an auto updating region where all settings are obtained from the current's device settings.

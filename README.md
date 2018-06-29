@@ -154,6 +154,24 @@ let increment2 = DateComponents.create {
 }
 // generate dates in range by incrementing +1h,30m,10s each new date
 let dates = DateInRegion.enumerateDates(from: fromDate2, to: toDate2, increment: increment2)
+
+// Altering time components
+let _ = dateA.dateBySet(hour: 10, min: 0, secs: 0)
+
+// Truncating a date
+let _ = dateA.dateTruncated(at: [.year,.month,.day]) // reset all time components keeping only date
+
+// Rounding a date
+let _ = dateA.dateRoundedAt(.toMins(10))
+let _ = dateA.dateRoundedAt(.toFloor30Mins)
+
+// Adding components
+let _ = dateA.dateByAdding(5,.year)
+
+// Date at the start/end of any time component
+let _ = dateA.dateAtEndOf(.year) // 31 of Dec at 23:59:59
+let _ = dateA.dateAtStartOf(.day) // at 00:00:00 of the same day
+let _ = dateA.dateAtStartOf(.month) // at 00:00:00 of the first day of the month
 ```
 
 <a name="6"/>

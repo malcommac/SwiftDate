@@ -1,6 +1,4 @@
-Currently supported languages for relative formatter are (in long form):
-
- **Unicode Date Field Symbol Guide**
+## Unicode Date Formatting Fields
  
  The following table is a summary of the most common configuration for Unicode Date Formatting. If you want to know more check out [Date Field Symbol Table](https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) on unicode.org.
 

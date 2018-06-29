@@ -41,8 +41,8 @@ class TestDateInRegion: XCTestCase {
 		let secsFromEpoch = DateInRegion(seconds: 10)
 		XCTAssert( (secsFromEpoch.date.timeIntervalSince1970 == 10), "Failed to create DateInRegion from epoch time and UTC region / different date")
 		XCTAssert( (secsFromEpoch.region.zone == Region.UTC.zone), "Failed to create DateInRegion from epoch time and UTC region / different region than UTC")
-		XCTAssert( (secsFromEpoch.region.locale == SwiftDate.defaultRegion.locale), "Failed to create DateInRegion from epoch time and UTC region / no default's region locale")
-		XCTAssert( (secsFromEpoch.region.calendar.identifier == SwiftDate.defaultRegion.calendar.identifier), "Failed to create DateInRegion from epoch time and UTC region / no default's region calendar")
+		XCTAssert( (secsFromEpoch.region.locale == Region.UTC.locale), "Failed to create DateInRegion from epoch time and UTC region / no default's region locale")
+		XCTAssert( (secsFromEpoch.region.calendar.identifier == Region.UTC.calendar.identifier), "Failed to create DateInRegion from epoch time and UTC region / no default's region calendar")
 
 		// Init with milliseconds and default region at UTC timezone
 		let msecsFromEpoch = DateInRegion(milliseconds: 5000)

@@ -1,7 +1,6 @@
 import Foundation
 import SwiftDate
 
-
 //let t: TimeInterval = (2.hours.timeInterval) + (34.minutes.timeInterval) + (5.seconds.timeInterval)
 //let x = t.toString {
 //	$0.maximumUnitCount = 4
@@ -27,13 +26,67 @@ This is what we call **Universal Time because it represent the same moment every
 
 You can see absolute time as the moment that someone in the USA has a telephone conversation with someone in Dubai; both have that conversation at the same moment (the absolute time) but the local time will be different due to time zones, different calendars, alphabets or notation methods.
 */
-
 let now = Date()
 print("\(now.timeIntervalSinceReferenceDate) seconds elapsed since Jan 1, 2001 @ 00:00 UTC")
-
 /*:
 However we often need to represent a date in a more specific context: a particular place in the world, printing them using the rules of a specified locale and more.
 In order to accomplish it we need to introduce several other objects: a `Calendar`, a `TimeZone` and a `Locale`; combining these attributes we're finally ready to provide a **representation** of the date into the real world.
 
 SwiftDate allows you to parse, create, manipulate and inspect dates in an easy and more natural way than Cocoa itself.
+
+### Region & DateInRegion
+
+In order to simplify the date management in a specific context SwiftDate introduces two simple structs:
+
+- `Region` is a struct which define a region in the world (`TimeZone`) a language (`Locale`) and reference calendar (`Calendar`).
+- `DateInRegion` represent an absolute date in a specific region. When you work with this object all components are evaluated in the context of the region in which the object was created. Inside a DateInRegion you will have an `date` (the absolute date) and `region` properties.
+
+### The Default Region
+
+In SwiftDate you can work both with `DateInRegion` and `Date` instances.
+Even plain Date objects uses `Region` when you need to extract time units, compare dates or evaluate specific operations.
+
+However this is a special region called **Default Region** and - by default - it has the following attributes:
+
+- **Time Zone** = GMT - this allows to keep a coerent behaviour with the default Date managment unless you change it.
+- **Calendar** = current's device calendar (auto updating)
+- **Locale** = current's device lcoale (auto updating)
+
+While it's a good choice to always uses `DateInRegion` you can also work with `Date` by changing the default region.
+The following code set the region to Rome timezone and italian locale:
 */
+let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+SwiftDate.defaultRegion = rome
+/*:
+Since now all `Date` instances uses `rome` as default region both for parsing and evaluating date component:
+*/
+let dateInRome = "2018-01-01 00:00:00".toDate()!
+print("Current year is \(dateInRome.year) and hour is \(dateInRome.hour)")
+/*:
+We can still convert this date to the default absolute representation in UTC using the `convertTo(region:)` function:
+*/
+let dateInUTC = dateInRome.convertTo(region: Region.UTC)
+print("Current year is \(dateInUTC.year) and hour is \(dateInUTC.hour)")
+/*:
+Be careful while setting the default region.
+We still reccomends to use the `DateInRegion` instances instead, this allows you to read the region explicitly.
+
+
+### Creating a Region
+
+As you seen from previous example creating a new `Region` is pretty straightforward; you need to specify the locale (used to print localized values like month or weekday name of the date), a timezone and a calendar (usually gregorian).
+
+Region instances accept the following parameters in form of protocols:
+
+- Time zone as `ZoneConvertible` conform object. You can pass both a `TimeZone` instance or any of the predefined timezones region defined inside the `Zones` enumeration.
+- Calendar as `CalendarConvertible` conform object. You can pass both a `Calendar` instance or any of the predefined calendars available inside the `Calendars` enumeration.
+- Locale as `LocaleConvertible` conform object. You can pass a both a `Locale` instance or any of the predefined locales available inside the `Locales` enumeration.
+
+Using `Zones`, `Calendars` and `Locales` enumeration values is the easiest way to create a region and compiler can also suggest you the best match for your search.
+
+The following example create two regions with different attributes:
+*/
+let regionNY = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.englishUnitedStates)
+let regionTokyo = Region(calendar: Calendars.gregorian, zone: Zones.asiaTokyo, locale: Locales.japanese)
+
+### Cr

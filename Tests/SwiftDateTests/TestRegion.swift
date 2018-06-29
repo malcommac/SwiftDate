@@ -17,8 +17,8 @@ class TestRegion: XCTestCase {
 
 		// UTC Region
 		XCTAssert( (Region.UTC.zone.identifier == Zones.gmt.toTimezone().identifier), "Failed to create UTC region")
-		XCTAssert( (Region.UTC.calendar.identifier == Calendar(identifier: Calendar.Identifier.gregorian).identifier), "Failed to inherith the appropriate calendar fromd default region")
-		XCTAssert( (Region.UTC.locale.identifier == Locale(identifier: "en").identifier), "Failed to inherith the appropriate locale fromd default region")
+		XCTAssert( (Region.UTC.calendar.identifier == Calendar.autoupdatingCurrent.identifier), "Failed to inherith the appropriate calendar fromd default region")
+		XCTAssert( (Region.UTC.locale.identifier == Locale.autoupdatingCurrent.identifier), "Failed to inherith the appropriate locale fromd default region")
 
 		// New Region
 		let region1 = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)

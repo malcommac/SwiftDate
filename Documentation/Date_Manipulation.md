@@ -9,11 +9,13 @@
 ## Date Manipulation & Creation
 
 - [Add/Remove Time Units from Date](Date_Manipulation.md#mathdate)
+- [Getting Date & Time Components](Date_Manipulation.md#datecomponents)
+- [Convert to another region (locale/timezone/calendar)](Date_Manipulation.md#convert)
 - [Rounding a Date](Date_Manipulation.md#roundingdate)
 - [Trouncating a Date](Date_Manipulation.md#trouncatingdate)
 - [Alter Time in Date](Date_Manipulation.md#altertimedate)
 - [Alter Multiple Date Components](Date_Manipulation.md#altercomponents)
-- [Getting Related Dates (nextYear,nextWeeekday,startOfMonth etc.)](Date_Manipulation.md#relateddates)
+- [Getting Related Dates (`nextYear, nextWeeekday, startOfMonth, startOfWeek, prevMonth` etc.)](Date_Manipulation.md#relateddates)
 - [Getting Date at Start/End of Time Component](Date_Manipulation.md#startendcomponent)
 - [Enumerate Dates](Date_Manipulation.md#enumeratedates)
 - [Generate Random Dates](Date_Manipulation.md#randomdates)
@@ -61,6 +63,85 @@ takes two arguments:
 
 ```swift
 let nextDate = dateA.dateByAdding(5, .years) // 5 years from dateA
+```
+
+[^ Top](#index)
+
+<a name="datecomponents"/>
+
+### Getting Date & Time Components
+With SwiftDate you have several convenience properties to inspect each datetime unit of a date, both for `Date` and `DateInRegion`.
+
+These properties are strictly correlated to the date's calendar (and some also with locale): if you are manipulating a `DateInRegion` remember these properties return values in the context of the associated `region` attributes (Locale, TimeZone and Calendar).
+
+> **IMPORTANT NOTE**: If you are working with plain `Date` properties uses as reference the currently set `SwiftDate.defaultRegion` which, unless you modify it, is set to Gregorian/UTC/Device's Language.
+
+This a complete list of the properties you can inspect for a date object:
+
+|                                                                                                             |                                                                                                                                                                                                                               | 
+|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| PROPERTY                                                                                                    | DESCRIPTION                                                                                                                                                                                                                   | 
+| `year`                                                                                                      | current year number                                                                                                                                                                                                           | 
+| `month`                                                                                                     | current month number (1 is January)                                                                                                                                                                                           | 
+| `monthName(_ style: SymbolFormatStyle)`                                                                     | name of the current month with given style (uses region's locale)                                                                                                                                                             | 
+| `monthDays`                                                                                                 | number of the days into the current month                                                                                                                                                                                     | 
+| `day`                                                                                                       | day number in the current month                                                                                                                                                                                               | 
+| `dayOfYear`                                                                                                 | day of the year                                                                                                                                                                                                               | 
+| `hour`                                                                                                      | current hour                                                                                                                                                                                                                  | 
+| `nearestHour`                                                                                               | nearest rounded hour                                                                                                                                                                                                          | 
+| `minute`                                                                                                    | current minute                                                                                                                                                                                                                | 
+| `second`                                                                                                    | current second                                                                                                                                                                                                                | 
+| `nanosecond`                                                                                                | current nanosecond                                                                                                                                                                                                            | 
+| `msInDay`                                                                                                   | "Milliseconds in day of the receiver. This field behaves exactly like a composite of all time-related fields, not including the zone fields.As such, it also reflects discontinuities of those fields on DST transition days. | 
+| On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward.              |                                                                                                                                                                                                                               | 
+| This reflects the fact that is must be combined with the offset field to obtain a unique local time value." |                                                                                                                                                                                                                               | 
+| `weekday`                                                                                                   | Weekday unit of the receiver. The weekday units are the numbers 1-N (where for the Gregorian calendar N=7 and 1 is Sunday).                                                                                                   | 
+| `weekdayName(_ style: SymbolFormatStyle)`                                                                   | Name of the weekday expressed in given format style.                                                                                                                                                                          | 
+| `weekOfYear`                                                                                                | Week of a year of the receiver.                                                                                                                                                                                               | 
+| `weekOfMonth`                                                                                               | Week of a month of the receiver.                                                                                                                                                                                              | 
+| `weekdayOrdinal`                                                                                            | Ordinal position within the month unit of the corresponding weekday unit.                                                                                                                                                     | 
+| `firstDayOfWeek`                                                                                            | Return the first day number of the week where the receiver date is located                                                                                                                                                    | 
+| `lastDayOfWeek`                                                                                             | Return the last day number of the week where the receiver date is located.                                                                                                                                                    | 
+| `yearForWeekOfYear`                                                                                         | Relative year for a week within a year calendar unit.                                                                                                                                                                         | 
+| `quarter`                                                                                                   | Quarter value of the receiver.                                                                                                                                                                                                | 
+| `quarterName(_ style: SymbolFormatStyle)`                                                                   | Quarter name expressed in given format style                                                                                                                                                                                  | 
+| `era`                                                                                                       | Era value of the receiver.                                                                                                                                                                                                    | 
+| `eraName(_ style: SymbolFormatStyle)`                                                                       | Name of the era expressed in given format style                                                                                                                                                                               | 
+| `DSTOffset`                                                                                                 | The current daylight saving time offset of the represented date                                                                                                                                                               | 
+
+Several other properties defines additional attributes of the date:
+
+- `date | Date`: return the absolute date instance (for `Date` it just return itself)
+- `region | Region`: return the region associated with date (for `Date` it return `SwiftDate.defaultRegion`).
+- `calendar | Calendar`: return the associated calendar
+- `dateComponents | DateComponents`: return all the date components of the date in the context of its associated region.
+
+[^ Top](#index)
+
+<a name="convert"/>
+
+### Convert to another region (locale/timezone/calendar)
+`DateInRegion` can be converted easily to anothe region just using `.convertTo(region:)` or `.convertTo(calendar: timezone:locale:)` functions.
+
+- `convertTo(region:)` convert the receiver date to another region. Region may include a different time zone for example, or a locale.
+- `convertTo(calendar:timezone:locale:)` allows to convert the receiver date instance to a specific calendar/timezone/locale. All parameters are optional and only non-nil parameters alter the final region. For a nil param the current receiver's region attribute is kept.
+
+Examples:
+
+```swift
+// Create a date in NY: "2001-09-11 12:00:05"
+let regionNY = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.english)
+let dateInNY = DateInRegion(components: {
+	$0.year = 2001
+	$0.month = 9
+	$0.day = 11
+	$0.hour = 12
+	$0.minute = 0
+	$0.second = 5
+}
+
+// Convert to GMT timezone (and locale)
+let inGMT = dateInNY.convertTo(region: Region.UTC) // date is now: "2001-09-11 16:00:05"
 ```
 
 [^ Top](#index)

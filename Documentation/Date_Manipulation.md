@@ -13,6 +13,7 @@
 - [Trouncating a Date](Date_Manipulation.md#trouncatingdate)
 - [Alter Time in Date](Date_Manipulation.md#altertimedate)
 - [Alter Multiple Date Components](Date_Manipulation.md#altercomponents)
+- [Getting Related Dates (nextYear,nextWeeekday,startOfMonth etc.)](Date_Manipulation.md#relateddates)
 
 Dates can be manipulated as you need by using classic math operators and readable time units.
 
@@ -160,6 +161,57 @@ Example:
 let _ = date.dateBySet([.month: 1, .day: 1, hour: 9, .minute: 26, .second: 0])
 ```
 
+[^ Top](#index)
+
+<a name="relateddates"/>
+
+### Getting Related Dates (nextYear,nextWeeekday,startOfMonth etc.)
+Sometimes you may need to generate a related date from a specified instance; maybe the next sunday, the first day of the next week or the start datetime of a date.
+SwiftDate includes 20+ different "interesting" dates you can obtain by calling `.dateAt()` function from any `Date` or `DateInRegion` instance.
+
+`func dateAt(_ type: DateRelatedType) -> DateInRegion`
+
+takes just an argument which define the type of date you want to obtain starting from the receiver date.
+`DateRelatedType` is an enum which has the following options:
+
+- `startOfDay`
+- `endOfDay`
+- `startOfWeek`
+- `endOfWeek`
+- `startOfMonth`
+- `endOfMonth`
+- `tomorrow`
+- `tomorrowAtStart`
+- `yesterday`
+- `yesterdayAtStart`
+- `nearestMinute(minute:Int)`
+- `nearestHour(hour:Int)`
+- `nextWeekday(_: WeekDay)`
+- `nextDSTDate`
+- `prevMonth`
+- `nextMonth`
+- `prevWeek`
+- `nextWeek`
+- `nextYear`
+- `prevYear`
+
+> **CONTRIBUTE!** Have you a new related date you want to be part of this list? Create a [new PR](https://github.com/malcommac/SwiftDate/compare) with the code and unit tests and we'll be happy to add it to the list!
+
+Examples:
+
+```swift
+// Return today's datetime at 00:00:00
+let _ = DateInRegion().dateAt(.startOfDay)
+// Return today's datetime at 23:59:59
+let _ = DateInRegion().dateAt(.endOfDay)
+// Return the date at the start of this week
+let _ = DateInRegion().dateAt(.startOfWeek)
+// Return current time tomorrow
+let _ = DateInRegion().dateAt(.tomorrow)
+// Return the next sunday from specified date
+let _ = date.dateAt(.nextWeekday(.sunday))
+// and so on...
+```
 
 [^ Top](#index)
 

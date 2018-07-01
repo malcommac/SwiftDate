@@ -10,6 +10,7 @@
 
 - [Add/Remove Time Units from Date](Date_Manipulation.md#mathdate)
 - [Getting Date & Time Components](Date_Manipulation.md#datecomponents)
+- [Get Interval Between Two Dates](Date_Manipulation.md#interval)
 - [Convert to another region (locale/timezone/calendar)](Date_Manipulation.md#convert)
 - [Rounding a Date](Date_Manipulation.md#roundingdate)
 - [Trouncating a Date](Date_Manipulation.md#trouncatingdate)
@@ -78,9 +79,8 @@ These properties are strictly correlated to the date's calendar (and some also w
 
 This a complete list of the properties you can inspect for a date object:
 
-|                                                                                                             |                                                                                                                                                                                                                               | 
-|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
 | PROPERTY                                                                                                    | DESCRIPTION                                                                                                                                                                                                                   | 
+|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
 | `year`                                                                                                      | current year number                                                                                                                                                                                                           | 
 | `month`                                                                                                     | current month number (1 is January)                                                                                                                                                                                           | 
 | `monthName(_ style: SymbolFormatStyle)`                                                                     | name of the current month with given style (uses region's locale)                                                                                                                                                             | 
@@ -115,6 +115,33 @@ Several other properties defines additional attributes of the date:
 - `region | Region`: return the region associated with date (for `Date` it return `SwiftDate.defaultRegion`).
 - `calendar | Calendar`: return the associated calendar
 - `dateComponents | DateComponents`: return all the date components of the date in the context of its associated region.
+
+[^ Top](#index)
+
+<a name="interval"/>
+
+### Get Interval Between Two Dates
+You can get the interval between two dates and express it in form of time units easily with SwiftDate.
+
+The `.getInterval(toDate:component:)` function allows you to express the difference between to dates in form of a passed time component.
+
+`func getInterval(toDate: DateInRegion?, component: Calendar.Component) -> Int64`
+
+Takes two arguments:
+
+- `toDate | DateInRegion`: reference date to compare against
+- `component | Calendar.Component`: the component in which the difference must be returned.
+
+Examples:
+
+```swift
+let dateA = DateInRegion("2017-07-22 00:00:00", format: format, region: rome)!
+let dateB = DateInRegion("2017-07-23 12:00:00", format: format, region: rome)!
+
+let hours = dateA.getInterval(toDate: dateB, component: .hour) // 36 hours
+let days = dateA.getInterval(toDate: dateB, component: .day) // 2 days
+```
+
 
 [^ Top](#index)
 

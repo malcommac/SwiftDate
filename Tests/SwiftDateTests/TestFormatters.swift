@@ -456,6 +456,20 @@ class TestFormatters: XCTestCase {
 		XCTAssert(value2 == "54:00", "Failed to format clock")
 	}
 
+	func testFormatterCustom() {
+		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let date = DateInRegion(year: 2015, month: 1, day: 15, hour: 20, minute: 00, second: 5, nanosecond: 0, region: rome)
+		let fixedFormat = date.toFormat("MMM dd yyyy", locale: Locales.english)
+		let regionFormat = date.toFormat("MMM dd yyyy")
+		XCTAssert( fixedFormat == "Jan 15 2015", "Failed to format with fixed locale")
+		XCTAssert( regionFormat == "gen 15 2015", "Failed to format with standard locale")
+	}
+
+//	func testTimeInterval_FormatterUnits() {
+//		let values = (36.hours + 2.days + 1.weeks).timeInterval.toUnits([.day, .hour])
+//		XCTAssert(values[.hour] == 12 && values[.day] == 10, "Failed to extract day components")
+//	}
+
 	func testTimeInterval_Formatter() {
 		let value1 = (2.hours + 5.minutes + 32.seconds).timeInterval.toString {
 			$0.unitsStyle = .full

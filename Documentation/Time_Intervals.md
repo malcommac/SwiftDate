@@ -69,7 +69,8 @@ takes two arguments:
 Example:
 
 ```swift
-
+// "[.day: 10, .hour: 12]"
+let _ = (36.hours + 2.days + 1.weeks).timeInterval.toUnits([.day, .hour])
 ```
 
 [^ Top](#index)

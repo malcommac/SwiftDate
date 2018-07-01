@@ -34,7 +34,7 @@ public extension Date {
 	/// their components down to a given unit granularity.
 	///
 	/// - parameter date:        date to compare.
-	/// - parameter granularity: The smallest unit that must, along with all larger units
+	/// - parameter granularity: The smallest unit that must, along with all larger units be less for the given dates
 	/// - returns: `ComparisonResult`
 	func compare(toDate refDate: Date, granularity: Calendar.Component) -> ComparisonResult {
 		return self.inDefaultRegion().compare(toDate: refDate.inDefaultRegion(), granularity: granularity)
@@ -68,7 +68,7 @@ public extension Date {
 	///   - startDate: range upper bound date
 	///   - endDate: range lower bound date
 	///   - orEqual: `true` to also check for equality on date and date2
-	///   - granularity: smallest unit that must, along with all larger units, be greater
+	///   - granularity: smallest unit that must, along with all larger units, be greater for the given dates.
 	/// - Returns: Boolean
 	public func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
 		return self.inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())

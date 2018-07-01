@@ -267,13 +267,13 @@ public extension DateInRegion {
 
 		case .toCeilMins(let minuteInterval):
 			let remain: Int = (self.minute % minuteInterval)
-			let value = ((1.minutes.second! * (minuteInterval - remain)) - self.second)
-			return self.date.dateByAdding(value, .second)
+			let value = (( Int(1.minutes.timeInterval) * (minuteInterval - remain)) - self.second)
+			return self.dateByAdding(value, .second)
 
 		case .toFloorMins(let minuteInterval):
 			let remain: Int = (self.minute % minuteInterval)
-			let value = -((1.minutes.second! * remain) - self.second)
-			return self.date.dateByAdding(value, .second)
+			let value = -((Int(1.minutes.timeInterval) * remain) + self.second)
+			return self.dateByAdding(value, .second)
 
 		}
 	}

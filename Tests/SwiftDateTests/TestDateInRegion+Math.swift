@@ -11,6 +11,26 @@ import XCTest
 
 class TestDateInRegion_Math: XCTestCase {
 
+	func testDateInRegion_Rounding() {
+		let format = "yyyy-MM-dd HH:mm:ss"
+		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+
+		// Round down 10m
+		let d1 = DateInRegion("2017-07-22 00:03:50", format: format, region: rome)
+		let d1_rounded = d1?.dateRoundedAt(.to10Mins)
+		XCTAssert( d1_rounded?.description == "{abs_date=\'2017-07-21T22:00:00Z\', rep_date=\'2017-07-22T00:00:00+02:00\', region={calendar=\'gregorian\', timezone=\'Europe/Rome\', locale=\'it\'}", "Failed to round a date down 10mins")
+
+		// Round up 10min
+		let d2 = DateInRegion("2015-01-24 15:07:20", format: format, region: rome)
+		let d2_roundedup10 = d2?.dateRoundedAt(.to10Mins)
+		XCTAssert( d2_roundedup10?.description == "{abs_date=\'2015-01-24T14:10:00Z\', rep_date=\'2015-01-24T15:10:00+01:00\', region={calendar=\'gregorian\', timezone=\'Europe/Rome\', locale=\'it\'}", "Failed to round a date up 10mins")
+
+		// Round up 30min
+		let d2_roundedc30 = d2?.dateRoundedAt(.toCeil30Mins)
+		XCTAssert( d2_roundedc30?.description == "{abs_date=\'2015-01-24T14:30:00Z\', rep_date=\'2015-01-24T15:30:00+01:00\', region={calendar=\'gregorian\', timezone=\'Europe/Rome\', locale=\'it\'}", "Failed to round a date ceil 30mins")
+
+	}
+
 	func testDateInRegion_MathOperations() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 		let dateFormat = "yyyy-MM-dd HH:mm:ss"

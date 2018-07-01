@@ -34,6 +34,26 @@ public extension Date {
 		})
 	}
 
+	/// Enumerate dates between two intervals by adding specified time components defined by a function and return an array of dates.
+	/// `startDate` interval will be the first item of the resulting array.
+	/// The last item of the array is evaluated automatically and maybe not equal to `endDate`.
+	///
+	/// - Parameters:
+	///   - start: starting date
+	///   - endDate: ending date
+	///   - increment: increment function. It get the last generated date and require a valida `DateComponents` instance which define the increment
+	/// - Returns: array of dates
+	public static func enumerateDates(from startDate: Date, to endDate: Date, increment: ((Date) -> (DateComponents))) -> [Date] {
+		var dates: [Date] = []
+		var currentDate = startDate
+
+		while currentDate <= endDate {
+			dates.append(currentDate)
+			currentDate = (currentDate + increment(currentDate))
+		}
+		return dates
+	}
+
 	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
 	/// `startDate` interval will be the first item of the resulting array.
 	/// The last item of the array is evaluated automatically and maybe not equal to `endDate`.
@@ -44,14 +64,9 @@ public extension Date {
 	///   - increment: components to add
 	/// - Returns: array of dates
 	public static func enumerateDates(from startDate: Date, to endDate: Date, increment: DateComponents) -> [Date] {
-		var dates: [Date] = []
-		var currentDate = startDate
-
-		while currentDate <= endDate {
-			dates.append(currentDate)
-			currentDate = (currentDate + increment)
-		}
-		return dates
+		return Date.enumerateDates(from: startDate, to: endDate, increment: { _ in
+			return increment
+		})
 	}
 
 	/// Round a given date time to the passed style (off|up|down).

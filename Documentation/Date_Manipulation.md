@@ -14,6 +14,7 @@
 - [Alter Time in Date](Date_Manipulation.md#altertimedate)
 - [Alter Multiple Date Components](Date_Manipulation.md#altercomponents)
 - [Getting Related Dates (nextYear,nextWeeekday,startOfMonth etc.)](Date_Manipulation.md#relateddates)
+- [Enumerate Dates](Date_Manipulation#enumeratedates)
 
 Dates can be manipulated as you need by using classic math operators and readable time units.
 
@@ -211,6 +212,36 @@ let _ = DateInRegion().dateAt(.tomorrow)
 // Return the next sunday from specified date
 let _ = date.dateAt(.nextWeekday(.sunday))
 // and so on...
+```
+
+[^ Top](#index)
+
+<a name="enumeratedates"/>
+
+### Enumerate Dates
+Dates enumeration function allows you to generate a list of dates in a closed date intervals incrementing date components by a fixed or variable interval at each new date.
+
+- **VARIABLE INCREMENT** `static func enumerateDates(from startDate: DateInRegion, to endDate: DateInRegion, increment: ((DateInRegion) -> (DateComponents))) -> [DateInRegion]`
+- **FIXED INCREMENT** `static func enumerateDates(from startDate: DateInRegion, to endDate: DateInRegion, increment: DateComponents) -> [DateInRegion]`
+
+Both of these functions are pretty similar; it takes:
+
+- `startDate | DateInRegion`: the initial date of the enumeration (it will be item #0 of the final array)
+- `endDate | DateInRegion`: the upper bound limit date. The last item of the array is evaluated automatically and maybe not equal to `endDate`.
+- `increment | DateComponents or Function`: for fixed increment it takes a `DateComponents` instance which define the increment of time components at each new date; for variable it provides the latest date generated and require as return object of the closure the increment as `DateComponents`.
+
+
+Examples:
+
+```swift
+let increment = DateComponents.create {
+	$0.hour = 1
+	$0.minute = 30
+}
+// Generate an array of dates where the first item is fromDate
+// and each new date is incremented by 1h30m from the previous.
+// Latest date is < endDate (but maybe not the same).
+let dates = DateInRegion.enumerateDates(from: fromDate, to: toDate, increment: increment)
 ```
 
 [^ Top](#index)

@@ -116,6 +116,21 @@ public extension DateInRegion {
 	///   - increment: components to add
 	/// - Returns: array of dates
 	public static func enumerateDates(from startDate: DateInRegion, to endDate: DateInRegion, increment: DateComponents) -> [DateInRegion] {
+		return DateInRegion.enumerateDates(from: startDate, to: endDate, increment: { _ in
+			return increment
+		})
+	}
+
+	/// Enumerate dates between two intervals by adding specified time components defined in a closure and return an array of dates.
+	/// `startDate` interval will be the first item of the resulting array.
+	/// The last item of the array is evaluated automatically and maybe not equal to `endDate`.
+	///
+	/// - Parameters:
+	///   - start: starting date
+	///   - endDate: ending date
+	///   - increment: increment function. It get the last generated date and require a valida `DateComponents` instance which define the increment
+	/// - Returns: array of dates
+	public static func enumerateDates(from startDate: DateInRegion, to endDate: DateInRegion, increment: ((DateInRegion) -> (DateComponents))) -> [DateInRegion] {
 		guard startDate.calendar == endDate.calendar else {
 			debugPrint("Cannot enumerate dates between two different region's calendars. Return empty array.")
 			return []
@@ -125,7 +140,7 @@ public extension DateInRegion {
 		var currentDate = startDate
 		while currentDate <= endDate {
 			dates.append(currentDate)
-			currentDate = (currentDate + increment)
+			currentDate = (currentDate + increment(currentDate))
 		}
 		return dates
 	}

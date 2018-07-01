@@ -75,8 +75,8 @@ public class lang_it: RelativeFormatterLang {
 				"current": "oggi",
 				"next": "domani",
 				"past": [
-					"one": "{0} g fa",
-					"other": "{0} gg fa"
+					"one": "{0}g fa",
+					"other": "{0}gg fa"
 				],
 				"future": [
 					"one": "tra {0} g",
@@ -85,8 +85,8 @@ public class lang_it: RelativeFormatterLang {
 			],
 			"hour": [
 				"current": "quest’ora",
-				"past": "{0} h fa",
-				"future": "tra {0} h"
+				"past": "{0}h fa",
+				"future": "tra {0}h"
 			],
 			"minute": [
 				"current": "questo minuto",
@@ -96,11 +96,11 @@ public class lang_it: RelativeFormatterLang {
 			"second": [
 				"current": "ora",
 				"past": [
-					"one": "{0} s fa",
+					"one": "{0}s fa",
 					"other": "{0} sec. fa"
 				],
 				"future": [
-					"one": "tra {0} s",
+					"one": "tra {0}s",
 					"other": "tra {0} sec."
 				]
 			],
@@ -155,17 +155,17 @@ public class lang_it: RelativeFormatterLang {
 				"current": "oggi",
 				"next": "domani",
 				"past": [
-					"one": "{0} g fa",
+					"one": "{0}g fa",
 					"other": "{0} gg fa"
 				],
 				"future": [
-					"one": "tra {0} g",
+					"one": "tra {0}g",
 					"other": "tra {0} gg"
 				]
 			],
 			"hour": [
 				"current": "quest’ora",
-				"past": "{0} h fa",
+				"past": "{0}h fa",
 				"future": "tra {0} h"
 			],
 			"minute": [
@@ -175,7 +175,7 @@ public class lang_it: RelativeFormatterLang {
 			],
 			"second": [
 				"current": "ora",
-				"past": "{0} s fa",
+				"past": "{0}s fa",
 				"future": "tra {0} s"
 			],
 			"now": "ora"

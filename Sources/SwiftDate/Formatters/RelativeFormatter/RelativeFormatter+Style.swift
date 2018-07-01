@@ -257,6 +257,8 @@ public extension RelativeFormatter {
 		/// Twitter gradation rules
 		public static func twitter() -> Gradation {
 			return Gradation([
+				Rule(.now, threshold: .value(0)),
+				Rule(.second, threshold: .value(1), prev: [.now: 1]),
 				Rule(.minute, threshold: .value(45)),
 				Rule(.hour, threshold: .value(59.5 * 60.0)),
 				Rule(.hour, threshold: .value((1.days.timeInterval - 0.5 * 1.hours.timeInterval))),

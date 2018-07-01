@@ -482,4 +482,20 @@ class TestFormatters: XCTestCase {
 		XCTAssert(value1 == "2 hours, 5 minutes, 32 seconds", "Failed to format interval to string")
 		XCTAssert(value2 == "2d 5h", "Failed to format interval to string")
 	}
+
+	func testColloquialFormatter() {
+		let ago5Mins = DateInRegion() - 5.minutes
+		let r1 = ago5Mins.toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian)
+		let r2 = ago5Mins.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+
+		let justNow = DateInRegion() - 10.seconds
+		let r3 = justNow.toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian)
+		let r4 = justNow.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+
+		let justNow2 = DateInRegion() - 2.hours
+		let r5 = justNow2.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+
+		print("")
+
+	}
 }

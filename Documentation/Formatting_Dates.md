@@ -9,8 +9,12 @@
 ## Date Formatting (to String)
 Formatting dates is really easy with SwiftDate. All the major formats are supported and are really easy to configure.
 
-- [To Custom Formatted String](Compare_Dates#customformatted)
-- [To ISO Formatted String](Compare_Dates#isoformatted)
+- [To Custom Formatted String](Compare_Dates.md#customformatted)
+- [To ISO Formatted String](Compare_Dates.md#isoformatted)
+- [To .NET Formatted String](Compare_Dates.md#dotnet)
+- [To RSS/AltRSS Formatted String](Compare_Dates.md#rss)
+- [To SQL Formatted String](Compare_Dates.md#sql)
+- [To Relative/Colloquial Formatted String](Compare_Dates.md#colloquial)
 
 <a name="customformatted"/>
 
@@ -77,8 +81,94 @@ let _ = date.toISO() // "2017-07-22T00:00:00+02:00"
 let _ = date.toISO([.withFullDate]) // "2017-07-22"
 let _ = date.toISO([.withFullDate, .withFullTime, .withDashSeparatorInDate, .withSpaceBetweenDateAndTime]) // "2017-07-22 00:00:00+02:00"
 ```
+[^ Top](#index)
 
+<a name="dotnet"/>
 
+### To .NET Formatted String
+CSOM DateTime (aka .NET DateTime) is a format defined by Microsoft as the number of 100-nanosecond intervals that have elapsed since 12:00 A.M., January 1, 0001 ([learn more on MSDN documentation page](https://msdn.microsoft.com/en-us/library/dd948679)).
+
+Use the `.toDotNET()` function to create a string from a date instance.
+
+`func toDotNET() -> String`
+
+```swift
+let date = "2017-06-20T14:49:19+02:00".toISODate()!
+let dotNetString = date.toDotNET() // "/Date(1497962959000+0200)/"
+```
+
+[^ Top](#index)
+
+<a name="rss"/>
+
+### To RSS/AltRSS Formatted String
+RSS and AltRSS formatted string can be generated from an instance of `Date` or `DateInRegion` using the `.toRSS()` function.
+
+`func toRSS(alt: Bool) -> String`
+
+takes only one argument:
+
+- `alt | Bool`: true to print the AltRSS variant, false to print the default RSS formatted string.
+
+Examples:
+
+```swift
+let date = ... // 2017-06-20T14:49:19+02:00
+let rssString = date.toRSS(false) // "Tue, 20 Jun 2017 14:49:19 +0200"
+let altRSSString = date.toRSS(true) // "20 Jun 2017 14:49:19 +0200"
+```
+
+[^ Top](#index)
+
+<a name="sql"/>
+
+### To SQL Formatted String
+To print SQL formatted string from a date instance you need to use the `.toSQL()` function.
+
+`func toSQL() -> String`
+
+Examples:
+
+```swift
+let date = ... // 2015-11-19T22:20:40+01:00
+let sqlString = date.toSQL() // "2015-11-19T22:20:40.000+01"
+```
+
+[^ Top](#index)
+
+<a name="colloquial"/>
+
+### To Relative/Colloquial Formatted String
+Colloquial format allows you to produce human friendly string as result of the difference between a date and a a reference date (typically now).
+Examples of colloquial formatted strings are `3 mins ago`, `2 days ago` or `just now`.
+
+SwiftDate supports over 140+ languages to produce colloquial formatted strings; the entire engine behind the library is fully customizable so, if you need, you can override default strings and produce your own variants.
+
+To print a colloquial variant of a string just call `.toRelative()` function from a `Date` or `DateInRegion` instance.
+
+`func toRelative(since: DateInRegion?, style: RelativeFormatter.Style?, locale: LocaleConvertible?) -> String`
+
+It takes three arguments:
+
+- `since | DateInRegion?`: reference date, if you omit it current date is set as reference date.
+- `style | RelativeFormatter.Style?`: the style used to print the formatted value. There are 3 styles: `RelativeFormatter.defaultStyle()`, `RelativeFormatter.timeStyle()` and `RelativeFormstter.twitterStyle()`.
+- `locale | LocaleConvertible?`: pass non nil value to override the receiver region's `locale` and print the representation using passed locale.
+
+Examples:
+
+```swift
+let ago5Mins = DateInRegion() - 5.minutes
+let _ = ago5Mins.toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian) // "5 minuti fa"
+
+let justNow2 = DateInRegion() - 2.hours
+let _ = justNow2.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian) // "2h fa"
+
+let justNow = DateInRegion() - 10.seconds
+let _ = justNow.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian) // "ora"
+```
+
+You can fully customize the language and results.
+See the guide ["Customize Colloquial Formatter"](Customize_ColloquialFormatter.md).
 
 [^ Top](#index)
 

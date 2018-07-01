@@ -276,16 +276,16 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( (date1 <= date3), "Failed to math compare two dates")
 	}
 
-	func testDateInRegion_CompareWithGranularity() {
-		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
-		let format = "yyyy-MM-dd HH:mm:ss"
-		let date1 = DateInRegion("2018-01-01 00:10:00", format: format, region: rome)!
-		let date2 = DateInRegion("2017-01-05 21:30:00", format: format, region: rome)!
-
-		let res1 = date1.compare(toDate: date2, granularity: .year)
-		let res2 = date1.compare(toDate: date2, granularity: .day)
-		let res3 = date1.compare(toDate: date2, granularity: .weekOfMonth)
-		print("")
-	}
+//	func testDateInRegion_CompareWithGranularity() {
+//		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+//		let format = "yyyy-MM-dd HH:mm:ss"
+//		let date1 = DateInRegion("2018-01-01 00:10:00", format: format, region: rome)!
+//		let date2 = DateInRegion("2017-01-05 21:30:00", format: format, region: rome)!
+//
+//		let res1 = date1.compare(toDate: date2, granularity: .year)
+//		let res2 = date1.compare(toDate: date2, granularity: .day)
+//		let res3 = date1.compare(toDate: date2, granularity: .weekOfMonth)
+//		print("")
+//	}
 
 }

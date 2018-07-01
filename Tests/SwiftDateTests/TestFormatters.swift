@@ -444,8 +444,28 @@ class TestFormatters: XCTestCase {
 		let regionAny = Region(calendar: Calendars.buddhist, zone: Zones.indianMayotte, locale: Locales.italian)
 		// region must not use passed locale to perform parsing but only locale as final output
 		let date1 = "Tue, 20 Jun 2017 14:49:19 +0200".toRSSDate(alt: false, region: regionAny)
-		let date2 = "20 Jun 2017 14:49:19 +0200".toRSSDate(alt: false, region: regionAny)
+		let date2 = "20 Jun 2017 14:49:19 +0200".toRSSDate(alt: true, region: regionAny)
 		XCTAssertNotNil(date1, "Wrong RSS Date region")
-		XCTAssertNotNil(date2, "Wrong RSS Date region")
+		XCTAssertNotNil(date2, "Wrong RSS Alt Date region")
+	}
+
+	func testTimeInterval_Clock() {
+		let value = (2.hours + 5.minutes).timeInterval.toClock()
+		XCTAssert(value == "2:05:00", "Failed to format clock")
+		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: DateComponentsFormatter.ZeroFormattingBehavior.dropAll)
+		XCTAssert(value2 == "54:00", "Failed to format clock")
+	}
+
+	func testTimeInterval_Formatter() {
+		let value1 = (2.hours + 5.minutes + 32.seconds).timeInterval.toString {
+			$0.unitsStyle = .full
+			$0.collapsesLargestUnit = false
+			$0.allowsFractionalUnits = true
+		}
+		let value2 = (5.hours + 2.days).timeInterval.toString {
+			$0.unitsStyle = .abbreviated
+		}
+		XCTAssert(value1 == "2 hours, 5 minutes, 32 seconds", "Failed to format interval to string")
+		XCTAssert(value2 == "2d 5h", "Failed to format interval to string")
 	}
 }

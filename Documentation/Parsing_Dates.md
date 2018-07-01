@@ -8,6 +8,8 @@
 - [ISO8601 Parsing](Parsing_Dates.md#iso8601)
 - [.NET Parsing](Parsing_Dates.md#dotnet)
 - [RSS & AltRSS Parsing](Parsing_Dates.md#rssaltrss)
+- [SQL Parsing](Parsing_Dates.md#sql)
+- [Unicode Format for strings](UnicodeTable.md)
 
 Parsing dates is pretty straighforward in SwiftDate; library can parse strings with dates automatically by recognizing one of the most common patterns. Moreover you can provide your own formats or use one of the built-in parsers.
 In the following chapter you will learn how to transform a string to a date.
@@ -71,7 +73,7 @@ The following function:
 takes 2 arguments:
 
 - `options | ISOParserOptions` allows you to customize some parser attributes: `timeSeparator` (by default is `:`), `calendar` (by default is the gregorian calendar) and the strict parsing behaviour (by default is `false`). Usually you can omit this parameter.
-- `region | Region` used to define the region of the date. By default is set to `Region.ISO` (gregorian/gmt/english posix). If parsed string also contains `timezone` it will override the parameter passed by the region.
+- `region | Region` used to define the region of the date. By default is set to `Region.ISO` (gregorian/gmt/english posix). If parsed string also contains `timezone` it will override the parameter passed by the region. You can use `convertTo(region:)` to perform any additional conversion.
 
 Examples:
 
@@ -93,7 +95,7 @@ You can parse a CSOM datetime string using the `toDotNETDate()` function.
 
 takes a single parameter:
 
-- `region | Region`: the region in which the date is represented (only `locale` parameter is used). If you omit this parameter the `SwiftDate.ISO` is used instead.
+- `region | Region`: the region in which the date is represented (only `locale` parameter is used). If you omit this parameter the `SwiftDate.ISO` is used instead. You can use `convertTo(region:)` to perform any additional conversion.
 
 Example:
 
@@ -108,10 +110,44 @@ RSS & AltRSS datetime format are used in RSS feed files. Parsing in SwiftDate is
 
 > **NOTE:** As for ISO8601 even RSS/AltRSS datetime contain information about timezone. When you set the region as input parameter of the conversion function remember: it will be overriden by default parsed timezone (GMT if not specified). Region is used for `locale` only.
 
+`func toRSSDate(alt: Bool, region: Region = Region.ISO) -> DateInRegion?`
+
+takes two arguments:
+
+- `alt: Bool`: set to `false` if represented string is RSS standard format, `true` to use the Alt-RSS parser.
+- `region: Region`: region in which the date is expressed. Only the `locale` parameter is used, `timezone` is read from string and calendar is gregorian. If you omit this parameter the `SwiftDate.ISO` is used instead. You can use `convertTo(region:)` to perform any additional conversion.
+
 ```swift
 // This is the ISO8601: 2017-07-22T18:27:02+02:00
 let _ = "Sat, 22 Jul 2017 18:27:02 +0200".toRSSDate(false)
 let _ = "22 Jul 2017 18:27:02 +0200".toRSSDate(true)
+
+// NOTE:
+// Even if we set a random region with a custom locale,
+// calendar and timezone, final parsed date still correct.
+// Only the locale parameter is set.
+// Other region's parameter are ignored and read from the string itself.
+let regionAny = Region(calendar: Calendars.buddhist, zone: Zones.indianMayotte, locale: Locales.italian)
+let date1 = "Tue, 20 Jun 2017 14:49:19 +0200".toRSSDate(alt: false, region: regionAny)
 ```			
-				
+		
+<a name="sql"/>
+
+### SQL Parsing
+SQL datetime is the format used in all SQL-compatible schemas.
+You can parse a string in this format using `toSQLDate()` function.
+
+`func toSQLDate(region: Region = Region.ISO) -> DateInRegion?`
+
+takes one argument:
+
+- `region: Region`: region in which the date is expressed. Only the `locale` parameter is used, `timezone` is read from string and calendar is gregorian. If you omit this parameter the `SwiftDate.ISO` is used instead. You can use `convertTo(region:)` to perform any additional conversion.
+
+Example:
+
+```swift
+// Date in ISO is 2016-04-14T11:58:58+02:00
+let _ = "2016-04-14T11:58:58.000+02".toSQLDate()
+```
+		
 [^ Top](#index)

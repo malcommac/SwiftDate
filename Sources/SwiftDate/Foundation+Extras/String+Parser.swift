@@ -110,7 +110,7 @@ extension String: DateParsable {
 		}
 	}
 
-	public func toSQLDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+	public func toSQLDate(region: Region = Region.ISO) -> DateInRegion? {
 		return StringToDateStyles.sql.toDate(self, region: region)
 	}
 

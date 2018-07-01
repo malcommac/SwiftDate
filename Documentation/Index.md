@@ -26,3 +26,5 @@ The following documentation explore all the major features of the library. If yo
 	- [ISO8601 Parsing](Parsing_Dates.md#iso8601)
 	- [.NET Parsing](Parsing_Dates.md#dotnet)
 	- [RSS & AltRSS Parsing](Parsing_Dates.md#rssaltrss)
+	- [SQL Parsing](Parsing_Dates.md#sql)
+	- [Unicode Format for strings](UnicodeTable.md)

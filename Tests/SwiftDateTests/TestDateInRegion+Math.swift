@@ -11,6 +11,20 @@ import XCTest
 
 class TestDateInRegion_Math: XCTestCase {
 
+	func testDateInRegion_DateTruncated() {
+		let format = "yyyy-MM-dd HH:mm:ss"
+		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+
+		let d1 = DateInRegion("2017-07-22 15:03:50", format: format, region: rome)!
+		let d1_truncatedAt = d1.dateTruncated(at: [.month, .day, .minute])
+		let d1_truncatedFrom = d1.dateTruncated(from: .hour)
+
+		XCTAssert( d1_truncatedAt?.description == "{abs_date=\'2017-01-01T14:00:50Z\', rep_date=\'2017-01-01T15:00:50+01:00\', region={calendar=\'gregorian\', timezone=\'Europe/Rome\', locale=\'it\'}", "Failed to truncate date at components")
+
+		XCTAssert( d1_truncatedFrom?.description == "{abs_date=\'2017-07-21T22:00:00Z\', rep_date=\'2017-07-22T00:00:00+02:00\', region={calendar=\'gregorian\', timezone=\'Europe/Rome\', locale=\'it\'}", "Failed to truncate date from hour component")
+
+	}
+
 	func testDateInRegion_Rounding() {
 		let format = "yyyy-MM-dd HH:mm:ss"
 		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)

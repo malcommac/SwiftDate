@@ -193,12 +193,16 @@ public extension DateInRegion {
 	///   - hour: hour to set (`nil` to leave it unaltered)
 	///   - min: min to set (`nil` to leave it unaltered)
 	///   - secs: sec to set (`nil` to leave it unaltered)
+	///   - options: options for calculation
 	/// - Returns: new altered `DateInRegion` instance
-	public func dateBySet(hour: Int?, min: Int?, secs: Int?) -> DateInRegion? {
+	public func dateBySet(hour: Int?, min: Int?, secs: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> DateInRegion? {
 		guard let date = self.calendar.date(bySettingHour: (hour ?? self.hour),
 											minute: (min ?? self.minute),
 											second: (secs ?? self.second),
-											of: self.date) else { return nil }
+											of: self.date,
+											matchingPolicy: options.matchingPolicy,
+											repeatedTimePolicy: options.repeatedTimePolicy,
+											direction: options.direction) else { return nil }
 		return DateInRegion(date, region: self.region)
 	}
 

@@ -93,9 +93,11 @@ public extension Date {
 	///   - hour: hour to set (`nil` to leave it unaltered)
 	///   - min: min to set (`nil` to leave it unaltered)
 	///   - secs: sec to set (`nil` to leave it unaltered)
+	///   - options: options for calculation
 	/// - Returns: new altered `DateInRegion` instance
-	public func dateBySet(hour: Int?, min: Int?, secs: Int?) -> Date? {
-		return DateInRegion(self, region: SwiftDate.defaultRegion).dateBySet([.hour: hour, .minute: min, .second: secs])?.date
+	public func dateBySet(hour: Int?, min: Int?, secs: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> Date? {
+		let srcDate = DateInRegion(self, region: SwiftDate.defaultRegion)
+		return srcDate.dateBySet(hour: hour, min: min, secs: secs, options: options)?.date
 	}
 
 	/// Creates a new instance by truncating the components

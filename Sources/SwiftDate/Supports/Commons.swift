@@ -295,6 +295,26 @@ public enum DateRelatedType {
 	case prevYear
 }
 
+public struct TimeCalculationOptions {
+
+	/// Specifies the technique the search algorithm uses to find result
+	public var matchingPolicy: Calendar.MatchingPolicy
+
+	/// Specifies the behavior when multiple matches are found
+	public var repeatedTimePolicy: Calendar.RepeatedTimePolicy
+
+	/// Specifies the direction in time to search
+	public var direction: Calendar.SearchDirection
+
+	public init(matching: Calendar.MatchingPolicy = .nextTime,
+				timePolicy: Calendar.RepeatedTimePolicy = .first,
+				direction: Calendar.SearchDirection = .forward) {
+		self.matchingPolicy = matching
+		self.repeatedTimePolicy = timePolicy
+		self.direction = direction
+	}
+}
+
 // MARK: - Hash Generation
 
 // Note: we can remove it for Swift 4.2

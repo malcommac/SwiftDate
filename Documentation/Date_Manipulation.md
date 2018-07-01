@@ -10,6 +10,9 @@
 
 - [Add/Remove Time Units from Date](Date_Manipulation.md#mathdate)
 - [Rounding a Date](Date_Manipulation.md#roundingdate)
+- [Trouncating a Date](Date_Manipulation.md#trouncatingdate)
+- [Alter Time in Date](Date_Manipulation.md#altertimedate)
+- [Alter Time Component in Date](Date_Manipulation.md#altertimecomponent)
 
 Dates can be manipulated as you need by using classic math operators and readable time units.
 
@@ -82,6 +85,64 @@ let r10min = date.dateRoundedAt(.to10Mins) // 2017-07-22T00:00:00+02:00
 // Round up 30min
 let r30min = "2015-01-24 15:07:20".toDate(format: format, region: rome).dateRoundedAt(.toCeil30Mins) // 2015-01-24T15:30:00+01:00
 ```
+
+[^ Top](#index)
+
+<a name="trouncatingdate"/>
+
+### Trouncating a Date
+Sometimes you may need to truncate a date by zeroing all values below certain time unit. `.dateTruncated(from:) and .dateTruncated(to:)` functions can be used for this scope.
+
+#### Truncating From
+It creates a new instance by truncating the components starting from given components down the granurality.
+
+`func dateTruncated(from component: Calendar.Component) -> DateInRegion?`
+
+#### Truncated At
+It creates a new instance by truncating all passed components.
+
+`func dateTruncated(at components: [Calendar.Component]) -> DateInRegion?`
+
+Examples:
+
+```swift
+let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+let date = "2017-07-22 15:03:50".toDate(format: "yyyy-MM-dd HH:mm:ss", region: rome)
+
+let truncatedTime = date.dateTruncated(from: .hour) // 2017-07-22T00:00:00+02:00
+let truncatedCmps = date.dateTruncated(at: [.month, .day, .minute]) // 2017-01-01T15:00:50+01:00
+```
+
+[^ Top](#index)
+
+<a name="altertimedate"/>
+
+### Alter Time in Date
+Sometimes you may need to alter time in a specified date. SwiftDate allows you to perform this using `.dateBySet(hour:min:secs:options:)` function.
+
+`func dateBySet(hour: Int?, min: Int?, secs: Int?, options: TimeAlterOptions = TimeAlterOptions()) -> DateInRegion?`
+
+takes five arguments:
+
+- `hour | Int?`: set a non `nil` value to change the hour value
+- `min | Int?`: set a non `nil` value to change the minute value
+- `secs | Int?`: set a non `nil` value to change the seconds value
+- `options: TimeCalculationOptions`: allows to specify calculation options attributes (usually you don't need to set it).
+
+Example:
+
+```swift
+let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+let date = DateInRegion("2010-01-01 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: rome)!
+
+let alteredDate = date.dateBySet(hour: 20, min: 13, secs: 15) // 2010-01-01 20:13:15
+```
+
+[^ Top](#index)
+
+<a name="altertimecomponent"/>
+
+### Alter Time Component in Date
 
 [^ Top](#index)
 

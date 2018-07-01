@@ -14,8 +14,10 @@
 - [Alter Time in Date](Date_Manipulation.md#altertimedate)
 - [Alter Multiple Date Components](Date_Manipulation.md#altercomponents)
 - [Getting Related Dates (nextYear,nextWeeekday,startOfMonth etc.)](Date_Manipulation.md#relateddates)
+- [Getting Date at Start/End of Time Component](Date_Manipulation.md#startendcomponent)
 - [Enumerate Dates](Date_Manipulation.md#enumeratedates)
 - [Generate Random Dates](Date_Manipulation.md#randomdates)
+- [Sort Dates by Newest/Oldest](Date_Manipulation.md#sort)
 
 Dates can be manipulated as you need by using classic math operators and readable time units.
 
@@ -217,7 +219,30 @@ let _ = date.dateAt(.nextWeekday(.sunday))
 
 [^ Top](#index)
 
+<a name="startendcomponent"/>
+
+### Getting Date at Start/End of Time Component
+Two functions called `.dateAtStartOf()` and `.dateAtEndOf()` allows you to get the related date from a `Date`/`DateInRegion` instance moved at the start or end of the specified component.
+
+You can, for example, get the date at the start of the week, or the year, or a the end of the quarter.
+
+- `func dateAtStartOf(_ unit: Calendar.Component) -> DateInRegion`: return the date at the start of the specified time component.
+- `func dateAtEndOf(_ unit: Calendar.Component) -> DateInRegion`: return the date at the end of the specified time component.
+
+Examples:
+
+```swift
+// Return today's date at 23:59:59
+let _ = DateInRegion().dateAtEndOf(.day)
+// Return the first day's date of the month described in date1
+let _ = date1.dateAtStartOf(.month)
+// Return the first day of this year at 00:00:00
+let _ = DateInRegion().dateAtStartOf(.year)
+```
+
 <a name="enumeratedates"/>
+
+[^ Top](#index)
 
 ### Enumerate Dates
 Dates enumeration function allows you to generate a list of dates in a closed date intervals incrementing date components by a fixed or variable interval at each new date.
@@ -276,6 +301,31 @@ let randomDates = DateInRegion.randomDates(count: 40, between: someYearsAgo, and
 // Generate a random date between now and 7 days ago
 let rome: Region = ...
 let aDate = DateInRegion.randomDate(withinDaysBeforeToday: 7, region: rome) 
+```
+
+[^ Top](#index)
+
+<a name="sort"/>
+
+### Sort Dates by Newest/Oldest
+Two conveniences function allows you to sort an array of dates by newest or oldest. Naming is pretty simple:
+
+- `sortedByOldest()`: sort dates by the oldest
+- `sortedByNewest()`: sort dates by the newest
+
+Two other functions allows you to get the oldest/newest date in array:
+
+- `oldestIn()`: return the oldest date in array
+- `newestIn()`: return the newest date in array
+
+Examples:
+
+```swift
+let arrayOfDates: [DateInRegion] = [...]
+// ordered array with the newest on top
+let orderedByNewest = DateInRegion.sortedByNewest(list: datesArray)
+// get the oldest date of the list
+let oldestDate = DateInRegion.oldestIn(list: arrayOfDates)
 ```
 
 [^ Top](#index)

@@ -14,6 +14,20 @@ class TestDateInRegion: XCTestCase {
 	let testDate = Date()
 	let testRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 
+	func testDateInRegion_ParseWithLocale() {
+		let itRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let dateIt = "15 Settembre 2001".toDate("dd MMM yyyy", region: itRegion)
+		XCTAssertNotNil(dateIt, "Failed to parse with forced locale it")
+
+		let dateEnStr = "10 July 2005"
+		let dateEnFail = dateEnStr.toDate("dd MMM yyyy", region: itRegion)
+		XCTAssertNil(dateEnFail, "This date should be not represented")
+
+		let enRegion = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.english)
+		let dateEnSuccess = dateEnStr.toDate("dd MMM yyyy", region: enRegion)
+		XCTAssertNotNil(dateEnSuccess, "Failed to parse with forced locale en")
+	}
+
 	func testDateInRegion_InitWithDateAndRegion() {
 		SwiftDate.defaultRegion = testRegion
 

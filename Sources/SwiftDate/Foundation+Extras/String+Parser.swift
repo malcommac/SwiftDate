@@ -17,10 +17,28 @@ public protocol DateParsable {
 	/// should consider explicitly pass it to avoid unecessary computations).
 	///
 	/// - Parameters:
-	///   - format: format of the date, `nil` to leave the library to found the best one.
+	///   - format: format of the date, `nil` to leave the library to found the best
+	///				one via `SwiftDate.autoFormats`
 	///   - region: region in which the date should be expressed in.
+	///				Region's locale is used to format the date when using long readable unit names (like MMM
+	///				for month).
 	/// - Returns: date in region representation, `nil` if parse fails
 	func toDate(_ format: String?, region: Region) -> DateInRegion?
+
+	/// Convert a string to a `DateInRegion` instance by parsing it with the ordered
+	/// list of provided formats.
+	/// If `formats` array is not provided it uses the `SwiftDate.autoFormats` array instead.
+	/// Note: if you knwo the format of the date you should consider explicitly pass it to avoid
+	///       unecessary computations.
+	///
+	/// - Parameters:
+	///   - format: orderd formats of the date, `nil` to leave the library to found the best
+	///				one via `SwiftDate.autoFormats`
+	///   - region: region in which the date should be expressed in.
+	///				Region's locale is used to format the date when using long readable unit names (like MMM
+	///				for month).
+	/// - Returns: date in region representation, `nil` if parse fails
+	func toDate(_ formats: [String]?, region: Region) -> DateInRegion?
 
 	/// Convert a string to a valid `DateInRegion` using passed style.
 	///
@@ -67,6 +85,10 @@ extension String: DateParsable {
 
 	public func toDate(_ format: String? = nil, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
 		return DateInRegion(self, format: format, region: region)
+	}
+
+	public func toDate(_ formats: [String]?, region: Region) -> DateInRegion? {
+		return DateInRegion(self, formats: formats, region: region)
 	}
 
 	public func toDate(style: StringToDateStyles, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {

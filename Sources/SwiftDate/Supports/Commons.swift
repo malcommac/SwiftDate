@@ -133,13 +133,18 @@ public struct DateFormats {
 	///   - suggestedFormat: optional format of the date expressed by the string (set it if you can in order to optimize the parse task).
 	///   - region: region in which the date is expressed.
 	/// - Returns: parsed absolute `Date`, `nil` if parse fails.
-	public static func parse(string: String, suggestedFormat: String?, region: Region) -> Date? {
+	public static func parse(string: String, format: String?, region: Region) -> Date? {
+		let formats = (format != nil ? [format!] : DateFormats.autoFormats)
+		return DateFormats.parse(string: string, formats: formats, region: region)
+	}
+
+	public static func parse(string: String, formats: [String], region: Region) -> Date? {
 		let formatter = DateFormatter.sharedFormatter(forRegion: region)
-		let formats = (suggestedFormat != nil ? [suggestedFormat!] : DateFormats.autoFormats)
 
 		var parsedDate: Date? = nil
 		for format in formats {
 			formatter.dateFormat = format
+			formatter.locale = region.locale
 			if let date = formatter.date(from: string) {
 				parsedDate = date
 				break

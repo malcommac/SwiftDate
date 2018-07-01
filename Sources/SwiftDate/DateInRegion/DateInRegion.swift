@@ -59,7 +59,28 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 	///   - format: format of the date.
 	///   - region: region in which the date is expressed.
 	public init?(_ string: String, format: String? = nil, region: Region = SwiftDate.defaultRegion) {
-		guard let date = DateFormats.parse(string: string, suggestedFormat: format, region: region) else {
+		guard let date = DateFormats.parse(string: string,
+										   format: format,
+										   region: region) else {
+			return nil // failed to parse date
+		}
+		self.date = date
+		self.region = region
+	}
+
+	/// Initialize a new `DateInRegion` by parsing given string with the ordered list of passed formats.
+	/// If you know the format of the string you should pass it in order to speed up the parsing process.
+	/// If you don't know the format leave it `nil` and parse is done between all formats in `DateFormats.builtInAutoFormats`
+	/// and the ordered list you can provide in `SwiftDate.autoParseFormats` (with attempt priority set on your list).
+	///
+	/// - Parameters:
+	///   - string: string with the date.
+	///   - formats: ordered list of formats to use.
+	///   - region: region in which the date is expressed.
+	public init?(_ string: String, formats: [String]? = nil, region: Region = SwiftDate.defaultRegion) {
+		guard let date = DateFormats.parse(string: string,
+										   formats: (formats ?? SwiftDate.autoFormats),
+										   region: region) else {
 			return nil // failed to parse date
 		}
 		self.date = date

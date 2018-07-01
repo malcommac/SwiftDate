@@ -2,6 +2,9 @@
 
 <a name="index"/>
 
+- [**Prev Chapter**: Table Of Contents](#Index.md)
+- [**Next Chapter**: Date Manipulation](#Date_Manipulation.md)
+
 ## Parsing Dates from Strings
 
 - [Auto Parsing & Custom Formats](Parsing_Dates.md#autoparsing)
@@ -161,3 +164,5 @@ let _ = "2016-04-14T11:58:58.000+02".toSQLDate()
 ```
 		
 [^ Top](#index)
+
+[**Next Chapter**: Date Manipulation](#Date_Manipulation.md)

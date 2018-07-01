@@ -58,6 +58,8 @@ let _ = srcString.toDate(["yyyy-MM-dd","MMM dd '-' HH:mm"], region: enRegion)
 
 > **LOCALE PARAMETER** If you use readable unit names (like `MMM` for months) be sure to select the right locale inside the `region` parameter in order to get valid results.
 
+[^ Top](#index)
+
 <a name="iso8601"/>
 
 ### ISO8601 Parsing
@@ -82,6 +84,9 @@ let date = "2017-08-05T16:04:03+02:00".toISODate(region: Region.ISO)!
 // returned date's region.zone is GMT+2 not the default's Region.ISO's GMT0.
 // This because value is read from the string itself.
 ```
+
+[^ Top](#index)
+
 <a name="dotnet"/>
 
 ### .NET Parsing
@@ -103,6 +108,9 @@ Example:
 // This is the 2017-07-22T18:27:02+02:00 date.
 let _ = "/Date(1500740822000+0200)/".toDotNETDate()
 ```
+
+[^ Top](#index)
+
 <a name="rssaltrss"/>
 
 ### RSS & AltRSS Parsing
@@ -130,7 +138,9 @@ let _ = "22 Jul 2017 18:27:02 +0200".toRSSDate(true)
 let regionAny = Region(calendar: Calendars.buddhist, zone: Zones.indianMayotte, locale: Locales.italian)
 let date1 = "Tue, 20 Jun 2017 14:49:19 +0200".toRSSDate(alt: false, region: regionAny)
 ```			
-		
+
+[^ Top](#index)
+
 <a name="sql"/>
 
 ### SQL Parsing

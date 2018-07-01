@@ -76,8 +76,9 @@ public class ISOParser: StringToDateTransformable {
 		/// Strict parsing. By default is `false`.
 		var strict: Bool = false
 
-		/// Calendar used to generate the date. By default is the current system calendar
-		var calendar = Calendar.current
+		/// Calendar used to generate the date.
+		/// By default is the gregorian calendar.
+		internal var calendar = Calendars.gregorian.toCalendar()
 
 		public init(strict: Bool = false, calendar: Calendar? = nil) {
 			self.strict = strict
@@ -900,10 +901,12 @@ public class ISOParser: StringToDateTransformable {
 	public static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion? {
 		let formatOptions = options as? ISOParser.Options
 		guard let parser = ISOParser(string, options: formatOptions),
-			let date = parser.parsedDate, let tz = parser.parsedTimeZone else {
+			let date = parser.parsedDate else {
 			return nil
 		}
-		let parsedRegion = Region(calendar: region.calendar, zone: tz, locale: region.locale)
+		let parsedRegion = Region(calendar: region.calendar,
+								  zone: (parser.parsedTimeZone ?? region.zone),
+								  locale: region.locale)
 		return DateInRegion(date, region: parsedRegion)
 	}
 

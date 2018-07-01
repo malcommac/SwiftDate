@@ -95,7 +95,7 @@ extension String: DateParsable {
 		return style.toDate(self, region: region)
 	}
 
-	public func toISODate(_ options: ISOParser.Options? = nil, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+	public func toISODate(_ options: ISOParser.Options? = nil, region: Region = Region.ISO) -> DateInRegion? {
 		return ISOParser.parse(self, region: region, options: options)
 	}
 

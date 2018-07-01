@@ -68,6 +68,13 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 					  locale: Locale.autoupdatingCurrent)
 	}
 
+	/// ISO Region is defined by the gregorian calendar, gmt timezone and english posix locale
+	public static var ISO: Region {
+		return Region(calendar: Calendars.gregorian.toCalendar(),
+					  zone: Zones.gmt.toTimezone(),
+					  locale: Locales.englishUnitedStatesComputer)
+	}
+
 	/// Return an auto updating region where all settings are obtained from the current's device settings.
 	///
 	/// - Returns: Region

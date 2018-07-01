@@ -20,3 +20,6 @@ The following documentation explore all the major features of the library. If yo
 	- [Init from Components](Introduction.md#initfromcomponents)
 	- [Init from TimeInterval](Introduction.md#initfromtimeinterval)
 	- [Init from plain Date](Introduction.md#initfromplaindate)
+
+- [Parsing Dates](Parsing_Dates.md#index)
+	- [Automatic Parsing](Parsing_Dates.md#autoparsing)

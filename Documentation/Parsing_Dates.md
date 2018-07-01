@@ -2,9 +2,11 @@
 
 <a name="index"/>
 
-## Parsing Dates
+## Parsing Dates from Strings
 
 - [Auto Parsing & Custom Formats](#autoparsing)
+- [ISO8601 Parsing](#iso8601)
+- [.NET Parsing](#dotnet)
 
 Parsing dates is pretty straighforward in SwiftDate; library can parse strings with dates automatically by recognizing one of the most common patterns. Moreover you can provide your own formats or use one of the built-in parsers.
 In the following chapter you will learn how to transform a string to a date.
@@ -53,9 +55,13 @@ let _ = srcString.toDate(["yyyy-MM-dd","MMM dd '-' HH:mm"], region: enRegion)
 
 > **LOCALE PARAMETER** If you use readable unit names (like `MMM` for months) be sure to select the right locale inside the `region` parameter in order to get valid results.
 
+<a name="iso8601"/>
+
 ### ISO8601 Parsing
 A special note must be made for ISO8601. This format (the extended version and all its variants) may include the timezone information.
 If you need to parse an ISO8601 datetime you should therefore use the `.toISODate()` function of `String` in order to get a complete result.
+
+> **NOTE** ISO8601 parser (via `.toISODate()` func) is capable of recognizing all the variants of the 8601 formats; if your date is in this formt use this function instead of passing custom time format. It will lead in better results.
 
 The following function:
 
@@ -73,6 +79,28 @@ let date = "2017-08-05T16:04:03+02:00".toISODate(region: Region.ISO)!
 // returned date's region.zone is GMT+2 not the default's Region.ISO's GMT0.
 // This because value is read from the string itself.
 ```
+
+### .NET Parsing
+CSOM DateTime (aka .NET DateTime) is a format defined by Microsoft as the number of 100-nanosecond intervals that have elapsed since 12:00 A.M., January 1, 0001 ([learn more on MSDN documentation page](https://msdn.microsoft.com/en-us/library/dd948679)).
+
+You can parse a CSOM datetime string using the `toDotNETDate()` function.
+
+> **NOTE:** As for ISO8601 even .NET datetime may contain information about timezone. When you set the region as input parameter of the conversion function remember: it will be overriden by default parsed timezone (GMT if not specified). Region is used for locale only.
+
+`func toDotNETDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion?`
+
+takes a single parameter:
+
+- `region | Region`: the region in which the date is represented (only `locale` parameter is used). If you omit this parameter the `SwiftDate.defaultRegion` is used instead.
+
+Example:
+
+```swift
+// This is the 2017-07-22T18:27:02+02:00 date.
+let _ = "/Date(1500740822000+0200)/".toDotNETDate()
+```
+
+
 
 
 [^ Top](#index)

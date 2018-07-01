@@ -6,7 +6,7 @@
 - [**Prev Chapter**: Parsing Dates](#Parsing_Dates.md)
 - [**Next Chapter**: Date Comparison](#Date_Comparison.md)
 
-## Date Manipulation
+## Date Manipulation & Creation
 
 - [Add/Remove Time Units from Date](Date_Manipulation.md#mathdate)
 - [Rounding a Date](Date_Manipulation.md#roundingdate)
@@ -14,7 +14,8 @@
 - [Alter Time in Date](Date_Manipulation.md#altertimedate)
 - [Alter Multiple Date Components](Date_Manipulation.md#altercomponents)
 - [Getting Related Dates (nextYear,nextWeeekday,startOfMonth etc.)](Date_Manipulation.md#relateddates)
-- [Enumerate Dates](Date_Manipulation#enumeratedates)
+- [Enumerate Dates](Date_Manipulation.md#enumeratedates)
+- [Generate Random Dates](Date_Manipulation.md#randomdates)
 
 Dates can be manipulated as you need by using classic math operators and readable time units.
 
@@ -235,13 +236,46 @@ Examples:
 
 ```swift
 let increment = DateComponents.create {
-	$0.hour = 1
-	$0.minute = 30
+  $0.hour = 1
+  $0.minute = 30
 }
 // Generate an array of dates where the first item is fromDate
 // and each new date is incremented by 1h30m from the previous.
 // Latest date is < endDate (but maybe not the same).
 let dates = DateInRegion.enumerateDates(from: fromDate, to: toDate, increment: increment)
+```
+
+[^ Top](#index)
+
+<a name="randomdates"/>
+
+### Generate Random Dates
+SwiftDate exposes a set of functions to generate a random date or array of random dates in a bounds.
+There are several functions to perform this operation:
+
+#### Single Random Date
+
+- `randomDate(region:)` generate a random date into the specified region.
+- `randomDate(withinDaysBeforeToday:region:)` generate a random date between now and a specified amount days ealier into the specified region.
+- `randomDate(between:and:region:)` generate a random date into the specified region between two given date bounds.
+
+#### Array of Random Dates
+- `randomDates(count:between:and:region:)` return `count` random generated dates into the specified region between two given date bounds.
+
+> **IMPORTANT**: For all of thes function if you don't specify the `region`, `SwiftDate.defaultRegion` is used instead.
+
+Examples:
+
+```swift
+// Generate random dates array in limit
+let now = DateInRegion()
+let someYearsAgo = (upperBound - 3.years)
+// generate 40 random dates between 3 years ago today and today
+let randomDates = DateInRegion.randomDates(count: 40, between: someYearsAgo, and: now)
+
+// Generate a random date between now and 7 days ago
+let rome: Region = ...
+let aDate = DateInRegion.randomDate(withinDaysBeforeToday: 7, region: rome) 
 ```
 
 [^ Top](#index)

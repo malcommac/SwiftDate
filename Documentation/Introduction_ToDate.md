@@ -4,15 +4,15 @@
 
 ## Introduction
 
-- [How Date works in Cocoa](#how_date_works)
-- [Region and DateInRegion](#region_dateinregion)
-- [The Default Region](#default_region)
-- [Creating a Region](#creating_region)
-- [Creating a DateInRegion](#creating_dateinregion)
-	- [Init from String](#initfromstring)
-	- [Init from Components](#initfromcomponents)
-	- [Init from TimeInterval](#initfromtimeinterval)
-	- [Init from plain Date](#initfromplaindate)
+- [How Date works in Cocoa](Introduction_ToDate.md#how_date_works)
+- [Region and DateInRegion](Introduction_ToDate.md#region_dateinregion)
+- [The Default Region](Introduction_ToDate.md#default_region)
+- [Creating a Region](Introduction_ToDate.md#creating_region)
+- [Creating a DateInRegion](Introduction_ToDate.md#creating_dateinregion)
+	- [Init from String](Introduction_ToDate.md#initfromstring)
+	- [Init from Components](Introduction_ToDate.md#initfromcomponents)
+	- [Init from TimeInterval](Introduction_ToDate.md#initfromtimeinterval)
+	- [Init from plain Date](Introduction_ToDate.md#initfromplaindate)
 
 <a name="how_date_works"/>
 

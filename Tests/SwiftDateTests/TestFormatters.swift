@@ -487,15 +487,23 @@ class TestFormatters: XCTestCase {
 		let ago5Mins = DateInRegion() - 5.minutes
 		let r1 = ago5Mins.toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian)
 		let r2 = ago5Mins.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+		XCTAssert(r1 == "5 minuti fa", "Failed to use colloquial formatter")
+		XCTAssert(r2 == "5 min fa", "Failed to use colloquial formatter")
 
 		let justNow = DateInRegion() - 10.seconds
 		let r3 = justNow.toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian)
-		let r4 = justNow.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+		XCTAssert(r3 == "ora", "Failed to use colloquial formatter")
 
 		let justNow2 = DateInRegion() - 2.hours
-		let r5 = justNow2.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+		let r4 = justNow2.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.italian)
+		XCTAssert(r4 == "2h fa", "Failed to use colloquial formatter")
 
-		print("")
+		let justNow3 = DateInRegion() - 1.minutes
+		let r5 = justNow3.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
+		XCTAssert(r5 == "1m", "Failed to use colloquial formatter")
 
+		let justNow4 = DateInRegion() - 51.seconds
+		let r6 = justNow4.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
+		XCTAssert(r6 == "1m", "Failed to use colloquial formatter")
 	}
 }

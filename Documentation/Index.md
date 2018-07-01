@@ -22,4 +22,7 @@ The following documentation explore all the major features of the library. If yo
 	- [Init from plain Date](Introduction.md#initfromplaindate)
 
 - [Parsing Dates](Parsing_Dates.md#index)
-	- [Automatic Parsing](Parsing_Dates.md#autoparsing)
+	- [Auto Parsing & Custom Formats](Parsing_Dates.md#autoparsing)
+	- [ISO8601 Parsing](Parsing_Dates.md#iso8601)
+	- [.NET Parsing](Parsing_Dates.md#dotnet)
+	- [RSS & AltRSS Parsing](Parsing_Dates.md#rssaltrss)

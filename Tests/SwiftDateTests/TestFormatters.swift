@@ -440,4 +440,12 @@ class TestFormatters: XCTestCase {
 		XCTAssert(timezoneInDate.region.zone.secondsFromGMT() == 7200, "ISO Date does not contains timezone (is gmt)")
 	}
 
+	func testRSSAltLocale() {
+		let regionAny = Region(calendar: Calendars.buddhist, zone: Zones.indianMayotte, locale: Locales.italian)
+		// region must not use passed locale to perform parsing but only locale as final output
+		let date1 = "Tue, 20 Jun 2017 14:49:19 +0200".toRSSDate(alt: false, region: regionAny)
+		let date2 = "20 Jun 2017 14:49:19 +0200".toRSSDate(alt: false, region: regionAny)
+		XCTAssertNotNil(date1, "Wrong RSS Date region")
+		XCTAssertNotNil(date2, "Wrong RSS Date region")
+	}
 }

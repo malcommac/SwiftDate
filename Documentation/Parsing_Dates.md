@@ -4,9 +4,10 @@
 
 ## Parsing Dates from Strings
 
-- [Auto Parsing & Custom Formats](#autoparsing)
-- [ISO8601 Parsing](#iso8601)
-- [.NET Parsing](#dotnet)
+- [Auto Parsing & Custom Formats](Parsing_Dates.md#autoparsing)
+- [ISO8601 Parsing](Parsing_Dates.md#iso8601)
+- [.NET Parsing](Parsing_Dates.md#dotnet)
+- [RSS & AltRSS Parsing](Parsing_Dates.md#rssaltrss)
 
 Parsing dates is pretty straighforward in SwiftDate; library can parse strings with dates automatically by recognizing one of the most common patterns. Moreover you can provide your own formats or use one of the built-in parsers.
 In the following chapter you will learn how to transform a string to a date.
@@ -79,19 +80,20 @@ let date = "2017-08-05T16:04:03+02:00".toISODate(region: Region.ISO)!
 // returned date's region.zone is GMT+2 not the default's Region.ISO's GMT0.
 // This because value is read from the string itself.
 ```
+<a name="dotnet"/>
 
 ### .NET Parsing
 CSOM DateTime (aka .NET DateTime) is a format defined by Microsoft as the number of 100-nanosecond intervals that have elapsed since 12:00 A.M., January 1, 0001 ([learn more on MSDN documentation page](https://msdn.microsoft.com/en-us/library/dd948679)).
 
 You can parse a CSOM datetime string using the `toDotNETDate()` function.
 
-> **NOTE:** As for ISO8601 even .NET datetime may contain information about timezone. When you set the region as input parameter of the conversion function remember: it will be overriden by default parsed timezone (GMT if not specified). Region is used for locale only.
+> **NOTE:** As for ISO8601 even .NET datetime may contain information about timezone. When you set the region as input parameter of the conversion function remember: it will be overriden by default parsed timezone (GMT if not specified). Region is used for `locale` only.
 
 `func toDotNETDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion?`
 
 takes a single parameter:
 
-- `region | Region`: the region in which the date is represented (only `locale` parameter is used). If you omit this parameter the `SwiftDate.defaultRegion` is used instead.
+- `region | Region`: the region in which the date is represented (only `locale` parameter is used). If you omit this parameter the `SwiftDate.ISO` is used instead.
 
 Example:
 
@@ -99,8 +101,17 @@ Example:
 // This is the 2017-07-22T18:27:02+02:00 date.
 let _ = "/Date(1500740822000+0200)/".toDotNETDate()
 ```
+<a name="rssaltrss"/>
 
+### RSS & AltRSS Parsing
+RSS & AltRSS datetime format are used in RSS feed files. Parsing in SwiftDate is pretty easy; just call the `.toRSSDate()` function.
 
+> **NOTE:** As for ISO8601 even RSS/AltRSS datetime contain information about timezone. When you set the region as input parameter of the conversion function remember: it will be overriden by default parsed timezone (GMT if not specified). Region is used for `locale` only.
 
-
+```swift
+// This is the ISO8601: 2017-07-22T18:27:02+02:00
+let _ = "Sat, 22 Jul 2017 18:27:02 +0200".toRSSDate(false)
+let _ = "22 Jul 2017 18:27:02 +0200".toRSSDate(true)
+```			
+				
 [^ Top](#index)

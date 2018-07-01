@@ -99,11 +99,11 @@ extension String: DateParsable {
 		return ISOParser.parse(self, region: region, options: options)
 	}
 
-	public func toDotNETDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+	public func toDotNETDate(region: Region = Region.ISO) -> DateInRegion? {
 		return DOTNETParser.parse(self, region: region, options: nil)
 	}
 
-	public func toRSSDate(alt: Bool, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
+	public func toRSSDate(alt: Bool, region: Region = Region.ISO) -> DateInRegion? {
 		switch alt {
 		case true: 	return StringToDateStyles.altRSS.toDate(self, region: region)
 		case false: return StringToDateStyles.rss.toDate(self, region: region)

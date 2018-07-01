@@ -139,6 +139,16 @@ class TestDateInRegion_Components: XCTestCase {
 
 	}
 
+	func testDateInRegion_ISOFormatterAlt() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+		let date = DateInRegion("2017-07-22 00:00:00", format: dateFormat, region: regionRome)!
+
+		XCTAssert( date.toISO() == "2017-07-22T00:00:00+02:00", "Failed to format ISO")
+		XCTAssert( date.toISO([.withFullDate]) == "2017-07-22", "Failed to format ISO")
+		XCTAssert( date.toISO([.withFullDate, .withFullTime, .withDashSeparatorInDate, .withSpaceBetweenDateAndTime]) == "2017-07-22 00:00:00+02:00", "Failed to format ISO")
+	}
+
 	func testDateInRegion_getIntervalForComponentBetweenDates() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 		let dateFormat = "yyyy-MM-dd HH:mm:ss"

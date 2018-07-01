@@ -48,7 +48,37 @@ To use the ISO formatter call `.toISO()` function
 
 takes one optional argument:
 
-- `options | ISOFormatter.Options`
+- `options | ISOFormatter.Options`: allows to customize the format of the output string by defining which kind of date must be into the final string (if you omit it `withInternetDateTime` is used).
+
+`ISOFormatter.Options` defines an `OptionSet` with the following values:
+
+- `withYear`: The date representation includes the year. The format for year is inferred based on the other specified options. If `withWeekOfYear` is specified, `YYYY` is used. Otherwise, `yyyy` is used.
+- `withMonth`: The date representation includes the month. The format for month is `MM`.
+- `withWeekOfYear`: The date representation includes the week of the year. The format for week of year is `ww`, including the `W` prefix.
+- `withDay`:  The date representation includes the day. The format for day is inferred based on provided options: If `withMonth` is specified, `dd` is used. If `withWeekOfYear` is specified, `ee` is used. Otherwise, `DDD` is used.
+- `withTime`: The date representation includes the time. The format for time is `HH:mm:ss`.
+- `withTimeZone`: The date representation includes the timezone. The format for timezone is `ZZZZZ`.
+- `withSpaceBetweenDateAndTime`: The date representation uses a space (` `) instead of `T` between the date and time.
+- `withDashSeparatorInDate`: The date representation uses the dash separator (`-`) in the date.
+- `withFullDate`: The date representation uses the colon separator (`:`) in the time.
+- `withFullTime`: The date representation includes the hour, minute, and second.
+- `withInternetDateTime`: The format used for internet date times, according to the RFC 3339 standard. Equivalent to specifying `withFullDate`, `withFullTime`, `withDashSeparatorInDate`,
+ `withColonSeparatorInTime`, and `withColonSeparatorInTimeZone`.
+- `withInternetDateTimeExtended`: The format used for internet date times; it's similar to `.withInternetDateTime` but include milliseconds (`yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ`).
+
+Examples:
+
+```swift
+let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+let date = DateInRegion("2017-07-22 00:00:00", format: "yyyy-MM-dd HH:mm:ss", region: regionRome)!
+
+// ISO Formatting
+let _ = date.toISO() // "2017-07-22T00:00:00+02:00"
+let _ = date.toISO([.withFullDate]) // "2017-07-22"
+let _ = date.toISO([.withFullDate, .withFullTime, .withDashSeparatorInDate, .withSpaceBetweenDateAndTime]) // "2017-07-22 00:00:00+02:00"
+```
+
+
 
 [^ Top](#index)
 

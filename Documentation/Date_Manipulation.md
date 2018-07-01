@@ -12,7 +12,7 @@
 - [Rounding a Date](Date_Manipulation.md#roundingdate)
 - [Trouncating a Date](Date_Manipulation.md#trouncatingdate)
 - [Alter Time in Date](Date_Manipulation.md#altertimedate)
-- [Alter Time Component in Date](Date_Manipulation.md#altertimecomponent)
+- [Alter Multiple Date Components](Date_Manipulation.md#altercomponents)
 
 Dates can be manipulated as you need by using classic math operators and readable time units.
 
@@ -140,9 +140,26 @@ let alteredDate = date.dateBySet(hour: 20, min: 13, secs: 15) // 2010-01-01 20:1
 
 [^ Top](#index)
 
-<a name="altertimecomponent"/>
+<a name="altercomponents"/>
 
-### Alter Time Component in Date
+### Alter Multiple Date Components
+SwiftDate allows you to return new date representing the date calculated by setting a specific components of a given date to  given values, while trying to keep lower components the same (altering more components at the same time may result in different-than-expected results, this because lower components maybe need to be recalculated).
+
+`dateBySet(_ components: [Calendar.Component: Int]) -> DateInRegion?`
+
+Takes one argument:
+
+- `components | [Calendar.Component: Int]` a dictionary of key/values for each component you want to alter.
+
+> **NOTE:** While the algorithm try to keep lower compoments the same, the resulting date may differ from what expected when you alter more than a component a time.
+
+
+Example:
+
+```swift
+let _ = date.dateBySet([.month: 1, .day: 1, hour: 9, .minute: 26, .second: 0])
+```
+
 
 [^ Top](#index)
 

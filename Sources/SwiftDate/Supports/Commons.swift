@@ -214,7 +214,7 @@ public extension Calendar.Component {
 		#if os(macOS) || os(iOS)
 		return CFCalendarUnit(rawValue: value)
 		#else
-		return CFCalendarUnit(value)
+		return CFCalendarUnit(rawValue: value)
 		#endif
 	}
 

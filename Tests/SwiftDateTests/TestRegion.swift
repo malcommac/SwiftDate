@@ -16,20 +16,20 @@ class TestRegion: XCTestCase {
 		SwiftDate.defaultRegion = Region(calendar: Calendars.gregorian, zone: Zones.gmt, locale: Locales.english)
 
 		// UTC Region
-		XCTAssert( (Region.UTC.zone.identifier == Zones.gmt.toTimezone().identifier), "Failed to create UTC region")
+		XCTAssert( (Region.UTC.timeZone.identifier == Zones.gmt.toTimezone().identifier), "Failed to create UTC region")
 		XCTAssert( (Region.UTC.calendar.identifier == Calendar.autoupdatingCurrent.identifier), "Failed to inherith the appropriate calendar fromd default region")
 		XCTAssert( (Region.UTC.locale.identifier == Locale.autoupdatingCurrent.identifier), "Failed to inherith the appropriate locale fromd default region")
 
 		// New Region
 		let region1 = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
-		XCTAssert( (region1.zone.identifier == "Europe/Rome"), "Failed to set region's zone")
+		XCTAssert( (region1.timeZone.identifier == "Europe/Rome"), "Failed to set region's zone")
 		XCTAssert( (region1.calendar.identifier == Calendar.Identifier.gregorian), "Failed to set region's calendar")
 		XCTAssert( (region1.locale.identifier == "it"), "Failed to set region's locale")
 
 		// Current Region
 		let currentRegion = Region.current
 		XCTAssert( (currentRegion.calendar.identifier == Calendar.current.identifier), "Failed to set current's region calendar")
-		XCTAssert( (currentRegion.zone.identifier == TimeZone.current.identifier), "Failed to set current's region timezone")
+		XCTAssert( (currentRegion.timeZone.identifier == TimeZone.current.identifier), "Failed to set current's region timezone")
 		XCTAssert( (currentRegion.locale.identifier == Locale.current.identifier), "Failed to set current's region locale")
 
 		// Default region in another locale and calendar
@@ -57,7 +57,7 @@ class TestRegion: XCTestCase {
 		dComps.timeZone = TimeZone(identifier: "Pacific/Truk")
 		let regionFromComponents = Region(fromDateComponents: dComps)
 		XCTAssert( (regionFromComponents.calendar == dComps.calendar!), "Failed to create new region from date components / calendar")
-		XCTAssert( (regionFromComponents.zone == dComps.timeZone!), "Failed to create new region from date components / timezone")
+		XCTAssert( (regionFromComponents.timeZone == dComps.timeZone!), "Failed to create new region from date components / timezone")
 
 		// Compare two regions
 		let regionA = Region(calendar: Calendars.gregorian, zone: Zones.europeOslo, locale: Locales.english)
@@ -110,7 +110,7 @@ class TestRegion: XCTestCase {
 		let defaultRegion_fixedCal = Region(calendar: Calendars.buddhist)
 		XCTAssert( (defaultRegion_fixedCal.calendar.identifier == Calendar.Identifier.buddhist), "Failed to new region from default with fixed only calendar / different calendar")
 		XCTAssert( (defaultRegion_fixedCal.locale.identifier == SwiftDate.defaultRegion.locale.identifier), "Failed to new region from default with fixed only calendar / different locale")
-		XCTAssert( (defaultRegion_fixedCal.zone.identifier == SwiftDate.defaultRegion.zone.identifier), "Failed to new region from default with fixed only calendar / different timezone")
+		XCTAssert( (defaultRegion_fixedCal.timeZone.identifier == SwiftDate.defaultRegion.timeZone.identifier), "Failed to new region from default with fixed only calendar / different timezone")
 
 	}
 

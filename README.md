@@ -8,9 +8,9 @@ Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielema
 
 ## What's SwiftDate?
 
-SwiftDate is the definitive toolchain to manipulate and display dates and time zones on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
+SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
 
-## Features Highlights
+### Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 
 - [x] **Easy Date Parsing** (custom formats, iso8601, rss & many more)
@@ -35,14 +35,14 @@ and of course...
 ## Start with SwiftDate
 
 - Current Version: **5.0.0** 
-- Last Update: **July 1, 2018**
+- Last Update: **July 3, 2018**
 - Code Coverage: **~90%**
 
-The entire library is fully documented both via XCode method inspector, Jazzy and with a complete markdown documentation.
+The entire library is fully documented both via XCode method inspector and a complete markdown documentation you can found below.
 
 - → **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.0)
 - → **[Requirements, Install, License & More](/Documentation/0.Informations.md)**
-- → **[Upgrading from SwiftDate 4.x](/Documentation/10.Upgrading_SwiftDate4.md)**
+- → **[Upgrading from SwiftDate 4](/Documentation/10.Upgrading_SwiftDate4.md)**
 
 ## Explore SwiftDate
 

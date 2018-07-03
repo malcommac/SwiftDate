@@ -2,11 +2,13 @@
 <img src="Documentation/SwiftDate.png" width=597px alt="SwiftDate" title="SwiftDate">
 </p>
 
-SwiftDate is the definitive toolchain to manipulate and display dates and time zones on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
-
 <p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>
-Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">danielemargutti.com</a>
+Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">www.danielemargutti.com</a>
 </p>
+
+## What's SwiftDate?
+
+SwiftDate is the definitive toolchain to manipulate and display dates and time zones on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
 
 ## Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
@@ -14,9 +16,9 @@ From simple date manipulation to complex business logic SwiftDate maybe the righ
 - [x] **Easy Date Parsing** (custom formats, iso8601, rss & many more)
 - [x] **Easy Date Formatting** even with colloquial formatter and 140+ supported languages
 - [x] **Easy math operations with time units** (`2.hours + 5.minutes`...)
-- [x] **Intuitive components extraction** (day, hour, nearestHour, weekdayNameShort etc.)
-- [x] **Derivated dates generation** (nextWeek, nextMonth, nextWeekday, tomorrow...)
-- [x] Over **20+ fine grained date comparison** functions (isToday, isTomorrow, isSameWeek, isNextYear...)
+- [x] **Intuitive components extraction** (`day, hour, nearestHour, weekdayNameShort` etc.)
+- [x] **Derivated dates generation** (`nextWeek, nextMonth, nextWeekday, tomorrow`...)
+- [x] Over **20+ fine grained date comparison** functions (`isToday, isTomorrow, isSameWeek, isNextYear`...)
 - [x] Swift 4's **Codable Support**
 - [x] **Random dates** generation
 - [x] **Fine grained date enumeration** functions
@@ -34,7 +36,7 @@ and of course...
 
 - Current Version: **5.0.0** 
 - Last Update: **July 1, 2018**
-- Code Coverage: **90.68%**
+- Code Coverage: **~90%**
 
 The entire library is fully documented both via XCode method inspector, Jazzy and with a complete markdown documentation.
 

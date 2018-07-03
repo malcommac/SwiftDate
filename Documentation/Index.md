@@ -30,11 +30,11 @@ The following documentation explore all the major features of the library. If yo
 
 ### [2 - Date Parsing](2.Date_Parsing.md)
 
-- [2.0 - Parse Custom Format](2.Date Parsing.md#autoparsing)
-- [2.1 - Parse ISO8601](2.Date Parsing.md#iso8601)
-- [2.2 - Parse .NET](2.Date Parsing.md#dotnet)
-- [2.3 - Parse RSS & AltRSS](2.Date Parsing.md#rssaltrss)
-- [2.4 - Parse SQL](2.Date Parsing.md#sql)
+- [2.0 - Parse Custom Format](2.Date_Parsing.md#autoparsing)
+- [2.1 - Parse ISO8601](2.Date_Parsing.md#iso8601)
+- [2.2 - Parse .NET](2.Date_Parsing.md#dotnet)
+- [2.3 - Parse RSS & AltRSS](2.Date_Parsing.md#rssaltrss)
+- [2.4 - Parse SQL](2.Date_Parsing.md#sql)
 
 ### [3 - Date Manipulation & Creation](3.Manipulate_Date)
 

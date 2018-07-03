@@ -10,6 +10,8 @@ Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielema
 
 SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
 
+★★ Over [3M of downloads](https://cocoapods.org/pods/SwiftDate) on CocoaPods ★★
+
 ### Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 

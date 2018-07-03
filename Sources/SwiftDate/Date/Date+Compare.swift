@@ -9,6 +9,8 @@
 import Foundation
 
 public extension Date {
+	
+	// MARK: - Comparing Close
 
 	/// Decides whether a Date is "close by" another one passed in parameter,
 	/// where "Being close" is measured using a precision argument
@@ -21,6 +23,8 @@ public extension Date {
 	public func compareCloseTo(_ refDate: Date, precision: TimeInterval = 300) -> Bool {
 		return (abs(self.timeIntervalSince(refDate)) < precision)
 	}
+	
+	// MARK: - Extendend Compare
 
 	/// Compare the date with the rule specified in the `compareType` parameter.
 	///

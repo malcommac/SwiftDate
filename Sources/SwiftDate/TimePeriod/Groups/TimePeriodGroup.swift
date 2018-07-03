@@ -44,7 +44,9 @@ open class TimePeriodGroup: Sequence, Equatable {
 
 	// MARK: - Initializers
 
-	public init() { }
+	public init(_ periods: [TimePeriodProtocol]? = nil) {
+		self.periods = (periods ?? [])
+	}
 
 	// MARK: - Sequence Protocol
 

@@ -905,7 +905,7 @@ public class ISOParser: StringToDateTransformable {
 			return nil
 		}
 		let parsedRegion = Region(calendar: region.calendar,
-								  zone: (parser.parsedTimeZone ?? region.zone),
+								  zone: (parser.parsedTimeZone ?? region.timeZone),
 								  locale: region.locale)
 		return DateInRegion(date, region: parsedRegion)
 	}

@@ -8,6 +8,28 @@
 
 import Foundation
 
+/// Sort type
+///
+/// - ascending: sort in ascending order
+/// - descending: sort in descending order
+public enum SortMode {
+	case ascending
+	case descending
+}
+
+/// Sorting type
+///
+/// - start: sort by start date
+/// - end: sort by end date
+/// - duration: sort by duration
+/// - custom: sort using custom function
+public enum SortType {
+	case start(_: SortMode)
+	case end(_: SortMode)
+	case duration(_: SortMode)
+	case custom(_: ((TimePeriodProtocol, TimePeriodProtocol) -> Bool))
+}
+
 /// Time period collections serve as loose sets of time periods.
 /// They are unorganized unless you decide to sort them, and have their own characteristics
 /// like a `start` and `end` that are extrapolated from the time periods within.
@@ -72,53 +94,32 @@ open class TimePeriodCollection: TimePeriodGroup {
 
 	// MARK: - Sorting
 
-	/// Sort periods array in place by start
-	public func sortByStart() {
-		self.sort { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
-			if period1.start == nil && period2.start == nil {
-				return false
-			} else if period1.start == nil {
-				return true
-			} else if period2.start == nil {
-				return false
-			} else {
-				return period2.start! < period1.start!
-			}
+	/// Sort elements in place using given method.
+	///
+	/// - Parameter type: sorting method
+	public func sort(by type: SortType) {
+		switch type {
+		case .duration(let mode):	self.periods.sort(by: sortFuncDuration(mode))
+		case .start(let mode):		self.periods.sort(by: sortFunc(byStart: true, type: mode))
+		case .end(let mode):		self.periods.sort(by: sortFunc(byStart: false, type: mode))
+		case .custom(let f):		self.periods.sort(by: f)
 		}
 	}
 
-	/// Sort periods array in place
-	public func sort(by areInIncreasingOrder: (TimePeriodProtocol, TimePeriodProtocol) -> Bool) {
-		self.periods.sort(by: areInIncreasingOrder)
-	}
-
-	/// Return collection with sorted periods array by start
+	/// Generate a new `TimePeriodCollection` where items are sorted with specified method.
 	///
-	/// - Returns: Collection with sorted periods
-	public func sortedByStart() -> TimePeriodCollection {
-		let array = self.periods.sorted { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
-			if period1.start == nil && period2.start == nil {
-				return false
-			} else if period1.start == nil {
-				return true
-			} else if period2.start == nil {
-				return false
-			} else {
-				return period2.start! < period1.start!
-			}
+	/// - Parameters:
+	///   - type: sorting method
+	/// - Returns: collection ordered by given function
+	public func sorted(by type: SortType) -> TimePeriodCollection {
+		var sortedList: [TimePeriodProtocol]!
+		switch type {
+		case .duration(let mode):	sortedList = self.periods.sorted(by: sortFuncDuration(mode))
+		case .start(let mode):		sortedList = self.periods.sorted(by: sortFunc(byStart: true, type: mode))
+		case .end(let mode):		sortedList = self.periods.sorted(by: sortFunc(byStart: false, type: mode))
+		case .custom(let f):		sortedList = self.periods.sorted(by: f)
 		}
-		let collection = TimePeriodCollection()
-		collection.append(array)
-		return collection
-	}
-
-	/// Return collection with sorted periods array
-	///
-	/// - Returns: Collection with sorted periods
-	public func sorted(by areInIncreasingOrder: (TimePeriodProtocol, TimePeriodProtocol) -> Bool) -> TimePeriodCollection {
-		let collection = TimePeriodCollection()
-		collection.append(self.periods.sorted(by: areInIncreasingOrder))
-		return collection
+		return TimePeriodCollection(sortedList)
 	}
 
 	// MARK: - Collection Relationship
@@ -128,24 +129,16 @@ open class TimePeriodCollection: TimePeriodGroup {
 	///
 	/// - Parameter period: The period to compare each other period against
 	/// - Returns: Collection of periods inside the given period
-	public func allInside(in period: TimePeriodProtocol) -> TimePeriodCollection {
-		let collection = TimePeriodCollection()
-		collection.periods = self.periods.filter({ $0.isInside(period) })
-		return collection
+	public func periodsInside(period: TimePeriodProtocol) -> TimePeriodCollection {
+		return TimePeriodCollection(self.periods.filter({ $0.isInside(period) }))
 	}
 
-	/**
-	*  Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s containing
-	*  the given date.
-	*
-	* - parameter date: The date to compare each period to
-	*
-	* - returns: Collection of periods intersected by the given date
-	*/
+	//  Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s containing the given date.
+	///
+	/// - Parameter date: The date to compare each period to
+	/// - Returns: Collection of periods intersected by the given date
 	public func periodsIntersected(by date: DateInRegion) -> TimePeriodCollection {
-		let collection = TimePeriodCollection()
-		collection.periods = self.periods.filter({ $0.contains(date: date, interval: .closed) })
-		return collection
+		return TimePeriodCollection(self.periods.filter({ $0.contains(date: date, interval: .closed) }))
 	}
 
 	/// Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s
@@ -154,9 +147,17 @@ open class TimePeriodCollection: TimePeriodGroup {
 	/// - Parameter period: The period to compare each other period to
 	/// - Returns: Collection of periods intersected by the given period
 	public func periodsIntersected(by period: TimePeriodProtocol) -> TimePeriodCollection {
-		let collection = TimePeriodCollection()
-		collection.periods = self.periods.filter({ $0.intersects(with: period) })
-		return collection
+		return TimePeriodCollection(self.periods.filter({ $0.intersects(with: period) }))
+	}
+
+	/// Returns an instance of DTTimePeriodCollection with all the time periods in the receiver that overlap a given time period.
+	/// Overlap with the given time period does NOT include other time periods that simply touch it.
+	/// (i.e. one's start date is equal to another's end date)
+	///
+	/// - Parameter period: The time period to check against the receiver's time periods.
+	/// - Returns: Collection of periods overlapped by the given period
+	public func periodsOverlappedBy(_ period: TimePeriodProtocol) -> TimePeriodCollection {
+		return TimePeriodCollection(self.periods.filter({ $0.overlaps(with: period) }))
 	}
 
 	// MARK: - Map
@@ -174,45 +175,63 @@ open class TimePeriodCollection: TimePeriodGroup {
 
 	// MARK: - Helpers
 
-	internal func updateExtremes(period: TimePeriodProtocol) {
-		//Check incoming period against previous start and end date
-		if self.count == 1 {
-			self.start = period.start
-			self.end = period.end
-		} else {
-			self.start = nilOrEarlier(date1: self.start, date2: period.start)
-			self.end = nilOrLater(date1: self.end, date2: period.end)
+	private func sortFuncDuration(_ type: SortMode) -> ((TimePeriodProtocol, TimePeriodProtocol) -> Bool) {
+		switch type {
+		case .ascending: 	return { $0.duration < $1.duration }
+		case .descending: 	return { $0.duration > $1.duration }
 		}
-
 	}
 
-	internal func updateExtremes() {
-		if periods.count == 0 {
-			self.start = nil
-			self.end = nil
-		} else {
-			self.start = periods[0].start
-			self.end = periods[0].end
-			for i in 1..<periods.count {
-				self.start = nilOrEarlier(date1: self.start, date2: periods[i].start)
-				self.end = nilOrEarlier(date1: self.end, date2: periods[i].end)
+	private func sortFunc(byStart start: Bool = true, type: SortMode) -> ((TimePeriodProtocol, TimePeriodProtocol) -> Bool) {
+		return {
+			let date0 = (start ? $0.start : $0.end)
+			let date1 = (start ? $1.start : $1.end)
+			if date0 == nil && date1 == nil {
+				return false
+			} else if date0 == nil {
+				return true
+			} else if date1 == nil {
+				return false
+			} else {
+				return (type == .ascending ? date1! < date0! : date0! > date1!)
 			}
 		}
 	}
 
-	internal func nilOrEarlier(date1: DateInRegion?, date2: DateInRegion?) -> DateInRegion? {
-		if date1 == nil || date2 == nil {
-			return nil
-		} else {
-			return date1!.earlierDate(date2!)
+	private func updateExtremes(period: TimePeriodProtocol) {
+		//Check incoming period against previous start and end date
+		guard self.count != 1 else {
+			self.start = period.start
+			self.end = period.end
+			return
+		}
+		self.start = nilOrEarlier(date1: self.start, date2: period.start)
+		self.end = nilOrLater(date1: self.end, date2: period.end)
+	}
+
+	private func updateExtremes() {
+		guard periods.count > 0 else {
+			self.start = nil
+			self.end = nil
+			return
+		}
+
+		self.start = periods.first!.start
+		self.end = periods.first!.end
+		for i in 1..<periods.count {
+			self.start = nilOrEarlier(date1: self.start, date2: periods[i].start)
+			self.end = nilOrEarlier(date1: self.end, date2: periods[i].end)
 		}
 	}
 
-	internal func nilOrLater(date1: DateInRegion?, date2: DateInRegion?) -> DateInRegion? {
-		if date1 == nil || date2 == nil {
-			return nil
-		} else {
-			return date1!.laterDate(date2!)
-		}
+	private func nilOrEarlier(date1: DateInRegion?, date2: DateInRegion?) -> DateInRegion? {
+		guard date1 != nil && date2 != nil else { return nil }
+		return date1!.earlierDate(date2!)
 	}
+
+	private func nilOrLater(date1: DateInRegion?, date2: DateInRegion?) -> DateInRegion? {
+		guard date1 != nil && date2 != nil else { return nil }
+		return date1!.laterDate(date2!)
+	}
+
 }

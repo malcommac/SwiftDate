@@ -205,7 +205,7 @@ public extension DateInRegion {
 			return (self.weekday == range.lowerBound || self.weekday == range.upperBound - range.lowerBound)
 
 		case .isInDST:
-			return self.region.zone.isDaylightSavingTime(for: self.date)
+			return self.region.timeZone.isDaylightSavingTime(for: self.date)
 
 		case .isMorning:
 			return (self.hour >= 5 && self.hour < 12)

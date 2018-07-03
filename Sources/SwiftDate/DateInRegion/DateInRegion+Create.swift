@@ -154,6 +154,17 @@ public extension DateInRegion {
 		return DateInRegion(result.start, region: self.region)
 	}
 
+	/// Return a new DateInRegion that is initialized at the start of the specified components
+	/// executed in order.
+	///
+	/// - Parameter units: sequence of transformations as time unit components
+	/// - Returns: new date at the beginning of the passed components, intermediate results if fails.
+	public func dateAtStartOf(_ units: [Calendar.Component]) -> DateInRegion {
+		return units.reduce(self) { (currentDate, currentUnit) -> DateInRegion in
+			return currentDate.dateAtStartOf(currentUnit)
+		}
+	}
+
 	/// Returns a new Moment that is initialized at the end of a specified unit of time.
 	///
 	/// - parameter unit: time unit value.
@@ -165,6 +176,17 @@ public extension DateInRegion {
 		let startOfNextUnit = result.start.addingTimeInterval(result.duration)
 		let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit)
 		return DateInRegion(endOfThisUnit, region: self.region)
+	}
+
+	/// Return a new DateInRegion that is initialized at the end of the specified components
+	/// executed in order.
+	///
+	/// - Parameter units: sequence of transformations as time unit components
+	/// - Returns: new date at the end of the passed components, intermediate results if fails.
+	public func dateAtEndOf(_ units: [Calendar.Component]) -> DateInRegion {
+		return units.reduce(self) { (currentDate, currentUnit) -> DateInRegion in
+			return currentDate.dateAtEndOf(currentUnit)
+		}
 	}
 
 	/// Create a new date by altering specified components of the receiver.
@@ -373,7 +395,7 @@ public extension DateInRegion {
 			}
 			return DateInRegion(next, region: self.region)
 		case .nextDSTDate:
-			guard let nextDate = self.region.zone.nextDaylightSavingTimeTransition(after: self.date) else {
+			guard let nextDate = self.region.timeZone.nextDaylightSavingTimeTransition(after: self.date) else {
 				return self
 			}
 			return DateInRegion(nextDate, region: self.region)
@@ -389,6 +411,11 @@ public extension DateInRegion {
 			return self.dateByAdding(1, .year).dateAtStartOf(.year)
 		case .prevYear:
 			return self.dateByAdding(-1, .year).dateAtStartOf(.year)
+		case .nextDSTTransition:
+			guard let transitionDate = self.region.timeZone.nextDaylightSavingTimeTransition(after: self.date) else {
+				return self
+			}
+			return DateInRegion(transitionDate, region: self.region)
 		}
 	}
 
@@ -412,7 +439,7 @@ public extension DateInRegion {
 	/// - Returns: converted date
 	public func convertTo(calendar: CalendarConvertible? = nil, timezone: ZoneConvertible? = nil, locale: LocaleConvertible? = nil) -> DateInRegion {
 		let newRegion = Region(calendar: (calendar ?? self.region.calendar),
-							   zone: (timezone ?? self.region.zone),
+							   zone: (timezone ?? self.region.timeZone),
 							   locale: (locale ?? self.region.locale))
 		return self.convertTo(region: newRegion)
 	}

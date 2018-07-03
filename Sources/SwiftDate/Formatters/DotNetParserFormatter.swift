@@ -56,7 +56,7 @@ public class DOTNETFormatter: DateToStringTrasformable {
 
 	public static func format(_ date: DateRepresentable, options: Any?) -> String {
 		let milliseconds = (date.date.timeIntervalSince1970 * 1000.0)
-		let tzOffsets = (date.region.zone.secondsFromGMT(for: date.date) / 3600)
+		let tzOffsets = (date.region.timeZone.secondsFromGMT(for: date.date) / 3600)
 		let formattedStr = String(format: "/Date(%.0f%+03d00)/", milliseconds, tzOffsets)
 		return formattedStr
 	}

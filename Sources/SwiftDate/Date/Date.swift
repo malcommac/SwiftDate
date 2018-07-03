@@ -107,7 +107,7 @@ extension Date: DateRepresentable {
 		components.minute = minute
 		components.second = second
 		components.nanosecond = nanosecond
-		components.timeZone = region.zone
+		components.timeZone = region.timeZone
 		components.calendar = region.calendar
 		self = region.calendar.date(from: components)!
 	}

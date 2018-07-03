@@ -85,6 +85,17 @@ public extension Date {
 		return self.inDefaultRegion().dateAtStartOf(unit).date
 	}
 
+	/// Return a new DateInRegion that is initialized at the start of the specified components
+	/// executed in order.
+	///
+	/// - Parameter units: sequence of transformations as time unit components
+	/// - Returns: new date at the beginning of the passed components, intermediate results if fails.
+	public func dateAtStartOf(_ units: [Calendar.Component]) -> Date {
+		return units.reduce(self) { (currentDate, currentUnit) -> Date in
+			return currentDate.dateAtStartOf(currentUnit)
+		}
+	}
+
 	/// Returns a new Moment that is initialized at the end of a specified unit of time.
 	///
 	/// - parameter unit: A TimeUnit value.
@@ -92,6 +103,17 @@ public extension Date {
 	/// - returns: A new Moment instance.
 	public func dateAtEndOf(_ unit: Calendar.Component) -> Date {
 		return self.inDefaultRegion().dateAtEndOf(unit).date
+	}
+
+	/// Return a new DateInRegion that is initialized at the end of the specified components
+	/// executed in order.
+	///
+	/// - Parameter units: sequence of transformations as time unit components
+	/// - Returns: new date at the end of the passed components, intermediate results if fails.
+	public func dateAtEndOf(_ units: [Calendar.Component]) -> Date {
+		return units.reduce(self) { (currentDate, currentUnit) -> Date in
+			return currentDate.dateAtEndOf(currentUnit)
+		}
 	}
 
 	/// Create a new date by altering specified components of the receiver.

@@ -23,19 +23,63 @@ open class TimePeriod: TimePeriodProtocol {
 
 	public init() { }
 
+	/// Create a new time period with given date range.
+	///
+	/// - Parameters:
+	///   - start: start date
+	///   - end: end date
 	public init(start: DateInRegion?, end: DateInRegion?) {
 		self.start = start
 		self.end = end
 	}
 
+	/// Create a new time period with given start and a length specified in number of seconds.
+	///
+	/// - Parameters:
+	///   - start: start of the period
+	///   - duration: duration of the period expressed in seconds
 	public init(start: DateInRegion, duration: TimeInterval) {
 		self.start = start
 		self.end = DateInRegion(start.date.addingTimeInterval(duration), region: start.region)
 	}
 
+	/// Create a new time period which ends at given date and start date is back on time by given interval.
+	///
+	/// - Parameters:
+	///   - end: end date
+	///   - duration: duration expressed in seconds (it will be subtracted from start date)
 	public init(end: DateInRegion, duration: TimeInterval) {
 		self.end = end
 		self.start = end.addingTimeInterval(-duration)
+	}
+
+	/// Return a new instance of the TimePeriod that starts on the provided start date and is of the
+	/// size provided.
+	///
+	/// - Parameters:
+	///   - start: start of the period
+	///   - duration: length of the period (ie. `2.days` or `14.hours`...)
+	public init(start: DateInRegion, duration: DateComponents) {
+		self.start = start
+		self.end = (start + duration)
+	}
+
+	/// Return a new instance of the TimePeriod that starts at end time minus given duration.
+	///
+	/// - Parameters:
+	///   - end: end date
+	///   - duration: duration (it will be subtracted from end date in order to provide the start date)
+	public init(end: DateInRegion, duration: DateComponents) {
+		self.start = (end - duration)
+		self.end = end
+	}
+
+	/// Returns a new instance of DTTimePeriod that represents the largest time period available.
+	/// The start date is in the distant past and the end date is in the distant future.
+	///
+	/// - Returns: a new time period
+	public static func infinity() -> TimePeriod {
+		return TimePeriod(start: DateInRegion.past(), end: DateInRegion.future())
 	}
 
 	// MARK: - Shifted
@@ -48,6 +92,18 @@ open class TimePeriod: TimePeriodProtocol {
 		let timePeriod = TimePeriod()
 		timePeriod.start = self.start?.addingTimeInterval(timeInterval)
 		timePeriod.end = self.end?.addingTimeInterval(timeInterval)
+		return timePeriod
+	}
+
+	/// Shift the `TimePeriod` by the specified components value.
+	/// ie. `let shifted = period.shifted(by: 3.days)`
+	///
+	/// - Parameter components: components to shift
+	/// - Returns: new period
+	public func shifted(by components: DateComponents) -> TimePeriod {
+		let timePeriod = TimePeriod()
+		timePeriod.start = (self.hasStart ? (self.start! + components) : nil)
+		timePeriod.end = (self.hasEnd ? (self.end! + components) : nil)
 		return timePeriod
 	}
 

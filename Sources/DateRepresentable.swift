@@ -118,6 +118,24 @@ public protocol DateRepresentable {
 	/// Extract the date components from the date
 	var dateComponents: DateComponents { get }
 
+	/// Returns whether the given date is in today as boolean.
+	var isToday: Bool { get }
+
+	/// Returns whether the given date is in yesterday.
+	var isYesterday: Bool { get }
+
+	/// Returns whether the given date is in tomorrow.
+	var isTomorrow: Bool { get }
+
+	/// Returns whether the given date is in the weekend.
+	var isInWeekend: Bool { get }
+
+	/// Return true if given date represent a passed date
+	var isInPast: Bool { get }
+
+	/// Return true if given date represent a future date
+	var isInFuture: Bool { get }
+
 	/// Use this object to format the date object.
 	/// By default this object return the `customFormatter` instance (if set) or the
 	/// local thread shared formatter (via `sharedFormatter()` func; this is the most typical scenario).
@@ -387,6 +405,30 @@ public extension DateRepresentable {
 		return self.dateComponents.quarter!
 	}
 
+	public var isToday: Bool {
+		return self.calendar.isDateInToday(self.date)
+	}
+
+	public var isYesterday: Bool {
+		return self.calendar.isDateInYesterday(self.date)
+	}
+
+	public var isTomorrow: Bool {
+		return self.calendar.isDateInTomorrow(self.date)
+	}
+
+	public var isInWeekend: Bool {
+		return self.calendar.isDateInWeekend(self.date)
+	}
+
+	public var isInPast: Bool {
+		return self.date < Date()
+	}
+
+	public var isInFuture: Bool {
+		return self.date > Date()
+	}
+
 	func quarterName(_ style: SymbolFormatStyle) -> String {
 		let formatter = self.formatter(format: nil)
 		let idx = self.quarter
@@ -412,7 +454,7 @@ public extension DateRepresentable {
 	}
 
 	public var DSTOffset: TimeInterval {
-		return self.region.zone.daylightSavingTimeOffset(for: self.date)
+		return self.region.timeZone.daylightSavingTimeOffset(for: self.date)
 	}
 
 	// MARK: - Date Formatters
@@ -428,7 +470,7 @@ public extension DateRepresentable {
 
 	func formatterForRegion(format: String? = nil, configuration: ((inout DateFormatter) -> Void)? = nil) -> DateFormatter {
 		var formatter = self.formatter(format: format, configuration: {
-			$0.timeZone = self.region.zone
+			$0.timeZone = self.region.timeZone
 			$0.calendar = self.calendar
 			$0.locale = self.region.locale
 		})
@@ -451,7 +493,7 @@ public extension DateRepresentable {
 		guard let fixedLocale = locale else {
 			return DateToStringStyles.custom(format).toString(self)
 		}
-		let fixedRegion = Region(calendar: self.region.calendar, zone: self.region.zone, locale: fixedLocale)
+		let fixedRegion = Region(calendar: self.region.calendar, zone: self.region.timeZone, locale: fixedLocale)
 		let fixedDate = DateInRegion(self.date.date, region: fixedRegion)
 		return DateToStringStyles.custom(format).toString(fixedDate)
 	}

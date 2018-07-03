@@ -20,7 +20,7 @@ public extension DateFormatter {
 		let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
 		let formatter: DateFormatter = threadSharedObject(key: name, create: { return DateFormatter() })
 		if let region = region {
-			formatter.timeZone = region.zone
+			formatter.timeZone = region.timeZone
 			formatter.calendar = region.calendar
 			formatter.locale = region.locale
 		}
@@ -77,6 +77,7 @@ public struct DateFormats {
 		"yyyy-MM-dd'T'HH:mm:ss.SSSZ",
 		"yyyy-MM-dd",
 		"yyyy-MM-dd HH:mm:ss",
+		"yyyy-MM-dd HH:mm",
 		"h:mm:ss A",
 		"h:mm A",
 		"MM/dd/yyyy",
@@ -293,6 +294,7 @@ public enum DateRelatedType {
 	case nextWeek
 	case nextYear
 	case prevYear
+	case nextDSTTransition
 }
 
 public struct TimeCalculationOptions {

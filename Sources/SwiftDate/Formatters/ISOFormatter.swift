@@ -153,7 +153,7 @@ public class ISOFormatter: DateToStringTrasformable {
 		let formatOptions = ((options as? ISOFormatter.Options) ?? ISOFormatter.Options([.withInternetDateTime]))
 		let formatter = date.formatter(format: formatOptions.dateFormat) {
 			$0.locale = Locales.englishUnitedStatesComputer.toLocale() // fix for 12/24h
-			$0.timeZone = date.region.zone
+			$0.timeZone = date.region.timeZone
 		}
 		return formatter.string(from: date.date)
 	}

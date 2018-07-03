@@ -4,14 +4,54 @@
 
 SwiftDate is the definitive toolchain to manipulate and display dates and time zones on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
 
-## Topics
+<p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>
+Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">danielemargutti.com</a>
+</p>
 
-- [Compatibility & Installation](#installation)
-- [Complete Documentation](/Documentation/Index.md)
-- [Moving from SwiftDate 4.x or older](/Documentation/Upgrading.md)
-- [Author & License](#author)
+## Features Highlights
+From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 
-## 10 Good Reasons to choose SwiftDate
+- [x] Easy Date Parsing (custom formats, iso8601, rss & many more)
+- [x] Easy Date Formatting even with colloquial formatter and 140+ supported languages
+- [x] Easy math operations with time units (`2.hours + 5.minutes`...)
+- [x] Intuitive components extraction (day, hour, nearestHour, weekdayNameShort etc.)
+- [x] Derivated dates generation (nextWeek, nextMonth, nextWeekday, tomorrow...)
+- [x] Over 20+ fine grained date comparison functions (isToday, isTomorrow, isSameWeek, isNextYear...)
+- [x] Swift 4's Codable support
+- [x] Random dates generation
+- [x] Fine grained date enumeration functions
+- [x] Time period support
+- [x] Convert TimeIntervals to other units (`2.hours.toUnits(.minutes)`)
+
+and of course...
+
+- **IT'S TESTED!**. As 5.0.0 the project has 90% of code coverage (want help us? write some unit tests and make a PR)
+- **IT'S FULLY DOCUMENTED!**, [both with a complete guide](/Documentation/Index.md) and with Jazzy!
+- **WE LOVE PLAYGROUND!** [Check out](/Playgrounds/SwiftDate.playground) our interative playground!
+
+
+## Table Of Contents
+
+- Current Version: **5.0.0** 
+- Last Update: **July 1, 2018**
+- Code Coverage: **90.68%**
+
+### Documentation
+The entire library is fully documented both via XCode method inspector and with a full documentation manual.
+
+- **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.0)
+
+### Requirements & Installation
+The Informations section of the guide is complete with all you needs from zero to use of SwiftDate.
+
+- **[Read Info, Requirements, License & More...](/Documentation/0.Informations.md)**
+
+### Upgrading from SwiftDate 4.x
+If you are upgrading from older versions of SwiftDate check out our migration guide and don't hesitate to contact us via Issues to get more info.
+
+- **[Read Info, Requirements, License & More...](/Documentation/10.Upgrading_SwiftDate4.md)**
+
+## Explore SwiftDate
 
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 
@@ -283,77 +323,4 @@ let decodedDate = try JSONDecoder().decode(DateInRegion.self, from: encodedDate)
 ### 11. Time Periods
 SwiftDate integrates the great Matthew York's [DateTools](https://github.com/MatthewYork/DateTools) module in order to support Time Periods.
 
-Dates are important, but the real world is a little less discrete than that. Life is made up of spans of time, like an afternoon appointment or a weeklong vacation. In DateTools, time periods are represented by the TimePeriod class and come with a suite of initializaiton, manipulation, and comparison methods to make working with them a breeze.
-
-```swift
-
-```
-<a name="installation"/>
-
-## Compatibility & Installation
-
-SwiftDate 5.x is compatible with Swift 4.x+ and the following platforms:
-
-- iOS 9+
-- macOS 10.10+
-- watchOS 2.0+
-- tvOS 10.0+
-- any Linux platform which supports Swift 4+
-
-### Install via CocoaPods
-
-[CocoaPods](http://cocoapods.org) is a dependency manager which automates and simplifies the process of using 3rd-party libraries like SwiftDate in your projects. You can install it with the following command:
-
-```bash
-$ sudo gem install cocoapods
-```
-
-> CocoaPods 1.3+ is required to build SwiftDate.
-
-#### Install via Podfile
-
-To integrate FlowKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
-
-target 'TargetName' do
-use_frameworks!
-pod 'SwiftDate'
-end
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
-<a name="carthage" />
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "malcommac/SwiftDate"
-```
-
-Run `carthage` to build the framework and drag the built `FlowKit.framework` into your Xcode project.
-
-<a name="author"/>
-
-## Author & License
-
-SwiftDate was created and maintained by Daniele Margutti.
-
+See [Time Periods](/Documentation/12.Timer_Periods.md) section of the documentation.

@@ -8,9 +8,11 @@
 
 import Foundation
 
+/// Region define a context both for `Date` and `DateInRegion`.
+/// Each `Date` is assigned to the currently set `SwiftDate.default
 public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 
-	// MARK: Properties
+	// MARK: - Properties
 
 	/// Calendar associated with region
 	public let calendar: Calendar
@@ -19,11 +21,11 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	public var locale: Locale { return calendar.locale! }
 
 	/// Timezone associated with region
-	public var zone: TimeZone { return calendar.timeZone }
+	public var timeZone: TimeZone { return calendar.timeZone }
 
 	/// Description of the object
 	public var description: String {
-		return "{calendar='\(calendar.identifier)', timezone='\(zone.identifier)', locale='\(locale.identifier)'}"
+		return "{calendar='\(calendar.identifier)', timezone='\(timeZone.identifier)', locale='\(locale.identifier)'}"
 	}
 
 	public var hashValue: Int {
@@ -39,7 +41,7 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	///   - timezone: timezone for region, if not specified `defaultRegions`'s timezone is used instead.
 	///   - locale: locale for region, if not specified `defaultRegions`'s locale is used instead.
 	public init(calendar: CalendarConvertible = SwiftDate.defaultRegion.calendar,
-				zone: ZoneConvertible = SwiftDate.defaultRegion.zone,
+				zone: ZoneConvertible = SwiftDate.defaultRegion.timeZone,
 				locale: LocaleConvertible = SwiftDate.defaultRegion.locale) {
 		self.calendar = Calendar.newCalendar(calendar, configure: {
 			$0.timeZone = zone.toTimezone()
@@ -59,12 +61,18 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 		self.init(calendar: cal, zone: tz, locale: loc)
 	}
 
-	/// Return the `defaultRegion` but with timezone located at GMT.
-	///
-	/// - Returns: Region
 	public static var UTC: Region {
 		return Region(calendar: Calendar.autoupdatingCurrent,
 					  zone: Zones.gmt.toTimezone(),
+					  locale: Locale.autoupdatingCurrent)
+	}
+
+	/// Return the current local device's region where all attributes are set to the device's values.
+	///
+	/// - Returns: Region
+	public static var local: Region {
+		return Region(calendar: Calendar.autoupdatingCurrent,
+					  zone: TimeZone.autoupdatingCurrent,
 					  locale: Locale.autoupdatingCurrent)
 	}
 
@@ -92,7 +100,7 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	/// - Returns: region
 	public static func currentIn(locale: LocaleConvertible? = nil, calendar: CalendarConvertible? = nil) -> Region {
 		return Region(calendar: (calendar ?? SwiftDate.defaultRegion.calendar),
-					  zone: SwiftDate.defaultRegion.zone,
+					  zone: SwiftDate.defaultRegion.timeZone,
 					  locale: (locale ?? SwiftDate.defaultRegion.locale))
 	}
 
@@ -121,7 +129,7 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 	public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		let calId = Calendar.Identifier( try values.decode(String.self, forKey: .calendar))
-		let tz = (TimeZone(identifier: try values.decode(String.self, forKey: .timezone)) ?? SwiftDate.defaultRegion.zone)
+		let tz = (TimeZone(identifier: try values.decode(String.self, forKey: .timezone)) ?? SwiftDate.defaultRegion.timeZone)
 		let lc = Locale(identifier: try values.decode(String.self, forKey: .locale))
 		self.calendar = Calendar.newCalendar(calId, configure: {
 			$0.timeZone = tz
@@ -137,7 +145,7 @@ public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
 		// between Calendar (it may fail when you encode/decode autoUpdating calendars).
 		return
 			(lhs.calendar.identifier == rhs.calendar.identifier) &&
-			(lhs.zone.identifier == rhs.zone.identifier) &&
+			(lhs.timeZone.identifier == rhs.timeZone.identifier) &&
 			(lhs.locale.identifier == rhs.locale.identifier)
 	}
 }

@@ -77,7 +77,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 	///   - string: string with the date.
 	///   - formats: ordered list of formats to use.
 	///   - region: region in which the date is expressed.
-	public init?(_ string: String, formats: [String]? = nil, region: Region = SwiftDate.defaultRegion) {
+	public init?(_ string: String, formats: [String]?, region: Region = SwiftDate.defaultRegion) {
 		guard let date = DateFormats.parse(string: string,
 										   formats: (formats ?? SwiftDate.autoFormats),
 										   region: region) else {
@@ -151,7 +151,7 @@ public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible,
 		components.minute = minute
 		components.second = second
 		components.nanosecond = nanosecond
-		components.timeZone = region.zone
+		components.timeZone = region.timeZone
 		components.calendar = region.calendar
 		self.date = region.calendar.date(from: components)!
 		self.region = region

@@ -26,6 +26,16 @@ public extension TimePeriodProtocol {
 		return true
 	}
 
+	/// Return `true` if period has a start date
+	public var hasStart: Bool {
+		return (self.start != nil)
+	}
+
+	/// Return `true` if period has a end date
+	public var hasEnd: Bool {
+		return (self.end != nil)
+	}
+
 	/// Check if receiver is equal to given period (both start/end groups are equals)
 	///
 	/// - Parameter period: period to compare against to.
@@ -223,9 +233,33 @@ public extension TimePeriodProtocol {
 		return .none
 	}
 
-	/// Return `true` if period is zero-seconds long
-	public var isMoment: Bool {
-		return (self.start?.date == self.end?.date)
+	/// Return `true` if period is zero-seconds long or less than specified precision.
+	///
+	/// - Parameter precision: precision in seconds; by default is 0.
+	/// - Returns: true if start/end has the same value or less than specified precision
+	public func isMoment(precision: TimeInterval = 0) -> Bool {
+		guard self.hasFiniteRange else { return false }
+		return (abs(self.start!.date.timeIntervalSince1970 - self.end!.date.timeIntervalSince1970) <= precision)
+	}
+
+	/// Returns the duration of the receiver expressed with given time unit.
+	/// If time period has not a finite range it returns `nil`.
+	///
+	/// - Parameter unit: unit of the duration
+	/// - Returns: duration, `nil` if period has not a finite range
+	public func durationIn(_ units: Set<Calendar.Component>) -> DateComponents? {
+		guard self.hasFiniteRange else { return nil }
+		return self.start!.calendar.dateComponents(units, from: self.start!.date, to: self.end!.date)
+	}
+
+	/// Returns the duration of the receiver expressed with given time unit.
+	/// If time period has not a finite range it returns `nil`.
+	///
+	/// - Parameter unit: unit of the duration
+	/// - Returns: duration, `nil` if period has not a finite range
+	public func durationIn(_ unit: Calendar.Component) -> Int? {
+		guard self.hasFiniteRange else { return nil }
+		return self.start!.calendar.dateComponents([unit], from: self.start!.date, to: self.end!.date).value(for: unit)
 	}
 
 	/// The duration of the `TimePeriod` in years.

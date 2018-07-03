@@ -54,7 +54,7 @@ extension DateInRegion {
 		if region != nil {
 			cmps.calendar = region!.calendar
 			cmps.calendar!.locale = region!.locale
-			cmps.timeZone = region!.zone
+			cmps.timeZone = region!.timeZone
 		}
 		values.forEach { pair in
 			if pair.key != .timeZone && pair.key != .calendar {

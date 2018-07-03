@@ -2,492 +2,186 @@
 //  TestDateInRegion+Components.swift
 //  SwiftDate
 //
-//  Created by Daniele Margutti on 16/09/16.
-//  Copyright © 2016 Daniele Margutti. All rights reserved.
+//  Created by Daniele Margutti on 19/06/2018.
+//  Copyright © 2018 SwiftDate. All rights reserved.
 //
 
-import Foundation
-
+import SwiftDate
 import XCTest
-@testable import SwiftDate
-
 
 class TestDateInRegion_Components: XCTestCase {
-	
-	let newYork = Region(tz: TimeZoneName.americaNewYork, cal: CalendarName.gregorian, loc: LocaleName.englishUnitedStates)
-	let rome = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.italianItaly)
-	let amsterdam = Region(tz: TimeZoneName.europeAmsterdam, cal: CalendarName.gregorian, loc: LocaleName.dutchNetherlands)
-	let utc = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
-	
-	
-	override func setUp() {
-		super.setUp()
-	}
-	
-	override func tearDown() {
-		super.tearDown()
+
+	func testDateInRegion_Components() {
+		let regionLondon = Region(calendar: Calendars.gregorian, zone: Zones.europeLondon, locale: Locales.italian)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		// TEST #1: Date In Italian
+		let dateA = DateInRegion("2018-02-05 23:14:45", format: dateFormat, region: regionLondon)!
+		XCTValidateDateComponents(date: dateA, expec: ExpectedDateComponents {
+			$0.year = 2018
+			$0.month = 2
+			$0.day = 5
+			$0.hour = 23
+			$0.minute = 14
+			$0.second = 45
+			$0.monthNameDefault = "febbraio"
+			$0.monthNameDefaultStd = "febbraio"
+			$0.monthNameShort = "feb"
+			$0.monthNameStandaloneShort = "feb"
+			$0.msInDay = 83_686_000
+			$0.weekday = 2
+			$0.weekdayNameShort = "lun"
+			$0.weekdayNameVeryShort = "L"
+			$0.weekOfMonth = 2
+			$0.eraNameShort = "a.C."
+			$0.weekdayOrdinal = 1
+			$0.nearestHour = 23
+			$0.firstDayOfWeek = 5
+			$0.lastDayOfWeek = 11
+			$0.yearForWeekOfYear = 2018
+			$0.quarter = 0
+		})
+
+		// TEST #1: Date In French
+		let regionParis = Region(calendar: Calendars.gregorian, zone: Zones.europeParis, locale: Locales.french)
+		let dateB = DateInRegion("2018-02-05 23:14:45", format: dateFormat, region: regionParis)!
+		XCTValidateDateComponents(date: dateB, expec: ExpectedDateComponents {
+			$0.monthNameDefault = "février"
+			$0.monthNameShort = "févr."
+			$0.eraNameShort = "av. J.-C."
+			$0.weekdayNameDefault = "lundi"
+		})
+
+		// TEST #3: Other components
+		XCTAssert( (dateB.region == regionParis), "Failed to assign correct region to date")
+		XCTAssert( (dateB.calendar.identifier == regionParis.calendar.identifier), "Failed to assign correct region's calendar to date")
+		XCTAssert( (dateB.quarterName(.default) == "1er trimestre"), "Failed to get quarterName in default")
+		XCTAssert( (dateB.quarterName(.short) == "T1"), "Failed to get quarterName in short")
 	}
 
-	func testDifferentRegionComponents_YMD() {
-		let c: [Calendar.Component : Int] = [.year: 2002, .month: 3, .hour: 5, .day: 4, .minute: 6, .second: 7, .nanosecond: 87654321]
-		
-		let date = DateInRegion(components: c, fromRegion: nil)!
-		
-		XCTAssertEqual(date.era, 1, "Failed get correct era")
-		XCTAssertEqual(date.year, 2002, "Failed get correct year")
-		XCTAssertEqual(date.month, 3, "Failed get correct month")
-		XCTAssertEqual(date.day, 4, "Failed get correct day")
-		XCTAssertEqual(date.hour, 5, "Failed get correct hour")
-		XCTAssertEqual(date.minute, 6, "Failed get correct minute")
-		XCTAssertEqual(date.second, 7, "Failed get correct second")
-		if date.nanosecond < 87654321-10 || date.nanosecond > 87654321+10 {
-			XCTAssert(false, "Failed to get correct nanosecond")
+	func testDateInRegion_isLeapMonth() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		let dateA = DateInRegion("2018-02-05 00:00:00", format: dateFormat, region: regionRome)!
+		let dateB = DateInRegion("2016-02-22 00:00:00", format: dateFormat, region: regionRome)!
+		let dateC = DateInRegion("2017-12-10 00:00:00", format: dateFormat, region: regionRome)!
+		XCTAssert( dateA.isLeapMonth == false, "Failed to evaluate is date isLeapMonth == false")
+		XCTAssert( dateC.isLeapMonth == false, "Failed to evaluate is date isLeapMonth == false")
+		XCTAssert( dateB.isLeapMonth, "Failed to evaluate is date isLeapMonth")
+	}
+
+	func testDateInRegion_isLeapYear() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		let dateA = DateInRegion("2018-04-05 00:00:00", format: dateFormat, region: regionRome)!
+		let dateB = DateInRegion("2016-07-22 00:00:00", format: dateFormat, region: regionRome)!
+		let dateC = DateInRegion("2017-12-10 00:00:00", format: dateFormat, region: regionRome)!
+		XCTAssert( dateA.isLeapYear == false, "Failed to evaluate is date isLeapYear == false")
+		XCTAssert( dateC.isLeapYear == false, "Failed to evaluate is date isLeapYear == false")
+		XCTAssert( dateB.isLeapYear, "Failed to evaluate is date isLeapYear")
+	}
+
+	func testDateInRegion_julianDayAndModifiedJulianDay() {
+
+		// swiftlint:disable nesting
+		struct ExpectedJulian {
+			var dateISO: String
+			var julianDay: Double
+			var modifiedJulianDay: Double
 		}
-	}
-	
-	func testComponentsSum() {
-		let date = Date()
-		let date_1 = (date - (1.hour + 1.minute))
-		let timeInterval_1 = date_1 - date
-		XCTAssertEqual(timeInterval_1, -3660, "Failed sum date components")
-		
-		let date_2 = (date - (61.minute))
-		let timeInterval_2 = date_2 - date
-		XCTAssertEqual(timeInterval_2, -3660, "Failed sum date components")
-		
-		let date_3 = (date - (1.hour && 1.minute))
-		let timeInterval_3 = date_3 - date
-		XCTAssertEqual(timeInterval_3, -3660, "Failed sum date components")
-	}
-	
-	func testDifferentRegionComponents_YWD() {
-		let c: [Calendar.Component : Int] = [.era: 1, .yearForWeekOfYear: 2, .weekOfYear: 3, .weekday: 4]
-		let date = DateInRegion(components: c, fromRegion: nil)!
 
-		XCTAssertEqual(date.era, 1, "Failed get correct era")
-		XCTAssertEqual(date.yearForWeekOfYear, 2, "Failed get correct yearForWeekOfYear")
-		XCTAssertEqual(date.weekOfYear, 3, "Failed get correct weekOfYear")
-		XCTAssertEqual(date.weekday, 4, "Failed get correctweekday")
-		XCTAssertEqual(date.hour, 0, "Failed get correct hour")
-		XCTAssertEqual(date.minute, 0, "Failed get correct minute")
-		XCTAssertEqual(date.second, 0, "Failed get correct second")
-		XCTAssertEqual(date.nanosecond, 0, "Failed get correct nanosecond")
-	}
-	
-	func testDifferentRegionComponents_Midnight() {
-		// should return a midnight date with nil YMD initialisation in various regions
-		[rome,newYork,amsterdam,utc].forEach { region in
-			let date = DateInRegion(components: [.year: 1912, .month: 6, .day: 23, .hour: 0, .minute: 0, .second: 0], fromRegion: region)!
-			XCTAssertEqual(date.year, 1912, "Failed get correct year")
-			XCTAssertEqual(date.month, 6, "Failed get correct month")
-			XCTAssertEqual(date.day, 23, "Failed get correct day")
-			XCTAssertEqual(date.hour, 0, "Failed get correct hour")
-			XCTAssertEqual(date.minute, 0, "Failed get correct minute")
-			XCTAssertEqual(date.region, region, "Failed get correct second")
-		}
-	}
-	
-	func test_MidnightWithNilYMDInit() {
-		// should return a midnight date with nil YMD initialisation
-		let localDate = DateInRegion(components: [.year: 1912, .month: 6, .day: 23], fromRegion: nil)!
-		XCTAssertEqual(localDate.year, 1912, "Failed get correct year")
-		XCTAssertEqual(localDate.month, 6, "Failed get correct month")
-		XCTAssertEqual(localDate.day, 23, "Failed get correct day")
-		XCTAssertEqual(localDate.hour, 0, "Failed get correct hour")
-		XCTAssertEqual(localDate.minute, 0, "Failed get correct minute")
-	}
-	
-	func test_123DateForYMDInit() {
-		// should return a 123 date for YMD initialisation
-		let localDate = DateInRegion(components: [.year: 1999, .month: 12, .day: 31], fromRegion: nil)!
-		XCTAssertEqual(localDate.year, 1999, "Failed get correct year")
-		XCTAssertEqual(localDate.month, 12, "Failed get correct month")
-		XCTAssertEqual(localDate.day, 31, "Failed get correct day")
-	}
-	
-	func test_yearShiftBetweenRegions() {
-		let romeRegion = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
-		let romeDate = DateInRegion(components: [.year: 2000, .month: 1, .day: 1, .hour: 0, .minute: 0, .second: 0], fromRegion: romeRegion)!
-		
-		let gmtRegion = Region.GMT()
-		let gmtDate = romeDate.toRegion(gmtRegion)
-		
-		XCTAssertEqual(gmtDate.year, 1999, "Failed get correct year")
-		XCTAssertEqual(gmtDate.month, 12, "Failed get correct month")
-		XCTAssertEqual(gmtDate.day, 31, "Failed get correct day")
-		XCTAssertEqual(gmtDate.hour, 23, "Failed get correct day")
-	}
-	
-	func test_123DateForYWDInit() {
-		let localDate = DateInRegion(components: [.year: 1999, .month: 12, .day: 31])!
-		XCTAssertEqual(localDate.year, 1999, "Failed get correct year")
-		XCTAssertEqual(localDate.month, 12, "Failed get correct month")
-		XCTAssertEqual(localDate.day, 31, "Failed get correct day")
-	}
-	
-	func test_123DateForYWDInit_2() {
-		let localDate = DateInRegion(components: [.year: 2016, .weekOfYear: 1, .weekday: 1])!
-		XCTAssertEqual(localDate.yearForWeekOfYear, 2016, "Failed get correct yearForWeekOfYear")
-		XCTAssertEqual(localDate.weekOfYear, 1, "Failed get correct weekOfYear")
-		XCTAssertEqual(localDate.weekday, 1, "Failed get correct weekday")
-	}
-	
-	func test_zeroInitIndefaultRegion() {
-		let components = DateComponents()
-		let zeroDate = DateInRegion(components: components)!
-		
-		XCTAssertEqual(zeroDate.year, 1, "Failed get correct year")
-		XCTAssertEqual(zeroDate.month, 1, "Failed get correct month")
-		XCTAssertEqual(zeroDate.day, 1, "Failed get correct day")
-		XCTAssertEqual(zeroDate.hour, 0, "Failed get correct hour")
-		XCTAssertEqual(zeroDate.minute, 0, "Failed get correct minute")
-		XCTAssertEqual(zeroDate.second, 0, "Failed get correct second")
-		XCTAssertEqual(zeroDate.nanosecond, 0, "Failed get correct nanosecond")
-	}
-	
-	func test_returnProperDate() {
-		let localDate = DateInRegion(components: [.year: 1999, .month: 12, .day: 31], fromRegion: newYork)!
-		XCTAssertEqual(localDate.year, 1999, "Failed get correct year")
-		XCTAssertEqual(localDate.month, 12, "Failed get correct month")
-		XCTAssertEqual(localDate.day, 31, "Failed get correct day")
-		XCTAssertEqual(localDate.region.timeZone, newYork.timeZone, "Failed get correct timeZone")
-	}
-	
-	func test_gregorianWk_saturday() {
-		let localDate = DateInRegion(components: [.year: 2015, .month: 11, .day: 7], fromRegion: amsterdam)!
-		XCTAssert(localDate.isInWeekend,"Failed to get the correct value for isInWeekend=true on Saturday")
-	}
-	
-	func test_gregorianWk_sunday() {
-		let localDate = DateInRegion(components: [.year: 2015, .month: 11, .day: 8], fromRegion: amsterdam)!
-		XCTAssert(localDate.isInWeekend,"Failed to get the correct value for isInWeekend=true on Sunday")
-	}
-	
-	func test_gregorianWk_monday() {
-		let localDate = DateInRegion(components: [.year: 2015, .month: 11, .day: 9], fromRegion: amsterdam)!
-		XCTAssert(localDate.isInWeekend == false,"Failed to get the correct value for isInWeekend=false on Monday")
-	}
-	
-	func test_gregorianWk_Thursday() {
-		let localDate = DateInRegion(components: [.year: 2015, .month: 11, .day: 12], fromRegion: amsterdam)!
-		XCTAssert(localDate.isInWeekend == false,"Failed to get the correct value for isInWeekend=false on Thursday")
-	}
-	
-	func test_monthNameLocalized() {
-		let localDate = DateInRegion(components: [.year: 2015, .month: 11, .day: 12], fromRegion: rome)!
-		XCTAssert(localDate.monthName.lowercased() == "novembre","Failed to get the correct value of the month in given locale")
-	}
-	
-	func test_monthDaysInLeapYear() {
-		let localDate = DateInRegion(components: [.year: 2020, .month: 02], fromRegion: rome)!
-		XCTAssert(localDate.monthDays == 29,"Failed to get the correct value of the monthDays for a leap year")
-	}
-	
-	func test_nearestHour() {
-		let localDate = DateInRegion(components: [.year: 2020, .month: 02, .day: 14, .hour: 13, .minute: 15], fromRegion: rome)!
-		XCTAssert(localDate.nearestHour == 13,"Failed to get the correct value of the nearestHour +0")
-		
-		let localDate2 = DateInRegion(components: [.year: 2020, .month: 02, .day: 14, .hour: 13, .minute: 30, .second: 10], fromRegion: rome)!
-		XCTAssert(localDate2.nearestHour == 14,"Failed to get the correct value of the nearestHour +1")
-	}
-	
-	func test_leapMonthAndYear() {
-		let localDate1 = DateInRegion(components: [.year: 2016, .month: 9, .day: 18], fromRegion: rome)!
-		XCTAssert(localDate1.leapMonth == false,"Failed to get the correct value of the leapMonth for a non leapMonth month")
-
-		let localDate2 = DateInRegion(components: [.year: 2020, .month: 2, .day: 1], fromRegion: rome)!
-		XCTAssert(localDate2.leapMonth == true,"Failed to get the correct value of the leapMonth for a non leapMonth month")
-
-		let localDate3 = DateInRegion(components: [.year: 2015, .month: 9, .day: 18], fromRegion: rome)!
-		XCTAssert(localDate3.leapYear == false,"Failed to get the correct value of the leapYear for a non leapYear year")
-		
-		let localDate4 = DateInRegion(components: [.year: 2020, .month: 2, .day: 1], fromRegion: rome)!
-		XCTAssert(localDate4.leapYear == true,"Failed to get the correct value of the leapYear for a non leapYear year")
-	}
-	
-	func test_julianDay() {
-		let localDate1 = DateInRegion(components: [.year: 2016, .month: 9, .day: 18], fromRegion: rome)!
-		XCTAssert(localDate1.julianDay == 2457649.416666667,"Failed to get the correct value of the julianDay for a date")
-	}
-	
-	
-	func test_nextWeekend() {
-		let expectedWeekendStartDate = DateInRegion(components: [.year: 2015, .month: 11, .day: 7], fromRegion: amsterdam)!
-		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.day).endOf(component: .day)
-		
-		var daysToTest: [DateInRegion] = []
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 6], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 5], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 4], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 3], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 2], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 1], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 10, .day: 31], fromRegion: amsterdam)!)
-
-		
-		for dateToTest in daysToTest {
-			let foundWeekend = dateToTest.nextWeekend
-			XCTAssert(foundWeekend!.startDate == expectedWeekendStartDate,"Failed to get the correct value of weekend.startDate")
-			XCTAssert(foundWeekend!.endDate == expectedWeekendEndDate,"Failed to get the correct value of weekend.endDate")
-		}
-	}
-	
-	func test_previousWeekend() {
-		let expectedWeekendStartDate = DateInRegion(components: [.year: 2015, .month: 10, .day: 31], fromRegion: amsterdam)!
-		let expectedWeekendEndDate = (expectedWeekendStartDate + 1.day).endOf(component: .day)
-		
-		var daysToTest: [DateInRegion] = []
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 8], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 7], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 6], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 5], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 4], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 3], fromRegion: amsterdam)!)
-		daysToTest.append(DateInRegion(components: [.year: 2015, .month: 11, .day: 2], fromRegion: amsterdam)!)
-		
-		
-		for dateToTest in daysToTest {
-			let foundWeekend = dateToTest.previousWeekend
-			XCTAssert(foundWeekend!.startDate == expectedWeekendStartDate,"Failed to get the correct value of weekend.startDate")
-			XCTAssert(foundWeekend!.endDate == expectedWeekendEndDate,"Failed to get the correct value of weekend.endDate")
-		}
-	}
-	
-	func test_weekendName() {
-		let date = DateInRegion(components: [.year: 2002, .month: 3, .day: 4, .hour: 5, .minute: 30], fromRegion: newYork)!
-		XCTAssert(date.weekdayName.lowercased() == "monday", "Failed to get the correct value of weekdayName")
-	}
-	
-	func test_isTodayYesterdayTomorrow() {
-		let date = DateInRegion(absoluteDate: Date(), in: newYork)
-		
-		XCTAssert(date.isToday, "Failed to get the correct value of isToday")
-		XCTAssert(date.isTomorrow == false, "Failed to get the correct value of isTomorrow when it's not tomorrow")
-		XCTAssert(date.isYesterday == false, "Failed to get the correct value of isYesterday when it's not yesterday")
-
-		let yesterday = (date - 1.day)
-		XCTAssert(yesterday.isYesterday, "Failed to get the correct value of isYesterday when it's yesterday")
-		
-		let tomorrow = (date + 1.day)
-		XCTAssert(tomorrow.isTomorrow, "Failed to get the correct value of isTomorrow when it's tomorrow")
-	}
-	
-	func test_inPastAndInFuture() {
-		let pastDate = (DateInRegion(absoluteDate: Date(), in: newYork) - 2.days)
-		let futureDate = (DateInRegion(absoluteDate: Date(), in: newYork) + 2.days)
-	
-		XCTAssert(pastDate.isInPast, "Failed to get the correct value of isInPast")
-		XCTAssert(futureDate.isInFuture, "Failed to get the correct value of isInFuture when it's tomorrow")
-	}
-	
-	func test_isSameDayOf() {
-		let date1 = DateInRegion(components: [.year: 2012, .month: 4, .day: 5])!
-		let sameDayDate = DateInRegion(string: "2012-04-05 23:59:00", format: .custom("yyyy-MM-dd HH:mm:ss"))!
-		let differentDayDate = DateInRegion(string: "2012-04-06 00:00:01", format: .custom("yyyy-MM-dd HH:mm:ss"))!
-		
-		XCTAssert(sameDayDate.isInSameDayOf(date: date1), "Failed to get the correct value of isInSameDayOf")
-		XCTAssert(differentDayDate.isInSameDayOf(date: date1) == false, "Failed to get the correct value of isInSameDayOf")
-	}
-	
-	func test_startEndOfDay() {
-		let date = DateInRegion(string: "2012-04-05 15:30:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
-
-		let startOfDay = date.startOfDay
-		let endOfDay = date.endOfDay
-		
-		XCTAssertEqual("2012-04-05T00:00:00+02:00", startOfDay.iso8601(), "Failed to generate a valid date from Alt RSS format")
-		XCTAssertEqual("2012-04-05T23:59:59+02:00", endOfDay.iso8601(), "Failed to generate a valid date from Alt RSS format")
-	}
-	
-	func test_nextPrevTimeComponents() {
-		let gmt = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
-		let startDate = DateInRegion(string: "2017-07-16 16:00:00 +0000", format: .iso8601Auto, fromRegion: gmt)!
-		
-		// Next Month at end
-		let strings_atend = [
-			"2017-07-31T23:59:59Z",
-			"2017-08-31T23:59:59Z",
-			"2017-09-30T23:59:59Z",
-			"2017-10-31T23:59:59Z",
-			"2017-11-30T23:59:59Z",
-			"2017-12-31T23:59:59Z",
-			"2018-01-31T23:59:59Z",
-			"2018-02-28T23:59:59Z",
-			"2018-03-31T23:59:59Z",
-			"2018-04-30T23:59:59Z"
+		let dates = [
+			ExpectedJulian(dateISO: "2017-12-22T00:06:18+01:00", julianDay: 2_458_109.462_708_333_5, modifiedJulianDay: 58108.962_708_333_51),
+			ExpectedJulian(dateISO: "2018-06-02T02:14:45+02:00", julianDay: 2_458_271.510_243_055_4, modifiedJulianDay: 58271.010_243_055_41),
+			ExpectedJulian(dateISO: "2018-04-04T13:31:12+02:00", julianDay: 2_458_212.98, modifiedJulianDay: 58212.479_999_999_98),
+			ExpectedJulian(dateISO: "2018-03-18T10:11:10+01:00", julianDay: 2_458_195.882_754_629_5, modifiedJulianDay: 58195.382_754_629_48),
+			ExpectedJulian(dateISO: "2018-03-10T18:03:22+01:00", julianDay: 2_458_188.210_671_296_3, modifiedJulianDay: 58187.710_671_296_34),
+			ExpectedJulian(dateISO: "2017-07-14T06:33:47+02:00", julianDay: 2_457_948.690_127_315, modifiedJulianDay: 57948.190_127_315),
+			ExpectedJulian(dateISO: "2018-02-14T16:51:14+01:00", julianDay: 2_458_164.160_578_703_5, modifiedJulianDay: 58163.660_578_703_51),
+			ExpectedJulian(dateISO: "2017-08-15T17:41:44+02:00", julianDay: 2_457_981.153_981_481_7, modifiedJulianDay: 57980.653_981_481_68),
+			ExpectedJulian(dateISO: "2018-03-04T09:54:54+01:00", julianDay: 2_458_181.871_458_333, modifiedJulianDay: 58181.371_458_332_986),
+			ExpectedJulian(dateISO: "2017-09-23T08:18:15+02:00", julianDay: 2_458_019.762_673_611, modifiedJulianDay: 58019.262_673_610_82),
+			ExpectedJulian(dateISO: "2017-12-10T10:29:42+01:00", julianDay: 2_458_097.895625, modifiedJulianDay: 58097.395_624_999_89),
+			ExpectedJulian(dateISO: "2017-11-11T02:49:41+01:00", julianDay: 2_458_068.576_168_981_4, modifiedJulianDay: 58068.076_168_981_38),
+			ExpectedJulian(dateISO: "2017-07-06T04:05:39+02:00", julianDay: 2_457_940.587_256_944_7, modifiedJulianDay: 57940.087_256_944_74),
+			ExpectedJulian(dateISO: "2017-12-02T00:23:52+01:00", julianDay: 2_458_089.474_907_407_5, modifiedJulianDay: 58088.974_907_407_54),
+			ExpectedJulian(dateISO: "2017-11-14T17:59:46+01:00", julianDay: 2_458_072.208_171_296_4, modifiedJulianDay: 58071.708_171_296_4),
+			ExpectedJulian(dateISO: "2018-03-02T10:53:52+01:00", julianDay: 2_458_179.912_407_407_5, modifiedJulianDay: 58179.412_407_407_54),
+			ExpectedJulian(dateISO: "2018-04-14T23:46:35+02:00", julianDay: 2_458_223.407_349_537, modifiedJulianDay: 58222.907_349_537_13),
+			ExpectedJulian(dateISO: "2018-04-28T07:25:22+02:00", julianDay: 2_458_236.725_949_074, modifiedJulianDay: 58236.225_949_074_14),
+			ExpectedJulian(dateISO: "2018-01-06T14:36:53+01:00", julianDay: 2_458_125.067_280_092_3, modifiedJulianDay: 58124.567_280_092_28),
+			ExpectedJulian(dateISO: "2017-09-24T19:58:19+02:00", julianDay: 2_458_021.248_831_019, modifiedJulianDay: 58020.748_831_018_806),
+			ExpectedJulian(dateISO: "2017-12-17T21:12:31+01:00", julianDay: 2_458_105.342_025_463, modifiedJulianDay: 58104.842_025_463_004),
+			ExpectedJulian(dateISO: "2018-05-04T02:28:42+02:00", julianDay: 2_458_242.519_930_555_5, modifiedJulianDay: 58242.019_930_555_485),
+			ExpectedJulian(dateISO: "2018-01-21T18:41:34+01:00", julianDay: 2_458_140.237_199_074, modifiedJulianDay: 58139.737_199_074_12),
+			ExpectedJulian(dateISO: "2018-04-05T02:36:54+02:00", julianDay: 2_458_213.525625, modifiedJulianDay: 58213.025_624_999_78),
+			ExpectedJulian(dateISO: "2018-02-07T13:35:16+01:00", julianDay: 2_458_157.024_490_741, modifiedJulianDay: 58156.524_490_741_08),
+			ExpectedJulian(dateISO: "2017-11-30T00:58:20+01:00", julianDay: 2_458_087.498_842_592_4, modifiedJulianDay: 58086.998_842_592_35),
+			ExpectedJulian(dateISO: "2018-04-10T07:10:34+02:00", julianDay: 2_458_218.715_671_296, modifiedJulianDay: 58218.215_671_296_23),
+			ExpectedJulian(dateISO: "2017-08-11T09:36:56+02:00", julianDay: 2_457_976.817_314_815, modifiedJulianDay: 57976.317_314_814_776),
+			ExpectedJulian(dateISO: "2018-04-28T12:30:18+02:00", julianDay: 2_458_236.937_708_333, modifiedJulianDay: 58236.437_708_333_135),
+			ExpectedJulian(dateISO: "2017-09-17T11:59:29+02:00", julianDay: 2_458_013.916_307_870_3, modifiedJulianDay: 58013.416_307_870_3)
 		]
-		var nextMonth = startDate.prevMonth(at: .end)
-		for x in 0..<strings_atend.count {
-			nextMonth = nextMonth.nextMonth(at: .end)
-			XCTAssertEqual(strings_atend[x], nextMonth.iso8601(), "Failed to generate next valid month at beginning")
-		}
-		
-		// Next Month at start
-		let strings_atstart = [
-			"2017-07-01T00:00:00Z",
-			"2017-08-01T00:00:00Z",
-			"2017-09-01T00:00:00Z",
-			"2017-10-01T00:00:00Z",
-			"2017-11-01T00:00:00Z",
-			"2017-12-01T00:00:00Z",
-			"2018-01-01T00:00:00Z",
-			"2018-02-01T00:00:00Z",
-			"2018-03-01T00:00:00Z",
-			"2018-04-01T00:00:00Z"
-		]
-		var nextMonthAtStart = startDate.prevMonth(at: .start)
-		for x in 0..<strings_atstart.count{
-			nextMonthAtStart = nextMonthAtStart.nextMonth(at: .start)
-			XCTAssertEqual(strings_atstart[x], nextMonthAtStart.iso8601(), "Failed to generate next valid month at end")
-		}
-		
-		// Next Week at start
-		let strings_w_atstart = [
-			"2017-07-16T00:00:00Z",
-			"2017-07-23T00:00:00Z",
-			"2017-07-30T00:00:00Z",
-			"2017-08-06T00:00:00Z",
-			"2017-08-13T00:00:00Z",
-			"2017-08-20T00:00:00Z",
-			"2017-08-27T00:00:00Z",
-			"2017-09-03T00:00:00Z",
-			"2017-09-10T00:00:00Z",
-			"2017-09-17T00:00:00Z"
-		]
-		var nextWeek = startDate.prevWeek(at: .start)
-		for x in 0..<10 {
-			nextWeek = nextWeek.nextWeek(at: .start)
-			XCTAssertEqual(strings_w_atstart[x], nextWeek.iso8601(), "Failed to generate next valid month at end")
-		}
-		
-		// Next Week at end
-		let strings_w_atend = [
-			"2017-07-22T23:59:59Z",
-			"2017-07-29T23:59:59Z",
-			"2017-08-05T23:59:59Z",
-			"2017-08-12T23:59:59Z",
-			"2017-08-19T23:59:59Z",
-			"2017-08-26T23:59:59Z",
-			"2017-09-02T23:59:59Z",
-			"2017-09-09T23:59:59Z",
-			"2017-09-16T23:59:59Z",
-			"2017-09-23T23:59:59Z"
-		]
-		var nextWeek_end = startDate.prevWeek(at: .start)
-		for x in 0..<10 {
-			nextWeek_end = nextWeek_end.nextWeek(at: .end)
-			XCTAssertEqual(strings_w_atend[x], nextWeek_end.iso8601(), "Failed to generate next valid month at end")
-		}
-	}
-	
-	func test_atTime() {
-		let date_rome = DateInRegion(components: [.year: 2002, .month: 3, .day: 4, .hour: 5, .minute: 30, .second: 10], fromRegion: rome)!
-		guard let dateWithTimeSet = date_rome.atTime(hour: 20, minute: 22, second: 56) else {
-			XCTFail("Failed to set hour/minute/seconds")
-			return
-		}
-		XCTAssertEqual(dateWithTimeSet.hour, 20, "Failed to set a valid hour")
-		XCTAssertEqual(dateWithTimeSet.minute, 22, "Failed to set a valid hour")
-		XCTAssertEqual(dateWithTimeSet.second, 56, "Failed to set a valid hour")
-		XCTAssertEqual("2002-03-04T20:22:56+01:00", dateWithTimeSet.iso8601(), "Failed to set atTime")
-	}
-	
-	func test_mathOperations() {
-		let date = DateInRegion(string: "1999-12-31 23:30:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
-		let nextYearDate = (date + 31.minutes)
-		XCTAssertEqual("2000-01-01T00:01:00+01:00", nextYearDate.iso8601(), "Failed to switch to another year with math operaiton")
-		
-		let date2 = (date - 1.week)
-		XCTAssertEqual("1999-12-24T23:30:00+01:00", date2.iso8601(), "Failed to execute math operation")
-		
-		
-		let date3 = (date - 10.minutes - 1.hour + 61.seconds)
-		XCTAssertEqual("1999-12-31T22:21:01+01:00", date3.iso8601(), "Failed to execute math operation")
-	
-		let date4 = (date - 1.year + 2.months)
-		XCTAssertEqual("1999-02-28T23:30:00+01:00", date4.iso8601(), "Failed to execute math operation")
 
-		
-		let date5 = (date + [.year: 1, .month: 2])
-		XCTAssertEqual("2001-02-28T23:30:00+01:00", date5.iso8601(), "Failed to execute math operation")
-	}
-	
-	func test_timeIntervals() {
-		let date1 = DateInRegion(string: "1999-12-31 23:30:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
-		let date2 = DateInRegion(string: "1999-12-31 23:40:05", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
-
-		let diffInSeconds = abs((date2 - date1).in(.second)!)
-		XCTAssertEqual(diffInSeconds, 605, "Failed to get diff in seconds between two dates")
-
-		let diffInMinutes = abs((date2 - date1).in(.minute)!)
-		XCTAssertEqual(diffInMinutes, 10, "Failed to get diff in minutes between two dates")
-
-		let diffInBoth = (date2 - date1).in([.second, .minute])
-		let diff_min = diffInBoth[.minute]
-		let diff_sec = diffInBoth[.second]
-		XCTAssertTrue(diff_min == 10 && diff_sec == 5, "Failed to get diff in several components between two dates")
-		
-		let diffInSecondsRev = abs((date1 - date2).in(.second)!)
-		XCTAssertEqual(diffInSecondsRev, 605, "Failed to get diff in seconds between two dates (reversed)")
-	}
-	
-	func test_fromNow() {
-		var components = DateComponents()
-		components.second = 3600
-		
-		let now = Date()
-		let newDateFrom = components.from(date: now)
-		XCTAssertTrue(newDateFrom!.timeIntervalSince(now) == 3600,"Failed to get a new date from now plus 3600 seconds")
-		
-		let newDateAgo = components.ago(from: now)
-		XCTAssertTrue(newDateAgo!.timeIntervalSince(now) == -3600,"Failed to get a new date from now minus 3600 seconds")
-	}
-    
-    func test_isMorningAfternoonEveningNight() {
-        
-        let ninePM = DateInRegion(string: "1989-06-06 21:00:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
-        
-        XCTAssert(ninePM.isNight, "Failed to get the 33333333333333333333333333333333correct value of isNight")
-        XCTAssert(ninePM.isMorning == false, "Failed to get the correct value of isMorning when it's not morning")
-        XCTAssert(ninePM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
-        XCTAssert(ninePM.isEvening == false, "Failed to get the correct value of isEvening when it's not evening")
-        
-        let fiveAM = (ninePM + 8.hours)
-        XCTAssert(fiveAM.isMorning, "Failed to get the correct value of isMorning")
-        XCTAssert(fiveAM.isNight == false, "Failed to get the correct value of isNight when it's not night")
-        XCTAssert(fiveAM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
-        XCTAssert(fiveAM.isEvening == false, "Failed to get the correct value of isEvening when it's not evening")
-        
-        let twelvePM = (ninePM + 15.hours)
-        XCTAssert(twelvePM.isAfternoon, "Failed to get the correct value of isAfternoon")
-        XCTAssert(twelvePM.isNight == false, "Failed to get the correct value of isNight when it's not night")
-        XCTAssert(twelvePM.isMorning == false, "Failed to get the correct value of isMorning when it's not morning")
-        XCTAssert(twelvePM.isEvening == false, "Failed to get the correct value of isEvening when it's not evening")
-        
-        let fivePM = (ninePM + 20.hours)
-        XCTAssert(fivePM.isEvening, "Failed to get the correct value of isEvening")
-        XCTAssert(fivePM.isNight == false, "Failed to get the correct value of isNight when it's not night")
-        XCTAssert(fivePM.isMorning == false, "Failed to get the correct value of isMorning when it's not morning")
-        XCTAssert(fivePM.isAfternoon == false, "Failed to get the correct value of isAfternoon when it's not afternoon")
-
-    }
-	
-	func test_inFunctionWithAbsoluteInterval() {
-		Date.setDefaultRegion(Region(tz: TimeZoneName.gmt,
-									 cal: CalendarName.gregorian,
-									 loc: LocaleName.englishEurope))
-		
-		let startDate = Date(timeIntervalSince1970: 1511222400.0) // 21 Nov 2017
-		let endDate = startDate.add(components: [.day: 30])
-		var currentDate = startDate.add(components: [.day: 1])
-		while currentDate.isBefore(date: endDate, granularity: .day) {
-			let swiftDateDiff = (currentDate - startDate).in(.day)!
-			let seconds = currentDate.timeIntervalSince1970 - startDate.timeIntervalSince1970
-			let customDateDiff = Int(seconds / 60 / 60 / 24)
-			if swiftDateDiff != customDateDiff {
-				XCTFail("Diff with \(currentDate) should be \(customDateDiff) days, instead of \(swiftDateDiff).")
+		dates.forEach {
+			let date = $0.dateISO.toISODate()!
+			guard date.julianDay == $0.julianDay else {
+				XCTFail("Failed to evaluate julianDay of '\($0.dateISO)'. Got '\(date.julianDay)', expected '\($0.julianDay)'")
+				return
 			}
-			currentDate = currentDate.add(components: [.day: 1])
+			guard date.modifiedJulianDay == $0.modifiedJulianDay else {
+				XCTFail("Failed to evaluate modifiedJulianDay of '\($0.dateISO)'. Got '\(date.modifiedJulianDay)', expected '\($0.modifiedJulianDay)'")
+				return
+			}
 		}
+
 	}
+
+	func testDateInRegion_ISOFormatterAlt() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+		let date = DateInRegion("2017-07-22 00:00:00", format: dateFormat, region: regionRome)!
+
+		XCTAssert( date.toISO() == "2017-07-22T00:00:00+02:00", "Failed to format ISO")
+		XCTAssert( date.toISO([.withFullDate]) == "2017-07-22", "Failed to format ISO")
+		XCTAssert( date.toISO([.withFullDate, .withFullTime, .withDashSeparatorInDate, .withSpaceBetweenDateAndTime]) == "2017-07-22 00:00:00+02:00", "Failed to format ISO")
+	}
+
+	func testDateInRegion_getIntervalForComponentBetweenDates() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		let dateA = DateInRegion("2017-07-22 00:00:00", format: dateFormat, region: regionRome)!
+		let dateB = DateInRegion("2017-07-23 12:00:00", format: dateFormat, region: regionRome)!
+		let dateC = DateInRegion("2017-09-23 12:00:00", format: dateFormat, region: regionRome)!
+		let dateD = DateInRegion("2017-09-23 12:54:00", format: dateFormat, region: regionRome)!
+
+		XCTAssert( (dateA.getInterval(toDate: dateB, component: .hour) == 36), "Failed to evaluate is hours interval")
+		XCTAssert( (dateA.getInterval(toDate: dateB, component: .day) == 2), "Failed to evaluate is days interval") // 1 days, 12 hours
+		XCTAssert( (dateB.getInterval(toDate: dateC, component: .month) == 2), "Failed to evaluate is months interval")
+		XCTAssert( (dateB.getInterval(toDate: dateC, component: .day) == 62), "Failed to evaluate is days interval")
+		XCTAssert( (dateB.getInterval(toDate: dateC, component: .year) == 0), "Failed to evaluate is years interval")
+		XCTAssert( (dateB.getInterval(toDate: dateC, component: .weekOfYear) == 9), "Failed to evaluate is weeksOfYear interval")
+		XCTAssert( (dateC.getInterval(toDate: dateD, component: .minute) == 54), "Failed to evaluate is minutes interval")
+		XCTAssert( (dateC.getInterval(toDate: dateD, component: .hour) == 0), "Failed to evaluate is hours interval")
+		XCTAssert( (dateA.getInterval(toDate: dateD, component: .minute) == 91494), "Failed to evaluate is minutes interval")
+	}
+
+	func testDateInRegion_timeIntervalSince() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let regionLondon = Region(calendar: Calendars.gregorian, zone: Zones.europeLondon, locale: Locales.english)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		let dateA = DateInRegion("2017-07-22 00:00:00", format: dateFormat, region: regionRome)!
+		let dateB = DateInRegion("2017-07-22 00:00:00", format: dateFormat, region: regionRome)!
+		let dateC = DateInRegion("2017-07-23 13:20:15", format: dateFormat, region: regionLondon)!
+		let dateD = DateInRegion("2017-07-23 13:20:20", format: dateFormat, region: regionLondon)!
+
+		XCTAssert( dateA.timeIntervalSince(dateC) == -138015.0, "Failed to evaluate is minutes interval")
+		XCTAssert( dateA.timeIntervalSince(dateB) == 0, "Failed to evaluate is minutes interval")
+		XCTAssert( dateC.timeIntervalSince(dateD) == -5, "Failed to evaluate is minutes interval")
+	}
+
 }

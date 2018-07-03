@@ -1,0 +1,99 @@
+//
+//  Date+Compare.swift
+//  SwiftDate
+//
+//  Created by Daniele Margutti on 07/06/2018.
+//  Copyright © 2018 SwiftDate. All rights reserved.
+//
+
+import Foundation
+
+public extension Date {
+
+	// MARK: - Comparing Close
+
+	/// Decides whether a Date is "close by" another one passed in parameter,
+	/// where "Being close" is measured using a precision argument
+	/// which is initialized a 300 seconds, or 5 minutes.
+	///
+	/// - Parameters:
+	///   - refDate: reference date compare against to.
+	///   - precision: The precision of the comparison (default is 5 minutes, or 300 seconds).
+	/// - Returns: A boolean; true if close by, false otherwise.
+	public func compareCloseTo(_ refDate: Date, precision: TimeInterval = 300) -> Bool {
+		return (abs(self.timeIntervalSince(refDate)) < precision)
+	}
+
+	// MARK: - Extendend Compare
+
+	/// Compare the date with the rule specified in the `compareType` parameter.
+	///
+	/// - Parameter compareType: comparison type.
+	/// - Returns: `true` if comparison succeded, `false` otherwise
+	public func compare(_ compareType: DateComparisonType) -> Bool {
+		return self.inDefaultRegion().compare(compareType)
+	}
+
+	/// Returns a ComparisonResult value that indicates the ordering of two given dates based on
+	/// their components down to a given unit granularity.
+	///
+	/// - parameter date:        date to compare.
+	/// - parameter granularity: The smallest unit that must, along with all larger units be less for the given dates
+	/// - returns: `ComparisonResult`
+	func compare(toDate refDate: Date, granularity: Calendar.Component) -> ComparisonResult {
+		return self.inDefaultRegion().compare(toDate: refDate.inDefaultRegion(), granularity: granularity)
+	}
+
+	/// Compares whether the receiver is before/before equal `date` based on their components down to a given unit granularity.
+	///
+	/// - Parameters:
+	///   - refDate: reference date
+	///   - orEqual: `true` to also check for equality
+	///   - granularity: smallest unit that must, along with all larger units, be less for the given dates
+	/// - Returns: Boolean
+	public func isBeforeDate(_ refDate: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
+		return self.inDefaultRegion().isBeforeDate(refDate.inDefaultRegion(), granularity: granularity)
+	}
+
+	/// Compares whether the receiver is after `date` based on their components down to a given unit granularity.
+	///
+	/// - Parameters:
+	///   - refDate: reference date
+	///   - orEqual: `true` to also check for equality
+	///   - granularity: Smallest unit that must, along with all larger units, be greater for the given dates.
+	/// - Returns: Boolean
+	public func isAfterDate(_ refDate: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
+		return self.inDefaultRegion().isAfterDate(refDate.inDefaultRegion(), granularity: granularity)
+	}
+
+	/// Return true if receiver data is contained in the range specified by two dates.
+	///
+	/// - Parameters:
+	///   - startDate: range upper bound date
+	///   - endDate: range lower bound date
+	///   - orEqual: `true` to also check for equality on date and date2
+	///   - granularity: smallest unit that must, along with all larger units, be greater for the given dates.
+	/// - Returns: Boolean
+	public func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
+		return self.inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
+	}
+
+	// MARK: - Date Earlier/Later
+
+	/// Return the earlier of two dates, between self and a given date.
+	///
+	/// - Parameter date: The date to compare to self
+	/// - Returns: The date that is earlier
+	public func earlierDate(_ date: Date) -> Date {
+		return (self.timeIntervalSince1970 <= date.timeIntervalSince1970) ? self : date
+	}
+
+	/// Return the later of two dates, between self and a given date.
+	///
+	/// - Parameter date: The date to compare to self
+	/// - Returns: The date that is later
+	public func laterDate(_ date: Date) -> Date {
+		return (self.timeIntervalSince1970 >= date.timeIntervalSince1970) ? self : date
+	}
+
+}

@@ -1,5 +1,5 @@
 <p align="center" >
-<img src="Documentation/SwiftDate.png" width=796px alt="SwiftDate" title="SwiftDate">
+<img src="Documentation/SwiftDate.png" width=506px alt="SwiftDate" title="SwiftDate">
 </p>
 
 <p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>

@@ -7,6 +7,7 @@ Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielema
 </p>
 
 ![](https://img.shields.io/cocoapods/dt/SwiftDate.svg)
+![](https://img.shields.io/badge/coverage-90%25-green.svg)
 ![](https://img.shields.io/cocoapods/p/SwiftDate.svg)
 ![](https://img.shields.io/cocoapods/v/SwiftDate.svg)
 ![](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)

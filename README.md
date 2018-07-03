@@ -11,17 +11,17 @@ Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielema
 ## Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 
-- [x] Easy Date Parsing (custom formats, iso8601, rss & many more)
-- [x] Easy Date Formatting even with colloquial formatter and 140+ supported languages
-- [x] Easy math operations with time units (`2.hours + 5.minutes`...)
-- [x] Intuitive components extraction (day, hour, nearestHour, weekdayNameShort etc.)
-- [x] Derivated dates generation (nextWeek, nextMonth, nextWeekday, tomorrow...)
-- [x] Over 20+ fine grained date comparison functions (isToday, isTomorrow, isSameWeek, isNextYear...)
-- [x] Swift 4's Codable support
-- [x] Random dates generation
-- [x] Fine grained date enumeration functions
-- [x] Time period support
-- [x] Convert TimeIntervals to other units (`2.hours.toUnits(.minutes)`)
+- [x] **Easy Date Parsing** (custom formats, iso8601, rss & many more)
+- [x] **Easy Date Formatting** even with colloquial formatter and 140+ supported languages
+- [x] **Easy math operations with time units** (`2.hours + 5.minutes`...)
+- [x] **Intuitive components extraction** (day, hour, nearestHour, weekdayNameShort etc.)
+- [x] **Derivated dates generation** (nextWeek, nextMonth, nextWeekday, tomorrow...)
+- [x] Over **20+ fine grained date comparison** functions (isToday, isTomorrow, isSameWeek, isNextYear...)
+- [x] Swift 4's **Codable Support**
+- [x] **Random dates** generation
+- [x] **Fine grained date enumeration** functions
+- [x] **Time period** support
+- [x] **Convert TimeIntervals** to other units (`2.hours.toUnits(.minutes)`)
 
 and of course...
 
@@ -30,26 +30,17 @@ and of course...
 - **WE LOVE PLAYGROUND!** [Check out](/Playgrounds/SwiftDate.playground) our interative playground!
 
 
-## Table Of Contents
+## Start with SwiftDate
 
 - Current Version: **5.0.0** 
 - Last Update: **July 1, 2018**
 - Code Coverage: **90.68%**
 
-### Documentation
-The entire library is fully documented both via XCode method inspector and with a full documentation manual.
+The entire library is fully documented both via XCode method inspector, Jazzy and with a complete markdown documentation.
 
-- **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.0)
-
-### Requirements & Installation
-The Informations section of the guide is complete with all you needs from zero to use of SwiftDate.
-
-- **[Read Info, Requirements, License & More...](/Documentation/0.Informations.md)**
-
-### Upgrading from SwiftDate 4.x
-If you are upgrading from older versions of SwiftDate check out our migration guide and don't hesitate to contact us via Issues to get more info.
-
-- **[Read Info, Requirements, License & More...](/Documentation/10.Upgrading_SwiftDate4.md)**
+- → **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.0)
+- → **[Requirements, Install, License & More](/Documentation/0.Informations.md)**
+- → **[Upgrading from SwiftDate 4.x](/Documentation/10.Upgrading_SwiftDate4.md)**
 
 ## Explore SwiftDate
 

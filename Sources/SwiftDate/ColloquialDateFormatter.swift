@@ -147,9 +147,8 @@ public class ColloquialDateFormatter {
             if isDistant { return distant(for: .day, in: tDate) }
             let isWeekAllowed = options.allowedComponents.contains(.weekOfYear)
             if days < ColloquialDateFormatter.DAYS_IN_WEEK || !isWeekAllowed {
-                if(cmps.hour != 0) {
-                    days = abs(days)+1
-                }
+                let cmpsDay = cal.dateComponents(allowedComponents, from: fDate.startOfDay.absoluteDate, to: tDate.startOfDay.absoluteDate)
+                days = value(for: .day, in: cmpsDay) ?? days
                 return colloquialString(for: .day, value: days, future: isFuture, args: abs(days))
             } else { // More than a week
                 if isWeekAllowed == true { // Weeks representation is allowed

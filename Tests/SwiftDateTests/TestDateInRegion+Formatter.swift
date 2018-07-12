@@ -29,7 +29,7 @@ class TestDateInRegion_Formatter: XCTestCase {
 		let date = DateInRegion(
 			string: string,
 			format: .iso8601(options: .withInternetDateTimeExtended),
-			fromRegion: Region.GMT()
+			fromRegion: Region.GMTForTests()
 		)
 		let str = date!.string(format: .iso8601(options: .withInternetDateTimeExtended))
 		XCTAssertEqual(str, "2017-07-16T03:54:37.800Z", "Failed to keep correct milliseconds information from ISO8601 datetime")
@@ -150,7 +150,7 @@ class TestDateInRegion_Formatter: XCTestCase {
 		}
 		
 		let now = Date()
-		let now_cmp = Region.GMT().calendar.dateComponents([.year,.month,.day], from: now)
+		let now_cmp = Region.GMTForTests().calendar.dateComponents([.year,.month,.day], from: now)
 		validate("060224", expected: "2006-02-24T00:00:00Z")
 		validate("06-W22", expected: "2006-05-28T00:00:00Z")
 		validate("06-W2", expected: "2006-01-08T00:00:00Z")
@@ -242,8 +242,8 @@ class TestDateInRegion_Formatter: XCTestCase {
 	
 	func _executeDateTest(dateA: String, dateB: String, options: ColloquialDateFormatter.Options, expected: String) {
 		let dFormat = DateFormat.custom("dd-MM-yyyy HH:mm:ss")
-		let date_a = DateInRegion(string: dateA, format: dFormat, fromRegion: Region.GMT())!
-		let date_b = DateInRegion(string: dateB, format: dFormat, fromRegion: Region.GMT())!
+		let date_a = DateInRegion(string: dateA, format: dFormat, fromRegion: Region.GMTForTests())!
+		let date_b = DateInRegion(string: dateB, format: dFormat, fromRegion: Region.GMTForTests())!
 		let colloquial = date_a.colloquial(toDate: date_b, options: options)
 		print("colloquial= '\(colloquial!)', expected= '\(expected)'")
 		XCTAssert(colloquial == expected, "Failed to get colloquial for dates: \(dateA) - \(dateB). Got '\(colloquial ?? "<nil>")', expected '\(expected)'")

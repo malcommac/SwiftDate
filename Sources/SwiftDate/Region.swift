@@ -72,6 +72,16 @@ public struct Region: CustomStringConvertible {
 		return Region(tz: tz, cal: cal, loc: loc)
 	}
 	
+	/// Generate a new region which uses `GMT` timezone and `Calendar` and `Locale` appropriate for reproducible tests
+	///
+	/// - returns: a new `Region`
+	public static func GMTForTests() -> Region {
+		let tz = TimeZoneName.gmt.timeZone
+		let cal = CalendarName.gregorian.calendar
+		let loc = LocaleName.english.locale
+		return Region(tz: tz, cal: cal, loc: loc)
+	}
+	
 	/// Generate a new regione which uses current device's local settings (`Calendar`,`TimeZone` and `Locale`)
 	///
 	/// - parameter auto: `true` to get automatically new settings when device's timezone/calendar/locale changes

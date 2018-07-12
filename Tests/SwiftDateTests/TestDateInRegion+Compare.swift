@@ -437,7 +437,7 @@ class TestDateInRegion_Compare: XCTestCase {
 
 		// #TEST 3:
 		// We want to see if a date is inside a given interval
-		let gmt = Region.GMT()
+		let gmt = Region.GMTForTests()
 		let format: DateFormat = .custom("yyyy-MM-dd HH:mm:ss")
 		// Create interval A
 		let interval_a_start = DateInRegion(string: "2012-04-05 12:00:00", format: format, fromRegion: gmt)!.absoluteDate

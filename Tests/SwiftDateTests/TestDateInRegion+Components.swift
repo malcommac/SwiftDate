@@ -110,7 +110,7 @@ class TestDateInRegion_Components: XCTestCase {
 		let romeRegion = Region(tz: TimeZoneName.europeRome, cal: CalendarName.gregorian, loc: LocaleName.current)
 		let romeDate = DateInRegion(components: [.year: 2000, .month: 1, .day: 1, .hour: 0, .minute: 0, .second: 0], fromRegion: romeRegion)!
 		
-		let gmtRegion = Region.GMT()
+		let gmtRegion = Region.GMTForTests()
 		let gmtDate = romeDate.toRegion(gmtRegion)
 		
 		XCTAssertEqual(gmtDate.year, 1999, "Failed get correct year")

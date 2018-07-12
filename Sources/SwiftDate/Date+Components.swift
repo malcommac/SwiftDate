@@ -58,6 +58,11 @@ public extension Date {
 	public var day: Int {
 		return self.inDateDefaultRegion().day
 	}
+    
+    /// The number of day in ordinal style format for the receiver expressed in the context of `defaultRegion`.
+    public var ordinalDay: String {
+        return self.inDateDefaultRegion().ordinalDay
+    }
 	
 	/// The number of hour units for the receiver expressed in the context of `defaultRegion`.
 	public var hour: Int {

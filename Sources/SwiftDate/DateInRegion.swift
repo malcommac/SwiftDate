@@ -34,6 +34,9 @@ public class DateInRegion: CustomStringConvertible {
 		
 		/// `DateIntervalFormatter` reserved instance (nil unless you set `.useSharedFormatters = false`)
 		private var customDateIntervalFormatter: DateIntervalFormatter? = nil
+        
+        /// `NumberFormatter` reserved instance (nil unless you set `.useSharedFormatters = false`)
+        private var customOrdinalNumberFormatter: NumberFormatter? = nil
 
 		/// If true this instance of `DateInRegion` will use formatters shared along calling thread.
 		/// If false a new date formatter is created automatically and used only by a single `DateInRegion`
@@ -117,6 +120,30 @@ public class DateInRegion: CustomStringConvertible {
 			formatter!.locale = self.locale
 			return formatter!
 		}
+        
+        /// Return an `NumberFormatter` instance. Returned instance is the one shared along calling thread
+        /// if `.useSharedFormatters = false`; otherwise a reserved instance is created for this `DateInRegion`
+        ///
+        /// - returns: a new instance of the formatter
+        public  func ordinalNumberFormatter() -> NumberFormatter {
+            var formatter: NumberFormatter? = nil
+            if useSharedFormatters == true {
+                let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
+                formatter = localThreadSingleton(key: name, create: { () -> NumberFormatter in
+                    return NumberFormatter()
+                })
+            } else {
+                if customOrdinalNumberFormatter == nil {
+                    customOrdinalNumberFormatter = NumberFormatter()
+                    formatter = customOrdinalNumberFormatter
+                }
+            }
+            if #available(iOSApplicationExtension 9.0, *) {
+                formatter!.numberStyle = .ordinal
+            }
+            formatter!.locale = self.locale
+            return formatter!
+        }
 	}
 	
 	/// Initialize a new `DateInRegion` object from an absolute date and a destination region.

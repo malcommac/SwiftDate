@@ -32,13 +32,12 @@ public extension DateFormatter {
 	///
 	/// - Parameter locale: locale to set
 	/// - Returns: number formatter instance
+	@available(iOS 9.0, macOS 10.11, *)
 	public static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
 		var formatter: NumberFormatter? = nil
 		let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
 		formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
-		if #available(iOSApplicationExtension 9.0, *) {
-			formatter!.numberStyle = .ordinal
-		}
+		formatter!.numberStyle = .ordinal
 		formatter!.locale = locale.toLocale()
 		return formatter!
 	}

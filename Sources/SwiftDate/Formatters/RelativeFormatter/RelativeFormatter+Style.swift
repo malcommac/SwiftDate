@@ -131,7 +131,7 @@ public extension RelativeFormatter {
 		// swiftlint:disable nesting
 		public struct Rule {
 
-			// swiftlint:disable nesting
+			// swiftlint:disable nesting identifier_name
 			public enum ThresholdType {
 				case value(_: Double?)
 				case function(_: ((TimeInterval) -> (Double?)))

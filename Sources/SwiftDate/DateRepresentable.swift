@@ -31,6 +31,11 @@ public protocol DateRepresentable {
 	/// Day of year unit of the receiver
 	var dayOfYear: Int { get }
 
+	/// The number of day in ordinal style format for the receiver in current locale.
+	/// For example, in the en_US locale, the number 3 is represented as 3rd;
+	/// in the fr_FR locale, the number 3 is represented as 3e.
+	var ordinalDay: String { get }
+
 	/// Hour unit of the receiver.
 	var hour: Int { get }
 
@@ -333,6 +338,11 @@ public extension DateRepresentable {
 
 	public var dayOfYear: Int {
 		return self.calendar.ordinality(of: .day, in: .year, for: self.date)!
+	}
+
+	public var ordinalDay: String {
+		let day = self.day
+		return DateFormatter.sharedOrdinalNumberFormatter(locale: self.region.locale).string(from: day as NSNumber) ?? "\(day)"
 	}
 
 	public var hour: Int {

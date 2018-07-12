@@ -28,6 +28,21 @@ public extension DateFormatter {
 		return formatter
 	}
 
+	/// Returned number formatter instance shared along calling thread to format ordinal numbers.
+	///
+	/// - Parameter locale: locale to set
+	/// - Returns: number formatter instance
+	public static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
+		var formatter: NumberFormatter? = nil
+		let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
+		formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
+		if #available(iOSApplicationExtension 9.0, *) {
+			formatter!.numberStyle = .ordinal
+		}
+		formatter!.locale = locale.toLocale()
+		return formatter!
+	}
+
 }
 
 /// This function create (if necessary) and return a thread singleton instance of the

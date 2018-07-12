@@ -139,6 +139,56 @@ class TestDateInRegion_Components: XCTestCase {
 
 	}
 
+	func test_ordinalDay() {
+		let newYork = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.englishUnitedStates)
+
+		let localDate = DateInRegion(components: {
+			$0.year = 2002
+			$0.month = 3
+			$0.day = 1
+			$0.hour = 5
+			$0.minute = 30
+		}, region: newYork)!
+		XCTAssert(localDate.ordinalDay == "1st", "Failed to get the correct value of the ordinalDay for a date")
+
+		let localDate2 = DateInRegion(components: {
+			$0.year = 2002
+			$0.month = 3
+			$0.day = 2
+			$0.hour = 5
+			$0.minute = 30
+		}, region: newYork)!
+		XCTAssert(localDate2.ordinalDay == "2nd", "Failed to get the correct value of the ordinalDay for a date")
+
+		let localDate3 = DateInRegion(components: {
+			$0.year = 2002
+			$0.month = 3
+			$0.day = 3
+			$0.hour = 5
+			$0.minute = 30
+		}, region: newYork)!
+		XCTAssert(localDate3.ordinalDay == "3rd", "Failed to get the correct value of the ordinalDay for a date")
+
+		let localDate4 = DateInRegion(components: {
+			$0.year = 2002
+			$0.month = 3
+			$0.day = 4
+			$0.hour = 5
+			$0.minute = 30
+		}, region: newYork)!
+		XCTAssert(localDate4.ordinalDay == "4th", "Failed to get the correct value of the ordinalDay for a date")
+
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let localDate5 = DateInRegion(components: {
+			$0.year = 2002
+			$0.month = 3
+			$0.day = 2
+			$0.hour = 5
+			$0.minute = 30
+		}, region: regionRome)!
+		XCTAssert(localDate5.ordinalDay == "2º", "Failed to get the correct value of the ordinalDay for a date")
+	}
+
 	func testDateInRegion_ISOFormatterAlt() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 		let dateFormat = "yyyy-MM-dd HH:mm:ss"

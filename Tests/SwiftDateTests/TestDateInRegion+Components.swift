@@ -139,6 +139,7 @@ class TestDateInRegion_Components: XCTestCase {
 
 	}
 
+	@available(iOS 9.0, macOS 10.11, *)
 	func test_ordinalDay() {
 		let newYork = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.englishUnitedStates)
 

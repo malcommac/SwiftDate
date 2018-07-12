@@ -34,6 +34,7 @@ public protocol DateRepresentable {
 	/// The number of day in ordinal style format for the receiver in current locale.
 	/// For example, in the en_US locale, the number 3 is represented as 3rd;
 	/// in the fr_FR locale, the number 3 is represented as 3e.
+	@available(iOS 9.0, macOS 10.11, *)
 	var ordinalDay: String { get }
 
 	/// Hour unit of the receiver.
@@ -340,6 +341,7 @@ public extension DateRepresentable {
 		return self.calendar.ordinality(of: .day, in: .year, for: self.date)!
 	}
 
+	@available(iOS 9.0, macOS 10.11, *)
 	public var ordinalDay: String {
 		let day = self.day
 		return DateFormatter.sharedOrdinalNumberFormatter(locale: self.region.locale).string(from: day as NSNumber) ?? "\(day)"

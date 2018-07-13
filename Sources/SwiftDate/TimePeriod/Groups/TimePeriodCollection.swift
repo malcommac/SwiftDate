@@ -23,7 +23,6 @@ public enum SortMode {
 /// - end: sort by end date
 /// - duration: sort by duration
 /// - custom: sort using custom function
-// swiftlint:disable identifier_name
 public enum SortType {
 	case start(_: SortMode)
 	case end(_: SortMode)

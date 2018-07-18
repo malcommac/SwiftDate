@@ -10,7 +10,7 @@ import Foundation
 
 /// Region define a context both for `Date` and `DateInRegion`.
 /// Each `Date` is assigned to the currently set `SwiftDate.default
-public struct Region: Codable, Equatable, Hashable, CustomStringConvertible {
+public struct Region: Decodable, Equatable, Hashable, CustomStringConvertible {
 
 	// MARK: - Properties
 

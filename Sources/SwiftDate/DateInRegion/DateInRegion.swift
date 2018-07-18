@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DateInRegion: DateRepresentable, Codable, CustomStringConvertible, Comparable, Hashable {
+public struct DateInRegion: DateRepresentable, Decodable, CustomStringConvertible, Comparable, Hashable {
 
 	/// Absolute date represented. This date is not associated with any timezone or calendar
 	/// but represent the absolute number of seconds since Jan 1, 2001 at 00:00:00 UTC.

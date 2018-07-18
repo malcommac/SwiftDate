@@ -43,13 +43,13 @@ and of course...
 
 ## Start with SwiftDate
 
-- Current Version: **5.0.0** 
-- Last Update: **July 3, 2018**
+- Current Version: **5.0.4** 
+- Last Update: **July 18, 2018**
 - Code Coverage: **~90%**
 
 The entire library is fully documented both via XCode method inspector and a complete markdown documentation you can found below.
 
-- → **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.0)
+- → **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.4)
 - → **[Requirements, Install, License & More](/Documentation/0.Informations.md)**
 - → **[Upgrading from SwiftDate 4](/Documentation/10.Upgrading_SwiftDate4.md)**
 

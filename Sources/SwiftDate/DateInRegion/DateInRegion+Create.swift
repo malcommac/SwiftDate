@@ -404,9 +404,9 @@ public extension DateInRegion {
 		case .nextMonth:
 			return self.dateByAdding(1, .month).dateAtStartOf(.month).dateAtStartOf(.day)
 		case .prevWeek:
-			return self.dateByAdding(-7, .weekOfYear).dateAtStartOf(.weekOfYear).dateAtStartOf(.day)
+			return self.dateByAdding(-1, .weekOfYear).dateAtStartOf(.weekOfYear).dateAtStartOf(.day)
 		case .nextWeek:
-			return self.dateByAdding(7, .weekOfYear).dateAtStartOf(.weekOfYear).dateAtStartOf(.day)
+			return self.dateByAdding(1, .weekOfYear).dateAtStartOf(.weekOfYear).dateAtStartOf(.day)
 		case .nextYear:
 			return self.dateByAdding(1, .year).dateAtStartOf(.year)
 		case .prevYear:

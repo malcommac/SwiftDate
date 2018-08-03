@@ -72,7 +72,7 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( (DateInRegion().dateAt(.startOfMonth) - 1.days).compare(.isNextMonth) == false, "Failed to evaluate isNextMonth == false")
 		XCTAssert( (DateInRegion().dateAt(.endOfMonth) + 5.days).compare(.isNextMonth), "Failed to evaluate isNextMonth")
 		XCTAssert( DateInRegion().compare(.isNextMonth) == false, "Failed to evaluate isNextMonth == false")
-
+		
 		// isLastMonth
 		XCTAssert( (DateInRegion().dateAt(.startOfMonth) - 1.days).compare(.isLastMonth), "Failed to evaluate isLastMonth")
 		XCTAssert( (DateInRegion().dateAt(.endOfMonth) + 5.days).compare(.isLastMonth) == false, "Failed to evaluate isLastMonth == false")
@@ -85,6 +85,10 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( dateA1.compare(.isSameMonth(dateB1)), "Failed to evaluate isSameMonth")
 		XCTAssert( dateB1.compare(.isSameMonth(dateC1)) == false, "Failed to evaluate isSameMonth == false")
 
+		// prevWeek/nextWeek
+		XCTAssert( dateA1.dateAt(.prevWeek).toISO() == "2018-06-11T00:00:00+02:00", "Failed to evaluate prevWeek")
+		XCTAssert( dateA1.dateAt(.nextWeek).toISO() == "2018-06-25T00:00:00+02:00", "Failed to evaluate prevWeek")
+		
 		// isThisYear
 		XCTAssert( DateInRegion().compare(.isThisYear), "Failed to evaluate isThisYear")
 		XCTAssert( (DateInRegion() + 1.years).compare(.isThisYear) == false, "Failed to evaluate isThisYear == false")

@@ -211,7 +211,7 @@ public class ISOParser: StringToDateTransformable {
 
 		var idx = self.cIdx
 		while idx < self.eIdx {
-			if string[idx] == "-" { hyphens += 1 } else { break }
+			if string[idx] == "-" { hyphens += 1 } else { continue }
 			idx = string.index(after: idx)
 		}
 

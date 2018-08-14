@@ -73,6 +73,10 @@ class TestDateInRegion: XCTestCase {
 		XCTAssert( (msecsFromEpochInRegion.date.timeIntervalSince1970 == 5), "Failed to create DateInRegion from epoch time and fixed region / different date")
 		XCTAssert( (msecsFromEpochInRegion.region == regionBerlin), "Failed to create DateInRegion from epoch time and fixed region / different date")
 
+		// Init with fraction of seconds
+		let msecsLessThanSeconds = DateInRegion(milliseconds: 10)
+		XCTAssertEqual(round(msecsLessThanSeconds.date.timeIntervalSince1970 * 1000), 10)
+
 	}
 
 	func testDateInRegion_InitFromComponents() {

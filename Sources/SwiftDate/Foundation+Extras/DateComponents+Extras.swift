@@ -255,7 +255,7 @@ public extension DateComponents {
 		}
 	}
 
-	/// Express a DateComponents instances in another time unit you choose
+	/// Express a `DateComponents` instance in another time unit you choose.
 	///
 	/// - parameter component: time component
 	/// - parameter calendar:  context calendar to use
@@ -270,4 +270,18 @@ public extension DateComponents {
 		return value
 	}
 
+	/// Express a `DateComponents` instance in a set of time units you choose.
+	///
+	/// - Parameters:
+	///   - component: time component
+	///   - calendar: context calendar to use
+	/// - Returns: a dictionary of extract values.
+	public func `in`(_ component: Calendar.Component, of calendar: CalendarConvertible? = nil) -> [Calendar.Component : Int] {
+		let cal = (calendar?.toCalendar() ?? SwiftDate.defaultRegion.calendar)
+		let dateFrom = Date()
+		let dateTo = (dateFrom + self)
+		let components: Set<Calendar.Component> = [component]
+		let extractedCmps = cal.dateComponents(components, from: dateFrom, to: dateTo)
+		return extractedCmps.toDict()
+	}
 }

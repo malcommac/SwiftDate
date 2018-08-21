@@ -106,5 +106,37 @@ public extension TimeInterval {
 		let components = cal.dateComponents(units, from: date1.date, to: date2.date)
 		return components.toDict()
 	}
+	
+	/// Express given time interval in other time units.
+	/// Evaluation must use two reference dates to evaluate specific calendar components (like days, months or weeks).
+	/// If not specified the end date range is set to now, while starting date is set to (now-interval).
+	/// NOTE: calendar specific components (like months) may return altered results if you don't specify a date range.
+	///
+	/// - Parameters:
+	///   - components: components to extract
+	///   - date: reference end date; uses a new `Date()` if not specified..
+	///   - calendar: calendar to use; `nil` uses `SwiftDate.defaultRegion.calendar`.
+	/// - Returns: components
+	public func `in`(_ components: [Calendar.Component], to toDate: Date = Date(),
+					 calendar: CalendarConvertible? = nil) -> [Calendar.Component : Int] {
+		if components.contains(where: { [.day,.month,.weekOfYear,.weekOfMonth,.year].contains($0) }) {
+			debugPrint("SwiftDate: Using .in() to extract calendar specific components without a reference date may return wrong values.")
+		}
+		let cal = (calendar?.toCalendar() ?? SwiftDate.defaultRegion.calendar)
+		let dateFrom: Date = toDate.addingTimeInterval(-self)
+		let cmps = cal.dateComponents(Calendar.Component.toSet(components), from: dateFrom, to: toDate)
+		return cmps.toDict()
+	}
 
+	/// Express a time interval (expressed in seconds) in another time unit you choose
+	///
+	/// - parameter component: time unit in which you want to express the calendar component
+	/// - parameter calendar:  context calendar to use. `nil` uses `Date.DefaultRegion.calendar` instead
+	///
+	/// - returns: the value of interval expressed in selected `Calendar.Component`
+	public func `in`(_ component: Calendar.Component, to toDate: Date = Date(),
+					 calendar: CalendarConvertible? = nil) -> Int? {
+		return self.in([component], to: toDate, calendar: calendar)[component]
+	}
+	
 }

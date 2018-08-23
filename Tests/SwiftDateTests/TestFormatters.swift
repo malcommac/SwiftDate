@@ -465,10 +465,14 @@ class TestFormatters: XCTestCase {
 		XCTAssert( regionFormat == "gen 15 2015", "Failed to format with standard locale")
 	}
 
-//	func testTimeInterval_FormatterUnits() {
-//		let values = (36.hours + 2.days + 1.weeks).timeInterval.toUnits([.day, .hour])
-//		XCTAssert(values[.hour] == 12 && values[.day] == 10, "Failed to extract day components")
-//	}
+	func testTimeInterval_FormatterUnits() {
+		// for TimeInterval
+		let values = (36.hours + 2.days + 1.weeks).timeInterval.toUnits([.day, .hour])
+		XCTAssert(values[.hour] == 12 && values[.day] == 10, "Failed to extract day components")
+		
+		let singleValue = (1.days).timeInterval.toUnit(.minute)
+		XCTAssert(singleValue == 1440, "Failed to extract single date component")
+	}
 
 	func testTimeInterval_Formatter() {
 		let value1 = (2.hours + 5.minutes + 32.seconds).timeInterval.toString {

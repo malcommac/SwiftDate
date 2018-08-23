@@ -276,11 +276,10 @@ public extension DateComponents {
 	///   - component: time component
 	///   - calendar: context calendar to use
 	/// - Returns: a dictionary of extract values.
-	public func `in`(_ component: Calendar.Component, of calendar: CalendarConvertible? = nil) -> [Calendar.Component : Int] {
+	public func `in`(_ components: Set<Calendar.Component>, of calendar: CalendarConvertible? = nil) -> [Calendar.Component : Int] {
 		let cal = (calendar?.toCalendar() ?? SwiftDate.defaultRegion.calendar)
 		let dateFrom = Date()
 		let dateTo = (dateFrom + self)
-		let components: Set<Calendar.Component> = [component]
 		let extractedCmps = cal.dateComponents(components, from: dateFrom, to: dateTo)
 		return extractedCmps.toDict()
 	}

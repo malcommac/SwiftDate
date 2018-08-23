@@ -539,7 +539,7 @@ public extension DateRepresentable {
 		return DateInRegion(self.date, region: region)
 	}
 
-	// MARK: - Extrac Time Components
+	// MARK: - Extract Time Components
 
 	public func toUnits(_ units: Set<Calendar.Component>, to refDate: DateRepresentable) -> [Calendar.Component: Int] {
 		let cal = self.region.calendar

@@ -135,4 +135,12 @@ public extension DateInRegion {
 		return self.date.timeIntervalSince(date.date)
 	}
 
+	/// Extract DateComponents from the difference between two dates.
+	///
+	/// - Parameter rhs: date to compare
+	/// - Returns: components
+	public func componentsTo(_ rhs: DateInRegion) -> DateComponents {
+		return self.calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: self.date)
+	}
+	
 }

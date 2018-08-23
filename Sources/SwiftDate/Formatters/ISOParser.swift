@@ -211,7 +211,7 @@ public class ISOParser: StringToDateTransformable {
 
 		var idx = self.cIdx
 		while idx < self.eIdx {
-			if string[idx] == "-" { hyphens += 1 } else { continue }
+			if string[idx] == "-" { hyphens += 1 } else { break }
 			idx = string.index(after: idx)
 		}
 
@@ -327,39 +327,41 @@ public class ISOParser: StringToDateTransformable {
 			}
 
 			if options.strict == false {
-				if current().isSpace == true {
+				if cIdx != self.eIdx && current().isSpace == true {
 					next()
 				}
 			}
-
-			switch current() {
-			case "Z":
-				date.timezone = TimeZone(abbreviation: "UTC")
-
-			case "+", "-":
-				let is_negative = current() == "-"
-				next()
-				if current().isDigit == true {
-					//Read hour offset.
-					date.tz_hour = try read_int(2).value
-					if is_negative == true { date.tz_hour = -date.tz_hour }
-
-					// Optional separator
-					if current() == time_sep {
-						next()
+			
+			if cIdx != self.eIdx {
+				switch current() {
+				case "Z":
+					date.timezone = TimeZone(abbreviation: "UTC")
+					
+				case "+", "-":
+					let is_negative = current() == "-"
+					next()
+					if current().isDigit == true {
+						//Read hour offset.
+						date.tz_hour = try read_int(2).value
+						if is_negative == true { date.tz_hour = -date.tz_hour }
+						
+						// Optional separator
+						if current() == time_sep {
+							next()
+						}
+						
+						if current().isDigit {
+							// Read minute offset
+							date.tz_minute = try read_int(2).value
+							if is_negative == true { date.tz_minute = -date.tz_minute }
+						}
+						
+						let timezone_offset = (date.tz_hour * 3600) + (date.tz_minute * 60)
+						date.timezone = TimeZone(secondsFromGMT: timezone_offset)
 					}
-
-					if current().isDigit {
-						// Read minute offset
-						date.tz_minute = try read_int(2).value
-						if is_negative == true { date.tz_minute = -date.tz_minute }
-					}
-
-					let timezone_offset = (date.tz_hour * 3600) + (date.tz_minute * 60)
-					date.timezone = TimeZone(secondsFromGMT: timezone_offset)
+				default:
+					break
 				}
-			default:
-				break
 			}
 		}
 

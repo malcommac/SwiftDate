@@ -82,12 +82,9 @@ public extension TimeInterval {
 		})
 	}
 
-	/// Extract requested time units from interval.
-	///
-	/// - Parameter units: units to extract
-	/// - Returns: dictionary with requested values
-
 	/// Extract requeste time units components from given interval.
+	/// Reference date's calendar is used to make the extraction.
+	///
 	/// NOTE:
 	///		Extraction is calendar/date based; if you specify a `refDate` calculation is made
 	/// 	between the `refDate` and `refDate + interval`.
@@ -98,45 +95,22 @@ public extension TimeInterval {
 	///   - units: units to extract
 	///   - from: starting reference date, `nil` means `now()` in the context of the default region set.
 	/// - Returns: dictionary with extracted components
-	public func toUnits(_ units: Set<Calendar.Component>, from refDate: DateInRegion? = nil) -> [Calendar.Component: Int] {
-		let date1 = (refDate ?? DateInRegion())
-		let date2 = date1.addingTimeInterval(self)
-
-		let cal = SwiftDate.defaultRegion.calendar
-		let components = cal.dateComponents(units, from: date1.date, to: date2.date)
+	public func toUnits(_ units: Set<Calendar.Component>, to refDate: DateInRegion? = nil) -> [Calendar.Component: Int] {
+		let dateTo = (refDate ?? DateInRegion())
+		let dateFrom = dateTo.addingTimeInterval(-self)
+		let components = dateFrom.calendar.dateComponents(units, from: dateFrom.date, to: dateTo.date)
 		return components.toDict()
 	}
-	
-	/// Express given time interval in other time units.
-	/// Evaluation must use two reference dates to evaluate specific calendar components (like days, months or weeks).
-	/// If not specified the end date range is set to now, while starting date is set to (now-interval).
-	/// NOTE: calendar specific components (like months) may return altered results if you don't specify a date range.
-	///
-	/// - Parameters:
-	///   - components: components to extract
-	///   - date: reference end date; uses a new `Date()` if not specified..
-	///   - calendar: calendar to use; `nil` uses `SwiftDate.defaultRegion.calendar`.
-	/// - Returns: components
-	public func `in`(_ components: [Calendar.Component], to toDate: Date = Date(),
-					 calendar: CalendarConvertible? = nil) -> [Calendar.Component : Int] {
-		if components.contains(where: { [.day,.month,.weekOfYear,.weekOfMonth,.year].contains($0) }) {
-			debugPrint("SwiftDate: Using .in() to extract calendar specific components without a reference date may return wrong values.")
-		}
-		let cal = (calendar?.toCalendar() ?? SwiftDate.defaultRegion.calendar)
-		let dateFrom: Date = toDate.addingTimeInterval(-self)
-		let cmps = cal.dateComponents(Calendar.Component.toSet(components), from: dateFrom, to: toDate)
-		return cmps.toDict()
-	}
 
-	/// Express a time interval (expressed in seconds) in another time unit you choose
+	/// Express a time interval (expressed in seconds) in another time unit you choose.
+	/// Reference date's calendar is used to make the extraction.
 	///
 	/// - parameter component: time unit in which you want to express the calendar component
-	/// - parameter calendar:  context calendar to use. `nil` uses `Date.DefaultRegion.calendar` instead
+	/// - parameter from: starting reference date, `nil` means `now()` in the context of the default region set.
 	///
 	/// - returns: the value of interval expressed in selected `Calendar.Component`
-	public func `in`(_ component: Calendar.Component, to toDate: Date = Date(),
-					 calendar: CalendarConvertible? = nil) -> Int? {
-		return self.in([component], to: toDate, calendar: calendar)[component]
+	public func toUnit(_ component: Calendar.Component, to refDate: DateInRegion? = nil) -> Int? {
+		return self.toUnits([component], to: refDate)[component]
 	}
 	
 }

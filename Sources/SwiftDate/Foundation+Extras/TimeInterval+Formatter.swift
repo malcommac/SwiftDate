@@ -44,6 +44,8 @@ public extension TimeInterval {
 			formatter.maximumUnitCount = self.maximumUnitCount
 			formatter.unitsStyle = self.unitsStyle
 		}
+		
+		public init() {}
 	}
 
 	/// Return the local thread shared formatter for date components
@@ -67,6 +69,16 @@ public extension TimeInterval {
 		let formatter = TimeInterval.sharedFormatter()
 		var options = ComponentsFormatterOptions()
 		callback?(&options)
+		options.apply(toFormatter: formatter)
+		return (formatter.string(from: self) ?? "")
+	}
+	
+	/// Format a time interval in a string with desidered components with passed style.
+	///
+	/// - Parameter options: options for formatting.
+	/// - Returns: string representation
+	public func toString(options: ComponentsFormatterOptions) -> String {
+		let formatter = TimeInterval.sharedFormatter()
 		options.apply(toFormatter: formatter)
 		return (formatter.string(from: self) ?? "")
 	}

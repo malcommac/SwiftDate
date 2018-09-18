@@ -510,4 +510,54 @@ class TestFormatters: XCTestCase {
 		let r6 = justNow4.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
 		XCTAssert(r6 == "1m", "Failed to use colloquial formatter")
 	}
+	
+	func testISOParser() {
+		
+		func testISO(_ src: String, _ exp: String) {
+			let output = src.toISODate()?.toISO()
+			XCTAssert(output == exp, "Failed to parse ISO '\(src)'")
+		}
+		
+		testISO("20060506", "2006-05-06T00:00:00Z") // YYYYMMDD
+		testISO("2001-12-14", "2001-12-14T00:00:00Z") // YYYY-MM-DD
+		testISO("2001-06", "2001-06-01T00:00:00Z") // YYYY-MM
+		testISO("2015", "2015-01-01T00:00:00Z") // YYYY
+		testISO("15", "1518-01-01T00:00:00Z") // YY
+		
+		// Implied century: YY is 00-99
+		testISO("150603", "2015-06-03T00:00:00Z") // YYMMDD
+		testISO("161201", "2016-12-01T00:00:00Z") // YY-MM-DD
+		
+		// Implied year
+		testISO("--1215", "\(Date().year)-12-15T00:00:00Z") // --MMDD
+		testISO("--12-15", "\(Date().year)-12-15T00:00:00Z") // --MM-DD
+		testISO("--12", "\(Date().year)-12-01T00:00:00Z") // --MM
+		
+		// Implied year and month
+		testISO("---15", "\(Date().year)-\(String(format: "%02d", Date().month))-15T00:00:00Z") // ---DD
+		
+		// Ordinal dates: DDD is the number of the day in the year (1-366)
+		testISO("2015010", "2015-01-10T00:00:00Z") // YYYYDDD (DDD is the number of the day of the year)
+		testISO("2015032", "2015-02-01T00:00:00Z") // YYYY-DDD
+		testISO("15-032", "2015-02-01T00:00:00Z") // YY-DDD
+		testISO("15032", "2015-02-01T00:00:00Z") // YYDDD
+		testISO("-032", "\(Date().year)-02-01T00:00:00Z") // -DDD
+		
+		// Week-based dates: ww is the number of the week, and d is the number (1-7) of the day in the week
+		testISO("2018W012", "2018-01-02T00:00:00Z") // yyyyWwwd
+		testISO("2018-W01-2", "2018-01-02T00:00:00Z") // yyyy-Www-d
+		testISO("2018-W01", "2017-12-31T00:00:00Z") // yyyyWww
+		testISO("2018-W01", "2017-12-31T00:00:00Z") // yyyy-Www
+		testISO("18-W01", "2017-12-31T00:00:00Z") // yyWwwd
+		testISO("18-W01-2", "2018-01-02T00:00:00Z") // yy-Www-d
+		testISO("18W01", "2017-12-31T00:00:00Z") // yyWww
+		testISO("18-W01", "2017-12-31T00:00:00Z") // yy-Www
+
+		// Date
+		testISO("1970-01-01", "1970-01-01T00:00:00Z")
+		testISO("2001", "2001-01-01T00:00:00Z")
+		testISO("2001-02-03", "2001-02-03T00:00:00Z")
+		testISO("2001-02-03T04:05", "2001-02-03T04:05:00Z")
+		testISO("2001-02-03T04:05:06.007-06:30", "2001-02-03T04:05:06-06:30")
+	}
 }

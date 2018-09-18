@@ -235,4 +235,16 @@ class TestDateInRegion_Components: XCTestCase {
 		XCTAssert( dateC.timeIntervalSince(dateD) == -5, "Failed to evaluate is minutes interval")
 	}
 
+	func testQuarter() {
+		let regionLondon = Region(calendar: Calendars.gregorian, zone: Zones.europeLondon, locale: Locales.english)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+		
+		let dateA = DateInRegion("2018-02-05 23:14:45", format: dateFormat, region: regionLondon)!
+		let dateB = DateInRegion("2018-09-05 23:14:45", format: dateFormat, region: regionLondon)!
+		let dateC = DateInRegion("2018-12-05 23:14:45", format: dateFormat, region: regionLondon)!
+
+		XCTAssert( dateA.quarter == 1, "Failed to evaluate quarter property")
+		XCTAssert( dateB.quarter == 3, "Failed to evaluate quarter property")
+		XCTAssert( dateC.quarter == 4, "Failed to evaluate quarter property")
+	}
 }

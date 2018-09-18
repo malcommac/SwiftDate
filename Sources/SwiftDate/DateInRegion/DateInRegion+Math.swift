@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: - Math Operation DateInRegion - DateInRegion
 
-public func - (lhs: DateInRegion, rhs: DateInRegion) -> DateComponents {
-	return lhs.calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: lhs.date)
+public func - (lhs: DateInRegion, rhs: DateInRegion) -> TimeInterval {
+	return rhs.timeIntervalSince(lhs)
 }
 
 // MARK: - Math Operation DateInRegion - Date Components

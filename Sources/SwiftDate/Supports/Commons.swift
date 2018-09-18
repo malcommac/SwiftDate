@@ -350,3 +350,16 @@ private func combineHashValues(_ initial: Int, _ other: Int) -> Int {
 	lhs ^= rhs &+ magic &+ (lhs << 6) &+ (lhs >> 2)
 	return Int(bitPattern: lhs)
 }
+
+//MARK: - compactMap for Swift 4.0 (not necessary > 4.0)
+
+#if swift(>=4.1)
+#else
+	extension Collection {
+		func compactMap<ElementOfResult>(
+			_ transform: (Element) throws -> ElementOfResult?
+			) rethrows -> [ElementOfResult] {
+			return try flatMap(transform)
+		}
+	}
+#endif

@@ -25,7 +25,7 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 	/// Formatter used to transform this object in a string. By default is `nil` because SwiftDate
 	/// uses the thread shared formatter in order to avoid expensive init of the `DateFormatter` object.
 	/// However, if you need of a custom behaviour you can set a valid value.
-	public var customFormatter: DateFormatter?
+	public var customFormatter: DateFormatter? = nil
 
 	/// Extract date components by taking care of the region in which the date is expressed.
 	public var dateComponents: DateComponents {
@@ -103,7 +103,7 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 	///   - interval: seconds since the Unix Epoch timestamp.
 	///   - region: region in which the date must be expressed, `nil` uses the default region at UTC timezone
 	public init(milliseconds interval: Int, region: Region = Region.UTC) {
-		self.date = Date(timeIntervalSince1970: TimeInterval(interval / 1000))
+		self.date = Date(timeIntervalSince1970: TimeInterval(interval) / 1000)
 		self.region = region
 	}
 

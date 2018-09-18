@@ -36,6 +36,15 @@ public extension TimeInterval {
 		/// The preferred style for units.
 		/// By default is `.abbreviated`.
 		public var unitsStyle: DateComponentsFormatter.UnitsStyle = .abbreviated
+		
+		/// Locale of the formatter
+		public var locale: LocaleConvertible? {
+			set { self.calendar.locale = newValue?.toLocale() }
+			get { return self.calendar.locale }
+		}
+		
+		/// Calendar
+		public var calendar: Calendar = Calendar.autoupdatingCurrent
 
 		public func apply(toFormatter formatter: DateComponentsFormatter) {
 			formatter.allowsFractionalUnits = self.allowsFractionalUnits
@@ -43,7 +52,10 @@ public extension TimeInterval {
 			formatter.collapsesLargestUnit = self.collapsesLargestUnit
 			formatter.maximumUnitCount = self.maximumUnitCount
 			formatter.unitsStyle = self.unitsStyle
+			formatter.calendar = self.calendar
 		}
+		
+		public init() {}
 	}
 
 	/// Return the local thread shared formatter for date components
@@ -67,6 +79,16 @@ public extension TimeInterval {
 		let formatter = TimeInterval.sharedFormatter()
 		var options = ComponentsFormatterOptions()
 		callback?(&options)
+		options.apply(toFormatter: formatter)
+		return (formatter.string(from: self) ?? "")
+	}
+	
+	/// Format a time interval in a string with desidered components with passed style.
+	///
+	/// - Parameter options: options for formatting.
+	/// - Returns: string representation
+	public func toString(options: ComponentsFormatterOptions) -> String {
+		let formatter = TimeInterval.sharedFormatter()
 		options.apply(toFormatter: formatter)
 		return (formatter.string(from: self) ?? "")
 	}

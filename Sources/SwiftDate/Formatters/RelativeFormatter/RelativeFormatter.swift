@@ -165,10 +165,14 @@ public class RelativeFormatter: DateToStringTrasformable {
 	private func language(forLocale locale: Locale) -> RelativeFormatterLang {
 		let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
 		guard let table = self.languagesCache[localeId] else {
-			guard let tableType = self.languagesMap[localeId] else {
-				return language(forLocale: Locales.english.toLocale())
+			var tableType = self.languagesMap[localeId]
+			if tableType == nil {
+				tableType = self.languagesMap[localeId.components(separatedBy: "-").first!]
+				if tableType == nil {
+					return language(forLocale: Locales.english.toLocale())
+				}
 			}
-			let instanceOfTable = tableType.init()
+			let instanceOfTable = tableType!.init()
 			self.languagesCache[localeId] = instanceOfTable
 			return instanceOfTable
 		}

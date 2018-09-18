@@ -55,10 +55,10 @@ class TestDateInRegion_Math: XCTestCase {
 
 		// TEST #1
 		// (DateInRegion - DateInRegion) -> DateComponents
-		XCTAssert( ((date2 - date1) as DateComponents).isZero, "Failed to extract components from math operation between dates")
-		XCTAssert( ((date3 - date2) as DateComponents).hour == 10, "Failed to extract components from math operation between dates")
-		XCTAssert( ((date3 - date2) as DateComponents).day == 1, "Failed to extract components from math operation between dates")
-		XCTAssert( ((date3 - date2) as DateComponents).year == 1, "Failed to extract components from math operation between dates")
+		XCTAssert( date1.componentsTo(date2).isZero, "Failed to extract components from math operation between dates")
+		XCTAssert( date3.componentsTo(date2).hour == 10, "Failed to extract components from math operation between dates")
+		XCTAssert( date3.componentsTo(date2).day == 1, "Failed to extract components from math operation between dates")
+		XCTAssert( date3.componentsTo(date2).year == 1, "Failed to extract components from math operation between dates")
 
 		// TEST #2
 		// (DateInRegion + DateComponents) -> DateInRegion

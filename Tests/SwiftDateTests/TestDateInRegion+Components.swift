@@ -39,7 +39,7 @@ class TestDateInRegion_Components: XCTestCase {
 			$0.firstDayOfWeek = 5
 			$0.lastDayOfWeek = 11
 			$0.yearForWeekOfYear = 2018
-			$0.quarter = 0
+			$0.quarter = 1
 		})
 
 		// TEST #1: Date In French
@@ -55,8 +55,8 @@ class TestDateInRegion_Components: XCTestCase {
 		// TEST #3: Other components
 		XCTAssert( (dateB.region == regionParis), "Failed to assign correct region to date")
 		XCTAssert( (dateB.calendar.identifier == regionParis.calendar.identifier), "Failed to assign correct region's calendar to date")
-		XCTAssert( (dateB.quarterName(.default) == "1er trimestre"), "Failed to get quarterName in default")
-		XCTAssert( (dateB.quarterName(.short) == "T1"), "Failed to get quarterName in short")
+		XCTAssert( (dateB.quarterName(.default) == "2e trimestre"), "Failed to get quarterName in default")
+		XCTAssert( (dateB.quarterName(.short) == "T2"), "Failed to get quarterName in short")
 	}
 
 	func testDateInRegion_isLeapMonth() {

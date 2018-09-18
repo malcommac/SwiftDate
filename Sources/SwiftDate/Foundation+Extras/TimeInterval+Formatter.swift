@@ -36,6 +36,15 @@ public extension TimeInterval {
 		/// The preferred style for units.
 		/// By default is `.abbreviated`.
 		public var unitsStyle: DateComponentsFormatter.UnitsStyle = .abbreviated
+		
+		/// Locale of the formatter
+		public var locale: LocaleConvertible? {
+			set { self.calendar.locale = newValue?.toLocale() }
+			get { return self.calendar.locale }
+		}
+		
+		/// Calendar
+		public var calendar: Calendar = Calendar.autoupdatingCurrent
 
 		public func apply(toFormatter formatter: DateComponentsFormatter) {
 			formatter.allowsFractionalUnits = self.allowsFractionalUnits
@@ -43,6 +52,7 @@ public extension TimeInterval {
 			formatter.collapsesLargestUnit = self.collapsesLargestUnit
 			formatter.maximumUnitCount = self.maximumUnitCount
 			formatter.unitsStyle = self.unitsStyle
+			formatter.calendar = self.calendar
 		}
 		
 		public init() {}

@@ -19,6 +19,14 @@ SwiftDate is the **definitive toolchain to manipulate and display dates and time
 
 ★★ Over [3M of downloads](https://cocoapods.org/pods/SwiftDate) on CocoaPods ★★
 
+### Do you like SwiftDate? Help its further development
+
+<img src="Documentation/patreon_button.png" width=250px alt="SwiftDate" title="SwiftDate" ahref="https://www.patreon.com/danielemargutti">
+</p>
+
+If you are using SwiftDate or any other my libraries please [consider support further development](https://www.patreon.com/danielemargutti) and mainteniance becoming a patreon.
+It's fast and easy, a way to help opensource software development.
+
 ### Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 

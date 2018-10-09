@@ -62,13 +62,23 @@ public class ISOFormatter: DateToStringTrasformable {
 		// but include milliseconds ('yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ').
 		public static let withInternetDateTimeExtended = ISOFormatter.Options(rawValue: 1 << 11)
 
+		/// Print the timezone in format `ZZZ` instead of `ZZZZZ`
+		/// An example outout maybe be `+0200` instead of `+02:00`.
+		public static let withoutTZSeparators = ISOFormatter.Options(rawValue: 1 << 12)
+
 		/// Evaluate formatting string
 		public var dateFormat: String {
 			if self.contains(.withInternetDateTimeExtended) {
+				if self.contains(.withoutTZSeparators) {
+					return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
+				}
 				return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
 			}
 
 			if self.contains(.withInternetDateTime) {
+				if self.contains(.withoutTZSeparators) {
+					return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
+				}
 				return "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
 			}
 
@@ -141,6 +151,9 @@ public class ISOFormatter: DateToStringTrasformable {
 					format += "HH:mm:ss"
 				}
 				if self.contains(.withTimeZone) {
+					if self.contains(.withoutTZSeparators) {
+						return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
+					}
 					format += "ZZZZZ"
 				}
 			}

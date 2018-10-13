@@ -87,7 +87,7 @@ extension String: DateParsable {
 		return DateInRegion(self, format: format, region: region)
 	}
 
-	public func toDate(_ formats: [String] = SwiftDate.autoFormats, region: Region) -> DateInRegion? {
+	public func toDate(_ formats: [String], region: Region) -> DateInRegion? {
 		return DateInRegion(self, formats: formats, region: region)
 	}
 

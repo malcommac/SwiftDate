@@ -130,11 +130,12 @@ public extension Date {
 	///   - hour: hour to set (`nil` to leave it unaltered)
 	///   - min: min to set (`nil` to leave it unaltered)
 	///   - secs: sec to set (`nil` to leave it unaltered)
+	///   - ms: milliseconds to set (`nil` to leave it unaltered)
 	///   - options: options for calculation
 	/// - Returns: new altered `DateInRegion` instance
-	public func dateBySet(hour: Int?, min: Int?, secs: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> Date? {
+	public func dateBySet(hour: Int?, min: Int?, secs: Int?, ms: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> Date? {
 		let srcDate = DateInRegion(self, region: SwiftDate.defaultRegion)
-		return srcDate.dateBySet(hour: hour, min: min, secs: secs, options: options)?.date
+		return srcDate.dateBySet(hour: hour, min: min, secs: secs, ms: ms, options: options)?.date
 	}
 
 	/// Creates a new instance by truncating the components

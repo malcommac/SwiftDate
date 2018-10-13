@@ -32,8 +32,7 @@ public protocol DateParsable {
 	///       unecessary computations.
 	///
 	/// - Parameters:
-	///   - format: orderd formats of the date, `nil` to leave the library to found the best
-	///				one via `SwiftDate.autoFormats`
+	///   - format: ordered formats to parse date (if you don't have a list of formats you can pass `SwiftDate.autoFormats`)
 	///   - region: region in which the date should be expressed in.
 	///				Region's locale is used to format the date when using long readable unit names (like MMM
 	///				for month).

@@ -233,7 +233,7 @@ public extension DateInRegion {
 	///   - ms: milliseconds to set (`nil` to leave it unaltered)
 	///   - options: options for calculation
 	/// - Returns: new altered `DateInRegion` instance
-	public func dateBySet(hour: Int?, min: Int?, secs: Int?, ms: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> DateInRegion? {
+	public func dateBySet(hour: Int?, min: Int?, secs: Int?, ms: Int? = nil, options: TimeCalculationOptions = TimeCalculationOptions()) -> DateInRegion? {
 		guard let date = self.calendar.date(bySettingHour: (hour ?? self.hour),
 											minute: (min ?? self.minute),
 											second: (secs ?? self.second),

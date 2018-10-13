@@ -133,7 +133,7 @@ public extension Date {
 	///   - ms: milliseconds to set (`nil` to leave it unaltered)
 	///   - options: options for calculation
 	/// - Returns: new altered `DateInRegion` instance
-	public func dateBySet(hour: Int?, min: Int?, secs: Int?, ms: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> Date? {
+	public func dateBySet(hour: Int?, min: Int?, secs: Int?, ms: Int? = nil, options: TimeCalculationOptions = TimeCalculationOptions()) -> Date? {
 		let srcDate = DateInRegion(self, region: SwiftDate.defaultRegion)
 		return srcDate.dateBySet(hour: hour, min: min, secs: secs, ms: ms, options: options)?.date
 	}

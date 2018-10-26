@@ -331,26 +331,6 @@ public struct TimeCalculationOptions {
 	}
 }
 
-// MARK: - Hash Generation
-
-// Note: we can remove it for Swift 4.2
-// https://github.com/krzysztofzablocki/Sourcery/blob/a092c4b2a47daee26fa11b8be92e0484a5bc9633/Templates/Tests/Expected/AutoHashable.expected#L7
-internal func combineHashes(_ hashes: [Int]) -> Int {
-	return hashes.reduce(0, combineHashValues)
-}
-
-private func combineHashValues(_ initial: Int, _ other: Int) -> Int {
-	#if arch(x86_64) || arch(arm64)
-	let magic: UInt = 0x9e3779b97f4a7c15
-	#elseif arch(i386) || arch(arm) || arch(arm64_32)
-	let magic: UInt = 0x9e3779b9
-	#endif
-	var lhs = UInt(bitPattern: initial)
-	let rhs = UInt(bitPattern: other)
-	lhs ^= rhs &+ magic &+ (lhs << 6) &+ (lhs >> 2)
-	return Int(bitPattern: lhs)
-}
-
 //MARK: - compactMap for Swift 4.0 (not necessary > 4.0)
 
 #if swift(>=4.1)

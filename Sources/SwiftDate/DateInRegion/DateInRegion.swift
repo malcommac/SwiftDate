@@ -17,11 +17,6 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 	/// Associated region which define where the date is represented into the world.
 	public let region: Region
 
-	/// Allows to generate an unique hash vaalue for an instance of `DateInRegion`
-	public var hashValue: Int {
-		return combineHashes([self.date.hashValue, self.region.hashValue])
-	}
-
 	/// Formatter used to transform this object in a string. By default is `nil` because SwiftDate
 	/// uses the thread shared formatter in order to avoid expensive init of the `DateFormatter` object.
 	/// However, if you need of a custom behaviour you can set a valid value.

@@ -230,9 +230,10 @@ public extension DateInRegion {
 	///   - hour: hour to set (`nil` to leave it unaltered)
 	///   - min: min to set (`nil` to leave it unaltered)
 	///   - secs: sec to set (`nil` to leave it unaltered)
+	///   - ms: milliseconds to set (`nil` to leave it unaltered)
 	///   - options: options for calculation
 	/// - Returns: new altered `DateInRegion` instance
-	public func dateBySet(hour: Int?, min: Int?, secs: Int?, options: TimeCalculationOptions = TimeCalculationOptions()) -> DateInRegion? {
+	public func dateBySet(hour: Int?, min: Int?, secs: Int?, ms: Int? = nil, options: TimeCalculationOptions = TimeCalculationOptions()) -> DateInRegion? {
 		guard let date = self.calendar.date(bySettingHour: (hour ?? self.hour),
 											minute: (min ?? self.minute),
 											second: (secs ?? self.second),
@@ -240,7 +241,12 @@ public extension DateInRegion {
 											matchingPolicy: options.matchingPolicy,
 											repeatedTimePolicy: options.repeatedTimePolicy,
 											direction: options.direction) else { return nil }
-		return DateInRegion(date, region: self.region)
+		guard let ms = ms else {
+			return DateInRegion(date, region: self.region)
+		}
+		var timestamp = date.timeIntervalSince1970.rounded(.down)
+		timestamp += Double(ms) / 1000.0
+		return DateInRegion(Date(timeIntervalSince1970: timestamp), region: self.region)
 	}
 
 	/// Creates a new instance by truncating the components

@@ -143,4 +143,18 @@ public extension DateInRegion {
 		return self.calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: self.date)
 	}
 	
+	/// Returns the difference between two dates (`date - self`) expressed as date components.
+	///
+	/// - Parameters:
+	///   - date: reference date as initial date (left operand)
+	///   - components: components to extract, `nil` to use default `DateComponents.allComponentsSet`
+	/// - Returns: extracted date components
+	public func componentsSince(_ date: DateInRegion, components: [Calendar.Component]? = nil) -> DateComponents {
+		if date.calendar != self.calendar {
+			debugPrint("Date has different calendar, results maybe wrong")
+		}
+		let cmps = (components != nil ? Calendar.Component.toSet(components!) : DateComponents.allComponentsSet)
+		return date.calendar.dateComponents(cmps, from: date.date, to: self.date)
+	}
+	
 }

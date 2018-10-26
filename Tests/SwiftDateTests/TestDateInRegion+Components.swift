@@ -70,6 +70,12 @@ class TestDateInRegion_Components: XCTestCase {
 		XCTAssert( dateC.isLeapMonth == false, "Failed to evaluate is date isLeapMonth == false")
 		XCTAssert( dateB.isLeapMonth, "Failed to evaluate is date isLeapMonth")
 	}
+	
+	func testDateInRegion_dateBySet() {
+		let originalDate = "2018-10-10T12:02:16.024".toISODate()
+		let newDate = originalDate?.dateBySet(hour: nil, min: nil, secs: nil, ms: 7)
+		XCTAssert( newDate?.toISO([.withInternetDateTimeExtended]) == "2018-10-10T12:02:16.007Z", "Failed to set milliseconds")
+	}
 
 	func testDateInRegion_isLeapYear() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)

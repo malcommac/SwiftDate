@@ -280,16 +280,13 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( (date1 <= date3), "Failed to math compare two dates")
 	}
 
-//	func testDateInRegion_CompareWithGranularity() {
-//		let rome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
-//		let format = "yyyy-MM-dd HH:mm:ss"
-//		let date1 = DateInRegion("2018-01-01 00:10:00", format: format, region: rome)!
-//		let date2 = DateInRegion("2017-01-05 21:30:00", format: format, region: rome)!
-//
-//		let res1 = date1.compare(toDate: date2, granularity: .year)
-//		let res2 = date1.compare(toDate: date2, granularity: .day)
-//		let res3 = date1.compare(toDate: date2, granularity: .weekOfMonth)
-//		print("")
-//	}
-
+	func testDateInRange_GranuralityTest() {
+		let startTime = Date(timeIntervalSince1970: 1538344800.0) // 2018-09-30 22:00:00 +0000
+		let endTime = Date(timeIntervalSince1970: 1540940400.0 + (60 * 60 * 3)) // 2018-10-31 02:00:00 +0000
+		let checkStart = Date(timeIntervalSince1970: 1540976400.0) // 2018-10-31 09:00:00 +0000
+		
+		let isInside = checkStart.isInRange(date: startTime, and: endTime, orEqual: true, granularity: .day) // should return false even if its true
+		XCTAssert( (isInside == true), "Failed to compare date with granularity")
+	}
+	
 }

@@ -326,6 +326,9 @@ public class RelativeFormatter: DateToStringTrasformable {
 
 		// Find the most appropriate gradation step
 		let i = findGradationStep(elapsed: elapsed, now: referenceInterval, gradation: filteredGradation)
+		guard i >= 0 else {
+			return nil
+		}
 		let step = filteredGradation[i]!
 
 		// Apply granularity to the time amount

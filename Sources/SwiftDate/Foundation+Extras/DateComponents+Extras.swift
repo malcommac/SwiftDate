@@ -39,7 +39,7 @@ public extension Calendar.Component {
 	/// - returns: return the plural or singular form of the time unit used to compose a valid identifier for search a localized
 	///   string in resource bundle
 	internal func localizedKey(forValue value: Int) -> String {
-		let locKey = self.localizedKey
+		let locKey = localizedKey
 		let absValue = abs(value)
 		switch absValue {
 		case 0: // zero difference for this unit
@@ -100,7 +100,7 @@ public extension DateComponents {
 	public var timeInterval: TimeInterval {
 		var totalAmount: TimeInterval = 0
 		DateComponents.allComponents.forEach {
-			if let multipler = $0.timeInterval, let value = self.value(for: $0), value != Int(NSDateComponentUndefined) {
+			if let multipler = $0.timeInterval, let value = value(for: $0), value != Int(NSDateComponentUndefined) {
 				totalAmount += (TimeInterval(value) * multipler)
 			}
 		}
@@ -137,7 +137,7 @@ public extension DateComponents {
 	/// Return `true` if all interval components are zeroes
 	public var isZero: Bool {
 		for component in DateComponents.allComponents {
-			if let value = self.value(for: component), value != 0 {
+			if let value = value(for: component), value != 0 {
 				return false
 			}
 		}
@@ -165,7 +165,7 @@ public extension DateComponents {
 	internal mutating func alterComponents(_ components: [Calendar.Component: Int?]) {
 		components.forEach {
 			if let v = $0.value {
-				self.setValue(v, for: $0.key)
+				setValue(v, for: $0.key)
 			}
 		}
 	}
@@ -276,7 +276,7 @@ public extension DateComponents {
 	///   - component: time component
 	///   - calendar: context calendar to use
 	/// - Returns: a dictionary of extract values.
-	public func `in`(_ components: Set<Calendar.Component>, of calendar: CalendarConvertible? = nil) -> [Calendar.Component : Int] {
+	public func `in`(_ components: Set<Calendar.Component>, of calendar: CalendarConvertible? = nil) -> [Calendar.Component: Int] {
 		let cal = (calendar?.toCalendar() ?? SwiftDate.defaultRegion.calendar)
 		let dateFrom = Date()
 		let dateTo = (dateFrom + self)

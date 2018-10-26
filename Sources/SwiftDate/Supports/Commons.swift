@@ -34,7 +34,7 @@ public extension DateFormatter {
 	/// - Returns: number formatter instance
 	@available(iOS 9.0, macOS 10.11, *)
 	public static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
-		var formatter: NumberFormatter? = nil
+		var formatter: NumberFormatter?
 		let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
 		formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
 		formatter!.numberStyle = .ordinal
@@ -137,7 +137,7 @@ public struct DateFormats {
 
 	/// Reset the list of auto formats to the initial settings.
 	public static func resetAutoFormats() {
-		self.autoFormats = DateFormats.builtInAutoFormat
+		autoFormats = DateFormats.builtInAutoFormat
 	}
 
 	/// Parse a new string optionally passing the format in which is encoded. If no format is passed
@@ -156,7 +156,7 @@ public struct DateFormats {
 	public static func parse(string: String, formats: [String], region: Region) -> Date? {
 		let formatter = DateFormatter.sharedFormatter(forRegion: region)
 
-		var parsedDate: Date? = nil
+		var parsedDate: Date?
 		for format in formats {
 			formatter.dateFormat = format
 			formatter.locale = region.locale
@@ -224,7 +224,7 @@ public extension Calendar.Component {
 
 	// swiftlint:disable identifier_name
 	internal var _cfValue: CFCalendarUnit? {
-		guard let value = self.cfCalendarUnit else { return nil }
+		guard let value = cfCalendarUnit else { return nil }
 		#if os(macOS) || os(iOS)
 		return CFCalendarUnit(rawValue: value)
 		#else
@@ -351,7 +351,7 @@ private func combineHashValues(_ initial: Int, _ other: Int) -> Int {
 	return Int(bitPattern: lhs)
 }
 
-//MARK: - compactMap for Swift 4.0 (not necessary > 4.0)
+// MARK: - compactMap for Swift 4.0 (not necessary > 4.0)
 
 #if swift(>=4.1)
 #else

@@ -19,24 +19,24 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 
 	/// Allows to generate an unique hash vaalue for an instance of `DateInRegion`
 	public var hashValue: Int {
-		return combineHashes([self.date.hashValue, self.region.hashValue])
+		return combineHashes([date.hashValue, region.hashValue])
 	}
 
 	/// Formatter used to transform this object in a string. By default is `nil` because SwiftDate
 	/// uses the thread shared formatter in order to avoid expensive init of the `DateFormatter` object.
 	/// However, if you need of a custom behaviour you can set a valid value.
-	public var customFormatter: DateFormatter? = nil
+	public var customFormatter: DateFormatter?
 
 	/// Extract date components by taking care of the region in which the date is expressed.
 	public var dateComponents: DateComponents {
-		return self.region.calendar.dateComponents(DateComponents.allComponentsSet, from: self.date)
+		return region.calendar.dateComponents(DateComponents.allComponentsSet, from: date)
 	}
 
 	/// Description of the date
 	public var description: String {
-		let absISODate = DateFormatter.sharedFormatter(forRegion: Region.UTC).string(from: self.date)
-		let representedDate = self.formatter(format: DateFormats.iso8601).string(from: self.date)
-		return "{abs_date='\(absISODate)', rep_date='\(representedDate)', region=\(self.region.description)"
+		let absISODate = DateFormatter.sharedFormatter(forRegion: Region.UTC).string(from: date)
+		let representedDate = formatter(format: DateFormats.iso8601).string(from: date)
+		return "{abs_date='\(absISODate)', rep_date='\(representedDate)', region=\(region.description)"
 	}
 
 	/// Initialize with an absolute date and represent it into given geographic region.

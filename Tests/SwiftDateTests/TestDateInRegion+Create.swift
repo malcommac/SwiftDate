@@ -55,14 +55,14 @@ class TestDateInRegion_Create: XCTestCase {
 					}
 					if let range = range {
 						let value = randomNumber(inRange: range)
-						self.components[componentToAlter] = value
+						components[componentToAlter] = value
 					}
 				}
 			}
 
 			func verify(date: DateInRegion) {
-				self.components.keys.forEach {
-					if let value = date.dateComponents.value(for: $0), let expected = self.components[$0] as? Int {
+				components.keys.forEach {
+					if let value = date.dateComponents.value(for: $0), let expected = components[$0] as? Int {
 						if value != expected {
 							XCTFail("Failed to set value of component \($0). Got \(value), expected \(expected)")
 							return

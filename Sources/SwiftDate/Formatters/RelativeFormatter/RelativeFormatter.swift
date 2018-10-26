@@ -153,8 +153,8 @@ public class RelativeFormatter: DateToStringTrasformable {
 	///
 	/// - Parameter lang: language file type
 	public static func addLanguage(_ lang: RelativeFormatterLang.Type) {
-		self.shared.languagesMap[lang.identifier] = lang // replace or add
-		self.shared.languagesCache.removeValue(forKey: lang.identifier) // cleanup cache
+		shared.languagesMap[lang.identifier] = lang // replace or add
+		shared.languagesCache.removeValue(forKey: lang.identifier) // cleanup cache
 	}
 
 	/// Return the language table for a specified locale.
@@ -164,16 +164,16 @@ public class RelativeFormatter: DateToStringTrasformable {
 	/// - Returns: language table
 	private func language(forLocale locale: Locale) -> RelativeFormatterLang {
 		let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
-		guard let table = self.languagesCache[localeId] else {
-			var tableType = self.languagesMap[localeId]
+		guard let table = languagesCache[localeId] else {
+			var tableType = languagesMap[localeId]
 			if tableType == nil {
-				tableType = self.languagesMap[localeId.components(separatedBy: "-").first!]
+				tableType = languagesMap[localeId.components(separatedBy: "-").first!]
 				if tableType == nil {
 					return language(forLocale: Locales.english.toLocale())
 				}
 			}
 			let instanceOfTable = tableType!.init()
-			self.languagesCache[localeId] = instanceOfTable
+			languagesCache[localeId] = instanceOfTable
 			return instanceOfTable
 		}
 		return table
@@ -371,7 +371,7 @@ public class RelativeFormatter: DateToStringTrasformable {
 
 	/// Evaluate threshold.
 	private static func threshold(from fromRule: Gradation.Rule?, to toRule: Gradation.Rule, now: TimeInterval) -> Double? {
-		var threshold: Double? = nil
+		var threshold: Double?
 
 		// Allows custom thresholds when moving
 		// from a specific step to a specific step.

@@ -444,7 +444,7 @@ public extension DateRepresentable {
 
 	func quarterName(_ style: SymbolFormatStyle) -> String {
 		let formatter = self.formatter(format: nil)
-		let idx = self.quarter
+		let idx = (self.quarter - 1)
 		switch style {
 		case .default:									return formatter.quarterSymbols[idx]
 		case .defaultStandalone:						return formatter.standaloneQuarterSymbols[idx]

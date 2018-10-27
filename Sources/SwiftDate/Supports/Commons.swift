@@ -6,6 +6,9 @@
 //  Copyright © 2018 SwiftDate. All rights reserved.
 //
 
+#if os(Linux)
+import CoreFoundation
+#endif
 import Foundation
 
 public extension DateFormatter {
@@ -225,8 +228,8 @@ public extension Calendar.Component {
 	// swiftlint:disable identifier_name
 	internal var _cfValue: CFCalendarUnit? {
 		guard let value = self.cfCalendarUnit else { return nil }
-		#if os(macOS) || os(iOS)
-		return CFCalendarUnit(rawValue: value)
+		#if os(Linux)
+		return CFCalendarUnit(value)
 		#else
 		return CFCalendarUnit(rawValue: value)
 		#endif

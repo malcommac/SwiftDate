@@ -380,11 +380,13 @@ public struct ExpectedDateComponents {
 		configure?(&self)
 	}
 
-	func validate(_ date: DateInRegion) -> String? {
+	func validate(_ date: DateInRegion, _ origin: String) -> String? {
 		if let year = self.year, year != date.year { return "year" }
 		if let day = self.day, day != date.day { return "day" }
 		if let month = self.month, month != date.month { return "month" }
-		if let minute = self.minute, minute != date.minute { return "minute" }
+		if let minute = self.minute, minute != date.minute {
+			return "minute exp='\(self.minute!)' val='\(date.minute)' date='\(date)' origin='\(origin)'"
+		}
 		if let second = self.second, second != date.second { return "second" }
 		if let weekOfMonth = self.weekOfMonth, weekOfMonth != date.weekOfMonth { return "weekOfMonth" }
 		if let dayOfYear = self.dayOfYear, dayOfYear != date.dayOfYear { return "dayOfYear" }
@@ -433,14 +435,14 @@ func XCTValidateParse(string: String, format: String?, region: Region, expec: Ex
 		XCTFail("Failed to parse date '\(string)' with format: '\(format ?? "<AUTO>")'")
 		return
 	}
-	if let errors = expec.validate(date) {
+	if let errors = expec.validate(date, string) {
 		XCTFail("Failed to validate components of parsed date string '\(string)' with format: '\(format ?? "<AUTO>")'. One or more components differ from expected: \(errors)")
 		return
 	}
 }
 
 func XCTValidateDateComponents(date: DateInRegion, expec: ExpectedDateComponents) {
-	if let errors = expec.validate(date) {
+	if let errors = expec.validate(date, "") {
 		XCTFail("Failed to validate components of date '\(date.description)'. One or more components differ from expected: \(errors)")
 		return
 	}

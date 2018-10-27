@@ -27,7 +27,13 @@ extension Date: DateRepresentable {
 	}
 
 	#if os(Linux)
-	public var customFormatter: DateFormatter? = nil
+	public var customFormatter: DateFormatter? {
+		get {
+			debugPrint("Not supported on Linux")
+			return nil
+		}
+		set { debugPrint("Not supported on Linux") }
+	}
 	#else
 	/// Assign a custom formatter if you need a special behaviour during formatting of the object.
 	/// Usually you will not need to do it, SwiftDate uses the local thread date formatter in order to

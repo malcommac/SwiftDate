@@ -47,7 +47,7 @@ public extension DateInRegion {
 	/// - Parameter region: destination region, `nil` to use the default region
 	/// - Returns: random date
 	public static func randomDate(region: Region = SwiftDate.defaultRegion) -> DateInRegion {
-		let randomTime = TimeInterval(arc4random_uniform(UInt32.max))
+		let randomTime = TimeInterval(UInt32.random(in: UInt32.min..<UInt32.max))
 		let absoluteDate = Date(timeIntervalSince1970: randomTime)
 		return DateInRegion(absoluteDate, region: region)
 	}
@@ -62,7 +62,7 @@ public extension DateInRegion {
 	public static func randomDate(between initial: DateInRegion, and final: DateInRegion,
 								  region: Region = SwiftDate.defaultRegion) -> DateInRegion {
 		let interval = final.timeIntervalSince(initial)
-		let randomInterval = TimeInterval(arc4random_uniform(UInt32(interval)))
+		let randomInterval = TimeInterval(UInt32.random(in: UInt32.min..<UInt32(interval)))
 		return initial.addingTimeInterval(randomInterval)
 	}
 

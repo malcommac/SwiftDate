@@ -28,6 +28,9 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
+#if os(Linux)
+
+#else
 import Foundation
 import ObjectiveC.runtime
 
@@ -86,3 +89,4 @@ private class AssociatedValue {
 	}
 
 }
+#endif

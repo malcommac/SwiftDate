@@ -8,9 +8,13 @@
 
 import Foundation
 
+#if os(Linux)
+
+#else
 internal enum AssociatedKeys: String {
 	case customDateFormatter = "SwiftDate.CustomDateFormatter"
 }
+#endif
 
 extension Date: DateRepresentable {
 
@@ -22,6 +26,9 @@ extension Date: DateRepresentable {
 		return SwiftDate.defaultRegion
 	}
 
+	#if os(Linux)
+	
+	#else
 	/// Assign a custom formatter if you need a special behaviour during formatting of the object.
 	/// Usually you will not need to do it, SwiftDate uses the local thread date formatter in order to
 	/// optimize the formatting process. By default is `nil`.
@@ -34,6 +41,7 @@ extension Date: DateRepresentable {
 			set(associatedValue: newValue, key: AssociatedKeys.customDateFormatter.rawValue, object: self as AnyObject)
 		}
 	}
+	#endif
 
 	/// Extract the date components.
 	public var dateComponents: DateComponents {

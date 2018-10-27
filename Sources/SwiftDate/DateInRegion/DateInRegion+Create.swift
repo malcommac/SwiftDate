@@ -150,8 +150,20 @@ public extension DateInRegion {
 	/// - Parameter unit: time unit value.
 	/// - Returns: instance at the beginning of the time unit; `self` if fails.
 	public func dateAtStartOf(_ unit: Calendar.Component) -> DateInRegion {
-		guard let result = self.region.calendar.rangex(of: unit, for: self.date) else { return self }
+		#if os(Linux)
+		guard let result = (self.region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, for: self.date) else {
+			return self
+		}
 		return DateInRegion(result.start, region: self.region)
+		#else
+		var start: NSDate? = nil
+		var interval: TimeInterval = 0
+		guard (self.region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, start: &start, interval: &interval, for: self.date),
+			let startDate = start else {
+				return self
+		}
+		return DateInRegion(startDate as Date, region: self.region)
+		#endif
 	}
 
 	/// Return a new DateInRegion that is initialized at the start of the specified components
@@ -172,10 +184,24 @@ public extension DateInRegion {
 	/// - returns: A new Moment instance.
 	public func dateAtEndOf(_ unit: Calendar.Component) -> DateInRegion {
 		// RangeOfUnit returns the start of the next unit; we will subtract one thousandth of a second
-		guard let result = self.region.calendar.rangex(of: unit, for: self.date) else { return self }
+		#if os(Linux)
+		guard let result = (self.region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, for: self.date) else {
+			return self
+		}
 		let startOfNextUnit = result.start.addingTimeInterval(result.duration)
 		let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit)
 		return DateInRegion(endOfThisUnit, region: self.region)
+		#else
+		var start: NSDate? = nil
+		var interval: TimeInterval = 0
+		guard (self.region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, start: &start, interval: &interval, for: self.date),
+		let startDate = start else {
+			return self
+		}
+		let startOfNextUnit = startDate.addingTimeInterval(interval)
+		let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit as Date)
+		return DateInRegion(endOfThisUnit, region: self.region)
+		#endif
 	}
 
 	/// Return a new DateInRegion that is initialized at the end of the specified components

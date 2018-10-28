@@ -193,7 +193,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 			} else if date1 == nil {
 				return false
 			} else {
-				return (type == .ascending ? date1! < date0! : date0! > date1!)
+				return (type == .ascending ? date1! > date0! : date0! > date1!)
 			}
 		}
 	}

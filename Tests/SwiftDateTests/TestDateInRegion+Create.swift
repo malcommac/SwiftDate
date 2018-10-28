@@ -11,7 +11,7 @@ import XCTest
 
 public func randomNumber<T: SignedInteger>(inRange range: ClosedRange<T> = 1...6) -> T {
 	let length = Int64(range.upperBound - range.lowerBound + 1)
-	let value = Int64(arc4random()) % length + Int64(range.lowerBound)
+	let value = Int64.random(in: 0..<Int64.max) % length + Int64(range.lowerBound)
 	return T(value)
 }
 
@@ -107,7 +107,7 @@ class TestDateInRegion_Create: XCTestCase {
 
 	func testDateInRegion_RandomDatesBackToDays() {
 		for _ in 0..<50 {
-			let daysBack = Int(arc4random_uniform(365) + 1)
+			let daysBack = (Int.random(in: 0..<365) + 1)
 			let randomDate = DateInRegion.randomDate(withinDaysBeforeToday: daysBack)
 			guard randomDate.getInterval(toDate: DateInRegion(), component: .day) <= daysBack else {
 				XCTFail("Failed to generate a random back date back to max \(daysBack) days")

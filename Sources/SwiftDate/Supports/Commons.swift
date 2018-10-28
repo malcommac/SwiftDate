@@ -5,7 +5,6 @@
 //  Created by Daniele Margutti on 06/06/2018.
 //  Copyright © 2018 SwiftDate. All rights reserved.
 //
-
 import Foundation
 
 public extension DateFormatter {
@@ -89,9 +88,9 @@ public struct DateFormats {
 		"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'",
 		"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'",
 		"yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-		"yyyy-MM-dd",
 		"yyyy-MM-dd HH:mm:ss",
 		"yyyy-MM-dd HH:mm",
+		"yyyy-MM-dd",
 		"h:mm:ss A",
 		"h:mm A",
 		"MM/dd/yyyy",
@@ -171,89 +170,32 @@ public struct DateFormats {
 
 // MARK: - Calendar Extension
 
-// The code below is part of the Swift.org code. It is included as rangeOfUnit is a very useful
-// function for the startOf and endOf functions.
-// As always we would prefer using Foundation code rather than inventing code ourselves.
-extension Calendar {
-
-	typealias CFType = CFCalendar
-
-	private var _cfObject: CFType {
-		return unsafeBitCast(self as NSCalendar, to: CFCalendar.self)
-	}
-
-	/// Revised API for avoiding usage of AutoreleasingUnsafeMutablePointer.
-	/// The current exposed API in Foundation on Darwin platforms is:
-	/// `public func rangeOfUnit(unit: NSCalendarUnit, startDate datep:
-	/// AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip:
-	/// UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool`
-	/// which is not implementable on Linux due to the lack of being able to properly implement
-	/// AutoreleasingUnsafeMutablePointer.
-	///
-	/// - parameters:
-	///     - component: the unit to determine the range for
-	///     - date: the date to wrap the unit around
-	/// - returns: the range (date interval) of the unit around the date
-	///
-	/// - Experiment: This is a draft API currently under consideration for official import into
-	///     Foundation as a suitable alternative
-	/// - Note: Since this API is under consideration it may be either removed or revised in the
-	///     near future
-	///
-	internal func rangex(of unit: Calendar.Component, for date: Date) -> (start: Date, duration: TimeInterval)? {
-		guard let cfValue = unit._cfValue else {
-			debugPrint("Passed unit '\(unit)' is not supported for operation")
-			return nil
-		}
-		var start: CFAbsoluteTime = 0.0
-		var ti: CFTimeInterval = 0.0
-		let res: Bool = withUnsafeMutablePointer(to: &start) { startp in
-			withUnsafeMutablePointer(to: &ti) { tip in
-				return CFCalendarGetTimeRangeOfUnit(_cfObject, cfValue, date.timeIntervalSinceReferenceDate, startp, tip)
-			}
-		}
-		if res {
-			return (Date(timeIntervalSinceReferenceDate: start), duration: ti)
-		}
-		return nil
-	}
-
-}
-
 public extension Calendar.Component {
-
-	// swiftlint:disable identifier_name
-	internal var _cfValue: CFCalendarUnit? {
-		guard let value = self.cfCalendarUnit else { return nil }
-		#if os(macOS) || os(iOS)
-		return CFCalendarUnit(rawValue: value)
-		#else
-		return CFCalendarUnit(rawValue: value)
-		#endif
-	}
-
+	
 	internal static func toSet(_ src: [Calendar.Component]) -> Set<Calendar.Component> {
 		var l: Set<Calendar.Component> = []
 		src.forEach { l.insert($0) }
 		return l
 	}
 
-	internal var cfCalendarUnit: UInt? {
+	internal var nsCalendarUnit: NSCalendar.Unit {
 		switch self {
-		case .day:				return CFCalendarUnit.day.rawValue
-		case .era:				return CFCalendarUnit.era.rawValue
-		case .year:				return CFCalendarUnit.year.rawValue
-		case .month:			return CFCalendarUnit.month.rawValue
-		case .hour:				return CFCalendarUnit.hour.rawValue
-		case .minute:			return CFCalendarUnit.minute.rawValue
-		case .second:			return CFCalendarUnit.second.rawValue
-		case .weekday:			return CFCalendarUnit.weekday.rawValue
-		case .weekdayOrdinal:	return CFCalendarUnit.weekdayOrdinal.rawValue
-		case .quarter:			return CFCalendarUnit.quarter.rawValue
-		case .weekOfMonth:		return CFCalendarUnit.weekOfMonth.rawValue
-		case .weekOfYear:		return CFCalendarUnit.weekOfYear.rawValue
-		case .yearForWeekOfYear:return CFCalendarUnit.yearForWeekOfYear.rawValue
-		default:				return nil // nanoseconds, calendar and timezone are not supported
+		case .era: return NSCalendar.Unit.era
+		case .year: return NSCalendar.Unit.year
+		case .month: return NSCalendar.Unit.month
+		case .day: return NSCalendar.Unit.day
+		case .hour: return NSCalendar.Unit.hour
+		case .minute: return NSCalendar.Unit.minute
+		case .second: return NSCalendar.Unit.second
+		case .weekday: return NSCalendar.Unit.weekday
+		case .weekdayOrdinal: return NSCalendar.Unit.weekdayOrdinal
+		case .quarter: return NSCalendar.Unit.quarter
+		case .weekOfMonth: return NSCalendar.Unit.weekOfMonth
+		case .weekOfYear: return NSCalendar.Unit.weekOfYear
+		case .yearForWeekOfYear: return NSCalendar.Unit.yearForWeekOfYear
+		case .nanosecond: return NSCalendar.Unit.nanosecond
+		case .calendar: return NSCalendar.Unit.calendar
+		case .timeZone: return NSCalendar.Unit.timeZone
 		}
 	}
 }

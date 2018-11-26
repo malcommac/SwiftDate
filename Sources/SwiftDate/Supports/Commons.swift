@@ -55,7 +55,7 @@ internal func threadSharedObject<T: AnyObject>(key: String, create: () -> T) -> 
 		return cachedObj
 	} else {
 		let newObject = create()
-		Thread.current	.threadDictionary[key] = newObject
+		Thread.current.threadDictionary[key] = newObject
 		return newObject
 	}
 }

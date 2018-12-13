@@ -117,7 +117,7 @@ public enum StringToDateStyles {
 		case .standard:						return DateInRegion(string, format: DateFormats.standard, region: region)
 		case .strict(let format):
 			let formatter = DateFormatter.sharedFormatter(forRegion: region, format: format)
-			formatter.isLenient = true
+			formatter.isLenient = false
 			guard let absDate = formatter.date(from: string) else { return nil }
 			return DateInRegion(absDate, region: region)
 		}

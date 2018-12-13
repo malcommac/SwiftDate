@@ -136,7 +136,7 @@ public class ISOFormatter: DateToStringTrasformable {
 			}
 
 			let hasDate = (self.contains(.withFullDate) || self.contains(.withMonth) || self.contains(.withDay) || self.contains(.withWeekOfYear) || self.contains(.withYear))
-			if hasDate && (self.contains(.withFullTime) || self.contains(.withTimeZone)) {
+			if hasDate && (self.contains(.withFullTime) || self.contains(.withTimeZone) || self.contains(.withTime)) {
 				if self.contains(.withSpaceBetweenDateAndTime) {
 					format += " "
 				} else {

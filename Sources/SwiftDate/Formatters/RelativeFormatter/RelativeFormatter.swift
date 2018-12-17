@@ -268,7 +268,11 @@ public class RelativeFormatter: DateToStringTrasformable {
 			// "other" rule is supposed to always be present.
 			// If only "other" rule is present then "rules" is not an object and is a string.
 			let quantifier = (table.quantifyKey(forValue: abs(value)) ?? .other).rawValue
-			return (quantifierRules[quantifier] as? String ?? "")
+			if let relativeFormat = quantifierRules[quantifier] as? String {
+				return relativeFormat
+			} else {
+				return quantifierRules[RelativeFormatter.PluralForm.other.rawValue] as? String ?? ""
+			}
 		} else {
 			return ""
 		}

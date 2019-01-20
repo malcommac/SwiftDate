@@ -22,13 +22,15 @@ public enum WeekDay: Int {
 	public func name(style: SymbolFormatStyle = .`default`, locale: LocaleConvertible = SwiftDate.defaultRegion.locale) -> String {
 		let region = Region(calendar: SwiftDate.defaultRegion.calendar, zone: SwiftDate.defaultRegion.timeZone, locale: locale)
 		let formatter = DateFormatter.sharedFormatter(forRegion: region, format: nil)
+
+		let idx = (self.rawValue - 1)
 		switch style {
-		case .default:				return formatter.weekdaySymbols[self.rawValue]
-		case .defaultStandalone:	return formatter.standaloneWeekdaySymbols[self.rawValue]
-		case .short:				return formatter.shortWeekdaySymbols[self.rawValue]
-		case .standaloneShort:		return formatter.shortStandaloneWeekdaySymbols[self.rawValue]
-		case .veryShort:			return formatter.veryShortWeekdaySymbols[self.rawValue]
-		case .standaloneVeryShort:	return formatter.veryShortStandaloneWeekdaySymbols[self.rawValue]
+		case .default:				return formatter.weekdaySymbols[idx]
+		case .defaultStandalone:	return formatter.standaloneWeekdaySymbols[idx]
+		case .short:				return formatter.shortWeekdaySymbols[idx]
+		case .standaloneShort:		return formatter.shortStandaloneWeekdaySymbols[idx]
+		case .veryShort:			return formatter.veryShortWeekdaySymbols[idx]
+		case .standaloneVeryShort:	return formatter.veryShortStandaloneWeekdaySymbols[idx]
 		}
 	}
 
@@ -128,13 +130,12 @@ public enum Month: Int, CustomStringConvertible, Equatable {
 		return add(months: -(months % 12))
 	}
 
-
 	/// Returns the number of days in a this month for a given year
 	///
 	/// - Parameter year: reference year.
 	/// - Returns: The number of days in this month.
 	public func numberOfDays(year: Int) -> Int {
-		switch (self) {
+		switch self {
 		case .february:
 			return Year(year).isLeap() ? 29 : 28
 		case .april, .june, .september, .november:

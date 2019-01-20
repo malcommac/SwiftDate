@@ -68,46 +68,46 @@ public class ISOFormatter: DateToStringTrasformable {
 
 		/// Evaluate formatting string
 		public var dateFormat: String {
-			if self.contains(.withInternetDateTimeExtended) {
-				if self.contains(.withoutTZSeparators) {
+			if contains(.withInternetDateTimeExtended) {
+				if contains(.withoutTZSeparators) {
 					return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
 				}
 				return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
 			}
 
-			if self.contains(.withInternetDateTime) {
-				if self.contains(.withoutTZSeparators) {
+			if contains(.withInternetDateTime) {
+				if contains(.withoutTZSeparators) {
 					return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
 				}
 				return "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
 			}
 
 			var format: String = ""
-			if self.contains(.withFullDate) {
+			if contains(.withFullDate) {
 				format += "yyyy-MM-dd"
 			} else {
-				if self.contains(.withYear) {
-					if self.contains(.withWeekOfYear) {
+				if contains(.withYear) {
+					if contains(.withWeekOfYear) {
 						format += "YYYY"
-					} else if self.contains(.withMonth) || self.contains(.withDay) {
+					} else if contains(.withMonth) || contains(.withDay) {
 						format += "yyyy"
 					} else {
 						// not valid
 					}
 				}
-				if self.contains(.withMonth) {
-					if self.contains(.withYear) || self.contains(.withDay) || self.contains(.withWeekOfYear) {
+				if contains(.withMonth) {
+					if contains(.withYear) || contains(.withDay) || contains(.withWeekOfYear) {
 						format += "MM"
 					} else {
 						// not valid
 					}
 				}
-				if self.contains(.withWeekOfYear) {
-					if self.contains(.withDay) {
+				if contains(.withWeekOfYear) {
+					if contains(.withDay) {
 						format += "'W'ww"
 					} else {
-						if self.contains(.withYear) || self.contains(.withMonth) {
-							if self.contains(.withDashSeparatorInDate) {
+						if contains(.withYear) || contains(.withMonth) {
+							if contains(.withDashSeparatorInDate) {
 								format += "-'W'ww"
 							} else {
 								format += "'W'ww"
@@ -118,13 +118,13 @@ public class ISOFormatter: DateToStringTrasformable {
 					}
 				}
 
-				if self.contains(.withDay) {
-					if self.contains(.withWeekOfYear) {
+				if contains(.withDay) {
+					if contains(.withWeekOfYear) {
 						format += "FF"
-					} else if self.contains(.withMonth) {
+					} else if contains(.withMonth) {
 						format += "dd"
-					} else if self.contains(.withYear) {
-						if self.contains(.withDashSeparatorInDate) {
+					} else if contains(.withYear) {
+						if contains(.withDashSeparatorInDate) {
 							format += "-DDD"
 						} else {
 							format += "DDD"
@@ -135,23 +135,23 @@ public class ISOFormatter: DateToStringTrasformable {
 				}
 			}
 
-			let hasDate = (self.contains(.withFullDate) || self.contains(.withMonth) || self.contains(.withDay) || self.contains(.withWeekOfYear) || self.contains(.withYear))
-			if hasDate && (self.contains(.withFullTime) || self.contains(.withTimeZone)) {
-				if self.contains(.withSpaceBetweenDateAndTime) {
+			let hasDate = (contains(.withFullDate) || contains(.withMonth) || contains(.withDay) || contains(.withWeekOfYear) || contains(.withYear))
+			if hasDate && (contains(.withFullTime) || contains(.withTimeZone) || contains(.withTime)) {
+				if contains(.withSpaceBetweenDateAndTime) {
 					format += " "
 				} else {
 					format += "'T'"
 				}
 			}
 
-			if self.contains(.withFullTime) {
+			if contains(.withFullTime) {
 				format += "HH:mm:ssZZZZZ"
 			} else {
-				if self.contains(.withTime) {
+				if contains(.withTime) {
 					format += "HH:mm:ss"
 				}
-				if self.contains(.withTimeZone) {
-					if self.contains(.withoutTZSeparators) {
+				if contains(.withTimeZone) {
+					if contains(.withoutTZSeparators) {
 						return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
 					}
 					format += "ZZZZZ"
@@ -167,6 +167,7 @@ public class ISOFormatter: DateToStringTrasformable {
 		let formatter = date.formatter(format: formatOptions.dateFormat) {
 			$0.locale = Locales.englishUnitedStatesComputer.toLocale() // fix for 12/24h
 			$0.timeZone = date.region.timeZone
+			$0.calendar = Calendars.gregorian.toCalendar()
 		}
 		return formatter.string(from: date.date)
 	}

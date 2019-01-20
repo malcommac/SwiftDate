@@ -55,14 +55,14 @@ class TestDateInRegion_Create: XCTestCase {
 					}
 					if let range = range {
 						let value = randomNumber(inRange: range)
-						self.components[componentToAlter] = value
+						components[componentToAlter] = value
 					}
 				}
 			}
 
 			func verify(date: DateInRegion) {
-				self.components.keys.forEach {
-					if let value = date.dateComponents.value(for: $0), let expected = self.components[$0] as? Int {
+				components.keys.forEach {
+					if let value = date.dateComponents.value(for: $0), let expected = components[$0] as? Int {
 						if value != expected {
 							XCTFail("Failed to set value of component \($0). Got \(value), expected \(expected)")
 							return
@@ -262,5 +262,36 @@ class TestDateInRegion_Create: XCTestCase {
 			}
 		}
 		return true
+	}
+
+	func testDateInRegion_DateForWeekdays() {
+		func validateArrayOfISODates(_ found: [String], _ expected: [String]) {
+			guard found.count == expected.count else {
+				XCTFail("Failed to validate array of dates. Different in number.")
+				return
+			}
+			for i in 0..<expected.count {
+				guard found[i] == expected[i] else {
+					XCTFail("Failed to validate item '\(i)'. Found '\(found[i])', expecting '\(expected[i])'")
+					return
+				}
+			}
+		}
+
+		let mondaysInJan2019 = Date.datesForWeekday(.monday, inMonth: 1, ofYear: 2019).map { $0.toISO() }
+		validateArrayOfISODates(mondaysInJan2019, [
+			"2019-01-07T00:00:00Z",
+			"2019-01-14T00:00:00Z",
+			"2019-01-21T00:00:00Z",
+			"2019-01-28T00:00:00Z"
+		])
+
+		let fromDate = Date(year: 2019, month: 5, day: 27, hour: 0, minute: 0)
+		let toDate = Date(year: 2019, month: 6, day: 8, hour: 0, minute: 0)
+		let fridaysInJunePartial = Date.datesForWeekday(.friday, from: fromDate, to: toDate, region: Region.UTC).map { $0.toISO() }
+		validateArrayOfISODates(fridaysInJunePartial, [
+			"2019-05-31T00:00:00Z",
+			"2019-06-07T00:00:00Z"
+		])
 	}
 }

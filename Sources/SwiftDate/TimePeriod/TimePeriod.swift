@@ -90,8 +90,8 @@ open class TimePeriod: TimePeriodProtocol {
 	/// - Returns: The new, shifted `TimePeriod`
 	public func shifted(by timeInterval: TimeInterval) -> TimePeriod {
 		let timePeriod = TimePeriod()
-		timePeriod.start = self.start?.addingTimeInterval(timeInterval)
-		timePeriod.end = self.end?.addingTimeInterval(timeInterval)
+		timePeriod.start = start?.addingTimeInterval(timeInterval)
+		timePeriod.end = end?.addingTimeInterval(timeInterval)
 		return timePeriod
 	}
 
@@ -102,8 +102,8 @@ open class TimePeriod: TimePeriodProtocol {
 	/// - Returns: new period
 	public func shifted(by components: DateComponents) -> TimePeriod {
 		let timePeriod = TimePeriod()
-		timePeriod.start = (self.hasStart ? (self.start! + components) : nil)
-		timePeriod.end = (self.hasEnd ? (self.end! + components) : nil)
+		timePeriod.start = (hasStart ? (start! + components) : nil)
+		timePeriod.end = (hasEnd ? (end! + components) : nil)
 		return timePeriod
 	}
 
@@ -119,14 +119,14 @@ open class TimePeriod: TimePeriodProtocol {
 		let timePeriod = TimePeriod()
 		switch anchor {
 		case .beginning:
-			timePeriod.start = self.start
-			timePeriod.end = self.end?.addingTimeInterval(timeInterval)
+			timePeriod.start = start
+			timePeriod.end = end?.addingTimeInterval(timeInterval)
 		case .center:
-			timePeriod.start = self.start?.addingTimeInterval(-timeInterval)
-			timePeriod.end = self.end?.addingTimeInterval(timeInterval)
+			timePeriod.start = start?.addingTimeInterval(-timeInterval)
+			timePeriod.end = end?.addingTimeInterval(timeInterval)
 		case .end:
-			timePeriod.start = self.start?.addingTimeInterval(-timeInterval)
-			timePeriod.end = self.end
+			timePeriod.start = start?.addingTimeInterval(-timeInterval)
+			timePeriod.end = end
 		}
 		return timePeriod
 	}

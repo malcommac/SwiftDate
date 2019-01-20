@@ -306,26 +306,26 @@ public extension DateRepresentable {
 	// MARK: - Common Properties
 
 	public var calendar: Calendar {
-		return self.region.calendar
+		return region.calendar
 	}
 
 	// MARK: - Date Components Properties
 
 	public var year: Int {
-		return self.dateComponents.year!
+		return dateComponents.year!
 	}
 
 	public var month: Int {
-		return self.dateComponents.month!
+		return dateComponents.month!
 	}
 
 	public var monthDays: Int {
-		return self.calendar.range(of: .day, in: .month, for: self.date)!.count
+		return calendar.range(of: .day, in: .month, for: date)!.count
 	}
 
 	func monthName(_ style: SymbolFormatStyle) -> String {
 		let formatter = self.formatter(format: nil)
-		let idx = (self.month - 1)
+		let idx = (month - 1)
 		switch style {
 		case .default:				return formatter.monthSymbols[idx]
 		case .defaultStandalone:	return formatter.standaloneMonthSymbols[idx]
@@ -337,53 +337,53 @@ public extension DateRepresentable {
 	}
 
 	public var day: Int {
-		return self.dateComponents.day!
+		return dateComponents.day!
 	}
 
 	public var dayOfYear: Int {
-		return self.calendar.ordinality(of: .day, in: .year, for: self.date)!
+		return calendar.ordinality(of: .day, in: .year, for: date)!
 	}
 
 	@available(iOS 9.0, macOS 10.11, *)
 	public var ordinalDay: String {
 		let day = self.day
-		return DateFormatter.sharedOrdinalNumberFormatter(locale: self.region.locale).string(from: day as NSNumber) ?? "\(day)"
+		return DateFormatter.sharedOrdinalNumberFormatter(locale: region.locale).string(from: day as NSNumber) ?? "\(day)"
 	}
 
 	public var hour: Int {
-		return self.dateComponents.hour!
+		return dateComponents.hour!
 	}
 
 	public var nearestHour: Int {
-		let newDate = (self.date + (self.date.minute >= 30 ? 60 - self.date.minute : -self.date.minute).minutes)
-		return newDate.in(region: self.region).hour
+		let newDate = (date + (date.minute >= 30 ? 60 - date.minute : -date.minute).minutes)
+		return newDate.in(region: region).hour
 	}
 
 	public var minute: Int {
-		return self.dateComponents.minute!
+		return dateComponents.minute!
 	}
 
 	public var second: Int {
-		return self.dateComponents.second!
+		return dateComponents.second!
 	}
 
 	public var nanosecond: Int {
-		return self.dateComponents.nanosecond!
+		return dateComponents.nanosecond!
 	}
 
 	public var msInDay: Int {
-		return (self.calendar.ordinality(of: .second, in: .day, for: self.date)! * 1000)
+		return (calendar.ordinality(of: .second, in: .day, for: date)! * 1000)
 	}
 
 	public var weekday: Int {
-		return self.dateComponents.weekday!
+		return dateComponents.weekday!
 	}
 
 	func weekdayName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
 		let formatter = self.formatter(format: nil) {
 			$0.locale = (locale ?? self.region.locale).toLocale()
 		}
-		let idx = (self.weekday - 1)
+		let idx = (weekday - 1)
 		switch style {
 		case .default:				return formatter.weekdaySymbols[idx]
 		case .defaultStandalone:	return formatter.standaloneWeekdaySymbols[idx]
@@ -395,63 +395,63 @@ public extension DateRepresentable {
 	}
 
 	public var weekOfYear: Int {
-		return self.dateComponents.weekOfYear!
+		return dateComponents.weekOfYear!
 	}
 
 	public var weekOfMonth: Int {
-		return self.dateComponents.weekOfMonth!
+		return dateComponents.weekOfMonth!
 	}
 
 	public var weekdayOrdinal: Int {
-		return self.dateComponents.weekdayOrdinal!
+		return dateComponents.weekdayOrdinal!
 	}
 
 	public var yearForWeekOfYear: Int {
-		return self.dateComponents.yearForWeekOfYear!
+		return dateComponents.yearForWeekOfYear!
 	}
 
 	public var firstDayOfWeek: Int {
-		return self.date.dateAt(.startOfWeek).day
+		return date.dateAt(.startOfWeek).day
 	}
 
 	public var lastDayOfWeek: Int {
-		return self.date.dateAt(.endOfWeek).day
+		return date.dateAt(.endOfWeek).day
 	}
 
 	public var quarter: Int {
 		let monthsInQuarter = Double(Calendar.current.monthSymbols.count) / 4.0
-		return Int(ceil( Double(self.month) / monthsInQuarter))
+		return Int(ceil( Double(month) / monthsInQuarter))
 	}
 
 	public var isToday: Bool {
-		return self.calendar.isDateInToday(self.date)
+		return calendar.isDateInToday(date)
 	}
 
 	public var isYesterday: Bool {
-		return self.calendar.isDateInYesterday(self.date)
+		return calendar.isDateInYesterday(date)
 	}
 
 	public var isTomorrow: Bool {
-		return self.calendar.isDateInTomorrow(self.date)
+		return calendar.isDateInTomorrow(date)
 	}
 
 	public var isInWeekend: Bool {
-		return self.calendar.isDateInWeekend(self.date)
+		return calendar.isDateInWeekend(date)
 	}
 
 	public var isInPast: Bool {
-		return self.date < Date()
+		return date < Date()
 	}
 
 	public var isInFuture: Bool {
-		return self.date > Date()
+		return date > Date()
 	}
 
 	func quarterName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
 		let formatter = self.formatter(format: nil) {
 			$0.locale = (locale ?? self.region.locale).toLocale()
 		}
-		let idx = (self.quarter - 1)
+		let idx = (quarter - 1)
 		switch style {
 		case .default:									return formatter.quarterSymbols[idx]
 		case .defaultStandalone:						return formatter.standaloneQuarterSymbols[idx]
@@ -461,14 +461,14 @@ public extension DateRepresentable {
 	}
 
 	var era: Int {
-		return self.dateComponents.era!
+		return dateComponents.era!
 	}
 
 	func eraName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
 		let formatter = self.formatter(format: nil) {
 			$0.locale = (locale ?? self.region.locale).toLocale()
 		}
-		let idx = (self.era - 1)
+		let idx = (era - 1)
 		switch style {
 		case .default, .defaultStandalone:								return formatter.longEraSymbols[idx]
 		case .short, .standaloneShort, .veryShort, .standaloneVeryShort:	return formatter.eraSymbols[idx]
@@ -476,13 +476,13 @@ public extension DateRepresentable {
 	}
 
 	public var DSTOffset: TimeInterval {
-		return self.region.timeZone.daylightSavingTimeOffset(for: self.date)
+		return region.timeZone.daylightSavingTimeOffset(for: date)
 	}
 
 	// MARK: - Date Formatters
 
 	func formatter(format: String? = nil, configuration: ((DateFormatter) -> Void)? = nil) -> DateFormatter {
-		let formatter = (self.customFormatter ?? self.sharedFormatter)
+		let formatter = (customFormatter ?? sharedFormatter)
 		if let dFormat = format {
 			formatter.dateFormat = dFormat
 		}
@@ -492,7 +492,7 @@ public extension DateRepresentable {
 
 	func formatterForRegion(format: String? = nil, configuration: ((inout DateFormatter) -> Void)? = nil) -> DateFormatter {
 		var formatter = self.formatter(format: format, configuration: {
-			$0.timeZone = self.region.timeZone
+            $0.timeZone = self.region.timeZone
 			$0.calendar = self.calendar
 			$0.locale = self.region.locale
 		})
@@ -501,7 +501,7 @@ public extension DateRepresentable {
 	}
 
 	public var sharedFormatter: DateFormatter {
-		return DateFormatter.sharedFormatter(forRegion: self.region)
+		return DateFormatter.sharedFormatter(forRegion: region)
 	}
 
 	public func toString(_ style: DateToStringStyles? = nil) -> String {
@@ -515,8 +515,8 @@ public extension DateRepresentable {
 		guard let fixedLocale = locale else {
 			return DateToStringStyles.custom(format).toString(self)
 		}
-		let fixedRegion = Region(calendar: self.region.calendar, zone: self.region.timeZone, locale: fixedLocale)
-		let fixedDate = DateInRegion(self.date.date, region: fixedRegion)
+		let fixedRegion = Region(calendar: region.calendar, zone: region.timeZone, locale: fixedLocale)
+		let fixedDate = DateInRegion(date.date, region: fixedRegion)
 		return DateToStringStyles.custom(format).toString(fixedDate)
 	}
 
@@ -546,20 +546,20 @@ public extension DateRepresentable {
 	// MARK: - Conversion
 
 	public func convertTo(region: Region) -> DateInRegion {
-		return DateInRegion(self.date, region: region)
+		return DateInRegion(date, region: region)
 	}
 
 	// MARK: - Extract Time Components
 
 	public func toUnits(_ units: Set<Calendar.Component>, to refDate: DateRepresentable) -> [Calendar.Component: Int] {
-		let cal = self.region.calendar
-		let components = cal.dateComponents(units, from: self.date, to: refDate.date)
+		let cal = region.calendar
+		let components = cal.dateComponents(units, from: date, to: refDate.date)
 		return components.toDict()
 	}
 
 	public func toUnit(_ unit: Calendar.Component, to refDate: DateRepresentable) -> Int {
-		let cal = self.region.calendar
-		let components = cal.dateComponents([unit], from: self.date, to: refDate.date)
+		let cal = region.calendar
+		let components = cal.dateComponents([unit], from: date, to: refDate.date)
 		return components.value(for: unit)!
 	}
 

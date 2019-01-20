@@ -747,7 +747,7 @@ public enum Locales: String, LocaleConvertible {
 		switch self {
 		case .current:			return Locale.current
 		case .autoUpdating:		return Locale.autoupdatingCurrent
-		default:				return Locale(identifier: self.rawValue)
+		default:				return Locale(identifier: rawValue)
 		}
 	}
 }

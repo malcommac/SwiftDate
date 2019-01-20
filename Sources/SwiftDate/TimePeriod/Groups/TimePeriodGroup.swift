@@ -27,7 +27,7 @@ open class TimePeriodGroup: Sequence, Equatable {
 	/// The total amount of time between the earliest and latest dates stored in the periods array.
 	/// `nil` if any beginning or end date in any contained period is `nil`.
 	public var duration: TimeInterval? {
-		guard let start = self.start, let end = self.end else { return nil }
+		guard let start = start, let end = end else { return nil }
 		return end.timeIntervalSince(start)
 	}
 

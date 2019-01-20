@@ -454,7 +454,7 @@ public enum Zones: String, ZoneConvertible {
 		switch self {
 		case .current:			return TimeZone.current
 		case .autoUpdating:		return TimeZone.autoupdatingCurrent
-		default:				return TimeZone(identifier: self.rawValue)!
+		default:				return TimeZone(identifier: rawValue)!
 		}
 	}
 }

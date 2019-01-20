@@ -69,9 +69,9 @@ public extension RelativeFormatter {
 		///   - gradation: gradation rules.
 		///   - units: allowed units.
 		public init(flavours: [Flavour], gradation: Gradation, allowedUnits units: [Unit]? = nil) {
-			self.flavours = flavours
+            self.flavours = flavours
 			self.gradation = gradation
-			self.allowedUnits = (units ?? [.now, .minute, .hour, .day, .week, .month, .year])
+			allowedUnits = (units ?? [.now, .minute, .hour, .day, .week, .month, .year])
 		}
 	}
 
@@ -188,14 +188,14 @@ public extension RelativeFormatter {
 		var rules: [Rule]
 
 		/// Number of gradation rules
-		var count: Int { return self.rules.count }
+		var count: Int { return rules.count }
 
 		/// Subscript by unit.
 		/// Return the first rule for given unit.
 		///
 		/// - Parameter unit: unit to get.
 		public subscript(_ unit: Unit) -> Rule? {
-			return self.rules.first(where: { $0.unit == unit })
+			return rules.first(where: { $0.unit == unit })
 		}
 
 		/// Subscript by index.
@@ -203,8 +203,8 @@ public extension RelativeFormatter {
 		///
 		/// - Parameter index: index
 		public subscript(_ index: Int) -> Rule? {
-			guard index < self.rules.count, index >= 0 else { return nil }
-			return self.rules[index]
+			guard index < rules.count, index >= 0 else { return nil }
+			return rules[index]
 		}
 
 		/// Create a new gradition with a given set of ordered rules.
@@ -219,7 +219,7 @@ public extension RelativeFormatter {
 		/// - Parameter units: units to keep.
 		/// - Returns: a new filtered `Gradation` instance.
 		public func filtered(byUnits units: [Unit]) -> Gradation {
-			return Gradation(self.rules.filter { units.contains($0.unit) })
+			return Gradation(rules.filter { units.contains($0.unit) })
 		}
 
 		/// Canonical gradation rules

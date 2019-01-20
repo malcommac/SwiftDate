@@ -34,7 +34,3 @@ public func - (lhs: Date, rhs: DateComponents) -> Date {
 public func + (lhs: Date, rhs: TimeInterval) -> Date {
 	return lhs.addingTimeInterval(rhs)
 }
-
-public func - (lhs: Date, rhs: TimeInterval) -> Date {
-	return lhs.addingTimeInterval(-rhs)
-}

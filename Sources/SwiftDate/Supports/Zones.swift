@@ -263,6 +263,7 @@ public enum Zones: String, ZoneConvertible {
 	case asiaHarbin = "Asia/Harbin"
 	case asiaHebron = "Asia/Hebron"
 	case asiaHoChiMinh = "Asia/Ho_Chi_Minh"
+	case asiaSaigon = "Asia/Saigon"
 	case asiaHongKong = "Asia/Hong_Kong"
 	case asiaHovd = "Asia/Hovd"
 	case asiaIrkutsk = "Asia/Irkutsk"

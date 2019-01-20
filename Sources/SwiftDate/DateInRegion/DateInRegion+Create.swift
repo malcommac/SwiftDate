@@ -510,13 +510,13 @@ public extension DateInRegion {
 		let desiredDay = weekday.rawValue
 
 		let offset = (desiredDay - startDateWeekDay + 7) % 7
-		let firstOccurrence = calendarObj.startOfDay(for: calendarObj.date(byAdding: DateComponents(day:offset), to: startDate.date)!)
+		let firstOccurrence = calendarObj.startOfDay(for: calendarObj.date(byAdding: DateComponents(day: offset), to: startDate.date)!)
 		guard firstOccurrence.timeIntervalSince1970 < endDate.timeIntervalSince1970 else {
 			return []
 		}
 		var dateOccurrences = [DateInRegion(firstOccurrence, region: region)]
 		while true {
-			let nextDate = DateInRegion(calendarObj.date(byAdding: DateComponents(day: 7),to: dateOccurrences.last!.date)!,
+			let nextDate = DateInRegion(calendarObj.date(byAdding: DateComponents(day: 7), to: dateOccurrences.last!.date)!,
 										region: region)
 			guard nextDate < endDate else {
 				break

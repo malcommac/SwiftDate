@@ -202,13 +202,98 @@ public extension Calendar.Component {
 
 /// This define the weekdays for some functions.
 public enum WeekDay: Int {
-	case sunday = 1
-	case monday = 2
-	case tuesday	= 3
-	case wednesday	= 4
-	case thursday	= 5
-	case friday = 6
-	case saturday	= 7
+	case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
+}
+
+public struct Year: CustomStringConvertible, Equatable {
+	let year: Int
+
+	public var description: String {
+		return "\(self.year)"
+	}
+
+	/// Constructs a `Year` from the passed value.
+	///
+	/// - Parameter year: year value. Can be negative.
+	public init(_ year: Int) {
+		self.year = year
+	}
+
+	/// Returns whether this year is a leap year
+	///
+	/// - Returns: A boolean indicating whether this year is a leap year
+	public func isLeap() -> Bool {
+		return ((year & 3) == 0) && ((year % 100) != 0 || (year % 400) == 0)
+	}
+
+	/// Returns the number of days in this year
+	///
+	/// - Returns: The number of days in this year
+	public func numberOfDays() -> Int {
+		return self.isLeap() ? 366 : 365
+	}
+
+}
+
+/// Defines months in a year
+public enum Month: Int, CustomStringConvertible, Equatable {
+	case january = 0, february, march, april, may, june, july, august, september, october, november, december
+
+	public var description: String {
+		return self.name()
+	}
+
+	/// Returns the name of the day given a specific locale.
+	/// For example, for the `January` enum value, the en_AU locale would return "January" and fr_FR would return "janvier"
+	///
+	/// - Parameter locale: locale of the output, omit to use the `defaultRegion`'s locale.
+	/// - Returns: display name
+	public func name(style: SymbolFormatStyle = .`default`, locale: LocaleConvertible = SwiftDate.defaultRegion.locale) -> String {
+		let region = Region(calendar: SwiftDate.defaultRegion.calendar, zone: SwiftDate.defaultRegion.timeZone, locale: locale)
+		let formatter = DateFormatter.sharedFormatter(forRegion: region, format: nil)
+		switch style {
+		case .default:				return formatter.monthSymbols[self.rawValue]
+		case .defaultStandalone:	return formatter.standaloneMonthSymbols[self.rawValue]
+		case .short:				return formatter.shortMonthSymbols[self.rawValue]
+		case .standaloneShort:		return formatter.shortStandaloneMonthSymbols[self.rawValue]
+		case .veryShort:			return formatter.veryShortMonthSymbols[self.rawValue]
+		case .standaloneVeryShort:	return formatter.veryShortStandaloneMonthSymbols[self.rawValue]
+		}
+	}
+
+	/// Adds a number of months to the current month and returns the new month.
+	///
+	/// - Parameter months: number of months to add
+	/// - Returns: new month.
+	public func add(months: Int) -> Month {
+		let normalized = months % 12
+		return Month(rawValue: (self.rawValue + normalized + 12) % 12)!
+	}
+
+	/// Subtracts a number of months from the current month and returns the new month.
+	///
+	/// - Parameter months: number of months to subtract. May be negative, in which case it will be added
+	/// - Returns: new month.
+	public func minus(months: Int) -> Month {
+		return add(months: -(months % 12))
+	}
+
+
+	/// Returns the number of days in a this month for a given year
+	///
+	/// - Parameter year: reference year.
+	/// - Returns: The number of days in this month.
+	public func numberOfDays(year: Int) -> Int {
+		switch (self) {
+		case .february:
+			return Year(year).isLeap() ? 29 : 28
+		case .april, .june, .september, .november:
+			return 30
+		default:
+			return 31
+		}
+	}
+
 }
 
 /// Rounding mode for dates.

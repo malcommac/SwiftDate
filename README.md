@@ -21,7 +21,7 @@ SwiftDate is the **definitive toolchain to manipulate and display dates and time
 
 ### Help SwiftDate Development
 
-<img src="Documentation/support_patreon_button.png" width=160px alt="SwiftDate" title="SwiftDate" ahref="https://www.patreon.com/danielemargutti">
+<a href="https://www.patreon.com/danielemargutti"><img src="Documentation/support_patreon_button.png" width=160px alt="SwiftDate" title="SwiftDate"></a>
 </p>
 
 If you are using SwiftDate or any other my libraries please [consider support further development](https://www.patreon.com/danielemargutti) and mainteniance becoming a patreon.

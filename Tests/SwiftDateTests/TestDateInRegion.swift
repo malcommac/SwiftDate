@@ -433,14 +433,14 @@ func XCTValidateParse(string: String, format: String?, region: Region, expec: Ex
 		XCTFail("Failed to parse date '\(string)' with format: '\(format ?? "<AUTO>")'")
 		return
 	}
-	if let errors = expec.validate(date) {
+	if let errors = expec.validate(date, string) {
 		XCTFail("Failed to validate components of parsed date string '\(string)' with format: '\(format ?? "<AUTO>")'. One or more components differ from expected: \(errors)")
 		return
 	}
 }
 
 func XCTValidateDateComponents(date: DateInRegion, expec: ExpectedDateComponents) {
-	if let errors = expec.validate(date) {
+	if let errors = expec.validate(date, "") {
 		XCTFail("Failed to validate components of date '\(date.description)'. One or more components differ from expected: \(errors)")
 		return
 	}

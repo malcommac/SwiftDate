@@ -66,8 +66,9 @@ public protocol DateRepresentable {
 	/// Name of the weekday expressed in given format style.
 	///
 	/// - Parameter style: style to express the value.
+	/// - Parameter locale: locale to use; ignore it to use default's region locale.
 	/// - Returns: weekday name
-	func weekdayName(_ style: SymbolFormatStyle) -> String
+	func weekdayName(_ style: SymbolFormatStyle, locale: LocaleConvertible?) -> String
 
 	/// Week of a year of the receiver.
 	var weekOfYear: Int { get }
@@ -95,8 +96,9 @@ public protocol DateRepresentable {
 	/// Quarter name expressed in given format style.
 	///
 	/// - Parameter style: style to express the value.
+	/// - Parameter locale: locale to use; ignore it to use default's region locale.
 	/// - Returns: quarter name
-	func quarterName(_ style: SymbolFormatStyle) -> String
+	func quarterName(_ style: SymbolFormatStyle, locale: LocaleConvertible?) -> String
 
 	/// Era value of the receiver.
 	var era: Int { get }
@@ -104,8 +106,9 @@ public protocol DateRepresentable {
 	/// Name of the era expressed in given format style.
 	///
 	/// - Parameter style: style to express the value.
+	/// - Parameter locale: locale to use; ignore it to use default's region locale.
 	/// - Returns: era
-	func eraName(_ style: SymbolFormatStyle) -> String
+	func eraName(_ style: SymbolFormatStyle, locale: LocaleConvertible?) -> String
 
 	/// The current daylight saving time offset of the represented date.
 	var DSTOffset: TimeInterval { get }
@@ -376,8 +379,10 @@ public extension DateRepresentable {
 		return dateComponents.weekday!
 	}
 
-	func weekdayName(_ style: SymbolFormatStyle) -> String {
-		let formatter = self.formatter(format: nil)
+	func weekdayName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
+		let formatter = formatter(format: nil) {
+			$0.locale = (locale ?? region.locale).toLocale()
+		}
 		let idx = (weekday - 1)
 		switch style {
 		case .default:				return formatter.weekdaySymbols[idx]
@@ -442,9 +447,11 @@ public extension DateRepresentable {
 		return date > Date()
 	}
 
-	func quarterName(_ style: SymbolFormatStyle) -> String {
-		let formatter = self.formatter(format: nil)
-		let idx = quarter
+	func quarterName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
+		let formatter = formatter(format: nil) {
+			$0.locale = (locale ?? region.locale).toLocale()
+		}
+		let idx = (quarter - 1)
 		switch style {
 		case .default:									return formatter.quarterSymbols[idx]
 		case .defaultStandalone:						return formatter.standaloneQuarterSymbols[idx]
@@ -457,8 +464,10 @@ public extension DateRepresentable {
 		return dateComponents.era!
 	}
 
-	func eraName(_ style: SymbolFormatStyle) -> String {
-		let formatter = self.formatter(format: nil)
+	func eraName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
+		let formatter = formatter(format: nil) {
+			$0.locale = (locale ?? region.locale).toLocale()
+		}
 		let idx = (era - 1)
 		switch style {
 		case .default, .defaultStandalone:								return formatter.longEraSymbols[idx]

@@ -290,7 +290,7 @@ class TestDateInRegion_Create: XCTestCase {
 		let toDate = Date(year: 2019, month: 6, day: 8, hour: 0, minute: 0)
 		let fridaysInJunePartial = Date.datesForWeekday(.friday, from: fromDate, to: toDate, region: Region.UTC).map { $0.toISO() }
 		validateArrayOfISODates(fridaysInJunePartial, [
-			"2019-05-31T00:00:00Z"
+			"2019-05-31T00:00:00Z",
 			"2019-06-07T00:00:00Z"
 		])
 	}

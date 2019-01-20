@@ -167,6 +167,7 @@ public class ISOFormatter: DateToStringTrasformable {
 		let formatter = date.formatter(format: formatOptions.dateFormat) {
 			$0.locale = Locales.englishUnitedStatesComputer.toLocale() // fix for 12/24h
 			$0.timeZone = date.region.timeZone
+			$0.calendar = Calendars.gregorian.toCalendar()
 		}
 		return formatter.string(from: date.date)
 	}

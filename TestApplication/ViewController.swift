@@ -12,6 +12,11 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		let x = DateInRegion.datesForWeekday(.monday, inMonth: 1, ofYear: 2019)
+		print(x)
+		//let x = DateInRegion.datesForWeekday(.monday, ofMonth: 1, ofYear: 2019)
+		//print(x)
 	}
 
 	override func didReceiveMemoryWarning() {

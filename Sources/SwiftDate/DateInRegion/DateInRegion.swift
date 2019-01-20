@@ -34,6 +34,11 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 		return "{abs_date='\(absISODate)', rep_date='\(representedDate)', region=\(region.description)"
 	}
 
+	/// The interval between the date value and 00:00:00 UTC on 1 January 1970.
+	public var timeIntervalSince1970: TimeInterval {
+		return date.timeIntervalSince1970
+	}
+
 	/// Initialize with an absolute date and represent it into given geographic region.
 	///
 	/// - Parameters:

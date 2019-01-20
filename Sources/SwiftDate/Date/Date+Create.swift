@@ -181,4 +181,37 @@ public extension Date {
 		return Date().dateAt(type)
 	}
 
+	/// Return the dates for a specific weekday inside given month of specified year.
+	/// Ie. get me all the saturdays of Feb 2018.
+	/// NOTE: Values are returned in order.
+	///
+	/// - Parameters:
+	///   - weekday: weekday target.
+	///   - month: month target.
+	///   - year: year target.
+	///   - region: region target, omit to use `SwiftDate.defaultRegion`
+	/// - Returns: Ordered list of the dates for given weekday into given month.
+	public static func datesForWeekday(_ weekday: WeekDay, inMonth month: Int, ofYear year: Int,
+									   region: Region = SwiftDate.defaultRegion) -> [Date] {
+		let fromDate = DateInRegion(Date(year: year, month: month, day: 1, hour: 0, minute: 0), region: region)
+		let toDate = fromDate.dateAt(.endOfMonth)
+		return DateInRegion.datesForWeekday(weekday, from: fromDate, to: toDate, region: region).map { $0.date }
+	}
+
+	/// Return the dates for a specific weekday inside a specified date range.
+	/// NOTE: Values are returned in order.
+	///
+	/// - Parameters:
+	///   - weekday: weekday target.
+	///   - startDate: from date of the range.
+	///   - endDate: to date of the range.
+	///   - region: region target, omit to use `SwiftDate.defaultRegion`
+	/// - Returns: Ordered list of the dates for given weekday in passed range.
+	public static func datesForWeekday(_ weekday: WeekDay, from startDate: Date, to endDate: Date,
+									   region: Region = SwiftDate.defaultRegion) -> [Date] {
+		let fromDate = DateInRegion(startDate, region: region)
+		let toDate = DateInRegion(endDate, region: region)
+		return DateInRegion.datesForWeekday(weekday, from: fromDate, to: toDate, region: region).map { $0.date }
+	}
+
 }

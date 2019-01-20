@@ -476,4 +476,54 @@ public extension DateInRegion {
 		return convertTo(region: newRegion)
 	}
 
+	/// Return the dates for a specific weekday inside given month of specified year.
+	/// Ie. get me all the saturdays of Feb 2018.
+	/// NOTE: Values are returned in order.
+	///
+	/// - Parameters:
+	///   - weekday: weekday target.
+	///   - month: month target.
+	///   - year: year target.
+	///   - region: region target, omit to use `SwiftDate.defaultRegion`
+	/// - Returns: Ordered list of the dates for given weekday into given month.
+	public static func datesForWeekday(_ weekday: WeekDay, inMonth month: Int, ofYear year: Int,
+									   region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
+		let fromDate = DateInRegion(year: year, month: month, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, region: region)
+		let toDate = fromDate.dateAt(.endOfMonth)
+		return DateInRegion.datesForWeekday(weekday, from: fromDate, to: toDate, region: region)
+	}
+
+	/// Return the dates for a specific weekday inside a specified date range.
+	/// NOTE: Values are returned in order.
+	///
+	/// - Parameters:
+	///   - weekday: weekday target.
+	///   - startDate: from date of the range.
+	///   - endDate: to date of the range.
+	///   - region: region target, omit to use `SwiftDate.defaultRegion`
+	/// - Returns: Ordered list of the dates for given weekday in passed range.
+	public static func datesForWeekday(_ weekday: WeekDay, from startDate: DateInRegion, to endDate: DateInRegion,
+									   region: Region = SwiftDate.defaultRegion) -> [DateInRegion] {
+
+		let calendarObj = region.calendar
+		let startDateWeekDay = Int(calendarObj.component(.weekday, from: startDate.date))
+		let desiredDay = weekday.rawValue
+
+		let offset = (desiredDay - startDateWeekDay + 7) % 7
+		let firstOccurrence = calendarObj.startOfDay(for: calendarObj.date(byAdding: DateComponents(day:offset), to: startDate.date)!)
+		guard firstOccurrence.timeIntervalSince1970 < endDate.timeIntervalSince1970 else {
+			return []
+		}
+		var dateOccurrences = [DateInRegion(firstOccurrence, region: region)]
+		while true {
+			let nextDate = DateInRegion(calendarObj.date(byAdding: DateComponents(day: 7),to: dateOccurrences.last!.date)!,
+										region: region)
+			guard nextDate < endDate else {
+				break
+			}
+			dateOccurrences.append(nextDate)
+		}
+		return dateOccurrences
+	}
+
 }

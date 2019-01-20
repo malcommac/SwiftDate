@@ -2,7 +2,7 @@
 //  TestDataStructures.swift
 //  SwiftDate
 //
-//  Created by dan on 20/01/2019.
+//  Created by Daniele Margutti on 20/01/2019.
 //  Copyright © 2019 SwiftDate. All rights reserved.
 //
 

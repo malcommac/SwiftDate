@@ -72,7 +72,7 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( (DateInRegion().dateAt(.startOfMonth) - 1.days).compare(.isNextMonth) == false, "Failed to evaluate isNextMonth == false")
 		XCTAssert( (DateInRegion().dateAt(.endOfMonth) + 5.days).compare(.isNextMonth), "Failed to evaluate isNextMonth")
 		XCTAssert( DateInRegion().compare(.isNextMonth) == false, "Failed to evaluate isNextMonth == false")
-		
+
 		// isLastMonth
 		XCTAssert( (DateInRegion().dateAt(.startOfMonth) - 1.days).compare(.isLastMonth), "Failed to evaluate isLastMonth")
 		XCTAssert( (DateInRegion().dateAt(.endOfMonth) + 5.days).compare(.isLastMonth) == false, "Failed to evaluate isLastMonth == false")
@@ -88,7 +88,7 @@ class TestDateInRegion_Compare: XCTestCase {
 		// prevWeek/nextWeek
 		XCTAssert( dateA1.dateAt(.prevWeek).toISO() == "2018-06-11T00:00:00+02:00", "Failed to evaluate prevWeek")
 		XCTAssert( dateA1.dateAt(.nextWeek).toISO() == "2018-06-25T00:00:00+02:00", "Failed to evaluate prevWeek")
-		
+
 		// isThisYear
 		XCTAssert( DateInRegion().compare(.isThisYear), "Failed to evaluate isThisYear")
 		XCTAssert( (DateInRegion() + 1.years).compare(.isThisYear) == false, "Failed to evaluate isThisYear == false")
@@ -281,12 +281,12 @@ class TestDateInRegion_Compare: XCTestCase {
 	}
 
 	func testDateInRange_GranuralityTest() {
-		let startTime = Date(timeIntervalSince1970: 1538344800.0) // 2018-09-30 22:00:00 +0000
-		let endTime = Date(timeIntervalSince1970: 1540940400.0 + (60 * 60 * 3)) // 2018-10-31 02:00:00 +0000
-		let checkStart = Date(timeIntervalSince1970: 1540976400.0) // 2018-10-31 09:00:00 +0000
-		
+		let startTime = Date(timeIntervalSince1970: 1_538_344_800.0) // 2018-09-30 22:00:00 +0000
+		let endTime = Date(timeIntervalSince1970: 1_540_940_400.0 + (60 * 60 * 3)) // 2018-10-31 02:00:00 +0000
+		let checkStart = Date(timeIntervalSince1970: 1_540_976_400.0) // 2018-10-31 09:00:00 +0000
+
 		let isInside = checkStart.isInRange(date: startTime, and: endTime, orEqual: true, granularity: .day) // should return false even if its true
 		XCTAssert( (isInside == true), "Failed to compare date with granularity")
 	}
-	
+
 }

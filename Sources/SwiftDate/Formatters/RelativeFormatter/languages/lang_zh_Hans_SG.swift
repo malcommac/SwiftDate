@@ -14,7 +14,7 @@ public class lang_zhHansSG: RelativeFormatterLang {
 
 	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue: self._long
+			RelativeFormatter.Flavour.long.rawValue: _long
 		]
 	}
 

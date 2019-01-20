@@ -99,10 +99,10 @@ open class TimePeriodCollection: TimePeriodGroup {
 	/// - Parameter type: sorting method
 	public func sort(by type: SortType) {
 		switch type {
-		case .duration(let mode):	self.periods.sort(by: sortFuncDuration(mode))
-		case .start(let mode):		self.periods.sort(by: sortFunc(byStart: true, type: mode))
-		case .end(let mode):		self.periods.sort(by: sortFunc(byStart: false, type: mode))
-		case .custom(let f):		self.periods.sort(by: f)
+		case .duration(let mode):	periods.sort(by: sortFuncDuration(mode))
+		case .start(let mode):		periods.sort(by: sortFunc(byStart: true, type: mode))
+		case .end(let mode):		periods.sort(by: sortFunc(byStart: false, type: mode))
+		case .custom(let f):		periods.sort(by: f)
 		}
 	}
 
@@ -114,10 +114,10 @@ open class TimePeriodCollection: TimePeriodGroup {
 	public func sorted(by type: SortType) -> TimePeriodCollection {
 		var sortedList: [TimePeriodProtocol]!
 		switch type {
-		case .duration(let mode):	sortedList = self.periods.sorted(by: sortFuncDuration(mode))
-		case .start(let mode):		sortedList = self.periods.sorted(by: sortFunc(byStart: true, type: mode))
-		case .end(let mode):		sortedList = self.periods.sorted(by: sortFunc(byStart: false, type: mode))
-		case .custom(let f):		sortedList = self.periods.sorted(by: f)
+		case .duration(let mode):	sortedList = periods.sorted(by: sortFuncDuration(mode))
+		case .start(let mode):		sortedList = periods.sorted(by: sortFunc(byStart: true, type: mode))
+		case .end(let mode):		sortedList = periods.sorted(by: sortFunc(byStart: false, type: mode))
+		case .custom(let f):		sortedList = periods.sorted(by: f)
 		}
 		return TimePeriodCollection(sortedList)
 	}
@@ -130,7 +130,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 	/// - Parameter period: The period to compare each other period against
 	/// - Returns: Collection of periods inside the given period
 	public func periodsInside(period: TimePeriodProtocol) -> TimePeriodCollection {
-		return TimePeriodCollection(self.periods.filter({ $0.isInside(period) }))
+		return TimePeriodCollection(periods.filter({ $0.isInside(period) }))
 	}
 
 	//  Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s containing the given date.
@@ -138,7 +138,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 	/// - Parameter date: The date to compare each period to
 	/// - Returns: Collection of periods intersected by the given date
 	public func periodsIntersected(by date: DateInRegion) -> TimePeriodCollection {
-		return TimePeriodCollection(self.periods.filter({ $0.contains(date: date, interval: .closed) }))
+		return TimePeriodCollection(periods.filter({ $0.contains(date: date, interval: .closed) }))
 	}
 
 	/// Returns from the `TimePeriodCollection` a sub-collection of `TimePeriod`s
@@ -147,7 +147,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 	/// - Parameter period: The period to compare each other period to
 	/// - Returns: Collection of periods intersected by the given period
 	public func periodsIntersected(by period: TimePeriodProtocol) -> TimePeriodCollection {
-		return TimePeriodCollection(self.periods.filter({ $0.intersects(with: period) }))
+		return TimePeriodCollection(periods.filter({ $0.intersects(with: period) }))
 	}
 
 	/// Returns an instance of DTTimePeriodCollection with all the time periods in the receiver that overlap a given time period.
@@ -157,7 +157,7 @@ open class TimePeriodCollection: TimePeriodGroup {
 	/// - Parameter period: The time period to check against the receiver's time periods.
 	/// - Returns: Collection of periods overlapped by the given period
 	public func periodsOverlappedBy(_ period: TimePeriodProtocol) -> TimePeriodCollection {
-		return TimePeriodCollection(self.periods.filter({ $0.overlaps(with: period) }))
+		return TimePeriodCollection(periods.filter({ $0.overlaps(with: period) }))
 	}
 
 	// MARK: - Map
@@ -193,34 +193,34 @@ open class TimePeriodCollection: TimePeriodGroup {
 			} else if date1 == nil {
 				return false
 			} else {
-				return (type == .ascending ? date1! < date0! : date0! > date1!)
+				return (type == .ascending ? date1! > date0! : date0! > date1!)
 			}
 		}
 	}
 
 	private func updateExtremes(period: TimePeriodProtocol) {
 		//Check incoming period against previous start and end date
-		guard self.count != 1 else {
-			self.start = period.start
-			self.end = period.end
+		guard count != 1 else {
+			start = period.start
+			end = period.end
 			return
 		}
-		self.start = nilOrEarlier(date1: self.start, date2: period.start)
-		self.end = nilOrLater(date1: self.end, date2: period.end)
+		start = nilOrEarlier(date1: start, date2: period.start)
+		end = nilOrLater(date1: end, date2: period.end)
 	}
 
 	private func updateExtremes() {
 		guard periods.count > 0 else {
-			self.start = nil
-			self.end = nil
+			start = nil
+			end = nil
 			return
 		}
 
-		self.start = periods.first!.start
-		self.end = periods.first!.end
+		start = periods.first!.start
+		end = periods.first!.end
 		for i in 1..<periods.count {
-			self.start = nilOrEarlier(date1: self.start, date2: periods[i].start)
-			self.end = nilOrEarlier(date1: self.end, date2: periods[i].end)
+			start = nilOrEarlier(date1: start, date2: periods[i].start)
+			end = nilOrEarlier(date1: end, date2: periods[i].end)
 		}
 	}
 

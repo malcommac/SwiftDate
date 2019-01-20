@@ -4,8 +4,6 @@
 @testable import SwiftDateTests
 import XCTest
 
-// swiftlint:disable line_length file_length
-
 extension TestDateInRegion {
     static var allTests: [(String, (TestDateInRegion) -> () throws -> Void)] = [
         ("testDateInRegion_ParseWithLocale", testDateInRegion_ParseWithLocale),

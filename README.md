@@ -1,31 +1,20 @@
 <p align="center" >
-<img src="Documentation/SwiftDate.png" width=506px alt="SwiftDate" title="SwiftDate">
+<img src="Documentation/SwiftDateArt.png" width=476px alt="SwiftDate" title="SwiftDate">
 </p>
+
+![](https://img.shields.io/cocoapods/v/SwiftDate.svg)
+![](https://img.shields.io/cocoapods/p/SwiftDate.svg)
+![](https://img.shields.io/badge/coverage-90%25-green.svg)
+![](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)
+[](https://img.shields.io/travis/malcommac/SwiftDate.svg)
 
 <p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>
 Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">www.danielemargutti.com</a>
 </p>
 
-![](https://img.shields.io/cocoapods/dt/SwiftDate.svg)
-![](https://img.shields.io/badge/coverage-90%25-green.svg)
-![](https://img.shields.io/cocoapods/p/SwiftDate.svg)
-![](https://img.shields.io/cocoapods/v/SwiftDate.svg)
-![](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)
-[](https://img.shields.io/travis/malcommac/SwiftDate.svg)
-
-## What's SwiftDate?
-
 SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
 
-★★ Over [3M of downloads](https://cocoapods.org/pods/SwiftDate) on CocoaPods ★★
-
-### Help SwiftDate Development
-
-<a href="https://www.patreon.com/danielemargutti"><img src="Documentation/support_patreon_button.png" width=160px alt="SwiftDate" title="SwiftDate"></a>
-</p>
-
-If you are using SwiftDate or any other my libraries please [consider support further development](https://www.patreon.com/danielemargutti) and mainteniance becoming a patreon.
-It's fast and easy, a way to **help opensource software development**.
+Over [3M of downloads](https://cocoapods.org/pods/SwiftDate) on CocoaPods
 
 ### Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
@@ -44,24 +33,20 @@ From simple date manipulation to complex business logic SwiftDate maybe the righ
 
 and of course...
 
-- **IT'S TESTED!**. As 5.0.0 the project has 90% of code coverage (want help us? write some unit tests and make a PR)
+- **IT'S TESTED!**. As 5.x the project has 90% of code coverage (want help us? write some unit tests and make a PR)
 - **IT'S FULLY DOCUMENTED!**, [both with a complete guide](/Documentation/Index.md) and with Jazzy!
 - **WE LOVE PLAYGROUND!** [Check out](/Playgrounds/SwiftDate.playground) our interative playground!
 
 
 ## Start with SwiftDate
 
-- Current Version: **5.0.4** 
-- Last Update: **July 18, 2018**
-- Code Coverage: **~90%**
-
 The entire library is fully documented both via XCode method inspector and a complete markdown documentation you can found below.
 
-- → **[Read the Documentation](/Documentation/Index.md)** (updated as 5.0.4)
+- → **[Full Documentation](/Documentation/Index.md)**
 - → **[Requirements, Install, License & More](/Documentation/0.Informations.md)**
 - → **[Upgrading from SwiftDate 4](/Documentation/10.Upgrading_SwiftDate4.md)**
 
-## Explore SwiftDate
+### Explore SwiftDate
 
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 
@@ -205,6 +190,9 @@ let increment2 = DateComponents.create {
 }
 // generate dates in range by incrementing +1h,30m,10s each new date
 let dates = DateInRegion.enumerateDates(from: fromDate2, to: toDate2, increment: increment2)
+
+// Get all mondays in Jan 2019
+let mondaysInJan2019 = Date.datesForWeekday(.monday, inMonth: 1, ofYear: 2019)
 
 // Altering time components
 let _ = dateA.dateBySet(hour: 10, min: 0, secs: 0)

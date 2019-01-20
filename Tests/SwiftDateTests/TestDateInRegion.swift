@@ -100,11 +100,11 @@ class TestDateInRegion: XCTestCase {
 		// Date must be expressed in Rome Time Zone which is UTC+1 for given date (1995/06/15)
 		// So we expect the same components of the date components and given hour -1 in absolute date (UTC)
 		let validDateTime = ((dateInRome.year == dComponents.year!) &&
-							(dateInRome.month == dComponents.month!) &&
-							(dateInRome.day == dComponents.day!) &&
-							(dateInRome.hour == dComponents.hour!) &&
-							(dateInRome.minute == dComponents.minute!) &&
-							(dateInRome.second == dComponents.second!))
+			(dateInRome.month == dComponents.month!) &&
+			(dateInRome.day == dComponents.day!) &&
+			(dateInRome.hour == dComponents.hour!) &&
+			(dateInRome.minute == dComponents.minute!) &&
+			(dateInRome.second == dComponents.second!))
 		XCTAssert(validDateTime, "Failed to create a valid DateInRegion in given region from components. One or more date components differs from original DateComponents")
 		XCTAssert( (dateInRome.date.in(region: regionUTC).hour == 14), "DateInRegion absolute date different from expected UTC value (14:30 UTC for given date)")
 	}
@@ -151,11 +151,11 @@ class TestDateInRegion: XCTestCase {
 	}
 
 	func testDateInRegion_Hash() {
-//		let regionParis = Region(calendar: Calendars.gregorian, zone: Zones.europeParis, locale: Locales.frenchFrance)
-//		let aDayInParis = DateInRegion(year: 2018, month: 5, day: 1, region: regionParis)
-//		let sameDayInParis = DateInRegion(year: aDayInParis.year, month: aDayInParis.month, day: aDayInParis.day, region: regionParis)
-//
-//		XCTAssert( (aDayInParis.hashValue != sameDayInParis.hashValue), "Failed to extract hash value from different date with same values")
+		//		let regionParis = Region(calendar: Calendars.gregorian, zone: Zones.europeParis, locale: Locales.frenchFrance)
+		//		let aDayInParis = DateInRegion(year: 2018, month: 5, day: 1, region: regionParis)
+		//		let sameDayInParis = DateInRegion(year: aDayInParis.year, month: aDayInParis.month, day: aDayInParis.day, region: regionParis)
+		//
+		//		XCTAssert( (aDayInParis.hashValue != sameDayInParis.hashValue), "Failed to extract hash value from different date with same values")
 	}
 
 	func testDateInRegion_InitComponentsCallback() {

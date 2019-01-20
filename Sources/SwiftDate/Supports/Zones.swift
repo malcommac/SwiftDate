@@ -263,6 +263,7 @@ public enum Zones: String, ZoneConvertible {
 	case asiaHarbin = "Asia/Harbin"
 	case asiaHebron = "Asia/Hebron"
 	case asiaHoChiMinh = "Asia/Ho_Chi_Minh"
+	case asiaSaigon = "Asia/Saigon"
 	case asiaHongKong = "Asia/Hong_Kong"
 	case asiaHovd = "Asia/Hovd"
 	case asiaIrkutsk = "Asia/Irkutsk"
@@ -454,7 +455,7 @@ public enum Zones: String, ZoneConvertible {
 		switch self {
 		case .current:			return TimeZone.current
 		case .autoUpdating:		return TimeZone.autoupdatingCurrent
-		default:				return TimeZone(identifier: self.rawValue)!
+		default:				return TimeZone(identifier: rawValue)!
 		}
 	}
 }

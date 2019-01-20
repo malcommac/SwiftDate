@@ -12,42 +12,42 @@ public extension DateInRegion {
 
 	/// Indicates whether the month is a leap month.
 	public var isLeapMonth: Bool {
-		let calendar = self.region.calendar
+		let calendar = region.calendar
 		// Library function for leap contains a bug for Gregorian calendars, implemented workaround
-		if calendar.identifier == Calendar.Identifier.gregorian && self.year > 1582 {
-			guard let range: Range<Int> = calendar.range(of: .day, in: .month, for: self.date) else {
+		if calendar.identifier == Calendar.Identifier.gregorian && year > 1582 {
+			guard let range: Range<Int> = calendar.range(of: .day, in: .month, for: date) else {
 				return false
 			}
 			return ((range.upperBound - range.lowerBound) == 29)
 		}
 		// For other calendars:
-		return calendar.dateComponents([.day, .month, .year], from: self.date).isLeapMonth!
+		return calendar.dateComponents([.day, .month, .year], from: date).isLeapMonth!
 	}
 
 	/// Indicates whether the year is a leap year.
 	public var isLeapYear: Bool {
-		let calendar = self.region.calendar
+		let calendar = region.calendar
 		// Library function for leap contains a bug for Gregorian calendars, implemented workaround
 		if calendar.identifier == Calendar.Identifier.gregorian {
-			var newComponents = self.dateComponents
+			var newComponents = dateComponents
 			newComponents.month = 2
 			newComponents.day = 10
-			let testDate = DateInRegion(components: newComponents, region: self.region)
+			let testDate = DateInRegion(components: newComponents, region: region)
 			return testDate!.isLeapMonth
 		} else if calendar.identifier == Calendar.Identifier.chinese {
 			/// There are 12 or 13 months in each year and 29 or 30 days in each month.
 			/// A 13-month year is a leap year, which meaning more than 376 days is a leap year.
-			return ( self.dateAtStartOf(.year).toUnit(.day, to: self.dateAtEndOf(.year)) > 375 )
+			return ( dateAtStartOf(.year).toUnit(.day, to: dateAtEndOf(.year)) > 375 )
 		}
 		// For other calendars:
-		return calendar.dateComponents([.day, .month, .year], from: self.date).isLeapMonth!
+		return calendar.dateComponents([.day, .month, .year], from: date).isLeapMonth!
 	}
 
 	/// Julian day is the continuous count of days since the beginning of
 	/// the Julian Period used primarily by astronomers.
 	public var julianDay: Double {
 		let destRegion = Region(calendar: Calendars.gregorian, zone: Zones.gmt, locale: Locales.english)
-		let utc = self.convertTo(region: destRegion)
+		let utc = convertTo(region: destRegion)
 
 		let year = Double(utc.year)
 		let month = Double(utc.month)
@@ -65,7 +65,7 @@ public extension DateInRegion {
 	/// in 1957 to record the orbit of Sputnik via an IBM 704 (36-bit machine)
 	/// and using only 18 bits until August 7, 2576.
 	public var modifiedJulianDay: Double {
-		return self.julianDay - 2_400_000.5
+		return julianDay - 2_400_000.5
 	}
 
 	/// Return elapsed time expressed in given components since the current receiver and a reference date.
@@ -76,47 +76,47 @@ public extension DateInRegion {
 	///   - component: time unit to extract.
 	/// - Returns: value
 	public func getInterval(toDate: DateInRegion?, component: Calendar.Component) -> Int64 {
-		let refDate = (toDate ?? self.region.nowInThisRegion())
+		let refDate = (toDate ?? region.nowInThisRegion())
 		switch component {
 		case .year:
-			let end = self.calendar.ordinality(of: .year, in: .era, for: refDate.date)
-			let start = self.calendar.ordinality(of: .year, in: .era, for: self.date)
+			let end = calendar.ordinality(of: .year, in: .era, for: refDate.date)
+			let start = calendar.ordinality(of: .year, in: .era, for: date)
 			return Int64(end! - start!)
 
 		case .month:
-			let end = self.calendar.ordinality(of: .month, in: .era, for: refDate.date)
-			let start = self.calendar.ordinality(of: .month, in: .era, for: self.date)
+			let end = calendar.ordinality(of: .month, in: .era, for: refDate.date)
+			let start = calendar.ordinality(of: .month, in: .era, for: date)
 			return Int64(end! - start!)
 
 		case .day:
-			let end = self.calendar.ordinality(of: .day, in: .era, for: refDate.date)
-			let start = self.calendar.ordinality(of: .day, in: .era, for: self.date)
+			let end = calendar.ordinality(of: .day, in: .era, for: refDate.date)
+			let start = calendar.ordinality(of: .day, in: .era, for: date)
 			return Int64(end! - start!)
 
 		case .hour:
-			let interval = refDate.date.timeIntervalSince(self.date)
+			let interval = refDate.date.timeIntervalSince(date)
 			return Int64(interval / 1.hours.timeInterval)
 
 		case .minute:
-			let interval = refDate.date.timeIntervalSince(self.date)
+			let interval = refDate.date.timeIntervalSince(date)
 			return Int64(interval / 1.minutes.timeInterval)
 
 		case .second:
-			return Int64(refDate.date.timeIntervalSince(self.date))
+			return Int64(refDate.date.timeIntervalSince(date))
 
 		case .weekday:
-			let end = self.calendar.ordinality(of: .weekday, in: .era, for: refDate.date)
-			let start = self.calendar.ordinality(of: .weekday, in: .era, for: self.date)
+			let end = calendar.ordinality(of: .weekday, in: .era, for: refDate.date)
+			let start = calendar.ordinality(of: .weekday, in: .era, for: date)
 			return Int64(end! - start!)
 
 		case .weekdayOrdinal:
-			let end = self.calendar.ordinality(of: .weekdayOrdinal, in: .era, for: refDate.date)
-			let start = self.calendar.ordinality(of: .weekdayOrdinal, in: .era, for: self.date)
+			let end = calendar.ordinality(of: .weekdayOrdinal, in: .era, for: refDate.date)
+			let start = calendar.ordinality(of: .weekdayOrdinal, in: .era, for: date)
 			return Int64(end! - start!)
 
 		case .weekOfYear:
-			let end = self.calendar.ordinality(of: .weekOfYear, in: .era, for: refDate.date)
-			let start = self.calendar.ordinality(of: .weekOfYear, in: .era, for: self.date)
+			let end = calendar.ordinality(of: .weekOfYear, in: .era, for: refDate.date)
+			let start = calendar.ordinality(of: .weekOfYear, in: .era, for: date)
 			return Int64(end! - start!)
 
 		default:
@@ -140,9 +140,9 @@ public extension DateInRegion {
 	/// - Parameter rhs: date to compare
 	/// - Returns: components
 	public func componentsTo(_ rhs: DateInRegion) -> DateComponents {
-		return self.calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: self.date)
+		return calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: date)
 	}
-	
+
 	/// Returns the difference between two dates (`date - self`) expressed as date components.
 	///
 	/// - Parameters:
@@ -150,11 +150,11 @@ public extension DateInRegion {
 	///   - components: components to extract, `nil` to use default `DateComponents.allComponentsSet`
 	/// - Returns: extracted date components
 	public func componentsSince(_ date: DateInRegion, components: [Calendar.Component]? = nil) -> DateComponents {
-		if date.calendar != self.calendar {
+		if date.calendar != calendar {
 			debugPrint("Date has different calendar, results maybe wrong")
 		}
 		let cmps = (components != nil ? Calendar.Component.toSet(components!) : DateComponents.allComponentsSet)
 		return date.calendar.dateComponents(cmps, from: date.date, to: self.date)
 	}
-	
+
 }

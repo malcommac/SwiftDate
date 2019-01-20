@@ -24,17 +24,17 @@ open class TimePeriodChain: TimePeriodGroup {
 	* - parameter period: TimePeriodProtocol to add to the collection
 	*/
 	public func append(_ period: TimePeriodProtocol) {
-		let beginning = (self.periods.count > 0) ? self.periods.last!.end! : period.start
+		let beginning = (periods.count > 0) ? periods.last!.end! : period.start
 
 		let newPeriod = TimePeriod(start: beginning!, duration: period.duration)
-		self.periods.append(newPeriod)
+		periods.append(newPeriod)
 
 		//Update updateExtremes
 		if periods.count == 1 {
-			self.start = period.start
-			self.end = period.end
+			start = period.start
+			end = period.end
 		} else {
-			self.end = self.end?.addingTimeInterval(period.duration)
+			end = end?.addingTimeInterval(period.duration)
 		}
 	}
 
@@ -46,17 +46,17 @@ open class TimePeriodChain: TimePeriodGroup {
 	*/
 	public func append<G: TimePeriodGroup>(contentsOf group: G) {
 		for period in group.periods {
-			let beginning = (self.periods.count > 0) ? self.periods.last!.end! : period.start
+			let beginning = (periods.count > 0) ? periods.last!.end! : period.start
 
 			let newPeriod = TimePeriod(start: beginning!, duration: period.duration)
-			self.periods.append(newPeriod)
+			periods.append(newPeriod)
 
 			//Update updateExtremes
 			if periods.count == 1 {
-				self.start = period.start
-				self.end = period.end
+				start = period.start
+				end = period.end
 			} else {
-				self.end = self.end?.addingTimeInterval(period.duration)
+				end = end?.addingTimeInterval(period.duration)
 			}
 		}
 	}
@@ -110,7 +110,7 @@ open class TimePeriodChain: TimePeriodGroup {
 
 	/// Remove all periods from period array.
 	public func removeAll() {
-		self.periods.removeAll()
+		periods.removeAll()
 		updateExtremes()
 	}
 
@@ -120,11 +120,11 @@ open class TimePeriodChain: TimePeriodGroup {
 	///
 	/// - Parameter duration: The time interval to shift the period by
 	public func shift(by duration: TimeInterval) {
-		for var period in self.periods {
+		for var period in periods {
 			period.shift(by: duration)
 		}
-		self.start = self.start?.addingTimeInterval(duration)
-		self.end = self.end?.addingTimeInterval(duration)
+		start = start?.addingTimeInterval(duration)
+		end = end?.addingTimeInterval(duration)
 	}
 
 	public override func map<T>(_ transform: (TimePeriodProtocol) throws -> T) rethrows -> [T] {
@@ -141,15 +141,15 @@ open class TimePeriodChain: TimePeriodGroup {
 
 	/// Removes the last object from the `TimePeriodChain` and returns it
 	public func pop() -> TimePeriodProtocol? {
-		let period = self.periods.popLast()
+		let period = periods.popLast()
 		updateExtremes()
 
 		return period
 	}
 
 	internal func updateExtremes() {
-		self.start = periods.first?.start
-		self.end = periods.last?.end
+		start = periods.first?.start
+		end = periods.last?.end
 	}
 
 }

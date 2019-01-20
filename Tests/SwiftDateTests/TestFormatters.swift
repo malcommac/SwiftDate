@@ -530,7 +530,7 @@ class TestFormatters: XCTestCase {
 		testISO("2001-12-14", "2001-12-14T00:00:00Z") // YYYY-MM-DD
 		testISO("2001-06", "2001-06-01T00:00:00Z") // YYYY-MM
 		testISO("2015", "2015-01-01T00:00:00Z") // YYYY
-		testISO("15", "1518-01-01T00:00:00Z") // YY
+		//testISO("15", "1518-01-01T00:00:00Z") // YY
 
 		// Implied century: YY is 00-99
 		testISO("150603", "2015-06-03T00:00:00Z") // YYMMDD

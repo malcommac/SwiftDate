@@ -74,7 +74,7 @@ public extension Date {
 	/// - Parameter style: rounding mode.
 	/// - Returns: rounded date
 	public func dateRoundedAt(at style: RoundDateMode) -> Date {
-		return self.inDefaultRegion().dateRoundedAt(style).date
+		return inDefaultRegion().dateRoundedAt(style).date
 	}
 
 	/// Returns a new DateInRegion that is initialized at the start of a specified unit of time.
@@ -82,7 +82,7 @@ public extension Date {
 	/// - Parameter unit: time unit value.
 	/// - Returns: instance at the beginning of the time unit; `self` if fails.
 	public func dateAtStartOf(_ unit: Calendar.Component) -> Date {
-		return self.inDefaultRegion().dateAtStartOf(unit).date
+		return inDefaultRegion().dateAtStartOf(unit).date
 	}
 
 	/// Return a new DateInRegion that is initialized at the start of the specified components
@@ -102,7 +102,7 @@ public extension Date {
 	///
 	/// - returns: A new Moment instance.
 	public func dateAtEndOf(_ unit: Calendar.Component) -> Date {
-		return self.inDefaultRegion().dateAtEndOf(unit).date
+		return inDefaultRegion().dateAtEndOf(unit).date
 	}
 
 	/// Return a new DateInRegion that is initialized at the end of the specified components
@@ -170,7 +170,7 @@ public extension Date {
 	/// - Parameter type: related date to obtain.
 	/// - Returns: instance of the related date.
 	public func dateAt(_ type: DateRelatedType) -> Date {
-		return self.inDefaultRegion().dateAt(type).date
+		return inDefaultRegion().dateAt(type).date
 	}
 
 	/// Create a new date at now and extract the related date using passed rule type.

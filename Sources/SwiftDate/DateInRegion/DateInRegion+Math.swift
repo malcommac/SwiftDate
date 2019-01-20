@@ -73,6 +73,6 @@ extension DateInRegion {
 	///
 	/// - Parameter timeInterval: The value to add, in seconds.
 	public mutating func addTimeInterval(_ timeInterval: TimeInterval) {
-		self.date.addTimeInterval(timeInterval)
+		date.addTimeInterval(timeInterval)
 	}
 }

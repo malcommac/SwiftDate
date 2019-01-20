@@ -33,9 +33,9 @@ public class lang_ru: RelativeFormatterLang {
 
 	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue: self._long,
-			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
-			RelativeFormatter.Flavour.short.rawValue: self._short
+			RelativeFormatter.Flavour.long.rawValue: _long,
+			RelativeFormatter.Flavour.narrow.rawValue: _narrow,
+			RelativeFormatter.Flavour.short.rawValue: _short
 		]
 	}
 

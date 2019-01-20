@@ -71,7 +71,7 @@ class TestDateInRegion_Components: XCTestCase {
 		XCTAssert( dateC.isLeapMonth == false, "Failed to evaluate is date isLeapMonth == false")
 		XCTAssert( dateB.isLeapMonth, "Failed to evaluate is date isLeapMonth")
 	}
-	
+
 	func testDateInRegion_dateBySet() {
 		let originalDate = "2018-10-10T12:02:16.024".toISODate()
 		let newDate = originalDate?.dateBySet(hour: nil, min: nil, secs: nil, ms: 7)
@@ -245,7 +245,7 @@ class TestDateInRegion_Components: XCTestCase {
 	func testQuarter() {
 		let regionLondon = Region(calendar: Calendars.gregorian, zone: Zones.europeLondon, locale: Locales.english)
 		let dateFormat = "yyyy-MM-dd HH:mm:ss"
-		
+
 		let dateA = DateInRegion("2018-02-05 23:14:45", format: dateFormat, region: regionLondon)!
 		let dateB = DateInRegion("2018-09-05 23:14:45", format: dateFormat, region: regionLondon)!
 		let dateC = DateInRegion("2018-12-05 23:14:45", format: dateFormat, region: regionLondon)!

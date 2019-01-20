@@ -33,7 +33,7 @@ public extension DateFormatter {
 	/// - Returns: number formatter instance
 	@available(iOS 9.0, macOS 10.11, *)
 	public static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
-		var formatter: NumberFormatter? = nil
+		var formatter: NumberFormatter?
 		let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
 		formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
 		formatter!.numberStyle = .ordinal
@@ -136,7 +136,7 @@ public struct DateFormats {
 
 	/// Reset the list of auto formats to the initial settings.
 	public static func resetAutoFormats() {
-		self.autoFormats = DateFormats.builtInAutoFormat
+		autoFormats = DateFormats.builtInAutoFormat
 	}
 
 	/// Parse a new string optionally passing the format in which is encoded. If no format is passed
@@ -155,7 +155,7 @@ public struct DateFormats {
 	public static func parse(string: String, formats: [String], region: Region) -> Date? {
 		let formatter = DateFormatter.sharedFormatter(forRegion: region)
 
-		var parsedDate: Date? = nil
+		var parsedDate: Date?
 		for format in formats {
 			formatter.dateFormat = format
 			formatter.locale = region.locale
@@ -171,7 +171,7 @@ public struct DateFormats {
 // MARK: - Calendar Extension
 
 public extension Calendar.Component {
-	
+
 	internal static func toSet(_ src: [Calendar.Component]) -> Set<Calendar.Component> {
 		var l: Set<Calendar.Component> = []
 		src.forEach { l.insert($0) }

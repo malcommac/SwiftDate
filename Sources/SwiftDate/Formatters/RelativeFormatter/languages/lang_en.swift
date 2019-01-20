@@ -20,14 +20,14 @@ public class lang_en: RelativeFormatterLang {
 
 	public var flavours: [String: Any] {
 		return [
-			RelativeFormatter.Flavour.long.rawValue: self._long,
-			RelativeFormatter.Flavour.longConvenient.rawValue: self._longConvenient,
-			RelativeFormatter.Flavour.longTime.rawValue: self._longTime,
-			RelativeFormatter.Flavour.narrow.rawValue: self._narrow,
-			RelativeFormatter.Flavour.shortConvenient.rawValue: self._shortConvenient,
-			RelativeFormatter.Flavour.shortTime.rawValue: self._shortTime,
-			RelativeFormatter.Flavour.short.rawValue: self._short,
-			RelativeFormatter.Flavour.tiny.rawValue: self._tiny
+			RelativeFormatter.Flavour.long.rawValue: _long,
+			RelativeFormatter.Flavour.longConvenient.rawValue: _longConvenient,
+			RelativeFormatter.Flavour.longTime.rawValue: _longTime,
+			RelativeFormatter.Flavour.narrow.rawValue: _narrow,
+			RelativeFormatter.Flavour.shortConvenient.rawValue: _shortConvenient,
+			RelativeFormatter.Flavour.shortTime.rawValue: _shortTime,
+			RelativeFormatter.Flavour.short.rawValue: _short,
+			RelativeFormatter.Flavour.tiny.rawValue: _tiny
 		]
 	}
 

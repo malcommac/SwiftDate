@@ -75,7 +75,7 @@ public extension Date {
 	///   - granularity: smallest unit that must, along with all larger units, be greater for the given dates.
 	/// - Returns: Boolean
 	public func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
-		return inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion(), granularity: granularity)
+        return self.inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
 	/// Compares equality of two given dates based on their components down to a given unit

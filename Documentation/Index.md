@@ -49,8 +49,9 @@ The following documentation explore all the major features of the library. If yo
 - [3.8 - Generate Related Dates (`nextYear, nextWeeekday, startOfMonth, startOfWeek, prevMonth`...)](3.Manipulate_Date.md#relateddates)
 - [3.9 - Date at start/end of time component](3.Manipulate_Date.md#startendcomponent)
 - [3.10 - Enumerate Dates](3.Manipulate_Date.md#enumeratedates)
-- [3.11 - Random Dates](3.Manipulate_Date.md#randomdates)
-- [3.12 - Sort Dates](3.Manipulate_Date.md#sort)
+- [3.11 - Enumerate Dates for Weekday in Range](3.Manipulate_Date.md#enumerateweekdays)
+- [3.12 - Random Dates](3.Manipulate_Date.md#randomdates)
+- [3.13 - Sort Dates](3.Manipulate_Date.md#sort)
 
 ### [4 - Compare Dates](4.Compare_Dates.md)
 

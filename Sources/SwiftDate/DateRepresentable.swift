@@ -380,8 +380,8 @@ public extension DateRepresentable {
 	}
 
 	func weekdayName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
-		let formatter = formatter(format: nil) {
-			$0.locale = (locale ?? region.locale).toLocale()
+		let formatter = self.formatter(format: nil) {
+			$0.locale = (locale ?? self.region.locale).toLocale()
 		}
 		let idx = (weekday - 1)
 		switch style {
@@ -448,8 +448,8 @@ public extension DateRepresentable {
 	}
 
 	func quarterName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
-		let formatter = formatter(format: nil) {
-			$0.locale = (locale ?? region.locale).toLocale()
+		let formatter = self.formatter(format: nil) {
+			$0.locale = (locale ?? self.region.locale).toLocale()
 		}
 		let idx = (quarter - 1)
 		switch style {
@@ -465,8 +465,8 @@ public extension DateRepresentable {
 	}
 
 	func eraName(_ style: SymbolFormatStyle, locale: LocaleConvertible? = nil) -> String {
-		let formatter = formatter(format: nil) {
-			$0.locale = (locale ?? region.locale).toLocale()
+		let formatter = self.formatter(format: nil) {
+			$0.locale = (locale ?? self.region.locale).toLocale()
 		}
 		let idx = (era - 1)
 		switch style {

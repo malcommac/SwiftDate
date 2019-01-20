@@ -273,7 +273,7 @@ public struct TimeCalculationOptions {
 	}
 }
 
-//MARK: - compactMap for Swift 4.0 (not necessary > 4.0)
+// MARK: - compactMap for Swift 4.0 (not necessary > 4.0)
 
 #if swift(>=4.1)
 #else

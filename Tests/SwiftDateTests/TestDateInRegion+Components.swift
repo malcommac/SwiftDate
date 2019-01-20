@@ -254,7 +254,7 @@ class TestDateInRegion_Components: XCTestCase {
 		XCTAssert( dateB.quarter == 3, "Failed to evaluate quarter property")
 		XCTAssert( dateC.quarter == 4, "Failed to evaluate quarter property")
 	}
-	
+
 	func testAbsoluteDateISOFormatting() {
 		let now = DateInRegion()
 		let iso8601_string = now.toISO([.withInternetDateTime])

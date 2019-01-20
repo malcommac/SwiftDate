@@ -156,7 +156,7 @@ public extension DateInRegion {
 		}
 		return DateInRegion(result.start, region: region)
 		#else
-		var start: NSDate? = nil
+		var start: NSDate?
 		var interval: TimeInterval = 0
 		guard (region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, start: &start, interval: &interval, for: date),
 			let startDate = start else {
@@ -192,7 +192,7 @@ public extension DateInRegion {
 		let endOfThisUnit = Date(timeInterval: -0.001, since: startOfNextUnit)
 		return DateInRegion(endOfThisUnit, region: region)
 		#else
-		var start: NSDate? = nil
+		var start: NSDate?
 		var interval: TimeInterval = 0
 		guard (self.region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, start: &start, interval: &interval, for: date),
 		let startDate = start else {

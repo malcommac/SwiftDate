@@ -44,7 +44,7 @@ public extension TimeInterval {
 		}
 
 		/// Calendar
-		public var calendar: Calendar = Calendar.autoupdatingCurrent
+		public var calendar = Calendar.autoupdatingCurrent
 
 		public func apply(toFormatter formatter: DateComponentsFormatter) {
 			formatter.allowsFractionalUnits = allowsFractionalUnits
@@ -73,7 +73,7 @@ public extension TimeInterval {
 	public func toString(options callback: ((inout ComponentsFormatterOptions) -> Void)? = nil) -> String {
 		return self.toIntervalString(options: callback)
 	}
-	
+
 	/// Format a time interval in a string with desidered components with passed style.
 	///
 	/// - Parameters:

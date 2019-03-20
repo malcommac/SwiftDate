@@ -88,7 +88,7 @@ public enum DateToStringStyles {
 /// - rss: The RSS formatted date "EEE, d MMM yyyy HH:mm:ss ZZZ" i.e. "Fri, 09 Sep 2011 15:26:08 +0200"
 /// - altRSS: The Alternative RSS formatted date "d MMM yyyy HH:mm:ss ZZZ" i.e. "09 Sep 2011 15:26:08 +0200"
 /// - dotNet: The dotNet formatted date "/Date(%d%d)/" i.e. "/Date(1268123281843)/"
-/// - httpHeader: The http header formatted date "EEE, dd MM yyyy HH:mm:ss ZZZ" i.e. "Tue, 15 Nov 1994 12:45:26 GMT"
+/// - httpHeader: The http header formatted date "EEE, dd MM yyyy HH:mm:ss zzz" i.e. "Tue, 15 Nov 1994 12:45:26 GMT"
 /// - strict: custom string format with lenient options active
 /// - custom: custom string format
 /// - standard: A generic standard format date i.e. "EEE MMM dd HH:mm:ss Z yyyy"

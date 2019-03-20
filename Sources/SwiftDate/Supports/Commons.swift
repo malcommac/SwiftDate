@@ -125,8 +125,8 @@ public struct DateFormats {
 	/// The RSS formatted date "EEE, d MMM yyyy HH:mm:ss ZZZ" i.e. "Fri, 09 Sep 2011 15:26:08 +0200"
 	public static let rss: String = "EEE, d MMM yyyy HH:mm:ss ZZZ"
 
-	/// The http header formatted date "EEE, dd MM yyyy HH:mm:ss ZZZ" i.e. "Tue, 15 Nov 1994 12:45:26 GMT"
-	public static let httpHeader: String = "EEE, dd MM yyyy HH:mm:ss ZZZ"
+	/// The http header formatted date "EEE, dd MM yyyy HH:mm:ss zzz" i.e. "Tue, 15 Nov 1994 12:45:26 GMT"
+	public static let httpHeader: String = "EEE, dd MM yyyy HH:mm:ss zzz"
 
 	/// A generic standard format date i.e. "EEE MMM dd HH:mm:ss Z yyyy"
 	public static let standard: String = "EEE MMM dd HH:mm:ss Z yyyy"

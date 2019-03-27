@@ -142,7 +142,25 @@ public extension RelativeFormatter {
 					}
 				}
 
-			}
+            }
+
+            public enum RoundingStrategy {
+
+                case regularRound
+                case ceiling
+                case flooring
+                case custom((Double) -> Double)
+
+                func round(_ value: Double) -> Double {
+
+                    switch self {
+                    case .regularRound:                 return Darwin.round(value)
+                    case .ceiling:                      return ceil(value)
+                    case .flooring:                     return floor(value)
+                    case .custom(let roundingFunction): return roundingFunction(value)
+                    }
+                }
+            }
 
 			/// The time unit to which the rule refers.
 			/// It's used to evaluate the factor.
@@ -155,6 +173,9 @@ public extension RelativeFormatter {
 
 			/// Granuality threshold of the unit
 			public var granularity: Double?
+
+            /// The rounding strategy that should be used prior to generating the relative time
+            public var roundingStrategy: RoundingStrategy
 
 			/// Relation with a previous threshold
 			public var thresholdPrevious: [Unit: Double]?
@@ -173,11 +194,16 @@ public extension RelativeFormatter {
 			///   - granularity: granularity value.
 			///   - prev: relation with a previous rule in gradation lsit.
 			///   - formatter: custom formatter.
-			public init(_ unit: Unit, threshold: ThresholdType?,
-						granularity: Double? = nil, prev: [Unit: Double]? = nil, formatter: CustomFormatter? = nil ) {
+			public init(_ unit: Unit,
+                        threshold: ThresholdType?,
+						granularity: Double? = nil,
+                        roundingStrategy: RoundingStrategy = .regularRound,
+                        prev: [Unit: Double]? = nil,
+                        formatter: CustomFormatter? = nil ) {
 				self.unit = unit
 				self.threshold = threshold
 				self.granularity = granularity
+                self.roundingStrategy = roundingStrategy
 				self.thresholdPrevious = prev
 				self.customFormatter = formatter
 			}

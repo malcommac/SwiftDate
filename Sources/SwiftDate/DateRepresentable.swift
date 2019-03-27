@@ -305,21 +305,21 @@ public extension DateRepresentable {
 
 	// MARK: - Common Properties
 
-	public var calendar: Calendar {
+	var calendar: Calendar {
 		return region.calendar
 	}
 
 	// MARK: - Date Components Properties
 
-	public var year: Int {
+	var year: Int {
 		return dateComponents.year!
 	}
 
-	public var month: Int {
+	var month: Int {
 		return dateComponents.month!
 	}
 
-	public var monthDays: Int {
+	var monthDays: Int {
 		return calendar.range(of: .day, in: .month, for: date)!.count
 	}
 
@@ -336,46 +336,46 @@ public extension DateRepresentable {
 		}
 	}
 
-	public var day: Int {
+	var day: Int {
 		return dateComponents.day!
 	}
 
-	public var dayOfYear: Int {
+	var dayOfYear: Int {
 		return calendar.ordinality(of: .day, in: .year, for: date)!
 	}
 
 	@available(iOS 9.0, macOS 10.11, *)
-	public var ordinalDay: String {
+	var ordinalDay: String {
 		let day = self.day
 		return DateFormatter.sharedOrdinalNumberFormatter(locale: region.locale).string(from: day as NSNumber) ?? "\(day)"
 	}
 
-	public var hour: Int {
+	var hour: Int {
 		return dateComponents.hour!
 	}
 
-	public var nearestHour: Int {
+	var nearestHour: Int {
 		let newDate = (date + (date.minute >= 30 ? 60 - date.minute : -date.minute).minutes)
 		return newDate.in(region: region).hour
 	}
 
-	public var minute: Int {
+	var minute: Int {
 		return dateComponents.minute!
 	}
 
-	public var second: Int {
+	var second: Int {
 		return dateComponents.second!
 	}
 
-	public var nanosecond: Int {
+	var nanosecond: Int {
 		return dateComponents.nanosecond!
 	}
 
-	public var msInDay: Int {
+	var msInDay: Int {
 		return (calendar.ordinality(of: .second, in: .day, for: date)! * 1000)
 	}
 
-	public var weekday: Int {
+	var weekday: Int {
 		return dateComponents.weekday!
 	}
 
@@ -394,56 +394,56 @@ public extension DateRepresentable {
 		}
 	}
 
-	public var weekOfYear: Int {
+	var weekOfYear: Int {
 		return dateComponents.weekOfYear!
 	}
 
-	public var weekOfMonth: Int {
+	var weekOfMonth: Int {
 		return dateComponents.weekOfMonth!
 	}
 
-	public var weekdayOrdinal: Int {
+	var weekdayOrdinal: Int {
 		return dateComponents.weekdayOrdinal!
 	}
 
-	public var yearForWeekOfYear: Int {
+	var yearForWeekOfYear: Int {
 		return dateComponents.yearForWeekOfYear!
 	}
 
-	public var firstDayOfWeek: Int {
+	var firstDayOfWeek: Int {
 		return date.dateAt(.startOfWeek).day
 	}
 
-	public var lastDayOfWeek: Int {
+	var lastDayOfWeek: Int {
 		return date.dateAt(.endOfWeek).day
 	}
 
-	public var quarter: Int {
+	var quarter: Int {
 		let monthsInQuarter = Double(Calendar.current.monthSymbols.count) / 4.0
 		return Int(ceil( Double(month) / monthsInQuarter))
 	}
 
-	public var isToday: Bool {
+	var isToday: Bool {
 		return calendar.isDateInToday(date)
 	}
 
-	public var isYesterday: Bool {
+	var isYesterday: Bool {
 		return calendar.isDateInYesterday(date)
 	}
 
-	public var isTomorrow: Bool {
+	var isTomorrow: Bool {
 		return calendar.isDateInTomorrow(date)
 	}
 
-	public var isInWeekend: Bool {
+	var isInWeekend: Bool {
 		return calendar.isDateInWeekend(date)
 	}
 
-	public var isInPast: Bool {
+	var isInPast: Bool {
 		return date < Date()
 	}
 
-	public var isInFuture: Bool {
+	var isInFuture: Bool {
 		return date > Date()
 	}
 
@@ -475,7 +475,7 @@ public extension DateRepresentable {
 		}
 	}
 
-	public var DSTOffset: TimeInterval {
+	var DSTOffset: TimeInterval {
 		return region.timeZone.daylightSavingTimeOffset(for: date)
 	}
 
@@ -500,18 +500,18 @@ public extension DateRepresentable {
 		return formatter
 	}
 
-	public var sharedFormatter: DateFormatter {
+	var sharedFormatter: DateFormatter {
 		return DateFormatter.sharedFormatter(forRegion: region)
 	}
 
-	public func toString(_ style: DateToStringStyles? = nil) -> String {
+	func toString(_ style: DateToStringStyles? = nil) -> String {
 		guard let style = style else {
 			return DateToStringStyles.standard.toString(self)
 		}
 		return style.toString(self)
 	}
 
-	public func toFormat(_ format: String, locale: LocaleConvertible? = nil) -> String {
+	func toFormat(_ format: String, locale: LocaleConvertible? = nil) -> String {
 		guard let fixedLocale = locale else {
 			return DateToStringStyles.custom(format).toString(self)
 		}
@@ -520,7 +520,7 @@ public extension DateRepresentable {
 		return DateToStringStyles.custom(format).toString(fixedDate)
 	}
 
-	public func toRelative(since: DateInRegion? = nil, style: RelativeFormatter.Style? = nil, locale: LocaleConvertible? = nil) -> String {
+	func toRelative(since: DateInRegion? = nil, style: RelativeFormatter.Style? = nil, locale: LocaleConvertible? = nil) -> String {
 		return RelativeFormatter.format(date: self, to: since, style: style, locale: locale?.toLocale())
 	}
 
@@ -528,36 +528,36 @@ public extension DateRepresentable {
 		return DateToStringStyles.iso( (options ?? ISOFormatter.Options([.withInternetDateTime])) ).toString(self)
 	}
 
-	public func toDotNET() -> String {
+	func toDotNET() -> String {
 		return DOTNETFormatter.format(self, options: nil)
 	}
 
-	public func toRSS(alt: Bool) -> String {
+	func toRSS(alt: Bool) -> String {
 		switch alt {
 		case true: 		return DateToStringStyles.altRSS.toString(self)
 		case false: 	return DateToStringStyles.rss.toString(self)
 		}
 	}
 
-	public func toSQL() -> String {
+	func toSQL() -> String {
 		return DateToStringStyles.sql.toString(self)
 	}
 
 	// MARK: - Conversion
 
-	public func convertTo(region: Region) -> DateInRegion {
+	func convertTo(region: Region) -> DateInRegion {
 		return DateInRegion(date, region: region)
 	}
 
 	// MARK: - Extract Time Components
 
-	public func toUnits(_ units: Set<Calendar.Component>, to refDate: DateRepresentable) -> [Calendar.Component: Int] {
+	func toUnits(_ units: Set<Calendar.Component>, to refDate: DateRepresentable) -> [Calendar.Component: Int] {
 		let cal = region.calendar
 		let components = cal.dateComponents(units, from: date, to: refDate.date)
 		return components.toDict()
 	}
 
-	public func toUnit(_ unit: Calendar.Component, to refDate: DateRepresentable) -> Int {
+	func toUnit(_ unit: Calendar.Component, to refDate: DateRepresentable) -> Int {
 		let cal = region.calendar
 		let components = cal.dateComponents([unit], from: date, to: refDate.date)
 		return components.value(for: unit)!

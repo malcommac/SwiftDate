@@ -15,7 +15,7 @@ public extension DateFormatter {
 	///   - region: region used to pre-configure the cell.
 	///   - format: optional format used to set the `dateFormat` property.
 	/// - Returns: date formatter instance
-	public static func sharedFormatter(forRegion region: Region?, format: String? = nil) -> DateFormatter {
+	static func sharedFormatter(forRegion region: Region?, format: String? = nil) -> DateFormatter {
 		let name = "SwiftDate_\(NSStringFromClass(DateFormatter.self))"
 		let formatter: DateFormatter = threadSharedObject(key: name, create: { return DateFormatter() })
 		if let region = region {
@@ -32,7 +32,7 @@ public extension DateFormatter {
 	/// - Parameter locale: locale to set
 	/// - Returns: number formatter instance
 	@available(iOS 9.0, macOS 10.11, *)
-	public static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
+	static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
 		var formatter: NumberFormatter?
 		let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
 		formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
@@ -100,7 +100,9 @@ public struct DateFormats {
 		"yyyyyy-MM-dd",
 		"yyyy-MM-dd",
 		"yyyy-'W'ww-E",
+		"GGGG-'['W']'ww-E",
 		"yyyy-'W'ww",
+		"GGGG-'['W']'ww",
 		"yyyy'W'ww",
 		"yyyy-ddd",
 		"HH:mm:ss.SSSS",
@@ -197,6 +199,8 @@ public extension Calendar.Component {
 		case .nanosecond: return NSCalendar.Unit.nanosecond
 		case .calendar: return NSCalendar.Unit.calendar
 		case .timeZone: return NSCalendar.Unit.timeZone
+		@unknown default:
+			fatalError("Unsupported type \(self)")
 		}
 	}
 }

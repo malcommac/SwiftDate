@@ -279,7 +279,7 @@ public class RelativeFormatter: DateToStringTrasformable {
     default: // Should never happen
       fatalError()
     }
-    
+
 		if let fixedValue = unitRules[quantifierKey] as? String {
 			return fixedValue
 		} else if let quantifierRules = unitRules[quantifierKey] as? [String: Any] {

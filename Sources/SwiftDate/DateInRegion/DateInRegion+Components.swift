@@ -11,7 +11,7 @@ import Foundation
 public extension DateInRegion {
 
 	/// Indicates whether the month is a leap month.
-	public var isLeapMonth: Bool {
+	var isLeapMonth: Bool {
 		let calendar = region.calendar
 		// Library function for leap contains a bug for Gregorian calendars, implemented workaround
 		if calendar.identifier == Calendar.Identifier.gregorian && year > 1582 {
@@ -25,7 +25,7 @@ public extension DateInRegion {
 	}
 
 	/// Indicates whether the year is a leap year.
-	public var isLeapYear: Bool {
+	var isLeapYear: Bool {
 		let calendar = region.calendar
 		// Library function for leap contains a bug for Gregorian calendars, implemented workaround
 		if calendar.identifier == Calendar.Identifier.gregorian {
@@ -45,7 +45,7 @@ public extension DateInRegion {
 
 	/// Julian day is the continuous count of days since the beginning of
 	/// the Julian Period used primarily by astronomers.
-	public var julianDay: Double {
+	var julianDay: Double {
 		let destRegion = Region(calendar: Calendars.gregorian, zone: Zones.gmt, locale: Locales.english)
 		let utc = convertTo(region: destRegion)
 
@@ -64,7 +64,7 @@ public extension DateInRegion {
 	/// The Modified Julian Date (MJD) was introduced by the Smithsonian Astrophysical Observatory
 	/// in 1957 to record the orbit of Sputnik via an IBM 704 (36-bit machine)
 	/// and using only 18 bits until August 7, 2576.
-	public var modifiedJulianDay: Double {
+	var modifiedJulianDay: Double {
 		return julianDay - 2_400_000.5
 	}
 
@@ -75,7 +75,7 @@ public extension DateInRegion {
 	///   - refDate: reference date (`nil` to use current date in the same region of the receiver)
 	///   - component: time unit to extract.
 	/// - Returns: value
-	public func getInterval(toDate: DateInRegion?, component: Calendar.Component) -> Int64 {
+	func getInterval(toDate: DateInRegion?, component: Calendar.Component) -> Int64 {
 		let refDate = (toDate ?? region.nowInThisRegion())
 		switch component {
 		case .year:
@@ -131,7 +131,7 @@ public extension DateInRegion {
 	///
 	/// - Parameter date: The date with which to compare the receiver.
 	/// - Returns: time interval between two dates
-	public func timeIntervalSince(_ date: DateInRegion) -> TimeInterval {
+	func timeIntervalSince(_ date: DateInRegion) -> TimeInterval {
 		return self.date.timeIntervalSince(date.date)
 	}
 
@@ -139,7 +139,7 @@ public extension DateInRegion {
 	///
 	/// - Parameter rhs: date to compare
 	/// - Returns: components
-	public func componentsTo(_ rhs: DateInRegion) -> DateComponents {
+	func componentsTo(_ rhs: DateInRegion) -> DateComponents {
 		return calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: date)
 	}
 
@@ -149,7 +149,7 @@ public extension DateInRegion {
 	///   - date: reference date as initial date (left operand)
 	///   - components: components to extract, `nil` to use default `DateComponents.allComponentsSet`
 	/// - Returns: extracted date components
-	public func componentsSince(_ date: DateInRegion, components: [Calendar.Component]? = nil) -> DateComponents {
+	func componentsSince(_ date: DateInRegion, components: [Calendar.Component]? = nil) -> DateComponents {
 		if date.calendar != calendar {
 			debugPrint("Date has different calendar, results maybe wrong")
 		}

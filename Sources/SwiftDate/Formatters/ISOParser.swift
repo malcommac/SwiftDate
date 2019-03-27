@@ -76,13 +76,8 @@ public class ISOParser: StringToDateTransformable {
 		/// Strict parsing. By default is `false`.
 		var strict: Bool = false
 
-		/// Calendar used to generate the date.
-		/// By default is the gregorian calendar.
-		internal var calendar = Calendars.gregorian.toCalendar()
-
-		public init(strict: Bool = false, calendar: Calendar? = nil) {
+		public init(strict: Bool = false) {
 			self.strict = strict
-			self.calendar = calendar ?? Calendar.current
 		}
 	}
 
@@ -145,6 +140,9 @@ public class ISOParser: StringToDateTransformable {
 		var timezone: TimeZone?
 	}
 
+	/// Source generation calendar.
+	private var srcCalendar = Calendars.gregorian.toCalendar()
+
 	/// Source raw parsed values
 	private var date = ParsedDate()
 
@@ -183,8 +181,8 @@ public class ISOParser: StringToDateTransformable {
 	/// Date adjusted at parsed timezone
 	private var dateInTimezone: Date? {
 		get {
-			options.calendar.timeZone = date.timezone ?? TimeZone(identifier: "UTC")!
-			return options.calendar.date(from: date_components!)
+			srcCalendar.timeZone = date.timezone ?? TimeZone(identifier: "UTC")!
+			return srcCalendar.date(from: date_components!)
 		}
 	}
 
@@ -207,7 +205,7 @@ public class ISOParser: StringToDateTransformable {
 		cIdx = string.startIndex
 		eIdx = string.endIndex
 		self.options = (options ?? ISOParser.Options())
-		self.now_cmps = self.options.calendar.dateComponents([.year, .month, .day], from: Date())
+		self.now_cmps = srcCalendar.dateComponents([.year, .month, .day], from: Date())
 
 		var idx = cIdx
 		while idx < eIdx {
@@ -406,8 +404,8 @@ public class ISOParser: StringToDateTransformable {
 
 		let tz = date.timezone ?? TimeZone(identifier: "UTC")!
 		parsedTimeZone = tz
-		options.calendar.timeZone = tz
-		parsedDate = options.calendar.date(from: date_components!)
+		srcCalendar.timeZone = tz
+		parsedDate = srcCalendar.date(from: date_components!)
 
 		return (parsedDate, parsedTimeZone)
 	}

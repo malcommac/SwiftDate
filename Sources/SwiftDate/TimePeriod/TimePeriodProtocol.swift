@@ -21,18 +21,18 @@ public protocol TimePeriodProtocol {
 public extension TimePeriodProtocol {
 
 	/// Return `true` if time period has both start and end dates
-	public var hasFiniteRange: Bool {
+	var hasFiniteRange: Bool {
 		guard start != nil && end != nil else { return false }
 		return true
 	}
 
 	/// Return `true` if period has a start date
-	public var hasStart: Bool {
+	var hasStart: Bool {
 		return (start != nil)
 	}
 
 	/// Return `true` if period has a end date
-	public var hasEnd: Bool {
+	var hasEnd: Bool {
 		return (end != nil)
 	}
 
@@ -40,7 +40,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: period to compare against to.
 	/// - Returns: true if are equals
-	public func equals(_ period: TimePeriodProtocol) -> Bool {
+	func equals(_ period: TimePeriodProtocol) -> Bool {
 		return (start == period.start && end == period.end)
 	}
 
@@ -49,7 +49,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: True if self is inside of the given `TimePeriod`
-	public func isInside(_ period: TimePeriodProtocol) -> Bool {
+	func isInside(_ period: TimePeriodProtocol) -> Bool {
 		guard hasFiniteRange, period.hasFiniteRange else { return false }
 		return (period.start! <= start! && period.end! >= end!)
 	}
@@ -60,7 +60,7 @@ public extension TimePeriodProtocol {
 	///   - date: The time period to compare to self
 	///   - interval: Whether the edge of the date is included in the calculation
 	/// - Returns: True if the given `TimePeriod` is inside of self
-	public func contains(date: DateInRegion, interval: IntervalType = .closed) -> Bool {
+	func contains(date: DateInRegion, interval: IntervalType = .closed) -> Bool {
 		guard hasFiniteRange else { return false }
 		switch interval {
 		case .closed:	return (start! <= date && end! >= date)
@@ -73,7 +73,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: True if the given `TimePeriod` is inside of self
-	public func contains(_ period: TimePeriodProtocol) -> Bool {
+	func contains(_ period: TimePeriodProtocol) -> Bool {
 		guard hasFiniteRange, period.hasFiniteRange else { return false }
 		if period.start! < start! && period.end! > start! {
 			return true // Outside -> Inside
@@ -89,7 +89,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: True if there is a period of time that is shared by both `TimePeriod`s
-	public func overlaps(with period: TimePeriodProtocol) -> Bool {
+	func overlaps(with period: TimePeriodProtocol) -> Bool {
 		if period.start! < start! && period.end! > start! {
 			return true // Outside -> Inside
 		} else if period.start! >= start! && period.end! <= end! {
@@ -104,7 +104,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: True if there is a period of time or moment that is shared by both `TimePeriod`s
-	public func intersects(with period: TimePeriodProtocol) -> Bool {
+	func intersects(with period: TimePeriodProtocol) -> Bool {
 		let relation = self.relation(to: period)
 		return (relation != .after && relation != .before)
 	}
@@ -113,7 +113,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: True if self is after the given `TimePeriod`
-	public func isBefore(_ period: TimePeriodProtocol) -> Bool {
+	func isBefore(_ period: TimePeriodProtocol) -> Bool {
 		return (relation(to: period) == .before)
 	}
 
@@ -121,7 +121,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: True if self is after the given `TimePeriod`
-	public func isAfter(_ period: TimePeriodProtocol) -> Bool {
+	func isAfter(_ period: TimePeriodProtocol) -> Bool {
 		return (relation(to: period) == .after)
 	}
 
@@ -129,7 +129,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: The gap between the periods. Zero if there is no gap.
-	public func hasGap(between period: TimePeriodProtocol) -> Bool {
+	func hasGap(between period: TimePeriodProtocol) -> Bool {
 		return (isBefore(period) || isAfter(period))
 	}
 
@@ -137,7 +137,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: The gap between the periods. Zero if there is no gap.
-	public func gap(between period: TimePeriodProtocol) -> TimeInterval {
+	func gap(between period: TimePeriodProtocol) -> TimeInterval {
 		guard hasFiniteRange, period.hasFiniteRange else { return TimeInterval.greatestFiniteMagnitude }
 		if end! < period.start! {
 			return abs(end!.timeIntervalSince(period.start!))
@@ -150,7 +150,7 @@ public extension TimePeriodProtocol {
 	/// In place, shift the `TimePeriod` by a `TimeInterval`
 	///
 	/// - Parameter timeInterval: The time interval to shift the period by
-	public mutating func shift(by timeInterval: TimeInterval) {
+	mutating func shift(by timeInterval: TimeInterval) {
 		start?.addTimeInterval(timeInterval)
 		end?.addTimeInterval(timeInterval)
 	}
@@ -160,7 +160,7 @@ public extension TimePeriodProtocol {
 	/// - Parameters:
 	///   - timeInterval: The time interval to lengthen the period by
 	///   - anchor: The anchor point from which to make the change
-	public mutating func lengthen(by timeInterval: TimeInterval, at anchor: TimePeriodAnchor) {
+	mutating func lengthen(by timeInterval: TimeInterval, at anchor: TimePeriodAnchor) {
 		switch anchor {
 		case .beginning:
 			end?.addTimeInterval(timeInterval)
@@ -177,7 +177,7 @@ public extension TimePeriodProtocol {
 	/// - Parameters:
 	///   - timeInterval: The time interval to shorten the period by
 	///   - anchor: The anchor point from which to make the change
-	public mutating func shorten(by timeInterval: TimeInterval, at anchor: TimePeriodAnchor) {
+	mutating func shorten(by timeInterval: TimeInterval, at anchor: TimePeriodAnchor) {
 		switch anchor {
 		case .beginning:
 			end?.addTimeInterval(-timeInterval)
@@ -197,7 +197,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter period: The time period to compare to self
 	/// - Returns: The relationship between self and the given time period
-	public func relation(to period: TimePeriodProtocol) -> TimePeriodRelation {
+	func relation(to period: TimePeriodProtocol) -> TimePeriodRelation {
 		//Make sure that all start and end points exist for comparison
 		guard hasFiniteRange, period.hasFiniteRange else { return .none }
 		//Make sure time periods are of positive durations
@@ -237,7 +237,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter precision: precision in seconds; by default is 0.
 	/// - Returns: true if start/end has the same value or less than specified precision
-	public func isMoment(precision: TimeInterval = 0) -> Bool {
+	func isMoment(precision: TimeInterval = 0) -> Bool {
 		guard hasFiniteRange else { return false }
 		return (abs(start!.date.timeIntervalSince1970 - end!.date.timeIntervalSince1970) <= precision)
 	}
@@ -247,7 +247,7 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter unit: unit of the duration
 	/// - Returns: duration, `nil` if period has not a finite range
-	public func durationIn(_ units: Set<Calendar.Component>) -> DateComponents? {
+	func durationIn(_ units: Set<Calendar.Component>) -> DateComponents? {
 		guard hasFiniteRange else { return nil }
 		return start!.calendar.dateComponents(units, from: start!.date, to: end!.date)
 	}
@@ -257,56 +257,56 @@ public extension TimePeriodProtocol {
 	///
 	/// - Parameter unit: unit of the duration
 	/// - Returns: duration, `nil` if period has not a finite range
-	public func durationIn(_ unit: Calendar.Component) -> Int? {
+	func durationIn(_ unit: Calendar.Component) -> Int? {
 		guard hasFiniteRange else { return nil }
 		return start!.calendar.dateComponents([unit], from: start!.date, to: end!.date).value(for: unit)
 	}
 
 	/// The duration of the `TimePeriod` in years.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var years: Int {
+	var years: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.year, to: e)
 	}
 
 	/// The duration of the `TimePeriod` in months.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var months: Int {
+	var months: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.month, to: e)
 	}
 
 	/// The duration of the `TimePeriod` in weeks.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var weeks: Int {
+	var weeks: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.weekOfMonth, to: e)
 	}
 
 	/// The duration of the `TimePeriod` in days.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var days: Int {
+	var days: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.day, to: e)
 	}
 
 	/// The duration of the `TimePeriod` in hours.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var hours: Int {
+	var hours: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.hour, to: e)
 	}
 
 	/// The duration of the `TimePeriod` in years.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var minutes: Int {
+	var minutes: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.minute, to: e)
 	}
 
 	/// The duration of the `TimePeriod` in seconds.
 	/// Returns the `Int.max` if beginning or end are `nil`.
-	public var seconds: Int {
+	var seconds: Int {
 		guard let b = start, let e = end else { return Int.max }
 		return b.toUnit(.second, to: e)
 	}
@@ -314,7 +314,7 @@ public extension TimePeriodProtocol {
 	/// The length of time between the beginning and end dates of the
 	/// `TimePeriod` as a `TimeInterval`.
 	/// If intervals are not nil returns `Double.greatestFiniteMagnitude`
-	public var duration: TimeInterval {
+	var duration: TimeInterval {
 		guard let b = start, let e = end else {
 			return TimeInterval(Double.greatestFiniteMagnitude)
 		}

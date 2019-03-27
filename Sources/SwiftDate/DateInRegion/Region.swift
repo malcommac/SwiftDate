@@ -28,8 +28,8 @@ public struct Region: Decodable, Encodable, Equatable, Hashable, CustomStringCon
 		return "{calendar='\(calendar.identifier)', timezone='\(timeZone.identifier)', locale='\(locale.identifier)'}"
 	}
 
-	public var hashValue: Int {
-		return calendar.hashValue
+	public func hash(into hasher: inout Hasher) {
+		hasher.combine(calendar)
 	}
 
 	// MARK: Initialization

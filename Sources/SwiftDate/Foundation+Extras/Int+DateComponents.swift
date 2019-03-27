@@ -27,47 +27,47 @@ public extension Int {
 	}
 
 	/// Create a `DateComponents` with `self` value set as nanoseconds
-	public var nanoseconds: DateComponents {
+	var nanoseconds: DateComponents {
 		return toDateComponents(type: .nanosecond)
 	}
 
 	/// Create a `DateComponents` with `self` value set as seconds
-	public var seconds: DateComponents {
+	var seconds: DateComponents {
 		return toDateComponents(type: .second)
 	}
 
 	/// Create a `DateComponents` with `self` value set as minutes
-	public var minutes: DateComponents {
+	var minutes: DateComponents {
 		return toDateComponents(type: .minute)
 	}
 
 	/// Create a `DateComponents` with `self` value set as hours
-	public var hours: DateComponents {
+	var hours: DateComponents {
 		return toDateComponents(type: .hour)
 	}
 
 	/// Create a `DateComponents` with `self` value set as days
-	public var days: DateComponents {
+	var days: DateComponents {
 		return toDateComponents(type: .day)
 	}
 
 	/// Create a `DateComponents` with `self` value set as weeks
-	public var weeks: DateComponents {
+	var weeks: DateComponents {
 		return toDateComponents(type: .weekOfYear)
 	}
 
 	/// Create a `DateComponents` with `self` value set as months
-	public var months: DateComponents {
+	var months: DateComponents {
 		return toDateComponents(type: .month)
 	}
 
 	/// Create a `DateComponents` with `self` value set as years
-	public var years: DateComponents {
+	var years: DateComponents {
 		return toDateComponents(type: .year)
 	}
 
 	/// Create a `DateComponents` with `self` value set as quarters
-	public var quarters: DateComponents {
+	var quarters: DateComponents {
 		return toDateComponents(type: .quarter)
 	}
 

@@ -10,7 +10,7 @@ import Foundation
 
 public extension TimeInterval {
 
-	public struct ComponentsFormatterOptions {
+	struct ComponentsFormatterOptions {
 
 		/// Fractional units may be used when a value cannot be exactly represented using the available units.
 		/// For example, if minutes are not allowed, the value “1h 30m” could be formatted as “1.5h”.
@@ -55,7 +55,7 @@ public extension TimeInterval {
 			formatter.calendar = calendar
 		}
 
-		public init() {}
+		init() {}
 	}
 
 	/// Return the local thread shared formatter for date components
@@ -69,8 +69,8 @@ public extension TimeInterval {
 		})
 	}
 
-	@available(*, deprecated: 5.0.13, obsoleted: 5.1, message: "Use toIntervalString function instead")
-	public func toString(options callback: ((inout ComponentsFormatterOptions) -> Void)? = nil) -> String {
+	//@available(*, deprecated: 5.0.13, obsoleted: 5.1, message: "Use toIntervalString function instead")
+	func toString(options callback: ((inout ComponentsFormatterOptions) -> Void)? = nil) -> String {
 		return self.toIntervalString(options: callback)
 	}
 
@@ -80,7 +80,7 @@ public extension TimeInterval {
 	///   - units: units to include in string.
 	///   - style: style of the units, by default is `.abbreviated`
 	/// - Returns: string representation
-	public func toIntervalString(options callback: ((inout ComponentsFormatterOptions) -> Void)? = nil) -> String {
+	func toIntervalString(options callback: ((inout ComponentsFormatterOptions) -> Void)? = nil) -> String {
 		let formatter = TimeInterval.sharedFormatter()
 		var options = ComponentsFormatterOptions()
 		callback?(&options)
@@ -92,7 +92,7 @@ public extension TimeInterval {
 	///
 	/// - Parameter options: options for formatting.
 	/// - Returns: string representation
-	public func toString(options: ComponentsFormatterOptions) -> String {
+	func toString(options: ComponentsFormatterOptions) -> String {
 		let formatter = TimeInterval.sharedFormatter()
 		options.apply(toFormatter: formatter)
 		return (formatter.string(from: self) ?? "")
@@ -102,7 +102,7 @@ public extension TimeInterval {
 	///
 	/// - Parameter zero: behaviour with zero.
 	/// - Returns: string representation
-	public func toClock(zero: DateComponentsFormatter.ZeroFormattingBehavior = .pad) -> String {
+	func toClock(zero: DateComponentsFormatter.ZeroFormattingBehavior = .pad) -> String {
 		return toIntervalString(options: {
 			$0.unitsStyle = .positional
 			$0.zeroFormattingBehavior = zero
@@ -122,7 +122,7 @@ public extension TimeInterval {
 	///   - units: units to extract
 	///   - from: starting reference date, `nil` means `now()` in the context of the default region set.
 	/// - Returns: dictionary with extracted components
-	public func toUnits(_ units: Set<Calendar.Component>, to refDate: DateInRegion? = nil) -> [Calendar.Component: Int] {
+	func toUnits(_ units: Set<Calendar.Component>, to refDate: DateInRegion? = nil) -> [Calendar.Component: Int] {
 		let dateTo = (refDate ?? DateInRegion())
 		let dateFrom = dateTo.addingTimeInterval(-self)
 		let components = dateFrom.calendar.dateComponents(units, from: dateFrom.date, to: dateTo.date)
@@ -136,7 +136,7 @@ public extension TimeInterval {
 	/// - parameter from: starting reference date, `nil` means `now()` in the context of the default region set.
 	///
 	/// - returns: the value of interval expressed in selected `Calendar.Component`
-	public func toUnit(_ component: Calendar.Component, to refDate: DateInRegion? = nil) -> Int? {
+	func toUnit(_ component: Calendar.Component, to refDate: DateInRegion? = nil) -> Int? {
 		return toUnits([component], to: refDate)[component]
 	}
 

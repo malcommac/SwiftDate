@@ -115,7 +115,7 @@ public extension DateInRegion {
 	///   - refDate: reference date compare against to.
 	///   - precision: The precision of the comparison (default is 5 minutes, or 300 seconds).
 	/// - Returns: A boolean; true if close by, false otherwise.
-	public func compareCloseTo(_ refDate: DateInRegion, precision: TimeInterval = 300) -> Bool {
+	func compareCloseTo(_ refDate: DateInRegion, precision: TimeInterval = 300) -> Bool {
 		return (abs(date.timeIntervalSince(refDate.date)) <= precision)
 	}
 
@@ -123,7 +123,7 @@ public extension DateInRegion {
 	///
 	/// - Parameter compareType: comparison type.
 	/// - Returns: `true` if comparison succeded, `false` otherwise
-	public func compare(_ compareType: DateComparisonType) -> Bool {
+	func compare(_ compareType: DateComparisonType) -> Bool {
 		switch compareType {
 		case .isToday:
 			return compare(.isSameDay(region.nowInThisRegion()))
@@ -247,7 +247,7 @@ public extension DateInRegion {
 	///   - orEqual: `true` to also check for equality
 	///   - granularity: smallest unit that must, along with all larger units, be less for the given dates
 	/// - Returns: Boolean
-	public func isBeforeDate(_ date: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
+	func isBeforeDate(_ date: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
 		let result = compare(toDate: date, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedAscending) : result == .orderedAscending)
 	}
@@ -259,7 +259,7 @@ public extension DateInRegion {
 	///   - orEqual: `true` to also check for equality
 	///   - granularity: Smallest unit that must, along with all larger units, be greater for the given dates.
 	/// - Returns: Boolean
-	public func isAfterDate(_ refDate: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
+	func isAfterDate(_ refDate: DateInRegion, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
 		let result = compare(toDate: refDate, granularity: granularity)
 		return (orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending)
 	}
@@ -272,7 +272,7 @@ public extension DateInRegion {
 	///         dates to be considered the same.
 	///
 	/// - returns: `true` if the dates are the same down to the given granularity, otherwise `false`
-	public func isInside(date: DateInRegion, granularity: Calendar.Component) -> Bool {
+	func isInside(date: DateInRegion, granularity: Calendar.Component) -> Bool {
 		return (compare(toDate: date, granularity: granularity) == .orderedSame)
 	}
 
@@ -284,7 +284,7 @@ public extension DateInRegion {
 	///   - orEqual: `true` to also check for equality on date and date2, default is `true`
 	///   - granularity: smallest unit that must, along with all larger units, be greater
 	/// - Returns: Boolean
-	public func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = true, granularity: Calendar.Component = .nanosecond) -> Bool {
+	func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = true, granularity: Calendar.Component = .nanosecond) -> Bool {
 		return isAfterDate(startDate, orEqual: orEqual, granularity: granularity) && isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
 	}
 
@@ -294,7 +294,7 @@ public extension DateInRegion {
 	///
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is earlier
-	public func earlierDate(_ date: DateInRegion) -> DateInRegion {
+	func earlierDate(_ date: DateInRegion) -> DateInRegion {
 		return (self.date.timeIntervalSince1970 <= date.date.timeIntervalSince1970) ? self : date
 	}
 
@@ -302,7 +302,7 @@ public extension DateInRegion {
 	///
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is later
-	public func laterDate(_ date: DateInRegion) -> DateInRegion {
+	func laterDate(_ date: DateInRegion) -> DateInRegion {
 		return (self.date.timeIntervalSince1970 >= date.date.timeIntervalSince1970) ? self : date
 	}
 

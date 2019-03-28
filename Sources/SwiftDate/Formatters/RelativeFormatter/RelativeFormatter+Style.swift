@@ -48,19 +48,19 @@ public extension RelativeFormatter {
 		/// The first available flavour for specified locale is used.
 		/// If no flavour is available `.long` is used instead (this flavour
 		/// MUST be part of every lang structure).
-		var flavours: [Flavour]
+		public var flavours: [Flavour]
 
 		/// Gradation specify how the unit are evaluated in order to get the
 		/// best one to represent a given amount of time interval.
 		/// By default `convenient()` is used.
-		var gradation: Gradation = .convenient()
+		public var gradation: Gradation = .convenient()
 
 		/// Allowed time units the style can use. Some styles may not include
 		/// some time units (ie. `.quarter`) because they are not useful for
 		/// a given representation.
 		/// If not specified all the following units are set:
 		/// `.now, .minute, .hour, .day, .week, .month, .year`
-		var allowedUnits: [Unit]?
+		public var allowedUnits: [Unit]?
 
 		/// Create a new style.
 		///
@@ -68,7 +68,7 @@ public extension RelativeFormatter {
 		///   - flavours: flavours of the style.
 		///   - gradation: gradation rules.
 		///   - units: allowed units.
-		init(flavours: [Flavour], gradation: Gradation, allowedUnits units: [Unit]? = nil) {
+		public init(flavours: [Flavour], gradation: Gradation, allowedUnits units: [Unit]? = nil) {
             self.flavours = flavours
 			self.gradation = gradation
 			allowedUnits = (units ?? [.now, .minute, .hour, .day, .week, .month, .year])

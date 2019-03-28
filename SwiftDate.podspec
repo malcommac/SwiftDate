@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SwiftDate"
-  s.version      = "6.0.0"
+  s.version      = "6.0.1"
   s.summary      = "The best way to deal with Dates & Time Zones in Swift"
   s.homepage     = "https://github.com/malcommac/SwiftDate.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }

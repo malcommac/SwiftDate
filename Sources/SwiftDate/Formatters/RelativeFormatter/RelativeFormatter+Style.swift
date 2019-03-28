@@ -42,7 +42,7 @@ public extension RelativeFormatter {
 	}
 
 	/// Style for formatter
-	public struct Style {
+	struct Style {
 
 		/// Flavours supported by the style, specified in order.
 		/// The first available flavour for specified locale is used.

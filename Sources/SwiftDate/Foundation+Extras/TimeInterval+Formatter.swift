@@ -55,7 +55,7 @@ public extension TimeInterval {
 			formatter.calendar = calendar
 		}
 
-		init() {}
+		public init() {}
 	}
 
 	/// Return the local thread shared formatter for date components

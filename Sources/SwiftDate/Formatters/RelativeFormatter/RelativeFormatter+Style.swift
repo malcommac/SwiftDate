@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(Linux)
+import Glibc
+#else
+import Darwin
+#endif
+
 /// Languages table.
 /// In order to be fully compatible with Linux environment we need to
 /// handle directly with .swift files instead of plain text files.
@@ -154,7 +160,7 @@ public extension RelativeFormatter {
                 func round(_ value: Double) -> Double {
 
                     switch self {
-                    case .regularRound:                 return Darwin.round(value)
+                    case .regularRound:                 return round(value)
                     case .ceiling:                      return ceil(value)
                     case .flooring:                     return floor(value)
                     case .custom(let roundingFunction): return roundingFunction(value)

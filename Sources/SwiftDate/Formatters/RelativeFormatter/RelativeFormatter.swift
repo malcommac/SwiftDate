@@ -162,22 +162,25 @@ public class RelativeFormatter: DateToStringTrasformable {
 	///
 	/// - Parameter locale: locale to load
 	/// - Returns: language table
-	private func language(forLocale locale: Locale) -> RelativeFormatterLang {
-		let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
-		guard let table = languagesCache[localeId] else {
-			var tableType = languagesMap[localeId]
-			if tableType == nil {
-				tableType = languagesMap[localeId.components(separatedBy: "-").first!]
-				if tableType == nil {
-					return language(forLocale: Locales.english.toLocale())
-				}
-			}
-			let instanceOfTable = tableType!.init()
-			languagesCache[localeId] = instanceOfTable
-			return instanceOfTable
-		}
-		return table
-	}
+    private func language(forLocale locale: Locale) -> RelativeFormatterLang {
+        let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
+        guard let table = languagesCache[localeId] else {
+            var tableType = languagesMap[localeId]
+            if tableType == nil {
+                tableType = languagesMap[localeId.components(separatedBy: "_").first!]
+                if tableType == nil {
+                    tableType = languagesMap[localeId.components(separatedBy: "-").first!]
+                }
+                if tableType == nil {
+                    return language(forLocale: Locales.english.toLocale())
+                }
+            }
+            let instanceOfTable = tableType!.init()
+            languagesCache[localeId] = instanceOfTable
+            return instanceOfTable
+        }
+        return table
+    }
 
 	/// Implementation of the protocol for DateToStringTransformable.
 	public static func format(_ date: DateRepresentable, options: Any?) -> String {

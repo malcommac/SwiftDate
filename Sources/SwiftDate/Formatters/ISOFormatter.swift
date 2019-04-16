@@ -68,7 +68,7 @@ public class ISOFormatter: DateToStringTrasformable {
 
 		/// Evaluate formatting string
 		public var dateFormat: String {
-			if contains(.withInternetDateTimeExtended) {
+			if contains(.withInternetDateTimeExtended) || contains(.withoutTZSeparators) {
 				if contains(.withoutTZSeparators) {
 					return "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
 				}

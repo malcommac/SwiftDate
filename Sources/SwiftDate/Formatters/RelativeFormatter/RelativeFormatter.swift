@@ -241,7 +241,7 @@ public class RelativeFormatter: DateToStringTrasformable {
 			amount = round(amount / granularity) * granularity
 		}
 
-		let value: Double = -1.0 * Double(elapsed.sign) * suitableRule.roundingStrategy.round(amount)
+		let value: Double = -1.0 * Double(elapsed.sign) * suitableRule.roundingStrategy.roundValue(amount)
 		let formatString = relativeFormat(locale: locale, flavour: flavour, value: value, unit: suitableRule.unit)
 		return formatString.replacingOccurrences(of: "{0}", with: String(Int(abs(value))))
 	}

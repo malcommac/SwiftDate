@@ -157,7 +157,7 @@ public extension RelativeFormatter {
                 case flooring
                 case custom((Double) -> Double)
 
-                func round(_ value: Double) -> Double {
+                func roundValue(_ value: Double) -> Double {
 
                     switch self {
                     case .regularRound:                 return round(value)

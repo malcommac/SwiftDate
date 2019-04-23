@@ -116,7 +116,7 @@ class TestDateInRegion_Create: XCTestCase {
 		}
 	}
 
-	func testDateInRegion_EnumareDates() {
+	func testDateInRegion_EnumerateDates() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 
 		// TEST DATE #1

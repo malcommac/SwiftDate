@@ -94,10 +94,10 @@ public extension DateInRegion {
 		return list.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
 	}
 
-	/// Return the oldest date in given list (timezone is ignored, comparison uses absolute date).
+	/// Return the newest date in given list (timezone is ignored, comparison uses absolute date).
 	///
 	/// - Parameter list: list of dates
-	/// - Returns: a tuple with the index of the oldest date and its instance.
+	/// - Returns: a tuple with the index of the newest date and its instance.
 	static func newestIn(list: [DateInRegion]) -> DateInRegion? {
 		guard list.count > 0 else { return nil }
 		guard list.count > 1 else { return list.first! }

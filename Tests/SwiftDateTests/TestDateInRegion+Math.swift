@@ -109,4 +109,13 @@ class TestDateInRegion_Math: XCTestCase {
         XCTAssert(nextFriday.toISO() == "2019-05-17T00:00:00+02:00", "Failed to get the next weekday from date")
     }
 
+    func testDateAtWeekdayOrdinal() {
+        let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+        let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let date1 = DateInRegion("2019-05-11 00:00:00", format: dateFormat, region: regionRome)!
+        let result = date1.dateAt(weekdayOrdinal: 3, weekday: .friday, monthNumber: date1.month + 1)
+        XCTAssert(result.toISO() == "2019-06-21T00:00:00+02:00", "Failed to get the next weekday from date")
+    }
+
 }

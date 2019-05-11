@@ -47,7 +47,7 @@ public extension TimeInterval {
 
 		public func apply(toFormatter formatter: DateComponentsFormatter) {
             formatter.calendar = calendar
-            
+
             if let allowsFractionalUnits = self.allowsFractionalUnits {
                 formatter.allowsFractionalUnits = allowsFractionalUnits
             }
@@ -98,7 +98,7 @@ public extension TimeInterval {
 		var options = ComponentsFormatterOptions()
 		callback?(&options)
 		options.apply(toFormatter: formatter)
-        
+
         let formattedValue = formatter.string(from: self)!
         if options.zeroFormattingBehavior?.contains(.pad) ?? false {
             // for some strange reason padding is not added at the very beginning positional item.

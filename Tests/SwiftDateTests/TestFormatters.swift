@@ -455,7 +455,7 @@ class TestFormatters: XCTestCase {
 
 	func testTimeInterval_Clock() {
 		let value = (2.hours + 5.minutes).timeInterval.toClock()
-		XCTAssert(value == "2:05:00", "Failed to format clock")
+		XCTAssert(value == "02:05:00", "Failed to format clock")
 		#if os(Linux)
 		let zeroBehavior = DateComponentsFormatter.ZeroFormattingBehavior(rawValue: 14)
 		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: zeroBehavior)

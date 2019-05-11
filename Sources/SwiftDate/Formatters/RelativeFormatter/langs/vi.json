@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "week" : {
+      "past" : "{0} tuần trước",
+      "future" : "sau {0} tuần nữa",
+      "current" : "tuần này",
+      "previous" : "tuần trước",
+      "next" : "tuần sau"
+    },
+    "hour" : {
+      "current" : "giờ này",
+      "past" : "{0} giờ trước",
+      "future" : "sau {0} giờ nữa"
+    },
+    "now" : "bây giờ",
+    "day" : {
+      "next" : "Ngày mai",
+      "current" : "Hôm nay",
+      "past" : "{0} ngày trước",
+      "future" : "sau {0} ngày nữa",
+      "previous" : "Hôm qua"
+    },
+    "minute" : {
+      "future" : "sau {0} phút nữa",
+      "current" : "phút này",
+      "past" : "{0} phút trước"
+    },
+    "quarter" : {
+      "next" : "quý sau",
+      "future" : "sau {0} quý nữa",
+      "previous" : "quý trước",
+      "current" : "quý này",
+      "past" : "{0} quý trước"
+    },
+    "second" : {
+      "future" : "sau {0} giây nữa",
+      "current" : "bây giờ",
+      "past" : "{0} giây trước"
+    },
+    "year" : {
+      "next" : "năm sau",
+      "previous" : "năm ngoái",
+      "current" : "năm nay",
+      "future" : "sau {0} năm nữa",
+      "past" : "{0} năm trước"
+    },
+    "month" : {
+      "previous" : "tháng trước",
+      "next" : "tháng sau",
+      "future" : "sau {0} tháng nữa",
+      "current" : "tháng này",
+      "past" : "{0} tháng trước"
+    }
+  },
+  "short" : {
+    "hour" : {
+      "future" : "sau {0} giờ nữa",
+      "current" : "giờ này",
+      "past" : "{0} giờ trước"
+    },
+    "now" : "bây giờ",
+    "quarter" : {
+      "future" : "sau {0} quý nữa",
+      "previous" : "quý trước",
+      "next" : "quý sau",
+      "current" : "quý này",
+      "past" : "{0} quý trước"
+    },
+    "day" : {
+      "current" : "Hôm nay",
+      "past" : "{0} ngày trước",
+      "future" : "sau {0} ngày nữa",
+      "next" : "Ngày mai",
+      "previous" : "Hôm qua"
+    },
+    "week" : {
+      "current" : "tuần này",
+      "future" : "sau {0} tuần nữa",
+      "previous" : "tuần trước",
+      "next" : "tuần sau",
+      "past" : "{0} tuần trước"
+    },
+    "minute" : {
+      "past" : "{0} phút trước",
+      "future" : "sau {0} phút nữa",
+      "current" : "phút này"
+    },
+    "second" : {
+      "past" : "{0} giây trước",
+      "current" : "bây giờ",
+      "future" : "sau {0} giây nữa"
+    },
+    "month" : {
+      "current" : "tháng này",
+      "future" : "sau {0} tháng nữa",
+      "past" : "{0} tháng trước",
+      "next" : "tháng sau",
+      "previous" : "tháng trước"
+    },
+    "year" : {
+      "past" : "{0} năm trước",
+      "future" : "sau {0} năm nữa",
+      "previous" : "năm ngoái",
+      "current" : "năm nay",
+      "next" : "năm sau"
+    }
+  },
+  "long" : {
+    "month" : {
+      "current" : "tháng này",
+      "next" : "tháng sau",
+      "previous" : "tháng trước",
+      "future" : "sau {0} tháng nữa",
+      "past" : "{0} tháng trước"
+    },
+    "quarter" : {
+      "future" : "sau {0} quý nữa",
+      "next" : "quý sau",
+      "past" : "{0} quý trước",
+      "previous" : "quý trước",
+      "current" : "quý này"
+    },
+    "minute" : {
+      "future" : "sau {0} phút nữa",
+      "past" : "{0} phút trước",
+      "current" : "phút này"
+    },
+    "day" : {
+      "future" : "sau {0} ngày nữa",
+      "past" : "{0} ngày trước",
+      "current" : "Hôm nay",
+      "previous" : "Hôm qua",
+      "next" : "Ngày mai"
+    },
+    "year" : {
+      "previous" : "năm ngoái",
+      "current" : "năm nay",
+      "future" : "sau {0} năm nữa",
+      "next" : "năm sau",
+      "past" : "{0} năm trước"
+    },
+    "week" : {
+      "future" : "sau {0} tuần nữa",
+      "previous" : "tuần trước",
+      "past" : "{0} tuần trước",
+      "next" : "tuần sau",
+      "current" : "tuần này"
+    },
+    "second" : {
+      "past" : "{0} giây trước",
+      "current" : "bây giờ",
+      "future" : "sau {0} giây nữa"
+    },
+    "hour" : {
+      "future" : "sau {0} giờ nữa",
+      "current" : "giờ này",
+      "past" : "{0} giờ trước"
+    },
+    "now" : "bây giờ"
+  }
+}

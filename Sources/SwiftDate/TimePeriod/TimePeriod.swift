@@ -1,9 +1,13 @@
 //
-//  TimePeriod.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 14/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 import Foundation
@@ -172,4 +176,24 @@ open class TimePeriod: TimePeriodProtocol {
 		return left.equals(right)
 	}
 
+}
+
+public extension TimePeriod {
+
+    /// The start date of the time period
+    var startDate: Date? {
+        return start?.date
+    }
+
+    /// The end date of the time period
+    var endDate: Date? {
+        return end?.date
+    }
+
+    /// Create a new time period with the given start date, end date and region (default is UTC)
+    convenience init(startDate: Date, endDate: Date, region: Region = Region.UTC) {
+        let start = DateInRegion(startDate, region: region)
+        let end = DateInRegion(endDate, region: region)
+        self.init(start: start, end: end)
+    }
 }

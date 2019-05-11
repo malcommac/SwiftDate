@@ -1,0 +1,170 @@
+{
+  "narrow" : {
+    "now" : "now",
+    "hour" : {
+      "future" : "+{0} h",
+      "current" : "this hour",
+      "past" : "-{0} h"
+    },
+    "minute" : {
+      "future" : "+{0} min",
+      "current" : "this minute",
+      "past" : "-{0} min"
+    },
+    "second" : {
+      "future" : "+{0} s",
+      "past" : "-{0} s",
+      "current" : "now"
+    },
+    "year" : {
+      "next" : "Is-sena d-dieħla",
+      "future" : "+{0} y",
+      "previous" : "Is-sena li għaddiet",
+      "current" : "din is-sena",
+      "past" : {
+        "one" : "{0} sena ilu",
+        "other" : "{0} snin ilu"
+      }
+    },
+    "week" : {
+      "past" : "-{0} w",
+      "next" : "Il-ġimgħa d-dieħla",
+      "future" : "+{0} w",
+      "previous" : "Il-ġimgħa li għaddiet",
+      "current" : "Din il-ġimgħa"
+    },
+    "month" : {
+      "previous" : "Ix-xahar li għadda",
+      "current" : "Dan ix-xahar",
+      "next" : "Ix-xahar id-dieħel",
+      "past" : "-{0} m",
+      "future" : "+{0} m"
+    },
+    "quarter" : {
+      "next" : "next quarter",
+      "past" : "-{0} Q",
+      "future" : "+{0} Q",
+      "previous" : "last quarter",
+      "current" : "this quarter"
+    },
+    "day" : {
+      "next" : "Għada",
+      "previous" : "Ilbieraħ",
+      "past" : "-{0} d",
+      "future" : "+{0} d",
+      "current" : "Illum"
+    }
+  },
+  "long" : {
+    "quarter" : {
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "next" : "next quarter",
+      "past" : "-{0} Q",
+      "future" : "+{0} Q"
+    },
+    "day" : {
+      "previous" : "Ilbieraħ",
+      "past" : "-{0} d",
+      "future" : "+{0} d",
+      "current" : "Illum",
+      "next" : "Għada"
+    },
+    "week" : {
+      "next" : "Il-ġimgħa d-dieħla",
+      "past" : "-{0} w",
+      "future" : "+{0} w",
+      "previous" : "Il-ġimgħa li għaddiet",
+      "current" : "Din il-ġimgħa"
+    },
+    "hour" : {
+      "future" : "+{0} h",
+      "past" : "-{0} h",
+      "current" : "this hour"
+    },
+    "second" : {
+      "future" : "+{0} s",
+      "current" : "now",
+      "past" : "-{0} s"
+    },
+    "year" : {
+      "previous" : "Is-sena li għaddiet",
+      "past" : {
+        "one" : "{0} sena ilu",
+        "other" : "{0} snin ilu"
+      },
+      "next" : "Is-sena d-dieħla",
+      "future" : "+{0} y",
+      "current" : "din is-sena"
+    },
+    "month" : {
+      "next" : "Ix-xahar id-dieħel",
+      "past" : "-{0} m",
+      "previous" : "Ix-xahar li għadda",
+      "current" : "Dan ix-xahar",
+      "future" : "+{0} m"
+    },
+    "minute" : {
+      "past" : "-{0} min",
+      "current" : "this minute",
+      "future" : "+{0} min"
+    },
+    "now" : "now"
+  },
+  "short" : {
+    "hour" : {
+      "past" : "-{0} h",
+      "future" : "+{0} h",
+      "current" : "this hour"
+    },
+    "now" : "now",
+    "quarter" : {
+      "current" : "this quarter",
+      "future" : "+{0} Q",
+      "past" : "-{0} Q",
+      "next" : "next quarter",
+      "previous" : "last quarter"
+    },
+    "day" : {
+      "current" : "Illum",
+      "past" : "-{0} d",
+      "future" : "+{0} d",
+      "next" : "Għada",
+      "previous" : "Ilbieraħ"
+    },
+    "week" : {
+      "current" : "Din il-ġimgħa",
+      "past" : "-{0} w",
+      "future" : "+{0} w",
+      "next" : "Il-ġimgħa d-dieħla",
+      "previous" : "Il-ġimgħa li għaddiet"
+    },
+    "minute" : {
+      "past" : "-{0} min",
+      "current" : "this minute",
+      "future" : "+{0} min"
+    },
+    "second" : {
+      "current" : "now",
+      "past" : "-{0} s",
+      "future" : "+{0} s"
+    },
+    "month" : {
+      "current" : "Dan ix-xahar",
+      "future" : "+{0} m",
+      "previous" : "Ix-xahar li għadda",
+      "next" : "Ix-xahar id-dieħel",
+      "past" : "-{0} m"
+    },
+    "year" : {
+      "future" : "+{0} y",
+      "previous" : "Is-sena li għaddiet",
+      "next" : "Is-sena d-dieħla",
+      "current" : "din is-sena",
+      "past" : {
+        "other" : "{0} snin ilu",
+        "one" : "{0} sena ilu"
+      }
+    }
+  }
+}

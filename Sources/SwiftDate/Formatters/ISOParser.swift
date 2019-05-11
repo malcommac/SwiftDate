@@ -1,9 +1,13 @@
 //
-//  ISOParser.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 06/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 // swiftlint:disable file_length
@@ -913,15 +917,15 @@ public class ISOParser: StringToDateTransformable {
 		return (parser.parsedDate, parser.parsedTimeZone)
 	}
 
-	public static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion? {
+	public static func parse(_ string: String, region: Region?, options: Any?) -> DateInRegion? {
 		let formatOptions = options as? ISOParser.Options
 		guard let parser = ISOParser(string, options: formatOptions),
 			let date = parser.parsedDate else {
 			return nil
 		}
-		let parsedRegion = Region(calendar: region.calendar,
-								  zone: (parser.parsedTimeZone ?? region.timeZone),
-								  locale: region.locale)
+		let parsedRegion = Region(calendar: region?.calendar ?? Region.ISO.calendar,
+								  zone: (region?.timeZone ?? parser.parsedTimeZone ?? Region.ISO.timeZone),
+								  locale: region?.locale ?? Region.ISO.locale)
 		return DateInRegion(date, region: parsedRegion)
 	}
 

@@ -1,9 +1,13 @@
 //
-//  TestDateInRegion+Math.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 19/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 import SwiftDate
@@ -94,6 +98,24 @@ class TestDateInRegion_Math: XCTestCase {
 		let finalDate5 = (date1 + [Calendar.Component.day: 20, Calendar.Component.hour: 10]).toFormat(dateFormat)
 		XCTAssert( (finalDate5 == "2017-08-11 10:00:00"), "Failed to add components dict and get the exact final date")
 
-	}
+    }
+
+    func testNextWeekday() {
+        let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+        let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let date1 = DateInRegion("2019-05-11 00:00:00", format: dateFormat, region: regionRome)!
+        let nextFriday = date1.nextWeekday(.friday)
+        XCTAssert(nextFriday.toISO() == "2019-05-17T00:00:00+02:00", "Failed to get the next weekday from date")
+    }
+
+    func testDateAtWeekdayOrdinal() {
+        let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+        let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let date1 = DateInRegion("2019-05-11 00:00:00", format: dateFormat, region: regionRome)!
+        let result = date1.dateAt(weekdayOrdinal: 3, weekday: .friday, monthNumber: date1.month + 1)
+        XCTAssert(result.toISO() == "2019-06-21T00:00:00+02:00", "Failed to get the next weekday from date")
+    }
 
 }

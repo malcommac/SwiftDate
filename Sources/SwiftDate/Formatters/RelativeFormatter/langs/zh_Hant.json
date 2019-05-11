@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "now" : "現在",
+    "week" : {
+      "next" : "下週",
+      "current" : "本週",
+      "past" : "{0} 週前",
+      "future" : "{0} 週後",
+      "previous" : "上週"
+    },
+    "quarter" : {
+      "previous" : "上一季",
+      "next" : "下一季",
+      "future" : "{0} 季後",
+      "current" : "這一季",
+      "past" : "{0} 季前"
+    },
+    "day" : {
+      "future" : "{0} 天後",
+      "previous" : "昨天",
+      "next" : "明天",
+      "past" : "{0} 天前",
+      "current" : "今天"
+    },
+    "hour" : {
+      "current" : "這一小時",
+      "past" : "{0} 小時前",
+      "future" : "{0} 小時後"
+    },
+    "second" : {
+      "future" : "{0} 秒後",
+      "current" : "現在",
+      "past" : "{0} 秒前"
+    },
+    "month" : {
+      "past" : "{0} 個月前",
+      "future" : "{0} 個月後",
+      "current" : "本月",
+      "previous" : "上個月",
+      "next" : "下個月"
+    },
+    "minute" : {
+      "future" : "{0} 分鐘後",
+      "current" : "這一分鐘",
+      "past" : "{0} 分鐘前"
+    },
+    "year" : {
+      "next" : "明年",
+      "future" : "{0} 年後",
+      "previous" : "去年",
+      "current" : "今年",
+      "past" : "{0} 年前"
+    }
+  },
+  "long" : {
+    "day" : {
+      "future" : "{0} 天後",
+      "past" : "{0} 天前",
+      "current" : "今天",
+      "next" : "明天",
+      "previous" : "昨天"
+    },
+    "second" : {
+      "past" : "{0} 秒前",
+      "current" : "現在",
+      "future" : "{0} 秒後"
+    },
+    "quarter" : {
+      "current" : "這一季",
+      "next" : "下一季",
+      "previous" : "上一季",
+      "future" : "{0} 季後",
+      "past" : "{0} 季前"
+    },
+    "month" : {
+      "future" : "{0} 個月後",
+      "previous" : "上個月",
+      "past" : "{0} 個月前",
+      "next" : "下個月",
+      "current" : "本月"
+    },
+    "week" : {
+      "future" : "{0} 週後",
+      "past" : "{0} 週前",
+      "current" : "本週",
+      "previous" : "上週",
+      "next" : "下週"
+    },
+    "hour" : {
+      "future" : "{0} 小時後",
+      "current" : "這一小時",
+      "past" : "{0} 小時前"
+    },
+    "minute" : {
+      "future" : "{0} 分鐘後",
+      "past" : "{0} 分鐘前",
+      "current" : "這一分鐘"
+    },
+    "now" : "現在",
+    "year" : {
+      "future" : "{0} 年後",
+      "next" : "明年",
+      "past" : "{0} 年前",
+      "previous" : "去年",
+      "current" : "今年"
+    }
+  },
+  "short" : {
+    "hour" : {
+      "future" : "{0} 小時後",
+      "current" : "這一小時",
+      "past" : "{0} 小時前"
+    },
+    "now" : "現在",
+    "quarter" : {
+      "current" : "這一季",
+      "future" : "{0} 季後",
+      "past" : "{0} 季前",
+      "next" : "下一季",
+      "previous" : "上一季"
+    },
+    "day" : {
+      "current" : "今天",
+      "past" : "{0} 天前",
+      "future" : "{0} 天後",
+      "next" : "明天",
+      "previous" : "昨天"
+    },
+    "week" : {
+      "current" : "本週",
+      "past" : "{0} 週前",
+      "future" : "{0} 週後",
+      "next" : "下週",
+      "previous" : "上週"
+    },
+    "minute" : {
+      "past" : "{0} 分鐘前",
+      "future" : "{0} 分鐘後",
+      "current" : "這一分鐘"
+    },
+    "second" : {
+      "past" : "{0} 秒前",
+      "current" : "現在",
+      "future" : "{0} 秒後"
+    },
+    "month" : {
+      "current" : "本月",
+      "future" : "{0} 個月後",
+      "previous" : "上個月",
+      "next" : "下個月",
+      "past" : "{0} 個月前"
+    },
+    "year" : {
+      "future" : "{0} 年後",
+      "previous" : "去年",
+      "next" : "明年",
+      "current" : "今年",
+      "past" : "{0} 年前"
+    }
+  }
+}

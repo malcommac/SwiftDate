@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "quarter" : {
+      "current" : "this quarter",
+      "past" : "-{0} Q",
+      "next" : "next quarter",
+      "future" : "+{0} Q",
+      "previous" : "last quarter"
+    },
+    "day" : {
+      "next" : "ئەتە",
+      "previous" : "تۈنۈگۈن",
+      "future" : "{0} كۈندىن كېيىن",
+      "past" : "{0} كۈن ئىلگىرى",
+      "current" : "بۈگۈن"
+    },
+    "year" : {
+      "past" : "{0} يىل ئىلگىرى",
+      "previous" : "ئۆتكەن يىل",
+      "future" : "{0} يىلدىن كېيىن",
+      "next" : "كېلەر يىل",
+      "current" : "بۇ يىل"
+    },
+    "minute" : {
+      "past" : "{0} مىنۇت ئىلگىرى",
+      "future" : "{0} مىنۇتتىن كېيىن",
+      "current" : "this minute"
+    },
+    "now" : "now",
+    "week" : {
+      "current" : "بۇ ھەپتە",
+      "previous" : "ئۆتكەن ھەپتە",
+      "past" : "{0} ھەپتە ئىلگىرى",
+      "next" : "كېلەر ھەپتە",
+      "future" : "{0} ھەپتىدىن كېيىن"
+    },
+    "second" : {
+      "past" : "{0} سېكۇنت ئىلگىرى",
+      "future" : "{0} سېكۇنتتىن كېيىن",
+      "current" : "now"
+    },
+    "month" : {
+      "future" : "{0} ئايدىن كېيىن",
+      "current" : "بۇ ئاي",
+      "past" : "{0} ئاي ئىلگىرى",
+      "previous" : "ئۆتكەن ئاي",
+      "next" : "كېلەر ئاي"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "past" : "{0} سائەت ئىلگىرى",
+      "future" : "{0} سائەتتىن كېيىن"
+    }
+  },
+  "long" : {
+    "year" : {
+      "next" : "كېلەر يىل",
+      "previous" : "ئۆتكەن يىل",
+      "past" : "{0} يىل ئىلگىرى",
+      "future" : "{0} يىلدىن كېيىن",
+      "current" : "بۇ يىل"
+    },
+    "now" : "now",
+    "quarter" : {
+      "next" : "next quarter",
+      "past" : "-{0} Q",
+      "future" : "+{0} Q",
+      "current" : "this quarter",
+      "previous" : "last quarter"
+    },
+    "month" : {
+      "past" : "{0} ئاي ئىلگىرى",
+      "next" : "كېلەر ئاي",
+      "previous" : "ئۆتكەن ئاي",
+      "future" : "{0} ئايدىن كېيىن",
+      "current" : "بۇ ئاي"
+    },
+    "second" : {
+      "current" : "now",
+      "future" : "{0} سېكۇنتتىن كېيىن",
+      "past" : "{0} سېكۇنت ئىلگىرى"
+    },
+    "week" : {
+      "past" : "{0} ھەپتە ئىلگىرى",
+      "previous" : "ئۆتكەن ھەپتە",
+      "future" : "{0} ھەپتىدىن كېيىن",
+      "next" : "كېلەر ھەپتە",
+      "current" : "بۇ ھەپتە"
+    },
+    "day" : {
+      "next" : "ئەتە",
+      "future" : "{0} كۈندىن كېيىن",
+      "previous" : "تۈنۈگۈن",
+      "current" : "بۈگۈن",
+      "past" : "{0} كۈن ئىلگىرى"
+    },
+    "minute" : {
+      "current" : "this minute",
+      "past" : "{0} مىنۇت ئىلگىرى",
+      "future" : "{0} مىنۇتتىن كېيىن"
+    },
+    "hour" : {
+      "past" : "{0} سائەت ئىلگىرى",
+      "future" : "{0} سائەتتىن كېيىن",
+      "current" : "this hour"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "current" : "this minute",
+      "past" : "{0} مىنۇت ئىلگىرى",
+      "future" : "{0} مىنۇتتىن كېيىن"
+    },
+    "week" : {
+      "future" : "{0} ھەپتىدىن كېيىن",
+      "previous" : "ئۆتكەن ھەپتە",
+      "next" : "كېلەر ھەپتە",
+      "current" : "بۇ ھەپتە",
+      "past" : "{0} ھەپتە ئىلگىرى"
+    },
+    "year" : {
+      "current" : "بۇ يىل",
+      "previous" : "ئۆتكەن يىل",
+      "future" : "{0} يىلدىن كېيىن",
+      "past" : "{0} يىل ئىلگىرى",
+      "next" : "كېلەر يىل"
+    },
+    "month" : {
+      "next" : "كېلەر ئاي",
+      "past" : "{0} ئاي ئىلگىرى",
+      "future" : "{0} ئايدىن كېيىن",
+      "previous" : "ئۆتكەن ئاي",
+      "current" : "بۇ ئاي"
+    },
+    "quarter" : {
+      "next" : "next quarter",
+      "past" : "-{0} Q",
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "future" : "+{0} Q"
+    },
+    "day" : {
+      "current" : "بۈگۈن",
+      "previous" : "تۈنۈگۈن",
+      "past" : "{0} كۈن ئىلگىرى",
+      "next" : "ئەتە",
+      "future" : "{0} كۈندىن كېيىن"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "past" : "{0} سائەت ئىلگىرى",
+      "future" : "{0} سائەتتىن كېيىن"
+    },
+    "second" : {
+      "future" : "{0} سېكۇنتتىن كېيىن",
+      "current" : "now",
+      "past" : "{0} سېكۇنت ئىلگىرى"
+    },
+    "now" : "now"
+  }
+}

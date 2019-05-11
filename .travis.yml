@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10.1
+osx_image: xcode10.2
 
 env:
   global:
@@ -11,8 +11,8 @@ env:
   - TVOS_FRAMEWORK_SCHEME="SwiftDate-tvOS"
   - WATCHOS_FRAMEWORK_SCHEME="SwiftDate-watchOS"
   matrix:
-    - DESTINATION="OS=11.3,name=iPhone X"          SCHEME="$IOS_FRAMEWORK_SCHEME"
-    - DESTINATION="OS=11.3,name=Apple TV 4K"       SCHEME="$TVOS_FRAMEWORK_SCHEME"
+    - DESTINATION="OS=12.2,name=iPhone X"          SCHEME="$IOS_FRAMEWORK_SCHEME"
+    - DESTINATION="OS=12.2,name=Apple TV 4K"       SCHEME="$TVOS_FRAMEWORK_SCHEME"
     - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"
 
 script:

@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "quarter" : {
+      "past" : "{0} chorak oldin",
+      "future" : "{0} chorakdan keyin",
+      "current" : "shu chorak",
+      "previous" : "o‘tgan chorak",
+      "next" : "keyingi chorak"
+    },
+    "year" : {
+      "previous" : "oʻtgan yil",
+      "next" : "keyingi yil",
+      "future" : "{0} yildan keyin",
+      "current" : "bu yil",
+      "past" : "{0} yil oldin"
+    },
+    "week" : {
+      "future" : "{0} haftadan keyin",
+      "previous" : "o‘tgan hafta",
+      "next" : "keyingi hafta",
+      "past" : "{0} hafta oldin",
+      "current" : "shu hafta"
+    },
+    "day" : {
+      "current" : "bugun",
+      "past" : "{0} kun oldin",
+      "next" : "ertaga",
+      "future" : "{0} kundan keyin",
+      "previous" : "kecha"
+    },
+    "hour" : {
+      "current" : "shu soatda",
+      "past" : "{0} soat oldin",
+      "future" : "{0} soatdan keyin"
+    },
+    "minute" : {
+      "future" : "{0} daqiqadan keyin",
+      "current" : "shu daqiqada",
+      "past" : "{0} daqiqa oldin"
+    },
+    "month" : {
+      "next" : "keyingi oy",
+      "current" : "shu oy",
+      "past" : "{0} oy oldin",
+      "future" : "{0} oydan keyin",
+      "previous" : "o‘tgan oy"
+    },
+    "now" : "hozir",
+    "second" : {
+      "future" : "{0} soniyadan keyin",
+      "current" : "hozir",
+      "past" : "{0} soniya oldin"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "past" : "{0} daqiqa oldin",
+      "future" : "{0} daqiqadan keyin",
+      "current" : "shu daqiqada"
+    },
+    "week" : {
+      "current" : "shu hafta",
+      "past" : "{0} hafta oldin",
+      "future" : "{0} haftadan keyin",
+      "next" : "keyingi hafta",
+      "previous" : "o‘tgan hafta"
+    },
+    "year" : {
+      "future" : "{0} yildan keyin",
+      "previous" : "oʻtgan yil",
+      "next" : "keyingi yil",
+      "current" : "bu yil",
+      "past" : "{0} yil oldin"
+    },
+    "day" : {
+      "next" : "ertaga",
+      "current" : "bugun",
+      "previous" : "kecha",
+      "past" : "{0} kun oldin",
+      "future" : "{0} kundan keyin"
+    },
+    "hour" : {
+      "future" : "{0} soatdan keyin",
+      "current" : "shu soatda",
+      "past" : "{0} soat oldin"
+    },
+    "quarter" : {
+      "current" : "shu chorak",
+      "future" : "{0} chorakdan keyin",
+      "previous" : "o‘tgan chorak",
+      "next" : "keyingi chorak",
+      "past" : "{0} chorak oldin"
+    },
+    "second" : {
+      "past" : "{0} soniya oldin",
+      "current" : "hozir",
+      "future" : "{0} soniyadan keyin"
+    },
+    "month" : {
+      "current" : "shu oy",
+      "past" : "{0} oy oldin",
+      "future" : "{0} oydan keyin",
+      "next" : "keyingi oy",
+      "previous" : "o‘tgan oy"
+    },
+    "now" : "hozir"
+  },
+  "long" : {
+    "hour" : {
+      "future" : "{0} soatdan keyin",
+      "current" : "shu soatda",
+      "past" : "{0} soat oldin"
+    },
+    "day" : {
+      "next" : "ertaga",
+      "past" : "{0} kun oldin",
+      "previous" : "kecha",
+      "future" : "{0} kundan keyin",
+      "current" : "bugun"
+    },
+    "second" : {
+      "past" : "{0} soniya oldin",
+      "current" : "hozir",
+      "future" : "{0} soniyadan keyin"
+    },
+    "week" : {
+      "future" : "{0} haftadan keyin",
+      "past" : "{0} hafta oldin",
+      "current" : "shu hafta",
+      "next" : "keyingi hafta",
+      "previous" : "o‘tgan hafta"
+    },
+    "minute" : {
+      "future" : "{0} daqiqadan keyin",
+      "past" : "{0} daqiqa oldin",
+      "current" : "shu daqiqada"
+    },
+    "month" : {
+      "future" : "{0} oydan keyin",
+      "past" : "{0} oy oldin",
+      "current" : "shu oy",
+      "previous" : "o‘tgan oy",
+      "next" : "keyingi oy"
+    },
+    "now" : "hozir",
+    "year" : {
+      "current" : "shu yil",
+      "next" : "keyingi yil",
+      "previous" : "o‘tgan yil",
+      "future" : "{0} yildan keyin",
+      "past" : "{0} yil oldin"
+    },
+    "quarter" : {
+      "future" : "{0} chorakdan keyin",
+      "previous" : "o‘tgan chorak",
+      "past" : "{0} chorak oldin",
+      "next" : "keyingi chorak",
+      "current" : "shu chorak"
+    }
+  }
+}

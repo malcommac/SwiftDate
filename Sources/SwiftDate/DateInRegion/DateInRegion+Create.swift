@@ -1,9 +1,13 @@
 //
-//  DateInRegion+Operations.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 06/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 import Foundation
@@ -94,10 +98,10 @@ public extension DateInRegion {
 		return list.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
 	}
 
-	/// Return the oldest date in given list (timezone is ignored, comparison uses absolute date).
+	/// Return the newest date in given list (timezone is ignored, comparison uses absolute date).
 	///
 	/// - Parameter list: list of dates
-	/// - Returns: a tuple with the index of the oldest date and its instance.
+	/// - Returns: a tuple with the index of the newest date and its instance.
 	static func newestIn(list: [DateInRegion]) -> DateInRegion? {
 		guard list.count > 0 else { return nil }
 		guard list.count > 1 else { return list.first! }
@@ -526,4 +530,61 @@ public extension DateInRegion {
 		return dateOccurrences
 	}
 
+}
+
+public extension DateInRegion {
+
+    /// Returns the date at the given week number and week day preserving smaller components (hour, minute, seconds)
+    ///
+    /// For example: to get the third friday of next month
+    ///         let today = DateInRegion()
+    ///         let result = today.dateAt(weekdayOrdinal: 3, weekday: .friday, monthNumber: today.month + 1)
+    ///
+    /// - Parameters:
+    ///     - weekdayOrdinal: the week number (by set position in a recurrence rule)
+    ///     - weekday: WeekDay
+    ///     - monthNumber: a number from 1 to 12 representing the month, optional parameter
+    ///     - yearNumber: a number representing the year, optional parameter
+    /// - Returns: new date created with the given parameters
+    func dateAt(weekdayOrdinal: Int, weekday: WeekDay, monthNumber: Int? = nil,
+                yearNumber: Int? = nil) -> DateInRegion {
+        let monthNum = monthNumber ?? month
+        let yearNum = yearNumber ?? year
+
+        var requiredWeekNum = weekdayOrdinal
+        var result = DateInRegion(year: yearNum, month: monthNum, day: 1, hour: hour,
+                                  minute: minute, second: second, nanosecond: nanosecond, region: region)
+
+        if result.weekday == weekday.rawValue {
+            requiredWeekNum -= 1
+        }
+
+        while requiredWeekNum > 0 {
+            result = result.nextWeekday(weekday)
+            requiredWeekNum -= 1
+        }
+
+        return result
+    }
+
+    /// Returns the next weekday preserving smaller components (hour, minute, seconds)
+    ///
+    /// - Parameters:
+    ///   - weekday: weekday to get.
+    ///   - region: region target, omit to use `SwiftDate.defaultRegion`
+    /// - Returns: `DateInRegion`
+    func nextWeekday(_ weekday: WeekDay) -> DateInRegion {
+        var components = DateComponents()
+        components.weekday = weekday.rawValue
+        components.hour = hour
+        components.second = second
+        components.minute = minute
+
+        guard let next = region.calendar.nextDate(after: date, matching: components,
+                                                  matchingPolicy: .nextTimePreservingSmallerComponents) else {
+                                                    return self
+        }
+
+        return DateInRegion(next, region: region)
+    }
 }

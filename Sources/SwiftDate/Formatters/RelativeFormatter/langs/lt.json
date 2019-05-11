@@ -1,0 +1,228 @@
+{
+  "narrow" : {
+    "quarter" : {
+      "past" : "prieš {0} ketv.",
+      "future" : "po {0} ketv.",
+      "current" : "šis ketvirtis",
+      "previous" : "praėjęs ketvirtis",
+      "next" : "kitas ketvirtis"
+    },
+    "year" : {
+      "previous" : "praėjusiais metais",
+      "next" : "kitais metais",
+      "future" : "po {0} m.",
+      "current" : "šiais metais",
+      "past" : "prieš {0} m."
+    },
+    "week" : {
+      "future" : "po {0} sav.",
+      "previous" : "praėjusią savaitę",
+      "next" : "kitą savaitę",
+      "past" : "prieš {0} sav.",
+      "current" : "šią savaitę"
+    },
+    "day" : {
+      "current" : "šiandien",
+      "past" : "prieš {0} d.",
+      "next" : "rytoj",
+      "future" : "po {0} d.",
+      "previous" : "vakar"
+    },
+    "hour" : {
+      "current" : "šią valandą",
+      "past" : "prieš {0} val.",
+      "future" : "po {0} val."
+    },
+    "minute" : {
+      "future" : "po {0} min.",
+      "current" : "šią minutę",
+      "past" : "prieš {0} min."
+    },
+    "month" : {
+      "next" : "kitą mėnesį",
+      "current" : "šį mėnesį",
+      "past" : "prieš {0} mėn.",
+      "future" : "po {0} mėn.",
+      "previous" : "praėjusį mėnesį"
+    },
+    "now" : "dabar",
+    "second" : {
+      "future" : "po {0} s",
+      "current" : "dabar",
+      "past" : "prieš {0} s"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "past" : "prieš {0} min.",
+      "future" : "po {0} min.",
+      "current" : "šią minutę"
+    },
+    "week" : {
+      "current" : "šią savaitę",
+      "past" : "prieš {0} sav.",
+      "future" : "po {0} sav.",
+      "next" : "kitą savaitę",
+      "previous" : "praėjusią savaitę"
+    },
+    "year" : {
+      "future" : "po {0} m.",
+      "previous" : "praėjusiais metais",
+      "next" : "kitais metais",
+      "current" : "šiais metais",
+      "past" : "prieš {0} m."
+    },
+    "day" : {
+      "next" : "rytoj",
+      "current" : "šiandien",
+      "previous" : "vakar",
+      "past" : "prieš {0} d.",
+      "future" : "po {0} d."
+    },
+    "hour" : {
+      "future" : "po {0} val.",
+      "current" : "šią valandą",
+      "past" : "prieš {0} val."
+    },
+    "quarter" : {
+      "current" : "šis ketvirtis",
+      "future" : "po {0} ketv.",
+      "previous" : "praėjęs ketvirtis",
+      "next" : "kitas ketvirtis",
+      "past" : "prieš {0} ketv."
+    },
+    "second" : {
+      "past" : "prieš {0} sek.",
+      "current" : "dabar",
+      "future" : "po {0} sek."
+    },
+    "month" : {
+      "current" : "šį mėnesį",
+      "past" : "prieš {0} mėn.",
+      "future" : "po {0} mėn.",
+      "next" : "kitą mėnesį",
+      "previous" : "praėjusį mėnesį"
+    },
+    "now" : "dabar"
+  },
+  "long" : {
+    "quarter" : {
+      "next" : "kitas ketvirtis",
+      "current" : "šis ketvirtis",
+      "future" : {
+        "many" : "po {0} ketvirčio",
+        "one" : "po {0} ketvirčio",
+        "other" : "po {0} ketvirčių"
+      },
+      "previous" : "praėjęs ketvirtis",
+      "past" : {
+        "few" : "prieš {0} ketvirčius",
+        "one" : "prieš {0} ketvirtį",
+        "many" : "prieš {0} ketvirčio",
+        "other" : "prieš {0} ketvirčių"
+      }
+    },
+    "day" : {
+      "next" : "rytoj",
+      "past" : {
+        "few" : "prieš {0} dienas",
+        "one" : "prieš {0} dieną",
+        "many" : "prieš {0} dienos",
+        "other" : "prieš {0} dienų"
+      },
+      "previous" : "vakar",
+      "current" : "šiandien",
+      "future" : {
+        "other" : "po {0} dienų",
+        "many" : "po {0} dienos",
+        "one" : "po {0} dienos"
+      }
+    },
+    "week" : {
+      "current" : "šią savaitę",
+      "next" : "kitą savaitę",
+      "past" : {
+        "one" : "prieš {0} savaitę",
+        "few" : "prieš {0} savaites",
+        "other" : "prieš {0} savaičių",
+        "many" : "prieš {0} savaitės"
+      },
+      "future" : {
+        "one" : "po {0} savaitės",
+        "other" : "po {0} savaičių",
+        "many" : "po {0} savaitės"
+      },
+      "previous" : "praėjusią savaitę"
+    },
+    "month" : {
+      "current" : "šį mėnesį",
+      "future" : {
+        "one" : "po {0} mėnesio",
+        "many" : "po {0} mėnesio",
+        "other" : "po {0} mėnesių"
+      },
+      "next" : "kitą mėnesį",
+      "previous" : "praėjusį mėnesį",
+      "past" : {
+        "one" : "prieš {0} mėnesį",
+        "many" : "prieš {0} mėnesio",
+        "other" : "prieš {0} mėnesių",
+        "few" : "prieš {0} mėnesius"
+      }
+    },
+    "second" : {
+      "future" : {
+        "one" : "po {0} sekundės",
+        "many" : "po {0} sekundės",
+        "other" : "po {0} sekundžių"
+      },
+      "current" : "dabar",
+      "past" : {
+        "many" : "prieš {0} sekundės",
+        "one" : "prieš {0} sekundę",
+        "few" : "prieš {0} sekundes",
+        "other" : "prieš {0} sekundžių"
+      }
+    },
+    "year" : {
+      "current" : "šiais metais",
+      "next" : "kitais metais",
+      "previous" : "praėjusiais metais",
+      "future" : "po {0} metų",
+      "past" : {
+        "other" : "prieš {0} metų",
+        "one" : "prieš {0} metus",
+        "few" : "prieš {0} metus"
+      }
+    },
+    "hour" : {
+      "past" : {
+        "one" : "prieš {0} valandą",
+        "other" : "prieš {0} valandų",
+        "few" : "prieš {0} valandas",
+        "many" : "prieš {0} valandos"
+      },
+      "future" : {
+        "many" : "po {0} valandos",
+        "other" : "po {0} valandų",
+        "one" : "po {0} valandos"
+      },
+      "current" : "šią valandą"
+    },
+    "now" : "dabar",
+    "minute" : {
+      "current" : "šią minutę",
+      "future" : {
+        "one" : "po {0} minutės",
+        "other" : "po {0} minučių",
+        "many" : "po {0} minutės"
+      },
+      "past" : {
+        "other" : "prieš {0} minučių",
+        "many" : "prieš {0} minutės",
+        "one" : "prieš {0} minutę",
+        "few" : "prieš {0} minutes"
+      }
+    }
+  }
+}

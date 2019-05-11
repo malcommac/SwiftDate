@@ -1,0 +1,185 @@
+{
+  "narrow" : {
+    "second" : {
+      "future" : "+{0} s",
+      "past" : "-{0} s",
+      "current" : "now"
+    },
+    "year" : {
+      "previous" : "läz Johr",
+      "next" : "näx Johr",
+      "future" : {
+        "zero" : "en keinem Johr",
+        "other" : "en {0} Johre",
+        "one" : "en {0} Johr"
+      },
+      "current" : "diß Johr",
+      "past" : {
+        "other" : "vör {0} Johre",
+        "zero" : "vör keijnem Johr",
+        "one" : "vör {0} Johr"
+      }
+    },
+    "month" : {
+      "past" : "-{0} m",
+      "next" : "nächste Mohnd",
+      "future" : "+{0} m",
+      "previous" : "lätzde Mohnd",
+      "current" : "diese Mohnd"
+    },
+    "minute" : {
+      "past" : "-{0} min",
+      "current" : "this minute",
+      "future" : "+{0} min"
+    },
+    "quarter" : {
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "next" : "next quarter",
+      "past" : "-{0} Q",
+      "future" : "+{0} Q"
+    },
+    "hour" : {
+      "future" : "+{0} h",
+      "past" : "-{0} h",
+      "current" : "this hour"
+    },
+    "now" : "now",
+    "week" : {
+      "next" : "nächste Woche",
+      "previous" : "läz Woch",
+      "past" : "-{0} w",
+      "future" : "+{0} w",
+      "current" : "di Woch"
+    },
+    "day" : {
+      "previous" : "jestere",
+      "future" : "+{0} d",
+      "past" : "-{0} d",
+      "current" : "hück",
+      "next" : "morje"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "current" : "this minute",
+      "past" : "-{0} min",
+      "future" : "+{0} min"
+    },
+    "week" : {
+      "current" : "di Woch",
+      "past" : "-{0} w",
+      "future" : "+{0} w",
+      "next" : "nächste Woche",
+      "previous" : "läz Woch"
+    },
+    "year" : {
+      "future" : {
+        "one" : "en {0} Johr",
+        "zero" : "en keinem Johr",
+        "other" : "en {0} Johre"
+      },
+      "previous" : "läz Johr",
+      "next" : "näx Johr",
+      "current" : "diß Johr",
+      "past" : {
+        "zero" : "vör keijnem Johr",
+        "other" : "vör {0} Johre",
+        "one" : "vör {0} Johr"
+      }
+    },
+    "day" : {
+      "next" : "morje",
+      "current" : "hück",
+      "previous" : "jestere",
+      "past" : "-{0} d",
+      "future" : "+{0} d"
+    },
+    "hour" : {
+      "past" : "-{0} h",
+      "current" : "this hour",
+      "future" : "+{0} h"
+    },
+    "quarter" : {
+      "current" : "this quarter",
+      "future" : "+{0} Q",
+      "previous" : "last quarter",
+      "next" : "next quarter",
+      "past" : "-{0} Q"
+    },
+    "second" : {
+      "future" : "+{0} s",
+      "current" : "now",
+      "past" : "-{0} s"
+    },
+    "month" : {
+      "current" : "diese Mohnd",
+      "past" : "-{0} m",
+      "future" : "+{0} m",
+      "next" : "nächste Mohnd",
+      "previous" : "lätzde Mohnd"
+    },
+    "now" : "now"
+  },
+  "long" : {
+    "minute" : {
+      "past" : "-{0} min",
+      "future" : "+{0} min",
+      "current" : "this minute"
+    },
+    "now" : "now",
+    "week" : {
+      "previous" : "läz Woch",
+      "past" : "-{0} w",
+      "future" : "+{0} w",
+      "current" : "di Woch",
+      "next" : "nächste Woche"
+    },
+    "quarter" : {
+      "next" : "next quarter",
+      "past" : "-{0} Q",
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "future" : "+{0} Q"
+    },
+    "hour" : {
+      "future" : "+{0} h",
+      "current" : "this hour",
+      "past" : "-{0} h"
+    },
+    "day" : {
+      "current" : "hück",
+      "future" : "+{0} d",
+      "next" : "morje",
+      "previous" : "jestere",
+      "past" : "-{0} d"
+    },
+    "month" : {
+      "next" : "nächste Mohnd",
+      "past" : "-{0} m",
+      "future" : "+{0} m",
+      "previous" : "lätzde Mohnd",
+      "current" : "diese Mohnd"
+    },
+    "second" : {
+      "current" : "now",
+      "future" : "+{0} s",
+      "past" : "-{0} s"
+    },
+    "year" : {
+      "next" : "näx Johr",
+      "current" : "diß Johr",
+      "future" : {
+        "other" : "en {0} Johre",
+        "zero" : "en keinem Johr",
+        "one" : "en {0} Johr"
+      },
+      "previous" : "läz Johr",
+      "past" : {
+        "zero" : "vör keijnem Johr",
+        "other" : "vör {0} Johre",
+        "one" : "vör {0} Johr"
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "year" : {
+      "future" : "{0} a pärast",
+      "previous" : "eelmine aasta",
+      "next" : "järgmine aasta",
+      "current" : "käesolev aasta",
+      "past" : "{0} a eest"
+    },
+    "week" : {
+      "past" : "{0} näd eest",
+      "previous" : "eelmine nädal",
+      "future" : "{0} näd pärast",
+      "current" : "käesolev nädal",
+      "next" : "järgmine nädal"
+    },
+    "hour" : {
+      "past" : "{0} t eest",
+      "future" : "{0} t pärast",
+      "current" : "praegusel tunnil"
+    },
+    "quarter" : {
+      "current" : "käesolev kv",
+      "previous" : "eelmine kv",
+      "future" : "{0} kv pärast",
+      "past" : "{0} kv eest",
+      "next" : "järgmine kv"
+    },
+    "second" : {
+      "future" : "{0} s pärast",
+      "current" : "nüüd",
+      "past" : "{0} s eest"
+    },
+    "month" : {
+      "current" : "käesolev kuu",
+      "future" : "{0} k pärast",
+      "past" : "{0} k eest",
+      "next" : "järgmine kuu",
+      "previous" : "eelmine kuu"
+    },
+    "day" : {
+      "previous" : "eile",
+      "future" : "{0} p pärast",
+      "next" : "homme",
+      "current" : "täna",
+      "past" : "{0} p eest"
+    },
+    "minute" : {
+      "future" : "{0} min pärast",
+      "current" : "praegusel minutil",
+      "past" : "{0} min eest"
+    },
+    "now" : "nüüd"
+  },
+  "long" : {
+    "quarter" : {
+      "next" : "järgmine kvartal",
+      "current" : "käesolev kvartal",
+      "previous" : "eelmine kvartal",
+      "past" : "{0} kvartali eest",
+      "future" : "{0} kvartali pärast"
+    },
+    "now" : "nüüd",
+    "year" : {
+      "previous" : "eelmine aasta",
+      "past" : "{0} aasta eest",
+      "future" : "{0} aasta pärast",
+      "next" : "järgmine aasta",
+      "current" : "käesolev aasta"
+    },
+    "month" : {
+      "previous" : "eelmine kuu",
+      "current" : "käesolev kuu",
+      "future" : "{0} kuu pärast",
+      "past" : "{0} kuu eest",
+      "next" : "järgmine kuu"
+    },
+    "day" : {
+      "previous" : "eile",
+      "future" : "{0} päeva pärast",
+      "next" : "homme",
+      "past" : "{0} päeva eest",
+      "current" : "täna"
+    },
+    "second" : {
+      "past" : "{0} sekundi eest",
+      "future" : "{0} sekundi pärast",
+      "current" : "nüüd"
+    },
+    "week" : {
+      "past" : "{0} nädala eest",
+      "current" : "käesolev nädal",
+      "next" : "järgmine nädal",
+      "previous" : "eelmine nädal",
+      "future" : "{0} nädala pärast"
+    },
+    "hour" : {
+      "future" : "{0} tunni pärast",
+      "current" : "praegusel tunnil",
+      "past" : "{0} tunni eest"
+    },
+    "minute" : {
+      "current" : "praegusel minutil",
+      "past" : "{0} minuti eest",
+      "future" : "{0} minuti pärast"
+    }
+  },
+  "short" : {
+    "second" : {
+      "current" : "nüüd",
+      "past" : "{0} sek eest",
+      "future" : "{0} sek pärast"
+    },
+    "now" : "nüüd",
+    "month" : {
+      "future" : "{0} kuu pärast",
+      "current" : "käesolev kuu",
+      "past" : "{0} kuu eest",
+      "previous" : "eelmine kuu",
+      "next" : "järgmine kuu"
+    },
+    "day" : {
+      "previous" : "eile",
+      "current" : "täna",
+      "next" : "homme",
+      "future" : "{0} p pärast",
+      "past" : "{0} p eest"
+    },
+    "minute" : {
+      "current" : "praegusel minutil",
+      "future" : "{0} min pärast",
+      "past" : "{0} min eest"
+    },
+    "quarter" : {
+      "past" : "{0} kv eest",
+      "previous" : "eelmine kv",
+      "current" : "käesolev kv",
+      "future" : "{0} kv pärast",
+      "next" : "järgmine kv"
+    },
+    "hour" : {
+      "current" : "praegusel tunnil",
+      "future" : "{0} t pärast",
+      "past" : "{0} t eest"
+    },
+    "week" : {
+      "future" : "{0} näd pärast",
+      "previous" : "eelmine nädal",
+      "next" : "järgmine nädal",
+      "past" : "{0} näd eest",
+      "current" : "käesolev nädal"
+    },
+    "year" : {
+      "next" : "järgmine aasta",
+      "current" : "käesolev aasta",
+      "past" : "{0} a eest",
+      "future" : "{0} a pärast",
+      "previous" : "eelmine aasta"
+    }
+  }
+}

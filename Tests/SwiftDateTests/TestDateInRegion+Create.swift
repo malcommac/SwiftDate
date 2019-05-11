@@ -1,9 +1,13 @@
 //
-//  TestDateInRegion+Create.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 17/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 import SwiftDate
@@ -116,7 +120,7 @@ class TestDateInRegion_Create: XCTestCase {
 		}
 	}
 
-	func testDateInRegion_EnumareDates() {
+	func testDateInRegion_EnumerateDates() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 
 		// TEST DATE #1

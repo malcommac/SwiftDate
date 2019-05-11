@@ -1,0 +1,221 @@
+{
+  "narrow" : {
+    "minute" : {
+      "future" : "dentro de {0} min",
+      "past" : "hace {0} min",
+      "current" : "este minuto"
+    },
+    "year" : {
+      "past" : "hace {0} a",
+      "current" : "este año",
+      "next" : "el próximo año",
+      "previous" : "el año pasado",
+      "future" : "dentro de {0} a"
+    },
+    "now" : "ahora",
+    "second" : {
+      "past" : "hace {0} seg.",
+      "future" : "dentro de {0} seg.",
+      "current" : "ahora"
+    },
+    "day" : {
+      "previous" : "ayer",
+      "current" : "hoy",
+      "next" : "mañana",
+      "past" : {
+        "one" : "hace {0} día",
+        "other" : "hace {0} días"
+      },
+      "future" : {
+        "other" : "dentro de {0} días",
+        "one" : "dentro de {0} día"
+      }
+    },
+    "month" : {
+      "past" : "hace {0} m",
+      "current" : "este mes",
+      "next" : "el próximo mes",
+      "future" : "dentro de {0} m",
+      "previous" : "el mes pasado"
+    },
+    "week" : {
+      "next" : "la próxima semana",
+      "current" : "esta semana",
+      "past" : "hace {0} sem.",
+      "future" : "dentro de {0} sem.",
+      "previous" : "la semana pasada"
+    },
+    "quarter" : {
+      "current" : "este trimestre",
+      "future" : "dentro de {0} trim.",
+      "next" : "el próximo trimestre",
+      "past" : "hace {0} trim.",
+      "previous" : "el trimestre pasado"
+    },
+    "hour" : {
+      "future" : "dentro de {0} h",
+      "current" : "esta hora",
+      "past" : "hace {0} h"
+    }
+  },
+  "short" : {
+    "second" : {
+      "past" : "hace {0} seg.",
+      "future" : "dentro de {0} seg.",
+      "current" : "ahora"
+    },
+    "now" : "ahora",
+    "hour" : {
+      "current" : "esta hora",
+      "past" : "hace {0} h",
+      "future" : "dentro de {0} h"
+    },
+    "month" : {
+      "past" : "hace {0} m",
+      "current" : "este mes",
+      "next" : "el próximo mes",
+      "future" : "dentro de {0} m",
+      "previous" : "el mes pasado"
+    },
+    "day" : {
+      "future" : {
+        "other" : "dentro de {0} días",
+        "one" : "dentro de {0} día"
+      },
+      "current" : "hoy",
+      "previous" : "ayer",
+      "next" : "mañana",
+      "past" : {
+        "one" : "hace {0} día",
+        "other" : "hace {0} días"
+      }
+    },
+    "minute" : {
+      "future" : "dentro de {0} min",
+      "current" : "este minuto",
+      "past" : "hace {0} min"
+    },
+    "week" : {
+      "next" : "la próxima semana",
+      "past" : "hace {0} sem.",
+      "previous" : "la semana pasada",
+      "current" : "esta semana",
+      "future" : "dentro de {0} sem."
+    },
+    "quarter" : {
+      "current" : "este trimestre",
+      "future" : "dentro de {0} trim.",
+      "next" : "el próximo trimestre",
+      "previous" : "el trimestre pasado",
+      "past" : "hace {0} trim."
+    },
+    "year" : {
+      "next" : "el próximo año",
+      "current" : "este año",
+      "future" : "dentro de {0} a",
+      "past" : "hace {0} a",
+      "previous" : "el año pasado"
+    }
+  },
+  "long" : {
+    "week" : {
+      "current" : "esta semana",
+      "previous" : "la semana pasada",
+      "next" : "la próxima semana",
+      "past" : {
+        "one" : "hace {0} semana",
+        "other" : "hace {0} semanas"
+      },
+      "future" : {
+        "one" : "dentro de {0} semana",
+        "other" : "dentro de {0} semanas"
+      }
+    },
+    "hour" : {
+      "current" : "esta hora",
+      "future" : {
+        "other" : "dentro de {0} horas",
+        "one" : "dentro de {0} hora"
+      },
+      "past" : {
+        "other" : "hace {0} horas",
+        "one" : "hace {0} hora"
+      }
+    },
+    "minute" : {
+      "future" : {
+        "one" : "dentro de {0} minuto",
+        "other" : "dentro de {0} minutos"
+      },
+      "current" : "este minuto",
+      "past" : {
+        "one" : "hace {0} minuto",
+        "other" : "hace {0} minutos"
+      }
+    },
+    "day" : {
+      "previous" : "ayer",
+      "current" : "hoy",
+      "future" : {
+        "other" : "dentro de {0} días",
+        "one" : "dentro de {0} día"
+      },
+      "next" : "mañana",
+      "past" : {
+        "other" : "hace {0} días",
+        "one" : "hace {0} día"
+      }
+    },
+    "second" : {
+      "current" : "ahora",
+      "future" : {
+        "other" : "dentro de {0} segundos",
+        "one" : "dentro de {0} segundo"
+      },
+      "past" : {
+        "one" : "hace {0} segundo",
+        "other" : "hace {0} segundos"
+      }
+    },
+    "now" : "ahora",
+    "month" : {
+      "next" : "el próximo mes",
+      "future" : {
+        "other" : "dentro de {0} meses",
+        "one" : "dentro de {0} mes"
+      },
+      "previous" : "el mes pasado",
+      "current" : "este mes",
+      "past" : {
+        "other" : "hace {0} meses",
+        "one" : "hace {0} mes"
+      }
+    },
+    "quarter" : {
+      "previous" : "el trimestre pasado",
+      "future" : {
+        "one" : "dentro de {0} trimestre",
+        "other" : "dentro de {0} trimestres"
+      },
+      "current" : "este trimestre",
+      "past" : {
+        "one" : "hace {0} trimestre",
+        "other" : "hace {0} trimestres"
+      },
+      "next" : "el próximo trimestre"
+    },
+    "year" : {
+      "next" : "el próximo año",
+      "past" : {
+        "one" : "hace {0} año",
+        "other" : "hace {0} años"
+      },
+      "future" : {
+        "other" : "dentro de {0} años",
+        "one" : "dentro de {0} año"
+      },
+      "current" : "este año",
+      "previous" : "el año pasado"
+    }
+  }
+}

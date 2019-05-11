@@ -1,9 +1,13 @@
 //
-//  TestFormatters.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 19/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 import SwiftDate
@@ -434,8 +438,8 @@ class TestFormatters: XCTestCase {
 	}
 
 	func testTZInISOParser() {
-		let gmtTimezone = "2017-08-05T16:04:03".toISODate(region: Region.ISO)!
-		let timezoneInDate = "2017-08-05T16:04:03+02:00".toISODate(region: Region.ISO)!
+		let gmtTimezone = "2017-08-05T16:04:03".toISODate(region: Region.ISO)! // force timezone
+		let timezoneInDate = "2017-08-05T16:04:03+02:00".toISODate()! // parse from iso
 		XCTAssert(gmtTimezone.region.timeZone.secondsFromGMT() == 0, "ISO Date does not contains timezone (is gmt)")
 		XCTAssert(timezoneInDate.region.timeZone.secondsFromGMT() == 7200, "ISO Date does not contains timezone (is gmt)")
 	}
@@ -451,14 +455,14 @@ class TestFormatters: XCTestCase {
 
 	func testTimeInterval_Clock() {
 		let value = (2.hours + 5.minutes).timeInterval.toClock()
-		XCTAssert(value == "2:05:00", "Failed to format clock")
+		XCTAssert(value == "02:05:00", "Failed to format clock")
 		#if os(Linux)
 		let zeroBehavior = DateComponentsFormatter.ZeroFormattingBehavior(rawValue: 14)
 		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: zeroBehavior)
 		XCTAssert(value2 == "54:00", "Failed to format clock")
 		#else
 		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: DateComponentsFormatter.ZeroFormattingBehavior.dropAll)
-		XCTAssert(value2 == "54:00", "Failed to format clock")
+		XCTAssert(value2 == "54", "Failed to format clock")
 		#endif
 	}
 
@@ -512,11 +516,11 @@ class TestFormatters: XCTestCase {
 
 		let justNow3 = DateInRegion() - 1.minutes
 		let r5 = justNow3.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
-		XCTAssert(r5 == "1m", "Failed to use colloquial formatter")
+		XCTAssert(r5 == "1 min. ago", "Failed to use colloquial formatter")
 
 		let justNow4 = DateInRegion() - 51.seconds
 		let r6 = justNow4.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
-		XCTAssert(r6 == "1m", "Failed to use colloquial formatter")
+		XCTAssert(r6 == "1 min. ago", "Failed to use colloquial formatter")
 	}
 
 	func testISOParser() {

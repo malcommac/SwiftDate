@@ -52,6 +52,8 @@ The following documentation explore all the major features of the library. If yo
 - [3.11 - Enumerate Dates for Weekday in Range](3.Manipulate_Date.md#enumerateweekdays)
 - [3.12 - Random Dates](3.Manipulate_Date.md#randomdates)
 - [3.13 - Sort Dates](3.Manipulate_Date.md#sort)
+- [3.14 - Get the next weekday](3.Manipulate_Date.md#nextWeekDay)
+- [3.15 - Get date at given week number/weekday](3.Manipulate_Date.md#dateAtWeeknumberWeekday)
 
 ### [4 - Compare Dates](4.Compare_Dates.md)
 

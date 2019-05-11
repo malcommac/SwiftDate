@@ -1,0 +1,245 @@
+{
+  "narrow" : {
+    "minute" : {
+      "future" : "over {0} min.",
+      "current" : "binnen een minuut",
+      "past" : "{0} min. geleden"
+    },
+    "week" : {
+      "current" : "deze week",
+      "previous" : "vorige week",
+      "past" : {
+        "one" : "{0} week geleden",
+        "other" : "{0} weken geleden"
+      },
+      "future" : {
+        "other" : "over {0} weken",
+        "one" : "over {0} week"
+      },
+      "next" : "volgende week"
+    },
+    "quarter" : {
+      "previous" : "vorig kwartaal",
+      "current" : "dit kwartaal",
+      "past" : {
+        "other" : "{0} kwartalen geleden",
+        "one" : "{0} kwartaal geleden"
+      },
+      "next" : "volgend kwartaal",
+      "future" : {
+        "one" : "over {0} kw.",
+        "other" : "over {0} kwartalen"
+      }
+    },
+    "year" : {
+      "future" : "over {0} jaar",
+      "previous" : "vorig jaar",
+      "current" : "dit jaar",
+      "next" : "volgend jaar",
+      "past" : "{0} jaar geleden"
+    },
+    "hour" : {
+      "current" : "binnen een uur",
+      "future" : "over {0} uur",
+      "past" : "{0} uur geleden"
+    },
+    "day" : {
+      "previous" : "gisteren",
+      "current" : "vandaag",
+      "past" : {
+        "one" : "{0} dag geleden",
+        "other" : "{0} dgn geleden"
+      },
+      "future" : {
+        "other" : "over {0} dgn",
+        "one" : "over {0} dag"
+      },
+      "next" : "morgen"
+    },
+    "second" : {
+      "past" : "{0} sec. geleden",
+      "current" : "nu",
+      "future" : "over {0} sec."
+    },
+    "now" : "nu",
+    "month" : {
+      "previous" : "vorige maand",
+      "current" : "deze maand",
+      "past" : {
+        "one" : "{0} maand geleden",
+        "other" : "{0} maanden geleden"
+      },
+      "future" : {
+        "one" : "over {0} maand",
+        "other" : "over {0} maanden"
+      },
+      "next" : "volgende maand"
+    }
+  },
+  "long" : {
+    "year" : {
+      "past" : "{0} jaar geleden",
+      "future" : "over {0} jaar",
+      "previous" : "vorig jaar",
+      "next" : "volgend jaar",
+      "current" : "dit jaar"
+    },
+    "quarter" : {
+      "future" : {
+        "one" : "over {0} kwartaal",
+        "other" : "over {0} kwartalen"
+      },
+      "current" : "dit kwartaal",
+      "next" : "volgend kwartaal",
+      "past" : {
+        "one" : "{0} kwartaal geleden",
+        "other" : "{0} kwartalen geleden"
+      },
+      "previous" : "vorig kwartaal"
+    },
+    "hour" : {
+      "future" : "over {0} uur",
+      "current" : "binnen een uur",
+      "past" : "{0} uur geleden"
+    },
+    "month" : {
+      "past" : {
+        "one" : "{0} maand geleden",
+        "other" : "{0} maanden geleden"
+      },
+      "previous" : "vorige maand",
+      "current" : "deze maand",
+      "future" : {
+        "other" : "over {0} maanden",
+        "one" : "over {0} maand"
+      },
+      "next" : "volgende maand"
+    },
+    "week" : {
+      "past" : {
+        "one" : "{0} week geleden",
+        "other" : "{0} weken geleden"
+      },
+      "previous" : "vorige week",
+      "next" : "volgende week",
+      "current" : "deze week",
+      "future" : {
+        "other" : "over {0} weken",
+        "one" : "over {0} week"
+      }
+    },
+    "day" : {
+      "previous" : "gisteren",
+      "current" : "vandaag",
+      "future" : {
+        "one" : "over {0} dag",
+        "other" : "over {0} dagen"
+      },
+      "next" : "morgen",
+      "past" : {
+        "other" : "{0} dagen geleden",
+        "one" : "{0} dag geleden"
+      }
+    },
+    "minute" : {
+      "future" : {
+        "other" : "over {0} minuten",
+        "one" : "over {0} minuut"
+      },
+      "past" : {
+        "one" : "{0} minuut geleden",
+        "other" : "{0} minuten geleden"
+      },
+      "current" : "binnen een minuut"
+    },
+    "now" : "nu",
+    "second" : {
+      "current" : "nu",
+      "future" : {
+        "other" : "over {0} seconden",
+        "one" : "over {0} seconde"
+      },
+      "past" : {
+        "one" : "{0} seconde geleden",
+        "other" : "{0} seconden geleden"
+      }
+    }
+  },
+  "short" : {
+    "hour" : {
+      "past" : "{0} uur geleden",
+      "current" : "binnen een uur",
+      "future" : "over {0} uur"
+    },
+    "quarter" : {
+      "current" : "dit kwartaal",
+      "future" : {
+        "one" : "over {0} kwartaal",
+        "other" : "over {0} kwartalen"
+      },
+      "previous" : "vorig kwartaal",
+      "next" : "volgend kwartaal",
+      "past" : {
+        "other" : "{0} kwartalen geleden",
+        "one" : "{0} kwartaal geleden"
+      }
+    },
+    "week" : {
+      "next" : "volgende week",
+      "current" : "deze week",
+      "previous" : "vorige week",
+      "past" : {
+        "one" : "{0} week geleden",
+        "other" : "{0} weken geleden"
+      },
+      "future" : {
+        "one" : "over {0} week",
+        "other" : "over {0} weken"
+      }
+    },
+    "year" : {
+      "future" : "over {0} jaar",
+      "previous" : "vorig jaar",
+      "next" : "volgend jaar",
+      "current" : "dit jaar",
+      "past" : "{0} jaar geleden"
+    },
+    "minute" : {
+      "future" : "over {0} min.",
+      "past" : "{0} min. geleden",
+      "current" : "binnen een minuut"
+    },
+    "now" : "nu",
+    "month" : {
+      "current" : "deze maand",
+      "past" : {
+        "one" : "{0} maand geleden",
+        "other" : "{0} maanden geleden"
+      },
+      "future" : {
+        "one" : "over {0} maand",
+        "other" : "over {0} maanden"
+      },
+      "next" : "volgende maand",
+      "previous" : "vorige maand"
+    },
+    "day" : {
+      "future" : {
+        "one" : "over {0} dag",
+        "other" : "over {0} dgn"
+      },
+      "current" : "vandaag",
+      "next" : "morgen",
+      "previous" : "gisteren",
+      "past" : {
+        "other" : "{0} dgn geleden",
+        "one" : "{0} dag geleden"
+      }
+    },
+    "second" : {
+      "past" : "{0} sec. geleden",
+      "current" : "nu",
+      "future" : "over {0} sec."
+    }
+  }
+}

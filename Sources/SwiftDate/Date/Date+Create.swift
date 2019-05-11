@@ -218,4 +218,33 @@ public extension Date {
 		return DateInRegion.datesForWeekday(weekday, from: fromDate, to: toDate, region: region).map { $0.date }
 	}
 
+    /// Returns the date at the given week number and week day preserving smaller components (hour, minute, seconds)
+    ///
+    /// For example: to get the third friday of next month
+    ///         let today = DateInRegion()
+    ///         let result = today.dateAt(weekdayOrdinal: 3, weekday: .friday, monthNumber: today.month + 1)
+    ///
+    /// - Parameters:
+    ///     - weekdayOrdinal: the week number (by set position in a recurrence rule)
+    ///     - weekday: WeekDay
+    ///     - monthNumber: a number from 1 to 12 representing the month, optional parameter
+    ///     - yearNumber: a number representing the year, optional parameter
+    /// - Returns: new date created with the given parameters
+    public func dateAt(weekdayOrdinal: Int, weekday: WeekDay, monthNumber: Int? = nil,
+                yearNumber: Int? = nil) -> Date {
+        let date = DateInRegion(self, region: region)
+        return date.dateAt(weekdayOrdinal: weekdayOrdinal, weekday: weekday, monthNumber: monthNumber, yearNumber: yearNumber).date
+    }
+
+    /// Returns the next weekday preserving smaller components (hour, minute, seconds)
+    ///
+    /// - Parameters:
+    ///   - weekday: weekday to get.
+    ///   - region: region target, omit to use `SwiftDate.defaultRegion`
+    /// - Returns: `Date`
+    public func nextWeekday(_ weekday: WeekDay, region: Region = SwiftDate.defaultRegion) -> Date {
+        let date = DateInRegion(self, region: region)
+        return date.nextWeekday(weekday).date
+    }
+
 }

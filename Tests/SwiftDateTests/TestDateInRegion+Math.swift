@@ -98,6 +98,15 @@ class TestDateInRegion_Math: XCTestCase {
 		let finalDate5 = (date1 + [Calendar.Component.day: 20, Calendar.Component.hour: 10]).toFormat(dateFormat)
 		XCTAssert( (finalDate5 == "2017-08-11 10:00:00"), "Failed to add components dict and get the exact final date")
 
-	}
+    }
+
+    func testNextWeekday() {
+        let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+        let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let date1 = DateInRegion("2019-05-11 00:00:00", format: dateFormat, region: regionRome)!
+        let nextFriday = date1.nextWeekday(.friday)
+        XCTAssert(nextFriday.toISO() == "2019-05-17T00:00:00+02:00", "Failed to get the next weekday from date")
+    }
 
 }

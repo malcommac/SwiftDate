@@ -179,17 +179,17 @@ open class TimePeriod: TimePeriodProtocol {
 }
 
 public extension TimePeriod {
-    
+
     /// The start date of the time period
     var startDate: Date? {
         return start?.date
     }
-    
+
     /// The end date of the time period
     var endDate: Date? {
         return end?.date
     }
-    
+
     /// Create a new time period with the given start date, end date and region (default is UTC)
     convenience init(startDate: Date, endDate: Date, region: Region = Region.UTC) {
         let start = DateInRegion(startDate, region: region)

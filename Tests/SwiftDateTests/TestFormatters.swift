@@ -462,7 +462,7 @@ class TestFormatters: XCTestCase {
 		XCTAssert(value2 == "54:00", "Failed to format clock")
 		#else
 		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: DateComponentsFormatter.ZeroFormattingBehavior.dropAll)
-		XCTAssert(value2 == "54:00", "Failed to format clock")
+		XCTAssert(value2 == "54", "Failed to format clock")
 		#endif
 	}
 

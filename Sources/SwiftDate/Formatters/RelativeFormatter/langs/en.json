@@ -1,101 +1,233 @@
 {
-  "now" : "now",
-  "month" : {
-    "current" : "this month",
-    "past" : {
-      "one" : "{0} month ago",
-      "other" : "{0} months ago"
+  "long" : {
+    "quarter" : {
+      "next" : "next quarter",
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "future" : {
+        "one" : "in {0} quarter",
+        "other" : "in {0} quarters"
+      },
+      "past" : {
+        "one" : "{0} quarter ago",
+        "other" : "{0} quarters ago"
+      }
     },
-    "future" : {
-      "one" : "in {0} month",
-      "other" : "in {0} months"
+    "month" : {
+      "next" : "next month",
+      "past" : {
+        "one" : "{0} month ago",
+        "other" : "{0} months ago"
+      },
+      "future" : {
+        "one" : "in {0} month",
+        "other" : "in {0} months"
+      },
+      "previous" : "last month",
+      "current" : "this month"
     },
-    "next" : "next month",
-    "previous" : "last month"
-  },
-  "quarter" : {
-    "previous" : "last quarter",
-    "current" : "this quarter",
-    "next" : "next quarter",
-    "past" : {
-      "other" : "{0} quarters ago",
-      "one" : "{0} quarter ago"
+    "hour" : {
+      "past" : {
+        "other" : "{0} hours ago",
+        "one" : "{0} hour ago"
+      },
+      "future" : {
+        "one" : "in {0} hour",
+        "other" : "in {0} hours"
+      },
+      "current" : "this hour"
     },
-    "future" : {
-      "one" : "in {0} quarter",
-      "other" : "in {0} quarters"
+    "week" : {
+      "previous" : "last week",
+      "current" : "this week",
+      "future" : {
+        "one" : "in {0} week",
+        "other" : "in {0} weeks"
+      },
+      "next" : "next week",
+      "past" : {
+        "one" : "{0} week ago",
+        "other" : "{0} weeks ago"
+      }
+    },
+    "minute" : {
+      "current" : "this minute",
+      "past" : {
+        "one" : "{0} minute ago",
+        "other" : "{0} minutes ago"
+      },
+      "future" : {
+        "one" : "in {0} minute",
+        "other" : "in {0} minutes"
+      }
+    },
+    "now" : "now",
+    "year" : {
+      "next" : "next year",
+      "future" : {
+        "one" : "in {0} year",
+        "other" : "in {0} years"
+      },
+      "past" : {
+        "other" : "{0} years ago",
+        "one" : "{0} year ago"
+      },
+      "current" : "this year",
+      "previous" : "last year"
+    },
+    "second" : {
+      "current" : "now",
+      "past" : {
+        "other" : "{0} seconds ago",
+        "one" : "{0} second ago"
+      },
+      "future" : {
+        "one" : "in {0} second",
+        "other" : "in {0} seconds"
+      }
+    },
+    "day" : {
+      "next" : "tomorrow",
+      "past" : {
+        "other" : "{0} days ago",
+        "one" : "{0} day ago"
+      },
+      "future" : {
+        "other" : "in {0} days",
+        "one" : "in {0} day"
+      },
+      "previous" : "yesterday",
+      "current" : "today"
     }
   },
-  "year" : {
-    "previous" : "last year",
-    "current" : "this year",
-    "past" : {
-      "one" : "{0} year ago",
-      "other" : "{0} years ago"
+  "short" : {
+    "month" : {
+      "future" : "in {0} mo.",
+      "previous" : "last mo.",
+      "current" : "this mo.",
+      "next" : "next mo.",
+      "past" : "{0} mo. ago"
     },
-    "future" : {
-      "one" : "in {0} year",
-      "other" : "in {0} years"
+    "day" : {
+      "past" : {
+        "one" : "{0} day ago",
+        "other" : "{0} days ago"
+      },
+      "previous" : "yesterday",
+      "current" : "today",
+      "next" : "tomorrow",
+      "future" : {
+        "other" : "in {0} days",
+        "one" : "in {0} day"
+      }
     },
-    "next" : "next year"
-  },
-  "day" : {
-    "future" : {
-      "other" : "in {0} days",
-      "one" : "in {0} day"
+    "hour" : {
+      "current" : "this hour",
+      "future" : "in {0} hr.",
+      "past" : "{0} hr. ago"
     },
-    "previous" : "yesterday",
-    "current" : "today",
-    "next" : "tomorrow",
-    "past" : {
-      "one" : "{0} day ago",
-      "other" : "{0} days ago"
+    "second" : {
+      "past" : "{0} sec. ago",
+      "future" : "in {0} sec.",
+      "current" : "now"
+    },
+    "year" : {
+      "current" : "this yr.",
+      "previous" : "last yr.",
+      "future" : "in {0} yr.",
+      "past" : "{0} yr. ago",
+      "next" : "next yr."
+    },
+    "week" : {
+      "previous" : "last wk.",
+      "current" : "this wk.",
+      "future" : "in {0} wk.",
+      "past" : "{0} wk. ago",
+      "next" : "next wk."
+    },
+    "minute" : {
+      "current" : "this minute",
+      "future" : "in {0} min.",
+      "past" : "{0} min. ago"
+    },
+    "now" : "now",
+    "quarter" : {
+      "next" : "next qtr.",
+      "previous" : "last qtr.",
+      "current" : "this qtr.",
+      "past" : {
+        "other" : "{0} qtrs. ago",
+        "one" : "{0} qtr. ago"
+      },
+      "future" : {
+        "one" : "in {0} qtr.",
+        "other" : "in {0} qtrs."
+      }
     }
   },
-  "minute" : {
-    "past" : {
-      "one" : "{0} minute ago",
-      "other" : "{0} minutes ago"
+  "narrow" : {
+    "hour" : {
+      "future" : "in {0} hr.",
+      "current" : "this hour",
+      "past" : "{0} hr. ago"
     },
-    "future" : {
-      "one" : "in {0} minute",
-      "other" : "in {0} minutes"
+    "week" : {
+      "next" : "next wk.",
+      "previous" : "last wk.",
+      "past" : "{0} wk. ago",
+      "current" : "this wk.",
+      "future" : "in {0} wk."
     },
-    "current" : "this minute"
-  },
-  "second" : {
-    "future" : {
-      "other" : "in {0} seconds",
-      "one" : "in {0} second"
+    "minute" : {
+      "current" : "this minute",
+      "past" : "{0} min. ago",
+      "future" : "in {0} min."
     },
-    "current" : "now",
-    "past" : {
-      "one" : "{0} second ago",
-      "other" : "{0} seconds ago"
+    "second" : {
+      "current" : "now",
+      "past" : "{0} sec. ago",
+      "future" : "in {0} sec."
+    },
+    "now" : "now",
+    "month" : {
+      "past" : "{0} mo. ago",
+      "current" : "this mo.",
+      "next" : "next mo.",
+      "previous" : "last mo.",
+      "future" : "in {0} mo."
+    },
+    "day" : {
+      "current" : "today",
+      "future" : {
+        "one" : "in {0} day",
+        "other" : "in {0} days"
+      },
+      "previous" : "yesterday",
+      "next" : "tomorrow",
+      "past" : {
+        "one" : "{0} day ago",
+        "other" : "{0} days ago"
+      }
+    },
+    "year" : {
+      "previous" : "last yr.",
+      "current" : "this yr.",
+      "past" : "{0} yr. ago",
+      "next" : "next yr.",
+      "future" : "in {0} yr."
+    },
+    "quarter" : {
+      "previous" : "last qtr.",
+      "next" : "next qtr.",
+      "past" : {
+        "one" : "{0} qtr. ago",
+        "other" : "{0} qtrs. ago"
+      },
+      "future" : {
+        "one" : "in {0} qtr.",
+        "other" : "in {0} qtrs."
+      },
+      "current" : "this qtr."
     }
-  },
-  "hour" : {
-    "future" : {
-      "one" : "in {0} hour",
-      "other" : "in {0} hours"
-    },
-    "current" : "this hour",
-    "past" : {
-      "one" : "{0} hour ago",
-      "other" : "{0} hours ago"
-    }
-  },
-  "week" : {
-    "next" : "next week",
-    "past" : {
-      "other" : "{0} weeks ago",
-      "one" : "{0} week ago"
-    },
-    "current" : "this week",
-    "future" : {
-      "one" : "in {0} week",
-      "other" : "in {0} weeks"
-    },
-    "previous" : "last week"
   }
 }

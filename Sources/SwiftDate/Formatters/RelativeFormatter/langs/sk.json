@@ -1,125 +1,233 @@
 {
-  "now" : "teraz",
-  "quarter" : {
-    "future" : {
-      "other" : "o {0} štvrťrokov",
-      "one" : "o {0} štvrťrok",
-      "few" : "o {0} štvrťroky",
-      "many" : "o {0} štvrťroka"
+  "narrow" : {
+    "quarter" : {
+      "current" : "tento štvrťr.",
+      "past" : "pred {0} štvrťr.",
+      "next" : "budúci štvrťr.",
+      "future" : "o {0} štvrťr.",
+      "previous" : "minulý štvrťr."
     },
-    "previous" : "minulý štvrťrok",
-    "past" : {
-      "other" : "pred {0} štvrťrokmi",
-      "one" : "pred {0} štvrťrokom",
-      "many" : "pred {0} štvrťroka"
+    "day" : {
+      "next" : "zajtra",
+      "previous" : "včera",
+      "future" : "o {0} d.",
+      "past" : "pred {0} d.",
+      "current" : "dnes"
     },
-    "next" : "budúci štvrťrok",
-    "current" : "tento štvrťrok"
-  },
-  "week" : {
-    "current" : "tento týždeň",
-    "future" : {
-      "few" : "o {0} týždne",
-      "many" : "o {0} týždňa",
-      "one" : "o {0} týždeň",
-      "other" : "o {0} týždňov"
+    "year" : {
+      "past" : "pred {0} r.",
+      "previous" : "minulý rok",
+      "future" : "o {0} r.",
+      "next" : "budúci rok",
+      "current" : "tento rok"
     },
-    "previous" : "minulý týždeň",
-    "past" : {
-      "one" : "pred {0} týždňom",
-      "many" : "pred {0} týždňa",
-      "other" : "pred {0} týždňami"
+    "minute" : {
+      "past" : "pred {0} min",
+      "current" : "v tejto minúte",
+      "future" : "o {0} min"
     },
-    "next" : "budúci týždeň"
-  },
-  "minute" : {
-    "future" : {
-      "many" : "o {0} minúty",
-      "one" : "o {0} minútu",
-      "other" : "o {0} minút",
-      "few" : "o {0} minúty"
+    "now" : "teraz",
+    "week" : {
+      "current" : "tento týž.",
+      "previous" : "minulý týž.",
+      "past" : "pred {0} týž.",
+      "next" : "budúci týž.",
+      "future" : "o {0} týž."
     },
-    "current" : "v tejto minúte",
-    "past" : {
-      "many" : "pred {0} minúty",
-      "other" : "pred {0} minútami",
-      "one" : "pred {0} minútou"
+    "second" : {
+      "future" : "o {0} s",
+      "current" : "teraz",
+      "past" : "pred {0} s"
+    },
+    "month" : {
+      "future" : "o {0} mes.",
+      "current" : "tento mes.",
+      "past" : "pred {0} mes.",
+      "previous" : "minulý mes.",
+      "next" : "budúci mes."
+    },
+    "hour" : {
+      "future" : "o {0} h",
+      "past" : "pred {0} h",
+      "current" : "v tejto hodine"
     }
   },
-  "month" : {
-    "previous" : "minulý mesiac",
-    "past" : {
-      "one" : "pred {0} mesiacom",
-      "many" : "pred {0} mesiaca",
-      "other" : "pred {0} mesiacmi"
+  "long" : {
+    "now" : "teraz",
+    "week" : {
+      "current" : "tento týždeň",
+      "past" : {
+        "other" : "pred {0} týždňami",
+        "many" : "pred {0} týždňa",
+        "one" : "pred {0} týždňom"
+      },
+      "previous" : "minulý týždeň",
+      "future" : {
+        "many" : "o {0} týždňa",
+        "one" : "o {0} týždeň",
+        "few" : "o {0} týždne",
+        "other" : "o {0} týždňov"
+      },
+      "next" : "budúci týždeň"
     },
-    "future" : {
-      "many" : "o {0} mesiaca",
-      "one" : "o {0} mesiac",
-      "other" : "o {0} mesiacov",
-      "few" : "o {0} mesiace"
+    "hour" : {
+      "past" : {
+        "many" : "pred {0} hodinou",
+        "one" : "pred {0} hodinou",
+        "other" : "pred {0} hodinami"
+      },
+      "future" : {
+        "many" : "o {0} hodiny",
+        "one" : "o {0} hodinu",
+        "few" : "o {0} hodiny",
+        "other" : "o {0} hodín"
+      },
+      "current" : "v tejto hodine"
     },
-    "current" : "tento mesiac",
-    "next" : "budúci mesiac"
-  },
-  "hour" : {
-    "past" : {
-      "other" : "pred {0} hodinami",
-      "one" : "pred {0} hodinou",
-      "many" : "pred {0} hodinou"
+    "quarter" : {
+      "previous" : "minulý štvrťrok",
+      "future" : {
+        "many" : "o {0} štvrťroka",
+        "other" : "o {0} štvrťrokov",
+        "few" : "o {0} štvrťroky",
+        "one" : "o {0} štvrťrok"
+      },
+      "past" : {
+        "many" : "pred {0} štvrťroka",
+        "one" : "pred {0} štvrťrokom",
+        "other" : "pred {0} štvrťrokmi"
+      },
+      "current" : "tento štvrťrok",
+      "next" : "budúci štvrťrok"
     },
-    "current" : "v tejto hodine",
-    "future" : {
-      "other" : "o {0} hodín",
-      "many" : "o {0} hodiny",
-      "few" : "o {0} hodiny",
-      "one" : "o {0} hodinu"
+    "minute" : {
+      "current" : "v tejto minúte",
+      "future" : {
+        "many" : "o {0} minúty",
+        "one" : "o {0} minútu",
+        "other" : "o {0} minút",
+        "few" : "o {0} minúty"
+      },
+      "past" : {
+        "other" : "pred {0} minútami",
+        "one" : "pred {0} minútou",
+        "many" : "pred {0} minúty"
+      }
+    },
+    "year" : {
+      "past" : {
+        "many" : "pred {0} roka",
+        "other" : "pred {0} rokmi",
+        "one" : "pred {0} rokom"
+      },
+      "future" : {
+        "few" : "o {0} roky",
+        "one" : "o {0} rok",
+        "many" : "o {0} roka",
+        "other" : "o {0} rokov"
+      },
+      "current" : "tento rok",
+      "next" : "budúci rok",
+      "previous" : "minulý rok"
+    },
+    "month" : {
+      "future" : {
+        "many" : "o {0} mesiaca",
+        "one" : "o {0} mesiac",
+        "few" : "o {0} mesiace",
+        "other" : "o {0} mesiacov"
+      },
+      "current" : "tento mesiac",
+      "previous" : "minulý mesiac",
+      "next" : "budúci mesiac",
+      "past" : {
+        "many" : "pred {0} mesiaca",
+        "other" : "pred {0} mesiacmi",
+        "one" : "pred {0} mesiacom"
+      }
+    },
+    "second" : {
+      "current" : "teraz",
+      "past" : {
+        "one" : "pred {0} sekundou",
+        "many" : "pred {0} sekundy",
+        "other" : "pred {0} sekundami"
+      },
+      "future" : {
+        "many" : "o {0} sekundy",
+        "few" : "o {0} sekundy",
+        "one" : "o {0} sekundu",
+        "other" : "o {0} sekúnd"
+      }
+    },
+    "day" : {
+      "previous" : "včera",
+      "next" : "zajtra",
+      "past" : {
+        "many" : "pred {0} dňa",
+        "one" : "pred {0} dňom",
+        "other" : "pred {0} dňami"
+      },
+      "current" : "dnes",
+      "future" : {
+        "many" : "o {0} dňa",
+        "one" : "o {0} deň",
+        "other" : "o {0} dní",
+        "few" : "o {0} dni"
+      }
     }
   },
-  "second" : {
-    "past" : {
-      "many" : "pred {0} sekundy",
-      "one" : "pred {0} sekundou",
-      "other" : "pred {0} sekundami"
+  "short" : {
+    "minute" : {
+      "future" : "o {0} min",
+      "current" : "v tejto minúte",
+      "past" : "pred {0} min"
     },
-    "future" : {
-      "other" : "o {0} sekúnd",
-      "few" : "o {0} sekundy",
-      "many" : "o {0} sekundy",
-      "one" : "o {0} sekundu"
+    "week" : {
+      "future" : "o {0} týž.",
+      "previous" : "minulý týž.",
+      "next" : "budúci týž.",
+      "current" : "tento týž.",
+      "past" : "pred {0} týž."
     },
-    "current" : "teraz"
-  },
-  "year" : {
-    "past" : {
-      "one" : "pred {0} rokom",
-      "many" : "pred {0} roka",
-      "other" : "pred {0} rokmi"
+    "year" : {
+      "current" : "tento rok",
+      "previous" : "minulý rok",
+      "future" : "o {0} r.",
+      "past" : "pred {0} r.",
+      "next" : "budúci rok"
     },
-    "future" : {
-      "many" : "o {0} roka",
-      "few" : "o {0} roky",
-      "other" : "o {0} rokov",
-      "one" : "o {0} rok"
+    "month" : {
+      "next" : "budúci mes.",
+      "past" : "pred {0} mes.",
+      "future" : "o {0} mes.",
+      "previous" : "minulý mes.",
+      "current" : "tento mes."
     },
-    "current" : "tento rok",
-    "previous" : "minulý rok",
-    "next" : "budúci rok"
-  },
-  "day" : {
-    "future" : {
-      "one" : "o {0} deň",
-      "other" : "o {0} dní",
-      "many" : "o {0} dňa",
-      "few" : "o {0} dni"
+    "quarter" : {
+      "next" : "budúci štvrťr.",
+      "past" : "pred {0} štvrťr.",
+      "previous" : "minulý štvrťr.",
+      "current" : "tento štvrťr.",
+      "future" : "o {0} štvrťr."
     },
-    "next" : "zajtra",
-    "current" : "dnes",
-    "previous" : "včera",
-    "past" : {
-      "one" : "pred {0} dňom",
-      "other" : "pred {0} dňami",
-      "many" : "pred {0} dňa"
-    }
+    "day" : {
+      "current" : "dnes",
+      "previous" : "včera",
+      "past" : "pred {0} d.",
+      "next" : "zajtra",
+      "future" : "o {0} d."
+    },
+    "hour" : {
+      "past" : "pred {0} h",
+      "current" : "v tejto hodine",
+      "future" : "o {0} h"
+    },
+    "second" : {
+      "past" : "pred {0} s",
+      "current" : "teraz",
+      "future" : "o {0} s"
+    },
+    "now" : "teraz"
   }
 }

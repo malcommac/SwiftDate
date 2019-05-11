@@ -7,6 +7,7 @@
 ![](https://img.shields.io/badge/coverage-90%25-green.svg)
 ![](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)
 [](https://img.shields.io/travis/malcommac/SwiftDate.svg)
+[![Build Status](https://travis-ci.org/malcommac/SwiftDate.svg?branch=master)](https://travis-ci.org/malcommac/SwiftDate)
 
 <p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>
 Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">www.danielemargutti.com</a>

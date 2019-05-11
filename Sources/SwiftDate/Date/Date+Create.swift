@@ -230,7 +230,7 @@ public extension Date {
     ///     - monthNumber: a number from 1 to 12 representing the month, optional parameter
     ///     - yearNumber: a number representing the year, optional parameter
     /// - Returns: new date created with the given parameters
-    public func dateAt(weekdayOrdinal: Int, weekday: WeekDay, monthNumber: Int? = nil,
+    func dateAt(weekdayOrdinal: Int, weekday: WeekDay, monthNumber: Int? = nil,
                 yearNumber: Int? = nil) -> Date {
         let date = DateInRegion(self, region: region)
         return date.dateAt(weekdayOrdinal: weekdayOrdinal, weekday: weekday, monthNumber: monthNumber, yearNumber: yearNumber).date
@@ -242,7 +242,7 @@ public extension Date {
     ///   - weekday: weekday to get.
     ///   - region: region target, omit to use `SwiftDate.defaultRegion`
     /// - Returns: `Date`
-    public func nextWeekday(_ weekday: WeekDay, region: Region = SwiftDate.defaultRegion) -> Date {
+    func nextWeekday(_ weekday: WeekDay, region: Region = SwiftDate.defaultRegion) -> Date {
         let date = DateInRegion(self, region: region)
         return date.nextWeekday(weekday).date
     }

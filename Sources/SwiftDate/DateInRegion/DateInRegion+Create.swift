@@ -573,7 +573,7 @@ public extension DateInRegion {
     ///   - weekday: weekday to get.
     ///   - region: region target, omit to use `SwiftDate.defaultRegion`
     /// - Returns: `DateInRegion`
-    public func nextWeekday(_ weekday: WeekDay) -> DateInRegion {
+    func nextWeekday(_ weekday: WeekDay) -> DateInRegion {
         var components = DateComponents()
         components.weekday = weekday.rawValue
         components.hour = hour

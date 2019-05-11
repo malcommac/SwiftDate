@@ -48,9 +48,10 @@ public class DOTNETParser: StringToDateTransformable {
 		}
 	}
 
-	public static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion? {
+	public static func parse(_ string: String, region: Region?, options: Any?) -> DateInRegion? {
 		guard let result = DOTNETParser.parse(string) else { return nil }
-		let adaptedRegion = Region(calendar: region.calendar, zone: result.tz, locale: region.locale)
+        let regionSet = region ?? Region.ISO
+		let adaptedRegion = Region(calendar: regionSet.calendar, zone: regionSet.timeZone, locale: regionSet.locale)
 		return DateInRegion(seconds: result.seconds, region: adaptedRegion)
 	}
 

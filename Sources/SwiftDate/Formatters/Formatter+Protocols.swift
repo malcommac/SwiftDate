@@ -17,7 +17,7 @@ public protocol DateToStringTrasformable {
 }
 
 public protocol StringToDateTransformable {
-	static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion?
+	static func parse(_ string: String, region: Region?, options: Any?) -> DateInRegion?
 }
 
 // MARK: - Formatters

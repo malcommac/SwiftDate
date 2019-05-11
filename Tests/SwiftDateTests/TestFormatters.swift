@@ -438,8 +438,8 @@ class TestFormatters: XCTestCase {
 	}
 
 	func testTZInISOParser() {
-		let gmtTimezone = "2017-08-05T16:04:03".toISODate(region: Region.ISO)!
-		let timezoneInDate = "2017-08-05T16:04:03+02:00".toISODate(region: Region.ISO)!
+		let gmtTimezone = "2017-08-05T16:04:03".toISODate(region: Region.ISO)! // force timezone
+		let timezoneInDate = "2017-08-05T16:04:03+02:00".toISODate()! // parse from iso
 		XCTAssert(gmtTimezone.region.timeZone.secondsFromGMT() == 0, "ISO Date does not contains timezone (is gmt)")
 		XCTAssert(timezoneInDate.region.timeZone.secondsFromGMT() == 7200, "ISO Date does not contains timezone (is gmt)")
 	}

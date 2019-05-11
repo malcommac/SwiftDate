@@ -1,0 +1,287 @@
+{
+  "narrow" : {
+    "day" : {
+      "previous" : "wczoraj",
+      "current" : "dzisiaj",
+      "next" : "jutro",
+      "past" : {
+        "many" : "{0} dni temu",
+        "few" : "{0} dni temu",
+        "one" : "{0} dzień temu",
+        "other" : "{0} dnia temu"
+      },
+      "future" : {
+        "few" : "za {0} dni",
+        "many" : "za {0} dni",
+        "other" : "za {0} dnia",
+        "one" : "za {0} dzień"
+      }
+    },
+    "hour" : {
+      "future" : "za {0} g.",
+      "past" : "{0} g. temu",
+      "current" : "ta godzina"
+    },
+    "now" : "teraz",
+    "week" : {
+      "current" : "w tym tygodniu",
+      "previous" : "w zeszłym tygodniu",
+      "past" : {
+        "one" : "{0} tydz. temu",
+        "other" : "{0} tyg. temu"
+      },
+      "future" : {
+        "other" : "za {0} tyg.",
+        "one" : "za {0} tydz."
+      },
+      "next" : "w przyszłym tygodniu"
+    },
+    "month" : {
+      "next" : "w przyszłym miesiącu",
+      "previous" : "w zeszłym miesiącu",
+      "current" : "w tym miesiącu",
+      "future" : "za {0} mies.",
+      "past" : "{0} mies. temu"
+    },
+    "year" : {
+      "previous" : "w zeszłym roku",
+      "future" : {
+        "few" : "za {0} lata",
+        "one" : "za {0} rok",
+        "many" : "za {0} lat",
+        "other" : "za {0} roku"
+      },
+      "next" : "w przyszłym roku",
+      "current" : "w tym roku",
+      "past" : {
+        "one" : "{0} rok temu",
+        "other" : "{0} roku temu",
+        "few" : "{0} lata temu",
+        "many" : "{0} lat temu"
+      }
+    },
+    "quarter" : {
+      "current" : "w tym kwartale",
+      "future" : "za {0} kw.",
+      "previous" : "w zeszłym kwartale",
+      "next" : "w przyszłym kwartale",
+      "past" : "{0} kw. temu"
+    },
+    "minute" : {
+      "past" : "{0} min temu",
+      "current" : "ta minuta",
+      "future" : "za {0} min"
+    },
+    "second" : {
+      "future" : "za {0} s",
+      "past" : "{0} s temu",
+      "current" : "teraz"
+    }
+  },
+  "long" : {
+    "week" : {
+      "future" : {
+        "other" : "za {0} tygodnia",
+        "one" : "za {0} tydzień",
+        "few" : "za {0} tygodnie",
+        "many" : "za {0} tygodni"
+      },
+      "current" : "w tym tygodniu",
+      "past" : {
+        "few" : "{0} tygodnie temu",
+        "one" : "{0} tydzień temu",
+        "other" : "{0} tygodnia temu",
+        "many" : "{0} tygodni temu"
+      },
+      "previous" : "w zeszłym tygodniu",
+      "next" : "w przyszłym tygodniu"
+    },
+    "quarter" : {
+      "current" : "w tym kwartale",
+      "next" : "w przyszłym kwartale",
+      "future" : {
+        "other" : "za {0} kwartału",
+        "many" : "za {0} kwartałów",
+        "few" : "za {0} kwartały",
+        "one" : "za {0} kwartał"
+      },
+      "previous" : "w zeszłym kwartale",
+      "past" : {
+        "one" : "{0} kwartał temu",
+        "many" : "{0} kwartałów temu",
+        "few" : "{0} kwartały temu",
+        "other" : "{0} kwartału temu"
+      }
+    },
+    "second" : {
+      "future" : {
+        "one" : "za {0} sekundę",
+        "many" : "za {0} sekund",
+        "other" : "za {0} sekundy"
+      },
+      "current" : "teraz",
+      "past" : {
+        "one" : "{0} sekundę temu",
+        "many" : "{0} sekund temu",
+        "other" : "{0} sekundy temu"
+      }
+    },
+    "year" : {
+      "past" : {
+        "many" : "{0} lat temu",
+        "few" : "{0} lata temu",
+        "one" : "{0} rok temu",
+        "other" : "{0} roku temu"
+      },
+      "previous" : "w zeszłym roku",
+      "future" : {
+        "one" : "za {0} rok",
+        "other" : "za {0} roku",
+        "few" : "za {0} lata",
+        "many" : "za {0} lat"
+      },
+      "current" : "w tym roku",
+      "next" : "w przyszłym roku"
+    },
+    "now" : "teraz",
+    "hour" : {
+      "past" : {
+        "other" : "{0} godziny temu",
+        "many" : "{0} godzin temu",
+        "one" : "{0} godzinę temu"
+      },
+      "future" : {
+        "many" : "za {0} godzin",
+        "other" : "za {0} godziny",
+        "one" : "za {0} godzinę"
+      },
+      "current" : "ta godzina"
+    },
+    "day" : {
+      "previous" : "wczoraj",
+      "next" : "jutro",
+      "past" : {
+        "one" : "{0} dzień temu",
+        "many" : "{0} dni temu",
+        "other" : "{0} dnia temu",
+        "few" : "{0} dni temu"
+      },
+      "current" : "dzisiaj",
+      "future" : {
+        "many" : "za {0} dni",
+        "one" : "za {0} dzień",
+        "few" : "za {0} dni",
+        "other" : "za {0} dnia"
+      }
+    },
+    "minute" : {
+      "future" : {
+        "one" : "za {0} minutę",
+        "many" : "za {0} minut",
+        "other" : "za {0} minuty"
+      },
+      "past" : {
+        "one" : "{0} minutę temu",
+        "other" : "{0} minuty temu",
+        "many" : "{0} minut temu"
+      },
+      "current" : "ta minuta"
+    },
+    "month" : {
+      "past" : {
+        "few" : "{0} miesiące temu",
+        "one" : "{0} miesiąc temu",
+        "many" : "{0} miesięcy temu",
+        "other" : "{0} miesiąca temu"
+      },
+      "previous" : "w zeszłym miesiącu",
+      "next" : "w przyszłym miesiącu",
+      "future" : {
+        "few" : "za {0} miesiące",
+        "many" : "za {0} miesięcy",
+        "other" : "za {0} miesiąca",
+        "one" : "za {0} miesiąc"
+      },
+      "current" : "w tym miesiącu"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "current" : "ta minuta",
+      "past" : "{0} min temu",
+      "future" : "za {0} min"
+    },
+    "year" : {
+      "current" : "w tym roku",
+      "past" : {
+        "one" : "{0} rok temu",
+        "other" : "{0} roku temu",
+        "many" : "{0} lat temu",
+        "few" : "{0} lata temu"
+      },
+      "future" : {
+        "few" : "za {0} lata",
+        "one" : "za {0} rok",
+        "many" : "za {0} lat",
+        "other" : "za {0} roku"
+      },
+      "next" : "w przyszłym roku",
+      "previous" : "w zeszłym roku"
+    },
+    "day" : {
+      "past" : {
+        "other" : "{0} dnia temu",
+        "one" : "{0} dzień temu",
+        "many" : "{0} dni temu",
+        "few" : "{0} dni temu"
+      },
+      "current" : "dzisiaj",
+      "future" : {
+        "few" : "za {0} dni",
+        "other" : "za {0} dnia",
+        "one" : "za {0} dzień",
+        "many" : "za {0} dni"
+      },
+      "next" : "jutro",
+      "previous" : "wczoraj"
+    },
+    "hour" : {
+      "past" : "{0} godz. temu",
+      "current" : "ta godzina",
+      "future" : "za {0} godz."
+    },
+    "quarter" : {
+      "future" : "za {0} kw.",
+      "previous" : "w zeszłym kwartale",
+      "current" : "w tym kwartale",
+      "next" : "w przyszłym kwartale",
+      "past" : "{0} kw. temu"
+    },
+    "second" : {
+      "future" : "za {0} sek.",
+      "current" : "teraz",
+      "past" : "{0} sek. temu"
+    },
+    "now" : "teraz",
+    "month" : {
+      "next" : "w przyszłym miesiącu",
+      "current" : "w tym miesiącu",
+      "previous" : "w zeszłym miesiącu",
+      "past" : "{0} mies. temu",
+      "future" : "za {0} mies."
+    },
+    "week" : {
+      "next" : "w przyszłym tygodniu",
+      "past" : {
+        "other" : "{0} tyg. temu",
+        "one" : "{0} tydz. temu"
+      },
+      "previous" : "w zeszłym tygodniu",
+      "current" : "w tym tygodniu",
+      "future" : {
+        "one" : "za {0} tydz.",
+        "other" : "za {0} tyg."
+      }
+    }
+  }
+}

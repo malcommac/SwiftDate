@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "year" : {
+      "future" : "ʻi he taʻu ʻe {0}",
+      "previous" : "taʻu kuoʻosi",
+      "next" : "taʻu kahaʻu",
+      "current" : "taʻú ni",
+      "past" : "taʻu ʻe {0} kuoʻosi"
+    },
+    "week" : {
+      "past" : "uike ʻe {0} kuoʻosi",
+      "previous" : "uike kuoʻosi",
+      "future" : "ʻi he uike ʻe {0}",
+      "current" : "uiké ni",
+      "next" : "uike kahaʻu"
+    },
+    "hour" : {
+      "future" : "ʻi he houa ʻe {0}",
+      "current" : "this hour",
+      "past" : "houa ʻe {0} kuoʻosi"
+    },
+    "quarter" : {
+      "current" : "kuata koʻeni",
+      "previous" : "kuata kuoʻosi",
+      "future" : "ʻi he kuata ʻe {0}",
+      "past" : "kuata ʻe {0} kuoʻosi",
+      "next" : "kuata hoko"
+    },
+    "second" : {
+      "past" : "sekoni ʻe {0} kuoʻosi",
+      "future" : "ʻi he sekoni ʻe {0}",
+      "current" : "taimí ni"
+    },
+    "month" : {
+      "current" : "māhiná ni",
+      "future" : "ʻi he māhina ʻe {0}",
+      "past" : "māhina ʻe {0} kuoʻosi",
+      "next" : "māhina kahaʻu",
+      "previous" : "māhina kuoʻosi"
+    },
+    "day" : {
+      "previous" : "ʻaneafi",
+      "future" : "ʻi he ʻaho ʻe {0}",
+      "next" : "ʻapongipongi",
+      "current" : "ʻahó ni",
+      "past" : "ʻaho ʻe {0} kuoʻosi"
+    },
+    "minute" : {
+      "past" : "miniti ʻe {0} kuoʻosi",
+      "future" : "ʻi he miniti ʻe {0}",
+      "current" : "this minute"
+    },
+    "now" : "taimí ni"
+  },
+  "long" : {
+    "quarter" : {
+      "next" : "kuata hoko",
+      "current" : "kuata koʻeni",
+      "previous" : "kuata kuoʻosi",
+      "past" : "kuata ʻe {0} kuoʻosi",
+      "future" : "ʻi he kuata ʻe {0}"
+    },
+    "now" : "taimí ni",
+    "year" : {
+      "previous" : "taʻu kuoʻosi",
+      "past" : "taʻu ʻe {0} kuoʻosi",
+      "future" : "ʻi he taʻu ʻe {0}",
+      "next" : "taʻu kahaʻu",
+      "current" : "taʻú ni"
+    },
+    "month" : {
+      "previous" : "māhina kuoʻosi",
+      "current" : "māhiná ni",
+      "future" : "ʻi he māhina ʻe {0}",
+      "past" : "māhina ʻe {0} kuoʻosi",
+      "next" : "māhina kahaʻu"
+    },
+    "day" : {
+      "previous" : "ʻaneafi",
+      "future" : "ʻi he ʻaho ʻe {0}",
+      "next" : "ʻapongipongi",
+      "past" : "ʻaho ʻe {0} kuoʻosi",
+      "current" : "ʻahó ni"
+    },
+    "second" : {
+      "future" : "ʻi he sekoni ʻe {0}",
+      "current" : "taimí ni",
+      "past" : "sekoni ʻe {0} kuoʻosi"
+    },
+    "week" : {
+      "past" : "uike ʻe {0} kuoʻosi",
+      "current" : "uiké ni",
+      "next" : "uike kahaʻu",
+      "previous" : "uike kuoʻosi",
+      "future" : "ʻi he uike ʻe {0}"
+    },
+    "hour" : {
+      "past" : "houa ʻe {0} kuoʻosi",
+      "future" : "ʻi he houa ʻe {0}",
+      "current" : "this hour"
+    },
+    "minute" : {
+      "current" : "this minute",
+      "future" : "ʻi he miniti ʻe {0}",
+      "past" : "miniti ʻe {0} kuoʻosi"
+    }
+  },
+  "short" : {
+    "second" : {
+      "current" : "taimí ni",
+      "past" : "sekoni ʻe {0} kuoʻosi",
+      "future" : "ʻi he sekoni ʻe {0}"
+    },
+    "now" : "taimí ni",
+    "month" : {
+      "future" : "ʻi he māhina ʻe {0}",
+      "current" : "māhiná ni",
+      "past" : "māhina ʻe {0} kuoʻosi",
+      "previous" : "māhina kuoʻosi",
+      "next" : "māhina kahaʻu"
+    },
+    "day" : {
+      "previous" : "ʻaneafi",
+      "current" : "ʻahó ni",
+      "next" : "ʻapongipongi",
+      "future" : "ʻi he ʻaho ʻe {0}",
+      "past" : "ʻaho ʻe {0} kuoʻosi"
+    },
+    "minute" : {
+      "current" : "this minute",
+      "future" : "ʻi he miniti ʻe {0}",
+      "past" : "miniti ʻe {0} kuoʻosi"
+    },
+    "quarter" : {
+      "past" : "kuata ʻe {0} kuoʻosi",
+      "previous" : "kuata kuoʻosi",
+      "current" : "kuata koʻeni",
+      "future" : "ʻi he kuata ʻe {0}",
+      "next" : "kuata hoko"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "future" : "ʻi he houa ʻe {0}",
+      "past" : "houa ʻe {0} kuoʻosi"
+    },
+    "week" : {
+      "future" : "ʻi he uike ʻe {0}",
+      "previous" : "uike kuoʻosi",
+      "next" : "uike kahaʻu",
+      "past" : "uike ʻe {0} kuoʻosi",
+      "current" : "uiké ni"
+    },
+    "year" : {
+      "next" : "taʻu kahaʻu",
+      "current" : "taʻú ni",
+      "past" : "taʻu ʻe {0} kuoʻosi",
+      "future" : "ʻi he taʻu ʻe {0}",
+      "previous" : "taʻu kuoʻosi"
+    }
+  }
+}

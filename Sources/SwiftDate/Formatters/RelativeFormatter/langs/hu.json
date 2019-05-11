@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "day" : {
+      "next" : "holnap",
+      "future" : "{0} nap múlva",
+      "previous" : "tegnap",
+      "current" : "ma",
+      "past" : "{0} napja"
+    },
+    "quarter" : {
+      "next" : "következő negyedév",
+      "past" : "{0} negyedévvel ezelőtt",
+      "future" : "{0} n.év múlva",
+      "previous" : "előző negyedév",
+      "current" : "ez a negyedév"
+    },
+    "hour" : {
+      "future" : "{0} óra múlva",
+      "current" : "ebben az órában",
+      "past" : "{0} órával ezelőtt"
+    },
+    "year" : {
+      "next" : "következő év",
+      "past" : "{0} évvel ezelőtt",
+      "current" : "ez az év",
+      "previous" : "előző év",
+      "future" : "{0} év múlva"
+    },
+    "now" : "most",
+    "month" : {
+      "current" : "ez a hónap",
+      "future" : "{0} hónap múlva",
+      "past" : "{0} hónappal ezelőtt",
+      "next" : "következő hónap",
+      "previous" : "előző hónap"
+    },
+    "week" : {
+      "previous" : "előző hét",
+      "current" : "ez a hét",
+      "past" : "{0} héttel ezelőtt",
+      "future" : "{0} hét múlva",
+      "next" : "következő hét"
+    },
+    "minute" : {
+      "future" : "{0} perc múlva",
+      "current" : "ebben a percben",
+      "past" : "{0} perccel ezelőtt"
+    },
+    "second" : {
+      "current" : "most",
+      "past" : "{0} másodperccel ezelőtt",
+      "future" : "{0} másodperc múlva"
+    }
+  },
+  "long" : {
+    "day" : {
+      "previous" : "tegnap",
+      "current" : "ma",
+      "next" : "holnap",
+      "past" : "{0} nappal ezelőtt",
+      "future" : "{0} nap múlva"
+    },
+    "week" : {
+      "current" : "ez a hét",
+      "future" : "{0} hét múlva",
+      "past" : "{0} héttel ezelőtt",
+      "previous" : "előző hét",
+      "next" : "következő hét"
+    },
+    "minute" : {
+      "current" : "ebben a percben",
+      "past" : "{0} perccel ezelőtt",
+      "future" : "{0} perc múlva"
+    },
+    "month" : {
+      "future" : "{0} hónap múlva",
+      "next" : "következő hónap",
+      "previous" : "előző hónap",
+      "current" : "ez a hónap",
+      "past" : "{0} hónappal ezelőtt"
+    },
+    "hour" : {
+      "current" : "ebben az órában",
+      "past" : "{0} órával ezelőtt",
+      "future" : "{0} óra múlva"
+    },
+    "year" : {
+      "past" : "{0} évvel ezelőtt",
+      "future" : "{0} év múlva",
+      "previous" : "előző év",
+      "next" : "következő év",
+      "current" : "ez az év"
+    },
+    "second" : {
+      "past" : "{0} másodperccel ezelőtt",
+      "future" : "{0} másodperc múlva",
+      "current" : "most"
+    },
+    "now" : "most",
+    "quarter" : {
+      "past" : "{0} negyedévvel ezelőtt",
+      "current" : "ez a negyedév",
+      "previous" : "előző negyedév",
+      "future" : "{0} negyedév múlva",
+      "next" : "következő negyedév"
+    }
+  },
+  "short" : {
+    "quarter" : {
+      "future" : "{0} negyedév múlva",
+      "next" : "következő negyedév",
+      "previous" : "előző negyedév",
+      "current" : "ez a negyedév",
+      "past" : "{0} negyedévvel ezelőtt"
+    },
+    "minute" : {
+      "future" : "{0} perc múlva",
+      "current" : "ebben a percben",
+      "past" : "{0} perccel ezelőtt"
+    },
+    "year" : {
+      "next" : "következő év",
+      "future" : "{0} év múlva",
+      "current" : "ez az év",
+      "past" : "{0} évvel ezelőtt",
+      "previous" : "előző év"
+    },
+    "second" : {
+      "future" : "{0} másodperc múlva",
+      "current" : "most",
+      "past" : "{0} másodperccel ezelőtt"
+    },
+    "hour" : {
+      "past" : "{0} órával ezelőtt",
+      "current" : "ebben az órában",
+      "future" : "{0} óra múlva"
+    },
+    "now" : "most",
+    "month" : {
+      "previous" : "előző hónap",
+      "next" : "következő hónap",
+      "past" : "{0} hónappal ezelőtt",
+      "current" : "ez a hónap",
+      "future" : "{0} hónap múlva"
+    },
+    "week" : {
+      "previous" : "előző hét",
+      "current" : "ez a hét",
+      "next" : "következő hét",
+      "past" : "{0} héttel ezelőtt",
+      "future" : "{0} hét múlva"
+    },
+    "day" : {
+      "next" : "holnap",
+      "past" : "{0} napja",
+      "future" : "{0} nap múlva",
+      "previous" : "tegnap",
+      "current" : "ma"
+    }
+  }
+}

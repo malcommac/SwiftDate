@@ -1,0 +1,266 @@
+{
+  "long" : {
+    "month" : {
+      "past" : {
+        "many" : "před {0} měsíce",
+        "other" : "před {0} měsíci",
+        "one" : "před {0} měsícem"
+      },
+      "previous" : "minulý měsíc",
+      "current" : "tento měsíc",
+      "future" : {
+        "one" : "za {0} měsíc",
+        "many" : "za {0} měsíce",
+        "few" : "za {0} měsíce",
+        "other" : "za {0} měsíců"
+      },
+      "next" : "příští měsíc"
+    },
+    "year" : {
+      "future" : {
+        "other" : "za {0} let",
+        "many" : "za {0} roku",
+        "one" : "za {0} rok",
+        "few" : "za {0} roky"
+      },
+      "past" : {
+        "one" : "před {0} rokem",
+        "many" : "před {0} roku",
+        "other" : "před {0} lety"
+      },
+      "current" : "tento rok",
+      "next" : "příští rok",
+      "previous" : "minulý rok"
+    },
+    "second" : {
+      "current" : "nyní",
+      "past" : {
+        "one" : "před {0} sekundou",
+        "other" : "před {0} sekundami",
+        "many" : "před {0} sekundy"
+      },
+      "future" : {
+        "many" : "za {0} sekundy",
+        "other" : "za {0} sekund",
+        "one" : "za {0} sekundu",
+        "few" : "za {0} sekundy"
+      }
+    },
+    "quarter" : {
+      "future" : "za {0} čtvrtletí",
+      "previous" : "minulé čtvrtletí",
+      "current" : "toto čtvrtletí",
+      "past" : {
+        "one" : "před {0} čtvrtletím",
+        "many" : "před {0} čtvrtletí",
+        "other" : "před {0} čtvrtletími"
+      },
+      "next" : "příští čtvrtletí"
+    },
+    "week" : {
+      "past" : {
+        "many" : "před {0} týdne",
+        "one" : "před {0} týdnem",
+        "other" : "před {0} týdny"
+      },
+      "current" : "tento týden",
+      "future" : {
+        "other" : "za {0} týdnů",
+        "one" : "za {0} týden",
+        "few" : "za {0} týdny",
+        "many" : "za {0} týdne"
+      },
+      "previous" : "minulý týden",
+      "next" : "příští týden"
+    },
+    "minute" : {
+      "current" : "tuto minutu",
+      "past" : {
+        "one" : "před {0} minutou",
+        "other" : "před {0} minutami",
+        "many" : "před {0} minuty"
+      },
+      "future" : {
+        "few" : "za {0} minuty",
+        "one" : "za {0} minutu",
+        "many" : "za {0} minuty",
+        "other" : "za {0} minut"
+      }
+    },
+    "day" : {
+      "past" : {
+        "other" : "před {0} dny",
+        "one" : "před {0} dnem",
+        "many" : "před {0} dne"
+      },
+      "previous" : "včera",
+      "current" : "dnes",
+      "next" : "zítra",
+      "future" : {
+        "few" : "za {0} dny",
+        "many" : "za {0} dne",
+        "other" : "za {0} dní",
+        "one" : "za {0} den"
+      }
+    },
+    "hour" : {
+      "future" : {
+        "many" : "za {0} hodiny",
+        "other" : "za {0} hodin",
+        "one" : "za {0} hodinu",
+        "few" : "za {0} hodiny"
+      },
+      "current" : "tuto hodinu",
+      "past" : {
+        "many" : "před {0} hodiny",
+        "one" : "před {0} hodinou",
+        "other" : "před {0} hodinami"
+      }
+    },
+    "now" : "nyní"
+  },
+  "narrow" : {
+    "hour" : {
+      "future" : "za {0} h",
+      "current" : "tuto hodinu",
+      "past" : "před {0} h"
+    },
+    "minute" : {
+      "past" : "před {0} min",
+      "future" : "za {0} min",
+      "current" : "tuto minutu"
+    },
+    "second" : {
+      "past" : "před {0} s",
+      "current" : "nyní",
+      "future" : "za {0} s"
+    },
+    "now" : "nyní",
+    "quarter" : {
+      "past" : "-{0} Q",
+      "previous" : "minulé čtvrtletí",
+      "next" : "příští čtvrtletí",
+      "future" : "+{0} Q",
+      "current" : "toto čtvrtletí"
+    },
+    "week" : {
+      "previous" : "minulý týd.",
+      "past" : "před {0} týd.",
+      "next" : "příští týd.",
+      "current" : "tento týd.",
+      "future" : "za {0} týd."
+    },
+    "year" : {
+      "past" : {
+        "other" : "před {0} l.",
+        "many" : "před {0} r.",
+        "one" : "před {0} r.",
+        "few" : "před {0} r."
+      },
+      "previous" : "minulý rok",
+      "current" : "tento rok",
+      "next" : "příští rok",
+      "future" : {
+        "few" : "za {0} r.",
+        "many" : "za {0} r.",
+        "one" : "za {0} r.",
+        "other" : "za {0} l."
+      }
+    },
+    "day" : {
+      "past" : {
+        "one" : "před {0} dnem",
+        "other" : "před {0} dny",
+        "many" : "před {0} dne"
+      },
+      "previous" : "včera",
+      "future" : {
+        "one" : "za {0} den",
+        "few" : "za {0} dny",
+        "many" : "za {0} dne",
+        "other" : "za {0} dní"
+      },
+      "next" : "zítra",
+      "current" : "dnes"
+    },
+    "month" : {
+      "current" : "tento měs.",
+      "next" : "příští měs.",
+      "future" : "za {0} měs.",
+      "past" : "před {0} měs.",
+      "previous" : "minuý měs."
+    }
+  },
+  "short" : {
+    "year" : {
+      "current" : "tento rok",
+      "previous" : "minulý rok",
+      "next" : "příští rok",
+      "past" : {
+        "few" : "před {0} r.",
+        "one" : "před {0} r.",
+        "many" : "před {0} r.",
+        "other" : "před {0} l."
+      },
+      "future" : {
+        "few" : "za {0} r.",
+        "many" : "za {0} r.",
+        "other" : "za {0} l.",
+        "one" : "za {0} r."
+      }
+    },
+    "quarter" : {
+      "next" : "příští čtvrtletí",
+      "future" : "+{0} Q",
+      "current" : "toto čtvrtletí",
+      "past" : "-{0} Q",
+      "previous" : "minulé čtvrtletí"
+    },
+    "second" : {
+      "past" : "před {0} s",
+      "future" : "za {0} s",
+      "current" : "nyní"
+    },
+    "minute" : {
+      "future" : "za {0} min",
+      "current" : "tuto minutu",
+      "past" : "před {0} min"
+    },
+    "day" : {
+      "past" : {
+        "many" : "před {0} dne",
+        "other" : "před {0} dny",
+        "one" : "před {0} dnem"
+      },
+      "next" : "zítra",
+      "future" : {
+        "one" : "za {0} den",
+        "many" : "za {0} dne",
+        "other" : "za {0} dní",
+        "few" : "za {0} dny"
+      },
+      "previous" : "včera",
+      "current" : "dnes"
+    },
+    "month" : {
+      "future" : "za {0} měs.",
+      "next" : "příští měs.",
+      "previous" : "minulý měs.",
+      "current" : "tento měs.",
+      "past" : "před {0} měs."
+    },
+    "hour" : {
+      "future" : "za {0} h",
+      "current" : "tuto hodinu",
+      "past" : "před {0} h"
+    },
+    "now" : "nyní",
+    "week" : {
+      "previous" : "minulý týd.",
+      "next" : "příští týd.",
+      "past" : "před {0} týd.",
+      "current" : "tento týd.",
+      "future" : "za {0} týd."
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "year" : {
+      "future" : "Letáŋhaŋ ómakȟa {0} kiŋháŋ",
+      "previous" : "Ómakȟa kʼuŋ héhaŋ",
+      "next" : "Tȟokáta ómakȟa kiŋháŋ",
+      "current" : "Lé ómakȟa kiŋ",
+      "past" : "Hékta ómakȟa {0} kʼuŋ héhaŋ"
+    },
+    "week" : {
+      "past" : "Hékta okó {0} kʼuŋ héhaŋ",
+      "previous" : "Okó kʼuŋ héhaŋ",
+      "future" : "Letáŋhaŋ okó {0} kiŋháŋ",
+      "current" : "Lé okó kiŋ",
+      "next" : "Tȟokáta okó kiŋháŋ"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "past" : "Hékta owápȟe {0} kʼuŋ héhaŋ",
+      "future" : "Letáŋhaŋ owápȟe {0} kiŋháŋ"
+    },
+    "quarter" : {
+      "current" : "this quarter",
+      "previous" : "last quarter",
+      "future" : "+{0} Q",
+      "past" : "-{0} Q",
+      "next" : "next quarter"
+    },
+    "second" : {
+      "past" : "Hékta okpí {0} k’uŋ héhaŋ",
+      "future" : "Letáŋhaŋ okpí {0} kiŋháŋ",
+      "current" : "now"
+    },
+    "month" : {
+      "current" : "Lé wí kiŋ",
+      "future" : "Letáŋhaŋ wíyawapi {0} kiŋháŋ",
+      "past" : "Hékta wíyawapi {0} kʼuŋ héhaŋ",
+      "next" : "Tȟokáta wí kiŋháŋ",
+      "previous" : "Wí kʼuŋ héhaŋ"
+    },
+    "day" : {
+      "previous" : "Ȟtálehaŋ",
+      "future" : "Letáŋhaŋ {0}-čháŋ kiŋháŋ",
+      "next" : "Híŋhaŋni kiŋháŋ",
+      "current" : "Lé aŋpétu kiŋ",
+      "past" : "Hékta {0}-čháŋ k’uŋ héhaŋ"
+    },
+    "minute" : {
+      "future" : "Letáŋhaŋ oȟ’áŋkȟo {0} kiŋháŋ",
+      "current" : "this minute",
+      "past" : "Hékta oȟ’áŋkȟo {0} k’uŋ héhaŋ"
+    },
+    "now" : "now"
+  },
+  "long" : {
+    "quarter" : {
+      "next" : "next quarter",
+      "current" : "this quarter",
+      "previous" : "last quarter",
+      "past" : "-{0} Q",
+      "future" : "+{0} Q"
+    },
+    "now" : "now",
+    "year" : {
+      "previous" : "Ómakȟa kʼuŋ héhaŋ",
+      "past" : "Hékta ómakȟa {0} kʼuŋ héhaŋ",
+      "future" : "Letáŋhaŋ ómakȟa {0} kiŋháŋ",
+      "next" : "Tȟokáta ómakȟa kiŋháŋ",
+      "current" : "Lé ómakȟa kiŋ"
+    },
+    "month" : {
+      "previous" : "Wí kʼuŋ héhaŋ",
+      "current" : "Lé wí kiŋ",
+      "future" : "Letáŋhaŋ wíyawapi {0} kiŋháŋ",
+      "past" : "Hékta wíyawapi {0} kʼuŋ héhaŋ",
+      "next" : "Tȟokáta wí kiŋháŋ"
+    },
+    "day" : {
+      "previous" : "Ȟtálehaŋ",
+      "future" : "Letáŋhaŋ {0}-čháŋ kiŋháŋ",
+      "next" : "Híŋhaŋni kiŋháŋ",
+      "past" : "Hékta {0}-čháŋ k’uŋ héhaŋ",
+      "current" : "Lé aŋpétu kiŋ"
+    },
+    "second" : {
+      "past" : "Hékta okpí {0} k’uŋ héhaŋ",
+      "future" : "Letáŋhaŋ okpí {0} kiŋháŋ",
+      "current" : "now"
+    },
+    "week" : {
+      "past" : "Hékta okó {0} kʼuŋ héhaŋ",
+      "current" : "Lé okó kiŋ",
+      "next" : "Tȟokáta okó kiŋháŋ",
+      "previous" : "Okó kʼuŋ héhaŋ",
+      "future" : "Letáŋhaŋ okó {0} kiŋháŋ"
+    },
+    "hour" : {
+      "future" : "Letáŋhaŋ owápȟe {0} kiŋháŋ",
+      "current" : "this hour",
+      "past" : "Hékta owápȟe {0} kʼuŋ héhaŋ"
+    },
+    "minute" : {
+      "future" : "Letáŋhaŋ oȟ’áŋkȟo {0} kiŋháŋ",
+      "current" : "this minute",
+      "past" : "Hékta oȟ’áŋkȟo {0} k’uŋ héhaŋ"
+    }
+  },
+  "short" : {
+    "second" : {
+      "current" : "now",
+      "past" : "Hékta okpí {0} k’uŋ héhaŋ",
+      "future" : "Letáŋhaŋ okpí {0} kiŋháŋ"
+    },
+    "now" : "now",
+    "month" : {
+      "future" : "Letáŋhaŋ wíyawapi {0} kiŋháŋ",
+      "current" : "Lé wí kiŋ",
+      "past" : "Hékta wíyawapi {0} kʼuŋ héhaŋ",
+      "previous" : "Wí kʼuŋ héhaŋ",
+      "next" : "Tȟokáta wí kiŋháŋ"
+    },
+    "day" : {
+      "previous" : "Ȟtálehaŋ",
+      "current" : "Lé aŋpétu kiŋ",
+      "next" : "Híŋhaŋni kiŋháŋ",
+      "future" : "Letáŋhaŋ {0}-čháŋ kiŋháŋ",
+      "past" : "Hékta {0}-čháŋ k’uŋ héhaŋ"
+    },
+    "minute" : {
+      "current" : "this minute",
+      "future" : "Letáŋhaŋ oȟ’áŋkȟo {0} kiŋháŋ",
+      "past" : "Hékta oȟ’áŋkȟo {0} k’uŋ héhaŋ"
+    },
+    "quarter" : {
+      "past" : "-{0} Q",
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "future" : "+{0} Q",
+      "next" : "next quarter"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "future" : "Letáŋhaŋ owápȟe {0} kiŋháŋ",
+      "past" : "Hékta owápȟe {0} kʼuŋ héhaŋ"
+    },
+    "week" : {
+      "future" : "Letáŋhaŋ okó {0} kiŋháŋ",
+      "previous" : "Okó kʼuŋ héhaŋ",
+      "next" : "Tȟokáta okó kiŋháŋ",
+      "past" : "Hékta okó {0} kʼuŋ héhaŋ",
+      "current" : "Lé okó kiŋ"
+    },
+    "year" : {
+      "next" : "Tȟokáta ómakȟa kiŋháŋ",
+      "current" : "Lé ómakȟa kiŋ",
+      "past" : "Hékta ómakȟa {0} kʼuŋ héhaŋ",
+      "future" : "Letáŋhaŋ ómakȟa {0} kiŋháŋ",
+      "previous" : "Ómakȟa kʼuŋ héhaŋ"
+    }
+  }
+}

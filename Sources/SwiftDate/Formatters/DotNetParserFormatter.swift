@@ -1,9 +1,13 @@
 //
-//  DotNetParserFormatter.swift
 //  SwiftDate
+//  Parse, validate, manipulate, and display dates, time and timezones in Swift
 //
-//  Created by Daniele Margutti on 06/06/2018.
-//  Copyright © 2018 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti
+//   - Web: https://www.danielemargutti.com
+//   - Twitter: https://twitter.com/danielemargutti
+//   - Mail: hello@danielemargutti.com
+//
+//  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
 import Foundation
@@ -44,9 +48,10 @@ public class DOTNETParser: StringToDateTransformable {
 		}
 	}
 
-	public static func parse(_ string: String, region: Region, options: Any?) -> DateInRegion? {
+	public static func parse(_ string: String, region: Region?, options: Any?) -> DateInRegion? {
 		guard let result = DOTNETParser.parse(string) else { return nil }
-		let adaptedRegion = Region(calendar: region.calendar, zone: result.tz, locale: region.locale)
+        let regionSet = region ?? Region.ISO
+		let adaptedRegion = Region(calendar: regionSet.calendar, zone: regionSet.timeZone, locale: regionSet.locale)
 		return DateInRegion(seconds: result.seconds, region: adaptedRegion)
 	}
 

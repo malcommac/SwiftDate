@@ -1,0 +1,161 @@
+{
+  "long" : {
+    "hour" : {
+      "future" : "{0} 時間後",
+      "past" : "{0} 時間前",
+      "current" : "1 時間以内"
+    },
+    "second" : {
+      "future" : "{0} 秒後",
+      "past" : "{0} 秒前",
+      "current" : "今"
+    },
+    "week" : {
+      "next" : "翌週",
+      "current" : "今週",
+      "previous" : "先週",
+      "future" : "{0} 週間後",
+      "past" : "{0} 週間前"
+    },
+    "minute" : {
+      "current" : "1 分以内",
+      "past" : "{0} 分前",
+      "future" : "{0} 分後"
+    },
+    "year" : {
+      "current" : "今年",
+      "past" : "{0} 年前",
+      "future" : "{0} 年後",
+      "previous" : "昨年",
+      "next" : "翌年"
+    },
+    "quarter" : {
+      "next" : "翌四半期",
+      "current" : "今四半期",
+      "future" : "{0} 四半期後",
+      "previous" : "前四半期",
+      "past" : "{0} 四半期前"
+    },
+    "month" : {
+      "previous" : "先月",
+      "future" : "{0} か月後",
+      "current" : "今月",
+      "next" : "翌月",
+      "past" : "{0} か月前"
+    },
+    "day" : {
+      "next" : "明日",
+      "past" : "{0} 日前",
+      "current" : "今日",
+      "future" : "{0} 日後",
+      "previous" : "昨日"
+    },
+    "now" : "今"
+  },
+  "narrow" : {
+    "week" : {
+      "current" : "今週",
+      "next" : "翌週",
+      "past" : "{0}週間前",
+      "previous" : "先週",
+      "future" : "{0}週間後"
+    },
+    "minute" : {
+      "current" : "1 分以内",
+      "past" : "{0}分前",
+      "future" : "{0}分後"
+    },
+    "month" : {
+      "current" : "今月",
+      "previous" : "先月",
+      "past" : "{0}か月前",
+      "next" : "翌月",
+      "future" : "{0}か月後"
+    },
+    "now" : "今",
+    "year" : {
+      "current" : "今年",
+      "next" : "翌年",
+      "past" : "{0}年前",
+      "future" : "{0}年後",
+      "previous" : "昨年"
+    },
+    "hour" : {
+      "future" : "{0}時間後",
+      "current" : "1 時間以内",
+      "past" : "{0}時間前"
+    },
+    "quarter" : {
+      "previous" : "前四半期",
+      "current" : "今四半期",
+      "past" : "{0}四半期前",
+      "future" : "{0}四半期後",
+      "next" : "翌四半期"
+    },
+    "second" : {
+      "past" : "{0}秒前",
+      "current" : "今",
+      "future" : "{0}秒後"
+    },
+    "day" : {
+      "past" : "{0}日前",
+      "current" : "今日",
+      "future" : "{0}日後",
+      "previous" : "昨日",
+      "next" : "明日"
+    }
+  },
+  "short" : {
+    "month" : {
+      "previous" : "先月",
+      "current" : "今月",
+      "next" : "翌月",
+      "past" : "{0} か月前",
+      "future" : "{0} か月後"
+    },
+    "now" : "今",
+    "day" : {
+      "next" : "明日",
+      "current" : "今日",
+      "previous" : "昨日",
+      "past" : "{0} 日前",
+      "future" : "{0} 日後"
+    },
+    "year" : {
+      "current" : "今年",
+      "future" : "{0} 年後",
+      "previous" : "昨年",
+      "next" : "翌年",
+      "past" : "{0} 年前"
+    },
+    "hour" : {
+      "current" : "1 時間以内",
+      "past" : "{0} 時間前",
+      "future" : "{0} 時間後"
+    },
+    "minute" : {
+      "past" : "{0} 分前",
+      "future" : "{0} 分後",
+      "current" : "1 分以内"
+    },
+    "second" : {
+      "current" : "今",
+      "past" : "{0} 秒前",
+      "future" : "{0} 秒後"
+    },
+    "quarter" : {
+      "future" : "{0} 四半期後",
+      "previous" : "前四半期",
+      "next" : "翌四半期",
+      "past" : "{0} 四半期前",
+      "current" : "今四半期"
+    },
+    "week" : {
+      "next" : "翌週",
+      "past" : "{0} 週間前",
+      "current" : "今週",
+      "previous" : "先週",
+      "future" : "{0} 週間後"
+    }
+  }
+}

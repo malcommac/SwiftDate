@@ -1,0 +1,245 @@
+{
+  "narrow" : {
+    "quarter" : {
+      "current" : "këtë tremujor",
+      "previous" : "tremujorin e kaluar",
+      "past" : {
+        "other" : "{0} tremujorë më parë",
+        "one" : "{0} tremujor më parë"
+      },
+      "future" : {
+        "one" : "pas {0} tremujori",
+        "other" : "pas {0} tremujorësh"
+      },
+      "next" : "tremujorin e ardhshëm"
+    },
+    "now" : "tani",
+    "minute" : {
+      "past" : "{0} min. më parë",
+      "future" : "pas {0} min.",
+      "current" : "këtë minutë"
+    },
+    "month" : {
+      "future" : {
+        "other" : "pas {0} muajsh",
+        "one" : "pas {0} muaji"
+      },
+      "previous" : "muajin e kaluar",
+      "next" : "muajin e ardhshëm",
+      "current" : "këtë muaj",
+      "past" : "{0} muaj më parë"
+    },
+    "second" : {
+      "future" : "pas {0} sek.",
+      "current" : "tani",
+      "past" : "{0} sek. më parë"
+    },
+    "week" : {
+      "past" : "{0} javë më parë",
+      "future" : {
+        "one" : "pas {0} jave",
+        "other" : "pas {0} javësh"
+      },
+      "previous" : "javën e kaluar",
+      "current" : "këtë javë",
+      "next" : "javën e ardhshme"
+    },
+    "hour" : {
+      "past" : "{0} orë më parë",
+      "future" : {
+        "one" : "pas {0} ore",
+        "other" : "pas {0} orësh"
+      },
+      "current" : "këtë orë"
+    },
+    "day" : {
+      "previous" : "dje",
+      "past" : "{0} ditë më parë",
+      "current" : "sot",
+      "future" : {
+        "other" : "pas {0} ditësh",
+        "one" : "pas {0} dite"
+      },
+      "next" : "nesër"
+    },
+    "year" : {
+      "next" : "vitin e ardhshëm",
+      "past" : {
+        "other" : "{0} vjet më parë",
+        "one" : "{0} vit më parë"
+      },
+      "previous" : "vitin e kaluar",
+      "current" : "këtë vit",
+      "future" : {
+        "one" : "pas {0} viti",
+        "other" : "pas {0} vjetësh"
+      }
+    }
+  },
+  "long" : {
+    "day" : {
+      "current" : "sot",
+      "past" : "{0} ditë më parë",
+      "previous" : "dje",
+      "next" : "nesër",
+      "future" : {
+        "one" : "pas {0} dite",
+        "other" : "pas {0} ditësh"
+      }
+    },
+    "now" : "tani",
+    "quarter" : {
+      "current" : "këtë tremujor",
+      "past" : {
+        "one" : "{0} tremujor më parë",
+        "other" : "{0} tremujorë më parë"
+      },
+      "future" : {
+        "one" : "pas {0} tremujori",
+        "other" : "pas {0} tremujorësh"
+      },
+      "next" : "tremujorin e ardhshëm",
+      "previous" : "tremujorin e kaluar"
+    },
+    "year" : {
+      "current" : "këtë vit",
+      "past" : {
+        "other" : "{0} vjet më parë",
+        "one" : "{0} vit më parë"
+      },
+      "previous" : "vitin e kaluar",
+      "future" : {
+        "other" : "pas {0} vjetësh",
+        "one" : "pas {0} viti"
+      },
+      "next" : "vitin e ardhshëm"
+    },
+    "week" : {
+      "current" : "këtë javë",
+      "next" : "javën e ardhshme",
+      "past" : "{0} javë më parë",
+      "future" : {
+        "other" : "pas {0} javësh",
+        "one" : "pas {0} jave"
+      },
+      "previous" : "javën e kaluar"
+    },
+    "hour" : {
+      "past" : "{0} orë më parë",
+      "future" : {
+        "one" : "pas {0} ore",
+        "other" : "pas {0} orësh"
+      },
+      "current" : "këtë orë"
+    },
+    "second" : {
+      "future" : {
+        "one" : "pas {0} sekonde",
+        "other" : "pas {0} sekondash"
+      },
+      "current" : "tani",
+      "past" : {
+        "one" : "{0} sekondë më parë",
+        "other" : "{0} sekonda më parë"
+      }
+    },
+    "minute" : {
+      "past" : {
+        "other" : "{0} minuta më parë",
+        "one" : "{0} minutë më parë"
+      },
+      "current" : "këtë minutë",
+      "future" : {
+        "one" : "pas {0} minute",
+        "other" : "pas {0} minutash"
+      }
+    },
+    "month" : {
+      "past" : "{0} muaj më parë",
+      "next" : "muajin e ardhshëm",
+      "future" : {
+        "one" : "pas {0} muaji",
+        "other" : "pas {0} muajsh"
+      },
+      "current" : "këtë muaj",
+      "previous" : "muajin e kaluar"
+    }
+  },
+  "short" : {
+    "week" : {
+      "previous" : "javën e kaluar",
+      "next" : "javën e ardhshme",
+      "future" : {
+        "other" : "pas {0} javësh",
+        "one" : "pas {0} jave"
+      },
+      "current" : "këtë javë",
+      "past" : "{0} javë më parë"
+    },
+    "day" : {
+      "current" : "sot",
+      "previous" : "dje",
+      "next" : "nesër",
+      "past" : "{0} ditë më parë",
+      "future" : {
+        "other" : "pas {0} ditësh",
+        "one" : "pas {0} dite"
+      }
+    },
+    "second" : {
+      "future" : "pas {0} sek.",
+      "past" : "{0} sek. më parë",
+      "current" : "tani"
+    },
+    "year" : {
+      "previous" : "vitin e kaluar",
+      "next" : "vitin e ardhshëm",
+      "current" : "këtë vit",
+      "future" : {
+        "one" : "pas {0} viti",
+        "other" : "pas {0} vjetësh"
+      },
+      "past" : {
+        "other" : "{0} vjet më parë",
+        "one" : "{0} vit më parë"
+      }
+    },
+    "hour" : {
+      "current" : "këtë orë",
+      "past" : "{0} orë më parë",
+      "future" : {
+        "one" : "pas {0} ore",
+        "other" : "pas {0} orësh"
+      }
+    },
+    "now" : "tani",
+    "quarter" : {
+      "future" : {
+        "other" : "pas {0} tremujorësh",
+        "one" : "pas {0} tremujori"
+      },
+      "previous" : "tremujorin e kaluar",
+      "current" : "këtë tremujor",
+      "next" : "tremujorin e ardhshëm",
+      "past" : {
+        "one" : "{0} tremujor më parë",
+        "other" : "{0} tremujorë më parë"
+      }
+    },
+    "minute" : {
+      "current" : "këtë minutë",
+      "past" : "{0} min. më parë",
+      "future" : "pas {0} min."
+    },
+    "month" : {
+      "previous" : "muajin e kaluar",
+      "current" : "këtë muaj",
+      "next" : "muajin e ardhshëm",
+      "past" : "{0} muaj më parë",
+      "future" : {
+        "one" : "pas {0} muaji",
+        "other" : "pas {0} muajsh"
+      }
+    }
+  }
+}

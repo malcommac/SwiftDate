@@ -1,0 +1,209 @@
+{
+  "narrow" : {
+    "quarter" : {
+      "previous" : "vorige kwartaal",
+      "current" : "hierdie kwartaal",
+      "next" : "volgende kwartaal",
+      "past" : "{0} kwartale gelede",
+      "future" : "oor {0} kwartale"
+    },
+    "month" : {
+      "past" : "{0} md. gelede",
+      "next" : "volgende maand",
+      "future" : "oor {0} md.",
+      "previous" : "verlede maand",
+      "current" : "vandeesmaand"
+    },
+    "now" : "nou",
+    "hour" : {
+      "future" : "oor {0} uur",
+      "past" : "{0} uur gelede",
+      "current" : "hierdie uur"
+    },
+    "minute" : {
+      "past" : "{0} min. gelede",
+      "current" : "hierdie minuut",
+      "future" : "oor {0} min."
+    },
+    "day" : {
+      "previous" : "gister",
+      "future" : {
+        "one" : "oor {0} dag",
+        "other" : "oor {0} dae"
+      },
+      "past" : {
+        "one" : "{0} dag gelede",
+        "other" : "{0} dae gelede"
+      },
+      "current" : "vandag",
+      "next" : "môre"
+    },
+    "year" : {
+      "next" : "volgende jaar",
+      "past" : "{0} jaar gelede",
+      "future" : "oor {0} jaar",
+      "previous" : "verlede jaar",
+      "current" : "hierdie jaar"
+    },
+    "week" : {
+      "next" : "volgende week",
+      "previous" : "verlede week",
+      "past" : "{0} w. gelede",
+      "future" : "oor {0} w.",
+      "current" : "vandeesweek"
+    },
+    "second" : {
+      "future" : "oor {0} sek.",
+      "current" : "nou",
+      "past" : "{0} sek. gelede"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "future" : "oor {0} min.",
+      "current" : "hierdie minuut",
+      "past" : "{0} min. gelede"
+    },
+    "month" : {
+      "current" : "vandeesmaand",
+      "past" : "{0} md. gelede",
+      "future" : "oor {0} md.",
+      "next" : "volgende maand",
+      "previous" : "verlede maand"
+    },
+    "week" : {
+      "current" : "vandeesweek",
+      "past" : "{0} w. gelede",
+      "future" : "oor {0} w.",
+      "next" : "volgende week",
+      "previous" : "verlede week"
+    },
+    "hour" : {
+      "future" : "oor {0} uur",
+      "current" : "hierdie uur",
+      "past" : "{0} uur gelede"
+    },
+    "day" : {
+      "next" : "môre",
+      "current" : "vandag",
+      "previous" : "gister",
+      "past" : {
+        "one" : "{0} dag gelede",
+        "other" : "{0} dae gelede"
+      },
+      "future" : {
+        "one" : "oor {0} dag",
+        "other" : "oor {0} dae"
+      }
+    },
+    "second" : {
+      "future" : "oor {0} sek.",
+      "current" : "nou",
+      "past" : "{0} sek. gelede"
+    },
+    "now" : "nou",
+    "year" : {
+      "current" : "hierdie jaar",
+      "future" : "oor {0} jaar",
+      "past" : "{0} jaar gelede",
+      "next" : "volgende jaar",
+      "previous" : "verlede jaar"
+    },
+    "quarter" : {
+      "current" : "hierdie kwartaal",
+      "future" : {
+        "one" : "oor {0} kwartaal",
+        "other" : "oor {0} kwartale"
+      },
+      "previous" : "vorige kwartaal",
+      "next" : "volgende kwartaal",
+      "past" : {
+        "other" : "{0} kwartale gelede",
+        "one" : "{0} kwartaal gelede"
+      }
+    }
+  },
+  "long" : {
+    "day" : {
+      "previous" : "gister",
+      "past" : {
+        "one" : "{0} dag gelede",
+        "other" : "{0} dae gelede"
+      },
+      "future" : {
+        "other" : "oor {0} dae",
+        "one" : "oor {0} dag"
+      },
+      "next" : "môre",
+      "current" : "vandag"
+    },
+    "hour" : {
+      "current" : "hierdie uur",
+      "future" : "oor {0} uur",
+      "past" : "{0} uur gelede"
+    },
+    "month" : {
+      "next" : "volgende maand",
+      "current" : "vandeesmaand",
+      "past" : {
+        "one" : "{0} maand gelede",
+        "other" : "{0} maande gelede"
+      },
+      "previous" : "verlede maand",
+      "future" : "oor {0} minuut"
+    },
+    "quarter" : {
+      "next" : "volgende kwartaal",
+      "past" : {
+        "one" : "{0} kwartaal gelede",
+        "other" : "{0} kwartale gelede"
+      },
+      "previous" : "vorige kwartaal",
+      "current" : "hierdie kwartaal",
+      "future" : {
+        "one" : "oor {0} kwartaal",
+        "other" : "oor {0} kwartale"
+      }
+    },
+    "year" : {
+      "previous" : "verlede jaar",
+      "current" : "hierdie jaar",
+      "next" : "volgende jaar",
+      "past" : "{0} jaar gelede",
+      "future" : "oor {0} jaar"
+    },
+    "minute" : {
+      "past" : {
+        "other" : "{0} minute gelede",
+        "one" : "{0} minuut gelede"
+      },
+      "future" : "oor {0} minuut",
+      "current" : "hierdie minuut"
+    },
+    "second" : {
+      "current" : "nou",
+      "future" : {
+        "one" : "oor {0} sekonde",
+        "other" : "oor {0} sekondes"
+      },
+      "past" : {
+        "other" : "{0} sekondes gelede",
+        "one" : "{0} sekonde gelede"
+      }
+    },
+    "week" : {
+      "future" : {
+        "other" : "oor {0} weke",
+        "one" : "oor {0} week"
+      },
+      "previous" : "verlede week",
+      "current" : "vandeesweek",
+      "next" : "volgende week",
+      "past" : {
+        "one" : "{0} week gelede",
+        "other" : "{0} weke gelede"
+      }
+    },
+    "now" : "nou"
+  }
+}

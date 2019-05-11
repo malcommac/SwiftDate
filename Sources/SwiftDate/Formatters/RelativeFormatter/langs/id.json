@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "day" : {
+      "next" : "besok",
+      "future" : "dalam {0} h",
+      "previous" : "kemarin",
+      "current" : "hari ini",
+      "past" : "{0} h lalu"
+    },
+    "quarter" : {
+      "next" : "kuartal berikutnya",
+      "past" : "{0} krtl. lalu",
+      "future" : "dlm {0} krtl.",
+      "previous" : "Kuartal lalu",
+      "current" : "kuartal ini"
+    },
+    "hour" : {
+      "future" : "dalam {0} jam",
+      "current" : "jam ini",
+      "past" : "{0} jam lalu"
+    },
+    "year" : {
+      "next" : "tahun depan",
+      "past" : "{0} thn lalu",
+      "current" : "tahun ini",
+      "previous" : "tahun lalu",
+      "future" : "dlm {0} thn"
+    },
+    "now" : "sekarang",
+    "month" : {
+      "current" : "bulan ini",
+      "future" : "dlm {0} bln",
+      "past" : "{0} bln lalu",
+      "next" : "bulan berikutnya",
+      "previous" : "bulan lalu"
+    },
+    "week" : {
+      "previous" : "minggu lalu",
+      "current" : "minggu ini",
+      "past" : "{0} mgg lalu",
+      "future" : "dlm {0} mgg",
+      "next" : "minggu depan"
+    },
+    "minute" : {
+      "future" : "dlm {0} mnt",
+      "current" : "menit ini",
+      "past" : "{0} mnt lalu"
+    },
+    "second" : {
+      "current" : "sekarang",
+      "future" : "dlm {0} dtk",
+      "past" : "{0} dtk lalu"
+    }
+  },
+  "long" : {
+    "day" : {
+      "previous" : "kemarin",
+      "current" : "hari ini",
+      "next" : "besok",
+      "past" : "{0} hari yang lalu",
+      "future" : "dalam {0} hari"
+    },
+    "week" : {
+      "current" : "minggu ini",
+      "future" : "dalam {0} minggu",
+      "past" : "{0} minggu yang lalu",
+      "previous" : "minggu lalu",
+      "next" : "minggu depan"
+    },
+    "minute" : {
+      "past" : "{0} menit yang lalu",
+      "current" : "menit ini",
+      "future" : "dalam {0} menit"
+    },
+    "month" : {
+      "future" : "dalam {0} bulan",
+      "next" : "bulan berikutnya",
+      "previous" : "bulan lalu",
+      "current" : "bulan ini",
+      "past" : "{0} bulan yang lalu"
+    },
+    "hour" : {
+      "past" : "{0} jam yang lalu",
+      "future" : "dalam {0} jam",
+      "current" : "jam ini"
+    },
+    "year" : {
+      "past" : "{0} tahun yang lalu",
+      "future" : "dalam {0} tahun",
+      "previous" : "tahun lalu",
+      "next" : "tahun depan",
+      "current" : "tahun ini"
+    },
+    "second" : {
+      "past" : "{0} detik yang lalu",
+      "current" : "sekarang",
+      "future" : "dalam {0} detik"
+    },
+    "now" : "sekarang",
+    "quarter" : {
+      "past" : "{0} kuartal yang lalu",
+      "current" : "kuartal ini",
+      "previous" : "Kuartal lalu",
+      "future" : "dalam {0} kuartal",
+      "next" : "kuartal berikutnya"
+    }
+  },
+  "short" : {
+    "quarter" : {
+      "future" : "dlm {0} krtl.",
+      "next" : "kuartal berikutnya",
+      "previous" : "Kuartal lalu",
+      "current" : "kuartal ini",
+      "past" : "{0} krtl. lalu"
+    },
+    "minute" : {
+      "past" : "{0} mnt lalu",
+      "current" : "menit ini",
+      "future" : "dlm {0} mnt"
+    },
+    "year" : {
+      "next" : "tahun depan",
+      "future" : "dlm {0} thn",
+      "current" : "tahun ini",
+      "past" : "{0} thn lalu",
+      "previous" : "tahun lalu"
+    },
+    "second" : {
+      "current" : "sekarang",
+      "past" : "{0} dtk lalu",
+      "future" : "dlm {0} dtk"
+    },
+    "hour" : {
+      "current" : "jam ini",
+      "past" : "{0} jam lalu",
+      "future" : "dalam {0} jam"
+    },
+    "now" : "sekarang",
+    "month" : {
+      "previous" : "bulan lalu",
+      "next" : "bulan berikutnya",
+      "past" : "{0} bln lalu",
+      "current" : "bulan ini",
+      "future" : "dlm {0} bln"
+    },
+    "week" : {
+      "previous" : "minggu lalu",
+      "current" : "minggu ini",
+      "next" : "minggu depan",
+      "past" : "{0} mgg lalu",
+      "future" : "dlm {0} mgg"
+    },
+    "day" : {
+      "next" : "besok",
+      "past" : "{0} h lalu",
+      "future" : "dalam {0} h",
+      "previous" : "kemarin",
+      "current" : "hari ini"
+    }
+  }
+}

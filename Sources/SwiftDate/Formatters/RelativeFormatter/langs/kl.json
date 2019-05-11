@@ -1,0 +1,161 @@
+{
+  "narrow" : {
+    "quarter" : {
+      "past" : "-{0} Q",
+      "future" : "+{0} Q",
+      "current" : "this quarter",
+      "previous" : "last quarter",
+      "next" : "next quarter"
+    },
+    "year" : {
+      "previous" : "last year",
+      "next" : "next year",
+      "future" : "om {0} ukioq",
+      "current" : "this year",
+      "past" : "for {0} ukioq siden"
+    },
+    "week" : {
+      "future" : "om {0} sapaatip-akunnera",
+      "previous" : "last week",
+      "next" : "next week",
+      "past" : "for {0} sapaatip-akunnera siden",
+      "current" : "this week"
+    },
+    "day" : {
+      "current" : "today",
+      "past" : "for {0} ulloq unnuarlu siden",
+      "next" : "tomorrow",
+      "future" : "om {0} ulloq unnuarlu",
+      "previous" : "yesterday"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "past" : "for {0} nalunaaquttap-akunnera siden",
+      "future" : "om {0} nalunaaquttap-akunnera"
+    },
+    "minute" : {
+      "future" : "om {0} minutsi",
+      "current" : "this minute",
+      "past" : "for {0} minutsi siden"
+    },
+    "month" : {
+      "next" : "next month",
+      "current" : "this month",
+      "past" : "for {0} qaammat siden",
+      "future" : "om {0} qaammat",
+      "previous" : "last month"
+    },
+    "now" : "now",
+    "second" : {
+      "future" : "om {0} sekundi",
+      "current" : "now",
+      "past" : "for {0} sekundi siden"
+    }
+  },
+  "short" : {
+    "minute" : {
+      "past" : "for {0} minutsi siden",
+      "future" : "om {0} minutsi",
+      "current" : "this minute"
+    },
+    "week" : {
+      "current" : "this week",
+      "past" : "for {0} sapaatip-akunnera siden",
+      "future" : "om {0} sapaatip-akunnera",
+      "next" : "next week",
+      "previous" : "last week"
+    },
+    "year" : {
+      "current" : "this year",
+      "future" : "om {0} ukioq",
+      "past" : "for {0} ukioq siden",
+      "next" : "next year",
+      "previous" : "last year"
+    },
+    "day" : {
+      "next" : "tomorrow",
+      "current" : "today",
+      "previous" : "yesterday",
+      "past" : "for {0} ulloq unnuarlu siden",
+      "future" : "om {0} ulloq unnuarlu"
+    },
+    "hour" : {
+      "future" : "om {0} nalunaaquttap-akunnera",
+      "current" : "this hour",
+      "past" : "for {0} nalunaaquttap-akunnera siden"
+    },
+    "quarter" : {
+      "current" : "this quarter",
+      "future" : "+{0} Q",
+      "previous" : "last quarter",
+      "next" : "next quarter",
+      "past" : "-{0} Q"
+    },
+    "second" : {
+      "past" : "for {0} sekundi siden",
+      "current" : "now",
+      "future" : "om {0} sekundi"
+    },
+    "month" : {
+      "current" : "this month",
+      "past" : "for {0} qaammat siden",
+      "future" : "om {0} qaammat",
+      "next" : "next month",
+      "previous" : "last month"
+    },
+    "now" : "now"
+  },
+  "long" : {
+    "hour" : {
+      "future" : "om {0} nalunaaquttap-akunnera",
+      "current" : "this hour",
+      "past" : "for {0} nalunaaquttap-akunnera siden"
+    },
+    "day" : {
+      "next" : "tomorrow",
+      "past" : "for {0} ulloq unnuarlu siden",
+      "previous" : "yesterday",
+      "future" : "om {0} ulloq unnuarlu",
+      "current" : "today"
+    },
+    "second" : {
+      "past" : "for {0} sekundi siden",
+      "current" : "now",
+      "future" : "om {0} sekundi"
+    },
+    "week" : {
+      "future" : "om {0} sapaatip-akunnera",
+      "past" : "for {0} sapaatip-akunnera siden",
+      "current" : "this week",
+      "next" : "next week",
+      "previous" : "last week"
+    },
+    "minute" : {
+      "future" : "om {0} minutsi",
+      "past" : "for {0} minutsi siden",
+      "current" : "this minute"
+    },
+    "month" : {
+      "future" : "om {0} qaammat",
+      "past" : "for {0} qaammat siden",
+      "current" : "this month",
+      "previous" : "last month",
+      "next" : "next month"
+    },
+    "now" : "now",
+    "year" : {
+      "current" : "this year",
+      "next" : "next year",
+      "previous" : "last year",
+      "future" : "om {0} ukioq",
+      "past" : "for {0} ukioq siden"
+    },
+    "quarter" : {
+      "future" : "+{0} Q",
+      "previous" : "last quarter",
+      "past" : "-{0} Q",
+      "next" : "next quarter",
+      "current" : "this quarter"
+    }
+  }
+}

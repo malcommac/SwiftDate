@@ -1,0 +1,269 @@
+{
+  "short" : {
+    "day" : {
+      "next" : "doman",
+      "past" : {
+        "one" : "{0} zornade indaûr",
+        "other" : "{0} zornadis indaûr"
+      },
+      "current" : "vuê",
+      "previous" : "îr",
+      "future" : {
+        "one" : "ca di {0} zornade",
+        "other" : "ca di {0} zornadis"
+      }
+    },
+    "month" : {
+      "past" : "{0} mês indaûr",
+      "future" : "ca di {0} mês",
+      "next" : "next month",
+      "current" : "this month",
+      "previous" : "last month"
+    },
+    "quarter" : {
+      "current" : "this quarter",
+      "past" : "-{0} Q",
+      "next" : "next quarter",
+      "previous" : "last quarter",
+      "future" : "+{0} Q"
+    },
+    "hour" : {
+      "current" : "this hour",
+      "future" : {
+        "one" : "ca di {0} ore",
+        "other" : "ca di {0} oris"
+      },
+      "past" : {
+        "other" : "{0} oris indaûr",
+        "one" : "{0} ore indaûr"
+      }
+    },
+    "year" : {
+      "next" : "next year",
+      "previous" : "last year",
+      "past" : {
+        "other" : "{0} agns indaûr",
+        "one" : "{0} an indaûr"
+      },
+      "current" : "this year",
+      "future" : {
+        "one" : "ca di {0} an",
+        "other" : "ca di {0} agns"
+      }
+    },
+    "minute" : {
+      "current" : "this minute",
+      "future" : {
+        "one" : "ca di {0} minût",
+        "other" : "ca di {0} minûts"
+      },
+      "past" : {
+        "other" : "{0} minûts indaûr",
+        "one" : "{0} minût indaûr"
+      }
+    },
+    "now" : "now",
+    "week" : {
+      "next" : "next week",
+      "previous" : "last week",
+      "current" : "this week",
+      "past" : {
+        "one" : "{0} setemane indaûr",
+        "other" : "{0} setemanis indaûr"
+      },
+      "future" : {
+        "other" : "ca di {0} setemanis",
+        "one" : "ca di {0} setemane"
+      }
+    },
+    "second" : {
+      "current" : "now",
+      "future" : {
+        "one" : "ca di {0} secont",
+        "other" : "ca di {0} seconts"
+      },
+      "past" : {
+        "one" : "{0} secont indaûr",
+        "other" : "{0} seconts indaûr"
+      }
+    }
+  },
+  "long" : {
+    "hour" : {
+      "past" : {
+        "one" : "{0} ore indaûr",
+        "other" : "{0} oris indaûr"
+      },
+      "future" : {
+        "one" : "ca di {0} ore",
+        "other" : "ca di {0} oris"
+      },
+      "current" : "this hour"
+    },
+    "now" : "now",
+    "quarter" : {
+      "future" : "+{0} Q",
+      "previous" : "last quarter",
+      "next" : "next quarter",
+      "current" : "this quarter",
+      "past" : "-{0} Q"
+    },
+    "day" : {
+      "current" : "vuê",
+      "past" : {
+        "one" : "{0} zornade indaûr",
+        "other" : "{0} zornadis indaûr"
+      },
+      "future" : {
+        "one" : "ca di {0} zornade",
+        "other" : "ca di {0} zornadis"
+      },
+      "next" : "doman",
+      "previous" : "îr"
+    },
+    "week" : {
+      "current" : "this week",
+      "future" : {
+        "one" : "ca di {0} setemane",
+        "other" : "ca di {0} setemanis"
+      },
+      "previous" : "last week",
+      "next" : "next week",
+      "past" : {
+        "other" : "{0} setemanis indaûr",
+        "one" : "{0} setemane indaûr"
+      }
+    },
+    "minute" : {
+      "future" : {
+        "one" : "ca di {0} minût",
+        "other" : "ca di {0} minûts"
+      },
+      "past" : {
+        "other" : "{0} minûts indaûr",
+        "one" : "{0} minût indaûr"
+      },
+      "current" : "this minute"
+    },
+    "second" : {
+      "current" : "now",
+      "future" : {
+        "one" : "ca di {0} secont",
+        "other" : "ca di {0} seconts"
+      },
+      "past" : {
+        "one" : "{0} secont indaûr",
+        "other" : "{0} seconts indaûr"
+      }
+    },
+    "month" : {
+      "current" : "this month",
+      "future" : "ca di {0} mês",
+      "past" : "{0} mês indaûr",
+      "next" : "next month",
+      "previous" : "last month"
+    },
+    "year" : {
+      "current" : "this year",
+      "past" : {
+        "one" : "{0} an indaûr",
+        "other" : "{0} agns indaûr"
+      },
+      "next" : "next year",
+      "previous" : "last year",
+      "future" : {
+        "one" : "ca di {0} an",
+        "other" : "ca di {0} agns"
+      }
+    }
+  },
+  "narrow" : {
+    "week" : {
+      "previous" : "last week",
+      "past" : {
+        "other" : "{0} setemanis indaûr",
+        "one" : "{0} setemane indaûr"
+      },
+      "current" : "this week",
+      "future" : {
+        "other" : "ca di {0} setemanis",
+        "one" : "ca di {0} setemane"
+      },
+      "next" : "next week"
+    },
+    "hour" : {
+      "future" : {
+        "other" : "ca di {0} oris",
+        "one" : "ca di {0} ore"
+      },
+      "current" : "this hour",
+      "past" : {
+        "one" : "{0} ore indaûr",
+        "other" : "{0} oris indaûr"
+      }
+    },
+    "now" : "now",
+    "second" : {
+      "past" : {
+        "other" : "{0} seconts indaûr",
+        "one" : "{0} secont indaûr"
+      },
+      "future" : {
+        "other" : "ca di {0} seconts",
+        "one" : "ca di {0} secont"
+      },
+      "current" : "now"
+    },
+    "month" : {
+      "previous" : "last month",
+      "next" : "next month",
+      "current" : "this month",
+      "past" : "{0} mês indaûr",
+      "future" : "ca di {0} mês"
+    },
+    "day" : {
+      "previous" : "îr",
+      "current" : "vuê",
+      "next" : "doman",
+      "past" : {
+        "other" : "{0} zornadis indaûr",
+        "one" : "{0} zornade indaûr"
+      },
+      "future" : {
+        "other" : "ca di {0} zornadis",
+        "one" : "ca di {0} zornade"
+      }
+    },
+    "year" : {
+      "future" : {
+        "one" : "ca di {0} an",
+        "other" : "ca di {0} agns"
+      },
+      "current" : "this year",
+      "past" : {
+        "other" : "{0} agns indaûr",
+        "one" : "{0} an indaûr"
+      },
+      "previous" : "last year",
+      "next" : "next year"
+    },
+    "quarter" : {
+      "past" : "-{0} Q",
+      "next" : "next quarter",
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "future" : "+{0} Q"
+    },
+    "minute" : {
+      "current" : "this minute",
+      "past" : {
+        "other" : "{0} minûts indaûr",
+        "one" : "{0} minût indaûr"
+      },
+      "future" : {
+        "other" : "ca di {0} minûts",
+        "one" : "ca di {0} minût"
+      }
+    }
+  }
+}

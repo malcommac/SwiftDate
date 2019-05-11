@@ -1,0 +1,275 @@
+{
+  "long" : {
+    "day" : {
+      "next" : "jutri",
+      "past" : {
+        "other" : "pred {0} dnevi",
+        "one" : "pred {0} dnevom",
+        "two" : "pred {0} dnevoma"
+      },
+      "future" : {
+        "two" : "čez {0} dneva",
+        "one" : "čez {0} dan",
+        "other" : "čez {0} dni"
+      },
+      "previous" : "včeraj",
+      "current" : "danes"
+    },
+    "month" : {
+      "future" : {
+        "few" : "čez {0} mesece",
+        "other" : "čez {0} mesecev",
+        "two" : "čez {0} meseca",
+        "one" : "čez {0} mesec"
+      },
+      "next" : "naslednji mesec",
+      "current" : "ta mesec",
+      "past" : {
+        "other" : "pred {0} meseci",
+        "two" : "pred {0} mesecema",
+        "one" : "pred {0} mesecem"
+      },
+      "previous" : "prejšnji mesec"
+    },
+    "second" : {
+      "past" : {
+        "two" : "pred {0} sekundama",
+        "other" : "pred {0} sekundami",
+        "one" : "pred {0} sekundo"
+      },
+      "current" : "zdaj",
+      "future" : {
+        "other" : "čez {0} sekund",
+        "one" : "čez {0} sekundo",
+        "few" : "čez {0} sekunde",
+        "two" : "čez {0} sekundi"
+      }
+    },
+    "now" : "zdaj",
+    "hour" : {
+      "past" : {
+        "two" : "pred {0} urama",
+        "other" : "pred {0} urami",
+        "one" : "pred {0} uro"
+      },
+      "current" : "v tej uri",
+      "future" : {
+        "few" : "čez {0} ure",
+        "one" : "čez {0} uro",
+        "other" : "čez {0} ur",
+        "two" : "čez {0} uri"
+      }
+    },
+    "minute" : {
+      "past" : {
+        "two" : "pred {0} minutama",
+        "one" : "pred {0} minuto",
+        "other" : "pred {0} minutami"
+      },
+      "current" : "to minuto",
+      "future" : {
+        "two" : "čez {0} minuti",
+        "one" : "čez {0} minuto",
+        "few" : "čez {0} minute",
+        "other" : "čez {0} minut"
+      }
+    },
+    "week" : {
+      "past" : {
+        "other" : "pred {0} tedni",
+        "one" : "pred {0} tednom",
+        "two" : "pred {0} tednoma"
+      },
+      "next" : "naslednji teden",
+      "previous" : "prejšnji teden",
+      "current" : "ta teden",
+      "future" : {
+        "one" : "čez {0} teden",
+        "two" : "čez {0} tedna",
+        "few" : "čez {0} tedne",
+        "other" : "čez {0} tednov"
+      }
+    },
+    "year" : {
+      "previous" : "lani",
+      "future" : {
+        "two" : "čez {0} leti",
+        "other" : "čez {0} let",
+        "one" : "čez {0} leto",
+        "few" : "čez {0} leta"
+      },
+      "past" : {
+        "one" : "pred {0} letom",
+        "other" : "pred {0} leti",
+        "two" : "pred {0} letoma"
+      },
+      "current" : "letos",
+      "next" : "naslednje leto"
+    },
+    "quarter" : {
+      "current" : "to četrtletje",
+      "previous" : "zadnje četrtletje",
+      "future" : {
+        "few" : "čez {0} četrtletja",
+        "one" : "čez {0} četrtletje",
+        "other" : "čez {0} četrtletij",
+        "two" : "čez {0} četrtletji"
+      },
+      "next" : "naslednje četrtletje",
+      "past" : {
+        "one" : "pred {0} četrtletjem",
+        "two" : "pred {0} četrtletjema",
+        "other" : "pred {0} četrtletji"
+      }
+    }
+  },
+  "narrow" : {
+    "quarter" : {
+      "next" : "naslednje četrtletje",
+      "past" : "pred {0} četr.",
+      "future" : "čez {0} četr.",
+      "previous" : "zadnje četrtletje",
+      "current" : "to četrtletje"
+    },
+    "hour" : {
+      "past" : "pred {0} h",
+      "future" : "čez {0} h",
+      "current" : "v tej uri"
+    },
+    "day" : {
+      "previous" : "včeraj",
+      "past" : {
+        "two" : "pred {0} dnevoma",
+        "other" : "pred {0} dnevi",
+        "one" : "pred {0} dnevom"
+      },
+      "future" : {
+        "one" : "čez {0} dan",
+        "two" : "čez {0} dneva",
+        "other" : "čez {0} dni"
+      },
+      "next" : "jutri",
+      "current" : "danes"
+    },
+    "year" : {
+      "current" : "letos",
+      "future" : {
+        "few" : "čez {0} leta",
+        "one" : "čez {0} leto",
+        "two" : "čez {0} leti",
+        "other" : "čez {0} let"
+      },
+      "next" : "naslednje leto",
+      "previous" : "lani",
+      "past" : {
+        "other" : "pred {0} leti",
+        "one" : "pred {0} letom",
+        "two" : "pred {0} letoma"
+      }
+    },
+    "week" : {
+      "next" : "naslednji teden",
+      "future" : "čez {0} ted.",
+      "past" : "pred {0} ted.",
+      "previous" : "prejšnji teden",
+      "current" : "ta teden"
+    },
+    "minute" : {
+      "current" : "to minuto",
+      "past" : "pred {0} min",
+      "future" : "čez {0} min"
+    },
+    "month" : {
+      "next" : "naslednji mesec",
+      "current" : "ta mesec",
+      "previous" : "prejšnji mesec",
+      "past" : "pred {0} mes.",
+      "future" : "čez {0} mes."
+    },
+    "second" : {
+      "current" : "zdaj",
+      "future" : "čez {0} s",
+      "past" : "pred {0} s"
+    },
+    "now" : "zdaj"
+  },
+  "short" : {
+    "week" : {
+      "previous" : "prejšnji teden",
+      "current" : "ta teden",
+      "next" : "naslednji teden",
+      "past" : "pred {0} ted.",
+      "future" : "čez {0} ted."
+    },
+    "minute" : {
+      "past" : "pred {0} min.",
+      "current" : "to minuto",
+      "future" : "čez {0} min."
+    },
+    "day" : {
+      "past" : {
+        "one" : "pred {0} dnevom",
+        "two" : "pred {0} dnevoma",
+        "other" : "pred {0} dnevi"
+      },
+      "next" : "jutri",
+      "previous" : "včeraj",
+      "current" : "danes",
+      "future" : {
+        "other" : "čez {0} dni",
+        "one" : "čez {0} dan",
+        "two" : "čez {0} dneva"
+      }
+    },
+    "now" : "zdaj",
+    "second" : {
+      "past" : "pred {0} s",
+      "current" : "zdaj",
+      "future" : "čez {0} s"
+    },
+    "hour" : {
+      "current" : "v tej uri",
+      "past" : {
+        "other" : "pred {0} urami",
+        "two" : "pred {0} urama",
+        "one" : "pred {0} uro"
+      },
+      "future" : {
+        "two" : "čez {0} uri",
+        "other" : "čez {0} ur",
+        "few" : "čez {0} ure",
+        "one" : "čez {0} uro"
+      }
+    },
+    "month" : {
+      "future" : "čez {0} mes.",
+      "next" : "naslednji mesec",
+      "current" : "ta mesec",
+      "past" : "pred {0} mes.",
+      "previous" : "prejšnji mesec"
+    },
+    "year" : {
+      "previous" : "lani",
+      "current" : "letos",
+      "past" : {
+        "one" : "pred {0} letom",
+        "two" : "pred {0} letoma",
+        "other" : "pred {0} leti"
+      },
+      "next" : "naslednje leto",
+      "future" : {
+        "few" : "čez {0} leta",
+        "two" : "čez {0} leti",
+        "other" : "čez {0} let",
+        "one" : "čez {0} leto"
+      }
+    },
+    "quarter" : {
+      "past" : "pred {0} četrtl.",
+      "future" : "čez {0} četrtl.",
+      "next" : "naslednje četrtletje",
+      "previous" : "zadnje četrtletje",
+      "current" : "to četrtletje"
+    }
+  }
+}

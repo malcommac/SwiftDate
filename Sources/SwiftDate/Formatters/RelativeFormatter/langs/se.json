@@ -1,0 +1,272 @@
+{
+  "narrow" : {
+    "second" : {
+      "future" : {
+        "one" : "{0} sekunda maŋŋilit",
+        "other" : "{0} sekundda maŋŋilit"
+      },
+      "past" : {
+        "one" : "{0} sekunda árat",
+        "other" : "{0} sekundda árat"
+      },
+      "current" : "now"
+    },
+    "week" : {
+      "past" : {
+        "one" : "{0} vahku árat",
+        "other" : "{0} vahkku árat"
+      },
+      "next" : "next week",
+      "previous" : "last week",
+      "current" : "this week",
+      "future" : {
+        "one" : "{0} vahku maŋŋilit",
+        "other" : "{0} vahkku maŋŋilit"
+      }
+    },
+    "month" : {
+      "current" : "this month",
+      "next" : "next month",
+      "future" : "{0} mánotbadji maŋŋilit",
+      "previous" : "last month",
+      "past" : "{0} mánotbadji árat"
+    },
+    "quarter" : {
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "past" : "-{0} Q",
+      "future" : "+{0} Q",
+      "next" : "next quarter"
+    },
+    "year" : {
+      "current" : "this year",
+      "previous" : "last year",
+      "future" : {
+        "other" : "{0} jahkki maŋŋilit",
+        "one" : "{0} jahki maŋŋilit"
+      },
+      "next" : "next year",
+      "past" : {
+        "other" : "{0} jahkki árat",
+        "one" : "{0} jahki árat"
+      }
+    },
+    "hour" : {
+      "current" : "this hour",
+      "past" : {
+        "one" : "{0} diibmu árat",
+        "other" : "{0} diibmur árat"
+      },
+      "future" : {
+        "one" : "{0} diibmu maŋŋilit",
+        "other" : "{0} diibmur maŋŋilit"
+      }
+    },
+    "day" : {
+      "current" : "odne",
+      "next" : "ihttin",
+      "previous" : "ikte",
+      "past" : {
+        "other" : "{0} jándora árat",
+        "one" : "{0} jándor árat"
+      },
+      "future" : {
+        "other" : "{0} jándora maŋŋilit",
+        "one" : "{0} jándor maŋŋilit",
+        "two" : "{0} jándor amaŋŋilit"
+      }
+    },
+    "minute" : {
+      "past" : {
+        "one" : "{0} minuhta árat",
+        "other" : "{0} minuhtta árat"
+      },
+      "current" : "this minute",
+      "future" : {
+        "one" : "{0} minuhta maŋŋilit",
+        "other" : "{0} minuhtta maŋŋilit"
+      }
+    },
+    "now" : "now"
+  },
+  "long" : {
+    "minute" : {
+      "past" : {
+        "one" : "{0} minuhta árat",
+        "other" : "{0} minuhtta árat"
+      },
+      "current" : "this minute",
+      "future" : {
+        "one" : "{0} minuhta maŋŋilit",
+        "other" : "{0} minuhtta maŋŋilit"
+      }
+    },
+    "hour" : {
+      "current" : "this hour",
+      "past" : {
+        "other" : "{0} diibmur árat",
+        "one" : "{0} diibmu árat"
+      },
+      "future" : {
+        "one" : "{0} diibmu maŋŋilit",
+        "other" : "{0} diibmur maŋŋilit"
+      }
+    },
+    "quarter" : {
+      "previous" : "last quarter",
+      "current" : "this quarter",
+      "next" : "next quarter",
+      "future" : "+{0} Q",
+      "past" : "-{0} Q"
+    },
+    "year" : {
+      "previous" : "last year",
+      "next" : "next year",
+      "past" : {
+        "one" : "{0} jahki árat",
+        "other" : "{0} jahkki árat"
+      },
+      "current" : "this year",
+      "future" : {
+        "one" : "{0} jahki maŋŋilit",
+        "other" : "{0} jahkki maŋŋilit"
+      }
+    },
+    "week" : {
+      "next" : "next week",
+      "previous" : "last week",
+      "current" : "this week",
+      "past" : {
+        "one" : "{0} vahku árat",
+        "other" : "{0} vahkku árat"
+      },
+      "future" : {
+        "other" : "{0} vahkku maŋŋilit",
+        "one" : "{0} vahku maŋŋilit"
+      }
+    },
+    "day" : {
+      "current" : "odne",
+      "future" : {
+        "one" : "{0} jándor maŋŋilit",
+        "other" : "{0} jándora maŋŋilit",
+        "two" : "{0} jándor amaŋŋilit"
+      },
+      "past" : {
+        "other" : "{0} jándora árat",
+        "one" : "{0} jándor árat"
+      },
+      "next" : "ihttin",
+      "previous" : "ikte"
+    },
+    "second" : {
+      "current" : "now",
+      "past" : {
+        "one" : "{0} sekunda árat",
+        "other" : "{0} sekundda árat"
+      },
+      "future" : {
+        "other" : "{0} sekundda maŋŋilit",
+        "one" : "{0} sekunda maŋŋilit"
+      }
+    },
+    "now" : "now",
+    "month" : {
+      "previous" : "last month",
+      "future" : "{0} mánotbadji maŋŋilit",
+      "past" : "{0} mánotbadji árat",
+      "current" : "this month",
+      "next" : "next month"
+    }
+  },
+  "short" : {
+    "now" : "now",
+    "minute" : {
+      "current" : "this minute",
+      "future" : {
+        "one" : "{0} minuhta maŋŋilit",
+        "other" : "{0} minuhtta maŋŋilit"
+      },
+      "past" : {
+        "other" : "{0} minuhtta árat",
+        "one" : "{0} minuhta árat"
+      }
+    },
+    "year" : {
+      "previous" : "last year",
+      "current" : "this year",
+      "next" : "next year",
+      "past" : {
+        "other" : "{0} jahkki árat",
+        "one" : "{0} jahki árat"
+      },
+      "future" : {
+        "one" : "{0} jahki maŋŋilit",
+        "other" : "{0} jahkki maŋŋilit"
+      }
+    },
+    "second" : {
+      "current" : "now",
+      "future" : {
+        "one" : "{0} sekunda maŋŋilit",
+        "other" : "{0} sekundda maŋŋilit"
+      },
+      "past" : {
+        "one" : "{0} sekunda árat",
+        "other" : "{0} sekundda árat"
+      }
+    },
+    "hour" : {
+      "past" : {
+        "other" : "{0} diibmur árat",
+        "one" : "{0} diibmu árat"
+      },
+      "future" : {
+        "other" : "{0} diibmur maŋŋilit",
+        "one" : "{0} diibmu maŋŋilit"
+      },
+      "current" : "this hour"
+    },
+    "month" : {
+      "future" : "{0} mánotbadji maŋŋilit",
+      "previous" : "last month",
+      "next" : "next month",
+      "past" : "{0} mánotbadji árat",
+      "current" : "this month"
+    },
+    "quarter" : {
+      "current" : "this quarter",
+      "future" : "+{0} Q",
+      "previous" : "last quarter",
+      "next" : "next quarter",
+      "past" : "-{0} Q"
+    },
+    "week" : {
+      "next" : "next week",
+      "past" : {
+        "other" : "{0} vahkku árat",
+        "one" : "{0} vahku árat"
+      },
+      "current" : "this week",
+      "previous" : "last week",
+      "future" : {
+        "other" : "{0} vahkku maŋŋilit",
+        "one" : "{0} vahku maŋŋilit"
+      }
+    },
+    "day" : {
+      "next" : "ihttin",
+      "current" : "odne",
+      "previous" : "ikte",
+      "past" : {
+        "other" : "{0} jándora árat",
+        "one" : "{0} jándor árat"
+      },
+      "future" : {
+        "two" : "{0} jándor amaŋŋilit",
+        "other" : "{0} jándora maŋŋilit",
+        "one" : "{0} jándor maŋŋilit"
+      }
+    }
+  }
+}

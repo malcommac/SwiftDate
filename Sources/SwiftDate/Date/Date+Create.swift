@@ -26,7 +26,7 @@ public extension Date {
 		})
 	}
 
-	/// Return the oldest date in given list.
+	/// Return the newest date in given list.
 	///
 	/// - Parameter list: list of dates
 	/// - Returns: a tuple with the index of the oldest date and its instance.

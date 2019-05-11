@@ -17,7 +17,7 @@ class TestDateInRegion_Langs: XCTestCase {
 			XCTAssert((lang.identifier.isEmpty == false), "Language \(lang.identifier) has not a valid identifier")
 			lang.flavours.forEach({ (key, value) in
 				if RelativeFormatter.Flavour(rawValue: key) == nil {
-					XCTFail("Flavour '\(key)' is not supported by the library (lang '\(lang.identifier)'")
+					XCTFail("Flavour '\(key)' is not supported by the library (lang '\(lang.identifier)')")
 					return
 				}
 				guard let flavourDict = value as? [String: Any] else {

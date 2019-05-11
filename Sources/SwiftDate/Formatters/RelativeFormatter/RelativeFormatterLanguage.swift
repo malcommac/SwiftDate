@@ -1,16 +1,18 @@
 //
-//  RelativeFormatterLangs.swift
+//  RelativeFormatter.swift
 //  SwiftDate
 //
-//  Created by dan on 11/05/2019.
-//  Copyright © 2019 SwiftDate. All rights reserved.
+//  Created by Daniele Margutti on 11/05/2019.
+//  Copyright © 2018 SwiftDate. All rights reserved.
 //
 
 import Foundation
 
-internal class RelativeFormatterLangsCache {
-    static let shared = RelativeFormatterLangsCache()
-    var cachedValues = [String: [String: Any]]()
+internal class RelativeFormatterLanguagesCache {
+    
+    static let shared = RelativeFormatterLanguagesCache()
+    
+    private(set) var cachedValues = [String: [String: Any]]()
 
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         do {
@@ -34,7 +36,7 @@ internal class RelativeFormatterLangsCache {
     }
 }
 
-public enum RelativeFormatterLangs: String, CaseIterable {
+public enum RelativeFormatterLanguage: String, CaseIterable {
     case af = "af" // Locales.afrikaans
     case am = "am" // Locales.amharic
     case ar_AE = "ar_AE" // Locales.arabicUnitedArabEmirates
@@ -164,7 +166,7 @@ public enum RelativeFormatterLangs: String, CaseIterable {
     /// Data is structured in:
     /// { flavour: { unit : { data } } }
     public var flavours: [String: Any] {
-        return RelativeFormatterLangsCache.shared.flavoursForLocaleID(self.rawValue) ?? [:]
+        return RelativeFormatterLanguagesCache.shared.flavoursForLocaleID(self.rawValue) ?? [:]
     }
 
     public var identifier: String {

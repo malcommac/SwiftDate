@@ -15,7 +15,7 @@ public class RelativeFormatter: DateToStringTrasformable {
 
 	/// Return all languages supported by the library for relative date formatting
 	public static var allLanguages: [String] {
-        return RelativeFormatterLangs.allCases.map { $0.identifier }
+        return RelativeFormatterLanguage.allCases.map { $0.identifier }
 	}
 
 	private init() {}
@@ -25,15 +25,15 @@ public class RelativeFormatter: DateToStringTrasformable {
 	///
 	/// - Parameter locale: locale to load
 	/// - Returns: language table
-    private func tableForLocale(_ locale: Locale) -> RelativeFormatterLangs {
+    private func tableForLocale(_ locale: Locale) -> RelativeFormatterLanguage {
         let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
 
-        if let lang = RelativeFormatterLangs(rawValue: localeId) {
+        if let lang = RelativeFormatterLanguage(rawValue: localeId) {
             return lang
         }
 
-        guard let fallbackFlavours = RelativeFormatterLangs(rawValue: localeId.components(separatedBy: "_").first!) ??
-            RelativeFormatterLangs(rawValue: localeId.components(separatedBy: "-").first!) else {
+        guard let fallbackFlavours = RelativeFormatterLanguage(rawValue: localeId.components(separatedBy: "_").first!) ??
+            RelativeFormatterLanguage(rawValue: localeId.components(separatedBy: "-").first!) else {
                 return tableForLocale(Locales.english.toLocale()) // fallback not found, return english
         }
         return fallbackFlavours // return fallback

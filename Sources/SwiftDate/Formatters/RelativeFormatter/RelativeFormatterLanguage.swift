@@ -9,9 +9,9 @@
 import Foundation
 
 internal class RelativeFormatterLanguagesCache {
-    
+
     static let shared = RelativeFormatterLanguagesCache()
-    
+
     private(set) var cachedValues = [String: [String: Any]]()
 
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {

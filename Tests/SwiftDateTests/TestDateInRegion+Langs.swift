@@ -13,12 +13,11 @@ class TestDateInRegion_Langs: XCTestCase {
 
 	public func testLanguages() {
 
-		RelativeFormatter.allLanguages.forEach { langType in
-			XCTAssert((langType.identifier.isEmpty == false), "Language \(langType) has not a valid identifier")
-			let langInstance = langType.init()
-			langInstance.flavours.forEach({ (key, value) in
+		RelativeFormatter.allLanguages.forEach { lang in
+			XCTAssert((lang.identifier.isEmpty == false), "Language \(lang.identifier) has not a valid identifier")
+			lang.flavours.forEach({ (key, value) in
 				if RelativeFormatter.Flavour(rawValue: key) == nil {
-					XCTFail("Flavour '\(key)' is not supported by the library (lang '\(langType.identifier)'")
+					XCTFail("Flavour '\(key)' is not supported by the library (lang '\(lang.identifier)'")
 					return
 				}
 				guard let flavourDict = value as? [String: Any] else {

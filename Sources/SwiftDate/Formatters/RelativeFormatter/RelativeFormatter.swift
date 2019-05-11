@@ -14,8 +14,8 @@ public class RelativeFormatter: DateToStringTrasformable {
 	private static let shared = RelativeFormatter()
 
 	/// Return all languages supported by the library for relative date formatting
-	public static var allLanguages: [String] {
-        return RelativeFormatterLanguage.allCases.map { $0.identifier }
+	public static var allLanguages: [RelativeFormatterLanguage] {
+        return RelativeFormatterLanguage.allCases
 	}
 
 	private init() {}

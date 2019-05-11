@@ -14,9 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/**/*.swift'
   s.frameworks  = "Foundation"
   s.swift_version = "5.0"
-  s.resource_bundles = {
-    'SwiftDate' => ['SwiftDate/**/*.{png,storyboard,lproj,xcassets,xib,json}']
-  }
-  s.resources = 'IndomioCore/**/*.{png,storyboard,lproj,xcassets,xib,json}'
-
+  s.resources = 'Sources/SwiftDate/Formatters/RelativeFormatter/langs'
 end

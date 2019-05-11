@@ -1,0 +1,59 @@
+{
+  "second" : {
+    "future" : "+{0} s",
+    "current" : "now",
+    "past" : "-{0} s"
+  },
+  "hour" : {
+    "future" : "+{0} h",
+    "past" : "-{0} h",
+    "current" : "this hour"
+  },
+  "now" : "now",
+  "week" : {
+    "future" : "+{0} w",
+    "past" : "-{0} w",
+    "previous" : "last week",
+    "next" : "next week",
+    "current" : "this week"
+  },
+  "month" : {
+    "next" : "next month",
+    "current" : "this month",
+    "previous" : "last month",
+    "past" : "-{0} m",
+    "future" : "+{0} m"
+  },
+  "quarter" : {
+    "past" : "-{0} Q",
+    "next" : "next quarter",
+    "previous" : "last quarter",
+    "future" : "+{0} Q",
+    "current" : "this quarter"
+  },
+  "year" : {
+    "next" : "بل کال",
+    "current" : "سږکال",
+    "past" : {
+      "one" : "{0} کال مخکې",
+      "other" : "{0} کاله مخکې"
+    },
+    "future" : {
+      "one" : "په {0} کال کې",
+      "other" : "په {0} کالونو کې"
+    },
+    "previous" : "پروسږکال"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "past" : "-{0} min",
+    "future" : "+{0} min"
+  },
+  "day" : {
+    "previous" : "yesterday",
+    "current" : "today",
+    "next" : "tomorrow",
+    "future" : "+{0} d",
+    "past" : "-{0} d"
+  }
+}

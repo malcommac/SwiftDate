@@ -1,0 +1,53 @@
+{
+  "month" : {
+    "past" : "{0} 個月前",
+    "current" : "今個月",
+    "future" : "{0} 個月後",
+    "previous" : "上個月",
+    "next" : "下個月"
+  },
+  "day" : {
+    "next" : "聽日",
+    "past" : "{0} 日前",
+    "previous" : "尋日",
+    "future" : "{0} 日後",
+    "current" : "今日"
+  },
+  "quarter" : {
+    "future" : "{0} 季後",
+    "past" : "{0} 季前",
+    "current" : "今季",
+    "previous" : "上一季",
+    "next" : "下一季"
+  },
+  "hour" : {
+    "current" : "呢個小時",
+    "past" : "{0} 小時前",
+    "future" : "{0} 小時後"
+  },
+  "second" : {
+    "past" : "{0} 秒前",
+    "future" : "{0} 秒後",
+    "current" : "宜家"
+  },
+  "year" : {
+    "previous" : "舊年",
+    "current" : "今年",
+    "next" : "下年",
+    "past" : "{0} 年前",
+    "future" : "{0} 年後"
+  },
+  "week" : {
+    "current" : "今個星期",
+    "next" : "下星期",
+    "previous" : "上星期",
+    "past" : "{0} 個星期前",
+    "future" : "{0} 個星期後"
+  },
+  "minute" : {
+    "past" : "{0} 分鐘前",
+    "future" : "{0} 分鐘後",
+    "current" : "呢分鐘"
+  },
+  "now" : "宜家"
+}

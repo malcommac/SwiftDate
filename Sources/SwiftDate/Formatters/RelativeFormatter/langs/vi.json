@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "current" : "Hôm nay",
+    "previous" : "Hôm qua",
+    "next" : "Ngày mai",
+    "past" : "{0} ngày trước",
+    "future" : "sau {0} ngày nữa"
+  },
+  "now" : "bây giờ",
+  "year" : {
+    "previous" : "năm ngoái",
+    "current" : "năm nay",
+    "next" : "năm sau",
+    "past" : "{0} năm trước",
+    "future" : "sau {0} năm nữa"
+  },
+  "hour" : {
+    "current" : "giờ này",
+    "past" : "{0} giờ trước",
+    "future" : "sau {0} giờ nữa"
+  },
+  "month" : {
+    "current" : "tháng này",
+    "next" : "tháng sau",
+    "past" : "{0} tháng trước",
+    "future" : "sau {0} tháng nữa",
+    "previous" : "tháng trước"
+  },
+  "minute" : {
+    "future" : "sau {0} phút nữa",
+    "past" : "{0} phút trước",
+    "current" : "phút này"
+  },
+  "second" : {
+    "future" : "sau {0} giây nữa",
+    "current" : "bây giờ",
+    "past" : "{0} giây trước"
+  },
+  "week" : {
+    "past" : "{0} tuần trước",
+    "future" : "sau {0} tuần nữa",
+    "previous" : "tuần trước",
+    "next" : "tuần sau",
+    "current" : "tuần này"
+  },
+  "quarter" : {
+    "future" : "sau {0} quý nữa",
+    "previous" : "quý trước",
+    "current" : "quý này",
+    "past" : "{0} quý trước",
+    "next" : "quý sau"
+  }
+}

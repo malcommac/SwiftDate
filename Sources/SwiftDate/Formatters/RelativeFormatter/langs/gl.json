@@ -1,0 +1,101 @@
+{
+  "day" : {
+    "past" : {
+      "one" : "hai {0} día",
+      "other" : "hai {0} días"
+    },
+    "future" : {
+      "one" : "dentro de {0} día",
+      "other" : "dentro de {0} días"
+    },
+    "current" : "hoxe",
+    "previous" : "onte",
+    "next" : "mañá"
+  },
+  "month" : {
+    "previous" : "o mes pasado",
+    "next" : "o próximo mes",
+    "past" : {
+      "one" : "hai {0} mes",
+      "other" : "hai {0} meses"
+    },
+    "future" : {
+      "one" : "dentro de {0} mes",
+      "other" : "dentro de {0} meses"
+    },
+    "current" : "este mes"
+  },
+  "year" : {
+    "previous" : "o ano pasado",
+    "current" : "este ano",
+    "past" : {
+      "other" : "hai {0} anos",
+      "one" : "hai {0} ano"
+    },
+    "future" : {
+      "one" : "dentro de {0} ano",
+      "other" : "dentro de {0} anos"
+    },
+    "next" : "o próximo ano"
+  },
+  "week" : {
+    "previous" : "a semana pasada",
+    "current" : "esta semana",
+    "next" : "a próxima semana",
+    "past" : {
+      "other" : "hai {0} semanas",
+      "one" : "hai {0} semana"
+    },
+    "future" : {
+      "one" : "dentro de {0} semana",
+      "other" : "dentro de {0} semanas"
+    }
+  },
+  "now" : "agora",
+  "quarter" : {
+    "previous" : "o trimestre pasado",
+    "current" : "este trimestre",
+    "next" : "o próximo trimestre",
+    "past" : {
+      "one" : "hai {0} trimestre",
+      "other" : "hai {0} trimestres"
+    },
+    "future" : {
+      "other" : "dentro de {0} trimestres",
+      "one" : "dentro de {0} trimestre"
+    }
+  },
+  "hour" : {
+    "future" : {
+      "one" : "dentro de {0} hora",
+      "other" : "dentro de {0} horas"
+    },
+    "current" : "esta hora",
+    "past" : {
+      "other" : "hai {0} horas",
+      "one" : "hai {0} hora"
+    }
+  },
+  "minute" : {
+    "current" : "este minuto",
+    "past" : {
+      "one" : "hai {0} minuto",
+      "other" : "hai {0} minutos"
+    },
+    "future" : {
+      "one" : "dentro de {0} minuto",
+      "other" : "dentro de {0} minutos"
+    }
+  },
+  "second" : {
+    "current" : "agora",
+    "past" : {
+      "one" : "hai {0} segundo",
+      "other" : "hai {0} segundos"
+    },
+    "future" : {
+      "one" : "dentro de {0} segundo",
+      "other" : "dentro de {0} segundos"
+    }
+  }
+}

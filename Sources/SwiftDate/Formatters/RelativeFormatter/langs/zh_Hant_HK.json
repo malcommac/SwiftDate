@@ -1,0 +1,53 @@
+{
+  "second" : {
+    "current" : "現在",
+    "future" : "{0} 秒後",
+    "past" : "{0} 秒前"
+  },
+  "week" : {
+    "next" : "下星期",
+    "previous" : "上星期",
+    "future" : "{0} 星期後",
+    "current" : "本星期",
+    "past" : "{0} 星期前"
+  },
+  "now" : "現在",
+  "quarter" : {
+    "current" : "今季",
+    "next" : "下一季",
+    "past" : "{0} 季前",
+    "previous" : "上一季",
+    "future" : "{0} 季後"
+  },
+  "day" : {
+    "future" : "{0} 日後",
+    "current" : "今日",
+    "previous" : "昨日",
+    "past" : "{0} 日前",
+    "next" : "明日"
+  },
+  "month" : {
+    "next" : "下個月",
+    "past" : "{0} 個月前",
+    "current" : "本月",
+    "previous" : "上個月",
+    "future" : "{0} 個月後"
+  },
+  "year" : {
+    "future" : "{0} 年後",
+    "previous" : "上年",
+    "past" : "{0} 年前",
+    "current" : "今年",
+    "next" : "下年"
+  },
+  "hour" : {
+    "future" : "{0} 小時後",
+    "current" : "這個小時",
+    "past" : "{0} 小時前"
+  },
+  "minute" : {
+    "current" : "這分鐘",
+    "past" : "{0} 分鐘前",
+    "future" : "{0} 分鐘後"
+  }
+}

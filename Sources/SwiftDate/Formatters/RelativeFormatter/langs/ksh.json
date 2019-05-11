@@ -1,0 +1,61 @@
+{
+  "week" : {
+    "current" : "di Woch",
+    "future" : "+{0} w",
+    "previous" : "läz Woch",
+    "next" : "nächste Woche",
+    "past" : "-{0} w"
+  },
+  "second" : {
+    "future" : "+{0} s",
+    "past" : "-{0} s",
+    "current" : "now"
+  },
+  "minute" : {
+    "future" : "+{0} min",
+    "current" : "this minute",
+    "past" : "-{0} min"
+  },
+  "year" : {
+    "current" : "diß Johr",
+    "past" : {
+      "zero" : "vör keijnem Johr",
+      "one" : "vör {0} Johr",
+      "other" : "vör {0} Johre"
+    },
+    "previous" : "läz Johr",
+    "next" : "näx Johr",
+    "future" : {
+      "one" : "en {0} Johr",
+      "other" : "en {0} Johre",
+      "zero" : "en keinem Johr"
+    }
+  },
+  "now" : "now",
+  "hour" : {
+    "future" : "+{0} h",
+    "past" : "-{0} h",
+    "current" : "this hour"
+  },
+  "quarter" : {
+    "future" : "+{0} Q",
+    "current" : "this quarter",
+    "previous" : "last quarter",
+    "next" : "next quarter",
+    "past" : "-{0} Q"
+  },
+  "month" : {
+    "future" : "+{0} m",
+    "next" : "nächste Mohnd",
+    "past" : "-{0} m",
+    "current" : "diese Mohnd",
+    "previous" : "lätzde Mohnd"
+  },
+  "day" : {
+    "next" : "morje",
+    "past" : "-{0} d",
+    "future" : "+{0} d",
+    "previous" : "jestere",
+    "current" : "hück"
+  }
+}

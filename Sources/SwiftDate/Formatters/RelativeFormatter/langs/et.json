@@ -1,0 +1,53 @@
+{
+  "week" : {
+    "previous" : "eelmine nädal",
+    "current" : "käesolev nädal",
+    "next" : "järgmine nädal",
+    "future" : "{0} nädala pärast",
+    "past" : "{0} nädala eest"
+  },
+  "minute" : {
+    "past" : "{0} minuti eest",
+    "future" : "{0} minuti pärast",
+    "current" : "praegusel minutil"
+  },
+  "month" : {
+    "future" : "{0} kuu pärast",
+    "past" : "{0} kuu eest",
+    "previous" : "eelmine kuu",
+    "next" : "järgmine kuu",
+    "current" : "käesolev kuu"
+  },
+  "hour" : {
+    "current" : "praegusel tunnil",
+    "past" : "{0} tunni eest",
+    "future" : "{0} tunni pärast"
+  },
+  "now" : "nüüd",
+  "second" : {
+    "current" : "nüüd",
+    "past" : "{0} sekundi eest",
+    "future" : "{0} sekundi pärast"
+  },
+  "day" : {
+    "future" : "{0} päeva pärast",
+    "current" : "täna",
+    "next" : "homme",
+    "previous" : "eile",
+    "past" : "{0} päeva eest"
+  },
+  "year" : {
+    "past" : "{0} aasta eest",
+    "next" : "järgmine aasta",
+    "previous" : "eelmine aasta",
+    "future" : "{0} aasta pärast",
+    "current" : "käesolev aasta"
+  },
+  "quarter" : {
+    "next" : "järgmine kvartal",
+    "current" : "käesolev kvartal",
+    "previous" : "eelmine kvartal",
+    "past" : "{0} kvartali eest",
+    "future" : "{0} kvartali pärast"
+  }
+}

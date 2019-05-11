@@ -1,0 +1,101 @@
+{
+  "second" : {
+    "past" : {
+      "other" : "pirms {0} sekundēm",
+      "one" : "pirms {0} sekundes"
+    },
+    "current" : "tagad",
+    "future" : {
+      "other" : "pēc {0} sekundēm",
+      "one" : "pēc {0} sekundes"
+    }
+  },
+  "month" : {
+    "future" : {
+      "one" : "pēc {0} mēneša",
+      "other" : "pēc {0} mēnešiem"
+    },
+    "current" : "šajā mēnesī",
+    "previous" : "pagājušajā mēnesī",
+    "past" : {
+      "one" : "pirms {0} mēneša",
+      "other" : "pirms {0} mēnešiem"
+    },
+    "next" : "nākamajā mēnesī"
+  },
+  "hour" : {
+    "future" : {
+      "other" : "pēc {0} stundām",
+      "one" : "pēc {0} stundas"
+    },
+    "current" : "šajā stundā",
+    "past" : {
+      "one" : "pirms {0} stundas",
+      "other" : "pirms {0} stundām"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "one" : "pirms {0} minūtes",
+      "other" : "pirms {0} minūtēm"
+    },
+    "future" : {
+      "other" : "pēc {0} minūtēm",
+      "one" : "pēc {0} minūtes"
+    },
+    "current" : "šajā minūtē"
+  },
+  "quarter" : {
+    "next" : "nākamais ceturksnis",
+    "current" : "šis ceturksnis",
+    "future" : {
+      "other" : "pēc {0} ceturkšņiem",
+      "one" : "pēc {0} ceturkšņa"
+    },
+    "previous" : "pēdējais ceturksnis",
+    "past" : {
+      "other" : "pirms {0} ceturkšņiem",
+      "one" : "pirms {0} ceturkšņa"
+    }
+  },
+  "now" : "tagad",
+  "week" : {
+    "past" : {
+      "other" : "pirms {0} nedēļām",
+      "one" : "pirms {0} nedēļas"
+    },
+    "current" : "šajā nedēļā",
+    "future" : {
+      "other" : "pēc {0} nedēļām",
+      "one" : "pēc {0} nedēļas"
+    },
+    "previous" : "pagājušajā nedēļā",
+    "next" : "nākamajā nedēļā"
+  },
+  "day" : {
+    "next" : "rīt",
+    "current" : "šodien",
+    "past" : {
+      "other" : "pirms {0} dienām",
+      "one" : "pirms {0} dienas"
+    },
+    "previous" : "vakar",
+    "future" : {
+      "one" : "pēc {0} dienas",
+      "other" : "pēc {0} dienām"
+    }
+  },
+  "year" : {
+    "future" : {
+      "one" : "pēc {0} gada",
+      "other" : "pēc {0} gadiem"
+    },
+    "past" : {
+      "one" : "pirms {0} gada",
+      "other" : "pirms {0} gadiem"
+    },
+    "previous" : "pagājušajā gadā",
+    "next" : "nākamajā gadā",
+    "current" : "šajā gadā"
+  }
+}

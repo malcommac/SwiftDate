@@ -1,0 +1,125 @@
+{
+  "second" : {
+    "current" : "now",
+    "past" : {
+      "other" : "před {0} sekundami",
+      "two" : "před {0} sekundomaj",
+      "one" : "před {0} sekundu"
+    },
+    "future" : {
+      "one" : "za {0} sekundu",
+      "few" : "za {0} sekundy",
+      "two" : "za {0} sekundźe",
+      "other" : "za {0} sekundow"
+    }
+  },
+  "month" : {
+    "past" : {
+      "one" : "před {0} měsacom",
+      "two" : "před {0} měsacomaj",
+      "other" : "před {0} měsacami"
+    },
+    "next" : "přichodny měsac",
+    "previous" : "zašły měsac",
+    "current" : "tutón měsac",
+    "future" : {
+      "two" : "za {0} měsacaj",
+      "other" : "za {0} měsacow",
+      "one" : "za {0} měsac",
+      "few" : "za {0} měsacy"
+    }
+  },
+  "hour" : {
+    "current" : "this hour",
+    "past" : {
+      "one" : "před {0} hodźinu",
+      "two" : "před {0} hodźinomaj",
+      "other" : "před {0} hodźinami"
+    },
+    "future" : {
+      "one" : "za {0} hodźinu",
+      "two" : "za {0} hodźinje",
+      "other" : "za {0} hodźin",
+      "few" : "za {0} hodźiny"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "two" : "před {0} minutomaj",
+      "one" : "před {0} minutu",
+      "other" : "před {0} minutami"
+    },
+    "future" : {
+      "one" : "za {0} minutu",
+      "two" : "za {0} minuće",
+      "other" : "za {0} minutow",
+      "few" : "za {0} minuty"
+    },
+    "current" : "this minute"
+  },
+  "quarter" : {
+    "current" : "this quarter",
+    "previous" : "last quarter",
+    "next" : "next quarter",
+    "past" : {
+      "two" : "před {0} kwartalomaj",
+      "one" : "před {0} kwartalom",
+      "other" : "před {0} kwartalemi"
+    },
+    "future" : {
+      "two" : "za {0} kwartalej",
+      "few" : "za {0} kwartale",
+      "other" : "za {0} kwartalow",
+      "one" : "za {0} kwartal"
+    }
+  },
+  "now" : "now",
+  "week" : {
+    "future" : {
+      "one" : "za {0} tydźeń",
+      "two" : "za {0} tydźenjej",
+      "few" : "za {0} tydźenje",
+      "other" : "za {0} tydźenjow"
+    },
+    "previous" : "zašły tydźeń",
+    "current" : "tutón tydźeń",
+    "next" : "přichodny tydźeń",
+    "past" : {
+      "two" : "před {0} tydźenjomaj",
+      "other" : "před {0} tydźenjemi",
+      "one" : "před {0} tydźenjom"
+    }
+  },
+  "day" : {
+    "previous" : "wčera",
+    "next" : "jutře",
+    "current" : "dźensa",
+    "future" : {
+      "one" : "za {0} dźeń",
+      "two" : "za {0} dnjej",
+      "few" : "za {0} dny",
+      "other" : "za {0} dnjow"
+    },
+    "past" : {
+      "two" : "před {0} dnjomaj",
+      "one" : "před {0} dnjom",
+      "other" : "před {0} dnjemi"
+    }
+  },
+  "year" : {
+    "next" : "klětu",
+    "past" : {
+      "other" : "před {0} lětami",
+      "one" : "před {0} lětom",
+      "two" : "před {0} lětomaj"
+    },
+    "previous" : "loni",
+    "future" : {
+      "few" : "za {0} lěta",
+      "one" : "za {0} lěto",
+      "other" : "za {0} lět",
+      "two" : "za {0} lěće"
+    },
+    "current" : "lětsa"
+  }
+}

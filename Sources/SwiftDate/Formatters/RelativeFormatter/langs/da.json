@@ -1,0 +1,95 @@
+{
+  "now" : "nu",
+  "quarter" : {
+    "past" : {
+      "one" : "for {0} kvartal siden",
+      "other" : "for {0} kvartaler siden"
+    },
+    "future" : {
+      "one" : "om {0} kvartal",
+      "other" : "om {0} kvartaler"
+    },
+    "current" : "dette kvartal",
+    "next" : "næste kvartal",
+    "previous" : "sidste kvartal"
+  },
+  "week" : {
+    "previous" : "sidste uge",
+    "current" : "denne uge",
+    "next" : "næste uge",
+    "past" : {
+      "other" : "for {0} uger siden",
+      "one" : "for {0} uge siden"
+    },
+    "future" : {
+      "one" : "om {0} uge",
+      "other" : "om {0} uger"
+    }
+  },
+  "hour" : {
+    "past" : {
+      "one" : "for {0} time siden",
+      "other" : "for {0} timer siden"
+    },
+    "future" : {
+      "one" : "om {0} time",
+      "other" : "om {0} timer"
+    },
+    "current" : "i den kommende time"
+  },
+  "day" : {
+    "previous" : "i går",
+    "future" : {
+      "other" : "om {0} dage",
+      "one" : "om {0} dag"
+    },
+    "past" : {
+      "other" : "for {0} dage siden",
+      "one" : "for {0} dag siden"
+    },
+    "current" : "i dag",
+    "next" : "i morgen"
+  },
+  "month" : {
+    "future" : {
+      "one" : "om {0} måned",
+      "other" : "om {0} måneder"
+    },
+    "current" : "denne måned",
+    "previous" : "sidste måned",
+    "next" : "næste måned",
+    "past" : {
+      "one" : "for {0} måned siden",
+      "other" : "for {0} måneder siden"
+    }
+  },
+  "second" : {
+    "past" : {
+      "one" : "for {0} sekund siden",
+      "other" : "for {0} sekunder siden"
+    },
+    "future" : {
+      "other" : "om {0} sekunder",
+      "one" : "om {0} sekund"
+    },
+    "current" : "nu"
+  },
+  "year" : {
+    "previous" : "sidste år",
+    "current" : "i år",
+    "future" : "om {0} år",
+    "past" : "for {0} år siden",
+    "next" : "næste år"
+  },
+  "minute" : {
+    "past" : {
+      "one" : "for {0} minut siden",
+      "other" : "for {0} minutter siden"
+    },
+    "future" : {
+      "one" : "om {0} minut",
+      "other" : "om {0} minutter"
+    },
+    "current" : "i det kommende minut"
+  }
+}

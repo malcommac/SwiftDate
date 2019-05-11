@@ -1,0 +1,89 @@
+{
+  "now" : "now",
+  "quarter" : {
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "next" : "next quarter",
+    "past" : "-{0} Q",
+    "future" : "+{0} Q"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "past" : {
+      "one" : "{0} minût indaûr",
+      "other" : "{0} minûts indaûr"
+    },
+    "future" : {
+      "one" : "ca di {0} minût",
+      "other" : "ca di {0} minûts"
+    }
+  },
+  "year" : {
+    "previous" : "last year",
+    "current" : "this year",
+    "past" : {
+      "one" : "{0} an indaûr",
+      "other" : "{0} agns indaûr"
+    },
+    "future" : {
+      "one" : "ca di {0} an",
+      "other" : "ca di {0} agns"
+    },
+    "next" : "next year"
+  },
+  "hour" : {
+    "future" : {
+      "one" : "ca di {0} ore",
+      "other" : "ca di {0} oris"
+    },
+    "current" : "this hour",
+    "past" : {
+      "one" : "{0} ore indaûr",
+      "other" : "{0} oris indaûr"
+    }
+  },
+  "week" : {
+    "future" : {
+      "one" : "ca di {0} setemane",
+      "other" : "ca di {0} setemanis"
+    },
+    "previous" : "last week",
+    "next" : "next week",
+    "current" : "this week",
+    "past" : {
+      "one" : "{0} setemane indaûr",
+      "other" : "{0} setemanis indaûr"
+    }
+  },
+  "month" : {
+    "current" : "this month",
+    "previous" : "last month",
+    "future" : "ca di {0} mês",
+    "next" : "next month",
+    "past" : "{0} mês indaûr"
+  },
+  "second" : {
+    "current" : "now",
+    "past" : {
+      "other" : "{0} seconts indaûr",
+      "one" : "{0} secont indaûr"
+    },
+    "future" : {
+      "one" : "ca di {0} secont",
+      "other" : "ca di {0} seconts"
+    }
+  },
+  "day" : {
+    "current" : "vuê",
+    "future" : {
+      "one" : "ca di {0} zornade",
+      "other" : "ca di {0} zornadis"
+    },
+    "past" : {
+      "one" : "{0} zornade indaûr",
+      "other" : "{0} zornadis indaûr"
+    },
+    "previous" : "îr",
+    "next" : "doman"
+  }
+}

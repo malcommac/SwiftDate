@@ -1,0 +1,53 @@
+{
+  "now" : "now",
+  "quarter" : {
+    "past" : "-{0} Q",
+    "future" : "+{0} Q",
+    "current" : "this quarter",
+    "previous" : "last quarter",
+    "next" : "next quarter"
+  },
+  "week" : {
+    "previous" : "ئۆتكەن ھەپتە",
+    "current" : "بۇ ھەپتە",
+    "past" : "{0} ھەپتە ئىلگىرى",
+    "future" : "{0} ھەپتىدىن كېيىن",
+    "next" : "كېلەر ھەپتە"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "past" : "{0} مىنۇت ئىلگىرى",
+    "future" : "{0} مىنۇتتىن كېيىن"
+  },
+  "month" : {
+    "current" : "بۇ ئاي",
+    "previous" : "ئۆتكەن ئاي",
+    "next" : "كېلەر ئاي",
+    "future" : "{0} ئايدىن كېيىن",
+    "past" : "{0} ئاي ئىلگىرى"
+  },
+  "hour" : {
+    "future" : "{0} سائەتتىن كېيىن",
+    "current" : "this hour",
+    "past" : "{0} سائەت ئىلگىرى"
+  },
+  "second" : {
+    "past" : "{0} سېكۇنت ئىلگىرى",
+    "current" : "now",
+    "future" : "{0} سېكۇنتتىن كېيىن"
+  },
+  "year" : {
+    "next" : "كېلەر يىل",
+    "future" : "{0} يىلدىن كېيىن",
+    "current" : "بۇ يىل",
+    "previous" : "ئۆتكەن يىل",
+    "past" : "{0} يىل ئىلگىرى"
+  },
+  "day" : {
+    "past" : "{0} كۈن ئىلگىرى",
+    "future" : "{0} كۈندىن كېيىن",
+    "current" : "بۈگۈن",
+    "next" : "ئەتە",
+    "previous" : "تۈنۈگۈن"
+  }
+}

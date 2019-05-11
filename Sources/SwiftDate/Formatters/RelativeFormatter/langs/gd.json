@@ -1,0 +1,121 @@
+{
+  "day" : {
+    "next" : "a-màireach",
+    "current" : "an-diugh",
+    "future" : {
+      "other" : "an ceann {0} latha",
+      "few" : "an ceann {0} làithean"
+    },
+    "previous" : "an-dè",
+    "past" : {
+      "few" : "{0} làithean air ais",
+      "other" : "{0} latha air ais"
+    }
+  },
+  "minute" : {
+    "current" : "am broinn mionaid",
+    "future" : {
+      "few" : "an ceann {0} mionaidean",
+      "other" : "an ceann {0} mionaid",
+      "one" : "an ceann {0} mhionaid",
+      "two" : "an ceann {0} mhionaid"
+    },
+    "past" : {
+      "other" : "{0} mionaid air ais",
+      "two" : "{0} mhionaid air ais",
+      "few" : "{0} mionaidean air ais",
+      "one" : "{0} mhionaid air ais"
+    }
+  },
+  "week" : {
+    "past" : {
+      "two" : "{0} sheachdain air ais",
+      "other" : "{0} seachdain air ais",
+      "few" : "{0} seachdainean air ais"
+    },
+    "previous" : "an t-seachdain seo chaidh",
+    "future" : {
+      "other" : "an ceann {0} seachdain",
+      "few" : "an ceann {0} seachdainean",
+      "two" : "an ceann {0} sheachdain"
+    },
+    "current" : "an t-seachdain seo",
+    "next" : "an ath-sheachdain"
+  },
+  "month" : {
+    "next" : "an ath-mhìos",
+    "future" : {
+      "few" : "an ceann {0} mìosan",
+      "two" : "an ceann {0} mhìosa",
+      "one" : "an ceann {0} mhìosa",
+      "other" : "an ceann {0} mìosa"
+    },
+    "past" : {
+      "other" : "{0} mìos air ais",
+      "one" : "{0} mhìos air ais",
+      "two" : "{0} mhìos air ais",
+      "few" : "{0} mìosan air ais"
+    },
+    "current" : "am mìos seo",
+    "previous" : "am mìos seo chaidh"
+  },
+  "hour" : {
+    "future" : {
+      "other" : "an ceann {0} uair a thìde",
+      "few" : "an ceann {0} uairean a thìde"
+    },
+    "current" : "am broinn uair a thìde",
+    "past" : {
+      "few" : "{0} uairean a thìde air ais",
+      "other" : "{0} uair a thìde air ais"
+    }
+  },
+  "year" : {
+    "current" : "am bliadhna",
+    "past" : {
+      "one" : "{0} bhliadhna air ais",
+      "other" : "{0} bliadhna air ais",
+      "two" : "{0} bhliadhna air ais",
+      "few" : "{0} bhliadhnaichean air ais"
+    },
+    "future" : {
+      "two" : "an ceann {0} bhliadhna",
+      "few" : "an ceann {0} bliadhnaichean",
+      "other" : "an ceann {0} bliadhna",
+      "one" : "an ceann {0} bhliadhna"
+    },
+    "next" : "an ath-bhliadhna",
+    "previous" : "an-uiridh"
+  },
+  "second" : {
+    "past" : {
+      "other" : "{0} diog air ais",
+      "few" : "{0} diogan air ais",
+      "two" : "{0} dhiog air ais"
+    },
+    "future" : {
+      "few" : "an ceann {0} diogan",
+      "two" : "an ceann {0} dhiog",
+      "other" : "an ceann {0} diog"
+    },
+    "current" : "an-dràsta"
+  },
+  "quarter" : {
+    "current" : "an cairteal seo",
+    "future" : {
+      "one" : "an ceann {0} chairteil",
+      "two" : "an ceann {0} chairteil",
+      "few" : "an ceann {0} cairtealan",
+      "other" : "an ceann {0} cairteil"
+    },
+    "next" : "an ath-chairteal",
+    "previous" : "an cairteal seo chaidh",
+    "past" : {
+      "one" : "o chionn {0} chairteil",
+      "few" : "o chionn {0} cairtealan",
+      "other" : "o chionn {0} cairteil",
+      "two" : "o chionn {0} chairteil"
+    }
+  },
+  "now" : "an-dràsta"
+}

@@ -1,0 +1,53 @@
+{
+  "now" : "orain",
+  "quarter" : {
+    "past" : "Duela {0} hiruhileko",
+    "future" : "{0} hiruhileko barru",
+    "current" : "hiruhileko hau",
+    "previous" : "aurreko hiruhilekoa",
+    "next" : "hurrengo hiruhilekoa"
+  },
+  "week" : {
+    "previous" : "aurreko astean",
+    "current" : "aste honetan",
+    "past" : "Duela {0} aste",
+    "future" : "{0} aste barru",
+    "next" : "hurrengo astean"
+  },
+  "minute" : {
+    "past" : "Duela {0} minutu",
+    "current" : "minutu honetan",
+    "future" : "{0} minutu barru"
+  },
+  "month" : {
+    "current" : "hilabete honetan",
+    "previous" : "aurreko hilabetean",
+    "next" : "hurrengo hilabetean",
+    "future" : "{0} hilabete barru",
+    "past" : "Duela {0} hilabete"
+  },
+  "hour" : {
+    "future" : "{0} ordu barru",
+    "current" : "ordu honetan",
+    "past" : "Duela {0} ordu"
+  },
+  "second" : {
+    "current" : "orain",
+    "past" : "Duela {0} segundo",
+    "future" : "{0} segundo barru"
+  },
+  "year" : {
+    "next" : "hurrengo urtean",
+    "future" : "{0} urte barru",
+    "current" : "aurten",
+    "previous" : "iaz",
+    "past" : "Duela {0} urte"
+  },
+  "day" : {
+    "past" : "Duela {0} egun",
+    "future" : "{0} egun barru",
+    "current" : "gaur",
+    "next" : "bihar",
+    "previous" : "atzo"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "week" : {
+    "future" : "{0} hét múlva",
+    "current" : "ez a hét",
+    "past" : "{0} héttel ezelőtt",
+    "previous" : "előző hét",
+    "next" : "következő hét"
+  },
+  "minute" : {
+    "future" : "{0} perc múlva",
+    "current" : "ebben a percben",
+    "past" : "{0} perccel ezelőtt"
+  },
+  "month" : {
+    "previous" : "előző hónap",
+    "current" : "ez a hónap",
+    "past" : "{0} hónappal ezelőtt",
+    "next" : "következő hónap",
+    "future" : "{0} hónap múlva"
+  },
+  "year" : {
+    "previous" : "előző év",
+    "current" : "ez az év",
+    "past" : "{0} évvel ezelőtt",
+    "next" : "következő év",
+    "future" : "{0} év múlva"
+  },
+  "day" : {
+    "previous" : "tegnap",
+    "next" : "holnap",
+    "future" : "{0} nap múlva",
+    "past" : "{0} nappal ezelőtt",
+    "current" : "ma"
+  },
+  "quarter" : {
+    "past" : "{0} negyedévvel ezelőtt",
+    "previous" : "előző negyedév",
+    "current" : "ez a negyedév",
+    "next" : "következő negyedév",
+    "future" : "{0} negyedév múlva"
+  },
+  "now" : "most",
+  "second" : {
+    "current" : "most",
+    "past" : "{0} másodperccel ezelőtt",
+    "future" : "{0} másodperc múlva"
+  },
+  "hour" : {
+    "future" : "{0} óra múlva",
+    "current" : "ebben az órában",
+    "past" : "{0} órával ezelőtt"
+  }
+}

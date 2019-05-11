@@ -1,0 +1,90 @@
+{
+  "now" : "now",
+  "quarter" : {
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "next" : "next quarter",
+    "past" : "-{0} Q",
+    "future" : "+{0} Q"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "past" : {
+      "one" : "{0} minuhta árat",
+      "other" : "{0} minuhtta árat"
+    },
+    "future" : {
+      "one" : "{0} minuhta maŋŋilit",
+      "other" : "{0} minuhtta maŋŋilit"
+    }
+  },
+  "year" : {
+    "previous" : "last year",
+    "current" : "this year",
+    "past" : {
+      "one" : "{0} jahki árat",
+      "other" : "{0} jahkki árat"
+    },
+    "future" : {
+      "one" : "{0} jahki maŋŋilit",
+      "other" : "{0} jahkki maŋŋilit"
+    },
+    "next" : "next year"
+  },
+  "hour" : {
+    "future" : {
+      "one" : "{0} diibmu maŋŋilit",
+      "other" : "{0} diibmur maŋŋilit"
+    },
+    "current" : "this hour",
+    "past" : {
+      "other" : "{0} diibmur árat",
+      "one" : "{0} diibmu árat"
+    }
+  },
+  "week" : {
+    "future" : {
+      "one" : "{0} vahku maŋŋilit",
+      "other" : "{0} vahkku maŋŋilit"
+    },
+    "previous" : "last week",
+    "next" : "next week",
+    "current" : "this week",
+    "past" : {
+      "one" : "{0} vahku árat",
+      "other" : "{0} vahkku árat"
+    }
+  },
+  "month" : {
+    "current" : "this month",
+    "previous" : "last month",
+    "future" : "{0} mánotbadji maŋŋilit",
+    "next" : "next month",
+    "past" : "{0} mánotbadji árat"
+  },
+  "second" : {
+    "current" : "now",
+    "past" : {
+      "one" : "{0} sekunda árat",
+      "other" : "{0} sekundda árat"
+    },
+    "future" : {
+      "one" : "{0} sekunda maŋŋilit",
+      "other" : "{0} sekundda maŋŋilit"
+    }
+  },
+  "day" : {
+    "current" : "odne",
+    "future" : {
+      "two" : "{0} jándor amaŋŋilit",
+      "one" : "{0} jándor maŋŋilit",
+      "other" : "{0} jándora maŋŋilit"
+    },
+    "past" : {
+      "one" : "{0} jándor árat",
+      "other" : "{0} jándora árat"
+    },
+    "previous" : "ikte",
+    "next" : "ihttin"
+  }
+}

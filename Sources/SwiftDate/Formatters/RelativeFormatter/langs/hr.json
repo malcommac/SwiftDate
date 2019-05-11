@@ -1,0 +1,113 @@
+{
+  "hour" : {
+    "current" : "ovaj sat",
+    "future" : {
+      "few" : "za {0} sata",
+      "one" : "za {0} sat",
+      "other" : "za {0} sati"
+    },
+    "past" : {
+      "other" : "prije {0} sati",
+      "one" : "prije {0} sat",
+      "few" : "prije {0} sata"
+    }
+  },
+  "second" : {
+    "current" : "sad",
+    "future" : {
+      "other" : "za {0} sekundi",
+      "one" : "za {0} sekundu",
+      "few" : "za {0} sekunde"
+    },
+    "past" : {
+      "few" : "prije {0} sekunde",
+      "one" : "prije {0} sekundu",
+      "other" : "prije {0} sekundi"
+    }
+  },
+  "year" : {
+    "past" : {
+      "one" : "prije {0} godinu",
+      "few" : "prije {0} godine",
+      "other" : "prije {0} godina"
+    },
+    "next" : "sljedeće godine",
+    "previous" : "prošle godine",
+    "current" : "ove godine",
+    "future" : {
+      "other" : "za {0} godina",
+      "one" : "za {0} godinu",
+      "few" : "za {0} godine"
+    }
+  },
+  "quarter" : {
+    "past" : {
+      "one" : "prije {0} kvartal",
+      "other" : "prije {0} kvartala"
+    },
+    "current" : "ovaj kvartal",
+    "previous" : "prošli kvartal",
+    "next" : "sljedeći kvartal",
+    "future" : {
+      "other" : "za {0} kvartala",
+      "one" : "za {0} kvartal"
+    }
+  },
+  "minute" : {
+    "current" : "ova minuta",
+    "past" : {
+      "few" : "prije {0} minute",
+      "other" : "prije {0} minuta",
+      "one" : "prije {0} minutu"
+    },
+    "future" : {
+      "other" : "za {0} minuta",
+      "one" : "za {0} minutu",
+      "few" : "za {0} minute"
+    }
+  },
+  "now" : "sad",
+  "month" : {
+    "future" : {
+      "one" : "za {0} mjesec",
+      "other" : "za {0} mjeseci",
+      "few" : "za {0} mjeseca"
+    },
+    "current" : "ovaj mjesec",
+    "previous" : "prošli mjesec",
+    "past" : {
+      "one" : "prije {0} mjesec",
+      "few" : "prije {0} mjeseca",
+      "other" : "prije {0} mjeseci"
+    },
+    "next" : "sljedeći mjesec"
+  },
+  "week" : {
+    "current" : "ovaj tjedan",
+    "previous" : "prošli tjedan",
+    "past" : {
+      "few" : "prije {0} tjedna",
+      "one" : "prije {0} tjedan",
+      "other" : "prije {0} tjedana"
+    },
+    "next" : "sljedeći tjedan",
+    "future" : {
+      "other" : "za {0} tjedana",
+      "few" : "za {0} tjedna",
+      "one" : "za {0} tjedan"
+    }
+  },
+  "day" : {
+    "next" : "sutra",
+    "future" : {
+      "one" : "za {0} dan",
+      "other" : "za {0} dana"
+    },
+    "past" : {
+      "other" : "prije {0} dana",
+      "one" : "prije {0} dan"
+    },
+    "current" : "danas",
+    "previous" : "jučer"
+  }
+}

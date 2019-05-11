@@ -1,0 +1,56 @@
+{
+  "second" : {
+    "current" : "ሕጂ",
+    "past" : "ቅድሚ {0} ካልኢት",
+    "future" : "ኣብ {0} ካልኢት"
+  },
+  "month" : {
+    "future" : "ኣብ {0} ወርሒ",
+    "past" : "ቅድሚ {0} ወርሒ",
+    "previous" : "last month",
+    "next" : "ዝመጽእ ወርሒ",
+    "current" : "ህሉው ወርሒ"
+  },
+  "hour" : {
+    "current" : "ኣብዚ ሰዓት",
+    "past" : "ቅድሚ {0} ሰዓት",
+    "future" : "ኣብ {0} ሰዓት"
+  },
+  "minute" : {
+    "past" : "ቅድሚ {0} ደቒቕ",
+    "future" : "ኣብ {0} ደቒቕ",
+    "current" : "ኣብዚ ደቒቕ"
+  },
+  "quarter" : {
+    "next" : "ዝመጽእ ርብዒ",
+    "current" : "ህሉው ርብዒ",
+    "previous" : "ዝሓለፈ ርብዒ",
+    "past" : "ቅድሚ {0} ርብዒ",
+    "future" : "ኣብ {0} ርብዒ"
+  },
+  "now" : "ሕጂ",
+  "week" : {
+    "previous" : "ዝሓለፈ ሰሙን",
+    "current" : "ህሉው ሰሙን",
+    "next" : "ዝመጽእ ሰሙን",
+    "future" : "ኣብ {0} ሰሙን",
+    "past" : "ቅድሚ {0} ሰሙን"
+  },
+  "day" : {
+    "future" : "ኣብ {0} መዓልቲ",
+    "current" : "ሎሚ",
+    "next" : "ጽባሕ",
+    "previous" : "ትማሊ",
+    "past" : {
+      "one" : "ቅድሚ {0} መዓልቲ",
+      "other" : "ኣብ {0} መዓልቲ"
+    }
+  },
+  "year" : {
+    "past" : "ቅድሚ {0} ዓ",
+    "next" : "ንዓመታ",
+    "previous" : "ዓሚ",
+    "future" : "ኣብ {0} ዓ",
+    "current" : "ሎሚ ዓመት"
+  }
+}

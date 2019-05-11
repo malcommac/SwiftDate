@@ -1,0 +1,83 @@
+{
+  "month" : {
+    "future" : {
+      "other" : "Oer {0} moannen",
+      "one" : "Oer {0} moanne"
+    },
+    "next" : "folgjende moanne",
+    "previous" : "foarige moanne",
+    "current" : "dizze moanne",
+    "past" : {
+      "one" : "{0} moanne lyn",
+      "other" : "{0} moannen lyn"
+    }
+  },
+  "day" : {
+    "next" : "morgen",
+    "past" : {
+      "other" : "{0} deien lyn",
+      "one" : "{0} dei lyn"
+    },
+    "current" : "vandaag",
+    "previous" : "gisteren",
+    "future" : {
+      "one" : "Oer {0} dei",
+      "other" : "Oer {0} deien"
+    }
+  },
+  "week" : {
+    "current" : "dizze wike",
+    "next" : "folgjende wike",
+    "future" : {
+      "one" : "Oer {0} wike",
+      "other" : "Oer {0} wiken"
+    },
+    "past" : {
+      "one" : "{0} wike lyn",
+      "other" : "{0} wiken lyn"
+    },
+    "previous" : "foarige wike"
+  },
+  "minute" : {
+    "future" : {
+      "one" : "Oer {0} minút",
+      "other" : "Oer {0} minuten"
+    },
+    "current" : "this minute",
+    "past" : {
+      "one" : "{0} minút lyn",
+      "other" : "{0} minuten lyn"
+    }
+  },
+  "year" : {
+    "next" : "folgjend jier",
+    "current" : "dit jier",
+    "future" : "Oer {0} jier",
+    "previous" : "foarich jier",
+    "past" : "{0} jier lyn"
+  },
+  "hour" : {
+    "future" : "Oer {0} oere",
+    "past" : "{0} oere lyn",
+    "current" : "this hour"
+  },
+  "second" : {
+    "past" : {
+      "one" : "{0} sekonde lyn",
+      "other" : "{0} sekonden lyn"
+    },
+    "future" : {
+      "other" : "Oer {0} sekonden",
+      "one" : "Oer {0} sekonde"
+    },
+    "current" : "nu"
+  },
+  "now" : "nu",
+  "quarter" : {
+    "past" : "-{0} Q",
+    "future" : "+{0} Q",
+    "previous" : "last quarter",
+    "next" : "next quarter",
+    "current" : "this quarter"
+  }
+}

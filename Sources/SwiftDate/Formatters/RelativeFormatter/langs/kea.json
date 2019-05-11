@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "current" : "oji",
+    "previous" : "onti",
+    "next" : "manha",
+    "past" : "a ten {0} dia",
+    "future" : "di li {0} dia"
+  },
+  "now" : "now",
+  "year" : {
+    "previous" : "anu pasadu",
+    "current" : "es anu li",
+    "next" : "prósimu anu",
+    "past" : "a ten {0} anu",
+    "future" : "di li {0} anu"
+  },
+  "hour" : {
+    "future" : "di li {0} ora",
+    "current" : "this hour",
+    "past" : "a ten {0} ora"
+  },
+  "month" : {
+    "current" : "es mes li",
+    "next" : "prósimu mes",
+    "past" : "a ten {0} mes",
+    "future" : "di li {0} mes",
+    "previous" : "mes pasadu"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "future" : "di li {0} minutu",
+    "past" : "a ten {0} minutu"
+  },
+  "second" : {
+    "future" : "di li {0} sigundu",
+    "current" : "now",
+    "past" : "a ten {0} sigundu"
+  },
+  "week" : {
+    "past" : "a ten {0} simana",
+    "future" : "di li {0} simana",
+    "previous" : "simana pasadu",
+    "next" : "prósimu simana",
+    "current" : "es simana li"
+  },
+  "quarter" : {
+    "future" : "di li {0} trimestri",
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "past" : "a ten {0} trimestri",
+    "next" : "next quarter"
+  }
+}

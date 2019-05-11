@@ -1,0 +1,53 @@
+{
+  "month" : {
+    "past" : "{0} aý öň",
+    "current" : "şu aý",
+    "future" : "{0} aýdan",
+    "previous" : "geçen aý",
+    "next" : "indiki aý"
+  },
+  "day" : {
+    "next" : "ertir",
+    "past" : "{0} gün öň",
+    "previous" : "düýn",
+    "future" : "{0} günden",
+    "current" : "şu gün"
+  },
+  "quarter" : {
+    "future" : "{0} çärýekden",
+    "past" : "{0} çärýek öň",
+    "current" : "şu çärýek",
+    "previous" : "geçen çärýek",
+    "next" : "indiki çärýek"
+  },
+  "hour" : {
+    "past" : "{0} sagat öň",
+    "future" : "{0} sagatdan",
+    "current" : "şu sagat"
+  },
+  "second" : {
+    "past" : "{0} sekunt öň",
+    "future" : "{0} sekuntdan",
+    "current" : "häzir"
+  },
+  "year" : {
+    "previous" : "geçen ýyl",
+    "current" : "şu ýyl",
+    "next" : "indiki ýyl",
+    "past" : "{0} ýyl öň",
+    "future" : "{0} ýyldan"
+  },
+  "week" : {
+    "current" : "şu hepde",
+    "next" : "indiki hepde",
+    "previous" : "geçen hepde",
+    "past" : "{0} hepde öň",
+    "future" : "{0} hepdeden"
+  },
+  "minute" : {
+    "current" : "şu minut",
+    "past" : "{0} minut öň",
+    "future" : "{0} minutdan"
+  },
+  "now" : "häzir"
+}

@@ -1,0 +1,89 @@
+{
+  "now" : "nå",
+  "quarter" : {
+    "past" : {
+      "one" : "for {0} kvartal siden",
+      "other" : "for {0} kvartaler siden"
+    },
+    "future" : {
+      "one" : "om {0} kvartal",
+      "other" : "om {0} kvartaler"
+    },
+    "current" : "dette kvartalet",
+    "previous" : "forrige kvartal",
+    "next" : "neste kvartal"
+  },
+  "week" : {
+    "future" : {
+      "one" : "om {0} uke",
+      "other" : "om {0} uker"
+    },
+    "previous" : "forrige uke",
+    "next" : "neste uke",
+    "past" : {
+      "other" : "for {0} uker siden",
+      "one" : "for {0} uke siden"
+    },
+    "current" : "denne uken"
+  },
+  "minute" : {
+    "current" : "dette minuttet",
+    "past" : {
+      "other" : "for {0} minutter siden",
+      "one" : "for {0} minutt siden"
+    },
+    "future" : {
+      "one" : "om {0} minutt",
+      "other" : "om {0} minutter"
+    }
+  },
+  "month" : {
+    "next" : "neste måned",
+    "past" : {
+      "other" : "for {0} måneder siden",
+      "one" : "for {0} måned siden"
+    },
+    "future" : {
+      "other" : "om {0} måneder",
+      "one" : "om {0} måned"
+    },
+    "previous" : "forrige måned",
+    "current" : "denne måneden"
+  },
+  "hour" : {
+    "past" : {
+      "one" : "for {0} time siden",
+      "other" : "for {0} timer siden"
+    },
+    "current" : "denne timen",
+    "future" : {
+      "one" : "om {0} time",
+      "other" : "om {0} timer"
+    }
+  },
+  "second" : {
+    "future" : {
+      "one" : "om {0} sekund",
+      "other" : "om {0} sekunder"
+    },
+    "current" : "nå",
+    "past" : {
+      "one" : "for {0} sekund siden",
+      "other" : "for {0} sekunder siden"
+    }
+  },
+  "year" : {
+    "next" : "neste år",
+    "future" : "om {0} år",
+    "current" : "i år",
+    "previous" : "i fjor",
+    "past" : "for {0} år siden"
+  },
+  "day" : {
+    "current" : "i dag",
+    "future" : "om {0} døgn",
+    "next" : "i morgen",
+    "past" : "for {0} døgn siden",
+    "previous" : "i går"
+  }
+}

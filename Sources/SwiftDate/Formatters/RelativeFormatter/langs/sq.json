@@ -1,0 +1,89 @@
+{
+  "month" : {
+    "past" : "{0} muaj më parë",
+    "current" : "këtë muaj",
+    "next" : "muajin e ardhshëm",
+    "future" : {
+      "one" : "pas {0} muaji",
+      "other" : "pas {0} muajsh"
+    },
+    "previous" : "muajin e kaluar"
+  },
+  "day" : {
+    "past" : "{0} ditë më parë",
+    "future" : {
+      "other" : "pas {0} ditësh",
+      "one" : "pas {0} dite"
+    },
+    "previous" : "dje",
+    "next" : "nesër",
+    "current" : "sot"
+  },
+  "week" : {
+    "past" : "{0} javë më parë",
+    "future" : {
+      "one" : "pas {0} jave",
+      "other" : "pas {0} javësh"
+    },
+    "current" : "këtë javë",
+    "next" : "javën e ardhshme",
+    "previous" : "javën e kaluar"
+  },
+  "minute" : {
+    "past" : {
+      "other" : "{0} minuta më parë",
+      "one" : "{0} minutë më parë"
+    },
+    "future" : {
+      "other" : "pas {0} minutash",
+      "one" : "pas {0} minute"
+    },
+    "current" : "këtë minutë"
+  },
+  "year" : {
+    "past" : {
+      "one" : "{0} vit më parë",
+      "other" : "{0} vjet më parë"
+    },
+    "future" : {
+      "one" : "pas {0} viti",
+      "other" : "pas {0} vjetësh"
+    },
+    "previous" : "vitin e kaluar",
+    "current" : "këtë vit",
+    "next" : "vitin e ardhshëm"
+  },
+  "hour" : {
+    "past" : "{0} orë më parë",
+    "future" : {
+      "other" : "pas {0} orësh",
+      "one" : "pas {0} ore"
+    },
+    "current" : "këtë orë"
+  },
+  "second" : {
+    "past" : {
+      "other" : "{0} sekonda më parë",
+      "one" : "{0} sekondë më parë"
+    },
+    "future" : {
+      "one" : "pas {0} sekonde",
+      "other" : "pas {0} sekondash"
+    },
+    "current" : "tani"
+  },
+  "now" : "tani",
+  "quarter" : {
+    "current" : "këtë tremujor",
+    "past" : {
+      "one" : "{0} tremujor më parë",
+      "other" : "{0} tremujorë më parë"
+    },
+    "next" : "tremujorin e ardhshëm",
+    "future" : {
+      "one" : "pas {0} tremujori",
+      "other" : "pas {0} tremujorësh"
+    },
+    "previous" : "tremujorin e kaluar"
+  }
+}

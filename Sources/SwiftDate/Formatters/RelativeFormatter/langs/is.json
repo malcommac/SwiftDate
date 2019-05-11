@@ -1,0 +1,98 @@
+{
+  "year" : {
+    "previous" : "á síðasta ári",
+    "current" : "á þessu ári",
+    "past" : {
+      "other" : "fyrir {0} árum",
+      "one" : "fyrir {0} ári"
+    },
+    "future" : "eftir {0} ár",
+    "next" : "á næsta ári"
+  },
+  "second" : {
+    "future" : {
+      "one" : "eftir {0} sekúndu",
+      "other" : "eftir {0} sekúndur"
+    },
+    "current" : "núna",
+    "past" : {
+      "other" : "fyrir {0} sekúndum",
+      "one" : "fyrir {0} sekúndu"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "other" : "fyrir {0} mínútum",
+      "one" : "fyrir {0} mínútu"
+    },
+    "current" : "á þessari mínútu",
+    "future" : {
+      "one" : "eftir {0} mínútu",
+      "other" : "eftir {0} mínútur"
+    }
+  },
+  "month" : {
+    "current" : "í þessum mánuði",
+    "past" : {
+      "one" : "fyrir {0} mánuði",
+      "other" : "fyrir {0} mánuðum"
+    },
+    "future" : {
+      "one" : "eftir {0} mánuð",
+      "other" : "eftir {0} mánuði"
+    },
+    "next" : "í næsta mánuði",
+    "previous" : "í síðasta mánuði"
+  },
+  "day" : {
+    "past" : {
+      "one" : "fyrir {0} degi",
+      "other" : "fyrir {0} dögum"
+    },
+    "current" : "í dag",
+    "next" : "á morgun",
+    "future" : {
+      "one" : "eftir {0} dag",
+      "other" : "eftir {0} daga"
+    },
+    "previous" : "í gær"
+  },
+  "week" : {
+    "next" : "í næstu viku",
+    "past" : {
+      "one" : "fyrir {0} viku",
+      "other" : "fyrir {0} vikum"
+    },
+    "current" : "í þessari viku",
+    "future" : {
+      "other" : "eftir {0} vikur",
+      "one" : "eftir {0} viku"
+    },
+    "previous" : "í síðustu viku"
+  },
+  "quarter" : {
+    "previous" : "síðasti ársfjórðungur",
+    "current" : "þessi ársfjórðungur",
+    "next" : "næsti ársfjórðungur",
+    "past" : {
+      "one" : "fyrir {0} ársfjórðungi",
+      "other" : "fyrir {0} ársfjórðungum"
+    },
+    "future" : {
+      "one" : "eftir {0} ársfjórðung",
+      "other" : "eftir {0} ársfjórðunga"
+    }
+  },
+  "hour" : {
+    "future" : {
+      "one" : "eftir {0} klukkustund",
+      "other" : "eftir {0} klukkustundir"
+    },
+    "current" : "þessa stundina",
+    "past" : {
+      "one" : "fyrir {0} klukkustund",
+      "other" : "fyrir {0} klukkustundum"
+    }
+  },
+  "now" : "núna"
+}

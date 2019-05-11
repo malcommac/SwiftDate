@@ -1,0 +1,101 @@
+{
+  "month" : {
+    "next" : "an mhí seo chugainn",
+    "future" : {
+      "few" : "i gceann {0} mhí",
+      "other" : "i gceann {0} mí",
+      "one" : "i gceann {0} mhí",
+      "two" : "i gceann {0} mhí"
+    },
+    "previous" : "an mhí seo caite",
+    "current" : "an mhí seo",
+    "past" : {
+      "few" : "{0} mhí ó shin",
+      "two" : "{0} mhí ó shin",
+      "other" : "{0} mí ó shin",
+      "one" : "{0} mhí ó shin"
+    }
+  },
+  "day" : {
+    "past" : "{0} lá ó shin",
+    "next" : "amárach",
+    "previous" : "inné",
+    "future" : "i gceann {0} lá",
+    "current" : "inniu"
+  },
+  "week" : {
+    "previous" : "an tseachtain seo caite",
+    "next" : "an tseachtain seo chugainn",
+    "past" : {
+      "other" : "{0} seachtain ó shin",
+      "few" : "{0} seachtaine ó shin",
+      "many" : "{0} seachtaine ó shin",
+      "two" : "{0} sheachtain ó shin"
+    },
+    "future" : {
+      "few" : "i gceann {0} seachtaine",
+      "two" : "i gceann {0} sheachtain",
+      "other" : "i gceann {0} seachtain",
+      "many" : "i gceann {0} seachtaine"
+    },
+    "current" : "an tseachtain seo"
+  },
+  "minute" : {
+    "past" : "{0} nóiméad ó shin",
+    "future" : "i gceann {0} nóiméad",
+    "current" : "an nóiméad seo"
+  },
+  "year" : {
+    "past" : {
+      "other" : "{0} bliain ó shin",
+      "one" : "{0} bhliain ó shin",
+      "two" : "{0} bhliain ó shin",
+      "few" : "{0} bliana ó shin",
+      "many" : "{0} mbliana ó shin"
+    },
+    "next" : "an bhliain seo chugainn",
+    "future" : {
+      "one" : "i gceann {0} bhliain",
+      "few" : "i gceann {0} bliana",
+      "many" : "i gceann {0} mbliana",
+      "two" : "i gceann {0} bhliain",
+      "other" : "i gceann {0} bliain"
+    },
+    "current" : "an bhliain seo",
+    "previous" : "anuraidh"
+  },
+  "hour" : {
+    "past" : {
+      "many" : "{0} n-uaire an chloig ó shin",
+      "other" : "{0} uair an chloig ó shin",
+      "few" : "{0} huaire an chloig ó shin"
+    },
+    "future" : {
+      "few" : "i gceann {0} huaire an chloig",
+      "many" : "i gceann {0} n-uaire an chloig",
+      "other" : "i gceann {0} uair an chloig"
+    },
+    "current" : "an uair seo"
+  },
+  "second" : {
+    "past" : {
+      "other" : "{0} soicind ó shin",
+      "few" : "{0} shoicind ó shin",
+      "two" : "{0} shoicind ó shin"
+    },
+    "future" : {
+      "other" : "i gceann {0} soicind",
+      "two" : "i gceann {0} shoicind",
+      "few" : "i gceann {0} shoicind"
+    },
+    "current" : "anois"
+  },
+  "now" : "anois",
+  "quarter" : {
+    "current" : "an ráithe seo",
+    "past" : "{0} ráithe ó shin",
+    "future" : "i gceann {0} ráithe",
+    "next" : "an ráithe seo chugainn",
+    "previous" : "an ráithe seo caite"
+  }
+}

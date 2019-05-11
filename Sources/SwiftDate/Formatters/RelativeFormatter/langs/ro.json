@@ -1,0 +1,117 @@
+{
+  "month" : {
+    "current" : "luna aceasta",
+    "previous" : "luna trecută",
+    "past" : {
+      "few" : "acum {0} luni",
+      "other" : "acum {0} de luni",
+      "one" : "acum {0} lună"
+    },
+    "future" : {
+      "few" : "peste {0} luni",
+      "one" : "peste {0} lună",
+      "other" : "peste {0} de luni"
+    },
+    "next" : "luna viitoare"
+  },
+  "quarter" : {
+    "future" : {
+      "few" : "peste {0} trimestre",
+      "other" : "peste {0} de trimestre",
+      "one" : "peste {0} trimestru"
+    },
+    "past" : {
+      "one" : "acum {0} trimestru",
+      "other" : "acum {0} de trimestre",
+      "few" : "acum {0} trimestre"
+    },
+    "previous" : "trimestrul trecut",
+    "current" : "trimestrul acesta",
+    "next" : "trimestrul viitor"
+  },
+  "second" : {
+    "past" : {
+      "few" : "acum {0} secunde",
+      "other" : "acum {0} de secunde",
+      "one" : "acum {0} secundă"
+    },
+    "future" : {
+      "few" : "peste {0} secunde",
+      "other" : "peste {0} de secunde",
+      "one" : "peste {0} secundă"
+    },
+    "current" : "acum"
+  },
+  "week" : {
+    "next" : "săptămâna viitoare",
+    "previous" : "săptămâna trecută",
+    "past" : {
+      "few" : "acum {0} săptămâni",
+      "other" : "acum {0} de săptămâni",
+      "one" : "acum {0} săptămână"
+    },
+    "future" : {
+      "other" : "peste {0} de săptămâni",
+      "one" : "peste {0} săptămână",
+      "few" : "peste {0} săptămâni"
+    },
+    "current" : "săptămâna aceasta"
+  },
+  "now" : "acum",
+  "hour" : {
+    "future" : {
+      "one" : "peste {0} oră",
+      "few" : "peste {0} ore",
+      "other" : "peste {0} de ore"
+    },
+    "current" : "ora aceasta",
+    "past" : {
+      "few" : "acum {0} ore",
+      "other" : "acum {0} de ore",
+      "one" : "acum {0} oră"
+    }
+  },
+  "minute" : {
+    "current" : "minutul acesta",
+    "past" : {
+      "few" : "acum {0} minute",
+      "one" : "acum {0} minut",
+      "other" : "acum {0} de minute"
+    },
+    "future" : {
+      "one" : "peste {0} minut",
+      "other" : "peste {0} de minute",
+      "few" : "peste {0} minute"
+    }
+  },
+  "year" : {
+    "next" : "anul viitor",
+    "past" : {
+      "other" : "acum {0} de ani",
+      "one" : "acum {0} an",
+      "few" : "acum {0} ani"
+    },
+    "current" : "anul acesta",
+    "previous" : "anul trecut",
+    "future" : {
+      "other" : "peste {0} de ani",
+      "few" : "peste {0} ani",
+      "one" : "peste {0} an"
+    }
+  },
+  "day" : {
+    "next" : "mâine",
+    "past" : {
+      "one" : "acum {0} zi",
+      "few" : "acum {0} zile",
+      "other" : "acum {0} de zile"
+    },
+    "previous" : "ieri",
+    "future" : {
+      "one" : "peste {0} zi",
+      "few" : "peste {0} zile",
+      "other" : "peste {0} de zile"
+    },
+    "current" : "azi"
+  }
+}

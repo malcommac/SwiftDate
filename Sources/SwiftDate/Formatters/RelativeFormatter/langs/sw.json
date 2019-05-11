@@ -1,0 +1,83 @@
+{
+  "day" : {
+    "previous" : "jana",
+    "future" : "baada ya siku {0}",
+    "current" : "leo",
+    "next" : "kesho",
+    "past" : {
+      "one" : "siku {0} iliyopita",
+      "other" : "siku {0} zilizopita"
+    }
+  },
+  "quarter" : {
+    "future" : "baada ya robo {0}",
+    "next" : "robo ya mwaka inayofuata",
+    "previous" : "robo ya mwaka iliyopita",
+    "current" : "robo hii ya mwaka",
+    "past" : {
+      "other" : "robo {0} zilizopita",
+      "one" : "robo {0} iliyopita"
+    }
+  },
+  "second" : {
+    "future" : "baada ya sekunde {0}",
+    "current" : "sasa hivi",
+    "past" : {
+      "other" : "Sekunde {0} zilizopita",
+      "one" : "Sekunde {0} iliyopita"
+    }
+  },
+  "now" : "sasa hivi",
+  "week" : {
+    "past" : {
+      "other" : "wiki {0} zilizopita",
+      "one" : "wiki {0} iliyopita"
+    },
+    "previous" : "wiki iliyopita",
+    "current" : "wiki hii",
+    "next" : "wiki ijayo",
+    "future" : "baada ya wiki {0}"
+  },
+  "month" : {
+    "next" : "mwezi ujao",
+    "past" : {
+      "other" : "miezi {0} iliyopita",
+      "one" : "mwezi {0} uliopita"
+    },
+    "previous" : "mwezi uliopita",
+    "future" : {
+      "other" : "baada ya miezi {0}",
+      "one" : "baada ya mwezi {0}"
+    },
+    "current" : "mwezi huu"
+  },
+  "year" : {
+    "current" : "mwaka huu",
+    "next" : "mwaka ujao",
+    "previous" : "mwaka uliopita",
+    "future" : {
+      "one" : "baada ya mwaka {0}",
+      "other" : "baada ya miaka {0}"
+    },
+    "past" : {
+      "one" : "mwaka {0} uliopita",
+      "other" : "miaka {0} iliyopita"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "one" : "dakika {0} iliyopita",
+      "other" : "dakika {0} zilizopita"
+    },
+    "future" : "baada ya dakika {0}",
+    "current" : "dakika hii"
+  },
+  "hour" : {
+    "future" : "baada ya saa {0}",
+    "current" : "saa hii",
+    "past" : {
+      "one" : "saa {0} iliyopita",
+      "other" : "saa {0} zilizopita"
+    }
+  }
+}

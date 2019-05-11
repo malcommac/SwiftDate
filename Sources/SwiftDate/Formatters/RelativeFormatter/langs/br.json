@@ -1,0 +1,112 @@
+{
+  "now" : "bremañ",
+  "month" : {
+    "future" : {
+      "other" : "a-benn {0} miz",
+      "two" : "a-benn {0} viz",
+      "many" : "a-benn {0} a vizioù"
+    },
+    "previous" : "ar miz diaraok",
+    "current" : "ar miz-mañ",
+    "next" : "ar miz a zeu",
+    "past" : {
+      "many" : "{0} a vizioù zo",
+      "two" : "{0} viz zo",
+      "other" : "{0} miz zo"
+    }
+  },
+  "quarter" : {
+    "future" : {
+      "two" : "a-benn {0} drimiziad",
+      "many" : "a-benn {0} a drimiziadoù",
+      "few" : "a-benn {0} zrimiziad",
+      "other" : "a-benn {0} trimiziad"
+    },
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "next" : "next quarter",
+    "past" : {
+      "two" : "{0} drimiziad zo",
+      "few" : "{0} zrimiziad zo",
+      "other" : "{0} trimiziad zo",
+      "many" : "{0} a zrimiziadoù zo"
+    }
+  },
+  "year" : {
+    "next" : "ar bloaz a zeu",
+    "past" : {
+      "one" : "{0} bloaz zo",
+      "few" : "{0} bloaz zo",
+      "many" : "{0} a vloazioù zo",
+      "other" : "{0} vloaz zo"
+    },
+    "future" : {
+      "few" : "a-benn {0} bloaz",
+      "one" : "a-benn {0} bloaz",
+      "other" : "a-benn {0} vloaz",
+      "many" : "a-benn {0} a vloazioù"
+    },
+    "previous" : "warlene",
+    "current" : "hevlene"
+  },
+  "day" : {
+    "previous" : "decʼh",
+    "next" : "warcʼhoazh",
+    "past" : {
+      "two" : "{0} zeiz zo",
+      "other" : "{0} deiz zo",
+      "many" : "{0} a zeizioù zo"
+    },
+    "current" : "hiziv",
+    "future" : {
+      "two" : "a-benn {0} zeiz",
+      "other" : "a-benn {0} deiz",
+      "many" : "a-benn {0} a zeizioù"
+    }
+  },
+  "minute" : {
+    "current" : "this minute",
+    "future" : {
+      "other" : "a-benn {0} munut",
+      "two" : "a-benn {0} vunut",
+      "many" : "a-benn {0} a vunutoù"
+    },
+    "past" : {
+      "many" : "{0} a vunutoù zo",
+      "other" : "{0} munut zo",
+      "two" : "{0} vunut zo"
+    }
+  },
+  "second" : {
+    "past" : "{0} eilenn zo",
+    "current" : "bremañ",
+    "future" : {
+      "many" : "a-benn {0} a eilennoù",
+      "other" : "a-benn {0} eilenn"
+    }
+  },
+  "hour" : {
+    "future" : {
+      "other" : "a-benn {0} eur",
+      "many" : "a-benn {0} a eurioù"
+    },
+    "current" : "this hour",
+    "past" : {
+      "many" : "{0} a eurioù zo",
+      "other" : "{0} eur zo"
+    }
+  },
+  "week" : {
+    "next" : "ar sizhun a zeu",
+    "future" : {
+      "many" : "a-benn {0} a sizhunioù",
+      "other" : "a-benn {0} sizhun"
+    },
+    "past" : {
+      "many" : "{0} a sizhunioù zo",
+      "other" : "{0} sizhun zo"
+    },
+    "current" : "ar sizhun-mañ",
+    "previous" : "ar sizhun diaraok"
+  }
+}

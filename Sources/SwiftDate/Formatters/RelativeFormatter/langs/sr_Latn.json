@@ -1,0 +1,102 @@
+{
+  "day" : {
+    "future" : {
+      "one" : "za {0} dan",
+      "other" : "za {0} dana"
+    },
+    "next" : "sutra",
+    "previous" : "juče",
+    "current" : "danas",
+    "past" : "pre {0} dana"
+  },
+  "now" : "sada",
+  "year" : {
+    "previous" : "prošle godine",
+    "current" : "ove godine",
+    "next" : "sledeće godine",
+    "past" : {
+      "few" : "pre {0} godine",
+      "other" : "pre {0} godina",
+      "one" : "pre {0} godine"
+    },
+    "future" : {
+      "few" : "za {0} godine",
+      "other" : "za {0} godina",
+      "one" : "za {0} godinu"
+    }
+  },
+  "hour" : {
+    "future" : {
+      "other" : "za {0} sati",
+      "few" : "za {0} sata",
+      "one" : "za {0} sat"
+    },
+    "current" : "ovog sata",
+    "past" : {
+      "one" : "pre {0} sata",
+      "other" : "pre {0} sati",
+      "few" : "pre {0} sata"
+    }
+  },
+  "month" : {
+    "previous" : "prošlog meseca",
+    "next" : "sledećeg meseca",
+    "past" : {
+      "few" : "pre {0} meseca",
+      "other" : "pre {0} meseci",
+      "one" : "pre {0} meseca"
+    },
+    "future" : {
+      "other" : "za {0} meseci",
+      "one" : "za {0} mesec",
+      "few" : "za {0} meseca"
+    },
+    "current" : "ovog meseca"
+  },
+  "minute" : {
+    "future" : {
+      "one" : "za {0} minut",
+      "other" : "za {0} minuta"
+    },
+    "past" : "pre {0} minuta",
+    "current" : "ovog minuta"
+  },
+  "second" : {
+    "past" : {
+      "one" : "pre {0} sekunde",
+      "few" : "pre {0} sekunde",
+      "other" : "pre {0} sekundi"
+    },
+    "current" : "sada",
+    "future" : {
+      "one" : "za {0} sekundu",
+      "few" : "za {0} sekunde",
+      "other" : "za {0} sekundi"
+    }
+  },
+  "week" : {
+    "current" : "ove nedelje",
+    "future" : {
+      "few" : "za {0} nedelje",
+      "other" : "za {0} nedelja",
+      "one" : "za {0} nedelju"
+    },
+    "next" : "sledeće nedelje",
+    "previous" : "prošle nedelje",
+    "past" : {
+      "few" : "pre {0} nedelje",
+      "other" : "pre {0} nedelja",
+      "one" : "pre {0} nedelje"
+    }
+  },
+  "quarter" : {
+    "past" : "pre {0} kvartala",
+    "previous" : "prošlog kvartala",
+    "future" : {
+      "one" : "za {0} kvartal",
+      "other" : "za {0} kvartala"
+    },
+    "current" : "ovog kvartala",
+    "next" : "sledećeg kvartala"
+  }
+}

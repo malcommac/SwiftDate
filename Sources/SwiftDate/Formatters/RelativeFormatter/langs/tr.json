@@ -1,0 +1,53 @@
+{
+  "now" : "şimdi",
+  "quarter" : {
+    "past" : "{0} çeyrek önce",
+    "future" : "{0} çeyrek sonra",
+    "current" : "bu çeyrek",
+    "previous" : "geçen çeyrek",
+    "next" : "gelecek çeyrek"
+  },
+  "week" : {
+    "previous" : "geçen hafta",
+    "current" : "bu hafta",
+    "past" : "{0} hafta önce",
+    "future" : "{0} hafta sonra",
+    "next" : "gelecek hafta"
+  },
+  "minute" : {
+    "future" : "{0} dakika sonra",
+    "past" : "{0} dakika önce",
+    "current" : "bu dakika"
+  },
+  "month" : {
+    "current" : "bu ay",
+    "previous" : "geçen ay",
+    "next" : "gelecek ay",
+    "future" : "{0} ay sonra",
+    "past" : "{0} ay önce"
+  },
+  "hour" : {
+    "past" : "{0} saat önce",
+    "current" : "bu saat",
+    "future" : "{0} saat sonra"
+  },
+  "second" : {
+    "current" : "şimdi",
+    "past" : "{0} saniye önce",
+    "future" : "{0} saniye sonra"
+  },
+  "year" : {
+    "next" : "gelecek yıl",
+    "future" : "{0} yıl sonra",
+    "current" : "bu yıl",
+    "previous" : "geçen yıl",
+    "past" : "{0} yıl önce"
+  },
+  "day" : {
+    "past" : "{0} gün önce",
+    "future" : "{0} gün sonra",
+    "current" : "bugün",
+    "next" : "yarın",
+    "previous" : "dün"
+  }
+}

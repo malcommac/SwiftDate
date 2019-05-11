@@ -1,0 +1,101 @@
+{
+  "week" : {
+    "previous" : "iviki eledlule",
+    "current" : "leli viki",
+    "next" : "iviki elizayo",
+    "past" : {
+      "other" : "amaviki angu-{0} edlule",
+      "one" : "evikini elingu-{0} eledlule"
+    },
+    "future" : {
+      "one" : "evikini elingu-{0}",
+      "other" : "emavikini angu-{0}"
+    }
+  },
+  "month" : {
+    "current" : "le nyanga",
+    "future" : {
+      "other" : "ezinyangeni ezingu-{0} ezizayo",
+      "one" : "enyangeni engu-{0}"
+    },
+    "previous" : "inyanga edlule",
+    "past" : {
+      "one" : "{0} inyanga edlule",
+      "other" : "{0} izinyanga ezedlule"
+    },
+    "next" : "inyanga ezayo"
+  },
+  "year" : {
+    "past" : {
+      "other" : "{0} iminyaka edlule",
+      "one" : "{0} unyaka odlule"
+    },
+    "future" : {
+      "other" : "eminyakeni engu-{0} ezayo",
+      "one" : "onyakeni ongu-{0} ozayo"
+    },
+    "previous" : "onyakeni odlule",
+    "next" : "unyaka ozayo",
+    "current" : "kulo nyaka"
+  },
+  "now" : "manje",
+  "hour" : {
+    "past" : {
+      "one" : "{0} ihora eledlule",
+      "other" : "emahoreni angu-{0} edlule"
+    },
+    "future" : {
+      "one" : "ehoreni elingu-{0} elizayo",
+      "other" : "emahoreni angu-{0} ezayo"
+    },
+    "current" : "leli hora"
+  },
+  "quarter" : {
+    "past" : {
+      "other" : "{0} amakota adlule",
+      "one" : "{0} ikota edlule"
+    },
+    "future" : {
+      "other" : "kumakota angu-{0} ezayo",
+      "one" : "kwikota engu-{0} ezayo"
+    },
+    "current" : "le kota",
+    "previous" : "ikota edlule",
+    "next" : "ikota ezayo"
+  },
+  "second" : {
+    "past" : {
+      "other" : "{0} amasekhondi edlule",
+      "one" : "{0} isekhondi eledlule"
+    },
+    "current" : "manje",
+    "future" : {
+      "one" : "kusekhondi elingu-{0} elizayo",
+      "other" : "kumasekhondi angu-{0} ezayo"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "other" : "{0} amaminithi edlule",
+      "one" : "{0} iminithi eledlule"
+    },
+    "future" : {
+      "one" : "kuminithi elingu-{0} elizayo",
+      "other" : "kumaminithi angu-{0} ezayo"
+    },
+    "current" : "leli minithi"
+  },
+  "day" : {
+    "previous" : "izolo",
+    "future" : {
+      "other" : "ezinsukwini ezingu-{0} ezizayo",
+      "one" : "osukwini olungu-{0} oluzayo"
+    },
+    "past" : {
+      "one" : "osukwini olungu-{0} olwedlule",
+      "other" : "ezinsukwini ezingu-{0} ezedlule."
+    },
+    "current" : "namhlanje",
+    "next" : "kusasa"
+  }
+}

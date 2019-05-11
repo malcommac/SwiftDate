@@ -1,0 +1,56 @@
+{
+  "hour" : {
+    "future" : "+{0} h",
+    "current" : "this hour",
+    "past" : "-{0} h"
+  },
+  "week" : {
+    "future" : "+{0} w",
+    "previous" : "Il-ġimgħa li għaddiet",
+    "next" : "Il-ġimgħa d-dieħla",
+    "current" : "Din il-ġimgħa",
+    "past" : "-{0} w"
+  },
+  "second" : {
+    "past" : "-{0} s",
+    "future" : "+{0} s",
+    "current" : "now"
+  },
+  "day" : {
+    "current" : "Illum",
+    "next" : "Għada",
+    "previous" : "Ilbieraħ",
+    "past" : "-{0} d",
+    "future" : "+{0} d"
+  },
+  "year" : {
+    "previous" : "Is-sena li għaddiet",
+    "current" : "din is-sena",
+    "past" : {
+      "one" : "{0} sena ilu",
+      "other" : "{0} snin ilu"
+    },
+    "future" : "+{0} y",
+    "next" : "Is-sena d-dieħla"
+  },
+  "now" : "now",
+  "month" : {
+    "current" : "Dan ix-xahar",
+    "previous" : "Ix-xahar li għadda",
+    "future" : "+{0} m",
+    "next" : "Ix-xahar id-dieħel",
+    "past" : "-{0} m"
+  },
+  "quarter" : {
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "next" : "next quarter",
+    "past" : "-{0} Q",
+    "future" : "+{0} Q"
+  },
+  "minute" : {
+    "future" : "+{0} min",
+    "current" : "this minute",
+    "past" : "-{0} min"
+  }
+}

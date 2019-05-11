@@ -1,0 +1,76 @@
+{
+  "second" : {
+    "past" : {
+      "other" : "{0} sekundda áigi",
+      "one" : "{0} sekunda áigi"
+    },
+    "future" : "{0} sekundda siste",
+    "current" : "dál"
+  },
+  "week" : {
+    "past" : {
+      "other" : "{0} vahku dás ovdal",
+      "one" : "{0} vahkku dás ovdal"
+    },
+    "future" : "{0} vahku geahčen",
+    "current" : "dán vahku",
+    "previous" : "mannan vahku",
+    "next" : "boahtte vahku"
+  },
+  "minute" : {
+    "past" : {
+      "one" : "{0} minuhtta áigi",
+      "other" : "{0} minuhta áigi"
+    },
+    "current" : "dán minuhta",
+    "future" : "{0} minuhta siste"
+  },
+  "day" : {
+    "past" : {
+      "two" : "ovddet beaivve",
+      "other" : "{0} beaivve dás ovdal",
+      "one" : "ikte"
+    },
+    "future" : "{0} beaivve siste",
+    "current" : "odne",
+    "next" : "ihttin",
+    "previous" : "ikte"
+  },
+  "hour" : {
+    "future" : "{0} diimmu siste",
+    "current" : "dán diimmu",
+    "past" : {
+      "other" : "{0} diimmu áigi",
+      "one" : "{0} diibmu áigi"
+    }
+  },
+  "month" : {
+    "current" : "dán mánu",
+    "previous" : "mannan mánu",
+    "future" : "{0} mánu siste",
+    "next" : "boahtte mánu",
+    "past" : {
+      "one" : "{0} mánnu dás ovdal",
+      "other" : "{0} mánu dás ovdal"
+    }
+  },
+  "year" : {
+    "previous" : "diibmá",
+    "current" : "dán jagi",
+    "past" : {
+      "two" : "ovddet jagi",
+      "one" : "diibmá",
+      "other" : "{0} jagi dás ovdal"
+    },
+    "future" : "{0} jagi siste",
+    "next" : "boahtte jagi"
+  },
+  "quarter" : {
+    "previous" : "mannan njealjádasjagi",
+    "current" : "dán njealjádasjagi",
+    "next" : "boahtte njealjádasjagi",
+    "past" : "-{0} njealjádasjagi dás ovdal",
+    "future" : "čuovvovaš {0} njealjádasjagi"
+  },
+  "now" : "dál"
+}

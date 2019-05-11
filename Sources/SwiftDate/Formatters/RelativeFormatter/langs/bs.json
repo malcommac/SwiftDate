@@ -1,0 +1,113 @@
+{
+  "minute" : {
+    "past" : {
+      "few" : "prije {0} minute",
+      "one" : "prije {0} minutu",
+      "other" : "prije {0} minuta"
+    },
+    "future" : {
+      "one" : "za {0} minutu",
+      "few" : "za {0} minute",
+      "other" : "za {0} minuta"
+    },
+    "current" : "ova minuta"
+  },
+  "hour" : {
+    "future" : {
+      "one" : "za {0} sat",
+      "few" : "za {0} sata",
+      "other" : "za {0} sati"
+    },
+    "current" : "ovaj sat",
+    "past" : {
+      "other" : "prije {0} sati",
+      "one" : "prije {0} sat",
+      "few" : "prije {0} sata"
+    }
+  },
+  "year" : {
+    "previous" : "prošle godine",
+    "past" : {
+      "one" : "prije {0} godinu",
+      "few" : "prije {0} godine",
+      "other" : "prije {0} godina"
+    },
+    "current" : "ove godine",
+    "next" : "sljedeće godine",
+    "future" : {
+      "few" : "za {0} godine",
+      "other" : "za {0} godina",
+      "one" : "za {0} godinu"
+    }
+  },
+  "day" : {
+    "future" : {
+      "other" : "za {0} dana",
+      "one" : "za {0} dan"
+    },
+    "previous" : "jučer",
+    "current" : "danas",
+    "next" : "sutra",
+    "past" : {
+      "one" : "prije {0} dan",
+      "other" : "prije {0} dana"
+    }
+  },
+  "second" : {
+    "future" : {
+      "few" : "za {0} sekunde",
+      "other" : "za {0} sekundi",
+      "one" : "za {0} sekundu"
+    },
+    "current" : "sada",
+    "past" : {
+      "one" : "prije {0} sekundu",
+      "other" : "prije {0} sekundi",
+      "few" : "prije {0} sekunde"
+    }
+  },
+  "month" : {
+    "next" : "sljedeći mjesec",
+    "past" : {
+      "one" : "prije {0} mjesec",
+      "few" : "prije {0} mjeseca",
+      "other" : "prije {0} mjeseci"
+    },
+    "previous" : "prošli mjesec",
+    "current" : "ovaj mjesec",
+    "future" : {
+      "few" : "za {0} mjeseca",
+      "one" : "za {0} mjesec",
+      "other" : "za {0} mjeseci"
+    }
+  },
+  "now" : "sada",
+  "week" : {
+    "next" : "sljedeće sedmice",
+    "future" : {
+      "one" : "za {0} sedmicu",
+      "other" : "za {0} sedmica",
+      "few" : "za {0} sedmice"
+    },
+    "current" : "ove sedmice",
+    "past" : {
+      "one" : "prije {0} sedmicu",
+      "few" : "prije {0} sedmice",
+      "other" : "prije {0} sedmica"
+    },
+    "previous" : "prošle sedmice"
+  },
+  "quarter" : {
+    "past" : {
+      "other" : "prije {0} kvartala",
+      "one" : "prije {0} kvartal"
+    },
+    "previous" : "posljednji kvartal",
+    "future" : {
+      "one" : "za {0} kvartal",
+      "other" : "za {0} kvartala"
+    },
+    "next" : "sljedeći kvartal",
+    "current" : "ovaj kvartal"
+  }
+}

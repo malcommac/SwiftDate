@@ -1,0 +1,101 @@
+{
+  "month" : {
+    "previous" : "leschte Mount",
+    "next" : "nächste Mount",
+    "past" : {
+      "one" : "virun {0} Mount",
+      "other" : "viru(n) {0} Méint"
+    },
+    "future" : {
+      "one" : "an {0} Mount",
+      "other" : "a(n) {0} Méint"
+    },
+    "current" : "dëse Mount"
+  },
+  "week" : {
+    "future" : {
+      "one" : "an {0} Woch",
+      "other" : "a(n) {0} Wochen"
+    },
+    "current" : "dës Woch",
+    "past" : {
+      "other" : "viru(n) {0} Wochen",
+      "one" : "virun {0} Woch"
+    },
+    "previous" : "lescht Woch",
+    "next" : "nächst Woch"
+  },
+  "now" : "now",
+  "quarter" : {
+    "past" : {
+      "one" : "virun {0} Quartal",
+      "other" : "viru(n) {0} Quartaler"
+    },
+    "previous" : "last quarter",
+    "future" : {
+      "one" : "an {0} Quartal",
+      "other" : "a(n) {0} Quartaler"
+    },
+    "current" : "this quarter",
+    "next" : "next quarter"
+  },
+  "day" : {
+    "current" : "haut",
+    "past" : {
+      "other" : "viru(n) {0} Deeg",
+      "one" : "virun {0} Dag"
+    },
+    "previous" : "gëschter",
+    "next" : "muer",
+    "future" : {
+      "other" : "a(n) {0} Deeg",
+      "one" : "an {0} Dag"
+    }
+  },
+  "second" : {
+    "current" : "now",
+    "future" : {
+      "one" : "an {0} Sekonn",
+      "other" : "a(n) {0} Sekonnen"
+    },
+    "past" : {
+      "other" : "viru(n) {0} Sekonnen",
+      "one" : "virun {0} Sekonn"
+    }
+  },
+  "hour" : {
+    "future" : {
+      "other" : "a(n) {0} Stonnen",
+      "one" : "an {0} Stonn"
+    },
+    "current" : "this hour",
+    "past" : {
+      "other" : "viru(n) {0} Stonnen",
+      "one" : "virun {0} Stonn"
+    }
+  },
+  "year" : {
+    "previous" : "lescht Joer",
+    "current" : "dëst Joer",
+    "next" : "nächst Joer",
+    "past" : {
+      "one" : "virun {0} Joer",
+      "other" : "viru(n) {0} Joer"
+    },
+    "future" : {
+      "one" : "an {0} Joer",
+      "other" : "a(n) {0} Joer"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "other" : "viru(n) {0} Minutten",
+      "one" : "virun {0} Minutt"
+    },
+    "future" : {
+      "other" : "a(n) {0} Minutten",
+      "one" : "an {0} Minutt"
+    },
+    "current" : "this minute"
+  }
+}

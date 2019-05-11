@@ -1,0 +1,95 @@
+{
+  "month" : {
+    "next" : "le mois prochain",
+    "future" : "dans {0} mois",
+    "previous" : "le mois dernier",
+    "current" : "ce mois-ci",
+    "past" : "il y a {0} mois"
+  },
+  "day" : {
+    "previous" : "hier",
+    "next" : "demain",
+    "current" : "aujourd’hui",
+    "future" : {
+      "other" : "dans {0} jours",
+      "one" : "dans {0} jour"
+    },
+    "past" : {
+      "one" : "il y a {0} jour",
+      "other" : "il y a {0} jours"
+    }
+  },
+  "quarter" : {
+    "next" : "le trimestre prochain",
+    "previous" : "le trimestre dernier",
+    "current" : "ce trimestre-ci",
+    "future" : {
+      "other" : "dans {0} trimestres",
+      "one" : "dans {0} trimestre"
+    },
+    "past" : {
+      "other" : "il y a {0} trimestres",
+      "one" : "il y a {0} trimestre"
+    }
+  },
+  "hour" : {
+    "current" : "cette heure-ci",
+    "past" : {
+      "other" : "il y a {0} heures",
+      "one" : "il y a {0} heure"
+    },
+    "future" : {
+      "one" : "dans {0} heure",
+      "other" : "dans {0} heures"
+    }
+  },
+  "second" : {
+    "past" : {
+      "other" : "il y a {0} secondes",
+      "one" : "il y a {0} seconde"
+    },
+    "current" : "maintenant",
+    "future" : {
+      "other" : "dans {0} secondes",
+      "one" : "dans {0} seconde"
+    }
+  },
+  "year" : {
+    "future" : {
+      "other" : "Dans {0} ans",
+      "one" : "Dans {0} an"
+    },
+    "previous" : "l’année dernière",
+    "current" : "cette année",
+    "next" : "l’année prochaine",
+    "past" : {
+      "other" : "Il y a {0} ans",
+      "one" : "Il y a {0} an"
+    }
+  },
+  "week" : {
+    "next" : "la semaine prochaine",
+    "past" : {
+      "one" : "il y a {0} semaine",
+      "other" : "il y a {0} semaines"
+    },
+    "future" : {
+      "one" : "dans {0} semaine",
+      "other" : "dans {0} semaines"
+    },
+    "previous" : "la semaine dernière",
+    "current" : "cette semaine"
+  },
+  "minute" : {
+    "past" : {
+      "other" : "il y a {0} minutes",
+      "one" : "il y a {0} minute"
+    },
+    "current" : "cette minute-ci",
+    "future" : {
+      "one" : "dans {0} minute",
+      "other" : "dans {0} minutes"
+    }
+  },
+  "now" : "maintenant"
+}

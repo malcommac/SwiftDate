@@ -14,31 +14,6 @@ import Glibc
 import Darwin
 #endif
 
-/// Languages table.
-/// In order to be fully compatible with Linux environment we need to
-/// handle directly with .swift files instead of plain text files.
-public protocol RelativeFormatterLang {
-
-	/// Table with the data of the language.
-	/// Data is structured in:
-	/// { flavour: { unit : { data } } }
-	var flavours: [String: Any] { get }
-
-	/// Identifier of the language.
-	/// Must be the languageIdentifier of the `Locale` instance.
-	static var identifier: String { get }
-
-	/// This is the rule to return singular or plural forms
-	/// based upon the CDLC specs. Must return the appropriate
-	/// value (other, few, none...)
-	///
-	/// - Parameter value: quantity to evaluate
-	func quantifyKey(forValue value: Double) -> RelativeFormatter.PluralForm?
-
-	/// Init
-	init()
-}
-
 // MARK: - Style
 
 public extension RelativeFormatter {

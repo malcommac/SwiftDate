@@ -1,0 +1,101 @@
+{
+  "month" : {
+    "current" : "questo mese",
+    "past" : {
+      "other" : "{0} mesi fa",
+      "one" : "{0} mese fa"
+    },
+    "future" : {
+      "one" : "tra {0} mese",
+      "other" : "tra {0} mesi"
+    },
+    "next" : "mese prossimo",
+    "previous" : "mese scorso"
+  },
+  "quarter" : {
+    "previous" : "trimestre scorso",
+    "current" : "questo trimestre",
+    "next" : "trimestre prossimo",
+    "past" : {
+      "one" : "{0} trimestre fa",
+      "other" : "{0} trimestri fa"
+    },
+    "future" : {
+      "one" : "tra {0} trimestre",
+      "other" : "tra {0} trimestri"
+    }
+  },
+  "second" : {
+    "future" : {
+      "one" : "tra {0} secondo",
+      "other" : "tra {0} secondi"
+    },
+    "current" : "ora",
+    "past" : {
+      "one" : "{0} secondo fa",
+      "other" : "{0} secondi fa"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "one" : "{0} minuto fa",
+      "other" : "{0} minuti fa"
+    },
+    "current" : "questo minuto",
+    "future" : {
+      "one" : "tra {0} minuto",
+      "other" : "tra {0} minuti"
+    }
+  },
+  "week" : {
+    "next" : "settimana prossima",
+    "past" : {
+      "one" : "{0} settimana fa",
+      "other" : "{0} settimane fa"
+    },
+    "current" : "questa settimana",
+    "future" : {
+      "one" : "tra {0} settimana",
+      "other" : "tra {0} settimane"
+    },
+    "previous" : "settimana scorsa"
+  },
+  "hour" : {
+    "future" : {
+      "other" : "tra {0} ore",
+      "one" : "tra {0} ora"
+    },
+    "current" : "quest’ora",
+    "past" : {
+      "other" : "{0} ore fa",
+      "one" : "{0} ora fa"
+    }
+  },
+  "now" : "ora",
+  "year" : {
+    "previous" : "anno scorso",
+    "current" : "quest’anno",
+    "past" : {
+      "one" : "{0} anno fa",
+      "other" : "{0} anni fa"
+    },
+    "future" : {
+      "one" : "tra {0} anno",
+      "other" : "tra {0} anni"
+    },
+    "next" : "anno prossimo"
+  },
+  "day" : {
+    "future" : {
+      "one" : "tra {0} giorno",
+      "other" : "tra {0} giorni"
+    },
+    "previous" : "ieri",
+    "past" : {
+      "one" : "{0} giorno fa",
+      "other" : "{0} giorni fa"
+    },
+    "next" : "domani",
+    "current" : "oggi"
+  }
+}

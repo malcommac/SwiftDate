@@ -1,0 +1,53 @@
+{
+  "week" : {
+    "previous" : "minggu lalu",
+    "current" : "minggu ini",
+    "next" : "minggu depan",
+    "future" : "dalam {0} minggu",
+    "past" : "{0} minggu lalu"
+  },
+  "minute" : {
+    "current" : "pada minit ini",
+    "past" : "{0} minit lalu",
+    "future" : "dalam {0} minit"
+  },
+  "month" : {
+    "future" : "dalam {0} bulan",
+    "past" : "{0} bulan lalu",
+    "previous" : "bulan lalu",
+    "next" : "bulan depan",
+    "current" : "bulan ini"
+  },
+  "hour" : {
+    "past" : "{0} jam lalu",
+    "future" : "dalam {0} jam",
+    "current" : "jam ini"
+  },
+  "now" : "sekarang",
+  "second" : {
+    "current" : "sekarang",
+    "past" : "{0} saat lalu",
+    "future" : "dalam {0} saat"
+  },
+  "day" : {
+    "future" : "dalam {0} hari",
+    "current" : "hari ini",
+    "next" : "esok",
+    "previous" : "semalam",
+    "past" : "{0} hari lalu"
+  },
+  "year" : {
+    "past" : "{0} tahun lalu",
+    "next" : "tahun depan",
+    "previous" : "tahun lalu",
+    "future" : "dalam {0} tahun",
+    "current" : "tahun ini"
+  },
+  "quarter" : {
+    "next" : "suku tahun seterusnya",
+    "current" : "suku tahun ini",
+    "previous" : "suku tahun lalu",
+    "past" : "{0} suku tahun lalu",
+    "future" : "dalam {0} suku tahun"
+  }
+}

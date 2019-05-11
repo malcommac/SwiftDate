@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "current" : "bugun",
+    "previous" : "kecha",
+    "next" : "ertaga",
+    "past" : "{0} kun oldin",
+    "future" : "{0} kundan keyin"
+  },
+  "now" : "hozir",
+  "year" : {
+    "previous" : "o‘tgan yil",
+    "current" : "shu yil",
+    "next" : "keyingi yil",
+    "past" : "{0} yil oldin",
+    "future" : "{0} yildan keyin"
+  },
+  "hour" : {
+    "current" : "shu soatda",
+    "future" : "{0} soatdan keyin",
+    "past" : "{0} soat oldin"
+  },
+  "month" : {
+    "current" : "shu oy",
+    "next" : "keyingi oy",
+    "past" : "{0} oy oldin",
+    "future" : "{0} oydan keyin",
+    "previous" : "o‘tgan oy"
+  },
+  "minute" : {
+    "future" : "{0} daqiqadan keyin",
+    "current" : "shu daqiqada",
+    "past" : "{0} daqiqa oldin"
+  },
+  "second" : {
+    "future" : "{0} soniyadan keyin",
+    "current" : "hozir",
+    "past" : "{0} soniya oldin"
+  },
+  "week" : {
+    "past" : "{0} hafta oldin",
+    "future" : "{0} haftadan keyin",
+    "previous" : "o‘tgan hafta",
+    "next" : "keyingi hafta",
+    "current" : "shu hafta"
+  },
+  "quarter" : {
+    "future" : "{0} chorakdan keyin",
+    "previous" : "o‘tgan chorak",
+    "current" : "shu chorak",
+    "past" : "{0} chorak oldin",
+    "next" : "keyingi chorak"
+  }
+}

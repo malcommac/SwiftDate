@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "current" : "hari ini",
+    "previous" : "kemarin",
+    "next" : "besok",
+    "past" : "{0} hari yang lalu",
+    "future" : "dalam {0} hari"
+  },
+  "now" : "sekarang",
+  "year" : {
+    "previous" : "tahun lalu",
+    "current" : "tahun ini",
+    "next" : "tahun depan",
+    "past" : "{0} tahun yang lalu",
+    "future" : "dalam {0} tahun"
+  },
+  "hour" : {
+    "current" : "jam ini",
+    "future" : "dalam {0} jam",
+    "past" : "{0} jam yang lalu"
+  },
+  "month" : {
+    "current" : "bulan ini",
+    "next" : "bulan berikutnya",
+    "past" : "{0} bulan yang lalu",
+    "future" : "dalam {0} bulan",
+    "previous" : "bulan lalu"
+  },
+  "minute" : {
+    "current" : "menit ini",
+    "past" : "{0} menit yang lalu",
+    "future" : "dalam {0} menit"
+  },
+  "second" : {
+    "current" : "sekarang",
+    "past" : "{0} detik yang lalu",
+    "future" : "dalam {0} detik"
+  },
+  "week" : {
+    "past" : "{0} minggu yang lalu",
+    "future" : "dalam {0} minggu",
+    "previous" : "minggu lalu",
+    "next" : "minggu depan",
+    "current" : "minggu ini"
+  },
+  "quarter" : {
+    "future" : "dalam {0} kuartal",
+    "previous" : "Kuartal lalu",
+    "current" : "kuartal ini",
+    "past" : "{0} kuartal yang lalu",
+    "next" : "kuartal berikutnya"
+  }
+}

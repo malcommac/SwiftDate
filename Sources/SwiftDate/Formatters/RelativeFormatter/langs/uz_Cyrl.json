@@ -1,0 +1,53 @@
+{
+  "now" : "ҳозир",
+  "quarter" : {
+    "past" : "-{0} Q",
+    "future" : "+{0} Q",
+    "current" : "this quarter",
+    "previous" : "last quarter",
+    "next" : "next quarter"
+  },
+  "week" : {
+    "previous" : "ўтган ҳафта",
+    "current" : "бу ҳафта",
+    "past" : "{0} ҳафта олдин",
+    "future" : "{0} ҳафтадан сўнг",
+    "next" : "кейинги ҳафта"
+  },
+  "minute" : {
+    "future" : "{0} дақиқадан сўнг",
+    "current" : "this minute",
+    "past" : "{0} дақиқа олдин"
+  },
+  "month" : {
+    "current" : "бу ой",
+    "previous" : "ўтган ой",
+    "next" : "кейинги ой",
+    "future" : "{0} ойдан сўнг",
+    "past" : "{0} ой аввал"
+  },
+  "hour" : {
+    "past" : "{0} соат олдин",
+    "current" : "this hour",
+    "future" : "{0} соатдан сўнг"
+  },
+  "second" : {
+    "current" : "ҳозир",
+    "past" : "{0} сония олдин",
+    "future" : "{0} сониядан сўнг"
+  },
+  "year" : {
+    "next" : "кейинги йил",
+    "future" : "{0} йилдан сўнг",
+    "current" : "бу йил",
+    "previous" : "ўтган йил",
+    "past" : "{0} йил аввал"
+  },
+  "day" : {
+    "past" : "{0} кун олдин",
+    "future" : "{0} кундан сўнг",
+    "current" : "бугун",
+    "next" : "эртага",
+    "previous" : "кеча"
+  }
+}

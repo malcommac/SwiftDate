@@ -1,0 +1,92 @@
+{
+  "hour" : {
+    "future" : {
+      "one" : "le gaƒoƒo {0} me",
+      "other" : "le gaƒoƒo {0} wo me"
+    },
+    "current" : "this hour",
+    "past" : {
+      "one" : "gaƒoƒo {0} si va yi",
+      "other" : "gaƒoƒo {0} si wo va yi"
+    }
+  },
+  "month" : {
+    "next" : "ɣleti si gbɔ na",
+    "past" : {
+      "other" : "ɣleti {0} si wo va yi",
+      "one" : "ɣleti {0} si va yi"
+    },
+    "current" : "ɣleti sia",
+    "previous" : "ɣleti si va yi",
+    "future" : {
+      "other" : "le ɣleti {0} wo me",
+      "one" : "le ɣleti {0} me"
+    }
+  },
+  "second" : {
+    "future" : {
+      "one" : "le sekend {0} me",
+      "other" : "le sekend {0} wo me"
+    },
+    "past" : {
+      "other" : "sekend {0} si wo va yi",
+      "one" : "sekend {0} si va yi"
+    },
+    "current" : "fifi"
+  },
+  "year" : {
+    "past" : {
+      "other" : "ƒe {0} si wo va yi",
+      "one" : "ƒe {0} si va yi"
+    },
+    "current" : "ƒe sia",
+    "previous" : "ƒe si va yi",
+    "next" : "ƒe si gbɔ na",
+    "future" : "le ƒe {0} me"
+  },
+  "quarter" : {
+    "past" : "kɔta {0} si va yi me",
+    "future" : "le kɔta {0} si gbɔ na me",
+    "previous" : "last quarter",
+    "next" : "next quarter",
+    "current" : "this quarter"
+  },
+  "minute" : {
+    "future" : {
+      "one" : "le aɖabaƒoƒo {0} me",
+      "other" : "le aɖabaƒoƒo {0} wo me"
+    },
+    "current" : "this minute",
+    "past" : {
+      "one" : "aɖabaƒoƒo {0} si va yi",
+      "other" : "aɖabaƒoƒo {0} si wo va yi"
+    }
+  },
+  "now" : "fifi",
+  "week" : {
+    "future" : {
+      "one" : "le kɔsiɖa {0} me",
+      "other" : "le kɔsiɖa {0} wo me"
+    },
+    "past" : {
+      "one" : "kɔsiɖa {0} si va yi",
+      "other" : "kɔsiɖa {0} si wo va yi"
+    },
+    "previous" : "kɔsiɖa si va yi",
+    "current" : "kɔsiɖa sia",
+    "next" : "kɔsiɖa si gbɔ na"
+  },
+  "day" : {
+    "current" : "egbe",
+    "previous" : "etsɔ si va yi",
+    "past" : {
+      "other" : "ŋkeke {0} si wo va yi",
+      "one" : "ŋkeke {0} si va yi"
+    },
+    "future" : {
+      "other" : "le ŋkeke {0} wo me",
+      "one" : "le ŋkeke {0} me"
+    },
+    "next" : "etsɔ si gbɔna"
+  }
+}

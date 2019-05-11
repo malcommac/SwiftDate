@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "current" : "Lé aŋpétu kiŋ",
+    "previous" : "Ȟtálehaŋ",
+    "next" : "Híŋhaŋni kiŋháŋ",
+    "past" : "Hékta {0}-čháŋ k’uŋ héhaŋ",
+    "future" : "Letáŋhaŋ {0}-čháŋ kiŋháŋ"
+  },
+  "now" : "now",
+  "year" : {
+    "previous" : "Ómakȟa kʼuŋ héhaŋ",
+    "current" : "Lé ómakȟa kiŋ",
+    "next" : "Tȟokáta ómakȟa kiŋháŋ",
+    "past" : "Hékta ómakȟa {0} kʼuŋ héhaŋ",
+    "future" : "Letáŋhaŋ ómakȟa {0} kiŋháŋ"
+  },
+  "hour" : {
+    "future" : "Letáŋhaŋ owápȟe {0} kiŋháŋ",
+    "current" : "this hour",
+    "past" : "Hékta owápȟe {0} kʼuŋ héhaŋ"
+  },
+  "month" : {
+    "current" : "Lé wí kiŋ",
+    "next" : "Tȟokáta wí kiŋháŋ",
+    "past" : "Hékta wíyawapi {0} kʼuŋ héhaŋ",
+    "future" : "Letáŋhaŋ wíyawapi {0} kiŋháŋ",
+    "previous" : "Wí kʼuŋ héhaŋ"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "past" : "Hékta oȟ’áŋkȟo {0} k’uŋ héhaŋ",
+    "future" : "Letáŋhaŋ oȟ’áŋkȟo {0} kiŋháŋ"
+  },
+  "second" : {
+    "current" : "now",
+    "future" : "Letáŋhaŋ okpí {0} kiŋháŋ",
+    "past" : "Hékta okpí {0} k’uŋ héhaŋ"
+  },
+  "week" : {
+    "past" : "Hékta okó {0} kʼuŋ héhaŋ",
+    "future" : "Letáŋhaŋ okó {0} kiŋháŋ",
+    "previous" : "Okó kʼuŋ héhaŋ",
+    "next" : "Tȟokáta okó kiŋháŋ",
+    "current" : "Lé okó kiŋ"
+  },
+  "quarter" : {
+    "future" : "+{0} Q",
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "past" : "-{0} Q",
+    "next" : "next quarter"
+  }
+}

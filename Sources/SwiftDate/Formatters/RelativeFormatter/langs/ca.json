@@ -1,0 +1,101 @@
+{
+  "now" : "ara",
+  "second" : {
+    "future" : {
+      "one" : "d’aquí a {0} segon",
+      "other" : "d’aquí a {0} segons"
+    },
+    "current" : "ara",
+    "past" : {
+      "other" : "fa {0} segons",
+      "one" : "fa {0} segon"
+    }
+  },
+  "day" : {
+    "next" : "demà",
+    "future" : {
+      "one" : "d’aquí a {0} dia",
+      "other" : "d’aquí a {0} dies"
+    },
+    "past" : {
+      "one" : "fa {0} dia",
+      "other" : "fa {0} dies"
+    },
+    "current" : "avui",
+    "previous" : "ahir"
+  },
+  "year" : {
+    "current" : "enguany",
+    "future" : {
+      "other" : "d’aquí a {0} anys",
+      "one" : "d’aquí a {0} any"
+    },
+    "previous" : "l’any passat",
+    "past" : {
+      "other" : "fa {0} anys",
+      "one" : "fa {0} any"
+    },
+    "next" : "l’any que ve"
+  },
+  "minute" : {
+    "current" : "aquest minut",
+    "past" : {
+      "other" : "fa {0} minuts",
+      "one" : "fa {0} minut"
+    },
+    "future" : {
+      "one" : "d’aquí a {0} minut",
+      "other" : "d’aquí a {0} minuts"
+    }
+  },
+  "week" : {
+    "past" : {
+      "one" : "fa {0} setmana",
+      "other" : "fa {0} setmanes"
+    },
+    "future" : {
+      "other" : "d’aquí a {0} setmanes",
+      "one" : "d’aquí a {0} setmana"
+    },
+    "current" : "aquesta setmana",
+    "previous" : "la setmana passada",
+    "next" : "la setmana que ve"
+  },
+  "hour" : {
+    "current" : "aquesta hora",
+    "past" : {
+      "other" : "fa {0} hores",
+      "one" : "fa {0} hora"
+    },
+    "future" : {
+      "other" : "d’aquí a {0} hores",
+      "one" : "d’aquí a {0} hora"
+    }
+  },
+  "month" : {
+    "previous" : "el mes passat",
+    "future" : {
+      "other" : "d’aquí a {0} mesos",
+      "one" : "d’aquí a {0} mes"
+    },
+    "past" : {
+      "one" : "fa {0} mes",
+      "other" : "fa {0} mesos"
+    },
+    "current" : "aquest mes",
+    "next" : "el mes que ve"
+  },
+  "quarter" : {
+    "previous" : "el trimestre passat",
+    "current" : "aquest trimestre",
+    "next" : "el trimestre que ve",
+    "past" : {
+      "other" : "fa {0} trimestres",
+      "one" : "fa {0} trimestre"
+    },
+    "future" : {
+      "one" : "d’aquí a {0} trimestre",
+      "other" : "d’aquí a {0} trimestres"
+    }
+  }
+}

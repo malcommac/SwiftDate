@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "previous" : "寻日",
+    "next" : "听日",
+    "past" : "{0} 日前",
+    "current" : "今日",
+    "future" : "{0} 日后"
+  },
+  "now" : "宜家",
+  "year" : {
+    "current" : "今年",
+    "next" : "下年",
+    "previous" : "旧年",
+    "past" : "{0} 年前",
+    "future" : "{0} 年后"
+  },
+  "hour" : {
+    "past" : "{0} 小时前",
+    "current" : "呢个小时",
+    "future" : "{0} 小时后"
+  },
+  "month" : {
+    "past" : "{0} 个月前",
+    "current" : "今个月",
+    "next" : "下个月",
+    "future" : "{0} 个月后",
+    "previous" : "上个月"
+  },
+  "minute" : {
+    "future" : "{0} 分钟后",
+    "past" : "{0} 分钟前",
+    "current" : "呢分钟"
+  },
+  "second" : {
+    "current" : "宜家",
+    "future" : "{0} 秒后",
+    "past" : "{0} 秒前"
+  },
+  "week" : {
+    "previous" : "上星期",
+    "future" : "{0} 个星期后",
+    "next" : "下星期",
+    "current" : "今个星期",
+    "past" : "{0} 个星期前"
+  },
+  "quarter" : {
+    "next" : "下一季",
+    "past" : "{0} 季前",
+    "previous" : "上一季",
+    "future" : "{0} 季后",
+    "current" : "今季"
+  }
+}

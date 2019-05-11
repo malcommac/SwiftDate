@@ -1,0 +1,89 @@
+{
+  "quarter" : {
+    "current" : "dit kwartaal",
+    "past" : {
+      "one" : "{0} kwartaal geleden",
+      "other" : "{0} kwartalen geleden"
+    },
+    "previous" : "vorig kwartaal",
+    "future" : {
+      "other" : "over {0} kwartalen",
+      "one" : "over {0} kwartaal"
+    },
+    "next" : "volgend kwartaal"
+  },
+  "month" : {
+    "current" : "deze maand",
+    "previous" : "vorige maand",
+    "future" : {
+      "one" : "over {0} maand",
+      "other" : "over {0} maanden"
+    },
+    "next" : "volgende maand",
+    "past" : {
+      "one" : "{0} maand geleden",
+      "other" : "{0} maanden geleden"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "other" : "{0} minuten geleden",
+      "one" : "{0} minuut geleden"
+    },
+    "current" : "binnen een minuut",
+    "future" : {
+      "one" : "over {0} minuut",
+      "other" : "over {0} minuten"
+    }
+  },
+  "day" : {
+    "past" : {
+      "one" : "{0} dag geleden",
+      "other" : "{0} dagen geleden"
+    },
+    "future" : {
+      "one" : "over {0} dag",
+      "other" : "over {0} dagen"
+    },
+    "current" : "vandaag",
+    "next" : "morgen",
+    "previous" : "gisteren"
+  },
+  "second" : {
+    "past" : {
+      "one" : "{0} seconde geleden",
+      "other" : "{0} seconden geleden"
+    },
+    "current" : "nu",
+    "future" : {
+      "one" : "over {0} seconde",
+      "other" : "over {0} seconden"
+    }
+  },
+  "year" : {
+    "next" : "volgend jaar",
+    "future" : "over {0} jaar",
+    "current" : "dit jaar",
+    "previous" : "vorig jaar",
+    "past" : "{0} jaar geleden"
+  },
+  "now" : "nu",
+  "hour" : {
+    "past" : "{0} uur geleden",
+    "current" : "binnen een uur",
+    "future" : "over {0} uur"
+  },
+  "week" : {
+    "past" : {
+      "one" : "{0} week geleden",
+      "other" : "{0} weken geleden"
+    },
+    "future" : {
+      "one" : "over {0} week",
+      "other" : "over {0} weken"
+    },
+    "current" : "deze week",
+    "previous" : "vorige week",
+    "next" : "volgende week"
+  }
+}

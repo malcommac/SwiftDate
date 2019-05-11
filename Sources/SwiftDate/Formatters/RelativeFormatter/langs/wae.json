@@ -1,0 +1,86 @@
+{
+  "year" : {
+    "future" : "I {0} jár",
+    "past" : {
+      "other" : "cor {0} jár",
+      "one" : "vor {0} jár"
+    },
+    "previous" : "last year",
+    "next" : "next year",
+    "current" : "this year"
+  },
+  "day" : {
+    "current" : "Hitte",
+    "previous" : "Gešter",
+    "next" : "Móre",
+    "past" : {
+      "one" : "vor {0} tag",
+      "other" : "vor {0} täg"
+    },
+    "future" : {
+      "other" : "i {0} täg",
+      "one" : "i {0} tag"
+    }
+  },
+  "now" : "now",
+  "week" : {
+    "next" : "next week",
+    "current" : "this week",
+    "future" : {
+      "other" : "i {0} wučä",
+      "one" : "i {0} wuča"
+    },
+    "previous" : "last week",
+    "past" : {
+      "one" : "vor {0} wuča",
+      "other" : "cor {0} wučä"
+    }
+  },
+  "hour" : {
+    "past" : {
+      "one" : "vor {0} stund",
+      "other" : "vor {0} stunde"
+    },
+    "future" : {
+      "other" : "i {0} stunde",
+      "one" : "i {0} stund"
+    },
+    "current" : "this hour"
+  },
+  "quarter" : {
+    "past" : "-{0} Q",
+    "next" : "next quarter",
+    "previous" : "last quarter",
+    "future" : "+{0} Q",
+    "current" : "this quarter"
+  },
+  "month" : {
+    "next" : "next month",
+    "current" : "this month",
+    "previous" : "last month",
+    "past" : "vor {0} mánet",
+    "future" : "I {0} mánet"
+  },
+  "minute" : {
+    "future" : {
+      "other" : "i {0} minüte",
+      "one" : "i {0} minüta"
+    },
+    "current" : "this minute",
+    "past" : {
+      "one" : "vor {0} minüta",
+      "other" : "vor {0} minüte"
+    }
+  },
+  "second" : {
+    "past" : {
+      "one" : "vor {0} sekund",
+      "other" : "vor {0} sekunde"
+    },
+    "future" : {
+      "one" : "i {0} sekund",
+      "other" : "i {0} sekunde"
+    },
+    "current" : "now"
+  }
+}

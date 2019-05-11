@@ -1,0 +1,53 @@
+{
+  "day" : {
+    "current" : "lɔꞋɔ",
+    "previous" : "yesterday",
+    "next" : "tomorrow",
+    "past" : "Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}",
+    "future" : "Nǔu lɛ́Ꞌ {0}"
+  },
+  "now" : "now",
+  "year" : {
+    "previous" : "last year",
+    "current" : "this year",
+    "next" : "next year",
+    "past" : "Ɛ́gɛ́ mɔ́ ŋguꞋ {0}",
+    "future" : "Nǔu ŋguꞋ {0}"
+  },
+  "hour" : {
+    "current" : "this hour",
+    "past" : "ɛ́ gɛ mɔ́ {0} háwa",
+    "future" : "nǔu háwa {0}"
+  },
+  "month" : {
+    "current" : "this month",
+    "next" : "next month",
+    "past" : "ɛ́ gɛ́ mɔ́ pɛsaŋ {0}",
+    "future" : "Nǔu {0} saŋ",
+    "previous" : "last month"
+  },
+  "minute" : {
+    "past" : "ɛ́ gɛ́ mɔ́ minút {0}",
+    "current" : "this minute",
+    "future" : "nǔu {0} minút"
+  },
+  "second" : {
+    "future" : "+{0} s",
+    "current" : "now",
+    "past" : "-{0} s"
+  },
+  "week" : {
+    "past" : "Ɛ́ gɛ́ mɔ {0} ŋgap-mbi",
+    "future" : "Nǔu ŋgap-mbi {0}",
+    "previous" : "last week",
+    "next" : "next week",
+    "current" : "this week"
+  },
+  "quarter" : {
+    "future" : "+{0} Q",
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "past" : "-{0} Q",
+    "next" : "next quarter"
+  }
+}

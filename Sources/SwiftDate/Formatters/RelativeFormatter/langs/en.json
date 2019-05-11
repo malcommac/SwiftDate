@@ -1,0 +1,101 @@
+{
+  "now" : "now",
+  "month" : {
+    "current" : "this month",
+    "past" : {
+      "one" : "{0} month ago",
+      "other" : "{0} months ago"
+    },
+    "future" : {
+      "one" : "in {0} month",
+      "other" : "in {0} months"
+    },
+    "next" : "next month",
+    "previous" : "last month"
+  },
+  "quarter" : {
+    "previous" : "last quarter",
+    "current" : "this quarter",
+    "next" : "next quarter",
+    "past" : {
+      "other" : "{0} quarters ago",
+      "one" : "{0} quarter ago"
+    },
+    "future" : {
+      "one" : "in {0} quarter",
+      "other" : "in {0} quarters"
+    }
+  },
+  "year" : {
+    "previous" : "last year",
+    "current" : "this year",
+    "past" : {
+      "one" : "{0} year ago",
+      "other" : "{0} years ago"
+    },
+    "future" : {
+      "one" : "in {0} year",
+      "other" : "in {0} years"
+    },
+    "next" : "next year"
+  },
+  "day" : {
+    "future" : {
+      "other" : "in {0} days",
+      "one" : "in {0} day"
+    },
+    "previous" : "yesterday",
+    "current" : "today",
+    "next" : "tomorrow",
+    "past" : {
+      "one" : "{0} day ago",
+      "other" : "{0} days ago"
+    }
+  },
+  "minute" : {
+    "past" : {
+      "one" : "{0} minute ago",
+      "other" : "{0} minutes ago"
+    },
+    "future" : {
+      "one" : "in {0} minute",
+      "other" : "in {0} minutes"
+    },
+    "current" : "this minute"
+  },
+  "second" : {
+    "future" : {
+      "other" : "in {0} seconds",
+      "one" : "in {0} second"
+    },
+    "current" : "now",
+    "past" : {
+      "one" : "{0} second ago",
+      "other" : "{0} seconds ago"
+    }
+  },
+  "hour" : {
+    "future" : {
+      "one" : "in {0} hour",
+      "other" : "in {0} hours"
+    },
+    "current" : "this hour",
+    "past" : {
+      "one" : "{0} hour ago",
+      "other" : "{0} hours ago"
+    }
+  },
+  "week" : {
+    "next" : "next week",
+    "past" : {
+      "other" : "{0} weeks ago",
+      "one" : "{0} week ago"
+    },
+    "current" : "this week",
+    "future" : {
+      "one" : "in {0} week",
+      "other" : "in {0} weeks"
+    },
+    "previous" : "last week"
+  }
+}

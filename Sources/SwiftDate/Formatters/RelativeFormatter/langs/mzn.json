@@ -1,0 +1,53 @@
+{
+  "week" : {
+    "previous" : "قبلی هفته",
+    "current" : "این هفته",
+    "next" : "بعدی هفته",
+    "future" : "{0} هفته دله",
+    "past" : "{0} هفته پیش"
+  },
+  "minute" : {
+    "past" : "{0} دَقه پیش",
+    "future" : "{0} دقیقه دله",
+    "current" : "this minute"
+  },
+  "month" : {
+    "future" : "{0} ماه دله",
+    "past" : "{0} ماه پیش",
+    "previous" : "ماه قبل",
+    "next" : "ماه ِبعد",
+    "current" : "این ماه"
+  },
+  "hour" : {
+    "current" : "this hour",
+    "past" : "{0} ساعِت پیش",
+    "future" : "{0} ساعِت دله"
+  },
+  "now" : "now",
+  "second" : {
+    "future" : "{0} ثانیه دله",
+    "current" : "now",
+    "past" : "{0} ثانیه پیش"
+  },
+  "day" : {
+    "future" : "{0} روز دله",
+    "current" : "اَمروز",
+    "next" : "فِردا",
+    "previous" : "دیروز",
+    "past" : "{0} روز پیش"
+  },
+  "year" : {
+    "past" : "{0} سال پیش",
+    "next" : "سال دیگه",
+    "previous" : "پارسال",
+    "future" : "{0} سال دله",
+    "current" : "امسال"
+  },
+  "quarter" : {
+    "next" : "next quarter",
+    "current" : "this quarter",
+    "previous" : "last quarter",
+    "past" : "{0} ربع پیش",
+    "future" : "{0} ربع دله"
+  }
+}

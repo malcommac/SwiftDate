@@ -1,0 +1,125 @@
+{
+  "hour" : {
+    "current" : "this hour",
+    "past" : {
+      "one" : "pśed {0} góźinu",
+      "two" : "pśed {0} góźinoma",
+      "other" : "pśed {0} góźinami"
+    },
+    "future" : {
+      "few" : "za {0} góźiny",
+      "one" : "za {0} góźinu",
+      "other" : "za {0} góźin",
+      "two" : "za {0} góźinje"
+    }
+  },
+  "now" : "now",
+  "quarter" : {
+    "next" : "next quarter",
+    "previous" : "last quarter",
+    "future" : {
+      "other" : "za {0} kwartalow",
+      "few" : "za {0} kwartale",
+      "two" : "za {0} kwartala",
+      "one" : "za {0} kwartal"
+    },
+    "past" : {
+      "other" : "pśed {0} kwartalami",
+      "two" : "pśed {0} kwartaloma",
+      "one" : "pśed {0} kwartalom"
+    },
+    "current" : "this quarter"
+  },
+  "week" : {
+    "previous" : "slědny tyźeń",
+    "past" : {
+      "other" : "pśed {0} tyźenjami",
+      "one" : "pśed {0} tyźenjom",
+      "two" : "pśed {0} tyźenjoma"
+    },
+    "future" : {
+      "two" : "za {0} tyźenja",
+      "few" : "za {0} tyźenje",
+      "other" : "za {0} tyźenjow",
+      "one" : "za {0} tyźeń"
+    },
+    "next" : "pśiducy tyźeń",
+    "current" : "ten tyźeń"
+  },
+  "minute" : {
+    "current" : "this minute",
+    "past" : {
+      "two" : "pśed {0} minutoma",
+      "one" : "pśed {0} minutu",
+      "other" : "pśed {0} minutami"
+    },
+    "future" : {
+      "one" : "za {0} minutu",
+      "two" : "za {0} minuśe",
+      "few" : "za {0} minuty",
+      "other" : "za {0} minutow"
+    }
+  },
+  "second" : {
+    "current" : "now",
+    "future" : {
+      "one" : "za {0} sekundu",
+      "few" : "za {0} sekundy",
+      "other" : "za {0} sekundow",
+      "two" : "za {0} sekunźe"
+    },
+    "past" : {
+      "one" : "pśed {0} sekundu",
+      "two" : "pśed {0} sekundoma",
+      "other" : "pśed {0} sekundami"
+    }
+  },
+  "year" : {
+    "next" : "znowa",
+    "previous" : "łoni",
+    "current" : "lětosa",
+    "future" : {
+      "one" : "za {0} lěto",
+      "two" : "za {0} lěśe",
+      "few" : "za {0} lěta",
+      "other" : "za {0} lět"
+    },
+    "past" : {
+      "one" : "pśed {0} lětom",
+      "two" : "pśed {0} lětoma",
+      "other" : "pśed {0} lětami"
+    }
+  },
+  "day" : {
+    "current" : "źinsa",
+    "future" : {
+      "one" : "za {0} źeń",
+      "two" : "za {0} dnja",
+      "other" : "za {0} dnjow",
+      "few" : "za {0} dny"
+    },
+    "next" : "witśe",
+    "previous" : "cora",
+    "past" : {
+      "two" : "pśed {0} dnjoma",
+      "other" : "pśed {0} dnjami",
+      "one" : "pśed {0} dnjom"
+    }
+  },
+  "month" : {
+    "next" : "pśiducy mjasec",
+    "current" : "ten mjasec",
+    "previous" : "slědny mjasec",
+    "past" : {
+      "one" : "pśed {0} mjasecom",
+      "two" : "pśed {0} mjasecoma",
+      "other" : "pśed {0} mjasecami"
+    },
+    "future" : {
+      "two" : "za {0} mjaseca",
+      "other" : "za {0} mjasecow",
+      "few" : "za {0} mjasecy",
+      "one" : "za {0} mjasec"
+    }
+  }
+}

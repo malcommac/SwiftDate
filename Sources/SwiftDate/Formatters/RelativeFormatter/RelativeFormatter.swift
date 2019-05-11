@@ -13,173 +13,30 @@ public class RelativeFormatter: DateToStringTrasformable {
 	/// Private singleton for relative formatter
 	private static let shared = RelativeFormatter()
 
-	/// A cache with all loaded languagues
-	private var languagesCache: [String: RelativeFormatterLang] = [:]
-
-	/// Mapping for languages file to be loaded. Languages table are
-	/// loaded only upon request.
-	private var languagesMap: [String: RelativeFormatterLang.Type] = [
-		lang_af.identifier: lang_af.self,
-		lang_en.identifier: lang_en.self,
-		lang_am.identifier: lang_am.self,
-		lang_ar.identifier: lang_ar.self,
-		lang_arAE.identifier: lang_arAE.self,
-		lang_as.identifier: lang_as.self,
-		lang_be.identifier: lang_be.self,
-		lang_bg.identifier: lang_bg.self,
-		lang_bn.identifier: lang_bn.self,
-		lang_br.identifier: lang_br.self,
-		lang_bs.identifier: lang_bs.self,
-		lang_bsCyrl.identifier: lang_bsCyrl.self,
-		lang_ca.identifier: lang_ca.self,
-		lang_cs.identifier: lang_cs.self,
-		lang_cy.identifier: lang_cy.self,
-		lang_da.identifier: lang_da.self,
-		lang_de.identifier: lang_de.self,
-		lang_dsb.identifier: lang_dsb.self,
-		lang_dz.identifier: lang_dz.self,
-		lang_ee.identifier: lang_ee.self,
-		lang_el.identifier: lang_el.self,
-		lang_es.identifier: lang_es.self,
-		lang_esAR.identifier: lang_esAR.self,
-		lang_esMX.identifier: lang_esMX.self,
-		lang_esPY.identifier: lang_esPY.self,
-		lang_esUS.identifier: lang_esUS.self,
-		lang_et.identifier: lang_et.self,
-		lang_eu.identifier: lang_eu.self,
-		lang_fa.identifier: lang_fa.self,
-		lang_fi.identifier: lang_fi.self,
-		lang_fil.identifier: lang_fil.self,
-		lang_fo.identifier: lang_fo.self,
-		lang_fr.identifier: lang_fr.self,
-		lang_frCA.identifier: lang_frCA.self,
-		lang_fur.identifier: lang_fur.self,
-		lang_fy.identifier: lang_fy.self,
-		lang_ga.identifier: lang_ga.self,
-		lang_gd.identifier: lang_gd.self,
-		lang_gl.identifier: lang_gl.self,
-		lang_gu.identifier: lang_gu.self,
-		lang_he.identifier: lang_he.self,
-		lang_hi.identifier: lang_hi.self,
-		lang_hr.identifier: lang_hr.self,
-		lang_hsb.identifier: lang_hsb.self,
-		lang_hu.identifier: lang_hu.self,
-		lang_hy.identifier: lang_hy.self,
-		lang_id.identifier: lang_id.self,
-		lang_is.identifier: lang_is.self,
-		lang_it.identifier: lang_it.self,
-		lang_ja.identifier: lang_ja.self,
-		lang_jgo.identifier: lang_jgo.self,
-		lang_ka.identifier: lang_ka.self,
-		lang_kea.identifier: lang_kea.self,
-		lang_kk.identifier: lang_kk.self,
-		lang_kl.identifier: lang_kl.self,
-		lang_km.identifier: lang_km.self,
-		lang_kn.identifier: lang_kn.self,
-		lang_ko.identifier: lang_ko.self,
-		lang_kok.identifier: lang_kok.self,
-		lang_ksh.identifier: lang_ksh.self,
-		lang_ky.identifier: lang_ky.self,
-		lang_lb.identifier: lang_lb.self,
-		lang_lkt.identifier: lang_lkt.self,
-		lang_lo.identifier: lang_lo.self,
-		lang_lt.identifier: lang_lt.self,
-		lang_lv.identifier: lang_lv.self,
-		lang_mk.identifier: lang_mk.self,
-		lang_ml.identifier: lang_ml.self,
-		lang_mn.identifier: lang_mn.self,
-		lang_mr.identifier: lang_mr.self,
-		lang_ms.identifier: lang_ms.self,
-		lang_mt.identifier: lang_mt.self,
-		lang_my.identifier: lang_my.self,
-		lang_mzn.identifier: lang_mzn.self,
-		lang_nb.identifier: lang_nb.self,
-		lang_ne.identifier: lang_ne.self,
-		lang_nl.identifier: lang_nl.self,
-		lang_nn.identifier: lang_nn.self,
-		lang_or.identifier: lang_or.self,
-		lang_pa.identifier: lang_pa.self,
-		lang_pl.identifier: lang_pl.self,
-		lang_ps.identifier: lang_ps.self,
-		lang_pt.identifier: lang_pt.self,
-		lang_ro.identifier: lang_ro.self,
-		lang_ru.identifier: lang_ru.self,
-		lang_sah.identifier: lang_sah.self,
-		lang_sd.identifier: lang_sd.self,
-		lang_seFI.identifier: lang_seFI.self,
-		lang_se.identifier: lang_se.self,
-		lang_si.identifier: lang_si.self,
-		lang_sk.identifier: lang_sk.self,
-		lang_sl.identifier: lang_sl.self,
-		lang_sq.identifier: lang_sq.self,
-		lang_srLatn.identifier: lang_srLatn.self,
-		lang_sv.identifier: lang_sv.self,
-		lang_sw.identifier: lang_sw.self,
-		lang_ta.identifier: lang_ta.self,
-		lang_te.identifier: lang_te.self,
-		lang_th.identifier: lang_th.self,
-		lang_ti.identifier: lang_ti.self,
-		lang_tk.identifier: lang_tk.self,
-		lang_to.identifier: lang_to.self,
-		lang_tr.identifier: lang_tr.self,
-		lang_ug.identifier: lang_ug.self,
-		lang_uk.identifier: lang_uk.self,
-		lang_urIN.identifier: lang_urIN.self,
-		lang_ur.identifier: lang_ur.self,
-		lang_uz.identifier: lang_uz.self,
-		lang_uzCyrl.identifier: lang_uzCyrl.self,
-		lang_vi.identifier: lang_vi.self,
-		lang_wae.identifier: lang_wae.self,
-		lang_yi.identifier: lang_yi.self,
-		lang_zh.identifier: lang_zh.self,
-		lang_zhHansHK.identifier: lang_zhHansHK.self,
-		lang_yueHans.identifier: lang_yueHans.self,
-		lang_yueHant.identifier: lang_yueHant.self,
-		lang_zhHansMO.identifier: lang_zhHansMO.self,
-		lang_zhHansSG.identifier: lang_zhHansSG.self,
-		lang_zhHantHK.identifier: lang_zhHantHK.self,
-		lang_zhHant.identifier: lang_zhHant.self,
-		lang_zu.identifier: lang_zu.self
-	]
-
 	/// Return all languages supported by the library for relative date formatting
-	public static var allLanguages: [RelativeFormatterLang.Type] {
-		return Array(RelativeFormatter.shared.languagesMap.values)
+	public static var allLanguages: [String] {
+        return RelativeFormatterLangs.allCases.map { $0.identifier }
 	}
 
 	private init() {}
-
-	/// Add/replace a new language table.
-	///
-	/// - Parameter lang: language file type
-	public static func addLanguage(_ lang: RelativeFormatterLang.Type) {
-		shared.languagesMap[lang.identifier] = lang // replace or add
-		shared.languagesCache.removeValue(forKey: lang.identifier) // cleanup cache
-	}
 
 	/// Return the language table for a specified locale.
 	/// If not loaded yet a new instance of the table is loaded and cached.
 	///
 	/// - Parameter locale: locale to load
 	/// - Returns: language table
-    private func language(forLocale locale: Locale) -> RelativeFormatterLang {
+    private func tableForLocale(_ locale: Locale) -> RelativeFormatterLangs {
         let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
-        guard let table = languagesCache[localeId] else {
-            var tableType = languagesMap[localeId]
-            if tableType == nil {
-                tableType = languagesMap[localeId.components(separatedBy: "_").first!]
-                if tableType == nil {
-                    tableType = languagesMap[localeId.components(separatedBy: "-").first!]
-                }
-                if tableType == nil {
-                    return language(forLocale: Locales.english.toLocale())
-                }
-            }
-            let instanceOfTable = tableType!.init()
-            languagesCache[localeId] = instanceOfTable
-            return instanceOfTable
+
+        if let lang = RelativeFormatterLangs(rawValue: localeId) {
+            return lang
         }
-        return table
+
+        guard let fallbackFlavours = RelativeFormatterLangs(rawValue: localeId.components(separatedBy: "_").first!) ??
+            RelativeFormatterLangs(rawValue: localeId.components(separatedBy: "-").first!) else {
+                return tableForLocale(Locales.english.toLocale()) // fallback not found, return english
+        }
+        return fallbackFlavours // return fallback
     }
 
 	/// Implementation of the protocol for DateToStringTransformable.
@@ -247,7 +104,7 @@ public class RelativeFormatter: DateToStringTrasformable {
 	}
 
 	private static func relativeFormat(locale: Locale, flavour: Flavour, value: Double, unit: Unit) -> String {
-		let table = RelativeFormatter.shared.language(forLocale: locale)
+        let table = RelativeFormatter.shared.tableForLocale(locale)
 		guard let styleTable = table.flavours[flavour.rawValue] as? [String: Any] else {
 			return ""
 		}
@@ -307,7 +164,7 @@ public class RelativeFormatter: DateToStringTrasformable {
 	///   - locale: locale to use.
 	/// - Returns: a pair of found flavor and locale table
 	private static func suitableFlavour(inList flavours: [Flavour], forLocale locale: Locale) -> (flavour: Flavour, locale: [String: Any]) {
-		let localeData = RelativeFormatter.shared.language(forLocale: locale) // get the locale table
+        let localeData = RelativeFormatter.shared.tableForLocale(locale) // get the locale table
 		for flavour in flavours {
 			if let flavourData = localeData.flavours[flavour.rawValue] as? [String: Any] {
 				return (flavour, flavourData) // found our required flavor in passed locale

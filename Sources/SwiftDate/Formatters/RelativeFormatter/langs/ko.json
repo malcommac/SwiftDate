@@ -1,0 +1,53 @@
+{
+  "week" : {
+    "previous" : "지난주",
+    "current" : "이번 주",
+    "next" : "다음 주",
+    "future" : "{0}주 후",
+    "past" : "{0}주 전"
+  },
+  "minute" : {
+    "past" : "{0}분 전",
+    "future" : "{0}분 후",
+    "current" : "현재 분"
+  },
+  "month" : {
+    "future" : "{0}개월 후",
+    "past" : "{0}개월 전",
+    "previous" : "지난달",
+    "next" : "다음 달",
+    "current" : "이번 달"
+  },
+  "hour" : {
+    "current" : "현재 시간",
+    "past" : "{0}시간 전",
+    "future" : "{0}시간 후"
+  },
+  "now" : "지금",
+  "second" : {
+    "past" : "{0}초 전",
+    "future" : "{0}초 후",
+    "current" : "지금"
+  },
+  "day" : {
+    "future" : "{0}일 후",
+    "current" : "오늘",
+    "next" : "내일",
+    "previous" : "어제",
+    "past" : "{0}일 전"
+  },
+  "year" : {
+    "past" : "{0}년 전",
+    "next" : "내년",
+    "previous" : "작년",
+    "future" : "{0}년 후",
+    "current" : "올해"
+  },
+  "quarter" : {
+    "next" : "다음 분기",
+    "current" : "이번 분기",
+    "previous" : "지난 분기",
+    "past" : "{0}분기 전",
+    "future" : "{0}분기 후"
+  }
+}

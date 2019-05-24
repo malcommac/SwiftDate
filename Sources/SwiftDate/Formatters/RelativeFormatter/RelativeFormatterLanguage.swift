@@ -92,7 +92,7 @@ public enum RelativeFormatterLanguage: String, CaseIterable {
     case id = "id" // Indonesian
     case `is` = "is" // Icelandic
     case it = "it" // Locales.italian
-    case js = "js" // Japanese
+    case ja = "ja" // Japanese
     case jgo = "jgo" // Ngomba
     case ka = "ka" // Georgian
     case kea = "kea" // Kabuverdianu

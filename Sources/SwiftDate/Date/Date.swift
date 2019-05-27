@@ -145,14 +145,14 @@ extension Date: DateRepresentable {
 		return DateInRegion(self, region: region)
 	}
 
-	/// Return a date in the distant future.
+	/// Return a date in the distant past.
 	///
 	/// - Returns: Date instance.
 	public static func past() -> Date {
 		return Date.distantPast
 	}
 
-	/// Return a date in the distant past.
+	/// Return a date in the distant future.
 	///
 	/// - Returns: Date instance.
 	public static func future() -> Date {

@@ -566,8 +566,32 @@ public extension DateInRegion {
 
         return result
     }
-
-    /// Returns the next weekday preserving smaller components (hour, minute, seconds)
+    
+    /// Returns the date on the given day of month preserving smaller components
+    func dateAt(dayOfMonth: Int, monthNumber: Int? = nil,
+                yearNumber: Int? = nil) -> DateInRegion {
+        let monthNum = monthNumber ?? month
+        let yearNum = yearNumber ?? year
+        
+        let result = DateInRegion(year: yearNum, month: monthNum, day: dayOfMonth,
+                                  hour: hour, minute: minute, second: second,
+                                  nanosecond: nanosecond, region: region)
+        
+        return result
+    }
+    
+    /// Returns the date after given number of weeks on the given day of week
+    func dateAfter(weeks count: Int, on weekday: WeekDay) -> DateInRegion {
+        var result = self.dateByAdding(count, .weekOfMonth)
+        if result.weekday == weekday.rawValue {
+            return result
+        } else if result.weekday > weekday.rawValue {
+            result = result.dateByAdding(-1, .weekOfMonth)
+        }
+        return result.next(weekday)
+    }
+    
+    /// Returns the next weekday preserving smaller components
     ///
     /// - Parameters:
     ///   - weekday: weekday to get.
@@ -579,12 +603,64 @@ public extension DateInRegion {
         components.hour = hour
         components.second = second
         components.minute = minute
-
+        
         guard let next = region.calendar.nextDate(after: date, matching: components,
                                                   matchingPolicy: .nextTimePreservingSmallerComponents) else {
                                                     return self
         }
-
+        
+        return DateInRegion(next, region: region)
+    }
+    
+    /// Returns the next weekday preserving smaller components 
+    func next(_ weekday: WeekDay) -> DateInRegion {
+        var components = DateComponents()
+        components.weekday = weekday.rawValue
+        components.hour = hour
+        components.second = second
+        components.minute = minute
+        
+        guard let next = region.calendar.nextDate(after: date, matching: components,
+                                                  matchingPolicy: .nextTimePreservingSmallerComponents) else {
+                                                    return self
+        }
+        
+        return DateInRegion(next, region: region)
+    }
+    
+    /// Returns next date with the given weekday and the given week number
+    func next(_ weekday: WeekDay, withWeekOfMonth weekNumber: Int,
+              andMonthNumber monthNumber: Int? = nil) -> DateInRegion {
+        var result = self.dateAt(weekdayOrdinal: weekNumber, weekday: weekday, monthNumber: monthNumber)
+        
+        if result <= self {
+            
+            if let monthNum = monthNumber {
+                result = self.dateAt(weekdayOrdinal: weekNumber, weekday: weekday,
+                                     monthNumber: monthNum, yearNumber: self.year + 1)
+            } else {
+                result = self.dateAt(weekdayOrdinal: weekNumber, weekday: weekday, monthNumber: self.month + 1)
+            }
+            
+        }
+        
+        return result
+    }
+    
+    /// Returns the next day of month preserving smaller components (hour, minute, seconds)
+    func next(dayOfMonth: Int, monthOfYear: Int? = nil) -> DateInRegion {
+        var components = DateComponents()
+        components.day = dayOfMonth
+        components.month = monthOfYear
+        components.hour = hour
+        components.second = second
+        components.minute = minute
+        
+        guard let next = region.calendar.nextDate(after: date, matching: components,
+                                                  matchingPolicy: .nextTimePreservingSmallerComponents) else {
+                                                    return self
+        }
+        
         return DateInRegion(next, region: region)
     }
 }

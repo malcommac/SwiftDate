@@ -612,22 +612,6 @@ public extension DateInRegion {
         return DateInRegion(next, region: region)
     }
     
-    /// Returns the next weekday preserving smaller components 
-    func next(_ weekday: WeekDay) -> DateInRegion {
-        var components = DateComponents()
-        components.weekday = weekday.rawValue
-        components.hour = hour
-        components.second = second
-        components.minute = minute
-        
-        guard let next = region.calendar.nextDate(after: date, matching: components,
-                                                  matchingPolicy: .nextTimePreservingSmallerComponents) else {
-                                                    return self
-        }
-        
-        return DateInRegion(next, region: region)
-    }
-    
     /// Returns next date with the given weekday and the given week number
     func next(_ weekday: WeekDay, withWeekOfMonth weekNumber: Int,
               andMonthNumber monthNumber: Int? = nil) -> DateInRegion {

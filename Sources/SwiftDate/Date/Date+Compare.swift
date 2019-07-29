@@ -101,7 +101,7 @@ public extension Date {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is earlier
 	func earlierDate(_ date: Date) -> Date {
-		return (timeIntervalSince1970 <= date.timeIntervalSince1970) ? self : date
+		return timeIntervalSince(date) <= 0 ? self : date
 	}
 
 	/// Return the later of two dates, between self and a given date.
@@ -109,7 +109,7 @@ public extension Date {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is later
 	func laterDate(_ date: Date) -> Date {
-		return (timeIntervalSince1970 >= date.timeIntervalSince1970) ? self : date
+		return timeIntervalSince(date) >= 0 ? self : date
 	}
 
 }

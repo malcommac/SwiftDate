@@ -260,10 +260,14 @@ class TestDateInRegion_Compare: XCTestCase {
 		// earlierDate()
 		XCTAssert( (date1.earlierDate(date2) == date1), "Failed to get .earlierDate()")
 		XCTAssert( (date1.earlierDate(date3) == date1), "Failed to get .earlierDate()")
-
+                XCTAssert( (date1.date.earlierDate(date2.date) == date1.date), "Failed to get .earlierDate()")
+                XCTAssert( (date1.date.earlierDate(date3.date) == date1.date), "Failed to get .earlierDate()")
+		
 		// laterDate()
 		XCTAssert( (date1.laterDate(date2) == date2), "Failed to get .laterDate()")
 		XCTAssert( (date1.laterDate(date3) == date3), "Failed to get .laterDate()")
+                XCTAssert( (date1.date.laterDate(date2.date) == date2.date), "Failed to get .laterDate()")
+                XCTAssert( (date1.date.laterDate(date3.date) == date3.date), "Failed to get .laterDate()")
 	}
 
 	func testDateInRegion_compareMath() {

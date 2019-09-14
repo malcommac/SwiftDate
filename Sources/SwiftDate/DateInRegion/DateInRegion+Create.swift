@@ -588,7 +588,7 @@ public extension DateInRegion {
         } else if result.weekday > weekday.rawValue {
             result = result.dateByAdding(-1, .weekOfMonth)
         }
-        return result.next(weekday)
+        return result.nextWeekday(weekday)
     }
     
     /// Returns the next weekday preserving smaller components

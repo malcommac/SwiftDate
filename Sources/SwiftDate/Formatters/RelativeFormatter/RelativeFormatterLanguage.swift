@@ -92,7 +92,7 @@ public enum RelativeFormatterLanguage: String, CaseIterable {
     case id = "id" // Indonesian
     case `is` = "is" // Icelandic
     case it = "it" // Locales.italian
-    case js = "js" // Japanese
+    case ja = "ja" // Japanese
     case jgo = "jgo" // Ngomba
     case ka = "ka" // Georgian
     case kea = "kea" // Kabuverdianu
@@ -162,6 +162,7 @@ public enum RelativeFormatterLanguage: String, CaseIterable {
     case zh_Hans_SG = "zh_Hans_SG" // Chinese (Simplified, Singapore)
     case zh_Hant_HK = "zh_Hant_HK" // Chinese (Traditional, Hong Kong [China])
     case zh_Hant_MO = "zh_Hant_MO" // Chinese (Traditional, Macau [China])
+    case zh_Hans = "zh_Hans" // Chinese (Simplified)
     case zh_Hant = "zh_Hant" // Chinese (Traditional)
     case zh = "zh" // Chinese
     case zu = "zu" // Zulu
@@ -311,7 +312,7 @@ public enum RelativeFormatterLanguage: String, CaseIterable {
 
             return .many
 
-        case .id, .js, .ms, .my, .mzn, .sah, .se_FI, .si, .th, .yue_Hans, .yue_Hant,
+        case .id, .ja, .ms, .my, .mzn, .sah, .se_FI, .si, .th, .yue_Hans, .yue_Hant,
              .zh_Hans_HK, .zh_Hans_MO, .zh_Hans_SG, .zh_Hant_HK, .zh_Hant_MO, .zh:
 
             return .other

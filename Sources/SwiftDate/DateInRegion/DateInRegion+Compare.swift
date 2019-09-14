@@ -299,7 +299,7 @@ public extension DateInRegion {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is earlier
 	func earlierDate(_ date: DateInRegion) -> DateInRegion {
-		return (self.date.timeIntervalSince1970 <= date.date.timeIntervalSince1970) ? self : date
+		return self.date.timeIntervalSince(date.date) <= 0 ? self : date
 	}
 
 	/// Return the later of two dates, between self and a given date.
@@ -307,7 +307,20 @@ public extension DateInRegion {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is later
 	func laterDate(_ date: DateInRegion) -> DateInRegion {
-		return (self.date.timeIntervalSince1970 >= date.date.timeIntervalSince1970) ? self : date
+		return self.date.timeIntervalSince(date.date) >= 0 ? self : date
 	}
 
+    /// Returns the difference in the calendar component given (like day, month or year)
+    /// with respect to the other date as a positive integer
+    func difference(in component: Calendar.Component, from other: DateInRegion) -> Int? {
+        return self.date.difference(in: component, from: other.date)
+    }
+    
+    /// Returns the differences in the calendar components given (like day, month and year)
+    /// with respect to the other date as dictionary with the calendar component as the key
+    /// and the diffrence as a positive integer as the value
+    func differences(in components: Set<Calendar.Component>, from other: DateInRegion) -> [Calendar.Component: Int] {
+        return self.date.differences(in: components, from: other.date)
+    }
+    
 }

@@ -1,0 +1,161 @@
+{
+    "narrow" : {
+        "quarter" : {
+            "current" : "本季度",
+            "past" : "{0}个季度前",
+            "next" : "下季度",
+            "future" : "{0}个季度后",
+            "previous" : "上季度"
+        },
+        "day" : {
+            "next" : "明天",
+            "previous" : "昨天",
+            "future" : "{0}天后",
+            "past" : "{0}天前",
+            "current" : "今天"
+        },
+        "year" : {
+            "past" : "{0}年前",
+            "previous" : "去年",
+            "future" : "{0}年后",
+            "next" : "明年",
+            "current" : "今年"
+        },
+        "minute" : {
+            "past" : "{0}分钟前",
+            "future" : "{0}分钟后",
+            "current" : "此刻"
+        },
+        "now" : "现在",
+        "week" : {
+            "current" : "本周",
+            "previous" : "上周",
+            "past" : "{0}周前",
+            "next" : "下周",
+            "future" : "{0}周后"
+        },
+        "second" : {
+            "future" : "{0}秒后",
+            "current" : "现在",
+            "past" : "{0}秒前"
+        },
+        "month" : {
+            "future" : "{0}个月后",
+            "current" : "本月",
+            "past" : "{0}个月前",
+            "previous" : "上个月",
+            "next" : "下个月"
+        },
+        "hour" : {
+            "current" : "这一时间 \/ 此时",
+            "past" : "{0}小时前",
+            "future" : "{0}小时后"
+        }
+    },
+    "long" : {
+        "year" : {
+            "next" : "明年",
+            "previous" : "去年",
+            "past" : "{0}年前",
+            "future" : "{0}年后",
+            "current" : "今年"
+        },
+        "now" : "现在",
+        "quarter" : {
+            "next" : "下季度",
+            "past" : "{0}个季度前",
+            "future" : "{0}个季度后",
+            "current" : "本季度",
+            "previous" : "上季度"
+        },
+        "month" : {
+            "past" : "{0}个月前",
+            "next" : "下个月",
+            "previous" : "上个月",
+            "future" : "{0}个月后",
+            "current" : "本月"
+        },
+        "second" : {
+            "current" : "现在",
+            "past" : "{0}秒钟前",
+            "future" : "{0}秒钟后"
+        },
+        "week" : {
+            "past" : "{0}周前",
+            "previous" : "上周",
+            "future" : "{0}周后",
+            "next" : "下周",
+            "current" : "本周"
+        },
+        "day" : {
+            "next" : "明天",
+            "future" : "{0}天后",
+            "previous" : "昨天",
+            "current" : "今天",
+            "past" : "{0}天前"
+        },
+        "minute" : {
+            "past" : "{0}分钟前",
+            "future" : "{0}分钟后",
+            "current" : "此刻"
+        },
+        "hour" : {
+            "future" : "{0}小时后",
+            "current" : "这一时间 \/ 此时",
+            "past" : "{0}小时前"
+        }
+    },
+    "short" : {
+        "minute" : {
+            "past" : "{0}分钟前",
+            "current" : "此刻",
+            "future" : "{0}分钟后"
+        },
+        "week" : {
+            "future" : "{0}周后",
+            "previous" : "上周",
+            "next" : "下周",
+            "current" : "本周",
+            "past" : "{0}周前"
+        },
+        "year" : {
+            "current" : "今年",
+            "previous" : "去年",
+            "future" : "{0}年后",
+            "past" : "{0}年前",
+            "next" : "明年"
+        },
+        "month" : {
+            "next" : "下个月",
+            "past" : "{0}个月前",
+            "future" : "{0}个月后",
+            "previous" : "上个月",
+            "current" : "本月"
+        },
+        "quarter" : {
+            "next" : "下季度",
+            "past" : "{0}个季度前",
+            "previous" : "上季度",
+            "current" : "本季度",
+            "future" : "{0}个季度后"
+        },
+        "day" : {
+            "current" : "今天",
+            "previous" : "昨天",
+            "past" : "{0}天前",
+            "next" : "明天",
+            "future" : "{0}天后"
+        },
+        "hour" : {
+            "past" : "{0}小时前",
+            "future" : "{0}小时后",
+            "current" : "这一时间 \/ 此时"
+        },
+        "second" : {
+            "future" : "{0}秒后",
+            "past" : "{0}秒前",
+            "current" : "现在"
+        },
+        "now" : "现在"
+    }
+}

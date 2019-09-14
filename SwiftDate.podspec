@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/malcommac/SwiftDate.git", :tag => s.version.to_s }
   s.source_files = 'Sources/**/*.swift'
   s.frameworks  = "Foundation"
-  s.swift_version = "5.0"
+  s.swift_versions = ['5.0', '5.1']
   s.resources = 'Sources/SwiftDate/Formatters/RelativeFormatter/langs'
 end

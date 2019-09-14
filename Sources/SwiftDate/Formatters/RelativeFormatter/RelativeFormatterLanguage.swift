@@ -162,6 +162,7 @@ public enum RelativeFormatterLanguage: String, CaseIterable {
     case zh_Hans_SG = "zh_Hans_SG" // Chinese (Simplified, Singapore)
     case zh_Hant_HK = "zh_Hant_HK" // Chinese (Traditional, Hong Kong [China])
     case zh_Hant_MO = "zh_Hant_MO" // Chinese (Traditional, Macau [China])
+    case zh_Hans = "zh_Hans" // Chinese (Simplified)
     case zh_Hant = "zh_Hant" // Chinese (Traditional)
     case zh = "zh" // Chinese
     case zu = "zu" // Zulu

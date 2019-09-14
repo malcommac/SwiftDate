@@ -91,7 +91,7 @@ open class TimePeriodGroup: Sequence, Equatable {
 			return false // No need to sorting if they already have different counts
 		}
 
-		var compArray1: [TimePeriodProtocol] = array1.sorted { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
+		let compArray1: [TimePeriodProtocol] = array1.sorted { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
 			if period1.start == nil && period2.start == nil {
 				return false
 			} else if period1.start == nil {
@@ -102,7 +102,7 @@ open class TimePeriodGroup: Sequence, Equatable {
 				return period2.start! < period1.start!
 			}
 		}
-		var compArray2: [TimePeriodProtocol] = array2.sorted { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
+		let compArray2: [TimePeriodProtocol] = array2.sorted { (period1: TimePeriodProtocol, period2: TimePeriodProtocol) -> Bool in
 			if period1.start == nil && period2.start == nil {
 				return false
 			} else if period1.start == nil {

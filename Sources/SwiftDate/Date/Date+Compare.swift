@@ -70,6 +70,16 @@ public extension Date {
 		return inDefaultRegion().isAfterDate(refDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
+	/// Returns a value between 0.0 and 1.0 or nil, that is the position of current date between 2 other dates.
+	///
+	/// - Parameters:
+	///   - startDate: range upper bound date
+	///   - endDate: range lower bound date
+	/// - Returns: `nil` if current date is not between `startDate` and `endDate`. Otherwise returns position between `startDate` and `endDate`.
+	func positionInRange(date startDate: Date, and endDate: Date) -> Double? {
+		return inDefaultRegion().positionInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
+	}
+
 	/// Return true if receiver date is contained in the range specified by two dates.
 	///
 	/// - Parameters:
@@ -79,7 +89,7 @@ public extension Date {
 	///   - granularity: smallest unit that must, along with all larger units, be greater for the given dates.
 	/// - Returns: Boolean
 	func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
-        return self.inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
+        return inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
 	/// Compares equality of two given dates based on their components down to a given unit

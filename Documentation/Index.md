@@ -54,6 +54,10 @@ The following documentation explore all the major features of the library. If yo
 - [3.13 - Sort Dates](3.Manipulate_Date.md#sort)
 - [3.14 - Get the next weekday](3.Manipulate_Date.md#nextWeekDay)
 - [3.15 - Get date at given week number/weekday](3.Manipulate_Date.md#dateAtWeeknumberWeekday)
+- [3.16 - Difference between dates with components](3.Manipulate_Date.md#differenceBetweenDates)
+- [3.17 - Create date at components preserving small components](3.Manipulate_Date.md#dateAtComponents)
+- [3.18 - Date at given weekday after # weeks](3.Manipulate_Date.md#dateAfterWeeks)
+- [3.19 - Next Date](3.Manipulate_Date.md#nextDate)
 
 ### [4 - Compare Dates](4.Compare_Dates.md)
 

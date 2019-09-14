@@ -70,7 +70,7 @@ public extension Date {
 		return inDefaultRegion().isAfterDate(refDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
-	/// Return true if receiver data is contained in the range specified by two dates.
+	/// Return true if receiver date is contained in the range specified by two dates.
 	///
 	/// - Parameters:
 	///   - startDate: range upper bound date

@@ -299,7 +299,7 @@ public extension DateInRegion {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is earlier
 	func earlierDate(_ date: DateInRegion) -> DateInRegion {
-		return (self.date.timeIntervalSince1970 <= date.date.timeIntervalSince1970) ? self : date
+		return self.date.timeIntervalSince(date.date) <= 0 ? self : date
 	}
 
 	/// Return the later of two dates, between self and a given date.
@@ -307,7 +307,7 @@ public extension DateInRegion {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is later
 	func laterDate(_ date: DateInRegion) -> DateInRegion {
-		return (self.date.timeIntervalSince1970 >= date.date.timeIntervalSince1970) ? self : date
+		return self.date.timeIntervalSince(date.date) >= 0 ? self : date
 	}
 
 }

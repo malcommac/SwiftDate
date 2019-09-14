@@ -315,12 +315,12 @@ public extension DateInRegion {
     func difference(in component: Calendar.Component, from other: DateInRegion) -> Int? {
         return self.date.difference(in: component, from: other.date)
     }
-    
+
     /// Returns the differences in the calendar components given (like day, month and year)
     /// with respect to the other date as dictionary with the calendar component as the key
     /// and the diffrence as a positive integer as the value
     func differences(in components: Set<Calendar.Component>, from other: DateInRegion) -> [Calendar.Component: Int] {
         return self.date.differences(in: components, from: other.date)
     }
-    
+
 }

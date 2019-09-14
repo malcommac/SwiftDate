@@ -115,7 +115,7 @@ public extension Date {
 }
 
 extension Date {
-    
+
     /// Returns the difference in the calendar component given (like day, month or year)
     /// with respect to the other date as a positive integer
     public func difference(in component: Calendar.Component, from other: Date) -> Int? {
@@ -123,7 +123,7 @@ extension Date {
         let result = calendar.dateComponents([component], from: min, to: max)
         return getValue(of: component, from: result)
     }
-    
+
     /// Returns the differences in the calendar components given (like day, month and year)
     /// with respect to the other date as dictionary with the calendar component as the key
     /// and the diffrence as a positive integer as the value
@@ -138,7 +138,7 @@ extension Date {
         }
         return result
     }
-    
+
     private func getValue(of component: Calendar.Component, from dateComponents: DateComponents) -> Int? {
         switch component {
         case .era:
@@ -174,7 +174,7 @@ extension Date {
         @unknown default:
             assert(false, "unknown date component")
         }
-        
+        return nil
     }
 
     private func orderDate(with other: Date) -> (Date, Date) {

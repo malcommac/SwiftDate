@@ -24,7 +24,7 @@ class TestDate: XCTestCase {
         let result = date.differences(in: [.hour, .day, .month], from: date2)
         print(result)
     }
-    
+
     func testDifferenceBetweenDates() {
         let date = Date()
         let date2 = "2019-01-05".toDate()!.date

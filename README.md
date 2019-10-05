@@ -10,7 +10,7 @@
 [![Build Status](https://travis-ci.org/malcommac/SwiftDate.svg?branch=master)](https://travis-ci.org/malcommac/SwiftDate)
 
 <p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>
-Created and maintaned by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">www.danielemargutti.com</a>
+Created and maintained by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">www.danielemargutti.com</a>
 </p>
 
 SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
@@ -36,7 +36,7 @@ and of course...
 
 - **IT'S TESTED!**. As 5.x the project has 90% of code coverage (want help us? write some unit tests and make a PR)
 - **IT'S FULLY DOCUMENTED!**, [both with a complete guide](/Documentation/Index.md) and with Jazzy!
-- **WE LOVE PLAYGROUND!** [Check out](/Playgrounds/SwiftDate.playground) our interative playground!
+- **WE LOVE PLAYGROUND!** [Check out](/Playgrounds/SwiftDate.playground) our interactive playground!
 
 
 ## Start with SwiftDate
@@ -102,7 +102,7 @@ let over1Year = (date3 - date2).year > 1
 <a name="3"/>
 
 ### 3. Date Comparison
-SwiftDate include an extensive set of comparison functions; you can compare two dates by granularity, check if a date is an particular day, range and pratically any other comparison you ever need.
+SwiftDate include an extensive set of comparison functions; you can compare two dates by granularity, check if a date is an particular day, range and practically any other comparison you ever need.
 
 Comparison is also available via standard math operators like (`>, >=, <, <=`).
 

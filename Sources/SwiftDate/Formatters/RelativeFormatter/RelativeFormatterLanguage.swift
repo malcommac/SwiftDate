@@ -21,7 +21,7 @@ internal class RelativeFormatterLanguagesCache {
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         if let cachedFlavour = cachedValues[langID] {
             return cachedFlavour
-		}
+        }
         do {
             guard let fullURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json") else {
                 return nil

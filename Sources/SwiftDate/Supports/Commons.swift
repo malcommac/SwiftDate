@@ -90,8 +90,8 @@ public struct DateFormats {
 	/// This is the built-in list of all supported formats for auto-parsing of a string to a date.
 	internal static let builtInAutoFormat: [String] =  [
 		DateFormats.iso8601,
-		"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'",
-		"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'",
+		"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ",
+		"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSSZ",
 		"yyyy-MM-dd'T'HH:mm:ss.SSSZ",
 		"yyyy-MM-dd HH:mm:ss",
 		"yyyy-MM-dd HH:mm",

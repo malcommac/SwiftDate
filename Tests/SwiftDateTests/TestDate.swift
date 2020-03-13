@@ -31,5 +31,4 @@ class TestDate: XCTestCase {
         let result = date.difference(in: .day, from: date2)
         print(result!)
     }
-
 }

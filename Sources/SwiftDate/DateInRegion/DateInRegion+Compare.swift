@@ -173,7 +173,7 @@ public extension DateInRegion {
 			return compare(.isSameMonth(lastMonth))
 
 		case .isSameMonth(let refDate):
-			return (year == refDate.date.year) && (month == refDate.date.month)
+			return (year == refDate.year) && (month == refDate.month)
 
 		case .isThisYear:
 			return compare(.isSameYear(region.nowInThisRegion()))

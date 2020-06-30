@@ -16,8 +16,6 @@ internal class RelativeFormatterLanguagesCache {
 
     static let shared = RelativeFormatterLanguagesCache()
 
-    private(set) var cachedValues = [String: [String: Any]]()
-
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         do {
             guard let fullURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json") else {
@@ -26,13 +24,7 @@ internal class RelativeFormatterLanguagesCache {
             let data = try Data(contentsOf: fullURL)
             let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
 
-            if let value = json as? [String: Any] {
-                cachedValues[langID] = value
-                return value
-            } else {
-                return nil
-            }
-
+            return json as? [String: Any]
         } catch {
             debugPrint("Failed to read data for language id: \(langID)")
             return nil

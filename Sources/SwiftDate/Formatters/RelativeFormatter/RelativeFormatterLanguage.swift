@@ -16,6 +16,7 @@ internal class RelativeFormatterLanguagesCache {
 
     static let shared = RelativeFormatterLanguagesCache()
 
+    @Atomic
     private(set) var cachedValues = [String: [String: Any]]()
     
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {

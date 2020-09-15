@@ -12,6 +12,30 @@
 
 import Foundation
 
+// MARK: - Atomic Variable Support
+
+@propertyWrapper
+internal struct Atomic<Value> {
+    private let queue = DispatchQueue(label: "com.vadimbulavin.atomic")
+    private var value: Value
+
+    init(wrappedValue: Value) {
+        self.value = wrappedValue
+    }
+    
+    var wrappedValue: Value {
+        get {
+            return queue.sync { value }
+        }
+        set {
+            queue.sync { value = newValue }
+        }
+    }
+    
+}
+
+// MARK: - DateFormatter
+
 public extension DateFormatter {
 
 	/// Return the local thread shared formatter initialized with the configuration of the region passed.

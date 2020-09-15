@@ -17,10 +17,16 @@ internal class RelativeFormatterLanguagesCache {
     static let shared = RelativeFormatterLanguagesCache()
 
     private(set) var cachedValues = [String: [String: Any]]()
-
+    
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         do {
-            guard let fullURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json") else {
+            
+            var fileURL = Bundle.module.url(forResource: langID, withExtension: "json", subdirectory: "langs")
+            if fileURL == nil {
+                fileURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json")
+            }
+            
+            guard let fullURL = fileURL else {
                 return nil
             }
             let data = try Data(contentsOf: fullURL)

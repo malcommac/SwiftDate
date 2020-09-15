@@ -230,6 +230,27 @@ class TestDateInRegion_Compare: XCTestCase {
 		XCTAssert( date2.isAfterDate(date1, granularity: .year) == false, "Failed to isAfterDate() - .year == false")
 	}
 
+	func testDateInRegion_positionInRange() {
+		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+		let regionLondon = Region(calendar: Calendars.gregorian, zone: Zones.europeLondon, locale: Locales.english)
+		let dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+		let lowerBound = DateInRegion("2018-05-31 23:00:00", format: dateFormat, region: regionRome)!
+		let upperBound = DateInRegion("2018-06-01 01:00:00", format: dateFormat, region: regionRome)!
+
+		let testDate1 = DateInRegion("2018-06-01 00:30:00", format: dateFormat, region: regionRome)!
+		XCTAssertEqual( testDate1.positionInRange(date: lowerBound, and: upperBound), 0.75)
+
+		let testDate2 = DateInRegion("2018-05-31 22:30:00", format: dateFormat, region: regionLondon)!
+		XCTAssertEqual( testDate2.positionInRange(date: lowerBound, and: upperBound), 0.25)
+
+		let testDate3 = DateInRegion("2018-05-31 21:00:00", format: dateFormat, region: regionLondon)!
+		XCTAssertNil( testDate3.positionInRange(date: lowerBound, and: upperBound))
+
+		let testDate4 = DateInRegion("2018-06-01 03:00:00", format: dateFormat, region: regionLondon)!
+		XCTAssertNil( testDate4.positionInRange(date: lowerBound, and: upperBound))
+	}
+
 	func testDateInRegion_isInRange() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
 		let regionLondon = Region(calendar: Calendars.gregorian, zone: Zones.europeLondon, locale: Locales.english)

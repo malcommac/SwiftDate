@@ -26,12 +26,12 @@ class TestDate: XCTestCase {
 		print(result)
 	}
 
-	func testDifferenceBetweenDates() {
-		let date = Date()
-		let date2 = "2019-01-05".toDate()!.date
-		let result = date.difference(in: .day, from: date2)
-		print(result!)
-	}
+  func testDifferenceBetweenDates() {
+    let date = Date()
+    let date2 = "2019-01-05".toDate()!.date
+    let result = date.difference(in: .day, from: date2)
+    print(result!)
+  }
 
 	func testPositionInRange() {
 		let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
@@ -53,4 +53,5 @@ class TestDate: XCTestCase {
 		let testDate4 = "2018-06-01 03:00:00".toDate(dateFormat, region: regionLondon)!.date
 		XCTAssertNil( testDate4.positionInRange(date: lowerBound, and: upperBound))
 	}
+
 }

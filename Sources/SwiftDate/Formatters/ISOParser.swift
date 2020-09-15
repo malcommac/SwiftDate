@@ -765,7 +765,7 @@ public class ISOParser: StringToDateTransformable {
 		return char.isDigit
 	}
 
-	/// MARK: - Scanner internal functions
+	// MARK: - Scanner internal functions
 
 	/// Get the value at specified offset from current scanner position without
 	/// moving the current scanner's index.

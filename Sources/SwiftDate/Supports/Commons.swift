@@ -239,8 +239,8 @@ public enum DateRelatedType {
 	case tomorrowAtStart
 	case yesterday
 	case yesterdayAtStart
-	case nearestMinute(minute:Int)
-	case nearestHour(hour:Int)
+	case nearestMinute(minute: Int)
+	case nearestHour(hour :Int)
 	case nextWeekday(_: WeekDay)
 	case nextDSTDate
 	case prevMonth

@@ -21,23 +21,26 @@ internal class RelativeFormatterLanguagesCache {
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         do {
             
-            var fileURL = Bundle.module.url(forResource: langID, withExtension: "json", subdirectory: "langs")
-            if fileURL == nil {
-                fileURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json")
+            guard let cachedValue = cachedValues[langID] else {
+                var fileURL = Bundle.module.url(forResource: langID, withExtension: "json", subdirectory: "langs")
+                if fileURL == nil {
+                    fileURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json")
+                }
+                
+                guard let fullURL = fileURL else {
+                    return nil
+                }
+                let data = try Data(contentsOf: fullURL)
+                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+
+                if let value = json as? [String: Any] {
+                    cachedValues[langID] = value
+                    return value
+                }
+                return nil
             }
             
-            guard let fullURL = fileURL else {
-                return nil
-            }
-            let data = try Data(contentsOf: fullURL)
-            let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-
-            if let value = json as? [String: Any] {
-                cachedValues[langID] = value
-                return value
-            } else {
-                return nil
-            }
+            return cachedValue
 
         } catch {
             debugPrint("Failed to read data for language id: \(langID)")

@@ -74,7 +74,7 @@ open class TimePeriodGroup: Sequence, Equatable {
 		return try periods.split(maxSplits: maxSplits, omittingEmptySubsequences: omittingEmptySubsequences, whereSeparator: isSeparator).map(AnySequence.init)
 	}
 
-	subscript(index: Int) -> TimePeriodProtocol {
+	public subscript(index: Int) -> TimePeriodProtocol {
 		get {
 			return periods[index]
 		}

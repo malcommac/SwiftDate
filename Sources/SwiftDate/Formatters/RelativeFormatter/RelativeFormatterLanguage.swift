@@ -23,7 +23,7 @@ internal class RelativeFormatterLanguagesCache {
         do {
             
             guard let cachedValue = cachedValues[langID] else {
-                var fileURL = Bundle.module.url(forResource: langID, withExtension: "json", subdirectory: "langs")
+                var fileURL = Bundle.appModule?.url(forResource: langID, withExtension: "json", subdirectory: "langs")
                 if fileURL == nil {
                     fileURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json")
                 }

@@ -99,7 +99,7 @@ public extension TimeInterval {
 		callback?(&options)
 		options.apply(toFormatter: formatter)
 
-        let formattedValue = formatter.string(from: self)!
+        let formattedValue = (formatter.string(from: self) ?? "")
         if options.zeroFormattingBehavior?.contains(.pad) ?? false {
             // for some strange reason padding is not added at the very beginning positional item.
             // we'll add it manually if necessaru

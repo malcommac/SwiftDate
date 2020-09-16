@@ -301,4 +301,24 @@ class TestDateInRegion_Create: XCTestCase {
 			"2019-06-07T00:00:00Z"
 		])
 	}
+
+    func testDateInRegion_DateAtStartOf() {
+        let regionRome = Region(calendar: Calendars.gregorian, zone: Zones.europeRome, locale: Locales.italian)
+        let currentDate = DateInRegion(Date(), region: regionRome)
+
+        let startOfDay1 = currentDate.dateAt(.startOfDay).date
+        let startOfDay2 = currentDate.dateAtStartOf(.day).date
+
+        XCTAssert( startOfDay1 == startOfDay2, "dateAt(.startOfDay), dateAtStartOf(.day) are not same.")
+
+        let startOfWeek1 = currentDate.dateAt(.startOfWeek).date
+        let startOfWeek2 = currentDate.dateAtStartOf(.weekOfYear).date
+
+        XCTAssert( startOfWeek1 == startOfWeek2, "dateAt(.startOfWeek), dateAtStartOf(.weekday) are not same.")
+
+        let startOfMonth1 = currentDate.dateAt(.startOfMonth).date
+        let startOfMonth2 = currentDate.dateAtStartOf(.month).date
+
+        XCTAssert( startOfMonth1 == startOfMonth2, "dateAt(.startOfMonth), dateAtStartOf(.month) are not same.")
+    }
 }

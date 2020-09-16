@@ -58,12 +58,10 @@
       "current" : "tento týždeň",
       "past" : {
         "other" : "pred {0} týždňami",
-        "many" : "pred {0} týždňa",
         "one" : "pred {0} týždňom"
       },
       "previous" : "minulý týždeň",
       "future" : {
-        "many" : "o {0} týždňa",
         "one" : "o {0} týždeň",
         "few" : "o {0} týždne",
         "other" : "o {0} týždňov"
@@ -72,12 +70,10 @@
     },
     "hour" : {
       "past" : {
-        "many" : "pred {0} hodinou",
         "one" : "pred {0} hodinou",
         "other" : "pred {0} hodinami"
       },
       "future" : {
-        "many" : "o {0} hodiny",
         "one" : "o {0} hodinu",
         "few" : "o {0} hodiny",
         "other" : "o {0} hodín"
@@ -87,13 +83,11 @@
     "quarter" : {
       "previous" : "minulý štvrťrok",
       "future" : {
-        "many" : "o {0} štvrťroka",
         "other" : "o {0} štvrťrokov",
         "few" : "o {0} štvrťroky",
         "one" : "o {0} štvrťrok"
       },
       "past" : {
-        "many" : "pred {0} štvrťroka",
         "one" : "pred {0} štvrťrokom",
         "other" : "pred {0} štvrťrokmi"
       },
@@ -103,27 +97,23 @@
     "minute" : {
       "current" : "v tejto minúte",
       "future" : {
-        "many" : "o {0} minúty",
         "one" : "o {0} minútu",
         "other" : "o {0} minút",
         "few" : "o {0} minúty"
       },
       "past" : {
         "other" : "pred {0} minútami",
-        "one" : "pred {0} minútou",
-        "many" : "pred {0} minúty"
+        "one" : "pred {0} minútou"
       }
     },
     "year" : {
       "past" : {
-        "many" : "pred {0} roka",
         "other" : "pred {0} rokmi",
         "one" : "pred {0} rokom"
       },
       "future" : {
         "few" : "o {0} roky",
         "one" : "o {0} rok",
-        "many" : "o {0} roka",
         "other" : "o {0} rokov"
       },
       "current" : "tento rok",
@@ -132,7 +122,7 @@
     },
     "month" : {
       "future" : {
-        "many" : "o {0} mesiaca",
+        "many" : "o {0} mesiacov",
         "one" : "o {0} mesiac",
         "few" : "o {0} mesiace",
         "other" : "o {0} mesiacov"
@@ -141,7 +131,7 @@
       "previous" : "minulý mesiac",
       "next" : "budúci mesiac",
       "past" : {
-        "many" : "pred {0} mesiaca",
+        "many" : "pred {0} mesiacmi",
         "other" : "pred {0} mesiacmi",
         "one" : "pred {0} mesiacom"
       }
@@ -150,11 +140,9 @@
       "current" : "teraz",
       "past" : {
         "one" : "pred {0} sekundou",
-        "many" : "pred {0} sekundy",
         "other" : "pred {0} sekundami"
       },
       "future" : {
-        "many" : "o {0} sekundy",
         "few" : "o {0} sekundy",
         "one" : "o {0} sekundu",
         "other" : "o {0} sekúnd"
@@ -164,16 +152,14 @@
       "previous" : "včera",
       "next" : "zajtra",
       "past" : {
-        "many" : "pred {0} dňa",
         "one" : "pred {0} dňom",
         "other" : "pred {0} dňami"
       },
       "current" : "dnes",
       "future" : {
-        "many" : "o {0} dňa",
         "one" : "o {0} deň",
-        "other" : "o {0} dní",
-        "few" : "o {0} dni"
+        "few" : "o {0} dni",
+        "other" : "o {0} dní"
       }
     }
   },

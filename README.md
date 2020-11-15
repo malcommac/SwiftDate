@@ -2,6 +2,8 @@
 <img src="banner.png" width=476px alt="SwiftDate" title="SwiftDate">
 </p>
 
+<p align="center"><strong>Toolkit to parse, validate, manipulate, compare and display dates, time & timezones in Swift.</strong></p>
+
 ## What's This?
 
 SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.  

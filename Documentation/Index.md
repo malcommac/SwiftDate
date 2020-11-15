@@ -74,6 +74,7 @@ The following documentation explores all the major features of the library. If y
 - [5.3 - RSS/AltRSS Formatted String](5.Date_Formatting.md#rss)
 - [5.4 - SQL Formatted String](5.Date_Formatting.md#sql)
 - [5.5 - Relative/Colloquial Formatted String](5.Date_Formatting.md#colloquial)
+- [5.6 - Mixed Date/Time Style](5.Date_Formatting.md#mixeddatetime)
 
 ### [6 - Time Intervals Formatting](6.TimeInterval_Formatting.md)
 

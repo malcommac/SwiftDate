@@ -62,12 +62,11 @@ public extension DateFormatter {
 	/// - Returns: number formatter instance
 	@available(iOS 9.0, macOS 10.11, *)
 	static func sharedOrdinalNumberFormatter(locale: LocaleConvertible) -> NumberFormatter {
-		var formatter: NumberFormatter?
 		let name = "SwiftDate_\(NSStringFromClass(NumberFormatter.self))"
-		formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
-		formatter!.numberStyle = .ordinal
-		formatter!.locale = locale.toLocale()
-		return formatter!
+		let formatter = threadSharedObject(key: name, create: { return NumberFormatter() })
+		formatter.numberStyle = .ordinal
+		formatter.locale = locale.toLocale()
+		return formatter
 	}
 
 }

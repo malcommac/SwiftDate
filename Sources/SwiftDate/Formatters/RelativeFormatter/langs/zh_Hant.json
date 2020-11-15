@@ -1,4 +1,4 @@
-{
+﻿{
   "narrow" : {
     "now" : "現在",
     "week" : {
@@ -12,7 +12,7 @@
       "previous" : "上一季",
       "next" : "下一季",
       "future" : "{0} 季後",
-      "current" : "這一季",
+      "current" : "本季",
       "past" : "{0} 季前"
     },
     "day" : {
@@ -23,7 +23,7 @@
       "current" : "今天"
     },
     "hour" : {
-      "current" : "這一小時",
+      "current" : "這個小時",
       "past" : "{0} 小時前",
       "future" : "{0} 小時後"
     },
@@ -41,7 +41,7 @@
     },
     "minute" : {
       "future" : "{0} 分鐘後",
-      "current" : "這一分鐘",
+      "current" : "現在",
       "past" : "{0} 分鐘前"
     },
     "year" : {
@@ -66,7 +66,7 @@
       "future" : "{0} 秒後"
     },
     "quarter" : {
-      "current" : "這一季",
+      "current" : "本季",
       "next" : "下一季",
       "previous" : "上一季",
       "future" : "{0} 季後",
@@ -88,13 +88,13 @@
     },
     "hour" : {
       "future" : "{0} 小時後",
-      "current" : "這一小時",
+      "current" : "這個小時",
       "past" : "{0} 小時前"
     },
     "minute" : {
       "future" : "{0} 分鐘後",
       "past" : "{0} 分鐘前",
-      "current" : "這一分鐘"
+      "current" : "現在"
     },
     "now" : "現在",
     "year" : {
@@ -108,12 +108,12 @@
   "short" : {
     "hour" : {
       "future" : "{0} 小時後",
-      "current" : "這一小時",
+      "current" : "這個小時",
       "past" : "{0} 小時前"
     },
     "now" : "現在",
     "quarter" : {
-      "current" : "這一季",
+      "current" : "本季",
       "future" : "{0} 季後",
       "past" : "{0} 季前",
       "next" : "下一季",
@@ -136,7 +136,7 @@
     "minute" : {
       "past" : "{0} 分鐘前",
       "future" : "{0} 分鐘後",
-      "current" : "這一分鐘"
+      "current" : "現在"
     },
     "second" : {
       "past" : "{0} 秒前",

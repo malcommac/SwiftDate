@@ -9,7 +9,7 @@ The following documentation explores all the major features of the library. If y
 
 ### Table Of Contents
 
-### [0 - Info & Install]
+### [0 - Info & Install](0.Informations.md)
 
 - [Future Plans](0.Informations.md#futureplans)
 - [Compatibility & Requirements](0.Informations.md#compatibility)

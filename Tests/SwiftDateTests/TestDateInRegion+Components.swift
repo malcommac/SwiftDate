@@ -40,8 +40,6 @@ class TestDateInRegion_Components: XCTestCase {
 			$0.eraNameShort = "a.C."
 			$0.weekdayOrdinal = 1
 			$0.nearestHour = 23
-			$0.firstDayOfWeek = 5
-			$0.lastDayOfWeek = 11
 			$0.yearForWeekOfYear = 2018
 			$0.quarter = 1
 		})

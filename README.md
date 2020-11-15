@@ -1,23 +1,12 @@
 <p align="center" >
-<img src="Documentation/SwiftDateArt.png" width=476px alt="SwiftDate" title="SwiftDate">
+<img src="banner.png" width=476px alt="SwiftDate" title="SwiftDate">
 </p>
 
-![](https://img.shields.io/cocoapods/v/SwiftDate.svg)
-![](https://img.shields.io/cocoapods/p/SwiftDate.svg)
-![](https://img.shields.io/badge/coverage-90%25-green.svg)
-![](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)
-[](https://img.shields.io/travis/malcommac/SwiftDate.svg)
-[![Build Status](https://travis-ci.org/malcommac/SwiftDate.svg?branch=master)](https://travis-ci.org/malcommac/SwiftDate)
+## What's This?
 
-<p align="center" >★★ <b>Star me to follow the project! </b> ★★<br>
-Created and maintained by <b>Daniele Margutti</b> - <a href="http://www.danielemargutti.com">www.danielemargutti.com</a>
-</p>
+SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.  
+**Over 3 million of downloads on [CocoaPods](https://cocoapods.org/pods/SwiftDate).**
 
-SwiftDate is the **definitive toolchain to manipulate and display dates and time zones** on all Apple platform and even on Linux and Swift Server Side frameworks like Vapor or Kitura.
-
-Over [3M of downloads](https://cocoapods.org/pods/SwiftDate) on CocoaPods
-
-### Features Highlights
 From simple date manipulation to complex business logic SwiftDate maybe the right choice for your next project.
 
 - [x] **Easy Date Parsing** (custom formats, iso8601, rss & many more)

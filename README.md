@@ -1,6 +1,8 @@
 <p align="center" >
-<img src="banner.png" width=476px alt="SwiftDate" title="SwiftDate">
+  <img src="banner.png" width=300px alt="SwiftDate" title="SwiftDate">
 </p>
+
+<p align="center"><strong>Toolkit to parse, validate, manipulate, compare and display dates, time & timezones in Swift.</strong></p>
 
 ## What's This?
 

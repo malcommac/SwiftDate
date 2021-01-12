@@ -116,7 +116,7 @@ extension String: DateParsable {
 	public func toSQLDate(region: Region = Region.ISO) -> DateInRegion? {
 		return StringToDateStyles.sql.toDate(self, region: region)
 	}
-	
+
 	public func asLocale() -> Locale {
                Locale(identifier: self)
         }

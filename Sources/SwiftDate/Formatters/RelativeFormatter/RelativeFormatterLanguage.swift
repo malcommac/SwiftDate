@@ -18,16 +18,16 @@ internal class RelativeFormatterLanguagesCache {
 
     @Atomic
     private(set) var cachedValues = [String: [String: Any]]()
-    
+
     func flavoursForLocaleID(_ langID: String) -> [String: Any]? {
         do {
-            
+
             guard let cachedValue = cachedValues[langID] else {
                 var fileURL = Bundle.appModule?.url(forResource: langID, withExtension: "json", subdirectory: "langs")
                 if fileURL == nil {
                     fileURL = Bundle(for: RelativeFormatter.self).resourceURL?.appendingPathComponent("langs/\(langID).json")
                 }
-                
+
                 guard let fullURL = fileURL else {
                     return nil
                 }
@@ -40,7 +40,7 @@ internal class RelativeFormatterLanguagesCache {
                 }
                 return nil
             }
-            
+
             return cachedValue
 
         } catch {

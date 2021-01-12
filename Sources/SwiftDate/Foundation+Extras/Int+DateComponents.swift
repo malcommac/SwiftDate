@@ -26,7 +26,7 @@ public extension Int {
 	/// - returns: return self value in form of `DateComponents` where given `Calendar.Component` has `self` as value
 	internal func toDateComponents(type: Calendar.Component) -> DateComponents {
 		var dateComponents = DateComponents()
-        DateComponents.allComponents.forEach( { dateComponents.setValue(0, for: $0 )})
+        DateComponents.allComponents.forEach({ dateComponents.setValue(0, for: $0 ) })
         dateComponents.setValue(self, for: type)
         dateComponents.setValue(0, for: .era)
 		return dateComponents

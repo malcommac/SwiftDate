@@ -118,6 +118,18 @@ class TestRegion: XCTestCase {
 
 	}
 
+    func testRegionInit_SettingFirstWeekday() {
+
+        var calendar = Calendars.gregorian.toCalendar()
+        calendar.firstWeekday = 2
+        let regionStartingFromMonday = Region(calendar: calendar, zone: Zones.gmt, locale: Locales.englishUnitedStates)
+        XCTAssert(regionStartingFromMonday.calendar.firstWeekday == 2, "Failed to set firstWeekDay for Region")
+
+        calendar.firstWeekday = 4
+        let regionStartingFromWednesday = Region(calendar: calendar, zone: Zones.gmt, locale: Locales.englishUnitedStates)
+        XCTAssert(regionStartingFromWednesday.calendar.firstWeekday == 4, "Failed to set firstWeekDay for Region")
+    }
+
 }
 
 func XCTAssertInTimeIntervalRange(value: Double, range: TimeInterval, _ error: String) {

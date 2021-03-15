@@ -18,7 +18,15 @@ import Foundation
 /// Time period chains do not allow overlaps within their set of time periods.
 /// This type of group is ideal for modeling schedules like sequential meetings or appointments.
 open class TimePeriodChain: TimePeriodGroup {
-
+	
+	// MARK: - Initializers
+	
+	public override init(_ periods: [TimePeriodProtocol]? = nil) {
+		super.init(periods)
+		
+		updateExtremes()
+	}
+	
 	// MARK: - Chain Existence Manipulation
 
 	/**

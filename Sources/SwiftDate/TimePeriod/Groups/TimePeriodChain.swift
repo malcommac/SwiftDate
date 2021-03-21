@@ -94,9 +94,9 @@ open class TimePeriodChain: TimePeriodGroup {
 		//Shift all periods after inserted period
 		for i in 0..<periods.count {
 			if i > index && i > 0 {
-				let currentPeriod = TimePeriod(start: period.start, end: period.end)
+				let duration = periods[i].duration
 				periods[i].start = periods[i - 1].end
-				periods[i].end = periods[i].start!.addingTimeInterval(currentPeriod.duration)
+				periods[i].end = periods[i].start!.addingTimeInterval(duration)
 			}
 		}
 

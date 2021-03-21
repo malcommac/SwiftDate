@@ -18,50 +18,81 @@ import Foundation
 /// Time period chains do not allow overlaps within their set of time periods.
 /// This type of group is ideal for modeling schedules like sequential meetings or appointments.
 open class TimePeriodChain: TimePeriodGroup {
-
+	
+	// MARK: - Initializers
+	
+	public override init(_ periods: [TimePeriodProtocol]? = nil) {
+		super.init(periods)
+		
+		updateExtremes()
+	}
+	
 	// MARK: - Chain Existence Manipulation
 
 	/**
-	*  Append a TimePeriodProtocol to the periods array and update the Chain's
-	*  beginning and end.
+	*  Adds a period of equivalent length to the end of the chain, regardless of
+	*  whether the period intersects with the chain or not.
 	*
 	* - parameter period: TimePeriodProtocol to add to the collection
 	*/
 	public func append(_ period: TimePeriodProtocol) {
-		let beginning = (periods.count > 0) ? periods.last!.end! : period.start
-
-		let newPeriod = TimePeriod(start: beginning!, duration: period.duration)
-		periods.append(newPeriod)
-
-		//Update updateExtremes
-		if periods.count == 1 {
-			start = period.start
-			end = period.end
-		} else {
-			end = end?.addingTimeInterval(period.duration)
+		guard isPeriodHasExtremes(period) else {
+			print("All TimePeriods in a TimePeriodChain must contain a defined start and end date")
+			return;
+		}
+		
+		if let startDate = periods.last?.end! ?? period.start {
+			let newPeriod = TimePeriod(start: startDate, duration: period.duration)
+			periods.append(newPeriod)
+			
+			updateExtremes()
 		}
 	}
-
+	
 	/**
-	*  Append a TimePeriodProtocol array to the periods array and update the Chain's
-	*  beginning and end.
+	*  Adds a periods of equivalent length of group to the end of the chain, regardless of
+	*  whether the period intersects with the chain or not.
 	*
 	* - parameter periodArray: TimePeriodProtocol list to add to the collection
 	*/
 	public func append<G: TimePeriodGroup>(contentsOf group: G) {
 		for period in group.periods {
-			let beginning = (periods.count > 0) ? periods.last!.end! : period.start
-
-			let newPeriod = TimePeriod(start: beginning!, duration: period.duration)
-			periods.append(newPeriod)
-
-			//Update updateExtremes
-			if periods.count == 1 {
-				start = period.start
-				end = period.end
-			} else {
-				end = end?.addingTimeInterval(period.duration)
-			}
+			append(period)
+		}
+	}
+	
+	/**
+	*  Adds a period of equivalent length to the start of the chain, regardless of
+	*  whether the period intersects with the chain or not.
+	*
+	* - parameter period: TimePeriodProtocol to add to the collection
+	*/
+	public func prepend(_ period: TimePeriodProtocol) {
+		guard isPeriodHasExtremes(period) else {
+			print("All TimePeriods in a TimePeriodChain must contain a defined start and end date")
+			return;
+		}
+		
+		if let endDate = periods.first?.start! ?? period.end {
+			let startDate = endDate.addingTimeInterval(-period.duration)
+			
+			let newPeriod = TimePeriod(start: startDate, duration: period.duration)
+			periods.insert(newPeriod, at: periods.startIndex)
+			
+			updateExtremes()
+		}
+	}
+	
+	/**
+	*  Adds a periods of equivalent length of group to the start of the chain, regardless of
+	*  whether the period intersects with the chain or not.
+	*
+	* - parameter periodArray: TimePeriodProtocol list to add to the collection
+	*/
+	
+	public func prepend<G: TimePeriodGroup>(contentsOf group: G) {
+		for period in group.periods {
+			prepend(period)
 		}
 	}
 
@@ -86,9 +117,9 @@ open class TimePeriodChain: TimePeriodGroup {
 		//Shift all periods after inserted period
 		for i in 0..<periods.count {
 			if i > index && i > 0 {
-				let currentPeriod = TimePeriod(start: period.start, end: period.end)
+				let duration = periods[i].duration
 				periods[i].start = periods[i - 1].end
-				periods[i].end = periods[i].start!.addingTimeInterval(currentPeriod.duration)
+				periods[i].end = periods[i].start!.addingTimeInterval(duration)
 			}
 		}
 
@@ -130,6 +161,26 @@ open class TimePeriodChain: TimePeriodGroup {
 		start = start?.addingTimeInterval(duration)
 		end = end?.addingTimeInterval(duration)
 	}
+	
+	/// Shifts chain's start date and all chain's periods to the given date
+	///
+	/// - Parameter date: The date to which the period's start is shifted
+	public func shiftStart(to date: DateInRegion) {
+		if let firstPeriodStart = periods.first?.start! {
+			let difference = date - firstPeriodStart
+			shift(by: difference)
+		}
+	}
+	
+	/// Shifts chain's end date and all chain's periods to the given date
+	///
+	/// - Parameter date: The date to which the period's end is shifted
+	public func shiftEnd(to date: DateInRegion) {
+		if let firstPeriodEnd = periods.last?.end! {
+			let difference = date - firstPeriodEnd
+			shift(by: difference)
+		}
+	}
 
 	public override func map<T>(_ transform: (TimePeriodProtocol) throws -> T) rethrows -> [T] {
 		return try periods.map(transform)
@@ -154,6 +205,10 @@ open class TimePeriodChain: TimePeriodGroup {
 	internal func updateExtremes() {
 		start = periods.first?.start
 		end = periods.last?.end
+	}
+	
+	internal func isPeriodHasExtremes (_ period: TimePeriodProtocol) -> Bool {
+		period.start != nil && period.end != nil
 	}
 
 }

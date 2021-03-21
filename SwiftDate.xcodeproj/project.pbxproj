@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A825B6325FEC54700F21DB2 /* TestTimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A825B4925FEC54100F21DB2 /* TestTimePeriodChain.swift */; };
+		3A825B6425FEC54800F21DB2 /* TestTimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A825B4925FEC54100F21DB2 /* TestTimePeriodChain.swift */; };
+		3A825B6525FEC54800F21DB2 /* TestTimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A825B4925FEC54100F21DB2 /* TestTimePeriodChain.swift */; };
 		52D6D9871BEFF229002C0205 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* SwiftDate.framework */; };
 		6434DD6120C7FAF6007626EF /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD6020C7FAF6007626EF /* DateInRegion.swift */; };
 		6434DD6220C7FAF6007626EF /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434DD6020C7FAF6007626EF /* DateInRegion.swift */; };
@@ -258,6 +261,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A825B4925FEC54100F21DB2 /* TestTimePeriodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTimePeriodChain.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* SwiftDate-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftDate-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9E21BEFFF6E002C0205 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -569,6 +573,7 @@
 				64BAB12720E6411100FEED79 /* TestSwiftDate.swift */,
 				647AD65B21F4851F00CF787E /* TestDataStructures.swift */,
 				A89F3FAE22A00019002D1BD0 /* TestDate.swift */,
+				3A825B4925FEC54100F21DB2 /* TestTimePeriodChain.swift */,
 			);
 			name = Tests;
 			path = Tests/SwiftDateTests;
@@ -974,6 +979,7 @@
 				64BAB12420E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */,
 				647AD65C21F4851F00CF787E /* TestDataStructures.swift in Sources */,
 				6439232220D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
+				3A825B6525FEC54800F21DB2 /* TestTimePeriodChain.swift in Sources */,
 				64EF3E0F20D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232620D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0B20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,
@@ -1163,6 +1169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64BAB12520E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */,
+				3A825B6425FEC54800F21DB2 /* TestTimePeriodChain.swift in Sources */,
 				647AD65D21F4851F00CF787E /* TestDataStructures.swift in Sources */,
 				A89F3FAF22A00019002D1BD0 /* TestDate.swift in Sources */,
 				6439232320D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
@@ -1183,6 +1190,7 @@
 				64BAB12620E63A3A00FEED79 /* TestDateInRegion+Langs.swift in Sources */,
 				647AD65E21F4851F00CF787E /* TestDataStructures.swift in Sources */,
 				6439232420D912670098EC03 /* TestDateInRegion+Math.swift in Sources */,
+				3A825B6325FEC54700F21DB2 /* TestTimePeriodChain.swift in Sources */,
 				64EF3E1120D65478002793C6 /* TestDateInRegion+Compare.swift in Sources */,
 				6439232820D91D170098EC03 /* TestFormatters.swift in Sources */,
 				64EF3E0D20D65329002793C6 /* TestDateInRegion+Create.swift in Sources */,

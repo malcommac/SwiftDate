@@ -30,7 +30,7 @@ public class RelativeFormatter: DateToStringTrasformable {
 	/// - Parameter locale: locale to load
 	/// - Returns: language table
     private func tableForLocale(_ locale: Locale) -> RelativeFormatterLanguage {
-        let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!)
+        let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!).replacingOccurrences(of: "-", with: "_")
 
         if let lang = RelativeFormatterLanguage(rawValue: localeId) {
             return lang

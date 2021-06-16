@@ -41,13 +41,15 @@ public class RelativeFormatter: DateToStringTrasformable {
         }
         
         let components = localeId.components(separatedBy: "-")
-        for i in 1..<components.count {
-            let subcomponents = components[0..<components.count-i]
-            if let fallbackFlavour = RelativeFormatterLanguage(rawValue: subcomponents.joined(separator: "-")) {
-                return fallbackFlavour
-            }
-            else if let fallbackFlavour = RelativeFormatterLanguage(rawValue: subcomponents.joined(separator: "_")) {
-                return fallbackFlavour
+        if components.count > 1 {
+            for i in 1..<components.count {
+                let subcomponents = components[0..<components.count-i]
+                if let fallbackFlavour = RelativeFormatterLanguage(rawValue: subcomponents.joined(separator: "-")) {
+                    return fallbackFlavour
+                }
+                else if let fallbackFlavour = RelativeFormatterLanguage(rawValue: subcomponents.joined(separator: "_")) {
+                    return fallbackFlavour
+                }
             }
         }
         return tableForLocale(Locales.english.toLocale())

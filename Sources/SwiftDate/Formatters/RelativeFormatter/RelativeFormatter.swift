@@ -30,17 +30,27 @@ public class RelativeFormatter: DateToStringTrasformable {
 	/// - Parameter locale: locale to load
 	/// - Returns: language table
     private func tableForLocale(_ locale: Locale) -> RelativeFormatterLanguage {
-        let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!).replacingOccurrences(of: "-", with: "_")
+        let localeId = (locale.collatorIdentifier ?? Locales.english.toLocale().collatorIdentifier!).replacingOccurrences(of: "_", with: "-")
 
         if let lang = RelativeFormatterLanguage(rawValue: localeId) {
             return lang
         }
-
-        guard let fallbackFlavours = RelativeFormatterLanguage(rawValue: localeId.components(separatedBy: "_").first!) ??
-            RelativeFormatterLanguage(rawValue: localeId.components(separatedBy: "-").first!) else {
-                return tableForLocale(Locales.english.toLocale()) // fallback not found, return english
+        
+        if let fallbackFlavour = RelativeFormatterLanguage(rawValue: localeId.replacingOccurrences(of: "-", with: "_")) {
+            return fallbackFlavour
         }
-        return fallbackFlavours // return fallback
+        
+        let components = localeId.components(separatedBy: "-")
+        for i in 1..<components.count {
+            let subcomponents = components[0..<components.count-i]
+            if let fallbackFlavour = RelativeFormatterLanguage(rawValue: subcomponents.joined(separator: "-")) {
+                return fallbackFlavour
+            }
+            else if let fallbackFlavour = RelativeFormatterLanguage(rawValue: subcomponents.joined(separator: "_")) {
+                return fallbackFlavour
+            }
+        }
+        return tableForLocale(Locales.english.toLocale())
     }
 
 	/// Implementation of the protocol for DateToStringTransformable.

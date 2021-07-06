@@ -324,6 +324,8 @@ public extension DateInRegion {
 	/// - Returns: rounded date
 	func dateRoundedAt(_ style: RoundDateMode) -> DateInRegion {
 		switch style {
+        case .to1Sec:           return dateRoundedAt(.toSecs(1))
+        case .to1Min:           return dateRoundedAt(.toMins(1))
 		case .to5Mins:			return dateRoundedAt(.toMins(5))
 		case .to10Mins:			return dateRoundedAt(.toMins(10))
 		case .to30Mins:			return dateRoundedAt(.toMins(30))
@@ -352,6 +354,24 @@ public extension DateInRegion {
 			let value = -((Int(1.minutes.timeInterval) * remain) + second)
 			return dateByAdding(value, .second)
 
+            
+        case .toSecs(let secondInterval):
+            let onesDigit: Int = (second % 10)
+            if onesDigit < 5 {
+                return dateRoundedAt(.toFloorSecs(secondInterval))
+            } else {
+                return dateRoundedAt(.toCeilSecs(secondInterval))
+            }
+
+        case .toCeilSecs(let secondInterval):
+            let remain: Int = (second % secondInterval)
+            let value = (( Int(1.seconds.timeInterval) * (secondInterval - remain)) - nanosecond)
+            return dateByAdding(value, .nanosecond)
+
+        case .toFloorSecs(let secondInterval):
+            let remain: Int = (second % secondInterval)
+            let value = -((Int(1.seconds.timeInterval) * remain) + nanosecond)
+            return dateByAdding(value, .nanosecond)
 		}
 	}
 

@@ -236,18 +236,23 @@ public extension Calendar.Component {
 /// Rounding mode for dates.
 /// Round off/up (ceil) or down (floor) target date.
 public enum RoundDateMode {
+    case to1Sec
+    case to1Min
 	case to5Mins
 	case to10Mins
 	case to30Mins
 	case toMins(_: Int)
+    case toSecs(_: Int)
 	case toCeil5Mins
 	case toCeil10Mins
 	case toCeil30Mins
 	case toCeilMins(_: Int)
+    case toCeilSecs(_: Int)
 	case toFloor5Mins
 	case toFloor10Mins
 	case toFloor30Mins
 	case toFloorMins(_: Int)
+    case toFloorSecs(_: Int)
 }
 
 /// Related type enum to get derivated date from a receiver date.

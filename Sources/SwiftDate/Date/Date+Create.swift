@@ -106,7 +106,14 @@ public extension Date {
 	///
 	/// - returns: A new Moment instance.
 	func dateAtEndOf(_ unit: Calendar.Component) -> Date {
-		return inDefaultRegion().dateAtEndOf(unit).date
+        switch unit {
+        case .day:
+            return inDefaultRegion().dateAt(.endOfDay).date
+        case .month:
+            return inDefaultRegion().dateAt(.endOfMonth).date
+        default:
+            return inDefaultRegion().dateAtEndOf(unit).date
+        }
 	}
 
 	/// Return a new DateInRegion that is initialized at the end of the specified components

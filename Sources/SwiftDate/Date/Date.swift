@@ -57,6 +57,11 @@ extension Date: DateRepresentable {
 	public var dateComponents: DateComponents {
 		return region.calendar.dateComponents(DateComponents.allComponentsSet, from: self)
 	}
+    
+    /// Get the total number of seconds in the registered 'time'.
+    public var totalSeconds: Int {
+        return ((hour * 60) + minute) * 60 + second;
+    }
 
 	/// Initialize a new date object from string expressed in given region.
 	///

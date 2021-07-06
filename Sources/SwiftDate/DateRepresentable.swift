@@ -52,6 +52,9 @@ public protocol DateRepresentable {
 
 	/// Second unit of the receiver.
 	var second: Int { get }
+    
+    /// Total seconds of the receiver.
+    var totalSeconds: Int { get }
 
 	/// Nanosecond unit of the receiver.
 	var nanosecond: Int { get }

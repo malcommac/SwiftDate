@@ -30,6 +30,9 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 	public var dateComponents: DateComponents {
 		return region.calendar.dateComponents(DateComponents.allComponentsSet, from: date)
 	}
+    
+    /// Get the total number of seconds in the registered 'time'.
+    public var totalSeconds: Int
 
 	/// Description of the date
 	public var description: String {

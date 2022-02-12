@@ -14,80 +14,103 @@ import Foundation
 
 internal class FormattersCache {
     
-    public static let shared = FormattersCache()
-    
-    // MARK: - Properties
-    
-    private static var cachedDateFormatters = [String: DateFormatter]()
+    // MARK: - Internal Properties
 
-    private static let cachedDateFormattersQueue = DispatchQueue(
-        label: "date-formatter-queue",
+    /// Singleton instance of the cache which hold the formatters.
+    internal static let shared = FormattersCache()
+    
+    // MARK: - Private Properties (DateFormatter)
+
+    /// Hold all the standard `DateFormatter` instances used.
+    private static var dateFormatters = [String: DateFormatter]()
+    
+    /// Manage concurrent access to the standard `DateFormatter`'s cache.
+    private static let dateFormattersQueue = DispatchQueue(
+        label: "com.swiftdate.date-formatter",
         attributes: .concurrent
     )
 
-    private static var cachedISODateFormatters = [String: ISO8601DateFormatter]()
+    // MARK: - Private Properties (ISO8601DateFormatter)
+    
+    /// Hold all the standard `ISO8601DateFormatter` instances used.
+    private static var isoFormatters = [String: ISO8601DateFormatter]()
 
-    private static let cachedISODateFormattersQueue = DispatchQueue(
-        label: "iso-date-formatter-queue",
+    /// Manage concurrent access to the standard `ISO8601DateFormatter`'s cache.
+    private static let isoFormattersQueue = DispatchQueue(
+        label: "com.swiftdate.iso-date-formatter",
         attributes: .concurrent
     )
     
     // MARK: - Methods
     
-    /// Register a new `DateFormatter` instance.
-    /// - Parameters:
-    ///   - hashKey: hash key.
-    ///   - formatter: formatter instance.
-    private func register(hashKey: String, formatter: DateFormatter) {
-        FormattersCache.cachedDateFormattersQueue.async(flags: .barrier) {
-            FormattersCache.cachedDateFormatters.updateValue(formatter, forKey: hashKey)
-        }
-    }
-    
-    private func register(hashKey: String, formatter: ISO8601DateFormatter) {
-        FormattersCache.cachedISODateFormattersQueue.async(flags: .barrier) {
-            FormattersCache.cachedISODateFormatters.updateValue(formatter, forKey: hashKey)
-        }
-    }
-    
-    /// Retrive a registered cached formatter instance.
+    /// Register a new `DateFormatter` instance into the cache.
     ///
-    /// - Parameter hashKey: hash key.
+    /// - Parameters:
+    ///   - formatter: formatter instance.
+    ///   - hashKey: identifier for cache.
+    private func register(_ formatter: DateFormatter, key hashKey: String) {
+        FormattersCache.dateFormattersQueue.async(flags: .barrier) {
+            FormattersCache.dateFormatters.updateValue(formatter, forKey: hashKey)
+        }
+    }
+    
+    /// Register a new `ISO8601DateFormatter` instance into the cache.
+    ///
+    /// - Parameters:
+    ///   - formatter: formatter instance.
+    ///   - hashKey: identifier for cache.
+    private func register(_ formatter: ISO8601DateFormatter, key hashKey: String) {
+        FormattersCache.isoFormattersQueue.async(flags: .barrier) {
+            FormattersCache.isoFormatters.updateValue(formatter, forKey: hashKey)
+        }
+    }
+    
+    /// Retrive a registered cached formatter instance as `DateFormatter`.
+    ///
+    /// - Parameter hashKey: key identifier.
     /// - Returns: `DateFormatter`
-    private func retrieve(hashKey: String) -> DateFormatter? {
-        let dateFormatter = FormattersCache.cachedDateFormattersQueue.sync { () -> DateFormatter? in
-            guard let result = FormattersCache.cachedDateFormatters[hashKey] else { return nil }
+    private func get(key hashKey: String) -> DateFormatter? {
+        let dateFormatter = FormattersCache.dateFormattersQueue.sync { () -> DateFormatter? in
+            guard let result = FormattersCache.dateFormatters[hashKey] else { return nil }
             return result.copy() as? DateFormatter
         }
         return dateFormatter
     }
     
-    private func retrieve(hashKeyForISO hashKey: String) -> ISO8601DateFormatter? {
-        let dateFormatter = FormattersCache.cachedISODateFormattersQueue.sync { () -> ISO8601DateFormatter? in
-            guard let result = FormattersCache.cachedISODateFormatters[hashKey] else { return nil }
+    /// Retrive a registered cached instance for an `ISO8601DateFormatter` formatter.
+    ///
+    /// - Parameter hashKey: key identifier.
+    /// - Returns: `ISO8601DateFormatter`
+    private func getISO(key hashKey: String) -> ISO8601DateFormatter? {
+        let dateFormatter = FormattersCache.isoFormattersQueue.sync { () -> ISO8601DateFormatter? in
+            guard let result = FormattersCache.isoFormatters[hashKey] else { return nil }
             return result.copy() as? ISO8601DateFormatter
         }
         return dateFormatter
     }
     
-    public func formatter(_ format: String = DateFormats.standard.dateFormat, region: Region, isLenient: Bool = true) -> DateFormatter? {
-        let hashKey = "\(format.hashValue)\(region.hashValue)"
+    // MARK: - Internal Functions
+    
+    internal func formatter(_ format: String = DateFormats.standard.dateFormat,
+                            region: Region, isLenient: Bool = true) -> DateFormatter? {
         
-        if FormattersCache.shared.retrieve(hashKey: hashKey) == nil {
+        let key = "\(format.hashValue)\(region.hashValue)"
+        
+        if FormattersCache.shared.get(key: key) == nil {
             let formatter = DateFormatter()
             formatter.dateFormat = format
             formatter.timeZone = region.timeZone.timeZone
             formatter.locale = region.locale?.locale
             formatter.isLenient = isLenient
-            FormattersCache.shared.register(hashKey: hashKey, formatter: formatter)
+            FormattersCache.shared.register(formatter, key: key)
         }
-        return FormattersCache.shared.retrieve(hashKey: hashKey)
+        return FormattersCache.shared.get(key: key)
     }
     
-    public func isoFormatter(_ format: DateFormats, region: Region) -> ISO8601DateFormatter? {
-        let hashKey = "\(format.dateFormat.hashValue)\(region.hashValue)"
+    internal func isoFormatter(_ format: DateFormats, region: Region) -> ISO8601DateFormatter? {
+        let key = "\(format.dateFormat.hashValue)\(region.hashValue)"
 
-        if FormattersCache.shared.retrieve(hashKeyForISO: hashKey) == nil {
+        if FormattersCache.shared.getISO(key: key) == nil {
             let formatter = ISO8601DateFormatter()
             formatter.timeZone = region.timeZone.timeZone
 
@@ -106,10 +129,12 @@ internal class FormattersCache {
             default:
                 fatalError("Unimplemented format \(format)")
             }
+            
             formatter.formatOptions = options
-            FormattersCache.shared.register(hashKey: hashKey, formatter: formatter)
+            FormattersCache.shared.register(formatter, key: key)
         }
-        return FormattersCache.shared.retrieve(hashKeyForISO: hashKey)
+        
+        return FormattersCache.shared.retrieve(hashKeyForISO: key)
     }
 
     

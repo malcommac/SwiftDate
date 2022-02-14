@@ -25,10 +25,20 @@ public struct Region: Equatable, Codable, Hashable, CustomStringConvertible {
     public private(set) var calendar: Calendar
     
     /// Represented locale settings for this region.
-    public var locale: Locales? {
+    public var locale: LocaleOptions? {
         get {
-            guard let locale = calendar.locale else { return nil }
-            return Locales(rawValue: locale.identifier)!
+            guard let instance = calendar.locale else { return nil }
+            guard let locale = Locales(rawValue: instance.identifier) else {
+                if instance == .autoupdatingCurrent {
+                    return .autoUpdating
+                } else if instance == .current {
+                    return .current
+                }
+                
+                return .custom(instance.identifier)
+            }
+            
+            return .list(locale)
         }
         set {
             calendar.locale = newValue?.locale
@@ -36,9 +46,9 @@ public struct Region: Equatable, Codable, Hashable, CustomStringConvertible {
     }
     
     /// Represented timezone settings for this region.
-    public var timeZone: TimeZones {
+    public var timeZone: TimeZoneOptions {
         get {
-            TimeZones(rawValue: calendar.timeZone.identifier)!
+            TimeZoneOptions(rawValue: calendar.timeZone.identifier)!
         }
         set {
             calendar.timeZone = newValue.timeZone
@@ -90,7 +100,23 @@ public struct Region: Equatable, Codable, Hashable, CustomStringConvertible {
     public static var ISO: Region {
         .init(calendarId: .gregorian) {
             $0.timeZone = .gmt
-            $0.locale = .englishUnitedStatesComputer
+            $0.locale = .list(.englishUnitedStatesComputer)
+        }
+    }
+    
+    /// Create a new region defined by the parameters passed.
+    ///
+    /// - Parameters:
+    ///   - timeZone: time zone of the region.
+    ///   - calendar: calendar of the region, by default `Region.default.calendar` is used.
+    ///   - locale: locale of the region, by default `Region.default.locale` is used.
+    /// - Returns: `Region`
+    public static func inZone(_ timeZone: TimeZoneOptions,
+                              calendar: Calendar.Identifier = Region.default.calendar.identifier,
+                              locale: LocaleOptions? = Region.default.locale) -> Region {
+        .init(calendarId: calendar) {
+            $0.timeZone = timeZone
+            $0.locale = locale
         }
     }
     
@@ -129,9 +155,15 @@ public struct Region: Equatable, Codable, Hashable, CustomStringConvertible {
         Region {
             calendar: \(calendar.identifier)
             timezone: \(timeZone.rawValue.lowercased())
-            locale: \(locale?.rawValue.lowercased() ?? "-")
+            locale: \(locale?.locale?.identifier.lowercased() ?? "-")
         }
         """
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(calendar)
+        hasher.combine(timeZone)
+        hasher.combine(locale)
     }
     
 }

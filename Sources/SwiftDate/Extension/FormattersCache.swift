@@ -41,6 +41,15 @@ internal class FormattersCache {
         attributes: .concurrent
     )
     
+    // MARK: - Number Formatter
+    
+    private static var numberFormatters = [String: NumberFormatter]()
+
+    private static let numberFormatterQueue = DispatchQueue(
+        label: "com.swiftdate.number-formatter",
+        attributes: .concurrent
+    )
+    
     // MARK: - Methods
     
     /// Register a new `DateFormatter` instance into the cache.
@@ -62,6 +71,12 @@ internal class FormattersCache {
     private func register(_ formatter: ISO8601DateFormatter, key hashKey: String) {
         FormattersCache.isoFormattersQueue.async(flags: .barrier) {
             FormattersCache.isoFormatters.updateValue(formatter, forKey: hashKey)
+        }
+    }
+    
+    private func register(_ formatter: NumberFormatter, key hashKey: String) {
+        FormattersCache.numberFormatterQueue.async(flags: .barrier) {
+            FormattersCache.numberFormatters.updateValue(formatter, forKey: hashKey)
         }
     }
     
@@ -87,6 +102,14 @@ internal class FormattersCache {
             return result.copy() as? ISO8601DateFormatter
         }
         return dateFormatter
+    }
+    
+    private func getNumber(key hashKey: String) -> NumberFormatter? {
+        let numberFormatter = FormattersCache.numberFormatterQueue.sync { () -> NumberFormatter? in
+            guard let result = FormattersCache.numberFormatters[hashKey] else { return nil }
+            return result.copy() as? NumberFormatter
+        }
+        return numberFormatter
     }
     
     // MARK: - Internal Functions
@@ -134,8 +157,22 @@ internal class FormattersCache {
             FormattersCache.shared.register(formatter, key: key)
         }
         
-        return FormattersCache.shared.retrieve(hashKeyForISO: key)
+        return FormattersCache.shared.getISO(key: key)
     }
 
+    public func numberFormatter(region: Region) -> NumberFormatter? {
+        let key = "\(region.hashValue)"
+        
+        if FormattersCache.shared.getNumber(key: key) == nil {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .ordinal
+            formatter.locale = region.locale?.locale
+            FormattersCache.shared.register(formatter, key: key)
+        }
+
+        return FormattersCache.shared.getNumber(key: key)
+    }
+ 
     
+
 }

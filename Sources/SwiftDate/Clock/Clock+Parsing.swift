@@ -26,7 +26,7 @@ extension Clock {
     ///                it may get the result date wrong
     ///                (that is, a date other than that which was intended).
     ///                By default is `false`.
-    public init?(_ dateString: String?, format: DateFormats, region: Region = .local,
+    public init?(_ dateString: String?, format: DateFormats, region: Region = Region.default,
                  isLenient: Bool = false) {
         guard let dateString = dateString, !dateString.isEmpty else {
             return nil
@@ -68,6 +68,22 @@ extension Clock {
         guard let formatter = FormattersCache.shared.formatter(format.dateFormat, region: region, isLenient: isLenient),
               let date = formatter.date(from: string) else {
                   return nil
+        }
+        
+        self.init(date, region: region)
+    }
+    
+    /// Creates a new Date based on the first date detected on a string using data dectors.
+    ///
+    /// NOTE:
+    /// This initializer doe not use cached formatters so avoid using in lists
+    /// since it's not as efficient as (fromString: format:).
+    public init?(detect string: String, region: Region = .local) {
+        let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.date.rawValue)
+        let range = NSMakeRange(0, string.utf16.count)
+        let matches = detector?.matches(in: string, options: [], range: range)
+        guard let date = matches?.first?.date else {
+            return nil
         }
         
         self.init(date, region: region)

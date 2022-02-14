@@ -41,6 +41,12 @@ public struct Clock: Codable, Equatable, Hashable, CustomStringConvertible  {
         return absoluteDate.addingTimeInterval(secs)
     }
     
+    /// Extract date components by taking care of the region in which the date is expressed.
+    public var dateComponents: DateComponents {
+        region.calendar.dateComponents(DateComponents.allCases, from: absoluteDate)
+    }
+
+    
     // MARK: - Initialization
     
     /// Return a `Clock` in distant past using as region the `Region.default`.
@@ -61,10 +67,32 @@ public struct Clock: Codable, Equatable, Hashable, CustomStringConvertible  {
     ///
     /// - Parameters:
     ///   - absoluteDate: absolute date.
-    ///   - region: region in which the date should be represented.
+    ///   - region: region in which the date is represented.
     public init(_ absoluteDate: Date = .now, region: Region) {
         self.absoluteDate = absoluteDate
         self.region = region
+    }
+    
+    // MARK: - Conversion
+    
+    /// Express the current clock in another region.
+    ///
+    /// - Parameter region: destination region.
+    /// - Returns: `Clock`
+    public func to(region: Region) -> Clock {
+        Clock(absoluteDate, region: region)
+    }
+    
+    /// Move the date to another timezone keeping values
+    /// `calendar`, `locale` settings to the original sender.
+    ///
+    /// - Parameter timezone: destination timezone.
+    /// - Returns: `Clock`
+    public func to(timezone: Region.TimeZoneOptions) -> Clock {
+        Clock(absoluteDate, region: .init(calendar: region.calendar, {
+            $0.timeZone = timezone
+            $0.locale = region.locale
+        }))
     }
     
     // MARK: - Public Properties

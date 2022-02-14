@@ -12,12 +12,12 @@
 
 import Foundation
 
-@available(*, deprecated, message: "Use Region.TimeZones instead")
-public typealias Zones = Region.TimeZones
+@available(*, deprecated, message: "Use Region.TimeZoneOptions instead")
+public typealias Zones = Region.TimeZoneOptions
 
 extension Region {
     
-    public enum TimeZones: String {
+    public enum TimeZoneOptions: String {
         case current = "Current"
         case autoUpdating = "CurrentAutoUpdating"
         case africaAbidjan = "Africa/Abidjan"

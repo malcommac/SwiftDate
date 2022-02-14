@@ -12,16 +12,51 @@
 
 import Foundation
 
-@available(*, deprecated, message: "Use Region.Locales instead")
-public typealias Locales = Region.Locales
+@available(*, deprecated, message: "Use Region.LocaleOptions instead")
+public typealias Locales = Region.LocaleOptions
+
+extension Region {
+    
+    /// Identify the information about linguistic, cultural, and technological conventions and standards.
+    ///
+    /// - `list`: pick one of the available presets
+    /// - `custom`: use a custom identifier to produce the locale
+    /// - `current`: current system locale
+    /// - `autoUpdating`: current auto-updating system locale
+    public enum LocaleOptions: Hashable {
+        case list(Locales)
+        case custom(String)
+        case current
+        case autoUpdating
+        
+        /// Return a valid `Locale` instance from current selected locale enum
+        public var locale: Locale? {
+            switch self {
+            case .current:
+                return Locale.current
+            case .autoUpdating:
+                return Locale.autoupdatingCurrent
+            case .list(let identifier):
+                return Locale(identifier: identifier.rawValue)
+            case .custom(let id):
+                return Locale(identifier: id)
+            }
+        }
+        
+        /// Return the identifier of the locale currently set.
+        public var identifier: String? {
+            locale?.identifier
+        }
+        
+    }
+    
+}
+
+// MARK: - Region.Locales
 
 extension Region {
 
     public enum Locales: String {
-        
-        case current = "current"
-        case autoUpdating = "currentAutoUpdating"
-
         case afrikaans = "af"
         case afrikaansNamibia = "af_NA"
         case afrikaansSouthAfrica = "af_ZA"
@@ -737,19 +772,6 @@ extension Region {
         case zarmaNiger = "dje_NE"
         case zulu = "zu"
         case zuluSouthAfrica = "zu_ZA"
-
-        /// Return a valid `Locale` instance from current selected locale enum
-        public var locale: Locale {
-            switch self {
-            case .current:
-                return Locale.current
-            case .autoUpdating:
-                return Locale.autoupdatingCurrent
-            default:
-                return Locale(identifier: rawValue)
-            }
-        }
-        
     }
     
 }

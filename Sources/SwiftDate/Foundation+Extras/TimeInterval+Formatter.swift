@@ -162,7 +162,7 @@ public extension TimeInterval {
 	///
 	/// - returns: the value of interval expressed in selected `Calendar.Component`
 	func toUnit(_ component: Calendar.Component, to refDate: DateInRegion? = nil) -> Int? {
-		return toUnits([component], to: refDate)[component]
+        toUnits([component], to: refDate)[component]
 	}
 
 }

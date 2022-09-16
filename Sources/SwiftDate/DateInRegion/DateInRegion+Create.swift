@@ -212,6 +212,7 @@ public extension DateInRegion {
 	/// - Returns: new altered `DateInRegion` instance
 	func dateBySet(_ components: [Calendar.Component: Int?]) -> DateInRegion? {
 		var dateComponents = DateComponents()
+		dateComponents.era = (components[.era] ?? era)
 		dateComponents.year = (components[.year] ?? year)
 		dateComponents.month = (components[.month] ?? month)
 		dateComponents.day = (components[.day] ?? day)

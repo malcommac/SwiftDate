@@ -30,6 +30,11 @@ public func + (lhs: DateComponents, rhs: Date) -> Date {
     (rhs + lhs)
 }
 
+/// Adds 'DateInRegion' to a date and returns a new date.
+public func + (lhs: Date, rhs: DateInRegion) -> Date {
+    return (lhs + rhs.date.dateComponents)
+}
+
 /// Subtracts date components from a date and returns a new date.
 public func - (lhs: Date, rhs: DateComponents) -> Date {
     (lhs + (-rhs))

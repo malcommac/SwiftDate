@@ -13,7 +13,7 @@ The following documentation explores all the major features of the library. If y
 
 - [Future Plans](0.Informations.md#futureplans)
 - [Compatibility & Requirements](0.Informations.md#compatibility)
-- [Installation (CocoaPods,Carthage,SwiftPM](0.Informations.md#installation)
+- [Installation (CocoaPods,Carthage,SwiftPM)](0.Informations.md#installation)
 
 ### [1 - Introduction to SwiftDate](1.Introduction.md)
 

@@ -15,11 +15,8 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftDate",
-            dependencies: [],
-			resources: [
-				.copy("Formatters/RelativeFormatter/langs"),
-                .process("Resources")
-			]),
+            dependencies: []
+			),
         .testTarget(
             name: "SwiftDateTests",
             dependencies: ["SwiftDate"])

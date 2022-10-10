@@ -25,7 +25,7 @@ public extension Date {
 	///   - precision: The precision of the comparison (default is 5 minutes, or 300 seconds).
 	/// - Returns: A boolean; true if close by, false otherwise.
 	func compareCloseTo(_ refDate: Date, precision: TimeInterval = 300) -> Bool {
-		return (abs(timeIntervalSince(refDate)) < precision)
+        (abs(timeIntervalSince(refDate)) < precision)
 	}
 
 	// MARK: - Extendend Compare
@@ -35,7 +35,7 @@ public extension Date {
 	/// - Parameter compareType: comparison type.
 	/// - Returns: `true` if comparison succeded, `false` otherwise
 	func compare(_ compareType: DateComparisonType) -> Bool {
-		return inDefaultRegion().compare(compareType)
+        inDefaultRegion().compare(compareType)
 	}
 
 	/// Returns a ComparisonResult value that indicates the ordering of two given dates based on
@@ -45,7 +45,7 @@ public extension Date {
 	/// - parameter granularity: The smallest unit that must, along with all larger units be less for the given dates
 	/// - returns: `ComparisonResult`
 	func compare(toDate refDate: Date, granularity: Calendar.Component) -> ComparisonResult {
-		return inDefaultRegion().compare(toDate: refDate.inDefaultRegion(), granularity: granularity)
+        inDefaultRegion().compare(toDate: refDate.inDefaultRegion(), granularity: granularity)
 	}
 
 	/// Compares whether the receiver is before/before equal `date` based on their components down to a given unit granularity.
@@ -56,7 +56,7 @@ public extension Date {
 	///   - granularity: smallest unit that must, along with all larger units, be less for the given dates
 	/// - Returns: Boolean
 	func isBeforeDate(_ refDate: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
-		return inDefaultRegion().isBeforeDate(refDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
+        inDefaultRegion().isBeforeDate(refDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
 	/// Compares whether the receiver is after `date` based on their components down to a given unit granularity.
@@ -67,7 +67,7 @@ public extension Date {
 	///   - granularity: Smallest unit that must, along with all larger units, be greater for the given dates.
 	/// - Returns: Boolean
 	func isAfterDate(_ refDate: Date, orEqual: Bool = false, granularity: Calendar.Component) -> Bool {
-		return inDefaultRegion().isAfterDate(refDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
+        inDefaultRegion().isAfterDate(refDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
 	/// Returns a value between 0.0 and 1.0 or nil, that is the position of current date between 2 other dates.
@@ -77,7 +77,7 @@ public extension Date {
 	///   - endDate: range lower bound date
 	/// - Returns: `nil` if current date is not between `startDate` and `endDate`. Otherwise returns position between `startDate` and `endDate`.
 	func positionInRange(date startDate: Date, and endDate: Date) -> Double? {
-		return inDefaultRegion().positionInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
+        inDefaultRegion().positionInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion())
 	}
 
 	/// Return true if receiver date is contained in the range specified by two dates.
@@ -89,7 +89,7 @@ public extension Date {
 	///   - granularity: smallest unit that must, along with all larger units, be greater for the given dates.
 	/// - Returns: Boolean
 	func isInRange(date startDate: Date, and endDate: Date, orEqual: Bool = false, granularity: Calendar.Component = .nanosecond) -> Bool {
-        return inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
+        inDefaultRegion().isInRange(date: startDate.inDefaultRegion(), and: endDate.inDefaultRegion(), orEqual: orEqual, granularity: granularity)
 	}
 
 	/// Compares equality of two given dates based on their components down to a given unit
@@ -101,7 +101,7 @@ public extension Date {
 	///
 	/// - returns: `true` if the dates are the same down to the given granularity, otherwise `false`
 	func isInside(date: Date, granularity: Calendar.Component) -> Bool {
-		return (compare(toDate: date, granularity: granularity) == .orderedSame)
+        (compare(toDate: date, granularity: granularity) == .orderedSame)
 	}
 
 	// MARK: - Date Earlier/Later
@@ -111,7 +111,7 @@ public extension Date {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is earlier
 	func earlierDate(_ date: Date) -> Date {
-		return timeIntervalSince(date) <= 0 ? self : date
+        timeIntervalSince(date) <= 0 ? self : date
 	}
 
 	/// Return the later of two dates, between self and a given date.
@@ -119,7 +119,7 @@ public extension Date {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is later
 	func laterDate(_ date: Date) -> Date {
-		return timeIntervalSince(date) >= 0 ? self : date
+        timeIntervalSince(date) >= 0 ? self : date
 	}
 
 }

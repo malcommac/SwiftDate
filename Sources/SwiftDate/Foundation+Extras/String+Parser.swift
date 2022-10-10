@@ -87,23 +87,23 @@ public protocol DateParsable {
 extension String: DateParsable {
 
 	public func toDate(_ format: String? = nil, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
-		return DateInRegion(self, format: format, region: region)
+        DateInRegion(self, format: format, region: region)
 	}
 
 	public func toDate(_ formats: [String], region: Region) -> DateInRegion? {
-		return DateInRegion(self, formats: formats, region: region)
+        DateInRegion(self, formats: formats, region: region)
 	}
 
 	public func toDate(style: StringToDateStyles, region: Region = SwiftDate.defaultRegion) -> DateInRegion? {
-		return style.toDate(self, region: region)
+        style.toDate(self, region: region)
 	}
 
 	public func toISODate(_ options: ISOParser.Options? = nil, region: Region? = nil) -> DateInRegion? {
-		return ISOParser.parse(self, region: region, options: options)
+        ISOParser.parse(self, region: region, options: options)
 	}
 
 	public func toDotNETDate(region: Region = Region.ISO) -> DateInRegion? {
-		return DOTNETParser.parse(self, region: region, options: nil)
+        DOTNETParser.parse(self, region: region, options: nil)
 	}
 
 	public func toRSSDate(alt: Bool, region: Region = Region.ISO) -> DateInRegion? {
@@ -114,10 +114,11 @@ extension String: DateParsable {
 	}
 
 	public func toSQLDate(region: Region = Region.ISO) -> DateInRegion? {
-		return StringToDateStyles.sql.toDate(self, region: region)
+        StringToDateStyles.sql.toDate(self, region: region)
 	}
 	
 	public func asLocale() -> Locale {
-               Locale(identifier: self)
-        }
+        Locale(identifier: self)
+    }
+    
 }

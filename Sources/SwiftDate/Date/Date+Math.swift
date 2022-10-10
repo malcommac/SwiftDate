@@ -17,24 +17,24 @@ import Foundation
 ///     let difference = lhs - rhs
 ///     rhs + difference = lhs
 public func - (lhs: Date, rhs: Date) -> DateComponents {
-	return SwiftDate.defaultRegion.calendar.dateComponents(DateComponents.allComponentsSet, from: rhs, to: lhs)
+    SwiftDate.defaultRegion.calendar.dateComponents(DateComponents.allComponentsSet, from: rhs, to: lhs)
 }
 
 /// Adds date components to a date and returns a new date.
 public func + (lhs: Date, rhs: DateComponents) -> Date {
-	return rhs.from(lhs)!
+    rhs.from(lhs)!
 }
 
 /// Adds date components to a date and returns a new date.
 public func + (lhs: DateComponents, rhs: Date) -> Date {
-	return (rhs + lhs)
+    (rhs + lhs)
 }
 
 /// Subtracts date components from a date and returns a new date.
 public func - (lhs: Date, rhs: DateComponents) -> Date {
-	return (lhs + (-rhs))
+    (lhs + (-rhs))
 }
 
 public func + (lhs: Date, rhs: TimeInterval) -> Date {
-	return lhs.addingTimeInterval(rhs)
+    lhs.addingTimeInterval(rhs)
 }

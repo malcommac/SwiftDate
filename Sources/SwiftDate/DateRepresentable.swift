@@ -255,13 +255,9 @@ public protocol DateRepresentable {
 
 	/// Convert a date to a string representation relative to another reference date (or current
 	/// if not passed).
-	///
-	/// - Parameters:
-	///   - since: reference date, if `nil` current is used.
-	///   - style: style to use to format relative date.
-	///	  - locale: force locale print, `nil` to use the date own region's locale
-	/// - Returns: string representation of the date.
-	func toRelative(since: DateInRegion?, style: RelativeFormatter.Style?, locale: LocaleConvertible?) -> String
+	func toRelative(since: DateInRegion?,
+                    dateTimeStyle: RelativeDateTimeFormatter.DateTimeStyle,
+                    unitsStyle: RelativeDateTimeFormatter.UnitsStyle) -> String
 
 	/// Return ISO8601 representation of the date
 	///
@@ -524,9 +520,14 @@ public extension DateRepresentable {
 		return DateToStringStyles.custom(format).toString(fixedDate)
 	}
 
-	func toRelative(since: DateInRegion? = nil, style: RelativeFormatter.Style? = nil, locale: LocaleConvertible? = nil) -> String {
-		return RelativeFormatter.format(date: self, to: since, style: style, locale: locale?.toLocale())
-	}
+    func toRelative(since: DateInRegion?,
+                    dateTimeStyle: RelativeDateTimeFormatter.DateTimeStyle = .named,
+                    unitsStyle: RelativeDateTimeFormatter.UnitsStyle = .short) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.dateTimeStyle = dateTimeStyle
+        formatter.unitsStyle = unitsStyle
+        return formatter.localizedString(for: self.date, relativeTo: since?.date ?? Date())
+    }
 
 	func toISO(_ options: ISOFormatter.Options? = nil) -> String {
 		return DateToStringStyles.iso( (options ?? ISOFormatter.Options([.withInternetDateTime])) ).toString(self)

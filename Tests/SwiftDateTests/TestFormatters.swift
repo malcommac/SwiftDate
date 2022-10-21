@@ -515,6 +515,10 @@ class TestFormatters: XCTestCase {
 		let justNow4 = DateInRegion() - 51.seconds
 		let r6 = justNow4.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
 		XCTAssert(r6 == "1 min. ago", "Failed to use colloquial formatter")
+        
+        let justNow5 = DateInRegion() - 1.minutes
+        let r7 = justNow5.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.chineseTraditional)
+        XCTAssert(r7 == "1 分鐘前", "Failed to use colloquial formatter")
 	}
 */
 	func testISOParser() {

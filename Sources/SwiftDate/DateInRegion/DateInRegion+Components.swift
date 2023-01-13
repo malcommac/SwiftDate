@@ -69,7 +69,7 @@ public extension DateInRegion {
 	/// in 1957 to record the orbit of Sputnik via an IBM 704 (36-bit machine)
 	/// and using only 18 bits until August 7, 2576.
 	var modifiedJulianDay: Double {
-		return julianDay - 2_400_000.5
+        julianDay - 2_400_000.5
 	}
 
 	/// Return elapsed time expressed in given components since the current receiver and a reference date.
@@ -136,7 +136,7 @@ public extension DateInRegion {
 	/// - Parameter date: The date with which to compare the receiver.
 	/// - Returns: time interval between two dates
 	func timeIntervalSince(_ date: DateInRegion) -> TimeInterval {
-		return self.date.timeIntervalSince(date.date)
+        self.date.timeIntervalSince(date.date)
 	}
 
 	/// Extract DateComponents from the difference between two dates.
@@ -144,7 +144,7 @@ public extension DateInRegion {
 	/// - Parameter rhs: date to compare
 	/// - Returns: components
 	func componentsTo(_ rhs: DateInRegion) -> DateComponents {
-		return calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: date)
+        calendar.dateComponents(DateComponents.allComponentsSet, from: rhs.date, to: date)
 	}
 
 	/// Returns the difference between two dates (`date - self`) expressed as date components.

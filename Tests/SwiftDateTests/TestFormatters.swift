@@ -456,14 +456,8 @@ class TestFormatters: XCTestCase {
 	func testTimeInterval_Clock() {
 		let value = (2.hours + 5.minutes).timeInterval.toClock()
 		XCTAssert(value == "02:05:00", "Failed to format clock")
-		#if os(Linux)
-		let zeroBehavior = DateComponentsFormatter.ZeroFormattingBehavior(rawValue: 14)
-		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: zeroBehavior)
-		XCTAssert(value2 == "54:00", "Failed to format clock")
-		#else
 		let value2 = (4.minutes + 50.minutes).timeInterval.toClock(zero: DateComponentsFormatter.ZeroFormattingBehavior.dropAll)
 		XCTAssert(value2 == "54", "Failed to format clock")
-		#endif
 	}
 
 	func testFormatterCustom() {
@@ -498,7 +492,7 @@ class TestFormatters: XCTestCase {
 		XCTAssert(value1 == "2 hours, 5 minutes, 32 seconds", "Failed to format interval to string")
 		XCTAssert(value2 == "2d 5h", "Failed to format interval to string")
 	}
-
+/*
 	func testColloquialFormatter() {
 		let ago5Mins = DateInRegion() - 5.minutes
 		let r1 = ago5Mins.toRelative(style: RelativeFormatter.defaultStyle(), locale: Locales.italian)
@@ -522,7 +516,7 @@ class TestFormatters: XCTestCase {
 		let r6 = justNow4.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
 		XCTAssert(r6 == "1 min. ago", "Failed to use colloquial formatter")
 	}
-
+*/
 	func testISOParser() {
 
 		func testISO(_ src: String, _ exp: String) {

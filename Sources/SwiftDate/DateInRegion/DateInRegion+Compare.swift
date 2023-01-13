@@ -15,7 +15,7 @@ import Foundation
 // MARK: - Comparing DateInRegion
 
 public func == (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
-	return (lhs.date.timeIntervalSince1970 == rhs.date.timeIntervalSince1970)
+    (lhs.date.timeIntervalSince1970 == rhs.date.timeIntervalSince1970)
 }
 
 public func <= (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
@@ -29,11 +29,11 @@ public func >= (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
 }
 
 public func < (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
-	return lhs.date.compare(rhs.date) == .orderedAscending
+    lhs.date.compare(rhs.date) == .orderedAscending
 }
 
 public func > (lhs: DateInRegion, rhs: DateInRegion) -> Bool {
-	return lhs.date.compare(rhs.date) == .orderedDescending
+    lhs.date.compare(rhs.date) == .orderedDescending
 }
 
 // The type of comparison to do against today's date or with the suplied date.
@@ -120,7 +120,7 @@ public extension DateInRegion {
 	///   - precision: The precision of the comparison (default is 5 minutes, or 300 seconds).
 	/// - Returns: A boolean; true if close by, false otherwise.
 	func compareCloseTo(_ refDate: DateInRegion, precision: TimeInterval = 300) -> Bool {
-		return (abs(date.timeIntervalSince(refDate.date)) <= precision)
+        (abs(date.timeIntervalSince(refDate.date)) <= precision)
 	}
 
 	/// Compare the date with the rule specified in the `compareType` parameter.
@@ -277,7 +277,7 @@ public extension DateInRegion {
 	///
 	/// - returns: `true` if the dates are the same down to the given granularity, otherwise `false`
 	func isInside(date: DateInRegion, granularity: Calendar.Component) -> Bool {
-		return (compare(toDate: date, granularity: granularity) == .orderedSame)
+        (compare(toDate: date, granularity: granularity) == .orderedSame)
 	}
 
 	/// Returns a value between 0.0 and 1.0 or nil, that is the position of current date between 2 other dates.
@@ -307,7 +307,7 @@ public extension DateInRegion {
 	///   - granularity: smallest unit that must, along with all larger units, be greater
 	/// - Returns: Boolean
 	func isInRange(date startDate: DateInRegion, and endDate: DateInRegion, orEqual: Bool = true, granularity: Calendar.Component = .nanosecond) -> Bool {
-		return isAfterDate(startDate, orEqual: orEqual, granularity: granularity) && isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
+        isAfterDate(startDate, orEqual: orEqual, granularity: granularity) && isBeforeDate(endDate, orEqual: orEqual, granularity: granularity)
 	}
 
 	// MARK: - Date Earlier/Later
@@ -317,7 +317,7 @@ public extension DateInRegion {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is earlier
 	func earlierDate(_ date: DateInRegion) -> DateInRegion {
-		return self.date.timeIntervalSince(date.date) <= 0 ? self : date
+        self.date.timeIntervalSince(date.date) <= 0 ? self : date
 	}
 
 	/// Return the later of two dates, between self and a given date.
@@ -325,20 +325,20 @@ public extension DateInRegion {
 	/// - Parameter date: The date to compare to self
 	/// - Returns: The date that is later
 	func laterDate(_ date: DateInRegion) -> DateInRegion {
-		return self.date.timeIntervalSince(date.date) >= 0 ? self : date
+        self.date.timeIntervalSince(date.date) >= 0 ? self : date
 	}
 
     /// Returns the difference in the calendar component given (like day, month or year)
     /// with respect to the other date as a positive integer
     func difference(in component: Calendar.Component, from other: DateInRegion) -> Int? {
-        return self.date.difference(in: component, from: other.date)
+        self.date.difference(in: component, from: other.date)
     }
 
     /// Returns the differences in the calendar components given (like day, month and year)
     /// with respect to the other date as dictionary with the calendar component as the key
     /// and the diffrence as a positive integer as the value
     func differences(in components: Set<Calendar.Component>, from other: DateInRegion) -> [Calendar.Component: Int] {
-        return self.date.differences(in: components, from: other.date)
+        self.date.differences(in: components, from: other.date)
     }
 
 }

@@ -34,47 +34,47 @@ public extension Int {
 
 	/// Create a `DateComponents` with `self` value set as nanoseconds
 	var nanoseconds: DateComponents {
-		return toDateComponents(type: .nanosecond)
+        toDateComponents(type: .nanosecond)
 	}
 
 	/// Create a `DateComponents` with `self` value set as seconds
 	var seconds: DateComponents {
-		return toDateComponents(type: .second)
+        toDateComponents(type: .second)
 	}
 
 	/// Create a `DateComponents` with `self` value set as minutes
 	var minutes: DateComponents {
-		return toDateComponents(type: .minute)
+        toDateComponents(type: .minute)
 	}
 
 	/// Create a `DateComponents` with `self` value set as hours
 	var hours: DateComponents {
-		return toDateComponents(type: .hour)
+        toDateComponents(type: .hour)
 	}
 
 	/// Create a `DateComponents` with `self` value set as days
 	var days: DateComponents {
-		return toDateComponents(type: .day)
+        toDateComponents(type: .day)
 	}
 
 	/// Create a `DateComponents` with `self` value set as weeks
 	var weeks: DateComponents {
-		return toDateComponents(type: .weekOfYear)
+        toDateComponents(type: .weekOfYear)
 	}
 
 	/// Create a `DateComponents` with `self` value set as months
 	var months: DateComponents {
-		return toDateComponents(type: .month)
+        toDateComponents(type: .month)
 	}
 
 	/// Create a `DateComponents` with `self` value set as years
 	var years: DateComponents {
-		return toDateComponents(type: .year)
+        toDateComponents(type: .year)
 	}
 
 	/// Create a `DateComponents` with `self` value set as quarters
 	var quarters: DateComponents {
-		return toDateComponents(type: .quarter)
+        toDateComponents(type: .quarter)
 	}
 
 }

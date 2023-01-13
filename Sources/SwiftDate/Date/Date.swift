@@ -12,13 +12,9 @@
 
 import Foundation
 
-#if os(Linux)
-
-#else
 internal enum AssociatedKeys: String {
 	case customDateFormatter = "SwiftDate.CustomDateFormatter"
 }
-#endif
 
 extension Date: DateRepresentable {
 
@@ -27,18 +23,9 @@ extension Date: DateRepresentable {
 
 	/// For absolute Date object the default region is obtained from the global `defaultRegion` variable.
 	public var region: Region {
-		return SwiftDate.defaultRegion
+        SwiftDate.defaultRegion
 	}
 
-	#if os(Linux)
-	public var customFormatter: DateFormatter? {
-		get {
-			debugPrint("Not supported on Linux")
-			return nil
-		}
-		set { debugPrint("Not supported on Linux") }
-	}
-	#else
 	/// Assign a custom formatter if you need a special behaviour during formatting of the object.
 	/// Usually you will not need to do it, SwiftDate uses the local thread date formatter in order to
 	/// optimize the formatting process. By default is `nil`.
@@ -51,11 +38,10 @@ extension Date: DateRepresentable {
 			set(associatedValue: newValue, key: AssociatedKeys.customDateFormatter.rawValue, object: self as AnyObject)
 		}
 	}
-	#endif
 
 	/// Extract the date components.
 	public var dateComponents: DateComponents {
-		return region.calendar.dateComponents(DateComponents.allComponentsSet, from: self)
+        region.calendar.dateComponents(DateComponents.allComponentsSet, from: self)
 	}
 
 	/// Initialize a new date object from string expressed in given region.
@@ -134,7 +120,7 @@ extension Date: DateRepresentable {
 	///
 	/// - Returns: `DateInRegion`
 	public func inDefaultRegion() -> DateInRegion {
-		return DateInRegion(self, region: SwiftDate.defaultRegion)
+        DateInRegion(self, region: SwiftDate.defaultRegion)
 	}
 
 	/// Express given absolute date in the context of passed region.
@@ -142,21 +128,21 @@ extension Date: DateRepresentable {
 	/// - Parameter region: destination region.
 	/// - Returns: `DateInRegion`
 	public func `in`(region: Region) -> DateInRegion {
-		return DateInRegion(self, region: region)
+        DateInRegion(self, region: region)
 	}
 
 	/// Return a date in the distant past.
 	///
 	/// - Returns: Date instance.
 	public static func past() -> Date {
-		return Date.distantPast
+        Date.distantPast
 	}
 
 	/// Return a date in the distant future.
 	///
 	/// - Returns: Date instance.
 	public static func future() -> Date {
-		return Date.distantFuture
+        Date.distantFuture
 	}
 
 }

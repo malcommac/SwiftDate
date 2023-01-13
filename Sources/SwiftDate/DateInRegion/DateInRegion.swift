@@ -165,14 +165,14 @@ public struct DateInRegion: DateRepresentable, Decodable, Encodable, CustomStrin
 	///
 	/// - Returns: Date instance.
 	public static func past() -> DateInRegion {
-		return DateInRegion(Date.distantPast, region: SwiftDate.defaultRegion)
+        DateInRegion(Date.distantPast, region: SwiftDate.defaultRegion)
 	}
 
 	/// Return a date in the distant future.
 	///
 	/// - Returns: Date instance.
 	public static func future() -> DateInRegion {
-		return DateInRegion(Date.distantFuture, region: SwiftDate.defaultRegion)
+        DateInRegion(Date.distantFuture, region: SwiftDate.defaultRegion)
 	}
 
 	// MARK: - Codable Support

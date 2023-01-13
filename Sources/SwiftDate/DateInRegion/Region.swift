@@ -29,7 +29,7 @@ public struct Region: Decodable, Encodable, Equatable, Hashable, CustomStringCon
 
 	/// Description of the object
 	public var description: String {
-		return "{calendar='\(calendar.identifier)', timezone='\(timeZone.identifier)', locale='\(locale.identifier)'}"
+        "{calendar='\(calendar.identifier)', timezone='\(timeZone.identifier)', locale='\(locale.identifier)'}"
 	}
 
 	public func hash(into hasher: inout Hasher) {

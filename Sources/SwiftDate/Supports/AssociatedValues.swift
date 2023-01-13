@@ -10,22 +10,19 @@
 //  Copyright © 2019 Daniele Margutti. Licensed under MIT License.
 //
 
-#if os(Linux)
-
-#else
 import Foundation
 import ObjectiveC.runtime
 
 internal func getAssociatedValue<T>(key: String, object: AnyObject) -> T? {
-	return (objc_getAssociatedObject(object, key.address) as? AssociatedValue)?.value as? T
+    (objc_getAssociatedObject(object, key.address) as? AssociatedValue)?.value as? T
 }
 
 internal func getAssociatedValue<T>(key: String, object: AnyObject, initialValue: @autoclosure () -> T) -> T {
-	return getAssociatedValue(key: key, object: object) ?? setAndReturn(initialValue: initialValue(), key: key, object: object)
+    getAssociatedValue(key: key, object: object) ?? setAndReturn(initialValue: initialValue(), key: key, object: object)
 }
 
 internal func getAssociatedValue<T>(key: String, object: AnyObject, initialValue: () -> T) -> T {
-	return getAssociatedValue(key: key, object: object) ?? setAndReturn(initialValue: initialValue(), key: key, object: object)
+    getAssociatedValue(key: key, object: object) ?? setAndReturn(initialValue: initialValue(), key: key, object: object)
 }
 
 private func setAndReturn<T>(initialValue: T, key: String, object: AnyObject) -> T {
@@ -71,4 +68,3 @@ private class AssociatedValue {
 	}
 
 }
-#endif

@@ -15,7 +15,7 @@ import Foundation
 // MARK: - Math Operation DateInRegion - DateInRegion
 
 public func - (lhs: DateInRegion, rhs: DateInRegion) -> TimeInterval {
-	return lhs.timeIntervalSince(rhs)
+    lhs.timeIntervalSince(rhs)
 }
 
 // MARK: - Math Operation DateInRegion - Date Components
@@ -26,7 +26,7 @@ public func + (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
 }
 
 public func - (lhs: DateInRegion, rhs: DateComponents) -> DateInRegion {
-	return lhs + (-rhs)
+    lhs + (-rhs)
 }
 
 // MARK: - Math Operation DateInRegion - Calendar.Component

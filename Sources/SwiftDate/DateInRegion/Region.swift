@@ -50,6 +50,8 @@ public struct Region: Decodable, Encodable, Equatable, Hashable, CustomStringCon
 		self.calendar = Calendar.newCalendar(calendar, configure: {
 			$0.timeZone = zone.toTimezone()
 			$0.locale = locale.toLocale()
+			$0.firstWeekday = calendar.toCalendar().firstWeekday
+			$0.minimumDaysInFirstWeek = calendar.toCalendar().minimumDaysInFirstWeek
 		})
 	}
 

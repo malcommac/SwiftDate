@@ -243,6 +243,7 @@ public enum RoundDateMode {
 	case toCeil5Mins
 	case toCeil10Mins
 	case toCeil30Mins
+	/// mins must be >= 1
 	case toCeilMins(_: Int)
 	case toFloor5Mins
 	case toFloor10Mins

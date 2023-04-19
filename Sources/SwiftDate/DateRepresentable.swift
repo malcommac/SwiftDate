@@ -257,7 +257,8 @@ public protocol DateRepresentable {
 	/// if not passed).
 	func toRelative(since: DateInRegion?,
                     dateTimeStyle: RelativeDateTimeFormatter.DateTimeStyle,
-                    unitsStyle: RelativeDateTimeFormatter.UnitsStyle) -> String
+                    unitsStyle: RelativeDateTimeFormatter.UnitsStyle,
+                    locale: LocaleConvertible?) -> String
 
 	/// Return ISO8601 representation of the date
 	///
@@ -522,10 +523,14 @@ public extension DateRepresentable {
 
     func toRelative(since: DateInRegion?,
                     dateTimeStyle: RelativeDateTimeFormatter.DateTimeStyle = .named,
-                    unitsStyle: RelativeDateTimeFormatter.UnitsStyle = .short) -> String {
+                    unitsStyle: RelativeDateTimeFormatter.UnitsStyle = .short,
+                    locale: LocaleConvertible? = nil) -> String {
         let formatter = RelativeDateTimeFormatter()
         formatter.dateTimeStyle = dateTimeStyle
         formatter.unitsStyle = unitsStyle
+        if let fixedLocale = locale?.toLocale() {
+            formatter.locale = fixedLocale
+        }
         return formatter.localizedString(for: self.date, relativeTo: since?.date ?? Date())
     }
 

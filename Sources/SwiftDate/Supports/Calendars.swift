@@ -84,7 +84,6 @@ extension Calendar.Identifier: CustomStringConvertible {
 		case Calendar.Identifier.persian.description:				self = .persian
 		case Calendar.Identifier.republicOfChina.description:		self = .republicOfChina
 		case Calendar.Identifier.islamicTabular.description:		self = .islamicTabular
-		case Calendar.Identifier.islamicTabular.description:		self = .islamicTabular
 		case Calendar.Identifier.islamicUmmAlQura.description:		self = .islamicUmmAlQura
 		default:
 			let defaultCalendar = SwiftDate.defaultRegion.calendar.identifier

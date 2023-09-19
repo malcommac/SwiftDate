@@ -134,7 +134,7 @@ public enum Month: Int, CaseIterable, CustomStringConvertible, Equatable {
 		return add(months: -(months % 12))
 	}
 
-	/// Returns the number of days in a this month for a given year
+	/// Returns the number of days in this month for a given year
 	///
 	/// - Parameter year: reference year.
 	/// - Returns: The number of days in this month.

@@ -148,5 +148,20 @@ public enum Month: Int, CaseIterable, CustomStringConvertible, Equatable {
 			return 31
 		}
 	}
+    
+    /// Returns the number of days in this month given if it is a leap year
+    ///
+    /// - Parameter isLeapYear: whether the year is a leapYear.
+    /// - Returns: The number of days in this month.
+    public func numberOfDays(isLeapYear: Bool) -> Int {
+        switch self {
+        case .february:
+            return isLeapYear ? 29 : 28
+        case .april, .june, .september, .november:
+            return 30
+        default:
+            return 31
+        }
+    }
 
 }

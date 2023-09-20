@@ -92,7 +92,7 @@ public struct Year: CustomStringConvertible, Equatable {
 // MARK: - Month
 
 /// Defines months in a year
-public enum Month: Int, CustomStringConvertible, Equatable {
+public enum Month: Int, CaseIterable, CustomStringConvertible, Equatable {
 	case january = 0, february, march, april, may, june, july, august, september, october, november, december
 
 	public var description: String {
@@ -134,7 +134,7 @@ public enum Month: Int, CustomStringConvertible, Equatable {
 		return add(months: -(months % 12))
 	}
 
-	/// Returns the number of days in a this month for a given year
+	/// Returns the number of days in this month for a given year
 	///
 	/// - Parameter year: reference year.
 	/// - Returns: The number of days in this month.
@@ -148,5 +148,20 @@ public enum Month: Int, CustomStringConvertible, Equatable {
 			return 31
 		}
 	}
+    
+    /// Returns the number of days in this month given if it is a leap year
+    ///
+    /// - Parameter isLeapYear: whether the year is a leapYear.
+    /// - Returns: The number of days in this month.
+    public func numberOfDays(isLeapYear: Bool) -> Int {
+        switch self {
+        case .february:
+            return isLeapYear ? 29 : 28
+        case .april, .june, .september, .november:
+            return 30
+        default:
+            return 31
+        }
+    }
 
 }
